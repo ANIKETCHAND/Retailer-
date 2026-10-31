@@ -645,7 +645,7 @@ export const StoreBuilding: React.FC<StoreBuildingProps> = ({
 
     // Gentle float for 3D world pin
     if (pinRef.current) {
-      pinRef.current.position.y = 4.4 + Math.sin(state.clock.getElapsedTime() * 2.5) * 0.08
+      pinRef.current.position.y = 5.4 + Math.sin(state.clock.getElapsedTime() * 2.5) * 0.06
     }
   })
 
@@ -727,53 +727,52 @@ export const StoreBuilding: React.FC<StoreBuildingProps> = ({
       {/* BESPOKE 3D ARCHITECTURAL MODEL */}
       {renderBuildingArchitecture()}
 
-      {/* 3D FLOATING GAME-STYLE HUD PIN / BILLBOARD (Floating above building) */}
-      <group ref={pinRef} position={[0, 4.4, 0]}>
-        {/* Rounded Pin Background */}
-        <mesh position={[0, 0, 0]} castShadow>
-          <boxGeometry args={[3.2, 0.72, 0.12]} />
+      {/* SLEEK FLOATING GAME-STYLE HUD PIN (Floating above roof, unobstructed) */}
+      <group ref={pinRef} position={[0, 5.4, 0]}>
+        {/* Sleek Dark Pill Background */}
+        <mesh position={[0, 0, 0]}>
+          <boxGeometry args={[2.2, 0.44, 0.08]} />
           <meshStandardMaterial
-            color={hovered || isSelected ? '#0f172a' : '#1e293b'}
+            color="#0f172a"
             roughness={0.2}
             emissive={primaryColor}
-            emissiveIntensity={hovered || isSelected ? 0.4 : 0.15}
+            emissiveIntensity={hovered || isSelected ? 0.3 : 0.1}
           />
         </mesh>
-        {/* Glow Border Accent */}
+        {/* Glowing Colored Accent Border */}
         <mesh position={[0, 0, -0.01]}>
-          <boxGeometry args={[3.3, 0.8, 0.08]} />
+          <boxGeometry args={[2.26, 0.5, 0.04]} />
           <meshStandardMaterial color={primaryColor} />
         </mesh>
 
         {/* Store Title with Category Emoji */}
         <Text
-          position={[0, 0.14, 0.08]}
-          fontSize={0.21}
+          position={[0, 0.08, 0.06]}
+          fontSize={0.14}
           color="#ffffff"
           anchorX="center"
           anchorY="middle"
           fontWeight="bold"
-          maxWidth={3.0}
+          maxWidth={2.1}
         >
-          {`${getCategoryIcon(store.category)}  ${store.name.toUpperCase()}`}
+          {`${getCategoryIcon(store.category)}  ${store.name}`}
         </Text>
 
-        {/* Live Metrics Pill on Sign */}
+        {/* Live Metrics Pill */}
         <Text
-          position={[0, -0.16, 0.08]}
-          fontSize={0.12}
+          position={[0, -0.1, 0.06]}
+          fontSize={0.11}
           color="#38bdf8"
           anchorX="center"
           anchorY="middle"
           fontWeight="bold"
-          letterSpacing={0.06}
         >
           {`$${(store.total_revenue || 0).toLocaleString()} • ${store.total_orders || 0} Orders`}
         </Text>
 
-        {/* Downward Anchor Arrow Pointer */}
-        <mesh position={[0, -0.44, 0]} rotation={[0, 0, Math.PI]}>
-          <coneGeometry args={[0.15, 0.22, 4]} />
+        {/* Diamond Indicator Pointer */}
+        <mesh position={[0, -0.32, 0]} rotation={[0, 0, Math.PI / 4]}>
+          <boxGeometry args={[0.12, 0.12, 0.04]} />
           <meshStandardMaterial color={primaryColor} />
         </mesh>
       </group>

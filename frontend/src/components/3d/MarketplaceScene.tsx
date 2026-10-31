@@ -6,13 +6,12 @@
 
 import React, { useEffect, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Sky } from '@react-three/drei'
+import { OrbitControls } from '@react-three/drei'
 import * as THREE from 'three'
 import type { Store } from '../../types'
 import { ConstructPlot } from './ConstructPlot'
 import { DriftingClouds } from './DriftingClouds'
 import { EnvironmentDecor } from './EnvironmentDecor'
-import { PostProcessingEffects } from './PostProcessingEffect'
 import { StoreBuilding } from './StoreBuilding'
 
 interface MarketplaceSceneProps {
@@ -131,7 +130,7 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
   onDeselectStore
 }) => {
   return (
-    <div className="w-full h-full relative bg-gradient-to-b from-sky-400 via-sky-200 to-sky-100">
+    <div className="w-full h-full relative bg-gradient-to-b from-sky-400 via-sky-300 to-sky-200">
       <Canvas
         shadows
         camera={{
@@ -139,6 +138,12 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
           fov: 42,
           near: 0.1,
           far: 500
+        }}
+        onCreated={({ gl }) => {
+          gl.toneMapping = THREE.ACESFilmicToneMapping
+          gl.toneMappingExposure = 1.0
+          gl.shadowMap.enabled = true
+          gl.shadowMap.type = THREE.PCFSoftShadowMap
         }}
         onPointerDown={(e) => {
           // Deselect when clicking on empty canvas/background
@@ -153,28 +158,18 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
           onUserInteract={onUserInteract}
         />
 
-        {/* Procedural Atmospheric Sky with Sunlight Scattering */}
-        <Sky
-          distance={450000}
-          sunPosition={[35, 45, 25]}
-          turbidity={6}
-          rayleigh={0.5}
-          mieCoefficient={0.005}
-          mieDirectionalG={0.8}
-        />
+        {/* Soft Distant Atmospheric Fog (Does not wash out buildings) */}
+        <fog attach="fog" args={['#7dd3fc', 130, 260]} />
 
         {/* Fluffy 3D Stylized Drifting Clouds */}
         <DriftingClouds />
 
-        {/* Cinematic AAA Post-Processing (UnrealBloom, ACESFilmicToneMapping, PCFSoftShadowMap) */}
-        <PostProcessingEffects />
-
-        {/* Sunlight & Ambient illumination (Vibrant daylight game look) */}
-        <ambientLight intensity={0.75} color="#ffffff" />
+        {/* Crisp, Balanced Sunlight & Ambient Illumination (Zero Glare) */}
+        <ambientLight intensity={0.65} color="#ffffff" />
         <directionalLight
           position={[32, 45, 24]}
-          intensity={1.55}
-          color="#fffbeb"
+          intensity={1.1}
+          color="#ffffff"
           castShadow
           shadow-mapSize={[2048, 2048]}
           shadow-camera-left={-55}
@@ -183,8 +178,8 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
           shadow-camera-bottom={-55}
           shadow-bias={-0.0001}
         />
-        {/* Soft fill sky & ground bounce light */}
-        <hemisphereLight args={['#7dd3fc', '#4ade80', 0.55]} />
+        {/* Soft Sky & Ground Bounce Light */}
+        <hemisphereLight args={['#bae6fd', '#bbf7d0', 0.35]} />
 
         {/* Town Environment Infrastructure */}
         <EnvironmentDecor />
