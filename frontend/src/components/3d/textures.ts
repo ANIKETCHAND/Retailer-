@@ -181,3 +181,161 @@ export function createRoofTileTexture(): THREE.CanvasTexture {
   }
   return makeRepeatedTexture(canvas, 6, 6)
 }
+
+// 7. Architectural Dark Walnut Wood (Luxury Facade & Interior Panels)
+export function createWalnutWoodTexture(): THREE.CanvasTexture {
+  const canvas = document.createElement('canvas')
+  canvas.width = 512
+  canvas.height = 512
+  const ctx = canvas.getContext('2d')
+  if (ctx) {
+    // Rich deep espresso/walnut base
+    ctx.fillStyle = '#2b1b11'
+    ctx.fillRect(0, 0, 512, 512)
+
+    // Wood grain linear striations
+    for (let y = 0; y < 512; y += 4) {
+      const alpha = 0.08 + Math.random() * 0.12
+      ctx.fillStyle = y % 8 === 0 ? `rgba(64, 40, 25, ${alpha})` : `rgba(28, 17, 10, ${alpha})`
+      ctx.fillRect(0, y, 512, 3)
+    }
+
+    // Organic wavy grain layers
+    for (let i = 0; i < 40; i++) {
+      ctx.strokeStyle = `rgba(85, 54, 34, ${0.05 + Math.random() * 0.08})`
+      ctx.lineWidth = 1 + Math.random() * 3
+      ctx.beginPath()
+      let startY = Math.random() * 512
+      ctx.moveTo(0, startY)
+      ctx.bezierCurveTo(
+        150, startY + (Math.random() - 0.5) * 40,
+        350, startY + (Math.random() - 0.5) * 40,
+        512, startY + (Math.random() - 0.5) * 20
+      )
+      ctx.stroke()
+    }
+  }
+  const texture = makeRepeatedTexture(canvas, 4, 4)
+  texture.anisotropy = 8
+  return texture
+}
+
+// 8. Honed Architectural Limestone / Travertine Facade Panels
+export function createLimestoneTexture(): THREE.CanvasTexture {
+  const canvas = document.createElement('canvas')
+  canvas.width = 512
+  canvas.height = 512
+  const ctx = canvas.getContext('2d')
+  if (ctx) {
+    // Warm beige/ivory limestone base
+    ctx.fillStyle = '#e8dfd5'
+    ctx.fillRect(0, 0, 512, 512)
+
+    // Natural stone mineral specks
+    for (let i = 0; i < 15000; i++) {
+      const x = Math.random() * 512
+      const y = Math.random() * 512
+      const shade = Math.floor(190 + Math.random() * 50)
+      ctx.fillStyle = `rgb(${shade}, ${shade - 6}, ${shade - 14})`
+      ctx.fillRect(x, y, 1.5, 1.5)
+    }
+
+    // Horizontal sedimentary bedding veins
+    for (let i = 0; i < 25; i++) {
+      ctx.strokeStyle = `rgba(180, 165, 150, ${0.12 + Math.random() * 0.15})`
+      ctx.lineWidth = 1 + Math.random() * 2
+      ctx.beginPath()
+      const y = Math.random() * 512
+      ctx.moveTo(0, y)
+      ctx.lineTo(512, y + (Math.random() - 0.5) * 8)
+      ctx.stroke()
+    }
+
+    // Architectural panel seam reveals
+    ctx.strokeStyle = 'rgba(120, 108, 95, 0.45)'
+    ctx.lineWidth = 2
+    ctx.beginPath()
+    ctx.moveTo(256, 0)
+    ctx.lineTo(256, 512)
+    ctx.moveTo(0, 256)
+    ctx.lineTo(512, 256)
+    ctx.stroke()
+  }
+  const texture = makeRepeatedTexture(canvas, 3, 3)
+  texture.anisotropy = 8
+  return texture
+}
+
+// 9. Luxury Boutique Sidewalk Basalt / Flamed Granite Pavers
+export function createGranitePaverTexture(): THREE.CanvasTexture {
+  const canvas = document.createElement('canvas')
+  canvas.width = 512
+  canvas.height = 512
+  const ctx = canvas.getContext('2d')
+  if (ctx) {
+    // Dark flamed charcoal granite base
+    ctx.fillStyle = '#22252a'
+    ctx.fillRect(0, 0, 512, 512)
+
+    // Granite crystalline mineral particles
+    for (let i = 0; i < 18000; i++) {
+      const x = Math.random() * 512
+      const y = Math.random() * 512
+      const val = Math.floor(25 + Math.random() * 45)
+      ctx.fillStyle = `rgb(${val}, ${val + 2}, ${val + 6})`
+      ctx.fillRect(x, y, 1.5, 1.5)
+    }
+
+    // Precise large architectural flagstone joints
+    ctx.strokeStyle = '#121417'
+    ctx.lineWidth = 4
+    const step = 128
+    for (let x = 0; x <= 512; x += step) {
+      ctx.beginPath()
+      ctx.moveTo(x, 0)
+      ctx.lineTo(x, 512)
+      ctx.stroke()
+    }
+    for (let y = 0; y <= 512; y += step) {
+      ctx.beginPath()
+      ctx.moveTo(0, y)
+      ctx.lineTo(512, y)
+      ctx.stroke()
+    }
+  }
+  const texture = makeRepeatedTexture(canvas, 6, 6)
+  texture.anisotropy = 8
+  return texture
+}
+
+// 10. Herringbone Parquet Luxury Interior Floor
+export function createChevronParquetTexture(): THREE.CanvasTexture {
+  const canvas = document.createElement('canvas')
+  canvas.width = 512
+  canvas.height = 512
+  const ctx = canvas.getContext('2d')
+  if (ctx) {
+    ctx.fillStyle = '#4a2f1b'
+    ctx.fillRect(0, 0, 512, 512)
+
+    // Chevron zigzag strips
+    const h = 32
+    for (let y = 0; y < 512; y += h) {
+      ctx.fillStyle = y % (h * 2) === 0 ? '#3f2715' : '#573721'
+      ctx.fillRect(0, y, 512, h - 2)
+
+      for (let x = 0; x < 512; x += 64) {
+        ctx.strokeStyle = '#27170c'
+        ctx.lineWidth = 2
+        ctx.beginPath()
+        ctx.moveTo(x, y)
+        ctx.lineTo(x + 32, y + h)
+        ctx.lineTo(x + 64, y)
+        ctx.stroke()
+      }
+    }
+  }
+  const texture = makeRepeatedTexture(canvas, 4, 4)
+  texture.anisotropy = 8
+  return texture
+}

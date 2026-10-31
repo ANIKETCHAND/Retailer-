@@ -8,6 +8,7 @@
  */
 
 import React, { useEffect, useState } from 'react'
+import { Volume2, VolumeX } from 'lucide-react'
 import { storeApi } from './api/client'
 import { StorefrontScene } from './components/3d/StorefrontScene'
 import { MarketplaceScene } from './components/3d/MarketplaceScene'
@@ -26,6 +27,7 @@ export const App: React.FC = () => {
   const [isUnlocked, setIsUnlocked] = useState(false)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [userSession, setUserSession] = useState<UserSession | null>(null)
+  const [isAudioMuted, setIsAudioMuted] = useState(false)
 
   // Simulation Environment Controls
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>('day')
@@ -115,22 +117,68 @@ export const App: React.FC = () => {
 
   return (
     <main className="w-screen h-screen relative overflow-hidden bg-slate-950 font-sans">
-      {/* SCENE 1: THE LOCKED WINDOW LANDING PAGE */}
+      {/* SCENE 1: THE LUXURY STOREFRONT 3D LANDING PAGE */}
       {scene === 'LOCKED' && (
         <div className="w-full h-full relative">
           <StorefrontScene
             onUnlockClick={handleLockClick}
             isUnlocked={isUnlocked}
             isTransitioning={isTransitioning}
+            isAudioMuted={isAudioMuted}
           />
 
-          {/* Locked Landing Page Callout Pill */}
-          {!isLockModalOpen && !isUnlocked && (
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 pointer-events-none text-center">
-              <div className="px-5 py-2.5 rounded-full glass-panel border border-amber-500/30 text-amber-300 text-xs font-semibold shadow-2xl flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-                <span>Move cursor over the golden lock and click to unlock storefront</span>
+          {/* Top Section: Minimalist Luxury Branding & Audio Controls */}
+          <div className="absolute top-6 left-6 right-6 z-20 flex items-center justify-between pointer-events-none">
+            {/* Branding */}
+            <div className="flex items-center gap-3 pointer-events-auto">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-300 flex items-center justify-center shadow-lg shadow-amber-500/20 text-slate-950 font-black text-sm tracking-tighter">
+                RV
               </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <h1 className="text-sm md:text-base font-extrabold tracking-wider text-white">RETAILVISION</h1>
+                  <span className="px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                    3D Simulation
+                  </span>
+                </div>
+                <p className="text-[10px] uppercase tracking-[0.25em] text-slate-400 font-medium">
+                  Your World of Retail Analytics
+                </p>
+              </div>
+            </div>
+
+            {/* Audio Toggle */}
+            <div className="flex items-center gap-2 pointer-events-auto">
+              <button
+                onClick={() => setIsAudioMuted(!isAudioMuted)}
+                title={isAudioMuted ? 'Enable Sound' : 'Mute Sound'}
+                className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-white/10 backdrop-blur-md transition-colors cursor-pointer shadow-lg"
+              >
+                {isAudioMuted ? (
+                  <>
+                    <VolumeX className="w-4 h-4 text-slate-400" />
+                    <span className="text-[11px] font-medium hidden sm:inline">Muted</span>
+                  </>
+                ) : (
+                  <>
+                    <Volume2 className="w-4 h-4 text-amber-400" />
+                    <span className="text-[11px] font-medium text-amber-300 hidden sm:inline">Sound On</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+
+          {/* Bottom Section: Instruction Pill & Copyright */}
+          {!isLockModalOpen && !isUnlocked && (
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none text-center px-4 w-full max-w-lg">
+              <div className="px-5 py-2.5 rounded-full bg-slate-900/90 backdrop-blur-xl border border-amber-500/40 text-amber-300 text-xs font-semibold shadow-2xl shadow-black/80 flex items-center gap-2.5 animate-pulse">
+                <span className="w-2 h-2 rounded-full bg-amber-400" />
+                <span className="tracking-wide">CLICK THE GOLDEN SMART LOCK TO ENTER</span>
+              </div>
+              <span className="text-[10px] tracking-wider text-slate-500 font-medium">
+                © 2026 RetailVision • Real-Time 3D Simulation & Store Analytics
+              </span>
             </div>
           )}
 
