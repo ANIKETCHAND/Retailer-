@@ -10,10 +10,18 @@ from typing import Literal
 
 # Base directory paths
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-DATA_DIR = BASE_DIR / "data"
+
+# On Vercel serverless runtime, only /tmp is writable
+if os.getenv("VERCEL"):
+    DATA_DIR = Path("/tmp/data")
+    REPORTS_DIR = Path("/tmp/reports")
+    ASSETS_DIR = Path("/tmp/assets")
+else:
+    DATA_DIR = BASE_DIR / "data"
+    REPORTS_DIR = BASE_DIR / "reports"
+    ASSETS_DIR = BASE_DIR / "assets"
+
 DEFAULT_DATASET_PATH = DATA_DIR / "retail_sales.csv"
-REPORTS_DIR = BASE_DIR / "reports"
-ASSETS_DIR = BASE_DIR / "assets"
 
 # Ensure runtime directories exist
 DATA_DIR.mkdir(parents=True, exist_ok=True)
