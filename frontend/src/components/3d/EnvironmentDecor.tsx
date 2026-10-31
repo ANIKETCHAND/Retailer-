@@ -11,9 +11,10 @@
  *  - Expansive landscape terrain (220x220) with road grid networks, cars, palm trees & streetlamps
  */
 
-import React, { useRef } from 'react'
+import React, { useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
+import { createAsphaltTexture, createGrassTexture, createPaverTexture } from './textures'
 
 // -------------------------------------------------------------
 // 1. DOWNTOWN FINANCIAL SKYLINE (North District, z < -18)
@@ -611,30 +612,34 @@ function StreetLamp({ position, rotation = 0 }: { position: [number, number, num
 // MAIN METROPOLIS ENVIRONMENT EXPORT
 // -------------------------------------------------------------
 export const EnvironmentDecor: React.FC = () => {
+  const grassTexture = useMemo(() => createGrassTexture(), [])
+  const asphaltTexture = useMemo(() => createAsphaltTexture(), [])
+  const paverTexture = useMemo(() => createPaverTexture(), [])
+
   return (
     <group position={[0, 0, 0]}>
-      {/* VAST SPRAWLING GREEN METROPOLIS GROUND (200 x 200) */}
+      {/* VAST SPRAWLING GREEN METROPOLIS GROUND (200 x 200) WITH TEXTURED STRIPED LAWN */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.05, 0]} receiveShadow>
         <planeGeometry args={[200, 200]} />
-        <meshStandardMaterial color="#22c55e" roughness={0.8} />
+        <meshStandardMaterial map={grassTexture} roughness={0.75} />
       </mesh>
 
-      {/* CENTRAL COMMERCIAL RETAIL DISTRICT SIDEWALK (Where Stores Live) */}
+      {/* CENTRAL COMMERCIAL RETAIL DISTRICT SIDEWALK (Concrete Paver Tiles) */}
       <mesh position={[0, 0.015, 0]} receiveShadow>
         <boxGeometry args={[38, 0.03, 24]} />
-        <meshStandardMaterial color="#e2e8f0" roughness={0.4} />
+        <meshStandardMaterial map={paverTexture} roughness={0.5} />
       </mesh>
 
-      {/* SPRAWLING ROAD NETWORK CONNECTING ALL DISTRICTS */}
+      {/* SPRAWLING ROAD NETWORK CONNECTING ALL DISTRICTS (Asphalt Aggregate Texture) */}
       {/* Main East-West Highway (z = 0) */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.03, 0]} receiveShadow>
         <planeGeometry args={[120, 2.8]} />
-        <meshStandardMaterial color="#334155" roughness={0.6} />
+        <meshStandardMaterial map={asphaltTexture} roughness={0.6} />
       </mesh>
       {/* Main North-South Boulevard (x = 0) */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.032, 0]} receiveShadow>
         <planeGeometry args={[2.8, 120]} />
-        <meshStandardMaterial color="#334155" roughness={0.6} />
+        <meshStandardMaterial map={asphaltTexture} roughness={0.6} />
       </mesh>
 
       {/* Outer Ring Boulevard (North z = -20) */}

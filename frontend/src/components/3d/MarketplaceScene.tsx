@@ -6,11 +6,13 @@
 
 import React, { useEffect, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+import { OrbitControls, Sky } from '@react-three/drei'
 import * as THREE from 'three'
 import type { Store } from '../../types'
 import { ConstructPlot } from './ConstructPlot'
+import { DriftingClouds } from './DriftingClouds'
 import { EnvironmentDecor } from './EnvironmentDecor'
+import { PostProcessingEffects } from './PostProcessingEffect'
 import { StoreBuilding } from './StoreBuilding'
 
 interface MarketplaceSceneProps {
@@ -151,8 +153,21 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
           onUserInteract={onUserInteract}
         />
 
-        {/* Atmospheric Sky Fog spanning the full metropolis */}
-        <fog attach="fog" args={['#bae6fd', 85, 220]} />
+        {/* Procedural Atmospheric Sky with Sunlight Scattering */}
+        <Sky
+          distance={450000}
+          sunPosition={[35, 45, 25]}
+          turbidity={6}
+          rayleigh={0.5}
+          mieCoefficient={0.005}
+          mieDirectionalG={0.8}
+        />
+
+        {/* Fluffy 3D Stylized Drifting Clouds */}
+        <DriftingClouds />
+
+        {/* Cinematic AAA Post-Processing (UnrealBloom, ACESFilmicToneMapping, PCFSoftShadowMap) */}
+        <PostProcessingEffects />
 
         {/* Sunlight & Ambient illumination (Vibrant daylight game look) */}
         <ambientLight intensity={0.75} color="#ffffff" />
