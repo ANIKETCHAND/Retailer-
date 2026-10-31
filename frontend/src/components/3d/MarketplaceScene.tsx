@@ -67,33 +67,37 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
   cameraTarget
 }) => {
   return (
-    <div className="w-full h-full relative bg-slate-900">
+    <div className="w-full h-full relative bg-gradient-to-b from-sky-400 via-sky-200 to-sky-100">
       <Canvas
         shadows
         camera={{
           position: [14, 18, 16],
-          fov: 42,
+          fov: 40,
           near: 0.1,
           far: 200
         }}
       >
         <SmoothMarketplaceCamera cameraTarget={cameraTarget} />
 
-        {/* Sunlight & Ambient illumination */}
-        <ambientLight intensity={0.65} color="#e0f2fe" />
+        {/* Atmospheric Sky Fog */}
+        <fog attach="fog" args={['#bae6fd', 45, 85]} />
+
+        {/* Sunlight & Ambient illumination (Vibrant daylight game look) */}
+        <ambientLight intensity={0.75} color="#ffffff" />
         <directionalLight
-          position={[20, 30, 15]}
-          intensity={1.3}
+          position={[24, 32, 18]}
+          intensity={1.5}
           color="#fffbeb"
           castShadow
           shadow-mapSize={[2048, 2048]}
-          shadow-camera-left={-25}
-          shadow-camera-right={25}
-          shadow-camera-top={25}
-          shadow-camera-bottom={-25}
+          shadow-camera-left={-26}
+          shadow-camera-right={26}
+          shadow-camera-top={26}
+          shadow-camera-bottom={-26}
+          shadow-bias={-0.0001}
         />
-        {/* Soft fill sky light */}
-        <hemisphereLight args={['#38bdf8', '#4ade80', 0.4]} />
+        {/* Soft fill sky & ground bounce light */}
+        <hemisphereLight args={['#7dd3fc', '#4ade80', 0.55]} />
 
         {/* Town Environment Infrastructure */}
         <EnvironmentDecor />
