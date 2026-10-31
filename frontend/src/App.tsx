@@ -158,16 +158,43 @@ export const App: React.FC = () => {
             onHoverStore={setHoveredStore}
             onConstructClick={() => setIsConstructOpen(true)}
             cameraTarget={cameraTarget}
+            onCameraTargetReached={() => setCameraTarget(null)}
+            onUserInteract={() => setCameraTarget(null)}
+            onDeselectStore={() => setSelectedStore(null)}
           />
 
           {/* Hover Tooltip HUD over buildings */}
           <StoreCardTooltip store={hoveredStore} />
 
+          {/* Floating Pill when a store is selected and dashboard is closed */}
+          {selectedStore && !isAnalyticsOpen && (
+            <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900/90 backdrop-blur-xl border border-white/20 shadow-2xl shadow-black/50">
+              <span className="text-xs font-semibold text-white">
+                Focused on <span className="text-amber-400 font-bold">{selectedStore.name}</span>
+              </span>
+              <button
+                onClick={() => setIsAnalyticsOpen(true)}
+                className="px-3 py-1 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all cursor-pointer shadow-md"
+              >
+                Open Analytics
+              </button>
+              <button
+                onClick={handleResetCamera}
+                className="px-3 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-medium transition-colors cursor-pointer"
+              >
+                Reset to City
+              </button>
+            </div>
+          )}
+
           {/* Store Analytics Modal Dashboard */}
           <StoreAnalyticsModal
             store={selectedStore}
             isOpen={isAnalyticsOpen}
-            onClose={() => setIsAnalyticsOpen(false)}
+            onClose={() => {
+              setIsAnalyticsOpen(false)
+              setCameraTarget(null)
+            }}
           />
 
           {/* Construct Store Modal */}
