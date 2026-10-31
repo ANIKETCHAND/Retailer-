@@ -36,25 +36,32 @@ export function createGrassTexture(): THREE.CanvasTexture {
   return makeRepeatedTexture(canvas, 36, 36)
 }
 
-// 2. Realistic Asphalt Roadway with Aggregate Grain
+// 2. Realistic Asphalt Roadway with Fine Micro-Aggregate (Moiré-Free)
 export function createAsphaltTexture(): THREE.CanvasTexture {
   const canvas = document.createElement('canvas')
-  canvas.width = 256
-  canvas.height = 256
+  canvas.width = 512
+  canvas.height = 512
   const ctx = canvas.getContext('2d')
   if (ctx) {
-    ctx.fillStyle = '#27272a'
-    ctx.fillRect(0, 0, 256, 256)
+    // Deep dark slate/charcoal asphalt base
+    ctx.fillStyle = '#1e293b'
+    ctx.fillRect(0, 0, 512, 512)
 
-    for (let i = 0; i < 3500; i++) {
-      const rx = Math.random() * 256
-      const ry = Math.random() * 256
-      const val = Math.floor(40 + Math.random() * 35)
-      ctx.fillStyle = `rgb(${val}, ${val + 2}, ${val + 4})`
-      ctx.fillRect(rx, ry, 1, 1)
+    // Very fine uniform micro-aggregate specks (no directional banding)
+    for (let i = 0; i < 12000; i++) {
+      const rx = Math.random() * 512
+      const ry = Math.random() * 512
+      const shade = Math.floor(22 + Math.random() * 26)
+      ctx.fillStyle = `rgb(${shade}, ${shade + 3}, ${shade + 6})`
+      ctx.fillRect(rx, ry, 1.5, 1.5)
     }
   }
-  return makeRepeatedTexture(canvas, 4, 28)
+  const texture = new THREE.CanvasTexture(canvas)
+  texture.wrapS = THREE.RepeatWrapping
+  texture.wrapT = THREE.RepeatWrapping
+  texture.repeat.set(16, 16) // Uniform 1:1 square repeat eliminates any directional moiré or stretching
+  texture.anisotropy = 8
+  return texture
 }
 
 // 3. Concrete Plaza Paver Tiles
@@ -90,7 +97,9 @@ export function createPaverTexture(): THREE.CanvasTexture {
       ctx.stroke()
     }
   }
-  return makeRepeatedTexture(canvas, 10, 10)
+  const texture = makeRepeatedTexture(canvas, 8, 8)
+  texture.anisotropy = 8
+  return texture
 }
 
 // 4. Warm Timber Decking / Hardwood Planks

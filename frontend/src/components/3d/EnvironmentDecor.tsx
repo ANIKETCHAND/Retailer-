@@ -52,9 +52,9 @@ function MovingTrafficCar({
       }
 
       if (axis === 'x') {
-        carRef.current.position.set(posRef.current, 0, laneOffset)
+        carRef.current.position.set(posRef.current, 0.02, laneOffset)
       } else {
-        carRef.current.position.set(laneOffset, 0, posRef.current)
+        carRef.current.position.set(laneOffset, 0.02, posRef.current)
       }
     }
   })
@@ -528,8 +528,8 @@ export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 
   return (
     <group position={[0, 0, 0]}>
       {/* VAST SPRAWLING GREEN GROUND WITH NATURAL LAWN TURF */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.05, 0]} receiveShadow>
-        <planeGeometry args={[200, 200]} />
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.01, 0]} receiveShadow>
+        <planeGeometry args={[220, 220]} />
         <meshStandardMaterial
           map={grassTexture}
           roughness={0.8}
@@ -537,71 +537,135 @@ export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 
         />
       </mesh>
 
-      {/* CENTRAL COMMERCIAL RETAIL DISTRICT SIDEWALK */}
-      <mesh position={[0, 0.015, 0]} receiveShadow>
-        <boxGeometry args={[38, 0.03, 24]} />
+      {/* 4 RAISED COMMERCIAL SIDEWALK PLAZA BLOCKS (Zero Road Overlap / Zero Z-Fighting) */}
+      {[
+        { id: 'nw', x: -10.5, z: -7.0, w: 16.6, d: 9.6 },
+        { id: 'ne', x: 10.5, z: -7.0, w: 16.6, d: 9.6 },
+        { id: 'sw', x: -10.5, z: 7.0, w: 16.6, d: 9.6 },
+        { id: 'se', x: 10.5, z: 7.0, w: 16.6, d: 9.6 }
+      ].map((block) => (
+        <group key={block.id} position={[block.x, 0.035, block.z]}>
+          {/* Main Raised Concrete Paver Platform */}
+          <mesh receiveShadow>
+            <boxGeometry args={[block.w, 0.05, block.d]} />
+            <meshStandardMaterial
+              map={paverTexture}
+              roughness={0.5}
+              color={isNight ? '#334155' : '#ffffff'}
+            />
+          </mesh>
+          {/* Surrounding Curb Stone Border */}
+          <mesh position={[0, 0.015, 0]}>
+            <boxGeometry args={[block.w + 0.12, 0.02, block.d + 0.12]} />
+            <meshStandardMaterial color="#cbd5e1" roughness={0.7} />
+          </mesh>
+        </group>
+      ))}
+
+      {/* GLITCH-FREE ROAD NETWORK (Charcoal Matte Asphalt with Uniform Micro-Aggregate) */}
+      {/* Main East-West Highway (z = 0) */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]} receiveShadow>
+        <planeGeometry args={[140, 3.4]} />
         <meshStandardMaterial
-          map={paverTexture}
-          roughness={0.5}
-          color={isNight ? '#475569' : '#ffffff'}
+          map={asphaltTexture}
+          roughness={0.8}
+          metalness={0.1}
+          color={isNight ? '#0f172a' : '#1e293b'}
         />
       </mesh>
 
-      {/* ROAD NETWORK WITH CHARCOAL AGGREGATE ASPHALT */}
-      {/* Main East-West Highway (z = 0) */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.03, 0]} receiveShadow>
-        <planeGeometry args={[120, 2.8]} />
+      {/* Main North-South Boulevard (x = 0) */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.011, 0]} receiveShadow>
+        <planeGeometry args={[3.4, 140]} />
         <meshStandardMaterial
           map={asphaltTexture}
-          roughness={0.6}
-          color={isNight ? '#1e293b' : '#ffffff'}
+          roughness={0.8}
+          metalness={0.1}
+          color={isNight ? '#0f172a' : '#1e293b'}
         />
       </mesh>
-      {/* Main North-South Boulevard (x = 0) */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.032, 0]} receiveShadow>
-        <planeGeometry args={[2.8, 120]} />
+
+      {/* Central Intersection Crossing Slab (Blends Streets Seamlessly) */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.012, 0]} receiveShadow>
+        <planeGeometry args={[3.4, 3.4]} />
         <meshStandardMaterial
-          map={asphaltTexture}
-          roughness={0.6}
-          color={isNight ? '#1e293b' : '#ffffff'}
+          color={isNight ? '#0f172a' : '#1e293b'}
+          roughness={0.8}
         />
       </mesh>
 
       {/* Outer Ring Boulevards */}
       {[-20, 20].map((rz, i) => (
-        <mesh key={`ring-z-${i}`} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.03, rz]} receiveShadow>
-          <planeGeometry args={[100, 2.4]} />
-          <meshStandardMaterial map={asphaltTexture} roughness={0.6} color={isNight ? '#1e293b' : '#ffffff'} />
+        <mesh key={`ring-z-${i}`} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, rz]} receiveShadow>
+          <planeGeometry args={[120, 3.0]} />
+          <meshStandardMaterial map={asphaltTexture} roughness={0.8} color={isNight ? '#0f172a' : '#1e293b'} />
         </mesh>
       ))}
       {[-20, 20].map((rx, i) => (
-        <mesh key={`ring-x-${i}`} rotation={[-Math.PI / 2, 0, 0]} position={[rx, 0.03, 0]} receiveShadow>
-          <planeGeometry args={[2.4, 100]} />
-          <meshStandardMaterial map={asphaltTexture} roughness={0.6} color={isNight ? '#1e293b' : '#ffffff'} />
+        <mesh key={`ring-x-${i}`} rotation={[-Math.PI / 2, 0, 0]} position={[rx, 0.01, 0]} receiveShadow>
+          <planeGeometry args={[3.0, 120]} />
+          <meshStandardMaterial map={asphaltTexture} roughness={0.8} color={isNight ? '#0f172a' : '#1e293b'} />
         </mesh>
       ))}
 
-      {/* Dashed Centerlines on Main Roads */}
-      {Array.from({ length: 30 }).map((_, i) => (
-        <mesh
-          key={`h-dash-${i}`}
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[-42 + i * 2.8, 0.035, 0]}
-        >
-          <planeGeometry args={[1.4, 0.14]} />
-          <meshBasicMaterial color="#ffffff" />
-        </mesh>
+      {/* 4 INTERSECTION PEDESTRIAN CROSSWALKS (Zebra Stripes at y = 0.016) */}
+      {/* East & West Crosswalks */}
+      {[-2.3, 2.3].map((cx, i) => (
+        <group key={`cw-x-${i}`} position={[cx, 0.016, 0]}>
+          {[-1.2, -0.6, 0, 0.6, 1.2].map((sz, j) => (
+            <mesh key={`cws-${j}`} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, sz]}>
+              <planeGeometry args={[0.55, 0.28]} />
+              <meshBasicMaterial color="#ffffff" />
+            </mesh>
+          ))}
+        </group>
       ))}
-      {Array.from({ length: 30 }).map((_, i) => (
-        <mesh
-          key={`v-dash-${i}`}
-          rotation={[-Math.PI / 2, 0, 0]}
-          position={[0, 0.036, -42 + i * 2.8]}
-        >
-          <planeGeometry args={[0.14, 1.4]} />
-          <meshBasicMaterial color="#ffffff" />
-        </mesh>
+      {/* North & South Crosswalks */}
+      {[-2.3, 2.3].map((cz, i) => (
+        <group key={`cw-z-${i}`} position={[0, 0.016, cz]}>
+          {[-1.2, -0.6, 0, 0.6, 1.2].map((sx, j) => (
+            <mesh key={`cws-z-${j}`} rotation={[-Math.PI / 2, 0, 0]} position={[sx, 0, 0]}>
+              <planeGeometry args={[0.28, 0.55]} />
+              <meshBasicMaterial color="#ffffff" />
+            </mesh>
+          ))}
+        </group>
       ))}
+
+      {/* DASHED CENTERLINES (Cleanly Painted at y = 0.016, outside intersection) */}
+      {/* East-West Highway Dashes */}
+      {Array.from({ length: 32 }).map((_, i) => {
+        const xPos = -54 + i * 3.4
+        // Don't draw dashes inside the central intersection or crosswalks
+        if (Math.abs(xPos) < 3.2) return null
+        return (
+          <mesh
+            key={`h-dash-${i}`}
+            rotation={[-Math.PI / 2, 0, 0]}
+            position={[xPos, 0.016, 0]}
+          >
+            <planeGeometry args={[1.5, 0.15]} />
+            <meshBasicMaterial color="#ffffff" />
+          </mesh>
+        )
+      })}
+
+      {/* North-South Boulevard Dashes */}
+      {Array.from({ length: 32 }).map((_, i) => {
+        const zPos = -54 + i * 3.4
+        // Don't draw dashes inside the central intersection or crosswalks
+        if (Math.abs(zPos) < 3.2) return null
+        return (
+          <mesh
+            key={`v-dash-${i}`}
+            rotation={[-Math.PI / 2, 0, 0]}
+            position={[0, 0.016, zPos]}
+          >
+            <planeGeometry args={[0.15, 1.5]} />
+            <meshBasicMaterial color="#ffffff" />
+          </mesh>
+        )
+      })}
 
       {/* CANAL & RAILWAY INFRASTRUCTURE */}
       <WaterCanal isNight={isNight} />
