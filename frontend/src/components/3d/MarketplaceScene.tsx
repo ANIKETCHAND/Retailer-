@@ -30,20 +30,17 @@ interface MarketplaceSceneProps {
   timeOfDay?: TimeOfDay
   graphicsQuality?: GraphicsQuality
   constructingStoreId?: string | null
-  onCameraTransform?: (transform: { x: number; z: number; heading: number }) => void
 }
 
 // Snappy, friction-free camera controller that glides once then gives 100% control back to user
 function SmoothMarketplaceCamera({
   cameraTarget,
   onCameraTargetReached,
-  onUserInteract,
-  onCameraTransform
+  onUserInteract
 }: {
   cameraTarget: [number, number, number] | null
   onCameraTargetReached?: () => void
   onUserInteract?: () => void
-  onCameraTransform?: (transform: { x: number; z: number; heading: number }) => void
 }) {
   const controlsRef = useRef<any>(null)
   const isTransitioningRef = useRef<boolean>(false)
@@ -111,16 +108,20 @@ function SmoothMarketplaceCamera({
       }
     }
 
-    // 2. Real-time camera tracking for GTA 6 Minimap (throttled to ~20 FPS)
+    // 2. Real-time camera tracking for GTA 6 Minimap (Direct dispatch, zero React re-render)
     const now = performance.now()
-    if (onCameraTransform && now - lastUpdateRef.current > 50) {
+    if (now - lastUpdateRef.current > 40) {
       lastUpdateRef.current = now
       const cx = state.camera.position.x
       const cz = state.camera.position.z
       const tx = controlsRef.current?.target?.x || 0
       const tz = controlsRef.current?.target?.z || 0
       const heading = Math.atan2(tx - cx, tz - cz)
-      onCameraTransform({ x: cx, z: cz, heading })
+      window.dispatchEvent(
+        new CustomEvent('retailvision-cam', {
+          detail: { cx, cz, tx, tz, heading }
+        })
+      )
     }
   })
 
@@ -153,8 +154,7 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
   onDeselectStore,
   timeOfDay = 'day',
   graphicsQuality = 'high',
-  constructingStoreId,
-  onCameraTransform
+  constructingStoreId
 }) => {
   const isNight = timeOfDay === 'night'
 
@@ -201,7 +201,6 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
           cameraTarget={cameraTarget}
           onCameraTargetReached={onCameraTargetReached}
           onUserInteract={onUserInteract}
-          onCameraTransform={onCameraTransform}
         />
 
         {/* Dynamic Fog (Day: Sky Blue, Night: Deep Midnight Slate) */}

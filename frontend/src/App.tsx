@@ -31,13 +31,6 @@ export const App: React.FC = () => {
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>('day')
   const [graphicsQuality, setGraphicsQuality] = useState<GraphicsQuality>('high')
 
-  // Real-time Camera Tracking for GTA 6 Minimap
-  const [cameraState, setCameraState] = useState<{ x: number; z: number; heading: number }>({
-    x: 18,
-    z: 20,
-    heading: 0.8
-  })
-
   // Marketplace Stores State
   const [stores, setStores] = useState<Store[]>([])
   const [selectedStore, setSelectedStore] = useState<Store | null>(null)
@@ -184,7 +177,6 @@ export const App: React.FC = () => {
             timeOfDay={timeOfDay}
             graphicsQuality={graphicsQuality}
             constructingStoreId={constructingStoreId}
-            onCameraTransform={setCameraState}
           />
 
           {/* GTA 6 Corner Radar Minimap Guide */}
@@ -197,7 +189,6 @@ export const App: React.FC = () => {
               setIsConstructOpen(true)
             }}
             onResetCamera={handleResetCamera}
-            cameraState={cameraState}
           />
 
           {/* Hover Tooltip HUD over buildings in 3D */}

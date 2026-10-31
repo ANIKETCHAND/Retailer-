@@ -1,15 +1,14 @@
 /**
- * RetailVision - GTA 6 Style GPS Minimap & Radar Guide
- * Replaces traditional dropdowns with an immersive in-game tactical radar HUD:
- *  - Real-time top-down 2D vector map of roads, canal, railway, and parcels
- *  - Interactive colored store blips with radar pulse animations
- *  - Construction zone beacon with quick-travel & build trigger
- *  - Real-time camera position marker with dynamic vision cone (FOV)
- *  - GTA VI inspired vitals meters (Market Health, City Capital, Store Capacity)
- *  - Expandable modal view for full-city tactical inspection
+ * RetailVision - GTA 6 Style GPS Minimap & Radar Guide (Glitch-Free Edition)
+ * Highlights:
+ *  - High-performance direct DOM/SVG transform tracking (Zero React re-render thrash)
+ *  - Native SVG animation elements instead of broken CSS transform keyframes
+ *  - Fixed collision hitboxes to prevent hover-scale oscillation loops
+ *  - Clamped coordinates to guarantee camera icon stays inside radar boundaries
+ *  - Interactive colored store blips, pulsing construction beacon, and quick travel
  */
 
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   Maximize2,
   Minimize2,
@@ -25,7 +24,6 @@ interface GtaMinimapProps {
   onSelectStore: (store: Store) => void
   onOpenConstruct: () => void
   onResetCamera: () => void
-  cameraState?: { x: number; z: number; heading: number }
 }
 
 export const GtaMinimap: React.FC<GtaMinimapProps> = ({
@@ -33,8 +31,7 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
   selectedStore,
   onSelectStore,
   onOpenConstruct,
-  onResetCamera,
-  cameraState = { x: 18, z: 20, heading: 0.8 }
+  onResetCamera
 }) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const [hoveredBlip, setHoveredBlip] = useState<{
@@ -46,25 +43,56 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
     isConstruct?: boolean
   } | null>(null)
 
-  // Map coordinate conversion: 3D world coords -> Minimap SVG space
-  // Central retail district ranges roughly [-25, 25] in world space
-  const worldRadius = isExpanded ? 36 : 22
-  const mapSize = isExpanded ? 380 : 220
+  // Direct ref to the player / camera icon so we can update transform at 60 FPS without re-rendering React!
+  const playerMarkerRef = useRef<SVGGElement>(null)
+
+  // Radar dimensions
+  const worldRadius = isExpanded ? 32 : 20
+  const mapSize = isExpanded ? 360 : 220
   const center = mapSize / 2
-  const scale = (mapSize * 0.44) / worldRadius
+  const scale = (mapSize * 0.42) / worldRadius
 
   const worldToMap = (wx: number, wz: number) => {
-    // wx: East (+), West (-) -> mapX
-    // wz: South (+), North (-) -> mapY
     const mx = center + wx * scale
     const my = center + wz * scale
     return { x: mx, y: my }
   }
 
-  // Camera marker position in map space
-  const camMapPos = worldToMap(cameraState.x, cameraState.z)
-  // Camera heading angle in degrees (rotated so 0 deg points North)
-  const headingDeg = (cameraState.heading * 180) / Math.PI
+  // Listen to camera movements directly via CustomEvent to avoid re-rendering root App
+  useEffect(() => {
+    const handleCamUpdate = (e: Event) => {
+      const customEvent = e as CustomEvent<{ cx: number; cz: number; tx: number; tz: number; heading: number }>
+      if (!customEvent.detail || !playerMarkerRef.current) return
+
+      const { cx, cz, heading } = customEvent.detail
+
+      // Convert camera coordinates to map coordinates
+      const camPos = worldToMap(cx, cz)
+
+      // Clamp camera position within radar boundary (margin of 14px)
+      const maxR = center - 14
+      const dx = camPos.x - center
+      const dy = camPos.y - center
+      const dist = Math.sqrt(dx * dx + dy * dy)
+
+      const clampedX = dist > maxR ? center + (dx / dist) * maxR : camPos.x
+      const clampedY = dist > maxR ? center + (dy / dist) * maxR : camPos.y
+
+      // Calculate heading angle in degrees (pointing towards target)
+      const headingDeg = (heading * 180) / Math.PI
+
+      // Update SVG transform directly (buttery smooth 60 FPS, zero React re-renders)
+      playerMarkerRef.current.setAttribute(
+        'transform',
+        `translate(${clampedX.toFixed(1)}, ${clampedY.toFixed(1)}) rotate(${headingDeg.toFixed(1)})`
+      )
+    }
+
+    window.addEventListener('retailvision-cam', handleCamUpdate)
+    return () => {
+      window.removeEventListener('retailvision-cam', handleCamUpdate)
+    }
+  }, [center, scale])
 
   // Get category icon symbol
   const getCatSymbol = (cat: string) => {
@@ -86,20 +114,20 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
     <aside
       className={`fixed z-40 transition-all duration-300 select-none ${
         isExpanded
-          ? 'bottom-8 left-8 w-[400px]'
-          : 'bottom-6 left-6 w-[236px] sm:w-[250px]'
+          ? 'bottom-8 left-8 w-[380px]'
+          : 'bottom-6 left-6 w-[236px] sm:w-[246px]'
       }`}
       aria-label="GTA 6 Minimap Navigation Radar"
     >
-      {/* GTA 6 TACTICAL RADAR CONTAINER */}
-      <div className="relative rounded-3xl bg-slate-950/90 backdrop-blur-2xl border-2 border-slate-700/80 shadow-2xl shadow-black/90 overflow-hidden p-2.5 sm:p-3">
+      {/* TACTICAL RADAR CONTAINER */}
+      <div className="relative rounded-3xl bg-slate-950/92 backdrop-blur-2xl border-2 border-slate-700/80 shadow-2xl shadow-black/90 overflow-hidden p-2.5">
         {/* Subtle Cyberpunk Radar Bezel & Scanlines */}
         <div className="absolute inset-0 pointer-events-none rounded-3xl bg-gradient-to-b from-sky-500/5 via-transparent to-black/40" />
 
         {/* TOP STATUS HEADER */}
         <div className="relative z-10 flex items-center justify-between mb-1.5 px-1 text-[10px] font-mono tracking-wider text-slate-300">
           <div className="flex items-center gap-1.5 font-bold">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+            <span className="w-2 h-2 rounded-full bg-emerald-400" />
             <span className="text-white">GPS // METROPOLIS</span>
           </div>
 
@@ -132,8 +160,8 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
           className="relative rounded-2xl bg-slate-900 border border-slate-800/90 overflow-hidden shadow-inner cursor-crosshair"
           style={{ width: `${mapSize}px`, height: `${mapSize}px` }}
         >
-          {/* Circular Radar Scan Sweep Effect */}
-          <div className="absolute inset-0 pointer-events-none rounded-2xl opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-400/30 via-slate-900/10 to-transparent" />
+          {/* Subtle Radar Radial Gradient */}
+          <div className="absolute inset-0 pointer-events-none rounded-2xl opacity-25 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-500/30 via-slate-900/10 to-transparent" />
 
           {/* SVG MAP GRAPHICS */}
           <svg
@@ -142,18 +170,18 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
             className="absolute inset-0 pointer-events-auto"
           >
             <defs>
-              {/* Radar Grid Pattern */}
-              <pattern id="radarGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="0.8" />
+              {/* Tactical Radar Grid */}
+              <pattern id="gtaGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="0.8" />
               </pattern>
             </defs>
 
             {/* Tactical Grid Background */}
-            <rect width={mapSize} height={mapSize} fill="#0b1120" />
-            <rect width={mapSize} height={mapSize} fill="url(#radarGrid)" />
+            <rect width={mapSize} height={mapSize} fill="#090e17" />
+            <rect width={mapSize} height={mapSize} fill="url(#gtaGrid)" />
 
             {/* Concentric Distance Radar Rings */}
-            {[0.3, 0.6, 0.9].map((fraction, i) => (
+            {[0.32, 0.64, 0.94].map((fraction, i) => (
               <circle
                 key={`ring-${i}`}
                 cx={center}
@@ -177,7 +205,7 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
                     width={mapSize}
                     height="9"
                     fill="#0891b2"
-                    opacity="0.85"
+                    opacity="0.8"
                   />
                   {/* Road Bridge at center */}
                   <rect
@@ -200,7 +228,7 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
                   y1={railY}
                   x2={mapSize}
                   y2={railY}
-                  stroke="#64748b"
+                  stroke="#475569"
                   strokeWidth="2.5"
                   strokeDasharray="4 3"
                 />
@@ -258,9 +286,11 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
             {/* CONSTRUCT PLOT RADAR BLIP (x = 13.0, z = -6.0) */}
             {(() => {
               const cPos = worldToMap(13.0, -6.0)
+              const isHovered = hoveredBlip?.id === 'construct'
+
               return (
                 <g
-                  className="cursor-pointer group"
+                  className="cursor-pointer"
                   onClick={(e) => {
                     e.stopPropagation()
                     onOpenConstruct()
@@ -277,30 +307,30 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
                   }
                   onMouseLeave={() => setHoveredBlip(null)}
                 >
-                  {/* Construction Area Footprint */}
+                  {/* Stable Transparent Hit Target */}
+                  <circle cx={cPos.x} cy={cPos.y} r="14" fill="transparent" />
+
+                  {/* Parcel Footprint */}
                   <rect
-                    x={cPos.x - 10}
-                    y={cPos.y - 10}
-                    width="20"
-                    height="20"
-                    fill="rgba(249, 115, 22, 0.18)"
+                    x={cPos.x - 9}
+                    y={cPos.y - 9}
+                    width="18"
+                    height="18"
+                    fill={isHovered ? 'rgba(249, 115, 22, 0.35)' : 'rgba(249, 115, 22, 0.18)'}
                     stroke="#ea580c"
-                    strokeWidth="1.2"
+                    strokeWidth={isHovered ? '2' : '1.2'}
                     strokeDasharray="3 2"
                     rx="3"
                   />
-                  {/* Pulsing Hazard Beacon Ring */}
-                  <circle
-                    cx={cPos.x}
-                    cy={cPos.y}
-                    r="8"
-                    fill="none"
-                    stroke="#f97316"
-                    strokeWidth="1.5"
-                    className="animate-ping"
-                    opacity="0.75"
-                  />
-                  <circle cx={cPos.x} cy={cPos.y} r="5" fill="#f97316" />
+
+                  {/* Native SVG Pulsing Ring (Zero CSS keyframe offset glitch) */}
+                  <circle cx={cPos.x} cy={cPos.y} r="6" fill="none" stroke="#f97316" strokeWidth="1.5">
+                    <animate attributeName="r" from="6" to="14" dur="1.8s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" from="0.9" to="0" dur="1.8s" repeatCount="indefinite" />
+                  </circle>
+
+                  {/* Core Dot */}
+                  <circle cx={cPos.x} cy={cPos.y} r="4" fill="#f97316" />
                 </g>
               )
             })()}
@@ -309,12 +339,13 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
             {stores.map((s) => {
               const pos = worldToMap(s.grid_x, s.grid_z)
               const isSelected = selectedStore?.id === s.id
+              const isHovered = hoveredBlip?.id === s.id
               const blipColor = s.color || '#3b82f6'
 
               return (
                 <g
                   key={s.id}
-                  className="cursor-pointer transition-transform hover:scale-125"
+                  className="cursor-pointer"
                   onClick={(e) => {
                     e.stopPropagation()
                     onSelectStore(s)
@@ -330,36 +361,40 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
                   }
                   onMouseLeave={() => setHoveredBlip(null)}
                 >
+                  {/* Stable Transparent Hit Target */}
+                  <circle cx={pos.x} cy={pos.y} r="14" fill="transparent" />
+
                   {/* Building Parcel Footprint */}
                   <rect
                     x={pos.x - 9}
                     y={pos.y - 9}
                     width="18"
                     height="18"
-                    fill={isSelected ? 'rgba(56, 189, 248, 0.35)' : 'rgba(30, 41, 59, 0.8)'}
-                    stroke={isSelected ? '#38bdf8' : blipColor}
-                    strokeWidth={isSelected ? '2' : '1.2'}
+                    fill={
+                      isSelected
+                        ? 'rgba(56, 189, 248, 0.4)'
+                        : isHovered
+                        ? 'rgba(56, 189, 248, 0.25)'
+                        : 'rgba(30, 41, 59, 0.85)'
+                    }
+                    stroke={isSelected || isHovered ? '#38bdf8' : blipColor}
+                    strokeWidth={isSelected || isHovered ? '2' : '1.2'}
                     rx="3"
                   />
 
-                  {/* Pulsing Selection Ring */}
+                  {/* Native SVG Pulsing Ring when Selected */}
                   {isSelected && (
-                    <circle
-                      cx={pos.x}
-                      cy={pos.y}
-                      r="12"
-                      fill="none"
-                      stroke="#38bdf8"
-                      strokeWidth="1.5"
-                      className="animate-ping"
-                    />
+                    <circle cx={pos.x} cy={pos.y} r="5" fill="none" stroke="#38bdf8" strokeWidth="1.5">
+                      <animate attributeName="r" from="5" to="15" dur="1.5s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" from="1" to="0" dur="1.5s" repeatCount="indefinite" />
+                    </circle>
                   )}
 
                   {/* Core Radar Blip */}
                   <circle
                     cx={pos.x}
                     cy={pos.y}
-                    r={isSelected ? 4.5 : 3.5}
+                    r={isSelected || isHovered ? 4.5 : 3.5}
                     fill={blipColor}
                   />
                 </g>
@@ -367,12 +402,15 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
             })}
 
             {/* CAMERA / PLAYER VISION CONE (FOV) */}
-            <g transform={`translate(${camMapPos.x}, ${camMapPos.y}) rotate(${headingDeg})`}>
+            <g
+              ref={playerMarkerRef}
+              transform={`translate(${center}, ${center}) rotate(45)`}
+            >
               {/* Vision Cone Wedge */}
               <path
-                d="M 0 0 L -22 -44 A 48 48 0 0 1 22 -44 Z"
-                fill="rgba(56, 189, 248, 0.2)"
-                stroke="rgba(56, 189, 248, 0.5)"
+                d="M 0 0 L -18 -36 A 38 38 0 0 1 18 -36 Z"
+                fill="rgba(56, 189, 248, 0.25)"
+                stroke="rgba(56, 189, 248, 0.6)"
                 strokeWidth="1"
               />
               {/* Player Icon Diamond */}
@@ -384,7 +422,7 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
               />
             </g>
 
-            {/* NORTH COMPASS INDICATOR (Always at Top) */}
+            {/* NORTH COMPASS INDICATOR (Always at Top Right) */}
             <g transform={`translate(${mapSize - 16}, 16)`}>
               <circle cx="0" cy="0" r="9" fill="#0f172a" stroke="#475569" strokeWidth="1" />
               <text
@@ -403,7 +441,7 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
 
           {/* HOVER TOOLTIP POPUP (GTA Tactical Target Lock) */}
           {hoveredBlip && (
-            <div className="absolute top-2 left-2 right-2 z-20 px-2.5 py-1.5 rounded-xl bg-slate-950/95 backdrop-blur-xl border border-sky-500/40 shadow-xl text-left pointer-events-none">
+            <div className="absolute top-2 left-2 right-2 z-20 px-2.5 py-1.5 rounded-xl bg-slate-950/95 backdrop-blur-xl border border-sky-500/50 shadow-2xl text-left pointer-events-none">
               <div className="flex items-center justify-between text-[11px] font-bold text-white">
                 <span className="truncate flex items-center gap-1">
                   <span>{hoveredBlip.isConstruct ? '🔨' : getCatSymbol(hoveredBlip.category)}</span>
