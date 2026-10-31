@@ -1,0 +1,1201 @@
+Order ID,Order Date,Product,Category,Quantity,Unit Price,Total Amount,Region,City,Customer ID
+ORD-ELE-10438,2024-01-01,Mechanical RGB Keyboard,Electronics,2,97.01,194.02,South,Dallas,CUST-1078
+ORD-ELE-10706,2024-01-01,"Ultra-HD Smart TV 55""",Electronics,1,527.27,527.27,East,Washington D.C.,CUST-1172
+ORD-ELE-10777,2024-01-01,Mechanical RGB Keyboard,Electronics,3,102.33,306.99,Central,Austin,CUST-1199
+ORD-ELE-10246,2024-01-02,Fitness Tracker Watch,Electronics,1,146.1,146.1,North,Chicago,CUST-1093
+ORD-ELE-10514,2024-01-02,Pro Smartphone Max,Electronics,2,889.72,1779.44,South,Miami,CUST-1127
+ORD-ELE-10949,2024-01-04,Mechanical RGB Keyboard,Electronics,2,104.53,209.06,East,Philadelphia,CUST-1146
+ORD-ELE-10390,2024-01-07,Mechanical RGB Keyboard,Electronics,1,98.31,98.31,West,Seattle,CUST-1086
+ORD-ELE-11190,2024-01-07,"Slim Pro Laptop 15""",Electronics,1,1240.17,1240.17,West,San Francisco,CUST-1044
+ORD-ELE-10289,2024-01-09,Noise-Cancelling Headphones,Electronics,3,188.68,566.04,West,Seattle,CUST-1094
+ORD-ELE-10155,2024-01-10,Wireless Fast Charger Pad,Electronics,2,31.19,62.38,South,Atlanta,CUST-1114
+ORD-ELE-10752,2024-01-10,Mechanical RGB Keyboard,Electronics,1,102.97,102.97,North,Chicago,CUST-1096
+ORD-ELE-10935,2024-01-11,Pro Smartphone Max,Electronics,1,929.84,929.84,North,Chicago,CUST-1027
+ORD-ELE-10623,2024-01-14,Noise-Cancelling Headphones,Electronics,1,180.97,180.97,North,New York,CUST-1069
+ORD-ELE-10628,2024-01-14,Bluetooth Studio Speaker,Electronics,3,77.61,232.83,East,Philadelphia,CUST-1163
+ORD-ELE-10166,2024-01-15,Bluetooth Studio Speaker,Electronics,1,80.28,80.28,West,San Francisco,CUST-1098
+ORD-ELE-10986,2024-01-15,Mechanical RGB Keyboard,Electronics,1,102.35,102.35,West,Seattle,CUST-1149
+ORD-ELE-10248,2024-01-17,Fitness Tracker Watch,Electronics,1,154.32,154.32,North,Chicago,CUST-1189
+ORD-ELE-10794,2024-01-17,"Ultra-HD Smart TV 55""",Electronics,1,577.13,577.13,West,Los Angeles,CUST-1055
+ORD-ELE-10573,2024-01-19,Pro Smartphone Max,Electronics,1,911.39,911.39,West,Seattle,CUST-1034
+ORD-ELE-10577,2024-01-20,"Slim Pro Laptop 15""",Electronics,4,1166.91,4667.64,South,Dallas,CUST-1006
+ORD-ELE-10871,2024-01-20,"Slim Pro Laptop 15""",Electronics,1,1209.28,1209.28,West,Los Angeles,CUST-1039
+ORD-ELE-11148,2024-01-22,"Slim Pro Laptop 15""",Electronics,2,1159.54,2319.08,West,San Francisco,CUST-1193
+ORD-ELE-10334,2024-01-23,Mechanical RGB Keyboard,Electronics,1,97.53,97.53,South,Dallas,CUST-1019
+ORD-ELE-10821,2024-01-23,Pro Smartphone Max,Electronics,1,877.26,877.26,West,Seattle,CUST-1101
+ORD-ELE-11005,2024-01-24,Bluetooth Studio Speaker,Electronics,2,79.32,158.64,South,Miami,CUST-1089
+ORD-ELE-10937,2024-01-25,Noise-Cancelling Headphones,Electronics,1,181.57,181.57,South,Dallas,CUST-1164
+ORD-ELE-10127,2024-01-27,Noise-Cancelling Headphones,Electronics,2,184.84,369.68,Central,Kansas City,CUST-1006
+ORD-ELE-10264,2024-01-27,"Ultra-HD Smart TV 55""",Electronics,1,549.94,549.94,Central,Denver,CUST-1068
+ORD-ELE-10496,2024-01-27,Fitness Tracker Watch,Electronics,1,151.45,151.45,West,Los Angeles,CUST-1121
+ORD-ELE-10087,2024-01-28,Mechanical RGB Keyboard,Electronics,2,100.91,201.82,North,Chicago,CUST-1110
+ORD-ELE-10922,2024-01-28,Bluetooth Studio Speaker,Electronics,1,79.87,79.87,North,Boston,CUST-1065
+ORD-ELE-11097,2024-01-30,Bluetooth Studio Speaker,Electronics,1,82.31,82.31,Central,Denver,CUST-1165
+ORD-ELE-10462,2024-01-31,Fitness Tracker Watch,Electronics,1,154.6,154.6,North,Boston,CUST-1183
+ORD-ELE-11194,2024-01-31,Wireless Fast Charger Pad,Electronics,1,28.93,28.93,Central,Denver,CUST-1022
+ORD-ELE-10336,2024-02-02,Bluetooth Studio Speaker,Electronics,2,79.26,158.52,East,Washington D.C.,CUST-1098
+ORD-ELE-10374,2024-02-03,"Ultra-HD Smart TV 55""",Electronics,1,573.57,573.57,South,Dallas,CUST-1037
+ORD-ELE-10854,2024-02-03,Bluetooth Studio Speaker,Electronics,1,78.64,78.64,North,Boston,CUST-1046
+ORD-ELE-11071,2024-02-03,"Ultra-HD Smart TV 55""",Electronics,3,553.11,1659.33,West,San Francisco,CUST-1043
+ORD-ELE-10705,2024-02-04,"Slim Pro Laptop 15""",Electronics,2,1213.81,2427.62,West,Los Angeles,CUST-1168
+ORD-ELE-10746,2024-02-05,Fitness Tracker Watch,Electronics,1,155.4,155.4,East,Washington D.C.,CUST-1139
+ORD-ELE-11107,2024-02-05,Pro Smartphone Max,Electronics,2,917.15,1834.3,South,Miami,CUST-1142
+ORD-ELE-10920,2024-02-06,Bluetooth Studio Speaker,Electronics,1,81.81,81.81,North,Chicago,CUST-1122
+ORD-ELE-11196,2024-02-07,"Ultra-HD Smart TV 55""",Electronics,1,572.13,572.13,Central,Austin,CUST-1108
+ORD-ELE-10316,2024-02-08,"Ultra-HD Smart TV 55""",Electronics,2,545.47,1090.94,North,Boston,CUST-1127
+ORD-ELE-10241,2024-02-09,Bluetooth Studio Speaker,Electronics,1,83.33,83.33,South,Dallas,CUST-1121
+ORD-ELE-10294,2024-02-09,"Ultra-HD Smart TV 55""",Electronics,2,561.74,1123.48,Central,Austin,CUST-1039
+ORD-ELE-10966,2024-02-11,"Ultra-HD Smart TV 55""",Electronics,2,527.99,1055.98,Central,Austin,CUST-1200
+ORD-ELE-10097,2024-02-12,Fitness Tracker Watch,Electronics,2,150.48,300.96,North,Chicago,CUST-1166
+ORD-ELE-10219,2024-02-12,Wireless Fast Charger Pad,Electronics,1,31.22,31.22,South,Miami,CUST-1155
+ORD-ELE-10278,2024-02-12,Pro Smartphone Max,Electronics,3,862.3,2586.9,Central,Austin,CUST-1167
+ORD-ELE-10423,2024-02-12,Wireless Fast Charger Pad,Electronics,4,30.13,120.52,North,Chicago,CUST-1168
+ORD-ELE-10802,2024-02-12,Fitness Tracker Watch,Electronics,1,150.59,150.59,Central,Kansas City,CUST-1057
+ORD-ELE-10837,2024-02-12,Mechanical RGB Keyboard,Electronics,1,102.19,102.19,Central,Kansas City,CUST-1138
+ORD-ELE-10207,2024-02-13,Mechanical RGB Keyboard,Electronics,3,95.18,285.54,West,San Francisco,CUST-1110
+ORD-ELE-10309,2024-02-13,Bluetooth Studio Speaker,Electronics,1,83.63,83.63,East,Charlotte,CUST-1066
+ORD-ELE-10957,2024-02-13,Mechanical RGB Keyboard,Electronics,2,96.17,192.34,Central,Austin,CUST-1174
+ORD-ELE-11098,2024-02-13,Wireless Fast Charger Pad,Electronics,1,30.84,30.84,North,Boston,CUST-1155
+ORD-ELE-10681,2024-02-14,"Ultra-HD Smart TV 55""",Electronics,1,554.03,554.03,Central,Denver,CUST-1147
+ORD-ELE-10290,2024-02-16,Mechanical RGB Keyboard,Electronics,1,95.5,95.5,West,San Francisco,CUST-1074
+ORD-ELE-10335,2024-02-16,Mechanical RGB Keyboard,Electronics,1,98.44,98.44,North,New York,CUST-1121
+ORD-ELE-11076,2024-02-16,"Ultra-HD Smart TV 55""",Electronics,1,568.52,568.52,Central,Denver,CUST-1196
+ORD-ELE-10373,2024-02-17,Noise-Cancelling Headphones,Electronics,1,193.49,193.49,Central,Kansas City,CUST-1169
+ORD-ELE-10881,2024-02-17,Noise-Cancelling Headphones,Electronics,2,190.38,380.76,West,Los Angeles,CUST-1148
+ORD-ELE-10580,2024-02-19,Noise-Cancelling Headphones,Electronics,1,188.41,188.41,Central,Austin,CUST-1122
+ORD-ELE-10484,2024-02-20,Bluetooth Studio Speaker,Electronics,4,78.07,312.28,North,Boston,CUST-1116
+ORD-ELE-10589,2024-02-21,Noise-Cancelling Headphones,Electronics,3,195.94,587.82,West,Seattle,CUST-1174
+ORD-ELE-10051,2024-02-22,Noise-Cancelling Headphones,Electronics,2,192.54,385.08,North,New York,CUST-1086
+ORD-ELE-10299,2024-02-22,Wireless Fast Charger Pad,Electronics,1,29.0,29.0,Central,Austin,CUST-1038
+ORD-ELE-10976,2024-02-23,"Ultra-HD Smart TV 55""",Electronics,1,531.18,531.18,Central,Denver,CUST-1019
+ORD-ELE-10918,2024-02-24,Fitness Tracker Watch,Electronics,1,150.52,150.52,East,Charlotte,CUST-1121
+ORD-ELE-11066,2024-02-24,Noise-Cancelling Headphones,Electronics,1,189.95,189.95,South,Miami,CUST-1155
+ORD-ELE-10607,2024-02-25,"Slim Pro Laptop 15""",Electronics,1,1241.31,1241.31,Central,Kansas City,CUST-1122
+ORD-ELE-10646,2024-02-25,"Ultra-HD Smart TV 55""",Electronics,1,566.17,566.17,Central,Denver,CUST-1067
+ORD-ELE-10887,2024-02-25,Noise-Cancelling Headphones,Electronics,1,188.59,188.59,Central,Kansas City,CUST-1162
+ORD-ELE-10928,2024-02-25,Bluetooth Studio Speaker,Electronics,1,82.03,82.03,South,Miami,CUST-1103
+ORD-ELE-10980,2024-02-25,Mechanical RGB Keyboard,Electronics,3,96.44,289.32,East,Philadelphia,CUST-1100
+ORD-ELE-10204,2024-02-26,Pro Smartphone Max,Electronics,3,873.39,2620.17,South,Miami,CUST-1075
+ORD-ELE-10800,2024-02-27,Fitness Tracker Watch,Electronics,2,147.71,295.42,East,Philadelphia,CUST-1198
+ORD-ELE-11078,2024-02-27,"Slim Pro Laptop 15""",Electronics,1,1169.7,1169.7,Central,Denver,CUST-1177
+ORD-ELE-10569,2024-02-29,Pro Smartphone Max,Electronics,1,895.67,895.67,South,Dallas,CUST-1196
+ORD-ELE-10362,2024-03-01,Pro Smartphone Max,Electronics,1,930.51,930.51,North,New York,CUST-1106
+ORD-ELE-10486,2024-03-04,"Slim Pro Laptop 15""",Electronics,2,1155.68,2311.36,West,San Francisco,CUST-1162
+ORD-ELE-10029,2024-03-06,Fitness Tracker Watch,Electronics,1,142.81,142.81,Central,Denver,CUST-1002
+ORD-ELE-10181,2024-03-06,Wireless Fast Charger Pad,Electronics,1,29.83,29.83,Central,Denver,CUST-1116
+ORD-ELE-10858,2024-03-07,Bluetooth Studio Speaker,Electronics,1,79.76,79.76,West,Seattle,CUST-1135
+ORD-ELE-10893,2024-03-07,Wireless Fast Charger Pad,Electronics,1,28.83,28.83,South,Miami,CUST-1197
+ORD-ELE-10014,2024-03-08,"Slim Pro Laptop 15""",Electronics,1,1249.57,1249.57,West,Los Angeles,CUST-1168
+ORD-ELE-11079,2024-03-08,Bluetooth Studio Speaker,Electronics,1,76.91,76.91,Central,Austin,CUST-1010
+ORD-ELE-10042,2024-03-10,"Slim Pro Laptop 15""",Electronics,3,1188.44,3565.32,Central,Denver,CUST-1149
+ORD-ELE-10247,2024-03-10,Pro Smartphone Max,Electronics,1,890.13,890.13,East,Washington D.C.,CUST-1065
+ORD-ELE-10454,2024-03-10,Pro Smartphone Max,Electronics,1,878.59,878.59,North,Boston,CUST-1130
+ORD-ELE-10047,2024-03-11,"Slim Pro Laptop 15""",Electronics,1,1184.33,1184.33,Central,Kansas City,CUST-1078
+ORD-ELE-10091,2024-03-11,Pro Smartphone Max,Electronics,3,922.87,2768.61,South,Atlanta,CUST-1160
+ORD-ELE-10756,2024-03-11,"Ultra-HD Smart TV 55""",Electronics,1,530.0,530.0,East,Charlotte,CUST-1116
+ORD-ELE-10776,2024-03-11,"Ultra-HD Smart TV 55""",Electronics,2,547.21,1094.42,Central,Austin,CUST-1117
+ORD-ELE-10943,2024-03-12,Wireless Fast Charger Pad,Electronics,1,31.43,31.43,East,Philadelphia,CUST-1166
+ORD-ELE-10030,2024-03-13,Pro Smartphone Max,Electronics,3,875.6,2626.8,West,Los Angeles,CUST-1132
+ORD-ELE-11147,2024-03-13,Mechanical RGB Keyboard,Electronics,1,95.92,95.92,South,Miami,CUST-1023
+ORD-ELE-10910,2024-03-14,Pro Smartphone Max,Electronics,3,867.95,2603.85,East,Philadelphia,CUST-1022
+ORD-ELE-10073,2024-03-15,Wireless Fast Charger Pad,Electronics,1,29.73,29.73,South,Dallas,CUST-1179
+ORD-ELE-10281,2024-03-15,Pro Smartphone Max,Electronics,1,869.22,869.22,East,Philadelphia,CUST-1088
+ORD-ELE-10291,2024-03-16,Mechanical RGB Keyboard,Electronics,2,100.03,200.06,West,San Francisco,CUST-1175
+ORD-ELE-10518,2024-03-17,Noise-Cancelling Headphones,Electronics,4,186.91,747.64,East,Charlotte,CUST-1008
+ORD-ELE-10218,2024-03-19,Noise-Cancelling Headphones,Electronics,1,192.18,192.18,East,Charlotte,CUST-1142
+ORD-ELE-10263,2024-03-19,"Ultra-HD Smart TV 55""",Electronics,1,551.61,551.61,West,Los Angeles,CUST-1030
+ORD-ELE-10080,2024-03-20,Bluetooth Studio Speaker,Electronics,1,77.87,77.87,Central,Denver,CUST-1036
+ORD-ELE-11162,2024-03-21,Bluetooth Studio Speaker,Electronics,1,82.96,82.96,Central,Denver,CUST-1002
+ORD-ELE-10784,2024-03-22,Wireless Fast Charger Pad,Electronics,1,30.89,30.89,Central,Kansas City,CUST-1107
+ORD-ELE-10201,2024-03-24,Bluetooth Studio Speaker,Electronics,1,79.53,79.53,Central,Austin,CUST-1107
+ORD-ELE-10225,2024-03-24,"Ultra-HD Smart TV 55""",Electronics,1,572.91,572.91,East,Philadelphia,CUST-1153
+ORD-ELE-10524,2024-03-24,Wireless Fast Charger Pad,Electronics,1,31.02,31.02,East,Washington D.C.,CUST-1126
+ORD-ELE-10371,2024-03-25,Wireless Fast Charger Pad,Electronics,1,31.03,31.03,West,San Francisco,CUST-1025
+ORD-ELE-10381,2024-03-25,Bluetooth Studio Speaker,Electronics,2,77.22,154.44,South,Dallas,CUST-1100
+ORD-ELE-10420,2024-03-25,Pro Smartphone Max,Electronics,1,926.62,926.62,North,Boston,CUST-1058
+ORD-ELE-10642,2024-03-25,Noise-Cancelling Headphones,Electronics,4,183.67,734.68,Central,Kansas City,CUST-1002
+ORD-ELE-11116,2024-03-25,Noise-Cancelling Headphones,Electronics,1,183.49,183.49,South,Dallas,CUST-1176
+ORD-ELE-10386,2024-03-27,"Slim Pro Laptop 15""",Electronics,1,1208.63,1208.63,East,Philadelphia,CUST-1036
+ORD-ELE-10414,2024-03-27,"Ultra-HD Smart TV 55""",Electronics,1,539.72,539.72,North,New York,CUST-1096
+ORD-ELE-11200,2024-03-27,Pro Smartphone Max,Electronics,1,903.36,903.36,South,Dallas,CUST-1139
+ORD-ELE-10806,2024-03-28,Mechanical RGB Keyboard,Electronics,2,100.01,200.02,South,Atlanta,CUST-1124
+ORD-ELE-11191,2024-03-28,Bluetooth Studio Speaker,Electronics,2,78.97,157.94,West,San Francisco,CUST-1171
+ORD-ELE-11003,2024-03-30,Noise-Cancelling Headphones,Electronics,1,187.91,187.91,North,New York,CUST-1043
+ORD-ELE-11021,2024-03-30,Mechanical RGB Keyboard,Electronics,1,96.93,96.93,Central,Kansas City,CUST-1015
+ORD-ELE-10702,2024-03-31,Noise-Cancelling Headphones,Electronics,1,185.49,185.49,Central,Denver,CUST-1186
+ORD-ELE-10542,2024-04-01,"Slim Pro Laptop 15""",Electronics,3,1193.0,3579.0,East,Charlotte,CUST-1125
+ORD-ELE-10150,2024-04-02,Mechanical RGB Keyboard,Electronics,2,104.77,209.54,North,Boston,CUST-1043
+ORD-ELE-10549,2024-04-02,Bluetooth Studio Speaker,Electronics,1,76.21,76.21,Central,Denver,CUST-1057
+ORD-ELE-10951,2024-04-02,Fitness Tracker Watch,Electronics,4,150.51,602.04,North,Boston,CUST-1195
+ORD-ELE-11100,2024-04-02,Mechanical RGB Keyboard,Electronics,2,104.42,208.84,South,Atlanta,CUST-1029
+ORD-ELE-11102,2024-04-02,"Slim Pro Laptop 15""",Electronics,2,1211.97,2423.94,West,Seattle,CUST-1150
+ORD-ELE-11152,2024-04-02,Mechanical RGB Keyboard,Electronics,1,103.1,103.1,East,Charlotte,CUST-1110
+ORD-ELE-10441,2024-04-03,Noise-Cancelling Headphones,Electronics,1,180.51,180.51,South,Dallas,CUST-1058
+ORD-ELE-10606,2024-04-03,Bluetooth Studio Speaker,Electronics,1,83.11,83.11,East,Washington D.C.,CUST-1094
+ORD-ELE-10636,2024-04-04,Fitness Tracker Watch,Electronics,1,145.81,145.81,West,Seattle,CUST-1093
+ORD-ELE-11019,2024-04-04,Fitness Tracker Watch,Electronics,1,143.32,143.32,Central,Kansas City,CUST-1057
+ORD-ELE-10106,2024-04-05,Bluetooth Studio Speaker,Electronics,2,77.76,155.52,West,San Francisco,CUST-1149
+ORD-ELE-10432,2024-04-05,Mechanical RGB Keyboard,Electronics,1,100.15,100.15,West,Seattle,CUST-1125
+ORD-ELE-10592,2024-04-05,Fitness Tracker Watch,Electronics,1,154.71,154.71,East,Washington D.C.,CUST-1117
+ORD-ELE-10890,2024-04-05,Wireless Fast Charger Pad,Electronics,1,28.78,28.78,East,Washington D.C.,CUST-1060
+ORD-ELE-11153,2024-04-05,Pro Smartphone Max,Electronics,4,901.19,3604.76,South,Dallas,CUST-1176
+ORD-ELE-10764,2024-04-06,"Slim Pro Laptop 15""",Electronics,2,1196.73,2393.46,West,Seattle,CUST-1041
+ORD-ELE-11158,2024-04-06,Wireless Fast Charger Pad,Electronics,1,30.47,30.47,West,Seattle,CUST-1066
+ORD-ELE-10189,2024-04-07,Fitness Tracker Watch,Electronics,2,148.89,297.78,West,Los Angeles,CUST-1176
+ORD-ELE-10972,2024-04-07,Fitness Tracker Watch,Electronics,4,155.43,621.72,Central,Denver,CUST-1119
+ORD-ELE-11086,2024-04-07,Fitness Tracker Watch,Electronics,1,146.59,146.59,Central,Austin,CUST-1110
+ORD-ELE-11129,2024-04-07,Pro Smartphone Max,Electronics,3,859.68,2579.04,East,Washington D.C.,CUST-1156
+ORD-ELE-10367,2024-04-08,"Ultra-HD Smart TV 55""",Electronics,1,535.74,535.74,West,Seattle,CUST-1069
+ORD-ELE-10733,2024-04-08,Wireless Fast Charger Pad,Electronics,1,30.72,30.72,West,San Francisco,CUST-1143
+ORD-ELE-10033,2024-04-09,Mechanical RGB Keyboard,Electronics,1,98.53,98.53,North,Chicago,CUST-1168
+ORD-ELE-10562,2024-04-09,Wireless Fast Charger Pad,Electronics,1,28.87,28.87,Central,Denver,CUST-1175
+ORD-ELE-11082,2024-04-10,Wireless Fast Charger Pad,Electronics,2,28.79,57.58,West,Seattle,CUST-1129
+ORD-ELE-10111,2024-04-12,"Slim Pro Laptop 15""",Electronics,1,1175.54,1175.54,West,Los Angeles,CUST-1182
+ORD-ELE-10447,2024-04-12,"Ultra-HD Smart TV 55""",Electronics,1,563.87,563.87,East,Washington D.C.,CUST-1110
+ORD-ELE-10536,2024-04-12,Noise-Cancelling Headphones,Electronics,1,191.18,191.18,West,San Francisco,CUST-1089
+ORD-ELE-10588,2024-04-13,Bluetooth Studio Speaker,Electronics,1,81.14,81.14,West,Seattle,CUST-1119
+ORD-ELE-10725,2024-04-13,Fitness Tracker Watch,Electronics,3,147.91,443.73,South,Dallas,CUST-1068
+ORD-ELE-10002,2024-04-14,Noise-Cancelling Headphones,Electronics,1,191.71,191.71,North,New York,CUST-1060
+ORD-ELE-10574,2024-04-15,Mechanical RGB Keyboard,Electronics,1,100.02,100.02,North,New York,CUST-1077
+ORD-ELE-11171,2024-04-15,Mechanical RGB Keyboard,Electronics,2,104.78,209.56,Central,Kansas City,CUST-1188
+ORD-ELE-10644,2024-04-16,"Slim Pro Laptop 15""",Electronics,2,1204.52,2409.04,East,Charlotte,CUST-1019
+ORD-ELE-10210,2024-04-18,"Slim Pro Laptop 15""",Electronics,1,1192.27,1192.27,North,Boston,CUST-1080
+ORD-ELE-10400,2024-04-18,Pro Smartphone Max,Electronics,1,863.86,863.86,Central,Kansas City,CUST-1149
+ORD-ELE-10945,2024-04-18,Wireless Fast Charger Pad,Electronics,1,30.64,30.64,North,New York,CUST-1147
+ORD-ELE-10695,2024-04-19,"Ultra-HD Smart TV 55""",Electronics,1,545.92,545.92,West,San Francisco,CUST-1109
+ORD-ELE-10719,2024-04-19,Noise-Cancelling Headphones,Electronics,2,197.97,395.94,East,Charlotte,CUST-1002
+ORD-ELE-10184,2024-04-20,Wireless Fast Charger Pad,Electronics,1,30.63,30.63,North,Boston,CUST-1156
+ORD-ELE-11047,2024-04-20,Pro Smartphone Max,Electronics,1,926.36,926.36,North,Boston,CUST-1031
+ORD-ELE-10687,2024-04-21,Pro Smartphone Max,Electronics,3,873.2,2619.6,Central,Kansas City,CUST-1108
+ORD-ELE-10814,2024-04-23,Bluetooth Studio Speaker,Electronics,1,79.59,79.59,South,Dallas,CUST-1138
+ORD-ELE-11186,2024-04-23,Noise-Cancelling Headphones,Electronics,1,195.34,195.34,North,Chicago,CUST-1011
+ORD-ELE-10053,2024-04-24,Noise-Cancelling Headphones,Electronics,2,198.45,396.9,South,Dallas,CUST-1010
+ORD-ELE-10330,2024-04-24,Pro Smartphone Max,Electronics,3,929.58,2788.74,South,Dallas,CUST-1138
+ORD-ELE-11166,2024-04-24,Pro Smartphone Max,Electronics,1,917.63,917.63,North,New York,CUST-1124
+ORD-ELE-10422,2024-04-25,Noise-Cancelling Headphones,Electronics,1,185.58,185.58,West,San Francisco,CUST-1194
+ORD-ELE-10594,2024-04-25,"Ultra-HD Smart TV 55""",Electronics,1,560.78,560.78,South,Atlanta,CUST-1107
+ORD-ELE-10597,2024-04-25,Mechanical RGB Keyboard,Electronics,1,99.4,99.4,West,Los Angeles,CUST-1181
+ORD-ELE-11055,2024-04-25,Fitness Tracker Watch,Electronics,1,144.34,144.34,South,Miami,CUST-1196
+ORD-ELE-10020,2024-04-27,Bluetooth Studio Speaker,Electronics,1,82.14,82.14,West,Seattle,CUST-1041
+ORD-ELE-10094,2024-04-27,"Ultra-HD Smart TV 55""",Electronics,1,575.55,575.55,North,Boston,CUST-1148
+ORD-ELE-10049,2024-04-28,Noise-Cancelling Headphones,Electronics,1,194.6,194.6,West,San Francisco,CUST-1054
+ORD-ELE-10170,2024-04-28,Noise-Cancelling Headphones,Electronics,1,184.95,184.95,East,Washington D.C.,CUST-1095
+ORD-ELE-10403,2024-04-28,"Ultra-HD Smart TV 55""",Electronics,1,541.65,541.65,South,Dallas,CUST-1124
+ORD-ELE-10465,2024-04-28,"Slim Pro Laptop 15""",Electronics,1,1228.88,1228.88,North,New York,CUST-1012
+ORD-ELE-11012,2024-04-29,Pro Smartphone Max,Electronics,1,944.43,944.43,East,Washington D.C.,CUST-1095
+ORD-ELE-10694,2024-04-30,Pro Smartphone Max,Electronics,1,888.74,888.74,West,Seattle,CUST-1093
+ORD-ELE-10864,2024-04-30,"Slim Pro Laptop 15""",Electronics,4,1235.94,4943.76,East,Philadelphia,CUST-1086
+ORD-ELE-10325,2024-05-01,Wireless Fast Charger Pad,Electronics,1,29.41,29.41,Central,Kansas City,CUST-1198
+ORD-ELE-10679,2024-05-01,"Slim Pro Laptop 15""",Electronics,1,1189.74,1189.74,North,Boston,CUST-1173
+ORD-ELE-11070,2024-05-01,Mechanical RGB Keyboard,Electronics,3,99.49,298.47,East,Washington D.C.,CUST-1010
+ORD-ELE-10482,2024-05-02,Noise-Cancelling Headphones,Electronics,2,183.49,366.98,Central,Denver,CUST-1056
+ORD-ELE-10481,2024-05-03,Fitness Tracker Watch,Electronics,1,156.96,156.96,West,Seattle,CUST-1068
+ORD-ELE-10938,2024-05-04,Noise-Cancelling Headphones,Electronics,1,182.13,182.13,East,Charlotte,CUST-1196
+ORD-ELE-11062,2024-05-05,"Slim Pro Laptop 15""",Electronics,2,1240.56,2481.12,West,San Francisco,CUST-1197
+ORD-ELE-11065,2024-05-05,Bluetooth Studio Speaker,Electronics,1,79.9,79.9,South,Atlanta,CUST-1026
+ORD-ELE-10547,2024-05-06,Pro Smartphone Max,Electronics,1,876.76,876.76,East,Philadelphia,CUST-1122
+ORD-ELE-10237,2024-05-07,Bluetooth Studio Speaker,Electronics,1,76.66,76.66,East,Charlotte,CUST-1038
+ORD-ELE-10026,2024-05-08,"Ultra-HD Smart TV 55""",Electronics,3,558.78,1676.34,South,Miami,CUST-1136
+ORD-ELE-10113,2024-05-09,Wireless Fast Charger Pad,Electronics,1,28.8,28.8,West,Seattle,CUST-1123
+ORD-ELE-10145,2024-05-09,Fitness Tracker Watch,Electronics,3,155.54,466.62,East,Philadelphia,CUST-1135
+ORD-ELE-10905,2024-05-10,Bluetooth Studio Speaker,Electronics,3,76.49,229.47,North,New York,CUST-1181
+ORD-ELE-10270,2024-05-12,Noise-Cancelling Headphones,Electronics,1,181.74,181.74,East,Charlotte,CUST-1106
+ORD-ELE-10052,2024-05-13,Bluetooth Studio Speaker,Electronics,1,77.28,77.28,East,Charlotte,CUST-1003
+ORD-ELE-10436,2024-05-13,Wireless Fast Charger Pad,Electronics,3,30.85,92.55,North,New York,CUST-1026
+ORD-ELE-10045,2024-05-14,Bluetooth Studio Speaker,Electronics,3,79.65,238.95,North,New York,CUST-1118
+ORD-ELE-10162,2024-05-14,Noise-Cancelling Headphones,Electronics,1,197.77,197.77,East,Philadelphia,CUST-1052
+ORD-ELE-10179,2024-05-14,Pro Smartphone Max,Electronics,2,887.23,1774.46,Central,Austin,CUST-1005
+ORD-ELE-10163,2024-05-15,Fitness Tracker Watch,Electronics,3,150.45,451.35,South,Miami,CUST-1124
+ORD-ELE-10443,2024-05-15,Wireless Fast Charger Pad,Electronics,1,28.7,28.7,North,New York,CUST-1081
+ORD-ELE-10923,2024-05-15,Bluetooth Studio Speaker,Electronics,1,78.19,78.19,North,Chicago,CUST-1045
+ORD-ELE-10576,2024-05-17,Fitness Tracker Watch,Electronics,1,157.43,157.43,South,Atlanta,CUST-1104
+ORD-ELE-10088,2024-05-18,Wireless Fast Charger Pad,Electronics,1,29.04,29.04,West,Los Angeles,CUST-1117
+ORD-ELE-10266,2024-05-18,Noise-Cancelling Headphones,Electronics,3,189.08,567.24,East,Philadelphia,CUST-1175
+ORD-ELE-10429,2024-05-18,Mechanical RGB Keyboard,Electronics,4,104.18,416.72,South,Dallas,CUST-1034
+ORD-ELE-10751,2024-05-19,Fitness Tracker Watch,Electronics,1,146.79,146.79,East,Washington D.C.,CUST-1077
+ORD-ELE-10869,2024-05-19,Wireless Fast Charger Pad,Electronics,1,28.96,28.96,Central,Austin,CUST-1119
+ORD-ELE-10229,2024-05-20,"Ultra-HD Smart TV 55""",Electronics,2,526.73,1053.46,North,Chicago,CUST-1198
+ORD-ELE-10311,2024-05-20,Noise-Cancelling Headphones,Electronics,1,192.19,192.19,South,Atlanta,CUST-1172
+ORD-ELE-10363,2024-05-20,"Slim Pro Laptop 15""",Electronics,1,1148.15,1148.15,South,Dallas,CUST-1117
+ORD-ELE-10493,2024-05-20,Mechanical RGB Keyboard,Electronics,3,96.98,290.94,Central,Denver,CUST-1162
+ORD-ELE-10834,2024-05-20,"Ultra-HD Smart TV 55""",Electronics,1,533.12,533.12,North,Boston,CUST-1106
+ORD-ELE-10911,2024-05-20,Mechanical RGB Keyboard,Electronics,3,103.59,310.77,Central,Austin,CUST-1160
+ORD-ELE-10618,2024-05-21,Mechanical RGB Keyboard,Electronics,3,101.02,303.06,Central,Austin,CUST-1180
+ORD-ELE-10396,2024-05-22,Bluetooth Studio Speaker,Electronics,2,77.93,155.86,East,Washington D.C.,CUST-1019
+ORD-ELE-10284,2024-05-24,Noise-Cancelling Headphones,Electronics,3,181.45,544.35,Central,Austin,CUST-1064
+ORD-ELE-10816,2024-05-24,Pro Smartphone Max,Electronics,3,888.88,2666.64,Central,Denver,CUST-1066
+ORD-ELE-10959,2024-05-24,Wireless Fast Charger Pad,Electronics,1,30.45,30.45,Central,Denver,CUST-1063
+ORD-ELE-10475,2024-05-25,Bluetooth Studio Speaker,Electronics,3,76.73,230.19,Central,Austin,CUST-1180
+ORD-ELE-10916,2024-05-25,Bluetooth Studio Speaker,Electronics,1,79.71,79.71,Central,Denver,CUST-1063
+ORD-ELE-10445,2024-05-26,Noise-Cancelling Headphones,Electronics,1,190.57,190.57,South,Miami,CUST-1090
+ORD-ELE-10139,2024-05-28,Mechanical RGB Keyboard,Electronics,1,96.9,96.9,South,Atlanta,CUST-1071
+ORD-ELE-10178,2024-05-28,"Ultra-HD Smart TV 55""",Electronics,2,552.2,1104.4,North,Chicago,CUST-1007
+ORD-ELE-10737,2024-05-28,"Ultra-HD Smart TV 55""",Electronics,3,557.72,1673.16,East,Charlotte,CUST-1157
+ORD-ELE-10828,2024-05-28,"Ultra-HD Smart TV 55""",Electronics,1,539.95,539.95,North,New York,CUST-1082
+ORD-ELE-10926,2024-05-28,"Ultra-HD Smart TV 55""",Electronics,2,568.56,1137.12,East,Washington D.C.,CUST-1061
+ORD-ELE-10213,2024-05-29,Bluetooth Studio Speaker,Electronics,1,77.57,77.57,North,New York,CUST-1198
+ORD-ELE-10761,2024-05-29,Pro Smartphone Max,Electronics,1,878.98,878.98,Central,Austin,CUST-1047
+ORD-ELE-10829,2024-05-29,Pro Smartphone Max,Electronics,3,923.88,2771.64,East,Washington D.C.,CUST-1078
+ORD-ELE-10682,2024-05-30,Pro Smartphone Max,Electronics,3,869.96,2609.88,Central,Austin,CUST-1154
+ORD-ELE-10902,2024-05-30,"Ultra-HD Smart TV 55""",Electronics,1,547.4,547.4,Central,Kansas City,CUST-1115
+ORD-ELE-11017,2024-05-30,Wireless Fast Charger Pad,Electronics,1,29.51,29.51,East,Philadelphia,CUST-1036
+ORD-ELE-10185,2024-05-31,Noise-Cancelling Headphones,Electronics,1,182.89,182.89,Central,Kansas City,CUST-1183
+ORD-ELE-10505,2024-05-31,"Ultra-HD Smart TV 55""",Electronics,2,565.08,1130.16,West,Los Angeles,CUST-1096
+ORD-ELE-10533,2024-05-31,Bluetooth Studio Speaker,Electronics,2,78.55,157.1,North,New York,CUST-1100
+ORD-ELE-11139,2024-05-31,Noise-Cancelling Headphones,Electronics,1,187.13,187.13,West,Los Angeles,CUST-1044
+ORD-ELE-10331,2024-06-02,"Ultra-HD Smart TV 55""",Electronics,1,540.54,540.54,North,Chicago,CUST-1053
+ORD-ELE-10688,2024-06-02,Noise-Cancelling Headphones,Electronics,3,183.86,551.58,Central,Denver,CUST-1137
+ORD-ELE-10730,2024-06-02,Wireless Fast Charger Pad,Electronics,1,30.91,30.91,East,Philadelphia,CUST-1162
+ORD-ELE-10848,2024-06-02,"Ultra-HD Smart TV 55""",Electronics,1,570.27,570.27,North,Boston,CUST-1079
+ORD-ELE-10081,2024-06-03,"Slim Pro Laptop 15""",Electronics,1,1185.95,1185.95,South,Atlanta,CUST-1107
+ORD-ELE-10402,2024-06-03,Fitness Tracker Watch,Electronics,1,157.46,157.46,West,Seattle,CUST-1022
+ORD-ELE-10023,2024-06-05,Fitness Tracker Watch,Electronics,1,153.93,153.93,Central,Denver,CUST-1154
+ORD-ELE-10092,2024-06-05,"Slim Pro Laptop 15""",Electronics,2,1155.14,2310.28,Central,Denver,CUST-1120
+ORD-ELE-10274,2024-06-05,Bluetooth Studio Speaker,Electronics,1,77.31,77.31,South,Miami,CUST-1133
+ORD-ELE-10456,2024-06-05,Bluetooth Studio Speaker,Electronics,1,76.66,76.66,South,Atlanta,CUST-1138
+ORD-ELE-10803,2024-06-05,Pro Smartphone Max,Electronics,4,915.62,3662.48,East,Charlotte,CUST-1148
+ORD-ELE-10277,2024-06-06,"Ultra-HD Smart TV 55""",Electronics,2,558.72,1117.44,Central,Austin,CUST-1145
+ORD-ELE-10522,2024-06-06,Pro Smartphone Max,Electronics,1,887.46,887.46,West,San Francisco,CUST-1161
+ORD-ELE-10056,2024-06-07,"Slim Pro Laptop 15""",Electronics,4,1243.74,4974.96,South,Miami,CUST-1007
+ORD-ELE-10341,2024-06-07,Bluetooth Studio Speaker,Electronics,3,77.5,232.5,North,New York,CUST-1170
+ORD-ELE-10769,2024-06-07,Fitness Tracker Watch,Electronics,1,154.05,154.05,East,Philadelphia,CUST-1176
+ORD-ELE-10120,2024-06-09,Pro Smartphone Max,Electronics,2,891.76,1783.52,East,Washington D.C.,CUST-1009
+ORD-ELE-10822,2024-06-09,Pro Smartphone Max,Electronics,1,886.2,886.2,West,Los Angeles,CUST-1129
+ORD-ELE-10984,2024-06-09,"Ultra-HD Smart TV 55""",Electronics,1,554.29,554.29,South,Atlanta,CUST-1106
+ORD-ELE-10967,2024-06-10,Pro Smartphone Max,Electronics,1,934.16,934.16,North,New York,CUST-1023
+ORD-ELE-10136,2024-06-11,Bluetooth Studio Speaker,Electronics,1,80.4,80.4,North,New York,CUST-1030
+ORD-ELE-10439,2024-06-11,Bluetooth Studio Speaker,Electronics,1,76.74,76.74,North,Boston,CUST-1171
+ORD-ELE-10570,2024-06-11,Wireless Fast Charger Pad,Electronics,2,30.85,61.7,South,Dallas,CUST-1112
+ORD-ELE-11182,2024-06-11,"Ultra-HD Smart TV 55""",Electronics,3,568.03,1704.09,North,New York,CUST-1087
+ORD-ELE-10285,2024-06-12,Fitness Tracker Watch,Electronics,2,156.5,313.0,South,Atlanta,CUST-1128
+ORD-ELE-10407,2024-06-12,Fitness Tracker Watch,Electronics,4,150.89,603.56,South,Miami,CUST-1162
+ORD-ELE-10131,2024-06-13,Fitness Tracker Watch,Electronics,1,148.66,148.66,East,Charlotte,CUST-1010
+ORD-ELE-10624,2024-06-13,Bluetooth Studio Speaker,Electronics,1,81.46,81.46,North,Chicago,CUST-1076
+ORD-ELE-10632,2024-06-13,Bluetooth Studio Speaker,Electronics,1,76.04,76.04,South,Atlanta,CUST-1040
+ORD-ELE-11094,2024-06-13,Bluetooth Studio Speaker,Electronics,1,81.48,81.48,South,Atlanta,CUST-1039
+ORD-ELE-10855,2024-06-14,Bluetooth Studio Speaker,Electronics,2,80.88,161.76,Central,Kansas City,CUST-1144
+ORD-ELE-10124,2024-06-18,Bluetooth Studio Speaker,Electronics,2,80.75,161.5,West,Seattle,CUST-1032
+ORD-ELE-10464,2024-06-19,Fitness Tracker Watch,Electronics,2,144.85,289.7,Central,Kansas City,CUST-1186
+ORD-ELE-10841,2024-06-19,Mechanical RGB Keyboard,Electronics,3,97.93,293.79,Central,Denver,CUST-1119
+ORD-ELE-11061,2024-06-21,Noise-Cancelling Headphones,Electronics,1,187.4,187.4,South,Dallas,CUST-1104
+ORD-ELE-11121,2024-06-21,Pro Smartphone Max,Electronics,1,891.08,891.08,West,Los Angeles,CUST-1023
+ORD-ELE-10153,2024-06-23,"Ultra-HD Smart TV 55""",Electronics,3,526.83,1580.49,Central,Kansas City,CUST-1062
+ORD-ELE-10817,2024-06-23,Pro Smartphone Max,Electronics,2,880.55,1761.1,Central,Austin,CUST-1014
+ORD-ELE-10538,2024-06-25,Bluetooth Studio Speaker,Electronics,1,79.21,79.21,East,Philadelphia,CUST-1102
+ORD-ELE-10180,2024-06-27,Bluetooth Studio Speaker,Electronics,2,76.41,152.82,Central,Denver,CUST-1191
+ORD-ELE-10704,2024-06-28,Wireless Fast Charger Pad,Electronics,1,29.81,29.81,Central,Austin,CUST-1050
+ORD-ELE-10392,2024-06-30,Mechanical RGB Keyboard,Electronics,1,104.68,104.68,East,Charlotte,CUST-1063
+ORD-ELE-10615,2024-06-30,"Ultra-HD Smart TV 55""",Electronics,1,562.67,562.67,East,Charlotte,CUST-1154
+ORD-ELE-10856,2024-06-30,Wireless Fast Charger Pad,Electronics,1,30.74,30.74,North,New York,CUST-1197
+ORD-ELE-10022,2024-07-01,Noise-Cancelling Headphones,Electronics,1,197.03,197.03,Central,Kansas City,CUST-1051
+ORD-ELE-10621,2024-07-01,Fitness Tracker Watch,Electronics,2,153.15,306.3,Central,Austin,CUST-1150
+ORD-ELE-10716,2024-07-01,Wireless Fast Charger Pad,Electronics,1,29.43,29.43,Central,Austin,CUST-1047
+ORD-ELE-10781,2024-07-01,Pro Smartphone Max,Electronics,1,873.18,873.18,North,New York,CUST-1147
+ORD-ELE-10057,2024-07-02,Fitness Tracker Watch,Electronics,1,154.23,154.23,South,Miami,CUST-1041
+ORD-ELE-10788,2024-07-02,Mechanical RGB Keyboard,Electronics,2,102.45,204.9,Central,Austin,CUST-1173
+ORD-ELE-10568,2024-07-03,Noise-Cancelling Headphones,Electronics,1,189.75,189.75,South,Miami,CUST-1163
+ORD-ELE-10912,2024-07-03,Wireless Fast Charger Pad,Electronics,1,30.02,30.02,East,Washington D.C.,CUST-1091
+ORD-ELE-10656,2024-07-04,Pro Smartphone Max,Electronics,3,931.61,2794.83,Central,Austin,CUST-1166
+ORD-ELE-11054,2024-07-04,Fitness Tracker Watch,Electronics,1,157.21,157.21,Central,Denver,CUST-1105
+ORD-ELE-10273,2024-07-05,"Ultra-HD Smart TV 55""",Electronics,3,546.28,1638.84,North,New York,CUST-1133
+ORD-ELE-10408,2024-07-07,"Ultra-HD Smart TV 55""",Electronics,1,557.72,557.72,North,Chicago,CUST-1158
+ORD-ELE-11013,2024-07-07,"Slim Pro Laptop 15""",Electronics,1,1207.49,1207.49,West,Seattle,CUST-1038
+ORD-ELE-10317,2024-07-09,Bluetooth Studio Speaker,Electronics,1,83.0,83.0,Central,Kansas City,CUST-1028
+ORD-ELE-10758,2024-07-09,Noise-Cancelling Headphones,Electronics,1,185.85,185.85,East,Charlotte,CUST-1003
+ORD-ELE-10353,2024-07-11,"Slim Pro Laptop 15""",Electronics,3,1197.52,3592.56,West,Seattle,CUST-1004
+ORD-ELE-10753,2024-07-12,Mechanical RGB Keyboard,Electronics,1,103.81,103.81,South,Atlanta,CUST-1184
+ORD-ELE-10035,2024-07-13,Wireless Fast Charger Pad,Electronics,1,28.91,28.91,East,Philadelphia,CUST-1020
+ORD-ELE-10877,2024-07-13,Fitness Tracker Watch,Electronics,2,156.34,312.68,Central,Austin,CUST-1199
+ORD-ELE-10352,2024-07-14,Pro Smartphone Max,Electronics,2,879.15,1758.3,Central,Denver,CUST-1019
+ORD-ELE-10612,2024-07-14,Fitness Tracker Watch,Electronics,1,144.11,144.11,Central,Denver,CUST-1198
+ORD-ELE-10762,2024-07-15,Bluetooth Studio Speaker,Electronics,2,82.53,165.06,North,Chicago,CUST-1064
+ORD-ELE-11052,2024-07-15,Bluetooth Studio Speaker,Electronics,2,77.36,154.72,North,Chicago,CUST-1026
+ORD-ELE-11095,2024-07-15,Pro Smartphone Max,Electronics,2,877.09,1754.18,East,Washington D.C.,CUST-1144
+ORD-ELE-11176,2024-07-15,Wireless Fast Charger Pad,Electronics,1,29.52,29.52,South,Dallas,CUST-1176
+ORD-ELE-10532,2024-07-16,"Ultra-HD Smart TV 55""",Electronics,1,524.84,524.84,East,Philadelphia,CUST-1161
+ORD-ELE-10545,2024-07-16,"Slim Pro Laptop 15""",Electronics,1,1240.43,1240.43,East,Philadelphia,CUST-1093
+ORD-ELE-10630,2024-07-17,Bluetooth Studio Speaker,Electronics,4,79.58,318.32,North,New York,CUST-1045
+ORD-ELE-10472,2024-07-19,"Slim Pro Laptop 15""",Electronics,3,1158.06,3474.18,North,New York,CUST-1139
+ORD-ELE-10903,2024-07-19,"Slim Pro Laptop 15""",Electronics,1,1221.77,1221.77,Central,Kansas City,CUST-1078
+ORD-ELE-10409,2024-07-21,Wireless Fast Charger Pad,Electronics,1,30.27,30.27,South,Atlanta,CUST-1072
+ORD-ELE-10488,2024-07-21,Wireless Fast Charger Pad,Electronics,1,30.92,30.92,West,Los Angeles,CUST-1011
+ORD-ELE-10157,2024-07-22,Mechanical RGB Keyboard,Electronics,1,103.52,103.52,East,Charlotte,CUST-1092
+ORD-ELE-10394,2024-07-23,"Ultra-HD Smart TV 55""",Electronics,1,559.98,559.98,East,Charlotte,CUST-1054
+ORD-ELE-10876,2024-07-25,Noise-Cancelling Headphones,Electronics,1,188.92,188.92,East,Charlotte,CUST-1040
+ORD-ELE-11170,2024-07-25,Bluetooth Studio Speaker,Electronics,2,80.55,161.1,North,Boston,CUST-1003
+ORD-ELE-10625,2024-07-27,Pro Smartphone Max,Electronics,1,887.27,887.27,Central,Kansas City,CUST-1190
+ORD-ELE-10998,2024-07-28,"Ultra-HD Smart TV 55""",Electronics,1,576.46,576.46,North,Chicago,CUST-1123
+ORD-ELE-10520,2024-07-29,"Slim Pro Laptop 15""",Electronics,1,1189.1,1189.1,Central,Austin,CUST-1170
+ORD-ELE-10879,2024-07-29,Pro Smartphone Max,Electronics,2,896.33,1792.66,Central,Denver,CUST-1002
+ORD-ELE-11049,2024-07-29,"Slim Pro Laptop 15""",Electronics,1,1162.16,1162.16,North,New York,CUST-1192
+ORD-ELE-10969,2024-07-30,"Ultra-HD Smart TV 55""",Electronics,1,557.68,557.68,East,Philadelphia,CUST-1045
+ORD-ELE-10995,2024-07-31,Noise-Cancelling Headphones,Electronics,1,192.28,192.28,North,Chicago,CUST-1173
+ORD-ELE-10897,2024-08-01,Mechanical RGB Keyboard,Electronics,1,102.83,102.83,West,San Francisco,CUST-1178
+ORD-ELE-11087,2024-08-02,Fitness Tracker Watch,Electronics,2,154.42,308.84,West,San Francisco,CUST-1077
+ORD-ELE-11181,2024-08-02,Pro Smartphone Max,Electronics,1,944.92,944.92,West,Seattle,CUST-1174
+ORD-ELE-10055,2024-08-03,"Slim Pro Laptop 15""",Electronics,1,1220.02,1220.02,Central,Austin,CUST-1159
+ORD-ELE-10279,2024-08-03,Mechanical RGB Keyboard,Electronics,1,101.17,101.17,Central,Austin,CUST-1165
+ORD-ELE-10119,2024-08-04,Bluetooth Studio Speaker,Electronics,1,81.27,81.27,South,Dallas,CUST-1020
+ORD-ELE-10354,2024-08-04,"Slim Pro Laptop 15""",Electronics,1,1255.44,1255.44,East,Philadelphia,CUST-1179
+ORD-ELE-10435,2024-08-04,Wireless Fast Charger Pad,Electronics,2,29.3,58.6,West,San Francisco,CUST-1148
+ORD-ELE-10815,2024-08-04,"Slim Pro Laptop 15""",Electronics,2,1205.56,2411.12,Central,Austin,CUST-1160
+ORD-ELE-10103,2024-08-05,Fitness Tracker Watch,Electronics,1,154.46,154.46,Central,Kansas City,CUST-1071
+ORD-ELE-10446,2024-08-06,"Ultra-HD Smart TV 55""",Electronics,1,573.08,573.08,East,Philadelphia,CUST-1023
+ORD-ELE-10964,2024-08-06,Pro Smartphone Max,Electronics,1,908.37,908.37,North,Boston,CUST-1037
+ORD-ELE-11053,2024-08-07,Wireless Fast Charger Pad,Electronics,1,29.59,29.59,East,Charlotte,CUST-1028
+ORD-ELE-11024,2024-08-08,Wireless Fast Charger Pad,Electronics,1,30.71,30.71,East,Washington D.C.,CUST-1042
+ORD-ELE-10177,2024-08-09,"Slim Pro Laptop 15""",Electronics,1,1179.42,1179.42,Central,Denver,CUST-1071
+ORD-ELE-10344,2024-08-10,Pro Smartphone Max,Electronics,4,867.6,3470.4,South,Dallas,CUST-1148
+ORD-ELE-10017,2024-08-12,"Ultra-HD Smart TV 55""",Electronics,1,550.51,550.51,North,New York,CUST-1040
+ORD-ELE-10327,2024-08-12,"Ultra-HD Smart TV 55""",Electronics,1,548.79,548.79,Central,Austin,CUST-1107
+ORD-ELE-10503,2024-08-12,Pro Smartphone Max,Electronics,1,902.37,902.37,Central,Denver,CUST-1034
+ORD-ELE-10358,2024-08-14,"Ultra-HD Smart TV 55""",Electronics,1,523.38,523.38,Central,Kansas City,CUST-1185
+ORD-ELE-10722,2024-08-15,"Ultra-HD Smart TV 55""",Electronics,2,525.47,1050.94,East,Charlotte,CUST-1009
+ORD-ELE-10835,2024-08-15,"Slim Pro Laptop 15""",Electronics,1,1230.92,1230.92,East,Charlotte,CUST-1126
+ORD-ELE-10987,2024-08-15,"Ultra-HD Smart TV 55""",Electronics,3,572.75,1718.25,East,Philadelphia,CUST-1011
+ORD-ELE-10339,2024-08-16,Pro Smartphone Max,Electronics,4,923.05,3692.2,East,Charlotte,CUST-1185
+ORD-ELE-10240,2024-08-17,Pro Smartphone Max,Electronics,1,883.67,883.67,West,Los Angeles,CUST-1036
+ORD-ELE-10552,2024-08-17,Bluetooth Studio Speaker,Electronics,3,80.86,242.58,West,Seattle,CUST-1097
+ORD-ELE-10891,2024-08-17,"Ultra-HD Smart TV 55""",Electronics,1,569.85,569.85,West,Seattle,CUST-1047
+ORD-ELE-10072,2024-08-18,"Slim Pro Laptop 15""",Electronics,1,1157.67,1157.67,East,Charlotte,CUST-1197
+ORD-ELE-10824,2024-08-18,"Ultra-HD Smart TV 55""",Electronics,1,541.29,541.29,South,Atlanta,CUST-1187
+ORD-ELE-10165,2024-08-19,Mechanical RGB Keyboard,Electronics,2,104.66,209.32,West,Los Angeles,CUST-1102
+ORD-ELE-10369,2024-08-19,Bluetooth Studio Speaker,Electronics,2,81.46,162.92,North,New York,CUST-1104
+ORD-ELE-10913,2024-08-19,"Ultra-HD Smart TV 55""",Electronics,1,545.85,545.85,East,Charlotte,CUST-1061
+ORD-ELE-10801,2024-08-20,Pro Smartphone Max,Electronics,1,912.04,912.04,North,Boston,CUST-1135
+ORD-ELE-11009,2024-08-20,Wireless Fast Charger Pad,Electronics,1,29.61,29.61,North,New York,CUST-1091
+ORD-ELE-10379,2024-08-21,Fitness Tracker Watch,Electronics,1,150.79,150.79,South,Dallas,CUST-1150
+ORD-ELE-10718,2024-08-22,"Slim Pro Laptop 15""",Electronics,2,1240.18,2480.36,West,Los Angeles,CUST-1200
+ORD-ELE-10699,2024-08-23,Wireless Fast Charger Pad,Electronics,3,30.84,92.52,North,New York,CUST-1131
+ORD-ELE-10714,2024-08-23,Fitness Tracker Watch,Electronics,1,148.68,148.68,Central,Denver,CUST-1180
+ORD-ELE-10787,2024-08-24,Mechanical RGB Keyboard,Electronics,1,96.88,96.88,South,Dallas,CUST-1161
+ORD-ELE-10121,2024-08-25,Bluetooth Studio Speaker,Electronics,2,81.65,163.3,East,Philadelphia,CUST-1176
+ORD-ELE-11007,2024-08-25,Fitness Tracker Watch,Electronics,1,148.67,148.67,West,Seattle,CUST-1152
+ORD-ELE-10759,2024-08-26,Noise-Cancelling Headphones,Electronics,1,183.35,183.35,West,Seattle,CUST-1080
+ORD-ELE-10863,2024-08-26,Bluetooth Studio Speaker,Electronics,1,83.82,83.82,North,Boston,CUST-1161
+ORD-ELE-10122,2024-08-27,Bluetooth Studio Speaker,Electronics,1,82.29,82.29,South,Miami,CUST-1030
+ORD-ELE-10977,2024-08-28,Wireless Fast Charger Pad,Electronics,1,30.27,30.27,South,Dallas,CUST-1174
+ORD-ELE-10898,2024-08-29,"Ultra-HD Smart TV 55""",Electronics,1,558.93,558.93,Central,Austin,CUST-1030
+ORD-ELE-10925,2024-08-29,Wireless Fast Charger Pad,Electronics,1,29.03,29.03,North,Boston,CUST-1022
+ORD-ELE-11110,2024-08-29,Bluetooth Studio Speaker,Electronics,3,77.67,233.01,East,Charlotte,CUST-1082
+ORD-ELE-10037,2024-08-30,"Ultra-HD Smart TV 55""",Electronics,1,544.84,544.84,East,Philadelphia,CUST-1043
+ORD-ELE-10269,2024-08-30,Wireless Fast Charger Pad,Electronics,1,28.57,28.57,West,Seattle,CUST-1142
+ORD-ELE-10478,2024-08-30,Bluetooth Studio Speaker,Electronics,1,78.08,78.08,East,Charlotte,CUST-1189
+ORD-ELE-10726,2024-08-30,Bluetooth Studio Speaker,Electronics,1,79.76,79.76,West,Los Angeles,CUST-1128
+ORD-ELE-10031,2024-08-31,Bluetooth Studio Speaker,Electronics,1,81.34,81.34,South,Dallas,CUST-1147
+ORD-ELE-10244,2024-09-01,Mechanical RGB Keyboard,Electronics,1,101.38,101.38,North,New York,CUST-1128
+ORD-ELE-10896,2024-09-01,"Slim Pro Laptop 15""",Electronics,4,1205.74,4822.96,East,Philadelphia,CUST-1088
+ORD-ELE-10755,2024-09-02,Bluetooth Studio Speaker,Electronics,2,78.27,156.54,West,Seattle,CUST-1049
+ORD-ELE-10025,2024-09-03,Noise-Cancelling Headphones,Electronics,1,182.12,182.12,North,Chicago,CUST-1197
+ORD-ELE-10349,2024-09-03,"Slim Pro Laptop 15""",Electronics,2,1176.08,2352.16,East,Philadelphia,CUST-1144
+ORD-ELE-10989,2024-09-03,Noise-Cancelling Headphones,Electronics,1,191.1,191.1,East,Philadelphia,CUST-1034
+ORD-ELE-10934,2024-09-04,"Slim Pro Laptop 15""",Electronics,2,1202.38,2404.76,South,Miami,CUST-1141
+ORD-ELE-10813,2024-09-05,"Ultra-HD Smart TV 55""",Electronics,2,570.27,1140.54,North,Boston,CUST-1178
+ORD-ELE-10176,2024-09-06,"Ultra-HD Smart TV 55""",Electronics,1,565.77,565.77,Central,Denver,CUST-1151
+ORD-ELE-10712,2024-09-06,Fitness Tracker Watch,Electronics,1,156.91,156.91,East,Charlotte,CUST-1008
+ORD-ELE-10101,2024-09-08,Noise-Cancelling Headphones,Electronics,1,185.79,185.79,East,Charlotte,CUST-1157
+ORD-ELE-11192,2024-09-08,"Ultra-HD Smart TV 55""",Electronics,1,563.92,563.92,South,Atlanta,CUST-1110
+ORD-ELE-10016,2024-09-09,Bluetooth Studio Speaker,Electronics,1,81.97,81.97,Central,Austin,CUST-1093
+ORD-ELE-10079,2024-09-10,Bluetooth Studio Speaker,Electronics,1,82.12,82.12,South,Miami,CUST-1113
+ORD-ELE-10424,2024-09-10,Bluetooth Studio Speaker,Electronics,1,82.99,82.99,West,Seattle,CUST-1023
+ORD-ELE-10745,2024-09-10,Bluetooth Studio Speaker,Electronics,1,79.54,79.54,Central,Denver,CUST-1008
+ORD-ELE-10323,2024-09-11,Pro Smartphone Max,Electronics,1,878.46,878.46,West,Seattle,CUST-1078
+ORD-ELE-10617,2024-09-11,Bluetooth Studio Speaker,Electronics,1,79.17,79.17,West,Seattle,CUST-1035
+ORD-ELE-10430,2024-09-12,"Ultra-HD Smart TV 55""",Electronics,2,561.62,1123.24,East,Washington D.C.,CUST-1037
+ORD-ELE-10946,2024-09-13,Wireless Fast Charger Pad,Electronics,1,28.55,28.55,North,New York,CUST-1171
+ORD-ELE-11048,2024-09-16,Pro Smartphone Max,Electronics,2,860.95,1721.9,North,New York,CUST-1155
+ORD-ELE-10579,2024-09-18,Pro Smartphone Max,Electronics,1,908.44,908.44,North,Chicago,CUST-1006
+ORD-ELE-10734,2024-09-20,Fitness Tracker Watch,Electronics,1,142.79,142.79,Central,Denver,CUST-1148
+ORD-ELE-10461,2024-09-22,"Ultra-HD Smart TV 55""",Electronics,2,542.94,1085.88,West,San Francisco,CUST-1031
+ORD-ELE-10265,2024-09-23,Wireless Fast Charger Pad,Electronics,1,29.13,29.13,East,Philadelphia,CUST-1032
+ORD-ELE-11132,2024-09-23,"Ultra-HD Smart TV 55""",Electronics,3,550.2,1650.6,East,Philadelphia,CUST-1023
+ORD-ELE-10062,2024-09-24,"Ultra-HD Smart TV 55""",Electronics,4,554.42,2217.68,North,New York,CUST-1153
+ORD-ELE-11069,2024-09-24,Fitness Tracker Watch,Electronics,1,154.63,154.63,North,New York,CUST-1111
+ORD-ELE-11113,2024-09-24,Noise-Cancelling Headphones,Electronics,1,187.18,187.18,Central,Kansas City,CUST-1084
+ORD-ELE-11126,2024-09-25,"Slim Pro Laptop 15""",Electronics,3,1214.11,3642.33,West,San Francisco,CUST-1176
+ORD-ELE-10665,2024-09-26,Noise-Cancelling Headphones,Electronics,3,194.31,582.93,Central,Kansas City,CUST-1008
+ORD-ELE-10715,2024-09-26,"Slim Pro Laptop 15""",Electronics,1,1174.46,1174.46,West,Los Angeles,CUST-1142
+ORD-ELE-11135,2024-09-27,Fitness Tracker Watch,Electronics,1,149.03,149.03,East,Philadelphia,CUST-1143
+ORD-ELE-10147,2024-09-28,Fitness Tracker Watch,Electronics,1,151.84,151.84,North,Boston,CUST-1173
+ORD-ELE-10513,2024-09-28,"Slim Pro Laptop 15""",Electronics,1,1169.94,1169.94,West,Los Angeles,CUST-1185
+ORD-ELE-10256,2024-09-30,Noise-Cancelling Headphones,Electronics,1,194.3,194.3,Central,Denver,CUST-1140
+ORD-ELE-10933,2024-09-30,Noise-Cancelling Headphones,Electronics,1,185.34,185.34,East,Charlotte,CUST-1192
+ORD-ELE-10387,2024-10-02,Bluetooth Studio Speaker,Electronics,1,78.14,78.14,South,Miami,CUST-1071
+ORD-ELE-10527,2024-10-02,Pro Smartphone Max,Electronics,2,868.59,1737.18,North,New York,CUST-1172
+ORD-ELE-10383,2024-10-03,Noise-Cancelling Headphones,Electronics,1,183.01,183.01,East,Charlotte,CUST-1143
+ORD-ELE-10729,2024-10-03,"Slim Pro Laptop 15""",Electronics,3,1206.63,3619.89,South,Atlanta,CUST-1190
+ORD-ELE-10740,2024-10-04,Wireless Fast Charger Pad,Electronics,3,30.83,92.49,Central,Kansas City,CUST-1116
+ORD-ELE-10593,2024-10-05,Mechanical RGB Keyboard,Electronics,1,101.89,101.89,East,Charlotte,CUST-1043
+ORD-ELE-10747,2024-10-05,Wireless Fast Charger Pad,Electronics,3,28.9,86.7,Central,Denver,CUST-1152
+ORD-ELE-10757,2024-10-05,Wireless Fast Charger Pad,Electronics,1,29.05,29.05,North,Chicago,CUST-1006
+ORD-ELE-10138,2024-10-06,Mechanical RGB Keyboard,Electronics,4,103.34,413.36,South,Miami,CUST-1142
+ORD-ELE-10197,2024-10-06,Bluetooth Studio Speaker,Electronics,1,83.36,83.36,South,Atlanta,CUST-1145
+ORD-ELE-10202,2024-10-06,"Slim Pro Laptop 15""",Electronics,1,1230.58,1230.58,East,Philadelphia,CUST-1073
+ORD-ELE-10254,2024-10-06,Noise-Cancelling Headphones,Electronics,1,195.68,195.68,East,Charlotte,CUST-1113
+ORD-ELE-10366,2024-10-08,Bluetooth Studio Speaker,Electronics,2,76.13,152.26,East,Philadelphia,CUST-1028
+ORD-ELE-10721,2024-10-08,Wireless Fast Charger Pad,Electronics,2,29.04,58.08,Central,Austin,CUST-1102
+ORD-ELE-11104,2024-10-08,Wireless Fast Charger Pad,Electronics,3,29.72,89.16,North,Boston,CUST-1137
+ORD-ELE-10823,2024-10-09,Pro Smartphone Max,Electronics,3,911.31,2733.93,North,Chicago,CUST-1072
+ORD-ELE-11004,2024-10-09,Noise-Cancelling Headphones,Electronics,1,193.73,193.73,South,Dallas,CUST-1161
+ORD-ELE-11020,2024-10-11,"Slim Pro Laptop 15""",Electronics,1,1142.7,1142.7,East,Charlotte,CUST-1172
+ORD-ELE-11050,2024-10-11,Fitness Tracker Watch,Electronics,3,147.77,443.31,Central,Denver,CUST-1130
+ORD-ELE-10195,2024-10-12,"Slim Pro Laptop 15""",Electronics,2,1236.86,2473.72,Central,Kansas City,CUST-1173
+ORD-ELE-10872,2024-10-14,Pro Smartphone Max,Electronics,1,885.51,885.51,Central,Denver,CUST-1147
+ORD-ELE-11134,2024-10-14,Fitness Tracker Watch,Electronics,1,156.38,156.38,West,San Francisco,CUST-1195
+ORD-ELE-10288,2024-10-15,Wireless Fast Charger Pad,Electronics,2,30.28,60.56,East,Washington D.C.,CUST-1138
+ORD-ELE-10521,2024-10-15,Bluetooth Studio Speaker,Electronics,1,77.89,77.89,Central,Kansas City,CUST-1126
+ORD-ELE-11179,2024-10-16,Noise-Cancelling Headphones,Electronics,1,193.16,193.16,South,Atlanta,CUST-1156
+ORD-ELE-10071,2024-10-17,Fitness Tracker Watch,Electronics,4,143.89,575.56,South,Dallas,CUST-1080
+ORD-ELE-10275,2024-10-17,Noise-Cancelling Headphones,Electronics,1,185.25,185.25,Central,Austin,CUST-1033
+ORD-ELE-10233,2024-10-18,Wireless Fast Charger Pad,Electronics,1,29.19,29.19,East,Philadelphia,CUST-1095
+ORD-ELE-10708,2024-10-18,Fitness Tracker Watch,Electronics,2,147.7,295.4,South,Dallas,CUST-1050
+ORD-ELE-10975,2024-10-18,"Slim Pro Laptop 15""",Electronics,1,1192.15,1192.15,East,Philadelphia,CUST-1027
+ORD-ELE-11010,2024-10-18,Wireless Fast Charger Pad,Electronics,1,31.36,31.36,South,Dallas,CUST-1138
+ORD-ELE-11011,2024-10-19,"Ultra-HD Smart TV 55""",Electronics,2,576.02,1152.04,South,Atlanta,CUST-1061
+ORD-ELE-10069,2024-10-20,"Slim Pro Laptop 15""",Electronics,1,1191.58,1191.58,West,Seattle,CUST-1114
+ORD-ELE-10455,2024-10-20,Mechanical RGB Keyboard,Electronics,1,99.23,99.23,Central,Kansas City,CUST-1158
+ORD-ELE-10193,2024-10-21,Bluetooth Studio Speaker,Electronics,1,78.8,78.8,South,Atlanta,CUST-1169
+ORD-ELE-10627,2024-10-21,Pro Smartphone Max,Electronics,1,938.37,938.37,West,San Francisco,CUST-1014
+ORD-ELE-10009,2024-10-23,Noise-Cancelling Headphones,Electronics,3,196.74,590.22,East,Washington D.C.,CUST-1117
+ORD-ELE-10952,2024-10-23,"Slim Pro Laptop 15""",Electronics,1,1161.18,1161.18,East,Charlotte,CUST-1049
+ORD-ELE-10575,2024-10-24,Wireless Fast Charger Pad,Electronics,1,30.67,30.67,West,Seattle,CUST-1176
+ORD-ELE-10428,2024-10-26,Bluetooth Studio Speaker,Electronics,4,80.57,322.28,Central,Kansas City,CUST-1025
+ORD-ELE-10819,2024-10-26,Mechanical RGB Keyboard,Electronics,1,97.3,97.3,North,Boston,CUST-1125
+ORD-ELE-11188,2024-10-26,Wireless Fast Charger Pad,Electronics,1,30.78,30.78,North,New York,CUST-1166
+ORD-ELE-10257,2024-10-27,Fitness Tracker Watch,Electronics,1,144.03,144.03,West,Seattle,CUST-1115
+ORD-ELE-10637,2024-10-27,"Slim Pro Laptop 15""",Electronics,1,1254.03,1254.03,East,Charlotte,CUST-1193
+ORD-ELE-10164,2024-10-29,Fitness Tracker Watch,Electronics,1,154.55,154.55,North,New York,CUST-1194
+ORD-ELE-10994,2024-10-30,Mechanical RGB Keyboard,Electronics,2,102.52,205.04,Central,Kansas City,CUST-1148
+ORD-ELE-11085,2024-10-31,Mechanical RGB Keyboard,Electronics,1,103.04,103.04,North,Chicago,CUST-1149
+ORD-ELE-10141,2024-11-01,Wireless Fast Charger Pad,Electronics,1,31.09,31.09,East,Washington D.C.,CUST-1086
+ORD-ELE-10306,2024-11-01,"Slim Pro Laptop 15""",Electronics,4,1252.97,5011.88,West,San Francisco,CUST-1054
+ORD-ELE-11099,2024-11-01,Noise-Cancelling Headphones,Electronics,1,197.6,197.6,West,San Francisco,CUST-1169
+ORD-ELE-10296,2024-11-02,Fitness Tracker Watch,Electronics,1,150.1,150.1,East,Charlotte,CUST-1145
+ORD-ELE-10297,2024-11-02,Wireless Fast Charger Pad,Electronics,1,30.94,30.94,North,Boston,CUST-1150
+ORD-ELE-10857,2024-11-02,Fitness Tracker Watch,Electronics,1,148.02,148.02,North,Boston,CUST-1141
+ORD-ELE-10953,2024-11-02,Mechanical RGB Keyboard,Electronics,1,103.95,103.95,West,Seattle,CUST-1022
+ORD-ELE-10346,2024-11-03,Bluetooth Studio Speaker,Electronics,3,76.48,229.44,South,Dallas,CUST-1174
+ORD-ELE-10405,2024-11-03,Pro Smartphone Max,Electronics,1,927.91,927.91,West,San Francisco,CUST-1028
+ORD-ELE-10541,2024-11-03,Wireless Fast Charger Pad,Electronics,1,30.81,30.81,East,Charlotte,CUST-1166
+ORD-ELE-10971,2024-11-04,Fitness Tracker Watch,Electronics,1,148.77,148.77,South,Atlanta,CUST-1136
+ORD-ELE-11168,2024-11-04,Wireless Fast Charger Pad,Electronics,1,28.93,28.93,North,New York,CUST-1040
+ORD-ELE-10280,2024-11-05,Wireless Fast Charger Pad,Electronics,2,29.22,58.44,East,Washington D.C.,CUST-1117
+ORD-ELE-10875,2024-11-05,"Slim Pro Laptop 15""",Electronics,1,1203.0,1203.0,West,Los Angeles,CUST-1200
+ORD-ELE-11026,2024-11-06,Wireless Fast Charger Pad,Electronics,1,31.45,31.45,West,Los Angeles,CUST-1152
+ORD-ELE-10786,2024-11-07,Noise-Cancelling Headphones,Electronics,4,198.44,793.76,North,New York,CUST-1186
+ORD-ELE-10991,2024-11-08,"Ultra-HD Smart TV 55""",Electronics,3,561.17,1683.51,Central,Denver,CUST-1117
+ORD-ELE-10474,2024-11-10,Noise-Cancelling Headphones,Electronics,4,184.39,737.56,East,Washington D.C.,CUST-1016
+ORD-ELE-10298,2024-11-11,Pro Smartphone Max,Electronics,1,908.71,908.71,Central,Kansas City,CUST-1059
+ORD-ELE-10750,2024-11-11,Fitness Tracker Watch,Electronics,1,148.67,148.67,North,New York,CUST-1134
+ORD-ELE-10866,2024-11-11,Bluetooth Studio Speaker,Electronics,1,80.04,80.04,North,New York,CUST-1176
+ORD-ELE-10228,2024-11-12,"Ultra-HD Smart TV 55""",Electronics,1,574.8,574.8,East,Philadelphia,CUST-1058
+ORD-ELE-10849,2024-11-12,Wireless Fast Charger Pad,Electronics,1,29.36,29.36,South,Atlanta,CUST-1001
+ORD-ELE-10252,2024-11-13,Mechanical RGB Keyboard,Electronics,1,104.88,104.88,West,Los Angeles,CUST-1193
+ORD-ELE-10326,2024-11-14,Noise-Cancelling Headphones,Electronics,3,192.63,577.89,West,San Francisco,CUST-1057
+ORD-ELE-10470,2024-11-14,Fitness Tracker Watch,Electronics,1,143.79,143.79,West,Los Angeles,CUST-1075
+ORD-ELE-10880,2024-11-14,Pro Smartphone Max,Electronics,1,916.82,916.82,North,Boston,CUST-1120
+ORD-ELE-10882,2024-11-15,"Slim Pro Laptop 15""",Electronics,1,1178.5,1178.5,West,San Francisco,CUST-1082
+ORD-ELE-10412,2024-11-16,Mechanical RGB Keyboard,Electronics,1,101.1,101.1,West,Seattle,CUST-1118
+ORD-ELE-10590,2024-11-16,Mechanical RGB Keyboard,Electronics,1,102.38,102.38,North,New York,CUST-1036
+ORD-ELE-10304,2024-11-17,"Ultra-HD Smart TV 55""",Electronics,1,547.77,547.77,Central,Austin,CUST-1174
+ORD-ELE-10739,2024-11-17,Fitness Tracker Watch,Electronics,2,152.29,304.58,Central,Kansas City,CUST-1102
+ORD-ELE-10448,2024-11-18,"Ultra-HD Smart TV 55""",Electronics,1,536.12,536.12,South,Dallas,CUST-1154
+ORD-ELE-10791,2024-11-18,Fitness Tracker Watch,Electronics,1,155.16,155.16,East,Charlotte,CUST-1083
+ORD-ELE-10795,2024-11-18,Pro Smartphone Max,Electronics,3,924.43,2773.29,West,San Francisco,CUST-1131
+ORD-ELE-10044,2024-11-19,Bluetooth Studio Speaker,Electronics,2,77.62,155.24,South,Miami,CUST-1102
+ORD-ELE-10109,2024-11-19,Noise-Cancelling Headphones,Electronics,4,194.6,778.4,South,Atlanta,CUST-1056
+ORD-ELE-11038,2024-11-19,Bluetooth Studio Speaker,Electronics,2,78.16,156.32,West,Los Angeles,CUST-1137
+ORD-ELE-11174,2024-11-19,Noise-Cancelling Headphones,Electronics,1,185.58,185.58,East,Philadelphia,CUST-1127
+ORD-ELE-10382,2024-11-20,Fitness Tracker Watch,Electronics,1,144.09,144.09,West,Seattle,CUST-1093
+ORD-ELE-10772,2024-11-20,Fitness Tracker Watch,Electronics,1,154.57,154.57,South,Atlanta,CUST-1177
+ORD-ELE-10861,2024-11-20,Bluetooth Studio Speaker,Electronics,4,80.19,320.76,West,Los Angeles,CUST-1158
+ORD-ELE-11133,2024-11-20,Mechanical RGB Keyboard,Electronics,1,96.41,96.41,North,New York,CUST-1128
+ORD-ELE-10345,2024-11-22,Fitness Tracker Watch,Electronics,3,146.04,438.12,Central,Denver,CUST-1106
+ORD-ELE-10517,2024-11-22,Bluetooth Studio Speaker,Electronics,1,83.6,83.6,South,Miami,CUST-1042
+ORD-ELE-11093,2024-11-22,Noise-Cancelling Headphones,Electronics,2,192.53,385.06,West,Seattle,CUST-1166
+ORD-ELE-10267,2024-11-23,Fitness Tracker Watch,Electronics,1,153.13,153.13,West,Seattle,CUST-1041
+ORD-ELE-10512,2024-11-23,"Ultra-HD Smart TV 55""",Electronics,4,557.48,2229.92,West,Seattle,CUST-1003
+ORD-ELE-10558,2024-11-23,"Ultra-HD Smart TV 55""",Electronics,2,562.16,1124.32,West,Seattle,CUST-1108
+ORD-ELE-10810,2024-11-24,Fitness Tracker Watch,Electronics,1,151.4,151.4,West,Los Angeles,CUST-1090
+ORD-ELE-10633,2024-11-26,Pro Smartphone Max,Electronics,1,924.62,924.62,West,Seattle,CUST-1147
+ORD-ELE-10024,2024-11-27,Wireless Fast Charger Pad,Electronics,3,28.55,85.65,West,Los Angeles,CUST-1015
+ORD-ELE-10013,2024-11-28,Pro Smartphone Max,Electronics,1,875.6,875.6,West,Seattle,CUST-1069
+ORD-ELE-10186,2024-11-28,Mechanical RGB Keyboard,Electronics,1,104.94,104.94,East,Charlotte,CUST-1155
+ORD-ELE-10200,2024-11-28,Noise-Cancelling Headphones,Electronics,1,197.27,197.27,Central,Denver,CUST-1173
+ORD-ELE-10209,2024-11-28,"Ultra-HD Smart TV 55""",Electronics,1,566.56,566.56,West,Los Angeles,CUST-1112
+ORD-ELE-10393,2024-11-29,Mechanical RGB Keyboard,Electronics,2,97.79,195.58,West,Los Angeles,CUST-1145
+ORD-ELE-10411,2024-11-29,"Slim Pro Laptop 15""",Electronics,1,1194.9,1194.9,East,Charlotte,CUST-1164
+ORD-ELE-10978,2024-11-29,"Slim Pro Laptop 15""",Electronics,1,1233.47,1233.47,North,New York,CUST-1189
+ORD-ELE-10067,2024-11-30,Mechanical RGB Keyboard,Electronics,1,101.96,101.96,South,Miami,CUST-1171
+ORD-ELE-10089,2024-11-30,Fitness Tracker Watch,Electronics,1,153.91,153.91,East,Washington D.C.,CUST-1021
+ORD-ELE-10457,2024-11-30,Mechanical RGB Keyboard,Electronics,2,100.85,201.7,North,Boston,CUST-1179
+ORD-ELE-10479,2024-11-30,Fitness Tracker Watch,Electronics,1,149.28,149.28,South,Atlanta,CUST-1200
+ORD-ELE-10168,2024-12-01,"Slim Pro Laptop 15""",Electronics,1,1217.71,1217.71,East,Charlotte,CUST-1078
+ORD-ELE-10205,2024-12-01,Noise-Cancelling Headphones,Electronics,2,180.64,361.28,South,Atlanta,CUST-1098
+ORD-ELE-10322,2024-12-01,Noise-Cancelling Headphones,Electronics,1,188.11,188.11,South,Miami,CUST-1083
+ORD-ELE-10433,2024-12-01,Pro Smartphone Max,Electronics,2,933.19,1866.38,North,Chicago,CUST-1118
+ORD-ELE-10483,2024-12-01,"Ultra-HD Smart TV 55""",Electronics,1,527.51,527.51,West,Seattle,CUST-1132
+ORD-ELE-10878,2024-12-01,"Ultra-HD Smart TV 55""",Electronics,1,564.81,564.81,Central,Kansas City,CUST-1034
+ORD-ELE-11142,2024-12-02,Pro Smartphone Max,Electronics,4,880.58,3522.32,North,Boston,CUST-1096
+ORD-ELE-10826,2024-12-03,Wireless Fast Charger Pad,Electronics,1,30.12,30.12,South,Dallas,CUST-1139
+ORD-ELE-11145,2024-12-03,Pro Smartphone Max,Electronics,4,914.05,3656.2,West,San Francisco,CUST-1188
+ORD-ELE-10351,2024-12-04,Noise-Cancelling Headphones,Electronics,2,198.01,396.02,North,Chicago,CUST-1186
+ORD-ELE-10868,2024-12-04,Fitness Tracker Watch,Electronics,1,156.32,156.32,East,Philadelphia,CUST-1166
+ORD-ELE-10539,2024-12-05,"Slim Pro Laptop 15""",Electronics,1,1145.91,1145.91,West,Seattle,CUST-1006
+ORD-ELE-10249,2024-12-06,"Ultra-HD Smart TV 55""",Electronics,1,524.93,524.93,South,Dallas,CUST-1119
+ORD-ELE-10867,2024-12-07,Fitness Tracker Watch,Electronics,1,148.43,148.43,North,New York,CUST-1050
+ORD-ELE-10318,2024-12-09,Bluetooth Studio Speaker,Electronics,1,79.62,79.62,Central,Austin,CUST-1035
+ORD-ELE-10563,2024-12-09,Noise-Cancelling Headphones,Electronics,1,184.71,184.71,West,Seattle,CUST-1085
+ORD-ELE-10982,2024-12-09,"Ultra-HD Smart TV 55""",Electronics,1,524.26,524.26,West,Los Angeles,CUST-1029
+ORD-ELE-10086,2024-12-10,Mechanical RGB Keyboard,Electronics,2,102.23,204.46,South,Dallas,CUST-1137
+ORD-ELE-10805,2024-12-10,Noise-Cancelling Headphones,Electronics,2,189.53,379.06,Central,Austin,CUST-1068
+ORD-ELE-10540,2024-12-11,Bluetooth Studio Speaker,Electronics,2,78.48,156.96,North,New York,CUST-1035
+ORD-ELE-10223,2024-12-12,Pro Smartphone Max,Electronics,1,926.02,926.02,North,Boston,CUST-1025
+ORD-ELE-11195,2024-12-12,Fitness Tracker Watch,Electronics,2,148.51,297.02,East,Philadelphia,CUST-1101
+ORD-ELE-10211,2024-12-13,"Slim Pro Laptop 15""",Electronics,1,1179.96,1179.96,Central,Kansas City,CUST-1030
+ORD-ELE-11177,2024-12-13,Wireless Fast Charger Pad,Electronics,1,28.88,28.88,East,Washington D.C.,CUST-1173
+ORD-ELE-10005,2024-12-14,Bluetooth Studio Speaker,Electronics,4,77.23,308.92,West,Los Angeles,CUST-1024
+ORD-ELE-10504,2024-12-14,"Ultra-HD Smart TV 55""",Electronics,2,573.02,1146.04,West,Los Angeles,CUST-1006
+ORD-ELE-11184,2024-12-14,Fitness Tracker Watch,Electronics,2,154.03,308.06,Central,Austin,CUST-1039
+ORD-ELE-10098,2024-12-15,Pro Smartphone Max,Electronics,2,931.45,1862.9,North,Boston,CUST-1093
+ORD-ELE-10567,2024-12-16,Mechanical RGB Keyboard,Electronics,3,104.86,314.58,East,Philadelphia,CUST-1081
+ORD-ELE-10686,2024-12-16,Wireless Fast Charger Pad,Electronics,1,30.28,30.28,East,Washington D.C.,CUST-1034
+ORD-ELE-11044,2024-12-16,"Ultra-HD Smart TV 55""",Electronics,1,561.53,561.53,North,New York,CUST-1033
+ORD-ELE-10050,2024-12-17,"Slim Pro Laptop 15""",Electronics,3,1222.49,3667.47,Central,Austin,CUST-1065
+ORD-ELE-10528,2024-12-18,Mechanical RGB Keyboard,Electronics,1,104.7,104.7,Central,Denver,CUST-1100
+ORD-ELE-10156,2024-12-19,Bluetooth Studio Speaker,Electronics,1,81.1,81.1,West,Seattle,CUST-1078
+ORD-ELE-10377,2024-12-20,Pro Smartphone Max,Electronics,1,863.78,863.78,North,Boston,CUST-1155
+ORD-ELE-10473,2024-12-20,Pro Smartphone Max,Electronics,1,940.58,940.58,East,Charlotte,CUST-1187
+ORD-ELE-10338,2024-12-22,Noise-Cancelling Headphones,Electronics,1,183.88,183.88,Central,Denver,CUST-1187
+ORD-ELE-10404,2024-12-22,Wireless Fast Charger Pad,Electronics,2,28.78,57.56,East,Washington D.C.,CUST-1018
+ORD-ELE-10775,2024-12-22,Fitness Tracker Watch,Electronics,1,153.48,153.48,Central,Kansas City,CUST-1042
+ORD-ELE-10894,2024-12-22,"Ultra-HD Smart TV 55""",Electronics,1,550.43,550.43,North,Boston,CUST-1143
+ORD-ELE-10553,2024-12-23,Wireless Fast Charger Pad,Electronics,1,29.25,29.25,Central,Kansas City,CUST-1102
+ORD-ELE-10865,2024-12-24,"Slim Pro Laptop 15""",Electronics,1,1141.35,1141.35,West,Seattle,CUST-1018
+ORD-ELE-10084,2024-12-26,Bluetooth Studio Speaker,Electronics,3,82.02,246.06,East,Charlotte,CUST-1192
+ORD-ELE-10160,2024-12-26,"Slim Pro Laptop 15""",Electronics,1,1216.38,1216.38,South,Dallas,CUST-1025
+ORD-ELE-10361,2024-12-26,"Ultra-HD Smart TV 55""",Electronics,1,530.19,530.19,South,Dallas,CUST-1165
+ORD-ELE-10259,2024-12-27,Mechanical RGB Keyboard,Electronics,4,97.74,390.96,North,New York,CUST-1172
+ORD-ELE-10609,2024-12-29,Bluetooth Studio Speaker,Electronics,1,80.37,80.37,North,New York,CUST-1043
+ORD-ELE-11036,2024-12-30,Pro Smartphone Max,Electronics,1,881.08,881.08,North,Chicago,CUST-1050
+ORD-ELE-10508,2024-12-31,"Slim Pro Laptop 15""",Electronics,2,1219.85,2439.7,East,Washington D.C.,CUST-1188
+ORD-ELE-10174,2025-01-02,Pro Smartphone Max,Electronics,1,890.82,890.82,North,Boston,CUST-1024
+ORD-ELE-10418,2025-01-02,Pro Smartphone Max,Electronics,1,898.6,898.6,East,Charlotte,CUST-1130
+ORD-ELE-10596,2025-01-02,Pro Smartphone Max,Electronics,3,932.62,2797.86,South,Miami,CUST-1125
+ORD-ELE-10990,2025-01-02,Bluetooth Studio Speaker,Electronics,4,77.9,311.6,North,Boston,CUST-1172
+ORD-ELE-10398,2025-01-03,Noise-Cancelling Headphones,Electronics,1,182.57,182.57,West,Los Angeles,CUST-1166
+ORD-ELE-10793,2025-01-03,Wireless Fast Charger Pad,Electronics,1,29.83,29.83,North,Boston,CUST-1153
+ORD-ELE-10909,2025-01-03,Mechanical RGB Keyboard,Electronics,4,96.53,386.12,South,Atlanta,CUST-1003
+ORD-ELE-10452,2025-01-04,Fitness Tracker Watch,Electronics,3,144.47,433.41,Central,Austin,CUST-1094
+ORD-ELE-11056,2025-01-04,Bluetooth Studio Speaker,Electronics,1,80.45,80.45,West,Seattle,CUST-1030
+ORD-ELE-11033,2025-01-05,Wireless Fast Charger Pad,Electronics,3,30.19,90.57,East,Charlotte,CUST-1031
+ORD-ELE-11106,2025-01-06,Wireless Fast Charger Pad,Electronics,2,30.64,61.28,North,Chicago,CUST-1156
+ORD-ELE-10996,2025-01-07,Pro Smartphone Max,Electronics,1,864.98,864.98,Central,Denver,CUST-1094
+ORD-ELE-11189,2025-01-07,Fitness Tracker Watch,Electronics,1,154.78,154.78,South,Miami,CUST-1107
+ORD-ELE-11092,2025-01-08,Wireless Fast Charger Pad,Electronics,1,28.93,28.93,West,Seattle,CUST-1106
+ORD-ELE-10293,2025-01-09,"Ultra-HD Smart TV 55""",Electronics,1,533.44,533.44,Central,Denver,CUST-1012
+ORD-ELE-10783,2025-01-10,"Slim Pro Laptop 15""",Electronics,1,1212.7,1212.7,South,Dallas,CUST-1126
+ORD-ELE-10797,2025-01-10,"Slim Pro Laptop 15""",Electronics,2,1167.95,2335.9,North,Chicago,CUST-1103
+ORD-ELE-10997,2025-01-10,"Ultra-HD Smart TV 55""",Electronics,2,558.14,1116.28,Central,Kansas City,CUST-1199
+ORD-ELE-10444,2025-01-11,Bluetooth Studio Speaker,Electronics,2,77.09,154.18,South,Dallas,CUST-1174
+ORD-ELE-11059,2025-01-11,"Ultra-HD Smart TV 55""",Electronics,2,523.19,1046.38,North,Boston,CUST-1113
+ORD-ELE-11122,2025-01-11,"Ultra-HD Smart TV 55""",Electronics,1,574.59,574.59,Central,Austin,CUST-1198
+ORD-ELE-10107,2025-01-12,Wireless Fast Charger Pad,Electronics,1,30.15,30.15,Central,Austin,CUST-1091
+ORD-ELE-10785,2025-01-12,Pro Smartphone Max,Electronics,1,929.12,929.12,North,Chicago,CUST-1019
+ORD-ELE-10054,2025-01-13,"Ultra-HD Smart TV 55""",Electronics,1,546.13,546.13,West,Los Angeles,CUST-1092
+ORD-ELE-10526,2025-01-13,"Ultra-HD Smart TV 55""",Electronics,1,547.01,547.01,East,Washington D.C.,CUST-1058
+ORD-ELE-10672,2025-01-13,"Slim Pro Laptop 15""",Electronics,1,1145.13,1145.13,West,Seattle,CUST-1121
+ORD-ELE-10283,2025-01-14,Noise-Cancelling Headphones,Electronics,1,186.55,186.55,West,Seattle,CUST-1064
+ORD-ELE-10564,2025-01-15,Bluetooth Studio Speaker,Electronics,1,80.67,80.67,North,Boston,CUST-1014
+ORD-ELE-10191,2025-01-16,"Ultra-HD Smart TV 55""",Electronics,1,553.09,553.09,Central,Kansas City,CUST-1085
+ORD-ELE-10476,2025-01-16,Wireless Fast Charger Pad,Electronics,1,31.41,31.41,North,Chicago,CUST-1035
+ORD-ELE-11014,2025-01-16,Wireless Fast Charger Pad,Electronics,1,30.11,30.11,West,Los Angeles,CUST-1007
+ORD-ELE-11023,2025-01-16,Pro Smartphone Max,Electronics,1,880.61,880.61,East,Charlotte,CUST-1023
+ORD-ELE-10364,2025-01-17,Pro Smartphone Max,Electronics,2,910.6,1821.2,Central,Austin,CUST-1169
+ORD-ELE-10812,2025-01-17,"Ultra-HD Smart TV 55""",Electronics,3,564.17,1692.51,North,Chicago,CUST-1014
+ORD-ELE-10981,2025-01-17,"Ultra-HD Smart TV 55""",Electronics,1,547.67,547.67,West,Seattle,CUST-1052
+ORD-ELE-11034,2025-01-17,Pro Smartphone Max,Electronics,1,931.06,931.06,North,New York,CUST-1082
+ORD-ELE-10152,2025-01-18,Mechanical RGB Keyboard,Electronics,1,96.45,96.45,Central,Kansas City,CUST-1047
+ORD-ELE-11105,2025-01-18,Noise-Cancelling Headphones,Electronics,1,186.5,186.5,South,Miami,CUST-1038
+ORD-ELE-11027,2025-01-19,Noise-Cancelling Headphones,Electronics,1,180.62,180.62,West,Seattle,CUST-1045
+ORD-ELE-10231,2025-01-20,"Ultra-HD Smart TV 55""",Electronics,2,531.41,1062.82,Central,Denver,CUST-1185
+ORD-ELE-10675,2025-01-20,Mechanical RGB Keyboard,Electronics,2,98.64,197.28,North,Chicago,CUST-1065
+ORD-ELE-10676,2025-01-20,"Slim Pro Laptop 15""",Electronics,1,1201.95,1201.95,West,Seattle,CUST-1124
+ORD-ELE-10773,2025-01-21,Fitness Tracker Watch,Electronics,1,153.36,153.36,North,Boston,CUST-1181
+ORD-ELE-10515,2025-01-22,Fitness Tracker Watch,Electronics,1,150.68,150.68,East,Charlotte,CUST-1167
+ORD-ELE-10847,2025-01-22,Mechanical RGB Keyboard,Electronics,1,95.43,95.43,West,San Francisco,CUST-1169
+ORD-ELE-10012,2025-01-23,Bluetooth Studio Speaker,Electronics,1,83.91,83.91,Central,Denver,CUST-1176
+ORD-ELE-10038,2025-01-23,Pro Smartphone Max,Electronics,1,943.67,943.67,East,Washington D.C.,CUST-1109
+ORD-ELE-10068,2025-01-23,"Ultra-HD Smart TV 55""",Electronics,1,556.34,556.34,Central,Denver,CUST-1078
+ORD-ELE-10370,2025-01-23,Mechanical RGB Keyboard,Electronics,1,100.52,100.52,North,Chicago,CUST-1044
+ORD-ELE-10006,2025-01-24,Noise-Cancelling Headphones,Electronics,1,187.31,187.31,West,Los Angeles,CUST-1187
+ORD-ELE-11029,2025-01-25,Bluetooth Studio Speaker,Electronics,1,80.42,80.42,West,San Francisco,CUST-1078
+ORD-ELE-10490,2025-01-26,Mechanical RGB Keyboard,Electronics,1,96.72,96.72,South,Miami,CUST-1072
+ORD-ELE-10825,2025-01-26,"Slim Pro Laptop 15""",Electronics,1,1190.07,1190.07,East,Washington D.C.,CUST-1155
+ORD-ELE-10074,2025-01-28,Wireless Fast Charger Pad,Electronics,1,29.69,29.69,North,New York,CUST-1200
+ORD-ELE-10703,2025-01-28,Mechanical RGB Keyboard,Electronics,1,101.13,101.13,Central,Denver,CUST-1199
+ORD-ELE-11108,2025-01-28,Bluetooth Studio Speaker,Electronics,2,81.1,162.2,North,Chicago,CUST-1061
+ORD-ELE-10064,2025-01-29,"Slim Pro Laptop 15""",Electronics,2,1170.56,2341.12,North,Chicago,CUST-1138
+ORD-ELE-10763,2025-01-29,Wireless Fast Charger Pad,Electronics,4,29.23,116.92,South,Miami,CUST-1189
+ORD-ELE-11057,2025-01-29,Bluetooth Studio Speaker,Electronics,2,79.65,159.3,East,Philadelphia,CUST-1142
+ORD-ELE-10255,2025-01-30,Fitness Tracker Watch,Electronics,1,157.1,157.1,East,Washington D.C.,CUST-1133
+ORD-ELE-10451,2025-01-30,Noise-Cancelling Headphones,Electronics,1,185.07,185.07,North,Chicago,CUST-1004
+ORD-ELE-10640,2025-01-30,Bluetooth Studio Speaker,Electronics,1,80.31,80.31,Central,Austin,CUST-1132
+ORD-ELE-10499,2025-02-01,Fitness Tracker Watch,Electronics,4,156.52,626.08,South,Atlanta,CUST-1061
+ORD-ELE-10942,2025-02-01,Fitness Tracker Watch,Electronics,1,157.43,157.43,West,Los Angeles,CUST-1113
+ORD-ELE-10376,2025-02-02,Fitness Tracker Watch,Electronics,2,148.25,296.5,North,Chicago,CUST-1191
+ORD-ELE-10947,2025-02-03,Bluetooth Studio Speaker,Electronics,1,77.2,77.2,East,Charlotte,CUST-1001
+ORD-ELE-11103,2025-02-03,"Slim Pro Laptop 15""",Electronics,1,1252.25,1252.25,North,New York,CUST-1055
+ORD-ELE-11119,2025-02-06,Mechanical RGB Keyboard,Electronics,3,104.44,313.32,South,Atlanta,CUST-1006
+ORD-ELE-11160,2025-02-06,Pro Smartphone Max,Electronics,3,862.49,2587.47,West,Seattle,CUST-1151
+ORD-ELE-10707,2025-02-08,Mechanical RGB Keyboard,Electronics,1,100.85,100.85,North,New York,CUST-1141
+ORD-ELE-11163,2025-02-08,Noise-Cancelling Headphones,Electronics,2,180.74,361.48,East,Charlotte,CUST-1104
+ORD-ELE-10768,2025-02-09,"Slim Pro Laptop 15""",Electronics,1,1141.06,1141.06,East,Charlotte,CUST-1153
+ORD-ELE-10368,2025-02-10,Noise-Cancelling Headphones,Electronics,1,187.58,187.58,Central,Denver,CUST-1179
+ORD-ELE-10732,2025-02-11,Noise-Cancelling Headphones,Electronics,1,193.61,193.61,West,Seattle,CUST-1162
+ORD-ELE-10028,2025-02-12,Fitness Tracker Watch,Electronics,1,149.06,149.06,North,New York,CUST-1058
+ORD-ELE-10115,2025-02-14,Wireless Fast Charger Pad,Electronics,1,28.71,28.71,North,New York,CUST-1039
+ORD-ELE-10700,2025-02-14,Fitness Tracker Watch,Electronics,1,154.5,154.5,North,New York,CUST-1100
+ORD-ELE-10963,2025-02-15,Fitness Tracker Watch,Electronics,2,144.3,288.6,Central,Denver,CUST-1083
+ORD-ELE-11197,2025-02-15,Bluetooth Studio Speaker,Electronics,1,81.76,81.76,West,Los Angeles,CUST-1072
+ORD-ELE-10559,2025-02-18,Mechanical RGB Keyboard,Electronics,1,102.36,102.36,Central,Denver,CUST-1088
+ORD-ELE-11015,2025-02-18,Wireless Fast Charger Pad,Electronics,3,30.8,92.4,West,Los Angeles,CUST-1002
+ORD-ELE-10900,2025-02-19,Noise-Cancelling Headphones,Electronics,2,191.86,383.72,Central,Austin,CUST-1084
+ORD-ELE-10082,2025-02-21,Fitness Tracker Watch,Electronics,1,150.63,150.63,South,Miami,CUST-1100
+ORD-ELE-10647,2025-02-21,Mechanical RGB Keyboard,Electronics,1,99.5,99.5,West,Los Angeles,CUST-1100
+ORD-ELE-11058,2025-02-21,Bluetooth Studio Speaker,Electronics,1,83.87,83.87,North,Boston,CUST-1174
+ORD-ELE-10271,2025-02-23,Noise-Cancelling Headphones,Electronics,1,182.87,182.87,North,Boston,CUST-1120
+ORD-ELE-10537,2025-02-24,Bluetooth Studio Speaker,Electronics,1,79.05,79.05,Central,Austin,CUST-1010
+ORD-ELE-11117,2025-02-24,Fitness Tracker Watch,Electronics,3,149.26,447.78,South,Miami,CUST-1045
+ORD-ELE-10350,2025-02-26,Mechanical RGB Keyboard,Electronics,1,100.56,100.56,South,Miami,CUST-1053
+ORD-ELE-10979,2025-02-26,"Slim Pro Laptop 15""",Electronics,1,1185.05,1185.05,East,Charlotte,CUST-1125
+ORD-ELE-11112,2025-02-26,Fitness Tracker Watch,Electronics,3,153.25,459.75,North,New York,CUST-1179
+ORD-ELE-10741,2025-02-27,"Ultra-HD Smart TV 55""",Electronics,1,532.6,532.6,South,Dallas,CUST-1065
+ORD-ELE-10859,2025-02-27,"Slim Pro Laptop 15""",Electronics,1,1223.49,1223.49,North,Chicago,CUST-1187
+ORD-ELE-10870,2025-02-27,Pro Smartphone Max,Electronics,1,930.15,930.15,West,San Francisco,CUST-1138
+ORD-ELE-11193,2025-02-27,Mechanical RGB Keyboard,Electronics,4,103.97,415.88,Central,Kansas City,CUST-1093
+ORD-ELE-10140,2025-02-28,Fitness Tracker Watch,Electronics,1,156.5,156.5,North,Boston,CUST-1186
+ORD-ELE-10239,2025-02-28,Pro Smartphone Max,Electronics,1,890.67,890.67,East,Philadelphia,CUST-1096
+ORD-ELE-10965,2025-03-01,"Ultra-HD Smart TV 55""",Electronics,1,560.79,560.79,East,Philadelphia,CUST-1149
+ORD-ELE-10359,2025-03-03,Bluetooth Studio Speaker,Electronics,1,77.21,77.21,East,Charlotte,CUST-1063
+ORD-ELE-10235,2025-03-04,"Ultra-HD Smart TV 55""",Electronics,2,567.42,1134.84,South,Miami,CUST-1014
+ORD-ELE-10583,2025-03-04,Noise-Cancelling Headphones,Electronics,1,190.21,190.21,West,Los Angeles,CUST-1028
+ORD-ELE-10342,2025-03-05,Pro Smartphone Max,Electronics,1,876.65,876.65,Central,Denver,CUST-1115
+ORD-ELE-11006,2025-03-06,Wireless Fast Charger Pad,Electronics,1,30.7,30.7,South,Atlanta,CUST-1006
+ORD-ELE-10388,2025-03-07,Bluetooth Studio Speaker,Electronics,1,79.86,79.86,West,Los Angeles,CUST-1185
+ORD-ELE-10416,2025-03-09,"Ultra-HD Smart TV 55""",Electronics,1,549.26,549.26,South,Dallas,CUST-1043
+ORD-ELE-10727,2025-03-10,"Slim Pro Laptop 15""",Electronics,2,1190.28,2380.56,West,Seattle,CUST-1072
+ORD-ELE-11025,2025-03-10,Mechanical RGB Keyboard,Electronics,1,96.39,96.39,North,New York,CUST-1054
+ORD-ELE-10075,2025-03-11,"Slim Pro Laptop 15""",Electronics,4,1161.1,4644.4,Central,Austin,CUST-1013
+ORD-ELE-11046,2025-03-11,Noise-Cancelling Headphones,Electronics,2,181.97,363.94,East,Philadelphia,CUST-1051
+ORD-ELE-10078,2025-03-12,Wireless Fast Charger Pad,Electronics,2,31.18,62.36,East,Washington D.C.,CUST-1067
+ORD-ELE-10347,2025-03-13,Wireless Fast Charger Pad,Electronics,1,28.63,28.63,East,Charlotte,CUST-1082
+ORD-ELE-10661,2025-03-14,"Ultra-HD Smart TV 55""",Electronics,1,522.76,522.76,South,Dallas,CUST-1190
+ORD-ELE-10118,2025-03-15,Bluetooth Studio Speaker,Electronics,1,80.54,80.54,North,New York,CUST-1161
+ORD-ELE-10691,2025-03-15,"Slim Pro Laptop 15""",Electronics,1,1252.6,1252.6,East,Washington D.C.,CUST-1151
+ORD-ELE-10187,2025-03-16,Noise-Cancelling Headphones,Electronics,1,195.56,195.56,Central,Kansas City,CUST-1056
+ORD-ELE-10188,2025-03-16,Wireless Fast Charger Pad,Electronics,1,31.15,31.15,East,Washington D.C.,CUST-1107
+ORD-ELE-10391,2025-03-16,"Ultra-HD Smart TV 55""",Electronics,1,539.01,539.01,South,Miami,CUST-1081
+ORD-ELE-11183,2025-03-16,Noise-Cancelling Headphones,Electronics,1,192.22,192.22,South,Miami,CUST-1067
+ORD-ELE-10519,2025-03-17,"Ultra-HD Smart TV 55""",Electronics,1,555.89,555.89,North,New York,CUST-1085
+ORD-ELE-11088,2025-03-19,Fitness Tracker Watch,Electronics,1,145.49,145.49,Central,Kansas City,CUST-1117
+ORD-ELE-10063,2025-03-20,Fitness Tracker Watch,Electronics,1,153.42,153.42,Central,Kansas City,CUST-1030
+ORD-ELE-10904,2025-03-21,Fitness Tracker Watch,Electronics,1,157.34,157.34,Central,Kansas City,CUST-1104
+ORD-ELE-11096,2025-03-22,Mechanical RGB Keyboard,Electronics,1,101.46,101.46,South,Miami,CUST-1035
+ORD-ELE-10238,2025-03-23,Noise-Cancelling Headphones,Electronics,1,198.47,198.47,East,Washington D.C.,CUST-1007
+ORD-ELE-10458,2025-03-23,"Slim Pro Laptop 15""",Electronics,1,1146.94,1146.94,East,Philadelphia,CUST-1117
+ORD-ELE-10507,2025-03-23,Wireless Fast Charger Pad,Electronics,1,30.44,30.44,Central,Kansas City,CUST-1158
+ORD-ELE-10126,2025-03-24,Noise-Cancelling Headphones,Electronics,3,191.85,575.55,West,San Francisco,CUST-1065
+ORD-ELE-10135,2025-03-24,Wireless Fast Charger Pad,Electronics,4,28.85,115.4,Central,Denver,CUST-1182
+ORD-ELE-10232,2025-03-24,Pro Smartphone Max,Electronics,2,891.97,1783.94,South,Miami,CUST-1157
+ORD-ELE-10395,2025-03-24,Bluetooth Studio Speaker,Electronics,1,82.64,82.64,East,Charlotte,CUST-1128
+ORD-ELE-10774,2025-03-24,Bluetooth Studio Speaker,Electronics,1,80.33,80.33,Central,Denver,CUST-1140
+ORD-ELE-10425,2025-03-25,Noise-Cancelling Headphones,Electronics,1,195.23,195.23,Central,Kansas City,CUST-1090
+ORD-ELE-10114,2025-03-27,Fitness Tracker Watch,Electronics,1,145.26,145.26,East,Philadelphia,CUST-1017
+ORD-ELE-10301,2025-03-27,Fitness Tracker Watch,Electronics,1,148.77,148.77,South,Miami,CUST-1129
+ORD-ELE-10883,2025-03-27,Noise-Cancelling Headphones,Electronics,1,185.67,185.67,North,New York,CUST-1160
+ORD-ELE-10070,2025-03-28,"Slim Pro Laptop 15""",Electronics,2,1201.33,2402.66,South,Dallas,CUST-1022
+ORD-ELE-10852,2025-03-28,Noise-Cancelling Headphones,Electronics,1,191.91,191.91,Central,Austin,CUST-1159
+ORD-ELE-11138,2025-03-28,Fitness Tracker Watch,Electronics,1,157.32,157.32,East,Washington D.C.,CUST-1029
+ORD-ELE-10036,2025-03-29,Noise-Cancelling Headphones,Electronics,4,181.45,725.8,North,New York,CUST-1193
+ORD-ELE-10830,2025-03-29,Bluetooth Studio Speaker,Electronics,1,77.21,77.21,South,Atlanta,CUST-1007
+ORD-ELE-11109,2025-03-29,Mechanical RGB Keyboard,Electronics,4,95.07,380.28,West,Seattle,CUST-1024
+ORD-ELE-10173,2025-03-31,"Slim Pro Laptop 15""",Electronics,1,1242.64,1242.64,West,San Francisco,CUST-1166
+ORD-ELE-10491,2025-04-01,"Ultra-HD Smart TV 55""",Electronics,1,524.4,524.4,South,Dallas,CUST-1076
+ORD-ELE-10663,2025-04-01,Fitness Tracker Watch,Electronics,1,154.11,154.11,North,New York,CUST-1166
+ORD-ELE-10604,2025-04-03,Noise-Cancelling Headphones,Electronics,1,196.76,196.76,North,Boston,CUST-1191
+ORD-ELE-10004,2025-04-04,Bluetooth Studio Speaker,Electronics,1,82.47,82.47,South,Dallas,CUST-1109
+ORD-ELE-10242,2025-04-04,Pro Smartphone Max,Electronics,1,936.52,936.52,South,Atlanta,CUST-1141
+ORD-ELE-10337,2025-04-04,Mechanical RGB Keyboard,Electronics,2,98.75,197.5,Central,Denver,CUST-1168
+ORD-ELE-10397,2025-04-04,Wireless Fast Charger Pad,Electronics,1,30.24,30.24,East,Charlotte,CUST-1010
+ORD-ELE-10684,2025-04-04,Wireless Fast Charger Pad,Electronics,1,31.09,31.09,East,Charlotte,CUST-1037
+ORD-ELE-10931,2025-04-04,Mechanical RGB Keyboard,Electronics,4,101.77,407.08,North,New York,CUST-1137
+ORD-ELE-10613,2025-04-06,Wireless Fast Charger Pad,Electronics,4,30.47,121.88,South,Miami,CUST-1002
+ORD-ELE-10728,2025-04-06,"Ultra-HD Smart TV 55""",Electronics,4,553.92,2215.68,South,Atlanta,CUST-1185
+ORD-ELE-10021,2025-04-09,Pro Smartphone Max,Electronics,3,940.83,2822.49,West,San Francisco,CUST-1196
+ORD-ELE-11114,2025-04-09,Pro Smartphone Max,Electronics,1,923.57,923.57,South,Dallas,CUST-1114
+ORD-ELE-11123,2025-04-09,Wireless Fast Charger Pad,Electronics,2,28.85,57.7,South,Miami,CUST-1074
+ORD-ELE-10132,2025-04-10,Noise-Cancelling Headphones,Electronics,1,186.47,186.47,East,Charlotte,CUST-1001
+ORD-ELE-10673,2025-04-10,Pro Smartphone Max,Electronics,1,858.58,858.58,North,Chicago,CUST-1134
+ORD-ELE-10709,2025-04-10,Mechanical RGB Keyboard,Electronics,1,100.74,100.74,East,Charlotte,CUST-1028
+ORD-ELE-11161,2025-04-10,Wireless Fast Charger Pad,Electronics,1,30.36,30.36,South,Atlanta,CUST-1048
+ORD-ELE-10146,2025-04-12,Pro Smartphone Max,Electronics,1,920.01,920.01,South,Atlanta,CUST-1121
+ORD-ELE-10251,2025-04-13,Pro Smartphone Max,Electronics,1,881.4,881.4,South,Atlanta,CUST-1081
+ORD-ELE-10320,2025-04-14,Bluetooth Studio Speaker,Electronics,1,81.74,81.74,West,Seattle,CUST-1146
+ORD-ELE-10789,2025-04-14,Mechanical RGB Keyboard,Electronics,1,103.82,103.82,South,Dallas,CUST-1103
+ORD-ELE-10007,2025-04-15,Noise-Cancelling Headphones,Electronics,1,198.98,198.98,Central,Austin,CUST-1161
+ORD-ELE-10059,2025-04-16,Fitness Tracker Watch,Electronics,2,147.07,294.14,South,Atlanta,CUST-1007
+ORD-ELE-11080,2025-04-16,Mechanical RGB Keyboard,Electronics,3,100.67,302.01,West,Los Angeles,CUST-1179
+ORD-ELE-10137,2025-04-17,Noise-Cancelling Headphones,Electronics,1,192.8,192.8,West,San Francisco,CUST-1181
+ORD-ELE-10489,2025-04-17,Pro Smartphone Max,Electronics,1,870.11,870.11,East,Washington D.C.,CUST-1008
+ORD-ELE-11035,2025-04-17,"Ultra-HD Smart TV 55""",Electronics,1,542.15,542.15,West,Seattle,CUST-1163
+ORD-ELE-10992,2025-04-19,"Ultra-HD Smart TV 55""",Electronics,1,570.57,570.57,West,San Francisco,CUST-1119
+ORD-ELE-10818,2025-04-21,Pro Smartphone Max,Electronics,2,860.98,1721.96,West,Los Angeles,CUST-1005
+ORD-ELE-10983,2025-04-21,Wireless Fast Charger Pad,Electronics,2,29.74,59.48,South,Miami,CUST-1155
+ORD-ELE-10356,2025-04-22,Fitness Tracker Watch,Electronics,1,147.12,147.12,East,Washington D.C.,CUST-1026
+ORD-ELE-10125,2025-04-24,Bluetooth Studio Speaker,Electronics,3,81.59,244.77,Central,Kansas City,CUST-1127
+ORD-ELE-11155,2025-04-24,Mechanical RGB Keyboard,Electronics,2,95.78,191.56,West,Los Angeles,CUST-1033
+ORD-ELE-10216,2025-04-25,Wireless Fast Charger Pad,Electronics,2,30.38,60.76,Central,Denver,CUST-1091
+ORD-ELE-10357,2025-04-25,Fitness Tracker Watch,Electronics,1,156.2,156.2,East,Philadelphia,CUST-1145
+ORD-ELE-11081,2025-04-25,Pro Smartphone Max,Electronics,1,943.71,943.71,East,Washington D.C.,CUST-1147
+ORD-ELE-10090,2025-04-26,Pro Smartphone Max,Electronics,1,922.4,922.4,West,Los Angeles,CUST-1167
+ORD-ELE-10988,2025-04-26,Pro Smartphone Max,Electronics,1,893.3,893.3,North,Boston,CUST-1127
+ORD-ELE-11137,2025-04-26,Bluetooth Studio Speaker,Electronics,1,77.3,77.3,North,Boston,CUST-1011
+ORD-ELE-10313,2025-04-28,Noise-Cancelling Headphones,Electronics,1,193.43,193.43,Central,Denver,CUST-1105
+ORD-ELE-10466,2025-04-28,Fitness Tracker Watch,Electronics,1,148.23,148.23,North,Chicago,CUST-1183
+ORD-ELE-10917,2025-04-28,Noise-Cancelling Headphones,Electronics,1,193.49,193.49,Central,Austin,CUST-1157
+ORD-ELE-10144,2025-04-29,Mechanical RGB Keyboard,Electronics,2,98.85,197.7,South,Miami,CUST-1010
+ORD-ELE-10190,2025-04-30,Noise-Cancelling Headphones,Electronics,1,182.22,182.22,East,Philadelphia,CUST-1191
+ORD-ELE-10220,2025-05-02,"Ultra-HD Smart TV 55""",Electronics,1,575.16,575.16,West,San Francisco,CUST-1022
+ORD-ELE-10530,2025-05-02,Bluetooth Studio Speaker,Electronics,3,76.62,229.86,North,Chicago,CUST-1147
+ORD-ELE-10929,2025-05-02,Bluetooth Studio Speaker,Electronics,3,79.8,239.4,Central,Denver,CUST-1098
+ORD-ELE-10310,2025-05-05,"Slim Pro Laptop 15""",Electronics,1,1164.24,1164.24,Central,Kansas City,CUST-1070
+ORD-ELE-10680,2025-05-05,Wireless Fast Charger Pad,Electronics,1,29.12,29.12,East,Philadelphia,CUST-1063
+ORD-ELE-11043,2025-05-06,Fitness Tracker Watch,Electronics,1,147.16,147.16,East,Charlotte,CUST-1134
+ORD-ELE-10586,2025-05-07,Fitness Tracker Watch,Electronics,1,146.01,146.01,North,New York,CUST-1147
+ORD-ELE-10194,2025-05-08,"Slim Pro Laptop 15""",Electronics,1,1241.66,1241.66,Central,Austin,CUST-1030
+ORD-ELE-10713,2025-05-08,Noise-Cancelling Headphones,Electronics,1,185.39,185.39,South,Dallas,CUST-1180
+ORD-ELE-10110,2025-05-10,Bluetooth Studio Speaker,Electronics,4,81.79,327.16,Central,Kansas City,CUST-1073
+ORD-ELE-10671,2025-05-10,Fitness Tracker Watch,Electronics,2,143.1,286.2,South,Atlanta,CUST-1068
+ORD-ELE-10495,2025-05-11,Fitness Tracker Watch,Electronics,1,156.18,156.18,East,Washington D.C.,CUST-1047
+ORD-ELE-11040,2025-05-11,Mechanical RGB Keyboard,Electronics,3,98.39,295.17,North,New York,CUST-1040
+ORD-ELE-10365,2025-05-14,Pro Smartphone Max,Electronics,1,855.59,855.59,North,New York,CUST-1136
+ORD-ELE-10736,2025-05-14,Wireless Fast Charger Pad,Electronics,1,31.16,31.16,West,Seattle,CUST-1162
+ORD-ELE-10105,2025-05-15,"Slim Pro Laptop 15""",Electronics,1,1222.86,1222.86,East,Washington D.C.,CUST-1005
+ORD-ELE-10172,2025-05-16,Mechanical RGB Keyboard,Electronics,1,104.38,104.38,West,Los Angeles,CUST-1114
+ORD-ELE-10417,2025-05-16,Bluetooth Studio Speaker,Electronics,1,77.11,77.11,East,Charlotte,CUST-1014
+ORD-ELE-11151,2025-05-16,Wireless Fast Charger Pad,Electronics,1,31.15,31.15,Central,Kansas City,CUST-1109
+ORD-ELE-10130,2025-05-18,Noise-Cancelling Headphones,Electronics,1,189.42,189.42,West,San Francisco,CUST-1027
+ORD-ELE-10602,2025-05-18,Fitness Tracker Watch,Electronics,4,146.1,584.4,North,Chicago,CUST-1058
+ORD-ELE-10944,2025-05-18,Noise-Cancelling Headphones,Electronics,2,183.22,366.44,South,Dallas,CUST-1165
+ORD-ELE-11032,2025-05-18,"Slim Pro Laptop 15""",Electronics,2,1143.4,2286.8,East,Philadelphia,CUST-1154
+ORD-ELE-11072,2025-05-18,Mechanical RGB Keyboard,Electronics,2,96.34,192.68,East,Philadelphia,CUST-1146
+ORD-ELE-11180,2025-05-18,Noise-Cancelling Headphones,Electronics,3,195.57,586.71,East,Washington D.C.,CUST-1061
+ORD-ELE-10610,2025-05-19,"Ultra-HD Smart TV 55""",Electronics,2,567.69,1135.38,East,Philadelphia,CUST-1066
+ORD-ELE-11030,2025-05-20,Wireless Fast Charger Pad,Electronics,2,29.16,58.32,South,Miami,CUST-1077
+ORD-ELE-10901,2025-05-21,Pro Smartphone Max,Electronics,2,863.14,1726.28,Central,Kansas City,CUST-1001
+ORD-ELE-11124,2025-05-21,Mechanical RGB Keyboard,Electronics,3,96.29,288.87,Central,Denver,CUST-1073
+ORD-ELE-10154,2025-05-24,"Ultra-HD Smart TV 55""",Electronics,1,535.26,535.26,East,Washington D.C.,CUST-1171
+ORD-ELE-10584,2025-05-24,"Slim Pro Laptop 15""",Electronics,2,1213.07,2426.14,Central,Denver,CUST-1092
+ORD-ELE-10974,2025-05-24,"Ultra-HD Smart TV 55""",Electronics,3,531.28,1593.84,North,Chicago,CUST-1094
+ORD-ELE-10134,2025-05-25,Wireless Fast Charger Pad,Electronics,1,30.77,30.77,Central,Denver,CUST-1074
+ORD-ELE-10492,2025-05-25,Mechanical RGB Keyboard,Electronics,1,103.82,103.82,North,Boston,CUST-1099
+ORD-ELE-10760,2025-05-25,Fitness Tracker Watch,Electronics,2,149.45,298.9,West,Los Angeles,CUST-1193
+ORD-ELE-10015,2025-05-26,Mechanical RGB Keyboard,Electronics,1,103.84,103.84,South,Miami,CUST-1036
+ORD-ELE-10360,2025-05-26,Fitness Tracker Watch,Electronics,2,146.35,292.7,East,Washington D.C.,CUST-1044
+ORD-ELE-10956,2025-05-26,Wireless Fast Charger Pad,Electronics,1,31.39,31.39,West,Los Angeles,CUST-1087
+ORD-ELE-11090,2025-05-26,"Slim Pro Laptop 15""",Electronics,2,1219.29,2438.58,East,Washington D.C.,CUST-1164
+ORD-ELE-11001,2025-05-28,Noise-Cancelling Headphones,Electronics,1,189.42,189.42,Central,Austin,CUST-1116
+ORD-ELE-10669,2025-05-29,Pro Smartphone Max,Electronics,2,914.63,1829.26,Central,Kansas City,CUST-1043
+ORD-ELE-10723,2025-05-29,Fitness Tracker Watch,Electronics,2,148.4,296.8,South,Miami,CUST-1031
+ORD-ELE-10182,2025-05-30,"Slim Pro Laptop 15""",Electronics,1,1253.44,1253.44,Central,Austin,CUST-1118
+ORD-ELE-10689,2025-05-30,Noise-Cancelling Headphones,Electronics,2,182.26,364.52,Central,Kansas City,CUST-1001
+ORD-ELE-11000,2025-05-30,Mechanical RGB Keyboard,Electronics,1,97.76,97.76,West,Seattle,CUST-1125
+ORD-ELE-11041,2025-05-30,"Slim Pro Laptop 15""",Electronics,2,1239.78,2479.56,Central,Kansas City,CUST-1177
+ORD-ELE-10221,2025-05-31,"Ultra-HD Smart TV 55""",Electronics,2,524.64,1049.28,East,Charlotte,CUST-1134
+ORD-ELE-10319,2025-05-31,Wireless Fast Charger Pad,Electronics,2,29.31,58.62,West,Los Angeles,CUST-1188
+ORD-ELE-10790,2025-05-31,Fitness Tracker Watch,Electronics,1,152.35,152.35,Central,Austin,CUST-1091
+ORD-ELE-10804,2025-05-31,Noise-Cancelling Headphones,Electronics,1,184.71,184.71,East,Philadelphia,CUST-1034
+ORD-ELE-10003,2025-06-01,Pro Smartphone Max,Electronics,2,905.5,1811.0,Central,Austin,CUST-1057
+ORD-ELE-10287,2025-06-01,Wireless Fast Charger Pad,Electronics,1,31.39,31.39,West,Los Angeles,CUST-1013
+ORD-ELE-10217,2025-06-03,Noise-Cancelling Headphones,Electronics,1,186.39,186.39,North,Boston,CUST-1074
+ORD-ELE-10561,2025-06-03,Bluetooth Studio Speaker,Electronics,2,82.75,165.5,Central,Denver,CUST-1076
+ORD-ELE-11187,2025-06-03,Noise-Cancelling Headphones,Electronics,1,183.66,183.66,South,Miami,CUST-1041
+ORD-ELE-10641,2025-06-04,Wireless Fast Charger Pad,Electronics,1,29.95,29.95,South,Miami,CUST-1132
+ORD-ELE-11140,2025-06-04,Bluetooth Studio Speaker,Electronics,2,80.5,161.0,South,Dallas,CUST-1002
+ORD-ELE-10384,2025-06-08,Mechanical RGB Keyboard,Electronics,1,96.02,96.02,Central,Denver,CUST-1153
+ORD-ELE-10333,2025-06-09,Mechanical RGB Keyboard,Electronics,1,99.56,99.56,East,Charlotte,CUST-1079
+ORD-ELE-10631,2025-06-10,Noise-Cancelling Headphones,Electronics,1,187.66,187.66,Central,Austin,CUST-1034
+ORD-ELE-10670,2025-06-10,"Ultra-HD Smart TV 55""",Electronics,1,547.03,547.03,Central,Kansas City,CUST-1038
+ORD-ELE-10678,2025-06-10,Bluetooth Studio Speaker,Electronics,1,77.68,77.68,West,San Francisco,CUST-1184
+ORD-ELE-10286,2025-06-11,Wireless Fast Charger Pad,Electronics,1,29.99,29.99,North,New York,CUST-1101
+ORD-ELE-10948,2025-06-11,Wireless Fast Charger Pad,Electronics,1,29.92,29.92,North,Chicago,CUST-1058
+ORD-ELE-10469,2025-06-12,Pro Smartphone Max,Electronics,1,940.86,940.86,East,Washington D.C.,CUST-1199
+ORD-ELE-10543,2025-06-12,Fitness Tracker Watch,Electronics,1,154.8,154.8,South,Atlanta,CUST-1080
+ORD-ELE-10531,2025-06-13,"Ultra-HD Smart TV 55""",Electronics,2,529.11,1058.22,South,Atlanta,CUST-1055
+ORD-ELE-10557,2025-06-13,"Slim Pro Laptop 15""",Electronics,2,1247.95,2495.9,Central,Austin,CUST-1170
+ORD-ELE-10731,2025-06-13,Fitness Tracker Watch,Electronics,1,154.27,154.27,Central,Kansas City,CUST-1013
+ORD-ELE-10303,2025-06-15,"Slim Pro Laptop 15""",Electronics,4,1207.3,4829.2,East,Charlotte,CUST-1097
+ORD-ELE-10442,2025-06-15,Wireless Fast Charger Pad,Electronics,2,28.52,57.04,North,Boston,CUST-1178
+ORD-ELE-11068,2025-06-16,Wireless Fast Charger Pad,Electronics,1,30.87,30.87,East,Washington D.C.,CUST-1130
+ORD-ELE-10635,2025-06-17,Noise-Cancelling Headphones,Electronics,1,195.43,195.43,Central,Kansas City,CUST-1104
+ORD-ELE-10985,2025-06-18,Wireless Fast Charger Pad,Electronics,1,31.08,31.08,East,Washington D.C.,CUST-1072
+ORD-ELE-10529,2025-06-19,Mechanical RGB Keyboard,Electronics,2,104.65,209.3,East,Charlotte,CUST-1061
+ORD-ELE-11060,2025-06-19,Noise-Cancelling Headphones,Electronics,1,182.76,182.76,Central,Denver,CUST-1190
+ORD-ELE-10779,2025-06-20,Wireless Fast Charger Pad,Electronics,1,30.79,30.79,West,Seattle,CUST-1105
+ORD-ELE-10808,2025-06-20,"Slim Pro Laptop 15""",Electronics,1,1169.07,1169.07,East,Washington D.C.,CUST-1176
+ORD-ELE-10838,2025-06-21,Pro Smartphone Max,Electronics,1,901.85,901.85,North,New York,CUST-1133
+ORD-ELE-11042,2025-06-22,Noise-Cancelling Headphones,Electronics,3,188.42,565.26,North,New York,CUST-1005
+ORD-ELE-11141,2025-06-22,"Ultra-HD Smart TV 55""",Electronics,1,545.39,545.39,East,Charlotte,CUST-1025
+ORD-ELE-10372,2025-06-24,Pro Smartphone Max,Electronics,3,875.67,2627.01,Central,Austin,CUST-1070
+ORD-ELE-11198,2025-06-24,"Ultra-HD Smart TV 55""",Electronics,1,561.01,561.01,South,Dallas,CUST-1160
+ORD-ELE-10497,2025-06-26,Fitness Tracker Watch,Electronics,4,153.99,615.96,South,Atlanta,CUST-1064
+ORD-ELE-10566,2025-06-26,Bluetooth Studio Speaker,Electronics,3,79.29,237.87,South,Atlanta,CUST-1052
+ORD-ELE-10041,2025-06-27,"Ultra-HD Smart TV 55""",Electronics,1,525.62,525.62,South,Atlanta,CUST-1153
+ORD-ELE-10077,2025-06-27,Fitness Tracker Watch,Electronics,3,156.74,470.22,Central,Kansas City,CUST-1130
+ORD-ELE-10199,2025-06-27,"Slim Pro Laptop 15""",Electronics,1,1185.13,1185.13,South,Miami,CUST-1080
+ORD-ELE-10212,2025-06-27,"Slim Pro Laptop 15""",Electronics,1,1248.7,1248.7,South,Atlanta,CUST-1027
+ORD-ELE-10312,2025-06-27,"Slim Pro Laptop 15""",Electronics,1,1216.54,1216.54,East,Washington D.C.,CUST-1184
+ORD-ELE-10614,2025-06-27,Pro Smartphone Max,Electronics,1,904.78,904.78,Central,Austin,CUST-1131
+ORD-ELE-10206,2025-06-29,"Slim Pro Laptop 15""",Electronics,2,1200.02,2400.04,West,Los Angeles,CUST-1102
+ORD-ELE-11091,2025-06-29,Mechanical RGB Keyboard,Electronics,2,104.34,208.68,North,Chicago,CUST-1052
+ORD-ELE-10112,2025-06-30,"Ultra-HD Smart TV 55""",Electronics,4,537.58,2150.32,Central,Austin,CUST-1179
+ORD-ELE-10148,2025-06-30,Mechanical RGB Keyboard,Electronics,1,104.53,104.53,East,Charlotte,CUST-1010
+ORD-ELE-10572,2025-06-30,"Slim Pro Laptop 15""",Electronics,4,1227.67,4910.68,West,San Francisco,CUST-1049
+ORD-ELE-10950,2025-07-02,Fitness Tracker Watch,Electronics,1,147.49,147.49,North,Chicago,CUST-1166
+ORD-ELE-10958,2025-07-03,"Ultra-HD Smart TV 55""",Electronics,1,563.25,563.25,North,New York,CUST-1189
+ORD-ELE-10421,2025-07-04,Bluetooth Studio Speaker,Electronics,1,77.34,77.34,East,Charlotte,CUST-1131
+ORD-ELE-10711,2025-07-04,Bluetooth Studio Speaker,Electronics,4,81.54,326.16,Central,Austin,CUST-1198
+ORD-ELE-10839,2025-07-04,Mechanical RGB Keyboard,Electronics,1,104.83,104.83,East,Charlotte,CUST-1196
+ORD-ELE-10230,2025-07-06,Pro Smartphone Max,Electronics,3,914.56,2743.68,Central,Denver,CUST-1153
+ORD-ELE-10886,2025-07-07,Wireless Fast Charger Pad,Electronics,1,28.64,28.64,North,New York,CUST-1099
+ORD-ELE-10720,2025-07-08,Pro Smartphone Max,Electronics,1,931.31,931.31,West,Seattle,CUST-1148
+ORD-ELE-10040,2025-07-09,Pro Smartphone Max,Electronics,1,922.31,922.31,Central,Austin,CUST-1129
+ORD-ELE-10502,2025-07-09,Bluetooth Studio Speaker,Electronics,1,77.39,77.39,North,New York,CUST-1155
+ORD-ELE-10494,2025-07-10,Pro Smartphone Max,Electronics,2,944.04,1888.08,West,Seattle,CUST-1140
+ORD-ELE-10667,2025-07-10,Wireless Fast Charger Pad,Electronics,1,30.45,30.45,East,Philadelphia,CUST-1198
+ORD-ELE-10123,2025-07-11,"Slim Pro Laptop 15""",Electronics,3,1217.71,3653.13,South,Atlanta,CUST-1016
+ORD-ELE-10340,2025-07-11,Mechanical RGB Keyboard,Electronics,2,100.31,200.62,South,Miami,CUST-1089
+ORD-ELE-10652,2025-07-12,Bluetooth Studio Speaker,Electronics,1,83.67,83.67,West,Los Angeles,CUST-1142
+ORD-ELE-10908,2025-07-12,"Slim Pro Laptop 15""",Electronics,1,1219.49,1219.49,South,Dallas,CUST-1099
+ORD-ELE-10085,2025-07-13,"Slim Pro Laptop 15""",Electronics,1,1198.58,1198.58,East,Philadelphia,CUST-1100
+ORD-ELE-10453,2025-07-13,"Ultra-HD Smart TV 55""",Electronics,4,564.44,2257.76,North,New York,CUST-1151
+ORD-ELE-10843,2025-07-13,"Ultra-HD Smart TV 55""",Electronics,1,544.11,544.11,North,New York,CUST-1117
+ORD-ELE-11016,2025-07-13,Fitness Tracker Watch,Electronics,1,152.2,152.2,West,San Francisco,CUST-1171
+ORD-ELE-10619,2025-07-14,Fitness Tracker Watch,Electronics,3,153.17,459.51,South,Atlanta,CUST-1054
+ORD-ELE-10654,2025-07-14,Noise-Cancelling Headphones,Electronics,2,186.28,372.56,West,Los Angeles,CUST-1106
+ORD-ELE-10743,2025-07-15,Pro Smartphone Max,Electronics,1,857.36,857.36,North,New York,CUST-1068
+ORD-ELE-10657,2025-07-16,Noise-Cancelling Headphones,Electronics,1,186.01,186.01,North,New York,CUST-1186
+ORD-ELE-10603,2025-07-17,Mechanical RGB Keyboard,Electronics,1,99.02,99.02,East,Washington D.C.,CUST-1147
+ORD-ELE-10634,2025-07-17,Fitness Tracker Watch,Electronics,2,143.58,287.16,Central,Denver,CUST-1048
+ORD-ELE-11157,2025-07-18,Noise-Cancelling Headphones,Electronics,1,197.92,197.92,Central,Austin,CUST-1106
+ORD-ELE-10142,2025-07-19,Mechanical RGB Keyboard,Electronics,1,99.54,99.54,South,Dallas,CUST-1062
+ORD-ELE-10697,2025-07-19,Wireless Fast Charger Pad,Electronics,1,29.03,29.03,East,Washington D.C.,CUST-1079
+ORD-ELE-11172,2025-07-21,Bluetooth Studio Speaker,Electronics,1,76.29,76.29,Central,Kansas City,CUST-1186
+ORD-ELE-10653,2025-07-22,"Ultra-HD Smart TV 55""",Electronics,1,529.27,529.27,Central,Austin,CUST-1138
+ORD-ELE-10104,2025-07-23,Pro Smartphone Max,Electronics,1,901.49,901.49,South,Dallas,CUST-1105
+ORD-ELE-10485,2025-07-23,"Slim Pro Laptop 15""",Electronics,1,1151.36,1151.36,South,Atlanta,CUST-1004
+ORD-ELE-10534,2025-07-23,Mechanical RGB Keyboard,Electronics,3,100.51,301.53,Central,Austin,CUST-1004
+ORD-ELE-10796,2025-07-23,"Ultra-HD Smart TV 55""",Electronics,1,527.68,527.68,South,Atlanta,CUST-1068
+ORD-ELE-11028,2025-07-23,Wireless Fast Charger Pad,Electronics,2,30.62,61.24,South,Atlanta,CUST-1048
+ORD-ELE-10076,2025-07-24,"Slim Pro Laptop 15""",Electronics,1,1250.09,1250.09,South,Miami,CUST-1171
+ORD-ELE-10224,2025-07-25,Mechanical RGB Keyboard,Electronics,2,97.83,195.66,Central,Denver,CUST-1086
+ORD-ELE-11120,2025-07-25,"Slim Pro Laptop 15""",Electronics,4,1248.81,4995.24,South,Miami,CUST-1180
+ORD-ELE-10710,2025-07-26,Noise-Cancelling Headphones,Electronics,1,190.05,190.05,North,Chicago,CUST-1066
+ORD-ELE-10807,2025-07-26,"Slim Pro Laptop 15""",Electronics,2,1198.53,2397.06,South,Dallas,CUST-1158
+ORD-ELE-10884,2025-07-27,Noise-Cancelling Headphones,Electronics,1,184.42,184.42,West,Seattle,CUST-1037
+ORD-ELE-10906,2025-07-27,Fitness Tracker Watch,Electronics,1,144.14,144.14,North,New York,CUST-1111
+ORD-ELE-10626,2025-07-29,"Slim Pro Laptop 15""",Electronics,1,1229.08,1229.08,South,Dallas,CUST-1179
+ORD-ELE-11074,2025-07-29,"Ultra-HD Smart TV 55""",Electronics,1,550.36,550.36,East,Charlotte,CUST-1097
+ORD-ELE-10116,2025-07-30,Bluetooth Studio Speaker,Electronics,1,76.67,76.67,Central,Austin,CUST-1156
+ORD-ELE-10862,2025-07-30,Wireless Fast Charger Pad,Electronics,1,30.05,30.05,East,Philadelphia,CUST-1157
+ORD-ELE-10471,2025-07-31,Bluetooth Studio Speaker,Electronics,1,81.91,81.91,West,San Francisco,CUST-1127
+ORD-ELE-10683,2025-07-31,Pro Smartphone Max,Electronics,2,934.06,1868.12,West,Los Angeles,CUST-1056
+ORD-ELE-10215,2025-08-01,Fitness Tracker Watch,Electronics,1,155.45,155.45,South,Miami,CUST-1018
+ORD-ELE-10696,2025-08-01,Fitness Tracker Watch,Electronics,4,151.67,606.68,East,Philadelphia,CUST-1106
+ORD-ELE-10159,2025-08-02,Pro Smartphone Max,Electronics,2,936.95,1873.9,West,Los Angeles,CUST-1156
+ORD-ELE-10511,2025-08-02,Noise-Cancelling Headphones,Electronics,1,198.29,198.29,North,New York,CUST-1089
+ORD-ELE-10262,2025-08-03,Pro Smartphone Max,Electronics,2,909.45,1818.9,West,Seattle,CUST-1114
+ORD-ELE-10510,2025-08-04,Pro Smartphone Max,Electronics,1,871.38,871.38,Central,Denver,CUST-1164
+ORD-ELE-10915,2025-08-04,Wireless Fast Charger Pad,Electronics,1,30.6,30.6,East,Charlotte,CUST-1021
+ORD-ELE-10798,2025-08-05,"Slim Pro Laptop 15""",Electronics,2,1228.1,2456.2,East,Philadelphia,CUST-1125
+ORD-ELE-11146,2025-08-05,"Ultra-HD Smart TV 55""",Electronics,1,534.12,534.12,West,Seattle,CUST-1015
+ORD-ELE-10427,2025-08-06,Fitness Tracker Watch,Electronics,1,150.47,150.47,South,Miami,CUST-1181
+ORD-ELE-11051,2025-08-06,Noise-Cancelling Headphones,Electronics,1,182.37,182.37,North,Chicago,CUST-1056
+ORD-ELE-10622,2025-08-07,Mechanical RGB Keyboard,Electronics,3,101.73,305.19,Central,Austin,CUST-1109
+ORD-ELE-11101,2025-08-07,Noise-Cancelling Headphones,Electronics,2,190.41,380.82,Central,Austin,CUST-1128
+ORD-ELE-10143,2025-08-08,Mechanical RGB Keyboard,Electronics,2,97.33,194.66,North,Boston,CUST-1191
+ORD-ELE-10468,2025-08-08,Fitness Tracker Watch,Electronics,2,144.28,288.56,North,New York,CUST-1058
+ORD-ELE-10738,2025-08-08,Mechanical RGB Keyboard,Electronics,1,103.48,103.48,South,Miami,CUST-1059
+ORD-ELE-10208,2025-08-10,Mechanical RGB Keyboard,Electronics,1,102.08,102.08,North,Boston,CUST-1006
+ORD-ELE-10308,2025-08-10,Mechanical RGB Keyboard,Electronics,1,103.95,103.95,West,Los Angeles,CUST-1075
+ORD-ELE-10919,2025-08-10,Fitness Tracker Watch,Electronics,4,148.81,595.24,West,Seattle,CUST-1043
+ORD-ELE-10158,2025-08-11,Bluetooth Studio Speaker,Electronics,1,83.93,83.93,East,Washington D.C.,CUST-1003
+ORD-ELE-10735,2025-08-12,"Ultra-HD Smart TV 55""",Electronics,1,576.36,576.36,West,San Francisco,CUST-1131
+ORD-ELE-10809,2025-08-12,Noise-Cancelling Headphones,Electronics,1,182.63,182.63,West,Seattle,CUST-1049
+ORD-ELE-10032,2025-08-13,Wireless Fast Charger Pad,Electronics,1,29.22,29.22,East,Philadelphia,CUST-1025
+ORD-ELE-10463,2025-08-13,Noise-Cancelling Headphones,Electronics,1,189.92,189.92,North,Boston,CUST-1146
+ORD-ELE-10431,2025-08-14,Bluetooth Studio Speaker,Electronics,1,81.01,81.01,North,Chicago,CUST-1197
+ORD-ELE-10698,2025-08-14,Fitness Tracker Watch,Electronics,1,154.1,154.1,South,Dallas,CUST-1031
+ORD-ELE-10921,2025-08-15,"Ultra-HD Smart TV 55""",Electronics,2,554.0,1108.0,West,San Francisco,CUST-1160
+ORD-ELE-11039,2025-08-16,Fitness Tracker Watch,Electronics,1,154.84,154.84,Central,Austin,CUST-1096
+ORD-ELE-10658,2025-08-17,Wireless Fast Charger Pad,Electronics,1,31.34,31.34,South,Atlanta,CUST-1073
+ORD-ELE-10999,2025-08-17,"Slim Pro Laptop 15""",Electronics,2,1230.37,2460.74,West,Seattle,CUST-1069
+ORD-ELE-10666,2025-08-18,Mechanical RGB Keyboard,Electronics,1,102.68,102.68,North,Chicago,CUST-1067
+ORD-ELE-11063,2025-08-18,Bluetooth Studio Speaker,Electronics,2,82.04,164.08,East,Washington D.C.,CUST-1122
+ORD-ELE-10324,2025-08-19,Pro Smartphone Max,Electronics,1,878.53,878.53,South,Atlanta,CUST-1171
+ORD-ELE-10685,2025-08-19,"Ultra-HD Smart TV 55""",Electronics,1,556.77,556.77,South,Dallas,CUST-1176
+ORD-ELE-10332,2025-08-20,Wireless Fast Charger Pad,Electronics,1,28.76,28.76,North,Boston,CUST-1034
+ORD-ELE-10083,2025-08-21,Pro Smartphone Max,Electronics,2,932.1,1864.2,East,Washington D.C.,CUST-1002
+ORD-ELE-10480,2025-08-21,Noise-Cancelling Headphones,Electronics,1,183.44,183.44,East,Washington D.C.,CUST-1105
+ORD-ELE-10554,2025-08-21,Noise-Cancelling Headphones,Electronics,4,180.63,722.52,West,San Francisco,CUST-1166
+ORD-ELE-10649,2025-08-22,Pro Smartphone Max,Electronics,1,918.07,918.07,Central,Denver,CUST-1075
+ORD-ELE-11159,2025-08-22,Noise-Cancelling Headphones,Electronics,1,195.09,195.09,East,Philadelphia,CUST-1047
+ORD-ELE-10548,2025-08-23,Fitness Tracker Watch,Electronics,2,147.65,295.3,West,San Francisco,CUST-1177
+ORD-ELE-10578,2025-08-26,"Ultra-HD Smart TV 55""",Electronics,2,529.26,1058.52,North,Boston,CUST-1164
+ORD-ELE-10668,2025-08-26,Bluetooth Studio Speaker,Electronics,1,77.06,77.06,North,Boston,CUST-1094
+ORD-ELE-10595,2025-08-27,Wireless Fast Charger Pad,Electronics,2,30.9,61.8,South,Dallas,CUST-1098
+ORD-ELE-10844,2025-08-27,"Slim Pro Laptop 15""",Electronics,1,1245.9,1245.9,West,San Francisco,CUST-1167
+ORD-ELE-11143,2025-08-27,Noise-Cancelling Headphones,Electronics,1,196.39,196.39,North,Boston,CUST-1182
+ORD-ELE-10924,2025-08-28,"Ultra-HD Smart TV 55""",Electronics,1,558.74,558.74,South,Miami,CUST-1180
+ORD-ELE-10500,2025-08-29,Fitness Tracker Watch,Electronics,2,154.58,309.16,Central,Denver,CUST-1181
+ORD-ELE-10899,2025-08-29,Wireless Fast Charger Pad,Electronics,1,29.47,29.47,East,Philadelphia,CUST-1079
+ORD-ELE-10955,2025-08-30,"Slim Pro Laptop 15""",Electronics,1,1198.7,1198.7,Central,Kansas City,CUST-1079
+ORD-ELE-10043,2025-08-31,Pro Smartphone Max,Electronics,1,910.73,910.73,Central,Kansas City,CUST-1134
+ORD-ELE-10555,2025-08-31,Bluetooth Studio Speaker,Electronics,1,78.38,78.38,North,Boston,CUST-1071
+ORD-ELE-10962,2025-09-01,"Slim Pro Laptop 15""",Electronics,1,1147.56,1147.56,West,San Francisco,CUST-1174
+ORD-ELE-10019,2025-09-02,Wireless Fast Charger Pad,Electronics,4,30.08,120.32,North,Chicago,CUST-1185
+ORD-ELE-10117,2025-09-02,"Slim Pro Laptop 15""",Electronics,1,1233.07,1233.07,East,Washington D.C.,CUST-1151
+ORD-ELE-10329,2025-09-02,Noise-Cancelling Headphones,Electronics,1,190.47,190.47,West,Los Angeles,CUST-1145
+ORD-ELE-10245,2025-09-03,Pro Smartphone Max,Electronics,1,911.87,911.87,South,Miami,CUST-1110
+ORD-ELE-10748,2025-09-03,Wireless Fast Charger Pad,Electronics,1,30.38,30.38,Central,Austin,CUST-1135
+ORD-ELE-10820,2025-09-03,Noise-Cancelling Headphones,Electronics,1,184.03,184.03,East,Charlotte,CUST-1183
+ORD-ELE-10343,2025-09-04,Pro Smartphone Max,Electronics,1,877.02,877.02,East,Philadelphia,CUST-1139
+ORD-ELE-10385,2025-09-04,Fitness Tracker Watch,Electronics,1,155.45,155.45,East,Washington D.C.,CUST-1200
+ORD-ELE-10693,2025-09-04,Mechanical RGB Keyboard,Electronics,1,97.57,97.57,North,Chicago,CUST-1134
+ORD-ELE-10449,2025-09-06,Bluetooth Studio Speaker,Electronics,2,82.22,164.44,West,Los Angeles,CUST-1133
+ORD-ELE-10523,2025-09-06,Wireless Fast Charger Pad,Electronics,1,29.09,29.09,South,Dallas,CUST-1075
+ORD-ELE-10258,2025-09-09,Mechanical RGB Keyboard,Electronics,1,96.66,96.66,East,Philadelphia,CUST-1187
+ORD-ELE-10355,2025-09-10,"Slim Pro Laptop 15""",Electronics,1,1187.59,1187.59,West,Seattle,CUST-1098
+ORD-ELE-10677,2025-09-10,Pro Smartphone Max,Electronics,1,900.16,900.16,South,Atlanta,CUST-1020
+ORD-ELE-10833,2025-09-11,Wireless Fast Charger Pad,Electronics,1,30.63,30.63,East,Washington D.C.,CUST-1122
+ORD-ELE-10295,2025-09-12,"Ultra-HD Smart TV 55""",Electronics,1,540.53,540.53,South,Miami,CUST-1158
+ORD-ELE-10616,2025-09-12,Fitness Tracker Watch,Electronics,1,150.05,150.05,Central,Kansas City,CUST-1196
+ORD-ELE-10873,2025-09-12,Mechanical RGB Keyboard,Electronics,1,96.86,96.86,West,San Francisco,CUST-1081
+ORD-ELE-10027,2025-09-13,Mechanical RGB Keyboard,Electronics,3,104.63,313.89,South,Dallas,CUST-1080
+ORD-ELE-10282,2025-09-13,"Ultra-HD Smart TV 55""",Electronics,2,539.68,1079.36,West,Seattle,CUST-1034
+ORD-ELE-10450,2025-09-13,"Slim Pro Laptop 15""",Electronics,1,1229.73,1229.73,North,New York,CUST-1127
+ORD-ELE-10664,2025-09-13,Noise-Cancelling Headphones,Electronics,3,196.48,589.44,South,Dallas,CUST-1051
+ORD-ELE-10261,2025-09-14,Wireless Fast Charger Pad,Electronics,1,28.59,28.59,West,Seattle,CUST-1099
+ORD-ELE-10851,2025-09-14,Wireless Fast Charger Pad,Electronics,1,29.2,29.2,East,Washington D.C.,CUST-1105
+ORD-ELE-10243,2025-09-15,Mechanical RGB Keyboard,Electronics,1,96.1,96.1,West,Los Angeles,CUST-1013
+ORD-ELE-10792,2025-09-15,"Slim Pro Laptop 15""",Electronics,1,1207.57,1207.57,Central,Kansas City,CUST-1066
+ORD-ELE-10222,2025-09-16,"Ultra-HD Smart TV 55""",Electronics,3,542.5,1627.5,East,Washington D.C.,CUST-1199
+ORD-ELE-10292,2025-09-17,Noise-Cancelling Headphones,Electronics,1,182.93,182.93,West,Seattle,CUST-1143
+ORD-ELE-10611,2025-09-17,"Slim Pro Laptop 15""",Electronics,3,1162.5,3487.5,East,Philadelphia,CUST-1118
+ORD-ELE-10961,2025-09-17,"Ultra-HD Smart TV 55""",Electronics,1,568.43,568.43,North,New York,CUST-1128
+ORD-ELE-10970,2025-09-17,Pro Smartphone Max,Electronics,2,908.65,1817.3,Central,Denver,CUST-1161
+ORD-ELE-10048,2025-09-18,Pro Smartphone Max,Electronics,1,915.1,915.1,North,New York,CUST-1068
+ORD-ELE-10302,2025-09-18,Wireless Fast Charger Pad,Electronics,2,31.11,62.22,North,Chicago,CUST-1036
+ORD-ELE-10459,2025-09-18,Pro Smartphone Max,Electronics,2,882.83,1765.66,South,Atlanta,CUST-1004
+ORD-ELE-10831,2025-09-18,Bluetooth Studio Speaker,Electronics,1,80.83,80.83,Central,Denver,CUST-1060
+ORD-ELE-11173,2025-09-18,Wireless Fast Charger Pad,Electronics,1,29.19,29.19,North,Boston,CUST-1148
+ORD-ELE-10399,2025-09-19,Pro Smartphone Max,Electronics,1,905.68,905.68,East,Washington D.C.,CUST-1111
+ORD-ELE-10378,2025-09-20,Mechanical RGB Keyboard,Electronics,1,104.68,104.68,West,Seattle,CUST-1126
+ORD-ELE-10100,2025-09-22,Wireless Fast Charger Pad,Electronics,2,29.88,59.76,Central,Austin,CUST-1083
+ORD-ELE-10811,2025-09-23,Wireless Fast Charger Pad,Electronics,1,30.36,30.36,South,Atlanta,CUST-1176
+ORD-ELE-11075,2025-09-23,Fitness Tracker Watch,Electronics,1,153.99,153.99,North,New York,CUST-1152
+ORD-ELE-10149,2025-09-24,Noise-Cancelling Headphones,Electronics,2,184.95,369.9,West,Los Angeles,CUST-1192
+ORD-ELE-10413,2025-09-24,"Ultra-HD Smart TV 55""",Electronics,2,567.25,1134.5,West,San Francisco,CUST-1152
+ORD-ELE-10744,2025-09-24,"Ultra-HD Smart TV 55""",Electronics,3,527.13,1581.39,East,Washington D.C.,CUST-1059
+ORD-ELE-10008,2025-09-25,Fitness Tracker Watch,Electronics,2,151.15,302.3,North,Chicago,CUST-1059
+ORD-ELE-10770,2025-09-25,Fitness Tracker Watch,Electronics,4,156.45,625.8,North,New York,CUST-1092
+ORD-ELE-11199,2025-09-25,Wireless Fast Charger Pad,Electronics,3,30.58,91.74,East,Philadelphia,CUST-1078
+ORD-ELE-10659,2025-09-26,Noise-Cancelling Headphones,Electronics,1,197.59,197.59,East,Washington D.C.,CUST-1158
+ORD-ELE-10778,2025-09-27,"Slim Pro Laptop 15""",Electronics,1,1178.47,1178.47,Central,Austin,CUST-1049
+ORD-ELE-11002,2025-09-27,Fitness Tracker Watch,Electronics,3,154.49,463.47,North,New York,CUST-1118
+ORD-ELE-10046,2025-09-28,Noise-Cancelling Headphones,Electronics,1,181.88,181.88,West,Los Angeles,CUST-1090
+ORD-ELE-10639,2025-09-28,"Slim Pro Laptop 15""",Electronics,2,1255.06,2510.12,West,Seattle,CUST-1030
+ORD-ELE-10850,2025-09-29,Bluetooth Studio Speaker,Electronics,1,76.09,76.09,East,Charlotte,CUST-1002
+ORD-ELE-11175,2025-09-29,Fitness Tracker Watch,Electronics,1,149.21,149.21,South,Miami,CUST-1186
+ORD-ELE-10620,2025-10-01,Bluetooth Studio Speaker,Electronics,3,81.48,244.44,South,Dallas,CUST-1167
+ORD-ELE-10276,2025-10-02,Bluetooth Studio Speaker,Electronics,1,80.91,80.91,South,Dallas,CUST-1149
+ORD-ELE-10389,2025-10-02,Wireless Fast Charger Pad,Electronics,1,30.27,30.27,North,New York,CUST-1078
+ORD-ELE-11077,2025-10-02,Fitness Tracker Watch,Electronics,1,148.2,148.2,West,Seattle,CUST-1090
+ORD-ELE-10437,2025-10-03,Wireless Fast Charger Pad,Electronics,3,28.54,85.62,South,Miami,CUST-1117
+ORD-ELE-10643,2025-10-03,Noise-Cancelling Headphones,Electronics,1,184.5,184.5,South,Dallas,CUST-1109
+ORD-ELE-10973,2025-10-03,"Slim Pro Laptop 15""",Electronics,1,1173.16,1173.16,South,Dallas,CUST-1122
+ORD-ELE-10018,2025-10-04,"Ultra-HD Smart TV 55""",Electronics,1,566.05,566.05,North,Boston,CUST-1098
+ORD-ELE-10096,2025-10-04,"Slim Pro Laptop 15""",Electronics,2,1152.22,2304.44,Central,Denver,CUST-1145
+ORD-ELE-10161,2025-10-04,Pro Smartphone Max,Electronics,1,882.79,882.79,Central,Austin,CUST-1188
+ORD-ELE-10214,2025-10-05,Wireless Fast Charger Pad,Electronics,1,29.88,29.88,Central,Austin,CUST-1175
+ORD-ELE-10853,2025-10-05,"Slim Pro Laptop 15""",Electronics,1,1145.86,1145.86,West,Los Angeles,CUST-1038
+ORD-ELE-11037,2025-10-05,"Ultra-HD Smart TV 55""",Electronics,1,564.55,564.55,South,Dallas,CUST-1083
+ORD-ELE-10765,2025-10-06,Pro Smartphone Max,Electronics,1,922.01,922.01,North,Boston,CUST-1124
+ORD-ELE-10860,2025-10-06,Noise-Cancelling Headphones,Electronics,2,189.68,379.36,West,Seattle,CUST-1156
+ORD-ELE-10840,2025-10-07,Pro Smartphone Max,Electronics,1,872.08,872.08,West,Seattle,CUST-1119
+ORD-ELE-10954,2025-10-09,Wireless Fast Charger Pad,Electronics,1,30.7,30.7,South,Atlanta,CUST-1185
+ORD-ELE-10571,2025-10-10,Mechanical RGB Keyboard,Electronics,4,99.02,396.08,East,Philadelphia,CUST-1010
+ORD-ELE-10674,2025-10-10,Bluetooth Studio Speaker,Electronics,1,82.67,82.67,Central,Kansas City,CUST-1045
+ORD-ELE-10767,2025-10-10,Mechanical RGB Keyboard,Electronics,1,98.24,98.24,West,San Francisco,CUST-1031
+ORD-ELE-10565,2025-10-11,Noise-Cancelling Headphones,Electronics,1,189.46,189.46,North,Chicago,CUST-1098
+ORD-ELE-10846,2025-10-11,Fitness Tracker Watch,Electronics,2,143.77,287.54,Central,Kansas City,CUST-1041
+ORD-ELE-10010,2025-10-12,Fitness Tracker Watch,Electronics,1,144.93,144.93,West,San Francisco,CUST-1175
+ORD-ELE-10099,2025-10-12,Wireless Fast Charger Pad,Electronics,1,30.61,30.61,Central,Kansas City,CUST-1070
+ORD-ELE-10434,2025-10-12,Fitness Tracker Watch,Electronics,2,155.24,310.48,East,Philadelphia,CUST-1110
+ORD-ELE-11084,2025-10-12,Noise-Cancelling Headphones,Electronics,1,196.46,196.46,West,Seattle,CUST-1013
+ORD-ELE-10701,2025-10-13,Pro Smartphone Max,Electronics,2,927.38,1854.76,East,Charlotte,CUST-1112
+ORD-ELE-10260,2025-10-14,Mechanical RGB Keyboard,Electronics,2,98.62,197.24,South,Atlanta,CUST-1037
+ORD-ELE-10477,2025-10-14,Mechanical RGB Keyboard,Electronics,1,95.74,95.74,East,Charlotte,CUST-1034
+ORD-ELE-10932,2025-10-14,Fitness Tracker Watch,Electronics,1,156.83,156.83,West,Seattle,CUST-1070
+ORD-ELE-10167,2025-10-15,Fitness Tracker Watch,Electronics,1,144.12,144.12,North,Chicago,CUST-1144
+ORD-ELE-10766,2025-10-15,Bluetooth Studio Speaker,Electronics,3,77.58,232.74,South,Atlanta,CUST-1061
+ORD-ELE-10001,2025-10-16,Noise-Cancelling Headphones,Electronics,1,180.97,180.97,South,Atlanta,CUST-1189
+ORD-ELE-10556,2025-10-17,Fitness Tracker Watch,Electronics,1,155.41,155.41,West,Los Angeles,CUST-1039
+ORD-ELE-10749,2025-10-17,Bluetooth Studio Speaker,Electronics,1,83.26,83.26,South,Atlanta,CUST-1114
+ORD-ELE-11031,2025-10-17,Wireless Fast Charger Pad,Electronics,2,28.86,57.72,West,Seattle,CUST-1046
+ORD-ELE-10061,2025-10-18,Mechanical RGB Keyboard,Electronics,2,101.79,203.58,West,Los Angeles,CUST-1030
+ORD-ELE-10236,2025-10-18,Wireless Fast Charger Pad,Electronics,1,31.11,31.11,North,Chicago,CUST-1133
+ORD-ELE-10662,2025-10-18,Mechanical RGB Keyboard,Electronics,1,97.76,97.76,West,Seattle,CUST-1119
+ORD-ELE-10780,2025-10-18,Fitness Tracker Watch,Electronics,1,144.15,144.15,North,New York,CUST-1034
+ORD-ELE-11115,2025-10-18,"Ultra-HD Smart TV 55""",Electronics,1,522.66,522.66,West,Seattle,CUST-1148
+ORD-ELE-10782,2025-10-19,Mechanical RGB Keyboard,Electronics,1,101.57,101.57,Central,Austin,CUST-1013
+ORD-ELE-10183,2025-10-20,Pro Smartphone Max,Electronics,1,860.46,860.46,East,Washington D.C.,CUST-1176
+ORD-ELE-10196,2025-10-20,Pro Smartphone Max,Electronics,2,909.8,1819.6,West,Los Angeles,CUST-1047
+ORD-ELE-10601,2025-10-20,"Ultra-HD Smart TV 55""",Electronics,1,550.3,550.3,East,Philadelphia,CUST-1020
+ORD-ELE-11111,2025-10-21,Mechanical RGB Keyboard,Electronics,1,102.88,102.88,North,Boston,CUST-1121
+ORD-ELE-10487,2025-10-22,Noise-Cancelling Headphones,Electronics,1,191.55,191.55,North,New York,CUST-1017
+ORD-ELE-10771,2025-10-22,"Ultra-HD Smart TV 55""",Electronics,2,561.06,1122.12,South,Miami,CUST-1060
+ORD-ELE-10034,2025-10-23,Noise-Cancelling Headphones,Electronics,2,181.64,363.28,North,New York,CUST-1050
+ORD-ELE-10315,2025-10-23,Pro Smartphone Max,Electronics,1,936.7,936.7,Central,Denver,CUST-1137
+ORD-ELE-10655,2025-10-23,"Ultra-HD Smart TV 55""",Electronics,1,531.34,531.34,West,Los Angeles,CUST-1030
+ORD-ELE-10754,2025-10-23,Mechanical RGB Keyboard,Electronics,1,103.27,103.27,North,Boston,CUST-1161
+ORD-ELE-10842,2025-10-23,Wireless Fast Charger Pad,Electronics,1,28.76,28.76,South,Dallas,CUST-1179
+ORD-ELE-10253,2025-10-24,"Slim Pro Laptop 15""",Electronics,3,1174.32,3522.96,North,Chicago,CUST-1085
+ORD-ELE-10550,2025-10-24,"Slim Pro Laptop 15""",Electronics,1,1221.31,1221.31,East,Charlotte,CUST-1006
+ORD-ELE-11127,2025-10-24,Wireless Fast Charger Pad,Electronics,1,28.75,28.75,West,San Francisco,CUST-1102
+ORD-ELE-10011,2025-10-25,Noise-Cancelling Headphones,Electronics,1,192.06,192.06,South,Atlanta,CUST-1119
+ORD-ELE-10939,2025-10-25,"Ultra-HD Smart TV 55""",Electronics,2,571.77,1143.54,West,Seattle,CUST-1120
+ORD-ELE-10169,2025-10-26,Mechanical RGB Keyboard,Electronics,1,96.16,96.16,North,Boston,CUST-1127
+ORD-ELE-10440,2025-10-26,"Ultra-HD Smart TV 55""",Electronics,1,525.34,525.34,South,Miami,CUST-1168
+ORD-ELE-10638,2025-10-26,Pro Smartphone Max,Electronics,1,865.32,865.32,South,Dallas,CUST-1158
+ORD-ELE-11167,2025-10-26,"Ultra-HD Smart TV 55""",Electronics,1,558.23,558.23,Central,Denver,CUST-1023
+ORD-ELE-10895,2025-10-27,Noise-Cancelling Headphones,Electronics,1,195.55,195.55,East,Charlotte,CUST-1106
+ORD-ELE-10129,2025-10-29,Wireless Fast Charger Pad,Electronics,1,31.24,31.24,Central,Austin,CUST-1163
+ORD-ELE-10314,2025-10-30,Wireless Fast Charger Pad,Electronics,1,29.92,29.92,West,Seattle,CUST-1074
+ORD-ELE-10419,2025-10-30,Wireless Fast Charger Pad,Electronics,1,29.72,29.72,East,Washington D.C.,CUST-1043
+ORD-ELE-11178,2025-10-30,Fitness Tracker Watch,Electronics,2,154.43,308.86,South,Dallas,CUST-1054
+ORD-ELE-10605,2025-10-31,Pro Smartphone Max,Electronics,1,864.23,864.23,Central,Kansas City,CUST-1001
+ORD-ELE-11149,2025-10-31,"Ultra-HD Smart TV 55""",Electronics,1,529.12,529.12,East,Charlotte,CUST-1080
+ORD-ELE-10467,2025-11-02,Mechanical RGB Keyboard,Electronics,1,97.24,97.24,West,Seattle,CUST-1020
+ORD-ELE-10498,2025-11-03,"Slim Pro Laptop 15""",Electronics,2,1171.97,2343.94,North,New York,CUST-1148
+ORD-ELE-10608,2025-11-03,Fitness Tracker Watch,Electronics,1,153.23,153.23,South,Atlanta,CUST-1088
+ORD-ELE-10133,2025-11-04,Wireless Fast Charger Pad,Electronics,1,29.73,29.73,West,San Francisco,CUST-1194
+ORD-ELE-10198,2025-11-04,Mechanical RGB Keyboard,Electronics,2,95.69,191.38,North,New York,CUST-1192
+ORD-ELE-11136,2025-11-04,Wireless Fast Charger Pad,Electronics,1,28.65,28.65,South,Atlanta,CUST-1010
+ORD-ELE-11164,2025-11-04,Wireless Fast Charger Pad,Electronics,2,29.4,58.8,Central,Austin,CUST-1177
+ORD-ELE-10060,2025-11-06,"Slim Pro Laptop 15""",Electronics,1,1187.81,1187.81,North,Boston,CUST-1090
+ORD-ELE-10660,2025-11-06,Bluetooth Studio Speaker,Electronics,1,81.54,81.54,Central,Austin,CUST-1081
+ORD-ELE-11144,2025-11-06,Wireless Fast Charger Pad,Electronics,4,29.85,119.4,Central,Kansas City,CUST-1002
+ORD-ELE-10380,2025-11-07,Mechanical RGB Keyboard,Electronics,1,95.85,95.85,South,Dallas,CUST-1019
+ORD-ELE-10525,2025-11-07,Bluetooth Studio Speaker,Electronics,1,76.72,76.72,South,Miami,CUST-1098
+ORD-ELE-10651,2025-11-07,Pro Smartphone Max,Electronics,1,897.65,897.65,South,Dallas,CUST-1101
+ORD-ELE-10927,2025-11-07,Wireless Fast Charger Pad,Electronics,1,30.67,30.67,Central,Kansas City,CUST-1089
+ORD-ELE-10940,2025-11-07,Noise-Cancelling Headphones,Electronics,3,192.63,577.89,West,Seattle,CUST-1178
+ORD-ELE-10582,2025-11-08,Noise-Cancelling Headphones,Electronics,1,193.08,193.08,Central,Kansas City,CUST-1036
+ORD-ELE-10175,2025-11-09,"Slim Pro Laptop 15""",Electronics,1,1216.99,1216.99,North,New York,CUST-1086
+ORD-ELE-10066,2025-11-10,Noise-Cancelling Headphones,Electronics,1,194.17,194.17,West,San Francisco,CUST-1105
+ORD-ELE-10591,2025-11-10,"Ultra-HD Smart TV 55""",Electronics,3,540.57,1621.71,Central,Austin,CUST-1188
+ORD-ELE-11008,2025-11-12,Wireless Fast Charger Pad,Electronics,1,29.86,29.86,West,Los Angeles,CUST-1067
+ORD-ELE-11022,2025-11-13,Fitness Tracker Watch,Electronics,2,148.45,296.9,East,Washington D.C.,CUST-1099
+ORD-ELE-11064,2025-11-13,Mechanical RGB Keyboard,Electronics,1,104.86,104.86,South,Miami,CUST-1028
+ORD-ELE-10941,2025-11-14,Fitness Tracker Watch,Electronics,2,146.35,292.7,West,Los Angeles,CUST-1098
+ORD-ELE-11083,2025-11-14,Fitness Tracker Watch,Electronics,1,144.99,144.99,East,Philadelphia,CUST-1128
+ORD-ELE-10102,2025-11-15,Mechanical RGB Keyboard,Electronics,1,98.35,98.35,West,Los Angeles,CUST-1125
+ORD-ELE-10587,2025-11-16,Wireless Fast Charger Pad,Electronics,1,28.94,28.94,Central,Denver,CUST-1186
+ORD-ELE-10171,2025-11-17,Mechanical RGB Keyboard,Electronics,2,100.86,201.72,East,Charlotte,CUST-1026
+ORD-ELE-10192,2025-11-17,Noise-Cancelling Headphones,Electronics,3,188.3,564.9,East,Charlotte,CUST-1014
+ORD-ELE-10889,2025-11-17,Noise-Cancelling Headphones,Electronics,2,198.99,397.98,East,Charlotte,CUST-1034
+ORD-ELE-11130,2025-11-17,Pro Smartphone Max,Electronics,1,855.47,855.47,East,Washington D.C.,CUST-1102
+ORD-ELE-11089,2025-11-18,"Ultra-HD Smart TV 55""",Electronics,1,570.94,570.94,Central,Denver,CUST-1148
+ORD-ELE-11131,2025-11-18,Fitness Tracker Watch,Electronics,3,144.47,433.41,North,Chicago,CUST-1046
+ORD-ELE-10128,2025-11-19,Bluetooth Studio Speaker,Electronics,2,80.6,161.2,South,Miami,CUST-1133
+ORD-ELE-10648,2025-11-20,Noise-Cancelling Headphones,Electronics,1,190.65,190.65,Central,Denver,CUST-1194
+ORD-ELE-11165,2025-11-20,Mechanical RGB Keyboard,Electronics,1,103.04,103.04,South,Atlanta,CUST-1049
+ORD-ELE-10321,2025-11-21,"Slim Pro Laptop 15""",Electronics,3,1161.05,3483.15,East,Washington D.C.,CUST-1132
+ORD-ELE-11073,2025-11-22,Wireless Fast Charger Pad,Electronics,2,30.47,60.94,Central,Austin,CUST-1122
+ORD-ELE-10600,2025-11-23,Mechanical RGB Keyboard,Electronics,2,96.48,192.96,Central,Denver,CUST-1003
+ORD-ELE-10095,2025-11-24,Mechanical RGB Keyboard,Electronics,2,98.96,197.92,North,Chicago,CUST-1177
+ORD-ELE-10406,2025-11-24,"Ultra-HD Smart TV 55""",Electronics,2,573.64,1147.28,Central,Denver,CUST-1142
+ORD-ELE-11125,2025-11-24,"Slim Pro Laptop 15""",Electronics,1,1190.19,1190.19,South,Atlanta,CUST-1075
+ORD-ELE-10203,2025-11-25,Wireless Fast Charger Pad,Electronics,1,30.07,30.07,South,Miami,CUST-1154
+ORD-ELE-10234,2025-11-25,Wireless Fast Charger Pad,Electronics,1,29.88,29.88,East,Charlotte,CUST-1136
+ORD-ELE-10598,2025-11-25,"Slim Pro Laptop 15""",Electronics,2,1257.34,2514.68,West,San Francisco,CUST-1134
+ORD-ELE-10690,2025-11-25,Mechanical RGB Keyboard,Electronics,1,100.21,100.21,North,Chicago,CUST-1136
+ORD-ELE-11018,2025-11-25,Noise-Cancelling Headphones,Electronics,1,186.34,186.34,South,Miami,CUST-1092
+ORD-ELE-11067,2025-11-26,Fitness Tracker Watch,Electronics,1,144.78,144.78,North,New York,CUST-1170
+ORD-ELE-10272,2025-11-27,Fitness Tracker Watch,Electronics,2,144.42,288.84,Central,Kansas City,CUST-1151
+ORD-ELE-10300,2025-11-28,"Slim Pro Laptop 15""",Electronics,3,1143.78,3431.34,North,New York,CUST-1005
+ORD-ELE-10305,2025-11-28,Bluetooth Studio Speaker,Electronics,1,80.87,80.87,South,Miami,CUST-1143
+ORD-ELE-10551,2025-11-29,Pro Smartphone Max,Electronics,1,897.66,897.66,South,Dallas,CUST-1003
+ORD-ELE-10717,2025-11-30,"Slim Pro Laptop 15""",Electronics,1,1199.87,1199.87,South,Miami,CUST-1053
+ORD-ELE-10930,2025-11-30,Mechanical RGB Keyboard,Electronics,1,99.74,99.74,East,Philadelphia,CUST-1074
+ORD-ELE-10827,2025-12-01,"Slim Pro Laptop 15""",Electronics,1,1243.5,1243.5,Central,Denver,CUST-1111
+ORD-ELE-11156,2025-12-01,Bluetooth Studio Speaker,Electronics,1,82.72,82.72,West,San Francisco,CUST-1013
+ORD-ELE-10936,2025-12-02,Wireless Fast Charger Pad,Electronics,2,29.54,59.08,West,Los Angeles,CUST-1009
+ORD-ELE-11150,2025-12-02,"Ultra-HD Smart TV 55""",Electronics,1,542.24,542.24,West,San Francisco,CUST-1052
+ORD-ELE-10645,2025-12-03,"Ultra-HD Smart TV 55""",Electronics,2,523.8,1047.6,North,New York,CUST-1019
+ORD-ELE-10650,2025-12-03,Bluetooth Studio Speaker,Electronics,1,80.84,80.84,East,Washington D.C.,CUST-1102
+ORD-ELE-10065,2025-12-04,"Slim Pro Laptop 15""",Electronics,1,1183.7,1183.7,West,San Francisco,CUST-1081
+ORD-ELE-10516,2025-12-04,"Slim Pro Laptop 15""",Electronics,1,1159.51,1159.51,North,Boston,CUST-1006
+ORD-ELE-10832,2025-12-04,Pro Smartphone Max,Electronics,2,887.32,1774.64,East,Philadelphia,CUST-1129
+ORD-ELE-11118,2025-12-04,Fitness Tracker Watch,Electronics,1,154.48,154.48,East,Washington D.C.,CUST-1047
+ORD-ELE-11128,2025-12-04,"Slim Pro Laptop 15""",Electronics,2,1225.59,2451.18,Central,Austin,CUST-1019
+ORD-ELE-10401,2025-12-05,"Slim Pro Laptop 15""",Electronics,1,1193.48,1193.48,Central,Kansas City,CUST-1129
+ORD-ELE-10599,2025-12-05,Noise-Cancelling Headphones,Electronics,2,188.71,377.42,East,Washington D.C.,CUST-1170
+ORD-ELE-10836,2025-12-05,Fitness Tracker Watch,Electronics,3,155.49,466.47,East,Washington D.C.,CUST-1199
+ORD-ELE-10509,2025-12-06,Bluetooth Studio Speaker,Electronics,2,77.01,154.02,Central,Austin,CUST-1198
+ORD-ELE-10307,2025-12-07,Wireless Fast Charger Pad,Electronics,1,29.44,29.44,West,Seattle,CUST-1032
+ORD-ELE-10799,2025-12-07,Noise-Cancelling Headphones,Electronics,1,191.8,191.8,Central,Austin,CUST-1021
+ORD-ELE-10888,2025-12-07,Wireless Fast Charger Pad,Electronics,1,30.34,30.34,South,Dallas,CUST-1195
+ORD-ELE-11185,2025-12-07,Noise-Cancelling Headphones,Electronics,3,193.91,581.73,East,Washington D.C.,CUST-1194
+ORD-ELE-10151,2025-12-11,Bluetooth Studio Speaker,Electronics,1,83.22,83.22,North,Boston,CUST-1092
+ORD-ELE-10415,2025-12-11,"Ultra-HD Smart TV 55""",Electronics,1,550.59,550.59,South,Dallas,CUST-1099
+ORD-ELE-11045,2025-12-11,"Ultra-HD Smart TV 55""",Electronics,1,560.33,560.33,South,Atlanta,CUST-1021
+ORD-ELE-10250,2025-12-13,Wireless Fast Charger Pad,Electronics,2,30.39,60.78,North,Chicago,CUST-1199
+ORD-ELE-10039,2025-12-14,Wireless Fast Charger Pad,Electronics,1,28.95,28.95,North,Chicago,CUST-1189
+ORD-ELE-10348,2025-12-14,Mechanical RGB Keyboard,Electronics,1,99.07,99.07,South,Dallas,CUST-1122
+ORD-ELE-10692,2025-12-14,Noise-Cancelling Headphones,Electronics,1,188.57,188.57,South,Atlanta,CUST-1073
+ORD-ELE-10724,2025-12-16,Wireless Fast Charger Pad,Electronics,1,29.44,29.44,South,Miami,CUST-1149
+ORD-ELE-10093,2025-12-17,Bluetooth Studio Speaker,Electronics,1,82.12,82.12,Central,Kansas City,CUST-1184
+ORD-ELE-10892,2025-12-17,Fitness Tracker Watch,Electronics,3,154.32,462.96,East,Washington D.C.,CUST-1008
+ORD-ELE-10501,2025-12-18,Fitness Tracker Watch,Electronics,1,156.7,156.7,Central,Denver,CUST-1127
+ORD-ELE-10535,2025-12-18,Mechanical RGB Keyboard,Electronics,1,96.12,96.12,Central,Kansas City,CUST-1150
+ORD-ELE-10742,2025-12-18,Noise-Cancelling Headphones,Electronics,1,184.49,184.49,North,New York,CUST-1122
+ORD-ELE-10058,2025-12-19,Noise-Cancelling Headphones,Electronics,1,187.76,187.76,East,Philadelphia,CUST-1052
+ORD-ELE-10328,2025-12-19,Wireless Fast Charger Pad,Electronics,2,30.76,61.52,South,Atlanta,CUST-1175
+ORD-ELE-10581,2025-12-19,"Ultra-HD Smart TV 55""",Electronics,2,533.79,1067.58,North,Boston,CUST-1108
+ORD-ELE-10960,2025-12-19,"Ultra-HD Smart TV 55""",Electronics,1,523.28,523.28,West,Los Angeles,CUST-1117
+ORD-ELE-10108,2025-12-20,Wireless Fast Charger Pad,Electronics,1,29.3,29.3,North,Chicago,CUST-1050
+ORD-ELE-10227,2025-12-20,Noise-Cancelling Headphones,Electronics,1,192.76,192.76,West,Los Angeles,CUST-1093
+ORD-ELE-10907,2025-12-20,Mechanical RGB Keyboard,Electronics,2,101.24,202.48,East,Washington D.C.,CUST-1112
+ORD-ELE-11169,2025-12-20,Wireless Fast Charger Pad,Electronics,1,31.38,31.38,East,Charlotte,CUST-1063
+ORD-ELE-10410,2025-12-21,Noise-Cancelling Headphones,Electronics,2,191.46,382.92,Central,Denver,CUST-1094
+ORD-ELE-10585,2025-12-21,Mechanical RGB Keyboard,Electronics,1,97.94,97.94,East,Philadelphia,CUST-1177
+ORD-ELE-10993,2025-12-21,Pro Smartphone Max,Electronics,1,932.42,932.42,West,San Francisco,CUST-1009
+ORD-ELE-10506,2025-12-22,Mechanical RGB Keyboard,Electronics,1,100.85,100.85,West,Los Angeles,CUST-1041
+ORD-ELE-10546,2025-12-22,"Slim Pro Laptop 15""",Electronics,2,1172.87,2345.74,Central,Austin,CUST-1163
+ORD-ELE-10629,2025-12-22,Fitness Tracker Watch,Electronics,1,153.82,153.82,Central,Denver,CUST-1199
+ORD-ELE-10885,2025-12-22,Bluetooth Studio Speaker,Electronics,1,80.58,80.58,West,San Francisco,CUST-1087
+ORD-ELE-10968,2025-12-24,Bluetooth Studio Speaker,Electronics,2,79.32,158.64,East,Charlotte,CUST-1033
+ORD-ELE-10460,2025-12-25,"Ultra-HD Smart TV 55""",Electronics,1,561.07,561.07,West,San Francisco,CUST-1133
+ORD-ELE-10226,2025-12-26,Noise-Cancelling Headphones,Electronics,1,186.37,186.37,West,Los Angeles,CUST-1172
+ORD-ELE-10544,2025-12-27,Mechanical RGB Keyboard,Electronics,3,96.35,289.05,Central,Denver,CUST-1045
+ORD-ELE-10874,2025-12-27,Pro Smartphone Max,Electronics,1,879.42,879.42,South,Miami,CUST-1116
+ORD-ELE-10426,2025-12-28,Mechanical RGB Keyboard,Electronics,1,96.65,96.65,South,Atlanta,CUST-1016
+ORD-ELE-10268,2025-12-29,"Ultra-HD Smart TV 55""",Electronics,1,566.14,566.14,North,New York,CUST-1036
+ORD-ELE-10845,2025-12-29,"Ultra-HD Smart TV 55""",Electronics,1,562.0,562.0,North,Chicago,CUST-1116
+ORD-ELE-10375,2025-12-30,Mechanical RGB Keyboard,Electronics,1,104.28,104.28,Central,Denver,CUST-1146
+ORD-ELE-10914,2025-12-30,Bluetooth Studio Speaker,Electronics,1,79.28,79.28,West,Los Angeles,CUST-1010
+ORD-ELE-10560,2025-12-31,"Slim Pro Laptop 15""",Electronics,1,1222.35,1222.35,East,Charlotte,CUST-1092
+ORD-ELE-11154,2025-12-31,"Ultra-HD Smart TV 55""",Electronics,1,573.68,573.68,Central,Denver,CUST-1075

@@ -1,0 +1,1101 @@
+Order ID,Order Date,Product,Category,Quantity,Unit Price,Total Amount,Region,City,Customer ID
+ORD-CLO-10473,2024-01-01,Athletic Performance Runner,Clothing,2,87.31,174.62,South,Dallas,CUST-1078
+ORD-CLO-10809,2024-01-01,Merino Wool Knit Sweater,Clothing,2,70.14,140.28,West,Seattle,CUST-1121
+ORD-CLO-10069,2024-01-02,Merino Wool Knit Sweater,Clothing,1,70.89,70.89,South,Miami,CUST-1111
+ORD-CLO-10550,2024-01-02,Winter Hooded Parka Coat,Clothing,1,151.51,151.51,Central,Denver,CUST-1047
+ORD-CLO-10555,2024-01-02,Raw Selvedge Denim Jeans,Clothing,2,79.08,158.16,South,Miami,CUST-1127
+ORD-CLO-10040,2024-01-03,Athletic Performance Runner,Clothing,2,87.88,175.76,East,Washington D.C.,CUST-1109
+ORD-CLO-10468,2024-01-03,Casual Canvas Low Sneakers,Clothing,2,51.36,102.72,East,Charlotte,CUST-1171
+ORD-CLO-10365,2024-01-04,Casual Canvas Low Sneakers,Clothing,1,47.6,47.6,Central,Austin,CUST-1137
+ORD-CLO-11027,2024-01-04,Athletic Performance Runner,Clothing,2,94.08,188.16,East,Philadelphia,CUST-1146
+ORD-CLO-10511,2024-01-07,Athletic Performance Runner,Clothing,1,85.71,85.71,North,Boston,CUST-1001
+ORD-CLO-11012,2024-01-09,Casual Canvas Low Sneakers,Clothing,1,47.83,47.83,Central,Denver,CUST-1176
+ORD-CLO-10400,2024-01-10,Winter Hooded Parka Coat,Clothing,1,140.24,140.24,East,Charlotte,CUST-1085
+ORD-CLO-10672,2024-01-14,Merino Wool Knit Sweater,Clothing,1,65.32,65.32,North,Chicago,CUST-1015
+ORD-CLO-10678,2024-01-14,Winter Hooded Parka Coat,Clothing,1,141.39,141.39,East,Philadelphia,CUST-1163
+ORD-CLO-10178,2024-01-15,Tailored Oxford Dress Shirt,Clothing,1,54.7,54.7,West,San Francisco,CUST-1098
+ORD-CLO-11067,2024-01-15,Winter Hooded Parka Coat,Clothing,3,143.96,431.88,South,Miami,CUST-1112
+ORD-CLO-10381,2024-01-16,Organic Cotton Classic Tee,Clothing,4,29.22,116.88,North,Chicago,CUST-1194
+ORD-CLO-10267,2024-01-17,Tailored Oxford Dress Shirt,Clothing,1,56.07,56.07,North,Chicago,CUST-1189
+ORD-CLO-10386,2024-01-17,Tailored Oxford Dress Shirt,Clothing,1,54.79,54.79,East,Washington D.C.,CUST-1040
+ORD-CLO-10394,2024-01-17,Raw Selvedge Denim Jeans,Clothing,1,80.25,80.25,North,Chicago,CUST-1185
+ORD-CLO-10617,2024-01-19,Winter Hooded Parka Coat,Clothing,2,137.81,275.62,South,Dallas,CUST-1089
+ORD-CLO-10943,2024-01-20,Organic Cotton Classic Tee,Clothing,1,28.22,28.22,West,Los Angeles,CUST-1039
+ORD-CLO-11038,2024-01-20,Athletic Performance Runner,Clothing,1,93.65,93.65,South,Dallas,CUST-1167
+ORD-CLO-10089,2024-01-21,Casual Canvas Low Sneakers,Clothing,1,51.89,51.89,East,Philadelphia,CUST-1091
+ORD-CLO-10833,2024-01-22,Winter Hooded Parka Coat,Clothing,2,143.23,286.46,West,Los Angeles,CUST-1125
+ORD-CLO-10169,2024-01-23,Casual Canvas Low Sneakers,Clothing,1,50.78,50.78,Central,Kansas City,CUST-1200
+ORD-CLO-11088,2024-01-24,Tailored Oxford Dress Shirt,Clothing,2,54.05,108.1,South,Miami,CUST-1089
+ORD-CLO-10064,2024-01-25,Winter Hooded Parka Coat,Clothing,1,140.55,140.55,North,Boston,CUST-1090
+ORD-CLO-10536,2024-01-27,Tailored Oxford Dress Shirt,Clothing,1,55.03,55.03,West,Los Angeles,CUST-1121
+ORD-CLO-10801,2024-01-27,Casual Canvas Low Sneakers,Clothing,2,49.48,98.96,North,New York,CUST-1068
+ORD-CLO-10256,2024-01-28,Athletic Performance Runner,Clothing,1,85.97,85.97,South,Miami,CUST-1021
+ORD-CLO-10998,2024-01-28,Tailored Oxford Dress Shirt,Clothing,1,54.42,54.42,North,Boston,CUST-1065
+ORD-CLO-10804,2024-01-30,Raw Selvedge Denim Jeans,Clothing,3,81.3,243.9,West,Seattle,CUST-1120
+ORD-CLO-10003,2024-01-31,Raw Selvedge Denim Jeans,Clothing,1,77.74,77.74,North,Chicago,CUST-1051
+ORD-CLO-10500,2024-01-31,Tailored Oxford Dress Shirt,Clothing,1,56.17,56.17,North,Boston,CUST-1183
+ORD-CLO-10524,2024-02-01,Athletic Performance Runner,Clothing,1,93.18,93.18,Central,Denver,CUST-1025
+ORD-CLO-10031,2024-02-02,Casual Canvas Low Sneakers,Clothing,1,49.14,49.14,West,San Francisco,CUST-1125
+ORD-CLO-10399,2024-02-02,Raw Selvedge Denim Jeans,Clothing,1,79.23,79.23,East,Philadelphia,CUST-1164
+ORD-CLO-10185,2024-02-03,Winter Hooded Parka Coat,Clothing,1,143.12,143.12,South,Miami,CUST-1026
+ORD-CLO-10759,2024-02-04,Casual Canvas Low Sneakers,Clothing,1,50.49,50.49,South,Dallas,CUST-1044
+ORD-CLO-10823,2024-02-04,Organic Cotton Classic Tee,Clothing,2,27.89,55.78,Central,Kansas City,CUST-1054
+ORD-CLO-10990,2024-02-04,Raw Selvedge Denim Jeans,Clothing,2,80.54,161.08,North,Chicago,CUST-1124
+ORD-CLO-10996,2024-02-06,Winter Hooded Parka Coat,Clothing,2,151.13,302.26,Central,Austin,CUST-1016
+ORD-CLO-10247,2024-02-08,Winter Hooded Parka Coat,Clothing,2,142.63,285.26,South,Dallas,CUST-1097
+ORD-CLO-11050,2024-02-08,Merino Wool Knit Sweater,Clothing,1,65.82,65.82,North,Chicago,CUST-1078
+ORD-CLO-10258,2024-02-09,Tailored Oxford Dress Shirt,Clothing,1,56.77,56.77,South,Dallas,CUST-1121
+ORD-CLO-10059,2024-02-10,Tailored Oxford Dress Shirt,Clothing,1,52.92,52.92,North,Boston,CUST-1200
+ORD-CLO-10300,2024-02-12,Casual Canvas Low Sneakers,Clothing,1,51.81,51.81,Central,Austin,CUST-1167
+ORD-CLO-10221,2024-02-13,Athletic Performance Runner,Clothing,3,85.66,256.98,West,San Francisco,CUST-1110
+ORD-CLO-10825,2024-02-13,Winter Hooded Parka Coat,Clothing,1,151.34,151.34,West,Seattle,CUST-1164
+ORD-CLO-10733,2024-02-14,Organic Cotton Classic Tee,Clothing,1,28.21,28.21,Central,Denver,CUST-1147
+ORD-CLO-10369,2024-02-15,Athletic Performance Runner,Clothing,1,89.44,89.44,North,New York,CUST-1129
+ORD-CLO-10568,2024-02-15,Tailored Oxford Dress Shirt,Clothing,1,54.17,54.17,West,San Francisco,CUST-1016
+ORD-CLO-10009,2024-02-16,Winter Hooded Parka Coat,Clothing,1,141.05,141.05,North,New York,CUST-1026
+ORD-CLO-10217,2024-02-16,Organic Cotton Classic Tee,Clothing,1,27.71,27.71,North,New York,CUST-1078
+ORD-CLO-10619,2024-02-16,Tailored Oxford Dress Shirt,Clothing,1,56.94,56.94,Central,Kansas City,CUST-1135
+ORD-CLO-10953,2024-02-17,Raw Selvedge Denim Jeans,Clothing,2,80.15,160.3,West,Los Angeles,CUST-1148
+ORD-CLO-10018,2024-02-18,Casual Canvas Low Sneakers,Clothing,1,48.04,48.04,East,Charlotte,CUST-1017
+ORD-CLO-10677,2024-02-18,Athletic Performance Runner,Clothing,4,88.98,355.92,West,San Francisco,CUST-1014
+ORD-CLO-10170,2024-02-20,Merino Wool Knit Sweater,Clothing,2,69.67,139.34,West,Los Angeles,CUST-1156
+ORD-CLO-10869,2024-02-20,Merino Wool Knit Sweater,Clothing,1,67.31,67.31,Central,Austin,CUST-1199
+ORD-CLO-10336,2024-02-21,Winter Hooded Parka Coat,Clothing,1,150.88,150.88,South,Atlanta,CUST-1026
+ORD-CLO-10635,2024-02-21,Raw Selvedge Denim Jeans,Clothing,3,82.5,247.5,West,Seattle,CUST-1174
+ORD-CLO-10055,2024-02-22,Raw Selvedge Denim Jeans,Clothing,2,81.06,162.12,North,New York,CUST-1086
+ORD-CLO-10323,2024-02-22,Merino Wool Knit Sweater,Clothing,1,67.87,67.87,Central,Austin,CUST-1038
+ORD-CLO-10684,2024-02-22,Casual Canvas Low Sneakers,Clothing,1,52.15,52.15,West,Seattle,CUST-1147
+ORD-CLO-10123,2024-02-24,Organic Cotton Classic Tee,Clothing,1,27.02,27.02,West,Los Angeles,CUST-1064
+ORD-CLO-10994,2024-02-24,Tailored Oxford Dress Shirt,Clothing,1,54.69,54.69,East,Charlotte,CUST-1121
+ORD-CLO-10654,2024-02-25,Casual Canvas Low Sneakers,Clothing,1,48.6,48.6,Central,Kansas City,CUST-1154
+ORD-CLO-10697,2024-02-25,Organic Cotton Classic Tee,Clothing,1,28.82,28.82,Central,Denver,CUST-1067
+ORD-CLO-10778,2024-02-25,Merino Wool Knit Sweater,Clothing,1,70.04,70.04,Central,Denver,CUST-1129
+ORD-CLO-10358,2024-02-26,Athletic Performance Runner,Clothing,1,86.68,86.68,Central,Denver,CUST-1144
+ORD-CLO-11078,2024-02-26,Merino Wool Knit Sweater,Clothing,2,71.03,142.06,North,New York,CUST-1099
+ORD-CLO-10863,2024-02-27,Casual Canvas Low Sneakers,Clothing,3,49.16,147.48,East,Washington D.C.,CUST-1031
+ORD-CLO-10942,2024-02-27,Casual Canvas Low Sneakers,Clothing,1,50.1,50.1,West,San Francisco,CUST-1138
+ORD-CLO-11035,2024-02-27,Tailored Oxford Dress Shirt,Clothing,1,56.07,56.07,North,New York,CUST-1168
+ORD-CLO-10025,2024-02-29,Organic Cotton Classic Tee,Clothing,3,29.06,87.18,North,Chicago,CUST-1125
+ORD-CLO-10613,2024-02-29,Raw Selvedge Denim Jeans,Clothing,1,79.61,79.61,South,Dallas,CUST-1196
+ORD-CLO-10846,2024-02-29,Casual Canvas Low Sneakers,Clothing,1,50.57,50.57,North,Boston,CUST-1020
+ORD-CLO-10393,2024-03-02,Merino Wool Knit Sweater,Clothing,3,68.94,206.82,East,Charlotte,CUST-1125
+ORD-CLO-10350,2024-03-04,Winter Hooded Parka Coat,Clothing,1,139.46,139.46,East,Charlotte,CUST-1129
+ORD-CLO-10980,2024-03-04,Tailored Oxford Dress Shirt,Clothing,4,56.69,226.76,North,Chicago,CUST-1144
+ORD-CLO-11083,2024-03-05,Tailored Oxford Dress Shirt,Clothing,1,53.66,53.66,Central,Denver,CUST-1121
+ORD-CLO-10194,2024-03-06,Athletic Performance Runner,Clothing,1,89.52,89.52,Central,Denver,CUST-1116
+ORD-CLO-10292,2024-03-08,Tailored Oxford Dress Shirt,Clothing,2,53.94,107.88,East,Charlotte,CUST-1106
+ORD-CLO-10587,2024-03-08,Tailored Oxford Dress Shirt,Clothing,1,55.64,55.64,Central,Kansas City,CUST-1008
+ORD-CLO-10368,2024-03-09,Raw Selvedge Denim Jeans,Clothing,1,80.74,80.74,North,New York,CUST-1190
+ORD-CLO-10576,2024-03-09,Raw Selvedge Denim Jeans,Clothing,1,79.09,79.09,West,Seattle,CUST-1134
+ORD-CLO-10841,2024-03-09,Raw Selvedge Denim Jeans,Clothing,1,82.67,82.67,North,New York,CUST-1028
+ORD-CLO-10265,2024-03-10,Merino Wool Knit Sweater,Clothing,2,68.3,136.6,Central,Kansas City,CUST-1006
+ORD-CLO-10491,2024-03-10,Raw Selvedge Denim Jeans,Clothing,1,78.09,78.09,North,Boston,CUST-1130
+ORD-CLO-10026,2024-03-11,Casual Canvas Low Sneakers,Clothing,1,50.15,50.15,East,Charlotte,CUST-1043
+ORD-CLO-10361,2024-03-11,Athletic Performance Runner,Clothing,1,85.78,85.78,South,Dallas,CUST-1187
+ORD-CLO-10739,2024-03-11,Organic Cotton Classic Tee,Clothing,1,27.66,27.66,North,New York,CUST-1134
+ORD-CLO-10070,2024-03-12,Winter Hooded Parka Coat,Clothing,1,151.1,151.1,North,Chicago,CUST-1077
+ORD-CLO-10844,2024-03-13,Raw Selvedge Denim Jeans,Clothing,1,83.43,83.43,East,Philadelphia,CUST-1120
+ORD-CLO-11023,2024-03-13,Merino Wool Knit Sweater,Clothing,2,69.55,139.1,North,Boston,CUST-1039
+ORD-CLO-10872,2024-03-14,Tailored Oxford Dress Shirt,Clothing,1,56.01,56.01,Central,Denver,CUST-1029
+ORD-CLO-10985,2024-03-14,Winter Hooded Parka Coat,Clothing,2,137.98,275.96,East,Charlotte,CUST-1112
+ORD-CLO-10546,2024-03-15,Tailored Oxford Dress Shirt,Clothing,2,55.61,111.22,Central,Denver,CUST-1087
+ORD-CLO-11019,2024-03-16,Tailored Oxford Dress Shirt,Clothing,1,56.01,56.01,West,Los Angeles,CUST-1067
+ORD-CLO-10391,2024-03-17,Casual Canvas Low Sneakers,Clothing,2,50.83,101.66,East,Philadelphia,CUST-1162
+ORD-CLO-10559,2024-03-17,Merino Wool Knit Sweater,Clothing,4,71.0,284.0,West,San Francisco,CUST-1158
+ORD-CLO-10681,2024-03-17,Organic Cotton Classic Tee,Clothing,2,29.29,58.58,North,Boston,CUST-1011
+ORD-CLO-10037,2024-03-18,Athletic Performance Runner,Clothing,3,92.76,278.28,North,New York,CUST-1167
+ORD-CLO-10233,2024-03-19,Winter Hooded Parka Coat,Clothing,3,150.28,450.84,Central,Kansas City,CUST-1130
+ORD-CLO-10972,2024-03-20,Winter Hooded Parka Coat,Clothing,1,151.25,151.25,East,Philadelphia,CUST-1152
+ORD-CLO-10494,2024-03-21,Merino Wool Knit Sweater,Clothing,4,70.86,283.44,South,Dallas,CUST-1084
+ORD-CLO-10572,2024-03-21,Athletic Performance Runner,Clothing,2,93.61,187.22,Central,Kansas City,CUST-1133
+ORD-CLO-10992,2024-03-21,Merino Wool Knit Sweater,Clothing,1,70.65,70.65,East,Charlotte,CUST-1190
+ORD-CLO-10922,2024-03-22,Merino Wool Knit Sweater,Clothing,1,68.68,68.68,Central,Austin,CUST-1159
+ORD-CLO-10363,2024-03-23,Winter Hooded Parka Coat,Clothing,3,151.73,455.19,South,Dallas,CUST-1090
+ORD-CLO-11047,2024-03-23,Raw Selvedge Denim Jeans,Clothing,3,76.05,228.15,Central,Austin,CUST-1107
+ORD-CLO-10241,2024-03-24,Merino Wool Knit Sweater,Clothing,3,69.11,207.33,West,San Francisco,CUST-1179
+ORD-CLO-10453,2024-03-25,Merino Wool Knit Sweater,Clothing,2,64.81,129.62,West,Los Angeles,CUST-1071
+ORD-CLO-10493,2024-03-25,Winter Hooded Parka Coat,Clothing,1,145.53,145.53,West,Los Angeles,CUST-1080
+ORD-CLO-10693,2024-03-25,Raw Selvedge Denim Jeans,Clothing,4,77.33,309.32,Central,Kansas City,CUST-1002
+ORD-CLO-10416,2024-03-27,Winter Hooded Parka Coat,Clothing,3,150.82,452.46,South,Dallas,CUST-1134
+ORD-CLO-11002,2024-03-27,Organic Cotton Classic Tee,Clothing,2,28.27,56.54,East,Washington D.C.,CUST-1198
+ORD-CLO-10108,2024-03-29,Tailored Oxford Dress Shirt,Clothing,1,56.58,56.58,East,Charlotte,CUST-1157
+ORD-CLO-10960,2024-03-29,Athletic Performance Runner,Clothing,2,89.02,178.04,Central,Kansas City,CUST-1177
+ORD-CLO-10287,2024-03-30,Casual Canvas Low Sneakers,Clothing,2,50.9,101.8,West,San Francisco,CUST-1089
+ORD-CLO-11086,2024-03-30,Raw Selvedge Denim Jeans,Clothing,1,79.12,79.12,North,New York,CUST-1043
+ORD-CLO-10808,2024-04-01,Athletic Performance Runner,Clothing,1,88.26,88.26,South,Miami,CUST-1003
+ORD-CLO-10979,2024-04-01,Merino Wool Knit Sweater,Clothing,4,64.66,258.64,East,Philadelphia,CUST-1076
+ORD-CLO-10160,2024-04-02,Athletic Performance Runner,Clothing,2,94.29,188.58,North,Boston,CUST-1043
+ORD-CLO-11029,2024-04-02,Tailored Oxford Dress Shirt,Clothing,4,54.69,218.76,North,Boston,CUST-1195
+ORD-CLO-10830,2024-04-03,Winter Hooded Parka Coat,Clothing,3,146.72,440.16,North,New York,CUST-1092
+ORD-CLO-10006,2024-04-04,Athletic Performance Runner,Clothing,2,86.36,172.72,Central,Austin,CUST-1012
+ORD-CLO-10687,2024-04-04,Tailored Oxford Dress Shirt,Clothing,1,52.98,52.98,West,Seattle,CUST-1093
+ORD-CLO-10113,2024-04-05,Tailored Oxford Dress Shirt,Clothing,2,52.98,105.96,West,San Francisco,CUST-1149
+ORD-CLO-10514,2024-04-05,Raw Selvedge Denim Jeans,Clothing,3,83.36,250.08,Central,Austin,CUST-1180
+ORD-CLO-10638,2024-04-05,Tailored Oxford Dress Shirt,Clothing,1,56.22,56.22,East,Washington D.C.,CUST-1117
+ORD-CLO-10963,2024-04-05,Casual Canvas Low Sneakers,Clothing,2,51.5,103.0,North,Boston,CUST-1080
+ORD-CLO-10240,2024-04-06,Merino Wool Knit Sweater,Clothing,1,69.21,69.21,Central,Denver,CUST-1086
+ORD-CLO-10202,2024-04-07,Tailored Oxford Dress Shirt,Clothing,2,54.1,108.2,West,Los Angeles,CUST-1176
+ORD-CLO-10396,2024-04-08,Merino Wool Knit Sweater,Clothing,1,65.61,65.61,Central,Austin,CUST-1091
+ORD-CLO-10563,2024-04-08,Raw Selvedge Denim Jeans,Clothing,1,79.13,79.13,East,Philadelphia,CUST-1014
+ORD-CLO-10565,2024-04-09,Raw Selvedge Denim Jeans,Clothing,1,77.65,77.65,North,Boston,CUST-1030
+ORD-CLO-10606,2024-04-09,Athletic Performance Runner,Clothing,1,86.64,86.64,Central,Denver,CUST-1175
+ORD-CLO-11008,2024-04-09,Merino Wool Knit Sweater,Clothing,4,68.93,275.72,East,Charlotte,CUST-1167
+ORD-CLO-10584,2024-04-10,Casual Canvas Low Sneakers,Clothing,1,48.63,48.63,East,Washington D.C.,CUST-1069
+ORD-CLO-10885,2024-04-11,Tailored Oxford Dress Shirt,Clothing,1,54.42,54.42,North,New York,CUST-1051
+ORD-CLO-10118,2024-04-12,Casual Canvas Low Sneakers,Clothing,1,48.46,48.46,South,Miami,CUST-1004
+ORD-CLO-10155,2024-04-12,Casual Canvas Low Sneakers,Clothing,1,51.71,51.71,East,Philadelphia,CUST-1185
+ORD-CLO-11046,2024-04-12,Casual Canvas Low Sneakers,Clothing,1,51.73,51.73,South,Atlanta,CUST-1125
+ORD-CLO-10634,2024-04-13,Tailored Oxford Dress Shirt,Clothing,1,55.29,55.29,West,Seattle,CUST-1119
+ORD-CLO-10781,2024-04-13,Tailored Oxford Dress Shirt,Clothing,3,53.75,161.25,South,Dallas,CUST-1068
+ORD-CLO-10002,2024-04-14,Winter Hooded Parka Coat,Clothing,1,148.49,148.49,Central,Austin,CUST-1009
+ORD-CLO-10818,2024-04-14,Tailored Oxford Dress Shirt,Clothing,2,53.24,106.48,North,New York,CUST-1024
+ORD-CLO-10236,2024-04-15,Casual Canvas Low Sneakers,Clothing,1,51.99,51.99,North,Chicago,CUST-1166
+ORD-CLO-10552,2024-04-16,Athletic Performance Runner,Clothing,2,86.76,173.52,South,Miami,CUST-1082
+ORD-CLO-10695,2024-04-16,Organic Cotton Classic Tee,Clothing,2,28.11,56.22,East,Charlotte,CUST-1019
+ORD-CLO-11056,2024-04-16,Winter Hooded Parka Coat,Clothing,1,138.51,138.51,South,Atlanta,CUST-1125
+ORD-CLO-10224,2024-04-18,Organic Cotton Classic Tee,Clothing,1,27.82,27.82,North,Boston,CUST-1080
+ORD-CLO-10432,2024-04-18,Raw Selvedge Denim Jeans,Clothing,1,76.78,76.78,Central,Kansas City,CUST-1149
+ORD-CLO-10053,2024-04-19,Winter Hooded Parka Coat,Clothing,1,145.77,145.77,Central,Denver,CUST-1184
+ORD-CLO-10168,2024-04-19,Organic Cotton Classic Tee,Clothing,1,27.67,27.67,West,San Francisco,CUST-1076
+ORD-CLO-10748,2024-04-19,Organic Cotton Classic Tee,Clothing,1,27.79,27.79,West,San Francisco,CUST-1109
+ORD-CLO-10968,2024-04-19,Tailored Oxford Dress Shirt,Clothing,1,54.81,54.81,West,San Francisco,CUST-1119
+ORD-CLO-10197,2024-04-20,Athletic Performance Runner,Clothing,1,91.9,91.9,North,Boston,CUST-1156
+ORD-CLO-10192,2024-04-22,Winter Hooded Parka Coat,Clothing,1,150.31,150.31,West,Los Angeles,CUST-1151
+ORD-CLO-11059,2024-04-22,Tailored Oxford Dress Shirt,Clothing,1,53.02,53.02,East,Philadelphia,CUST-1097
+ORD-CLO-10216,2024-04-23,Tailored Oxford Dress Shirt,Clothing,1,55.47,55.47,Central,Kansas City,CUST-1079
+ORD-CLO-10262,2024-04-23,Casual Canvas Low Sneakers,Clothing,1,52.02,52.02,North,Chicago,CUST-1132
+ORD-CLO-10021,2024-04-24,Tailored Oxford Dress Shirt,Clothing,1,54.14,54.14,West,San Francisco,CUST-1196
+ORD-CLO-10367,2024-04-25,Raw Selvedge Denim Jeans,Clothing,1,82.47,82.47,North,New York,CUST-1053
+ORD-CLO-10578,2024-04-25,Athletic Performance Runner,Clothing,1,86.84,86.84,Central,Denver,CUST-1028
+ORD-CLO-10640,2024-04-25,Organic Cotton Classic Tee,Clothing,1,28.55,28.55,South,Atlanta,CUST-1107
+ORD-CLO-10643,2024-04-25,Athletic Performance Runner,Clothing,1,89.46,89.46,West,Los Angeles,CUST-1181
+ORD-CLO-10122,2024-04-26,Casual Canvas Low Sneakers,Clothing,1,47.82,47.82,Central,Kansas City,CUST-1176
+ORD-CLO-10099,2024-04-27,Merino Wool Knit Sweater,Clothing,1,71.04,71.04,West,Seattle,CUST-1043
+ORD-CLO-10176,2024-04-27,Athletic Performance Runner,Clothing,1,94.16,94.16,South,Dallas,CUST-1186
+ORD-CLO-10438,2024-04-27,Raw Selvedge Denim Jeans,Clothing,1,82.78,82.78,South,Dallas,CUST-1063
+ORD-CLO-10066,2024-04-28,Tailored Oxford Dress Shirt,Clothing,4,52.75,211.0,West,Los Angeles,CUST-1028
+ORD-CLO-10068,2024-04-28,Athletic Performance Runner,Clothing,1,93.59,93.59,North,Chicago,CUST-1112
+ORD-CLO-10182,2024-04-28,Raw Selvedge Denim Jeans,Clothing,1,77.87,77.87,East,Washington D.C.,CUST-1095
+ORD-CLO-10497,2024-04-28,Athletic Performance Runner,Clothing,1,91.0,91.0,South,Atlanta,CUST-1004
+ORD-CLO-10503,2024-04-28,Organic Cotton Classic Tee,Clothing,1,28.67,28.67,North,New York,CUST-1012
+ORD-CLO-10357,2024-04-29,Winter Hooded Parka Coat,Clothing,1,140.73,140.73,North,Chicago,CUST-1115
+ORD-CLO-11096,2024-04-29,Raw Selvedge Denim Jeans,Clothing,1,83.94,83.94,East,Washington D.C.,CUST-1095
+ORD-CLO-10747,2024-04-30,Merino Wool Knit Sweater,Clothing,2,64.65,129.3,West,Seattle,CUST-1093
+ORD-CLO-10124,2024-05-01,Merino Wool Knit Sweater,Clothing,1,69.8,69.8,Central,Denver,CUST-1199
+ORD-CLO-10315,2024-05-01,Organic Cotton Classic Tee,Clothing,1,29.33,29.33,West,San Francisco,CUST-1094
+ORD-CLO-10364,2024-05-01,Organic Cotton Classic Tee,Clothing,1,29.38,29.38,South,Dallas,CUST-1058
+ORD-CLO-10651,2024-05-01,Athletic Performance Runner,Clothing,1,92.2,92.2,East,Washington D.C.,CUST-1010
+ORD-CLO-10731,2024-05-01,Winter Hooded Parka Coat,Clothing,2,141.09,282.18,North,Boston,CUST-1173
+ORD-CLO-10610,2024-05-02,Casual Canvas Low Sneakers,Clothing,1,50.89,50.89,East,Philadelphia,CUST-1039
+ORD-CLO-10520,2024-05-03,Merino Wool Knit Sweater,Clothing,2,67.04,134.08,East,Washington D.C.,CUST-1119
+ORD-CLO-10261,2024-05-04,Raw Selvedge Denim Jeans,Clothing,1,77.9,77.9,Central,Austin,CUST-1017
+ORD-CLO-10791,2024-05-04,Tailored Oxford Dress Shirt,Clothing,4,56.5,226.0,South,Dallas,CUST-1148
+ORD-CLO-10822,2024-05-04,Casual Canvas Low Sneakers,Clothing,1,51.06,51.06,East,Philadelphia,CUST-1189
+ORD-CLO-11015,2024-05-04,Winter Hooded Parka Coat,Clothing,1,151.64,151.64,Central,Denver,CUST-1097
+ORD-CLO-10626,2024-05-06,Merino Wool Knit Sweater,Clothing,2,66.32,132.64,South,Dallas,CUST-1176
+ORD-CLO-10133,2024-05-07,Athletic Performance Runner,Clothing,2,91.69,183.38,West,San Francisco,CUST-1139
+ORD-CLO-10189,2024-05-08,Casual Canvas Low Sneakers,Clothing,1,50.31,50.31,Central,Denver,CUST-1151
+ORD-CLO-10528,2024-05-11,Raw Selvedge Denim Jeans,Clothing,2,83.23,166.46,West,Los Angeles,CUST-1011
+ORD-CLO-10933,2024-05-12,Merino Wool Knit Sweater,Clothing,1,68.43,68.43,East,Washington D.C.,CUST-1047
+ORD-CLO-10056,2024-05-13,Winter Hooded Parka Coat,Clothing,1,151.96,151.96,East,Charlotte,CUST-1181
+ORD-CLO-10471,2024-05-13,Merino Wool Knit Sweater,Clothing,2,70.4,140.8,North,New York,CUST-1026
+ORD-CLO-10517,2024-05-13,Organic Cotton Classic Tee,Clothing,3,27.42,82.26,East,Charlotte,CUST-1189
+ORD-CLO-10959,2024-05-13,Raw Selvedge Denim Jeans,Clothing,2,79.76,159.52,North,Boston,CUST-1014
+ORD-CLO-11039,2024-05-13,Raw Selvedge Denim Jeans,Clothing,1,77.37,77.37,West,Los Angeles,CUST-1117
+ORD-CLO-10173,2024-05-14,Raw Selvedge Denim Jeans,Clothing,1,83.27,83.27,East,Philadelphia,CUST-1052
+ORD-CLO-10050,2024-05-15,Tailored Oxford Dress Shirt,Clothing,3,56.58,169.74,West,Seattle,CUST-1041
+ORD-CLO-10174,2024-05-15,Casual Canvas Low Sneakers,Clothing,4,50.19,200.76,Central,Kansas City,CUST-1070
+ORD-CLO-10999,2024-05-15,Merino Wool Knit Sweater,Clothing,3,66.51,199.53,North,Chicago,CUST-1029
+ORD-CLO-10720,2024-05-17,Athletic Performance Runner,Clothing,1,90.0,90.0,West,San Francisco,CUST-1003
+ORD-CLO-10745,2024-05-17,Tailored Oxford Dress Shirt,Clothing,1,54.38,54.38,North,Boston,CUST-1154
+ORD-CLO-10463,2024-05-18,Casual Canvas Low Sneakers,Clothing,3,51.42,154.26,West,San Francisco,CUST-1033
+ORD-CLO-10422,2024-05-19,Tailored Oxford Dress Shirt,Clothing,3,53.52,160.56,South,Miami,CUST-1081
+ORD-CLO-10986,2024-05-19,Raw Selvedge Denim Jeans,Clothing,2,77.09,154.18,East,Charlotte,CUST-1155
+ORD-CLO-10317,2024-05-20,Winter Hooded Parka Coat,Clothing,1,142.58,142.58,East,Philadelphia,CUST-1156
+ORD-CLO-10533,2024-05-20,Athletic Performance Runner,Clothing,3,87.29,261.87,Central,Denver,CUST-1162
+ORD-CLO-10611,2024-05-20,Organic Cotton Classic Tee,Clothing,4,27.56,110.24,East,Philadelphia,CUST-1081
+ORD-CLO-10253,2024-05-21,Casual Canvas Low Sneakers,Clothing,1,48.74,48.74,West,San Francisco,CUST-1027
+ORD-CLO-10666,2024-05-21,Athletic Performance Runner,Clothing,3,90.91,272.73,Central,Austin,CUST-1180
+ORD-CLO-10894,2024-05-21,Tailored Oxford Dress Shirt,Clothing,3,55.53,166.59,South,Miami,CUST-1198
+ORD-CLO-10016,2024-05-22,Organic Cotton Classic Tee,Clothing,1,28.69,28.69,Central,Austin,CUST-1150
+ORD-CLO-10211,2024-05-26,Merino Wool Knit Sweater,Clothing,1,69.07,69.07,North,New York,CUST-1192
+ORD-CLO-10481,2024-05-26,Raw Selvedge Denim Jeans,Clothing,1,80.23,80.23,South,Miami,CUST-1090
+ORD-CLO-10156,2024-05-27,Athletic Performance Runner,Clothing,4,93.33,373.32,North,Boston,CUST-1068
+ORD-CLO-10316,2024-05-27,Organic Cotton Classic Tee,Clothing,1,28.29,28.29,North,New York,CUST-1010
+ORD-CLO-10376,2024-05-27,Casual Canvas Low Sneakers,Clothing,1,49.81,49.81,East,Washington D.C.,CUST-1143
+ORD-CLO-10148,2024-05-28,Athletic Performance Runner,Clothing,1,87.21,87.21,South,Atlanta,CUST-1071
+ORD-CLO-10895,2024-05-28,Winter Hooded Parka Coat,Clothing,3,151.28,453.84,West,Los Angeles,CUST-1143
+ORD-CLO-10333,2024-05-29,Tailored Oxford Dress Shirt,Clothing,4,52.0,208.0,North,Boston,CUST-1114
+ORD-CLO-10418,2024-05-29,Raw Selvedge Denim Jeans,Clothing,1,77.33,77.33,West,Seattle,CUST-1020
+ORD-CLO-10674,2024-05-29,Casual Canvas Low Sneakers,Clothing,2,47.8,95.6,South,Dallas,CUST-1009
+ORD-CLO-10734,2024-05-30,Raw Selvedge Denim Jeans,Clothing,3,77.32,231.96,Central,Austin,CUST-1154
+ORD-CLO-10198,2024-05-31,Raw Selvedge Denim Jeans,Clothing,1,77.0,77.0,Central,Kansas City,CUST-1183
+ORD-CLO-10227,2024-05-31,Organic Cotton Classic Tee,Clothing,1,26.89,26.89,South,Dallas,CUST-1040
+ORD-CLO-10545,2024-05-31,Merino Wool Knit Sweater,Clothing,1,69.39,69.39,North,Chicago,CUST-1094
+ORD-CLO-10719,2024-06-01,Tailored Oxford Dress Shirt,Clothing,3,53.91,161.73,Central,Kansas City,CUST-1075
+ORD-CLO-10786,2024-06-02,Athletic Performance Runner,Clothing,1,92.74,92.74,East,Philadelphia,CUST-1162
+ORD-CLO-10866,2024-06-02,Tailored Oxford Dress Shirt,Clothing,1,54.51,54.51,North,Chicago,CUST-1188
+ORD-CLO-10569,2024-06-03,Casual Canvas Low Sneakers,Clothing,1,50.97,50.97,West,San Francisco,CUST-1106
+ORD-CLO-10819,2024-06-03,Raw Selvedge Denim Jeans,Clothing,1,79.94,79.94,West,Seattle,CUST-1096
+ORD-CLO-10296,2024-06-05,Tailored Oxford Dress Shirt,Clothing,1,52.67,52.67,South,Miami,CUST-1133
+ORD-CLO-10248,2024-06-06,Organic Cotton Classic Tee,Clothing,2,27.11,54.22,Central,Denver,CUST-1185
+ORD-CLO-10299,2024-06-06,Organic Cotton Classic Tee,Clothing,2,28.44,56.88,Central,Austin,CUST-1145
+ORD-CLO-10184,2024-06-07,Athletic Performance Runner,Clothing,2,91.38,182.76,Central,Austin,CUST-1072
+ORD-CLO-10859,2024-06-08,Organic Cotton Classic Tee,Clothing,3,27.34,82.02,South,Atlanta,CUST-1066
+ORD-CLO-10128,2024-06-09,Raw Selvedge Denim Jeans,Clothing,2,79.26,158.52,East,Washington D.C.,CUST-1009
+ORD-CLO-10561,2024-06-09,Raw Selvedge Denim Jeans,Clothing,1,76.8,76.8,South,Miami,CUST-1179
+ORD-CLO-10166,2024-06-10,Raw Selvedge Denim Jeans,Clothing,1,79.52,79.52,Central,Austin,CUST-1164
+ORD-CLO-10338,2024-06-10,Athletic Performance Runner,Clothing,3,91.37,274.11,East,Washington D.C.,CUST-1167
+ORD-CLO-10474,2024-06-11,Casual Canvas Low Sneakers,Clothing,1,52.15,52.15,West,Seattle,CUST-1022
+ORD-CLO-10614,2024-06-11,Athletic Performance Runner,Clothing,2,92.56,185.12,South,Dallas,CUST-1112
+ORD-CLO-10005,2024-06-12,Winter Hooded Parka Coat,Clothing,1,143.88,143.88,South,Miami,CUST-1027
+ORD-CLO-10139,2024-06-13,Tailored Oxford Dress Shirt,Clothing,1,54.02,54.02,East,Charlotte,CUST-1010
+ORD-CLO-10836,2024-06-13,Raw Selvedge Denim Jeans,Clothing,1,80.24,80.24,West,San Francisco,CUST-1094
+ORD-CLO-10405,2024-06-15,Merino Wool Knit Sweater,Clothing,2,66.24,132.48,East,Charlotte,CUST-1139
+ORD-CLO-10902,2024-06-16,Organic Cotton Classic Tee,Clothing,1,27.23,27.23,North,Boston,CUST-1106
+ORD-CLO-10175,2024-06-17,Tailored Oxford Dress Shirt,Clothing,3,56.76,170.28,West,San Francisco,CUST-1087
+ORD-CLO-10132,2024-06-18,Casual Canvas Low Sneakers,Clothing,2,49.03,98.06,Central,Austin,CUST-1113
+ORD-CLO-10648,2024-06-18,Raw Selvedge Denim Jeans,Clothing,1,82.0,82.0,West,Seattle,CUST-1013
+ORD-CLO-10910,2024-06-19,Athletic Performance Runner,Clothing,3,88.14,264.42,Central,Denver,CUST-1119
+ORD-CLO-10553,2024-06-20,Winter Hooded Parka Coat,Clothing,1,150.59,150.59,West,Seattle,CUST-1003
+ORD-CLO-10417,2024-06-22,Winter Hooded Parka Coat,Clothing,1,143.27,143.27,West,Seattle,CUST-1127
+ORD-CLO-10623,2024-06-22,Raw Selvedge Denim Jeans,Clothing,2,78.92,157.84,North,Boston,CUST-1164
+ORD-CLO-10163,2024-06-23,Organic Cotton Classic Tee,Clothing,3,26.82,80.46,Central,Kansas City,CUST-1062
+ORD-CLO-10012,2024-06-24,Merino Wool Knit Sweater,Clothing,1,69.56,69.56,East,Washington D.C.,CUST-1164
+ORD-CLO-10958,2024-06-24,Raw Selvedge Denim Jeans,Clothing,3,78.48,235.44,Central,Austin,CUST-1013
+ORD-CLO-11064,2024-06-24,Casual Canvas Low Sneakers,Clothing,3,49.21,147.63,Central,Denver,CUST-1164
+ORD-CLO-10237,2024-06-25,Raw Selvedge Denim Jeans,Clothing,1,77.97,77.97,East,Charlotte,CUST-1134
+ORD-CLO-10588,2024-06-26,Organic Cotton Classic Tee,Clothing,1,29.05,29.05,North,New York,CUST-1009
+ORD-CLO-10727,2024-06-27,Athletic Performance Runner,Clothing,1,91.37,91.37,North,Chicago,CUST-1065
+ORD-CLO-10341,2024-06-29,Raw Selvedge Denim Jeans,Clothing,1,83.97,83.97,East,Philadelphia,CUST-1192
+ORD-CLO-10061,2024-06-30,Athletic Performance Runner,Clothing,2,85.71,171.42,West,Seattle,CUST-1172
+ORD-CLO-10423,2024-06-30,Athletic Performance Runner,Clothing,1,94.21,94.21,East,Charlotte,CUST-1063
+ORD-CLO-10022,2024-07-01,Merino Wool Knit Sweater,Clothing,3,70.81,212.43,West,San Francisco,CUST-1130
+ORD-CLO-11021,2024-07-01,Winter Hooded Parka Coat,Clothing,1,144.88,144.88,East,Philadelphia,CUST-1158
+ORD-CLO-10612,2024-07-03,Casual Canvas Low Sneakers,Clothing,1,47.89,47.89,South,Miami,CUST-1163
+ORD-CLO-10919,2024-07-04,Raw Selvedge Denim Jeans,Clothing,4,83.18,332.72,North,Chicago,CUST-1196
+ORD-CLO-10295,2024-07-05,Casual Canvas Low Sneakers,Clothing,1,52.32,52.32,North,New York,CUST-1133
+ORD-CLO-10777,2024-07-06,Casual Canvas Low Sneakers,Clothing,1,52.07,52.07,South,Dallas,CUST-1033
+ORD-CLO-11017,2024-07-07,Tailored Oxford Dress Shirt,Clothing,2,53.38,106.76,North,Chicago,CUST-1117
+ORD-CLO-11097,2024-07-07,Organic Cotton Classic Tee,Clothing,1,28.17,28.17,West,Seattle,CUST-1038
+ORD-CLO-10284,2024-07-09,Athletic Performance Runner,Clothing,3,90.15,270.45,North,Boston,CUST-1199
+ORD-CLO-10345,2024-07-09,Raw Selvedge Denim Jeans,Clothing,2,81.88,163.76,Central,Kansas City,CUST-1194
+ORD-CLO-10835,2024-07-10,Merino Wool Knit Sweater,Clothing,2,66.96,133.92,West,San Francisco,CUST-1142
+ORD-CLO-10621,2024-07-11,Organic Cotton Classic Tee,Clothing,3,29.25,87.75,East,Philadelphia,CUST-1059
+ORD-CLO-10898,2024-07-11,Raw Selvedge Denim Jeans,Clothing,1,77.04,77.04,Central,Kansas City,CUST-1069
+ORD-CLO-10812,2024-07-12,Athletic Performance Runner,Clothing,1,93.43,93.43,South,Atlanta,CUST-1184
+ORD-CLO-10036,2024-07-13,Merino Wool Knit Sweater,Clothing,1,67.65,67.65,West,Seattle,CUST-1064
+ORD-CLO-10949,2024-07-13,Tailored Oxford Dress Shirt,Clothing,2,56.81,113.62,Central,Austin,CUST-1199
+ORD-CLO-10072,2024-07-15,Athletic Performance Runner,Clothing,1,91.47,91.47,South,Dallas,CUST-1146
+ORD-CLO-10346,2024-07-16,Organic Cotton Classic Tee,Clothing,1,28.31,28.31,East,Washington D.C.,CUST-1132
+ORD-CLO-10848,2024-07-16,Merino Wool Knit Sweater,Clothing,1,69.07,69.07,South,Dallas,CUST-1192
+ORD-CLO-10707,2024-07-17,Raw Selvedge Denim Jeans,Clothing,2,77.44,154.88,North,Chicago,CUST-1119
+ORD-CLO-10387,2024-07-19,Tailored Oxford Dress Shirt,Clothing,1,53.03,53.03,South,Miami,CUST-1141
+ORD-CLO-10420,2024-07-19,Athletic Performance Runner,Clothing,1,86.45,86.45,East,Washington D.C.,CUST-1159
+ORD-CLO-10680,2024-07-20,Casual Canvas Low Sneakers,Clothing,1,51.11,51.11,East,Philadelphia,CUST-1175
+ORD-CLO-10102,2024-07-22,Raw Selvedge Denim Jeans,Clothing,2,80.73,161.46,South,Atlanta,CUST-1179
+ORD-CLO-10098,2024-07-23,Casual Canvas Low Sneakers,Clothing,1,47.59,47.59,South,Miami,CUST-1172
+ORD-CLO-10286,2024-07-23,Raw Selvedge Denim Jeans,Clothing,1,77.08,77.08,South,Dallas,CUST-1114
+ORD-CLO-10339,2024-07-23,Casual Canvas Low Sneakers,Clothing,1,52.31,52.31,North,New York,CUST-1167
+ORD-CLO-10425,2024-07-23,Merino Wool Knit Sweater,Clothing,1,71.38,71.38,Central,Denver,CUST-1187
+ORD-CLO-10630,2024-07-23,Casual Canvas Low Sneakers,Clothing,1,48.81,48.81,South,Miami,CUST-1181
+ORD-CLO-10673,2024-07-23,Tailored Oxford Dress Shirt,Clothing,1,55.86,55.86,West,San Francisco,CUST-1065
+ORD-CLO-10773,2024-07-23,Organic Cotton Classic Tee,Clothing,3,28.66,85.98,South,Atlanta,CUST-1052
+ORD-CLO-10290,2024-07-24,Casual Canvas Low Sneakers,Clothing,2,48.18,96.36,North,Boston,CUST-1142
+ORD-CLO-10668,2024-07-24,Organic Cotton Classic Tee,Clothing,1,28.35,28.35,West,San Francisco,CUST-1034
+ORD-CLO-10575,2024-07-25,Casual Canvas Low Sneakers,Clothing,2,50.63,101.26,West,Seattle,CUST-1187
+ORD-CLO-10937,2024-07-25,Winter Hooded Parka Coat,Clothing,2,141.83,283.66,West,Seattle,CUST-1130
+ORD-CLO-10948,2024-07-25,Raw Selvedge Denim Jeans,Clothing,1,79.54,79.54,East,Charlotte,CUST-1040
+ORD-CLO-10047,2024-07-28,Winter Hooded Parka Coat,Clothing,1,148.13,148.13,East,Philadelphia,CUST-1172
+ORD-CLO-10442,2024-07-29,Tailored Oxford Dress Shirt,Clothing,2,55.88,111.76,North,Chicago,CUST-1027
+ORD-CLO-10951,2024-07-29,Winter Hooded Parka Coat,Clothing,1,138.28,138.28,Central,Denver,CUST-1002
+ORD-CLO-10331,2024-07-31,Winter Hooded Parka Coat,Clothing,1,147.97,147.97,West,San Francisco,CUST-1185
+ORD-CLO-10011,2024-08-02,Winter Hooded Parka Coat,Clothing,3,141.62,424.86,North,Chicago,CUST-1163
+ORD-CLO-10301,2024-08-03,Casual Canvas Low Sneakers,Clothing,1,50.35,50.35,North,Boston,CUST-1161
+ORD-CLO-10127,2024-08-04,Tailored Oxford Dress Shirt,Clothing,1,55.37,55.37,South,Dallas,CUST-1020
+ORD-CLO-10218,2024-08-04,Casual Canvas Low Sneakers,Clothing,1,48.18,48.18,West,Los Angeles,CUST-1002
+ORD-CLO-10470,2024-08-04,Athletic Performance Runner,Clothing,2,87.91,175.82,West,San Francisco,CUST-1148
+ORD-CLO-10574,2024-08-04,Casual Canvas Low Sneakers,Clothing,1,48.45,48.45,North,Chicago,CUST-1112
+ORD-CLO-10015,2024-08-05,Winter Hooded Parka Coat,Clothing,3,144.99,434.97,East,Philadelphia,CUST-1068
+ORD-CLO-10110,2024-08-05,Tailored Oxford Dress Shirt,Clothing,1,56.12,56.12,Central,Kansas City,CUST-1071
+ORD-CLO-10188,2024-08-05,Winter Hooded Parka Coat,Clothing,4,147.02,588.08,North,Boston,CUST-1063
+ORD-CLO-10482,2024-08-06,Winter Hooded Parka Coat,Clothing,3,148.6,445.8,Central,Kansas City,CUST-1114
+ORD-CLO-10032,2024-08-07,Merino Wool Knit Sweater,Clothing,3,65.5,196.5,Central,Kansas City,CUST-1122
+ORD-CLO-10854,2024-08-07,Athletic Performance Runner,Clothing,3,92.38,277.14,West,Seattle,CUST-1116
+ORD-CLO-10310,2024-08-08,Merino Wool Knit Sweater,Clothing,1,67.0,67.0,East,Charlotte,CUST-1168
+ORD-CLO-10190,2024-08-09,Casual Canvas Low Sneakers,Clothing,1,51.84,51.84,South,Dallas,CUST-1001
+ORD-CLO-10847,2024-08-09,Merino Wool Knit Sweater,Clothing,2,65.26,130.52,Central,Austin,CUST-1049
+ORD-CLO-10483,2024-08-10,Raw Selvedge Denim Jeans,Clothing,1,83.16,83.16,North,Chicago,CUST-1187
+ORD-CLO-10360,2024-08-11,Merino Wool Knit Sweater,Clothing,1,65.1,65.1,North,Chicago,CUST-1016
+ORD-CLO-10543,2024-08-12,Raw Selvedge Denim Jeans,Clothing,1,80.2,80.2,Central,Denver,CUST-1034
+ORD-CLO-11060,2024-08-13,Raw Selvedge Denim Jeans,Clothing,1,79.76,79.76,East,Philadelphia,CUST-1056
+ORD-CLO-10352,2024-08-14,Organic Cotton Classic Tee,Clothing,1,29.28,29.28,East,Charlotte,CUST-1156
+ORD-CLO-10372,2024-08-14,Athletic Performance Runner,Clothing,1,88.19,88.19,Central,Kansas City,CUST-1045
+ORD-CLO-10063,2024-08-15,Organic Cotton Classic Tee,Clothing,1,28.89,28.89,West,Los Angeles,CUST-1058
+ORD-CLO-10526,2024-08-15,Organic Cotton Classic Tee,Clothing,1,27.15,27.15,North,Chicago,CUST-1151
+ORD-CLO-10903,2024-08-15,Winter Hooded Parka Coat,Clothing,1,147.48,147.48,South,Atlanta,CUST-1046
+ORD-CLO-10097,2024-08-17,Winter Hooded Parka Coat,Clothing,4,138.74,554.96,North,New York,CUST-1064
+ORD-CLO-10596,2024-08-17,Tailored Oxford Dress Shirt,Clothing,3,55.09,165.27,West,Seattle,CUST-1097
+ORD-CLO-10622,2024-08-17,Winter Hooded Parka Coat,Clothing,1,152.03,152.03,North,Chicago,CUST-1130
+ORD-CLO-10454,2024-08-18,Merino Wool Knit Sweater,Clothing,2,66.56,133.12,Central,Kansas City,CUST-1198
+ORD-CLO-10594,2024-08-18,Winter Hooded Parka Coat,Clothing,2,140.75,281.5,Central,Denver,CUST-1200
+ORD-CLO-10890,2024-08-18,Organic Cotton Classic Tee,Clothing,1,27.56,27.56,South,Atlanta,CUST-1187
+ORD-CLO-11082,2024-08-18,Tailored Oxford Dress Shirt,Clothing,1,53.7,53.7,East,Washington D.C.,CUST-1014
+ORD-CLO-10864,2024-08-20,Winter Hooded Parka Coat,Clothing,1,147.22,147.22,North,Chicago,CUST-1200
+ORD-CLO-11093,2024-08-20,Athletic Performance Runner,Clothing,1,88.84,88.84,North,New York,CUST-1091
+ORD-CLO-10030,2024-08-23,Merino Wool Knit Sweater,Clothing,1,66.1,66.1,North,New York,CUST-1018
+ORD-CLO-10769,2024-08-23,Casual Canvas Low Sneakers,Clothing,4,49.07,196.28,Central,Kansas City,CUST-1003
+ORD-CLO-10392,2024-08-24,Raw Selvedge Denim Jeans,Clothing,1,81.65,81.65,Central,Austin,CUST-1096
+ORD-CLO-10129,2024-08-25,Tailored Oxford Dress Shirt,Clothing,2,55.63,111.26,East,Philadelphia,CUST-1176
+ORD-CLO-11090,2024-08-25,Casual Canvas Low Sneakers,Clothing,1,52.23,52.23,East,Charlotte,CUST-1088
+ORD-CLO-10130,2024-08-27,Tailored Oxford Dress Shirt,Clothing,1,56.07,56.07,South,Miami,CUST-1030
+ORD-CLO-10799,2024-08-28,Winter Hooded Parka Coat,Clothing,2,141.4,282.8,North,New York,CUST-1043
+ORD-CLO-10459,2024-08-30,Organic Cotton Classic Tee,Clothing,1,28.87,28.87,West,San Francisco,CUST-1157
+ORD-CLO-10782,2024-08-30,Tailored Oxford Dress Shirt,Clothing,1,54.34,54.34,West,Los Angeles,CUST-1128
+ORD-CLO-10989,2024-08-30,Winter Hooded Parka Coat,Clothing,1,145.03,145.03,Central,Kansas City,CUST-1094
+ORD-CLO-10513,2024-08-31,Athletic Performance Runner,Clothing,1,89.92,89.92,South,Dallas,CUST-1072
+ORD-CLO-10814,2024-09-02,Merino Wool Knit Sweater,Clothing,3,69.8,209.4,West,Seattle,CUST-1167
+ORD-CLO-10264,2024-09-03,Merino Wool Knit Sweater,Clothing,2,67.43,134.86,North,Chicago,CUST-1093
+ORD-CLO-11071,2024-09-03,Raw Selvedge Denim Jeans,Clothing,1,80.46,80.46,East,Philadelphia,CUST-1034
+ORD-CLO-10033,2024-09-05,Casual Canvas Low Sneakers,Clothing,1,49.85,49.85,North,New York,CUST-1169
+ORD-CLO-10877,2024-09-05,Merino Wool Knit Sweater,Clothing,3,70.9,212.7,West,Los Angeles,CUST-1088
+ORD-CLO-10398,2024-09-06,Winter Hooded Parka Coat,Clothing,2,141.02,282.04,North,Chicago,CUST-1167
+ORD-CLO-10767,2024-09-06,Casual Canvas Low Sneakers,Clothing,2,49.19,98.38,East,Charlotte,CUST-1008
+ORD-CLO-10354,2024-09-10,Winter Hooded Parka Coat,Clothing,3,148.69,446.07,North,Chicago,CUST-1115
+ORD-CLO-10803,2024-09-10,Winter Hooded Parka Coat,Clothing,1,141.87,141.87,South,Dallas,CUST-1044
+ORD-CLO-10062,2024-09-11,Tailored Oxford Dress Shirt,Clothing,2,52.64,105.28,East,Philadelphia,CUST-1121
+ORD-CLO-10348,2024-09-11,Raw Selvedge Denim Jeans,Clothing,1,78.08,78.08,West,Seattle,CUST-1078
+ORD-CLO-10523,2024-09-11,Tailored Oxford Dress Shirt,Clothing,1,53.93,53.93,West,Seattle,CUST-1045
+ORD-CLO-10646,2024-09-11,Athletic Performance Runner,Clothing,2,88.6,177.2,East,Philadelphia,CUST-1143
+ORD-CLO-10665,2024-09-11,Tailored Oxford Dress Shirt,Clothing,1,53.94,53.94,West,Seattle,CUST-1035
+ORD-CLO-10774,2024-09-12,Casual Canvas Low Sneakers,Clothing,1,50.58,50.58,North,New York,CUST-1021
+ORD-CLO-10751,2024-09-16,Tailored Oxford Dress Shirt,Clothing,2,54.92,109.84,East,Charlotte,CUST-1036
+ORD-CLO-10920,2024-09-16,Raw Selvedge Denim Jeans,Clothing,3,79.66,238.98,Central,Denver,CUST-1156
+ORD-CLO-10624,2024-09-18,Casual Canvas Low Sneakers,Clothing,1,50.16,50.16,North,Chicago,CUST-1028
+ORD-CLO-10499,2024-09-22,Organic Cotton Classic Tee,Clothing,2,27.64,55.28,West,San Francisco,CUST-1031
+ORD-CLO-10527,2024-09-22,Casual Canvas Low Sneakers,Clothing,4,47.87,191.48,South,Dallas,CUST-1114
+ORD-CLO-10095,2024-09-23,Athletic Performance Runner,Clothing,1,88.44,88.44,West,Seattle,CUST-1072
+ORD-CLO-10285,2024-09-23,Winter Hooded Parka Coat,Clothing,4,144.22,576.88,West,San Francisco,CUST-1126
+ORD-CLO-11001,2024-09-24,Casual Canvas Low Sneakers,Clothing,1,50.99,50.99,Central,Denver,CUST-1088
+ORD-CLO-10716,2024-09-26,Winter Hooded Parka Coat,Clothing,1,150.6,150.6,North,New York,CUST-1130
+ORD-CLO-10312,2024-09-27,Winter Hooded Parka Coat,Clothing,1,143.05,143.05,North,Boston,CUST-1014
+ORD-CLO-10580,2024-09-27,Athletic Performance Runner,Clothing,1,91.38,91.38,East,Philadelphia,CUST-1045
+ORD-CLO-10027,2024-09-28,Merino Wool Knit Sweater,Clothing,1,70.53,70.53,South,Dallas,CUST-1194
+ORD-CLO-10322,2024-09-28,Winter Hooded Parka Coat,Clothing,2,149.1,298.2,Central,Denver,CUST-1185
+ORD-CLO-10521,2024-09-28,Casual Canvas Low Sneakers,Clothing,1,48.09,48.09,West,San Francisco,CUST-1179
+ORD-CLO-10554,2024-09-28,Organic Cotton Classic Tee,Clothing,1,27.3,27.3,West,Los Angeles,CUST-1185
+ORD-CLO-11020,2024-09-28,Organic Cotton Classic Tee,Clothing,1,27.83,27.83,South,Dallas,CUST-1101
+ORD-CLO-10275,2024-09-30,Casual Canvas Low Sneakers,Clothing,1,47.9,47.9,East,Charlotte,CUST-1047
+ORD-CLO-10397,2024-09-30,Casual Canvas Low Sneakers,Clothing,1,49.47,49.47,East,Washington D.C.,CUST-1145
+ORD-CLO-10413,2024-10-03,Raw Selvedge Denim Jeans,Clothing,1,77.05,77.05,East,Charlotte,CUST-1143
+ORD-CLO-10785,2024-10-03,Casual Canvas Low Sneakers,Clothing,1,48.67,48.67,East,Philadelphia,CUST-1038
+ORD-CLO-10639,2024-10-05,Casual Canvas Low Sneakers,Clothing,3,49.42,148.26,East,Charlotte,CUST-1043
+ORD-CLO-10147,2024-10-06,Athletic Performance Runner,Clothing,4,93.0,372.0,South,Miami,CUST-1142
+ORD-CLO-10210,2024-10-06,Winter Hooded Parka Coat,Clothing,3,148.8,446.4,West,Los Angeles,CUST-1047
+ORD-CLO-10273,2024-10-06,Raw Selvedge Denim Jeans,Clothing,1,82.38,82.38,East,Charlotte,CUST-1113
+ORD-CLO-10344,2024-10-06,Organic Cotton Classic Tee,Clothing,1,28.86,28.86,East,Charlotte,CUST-1066
+ORD-CLO-11009,2024-10-06,Tailored Oxford Dress Shirt,Clothing,2,53.25,106.5,West,San Francisco,CUST-1150
+ORD-CLO-10332,2024-10-07,Tailored Oxford Dress Shirt,Clothing,2,52.44,104.88,East,Washington D.C.,CUST-1089
+ORD-CLO-10956,2024-10-07,Raw Selvedge Denim Jeans,Clothing,1,76.11,76.11,Central,Denver,CUST-1053
+ORD-CLO-10395,2024-10-08,Merino Wool Knit Sweater,Clothing,1,71.25,71.25,East,Philadelphia,CUST-1028
+ORD-CLO-10187,2024-10-09,Organic Cotton Classic Tee,Clothing,3,29.31,87.93,East,Philadelphia,CUST-1170
+ORD-CLO-10581,2024-10-09,Athletic Performance Runner,Clothing,1,86.79,86.79,East,Philadelphia,CUST-1102
+ORD-CLO-11087,2024-10-09,Raw Selvedge Denim Jeans,Clothing,1,81.57,81.57,South,Dallas,CUST-1161
+ORD-CLO-10191,2024-10-10,Casual Canvas Low Sneakers,Clothing,4,52.41,209.64,Central,Austin,CUST-1045
+ORD-CLO-10600,2024-10-10,Winter Hooded Parka Coat,Clothing,1,142.46,142.46,West,Los Angeles,CUST-1039
+ORD-CLO-11018,2024-10-10,Casual Canvas Low Sneakers,Clothing,3,49.62,148.86,West,Seattle,CUST-1042
+ORD-CLO-10467,2024-10-11,Winter Hooded Parka Coat,Clothing,1,151.33,151.33,East,Washington D.C.,CUST-1149
+ORD-CLO-10208,2024-10-12,Merino Wool Knit Sweater,Clothing,1,66.14,66.14,Central,Kansas City,CUST-1158
+ORD-CLO-10330,2024-10-12,Merino Wool Knit Sweater,Clothing,3,66.63,199.89,West,Seattle,CUST-1181
+ORD-CLO-10944,2024-10-14,Casual Canvas Low Sneakers,Clothing,4,47.65,190.6,Central,Denver,CUST-1147
+ORD-CLO-10252,2024-10-15,Casual Canvas Low Sneakers,Clothing,1,49.4,49.4,South,Atlanta,CUST-1155
+ORD-CLO-10840,2024-10-16,Tailored Oxford Dress Shirt,Clothing,1,54.01,54.01,North,Chicago,CUST-1169
+ORD-CLO-10967,2024-10-16,Casual Canvas Low Sneakers,Clothing,1,49.23,49.23,Central,Denver,CUST-1104
+ORD-CLO-10076,2024-10-17,Merino Wool Knit Sweater,Clothing,1,69.11,69.11,North,New York,CUST-1173
+ORD-CLO-10297,2024-10-17,Casual Canvas Low Sneakers,Clothing,1,47.88,47.88,Central,Austin,CUST-1033
+ORD-CLO-10121,2024-10-18,Athletic Performance Runner,Clothing,1,89.8,89.8,North,Boston,CUST-1123
+ORD-CLO-10250,2024-10-18,Casual Canvas Low Sneakers,Clothing,1,51.23,51.23,Central,Denver,CUST-1080
+ORD-CLO-10926,2024-10-18,Merino Wool Knit Sweater,Clothing,2,69.09,138.18,Central,Kansas City,CUST-1046
+ORD-CLO-11094,2024-10-18,Athletic Performance Runner,Clothing,1,94.1,94.1,South,Dallas,CUST-1138
+ORD-CLO-11095,2024-10-19,Organic Cotton Classic Tee,Clothing,2,29.32,58.64,South,Atlanta,CUST-1061
+ORD-CLO-10492,2024-10-20,Winter Hooded Parka Coat,Clothing,2,148.08,296.16,East,Charlotte,CUST-1103
+ORD-CLO-10794,2024-10-20,Athletic Performance Runner,Clothing,1,91.18,91.18,South,Dallas,CUST-1087
+ORD-CLO-10206,2024-10-21,Merino Wool Knit Sweater,Clothing,1,66.72,66.72,Central,Denver,CUST-1040
+ORD-CLO-11007,2024-10-22,Casual Canvas Low Sneakers,Clothing,2,49.73,99.46,Central,Kansas City,CUST-1011
+ORD-CLO-10342,2024-10-23,Raw Selvedge Denim Jeans,Clothing,1,76.06,76.06,North,Boston,CUST-1073
+ORD-CLO-10370,2024-10-23,Organic Cotton Classic Tee,Clothing,2,28.88,57.76,West,San Francisco,CUST-1154
+ORD-CLO-10816,2024-10-23,Raw Selvedge Denim Jeans,Clothing,1,81.09,81.09,West,San Francisco,CUST-1160
+ORD-CLO-10868,2024-10-23,Casual Canvas Low Sneakers,Clothing,1,49.46,49.46,North,Boston,CUST-1147
+ORD-CLO-11030,2024-10-23,Winter Hooded Parka Coat,Clothing,1,140.7,140.7,East,Charlotte,CUST-1049
+ORD-CLO-10977,2024-10-25,Athletic Performance Runner,Clothing,1,91.03,91.03,South,Dallas,CUST-1082
+ORD-CLO-10462,2024-10-26,Tailored Oxford Dress Shirt,Clothing,4,54.9,219.6,Central,Kansas City,CUST-1025
+ORD-CLO-10884,2024-10-26,Casual Canvas Low Sneakers,Clothing,1,51.91,51.91,East,Charlotte,CUST-1182
+ORD-CLO-10688,2024-10-27,Organic Cotton Classic Tee,Clothing,1,29.26,29.26,East,Charlotte,CUST-1193
+ORD-CLO-10246,2024-10-29,Casual Canvas Low Sneakers,Clothing,1,51.43,51.43,Central,Kansas City,CUST-1135
+ORD-CLO-10042,2024-10-30,Organic Cotton Classic Tee,Clothing,1,29.31,29.31,Central,Denver,CUST-1192
+ORD-CLO-10303,2024-10-31,Athletic Performance Runner,Clothing,1,86.15,86.15,East,Washington D.C.,CUST-1124
+ORD-CLO-10090,2024-11-01,Casual Canvas Low Sneakers,Clothing,3,49.44,148.32,East,Charlotte,CUST-1192
+ORD-CLO-10150,2024-11-01,Casual Canvas Low Sneakers,Clothing,4,50.42,201.68,East,Philadelphia,CUST-1115
+ORD-CLO-10826,2024-11-01,Organic Cotton Classic Tee,Clothing,1,27.61,27.61,South,Atlanta,CUST-1061
+ORD-CLO-10319,2024-11-02,Merino Wool Knit Sweater,Clothing,2,66.89,133.78,Central,Austin,CUST-1182
+ORD-CLO-10978,2024-11-02,Merino Wool Knit Sweater,Clothing,2,70.0,140.0,East,Charlotte,CUST-1089
+ORD-CLO-11031,2024-11-02,Winter Hooded Parka Coat,Clothing,1,143.41,143.41,West,Seattle,CUST-1022
+ORD-CLO-10860,2024-11-03,Raw Selvedge Denim Jeans,Clothing,1,80.55,80.55,South,Dallas,CUST-1020
+ORD-CLO-10073,2024-11-04,Athletic Performance Runner,Clothing,1,90.42,90.42,West,Los Angeles,CUST-1111
+ORD-CLO-10103,2024-11-04,Casual Canvas Low Sneakers,Clothing,2,50.91,101.82,Central,Denver,CUST-1089
+ORD-CLO-10547,2024-11-05,Tailored Oxford Dress Shirt,Clothing,1,52.52,52.52,East,Charlotte,CUST-1125
+ORD-CLO-10947,2024-11-05,Organic Cotton Classic Tee,Clothing,1,28.07,28.07,West,Los Angeles,CUST-1200
+ORD-CLO-10653,2024-11-07,Merino Wool Knit Sweater,Clothing,2,68.42,136.84,East,Washington D.C.,CUST-1094
+ORD-CLO-10887,2024-11-08,Tailored Oxford Dress Shirt,Clothing,2,54.45,108.9,North,Boston,CUST-1176
+ORD-CLO-11073,2024-11-08,Organic Cotton Classic Tee,Clothing,3,28.57,85.71,Central,Denver,CUST-1117
+ORD-CLO-10309,2024-11-11,Athletic Performance Runner,Clothing,3,85.7,257.1,Central,Austin,CUST-1062
+ORD-CLO-10566,2024-11-11,Casual Canvas Low Sneakers,Clothing,1,49.48,49.48,West,Los Angeles,CUST-1165
+ORD-CLO-10077,2024-11-13,Organic Cotton Classic Tee,Clothing,1,28.86,28.86,North,New York,CUST-1122
+ORD-CLO-10271,2024-11-13,Merino Wool Knit Sweater,Clothing,2,67.31,134.62,East,Washington D.C.,CUST-1010
+ORD-CLO-10508,2024-11-14,Tailored Oxford Dress Shirt,Clothing,1,52.25,52.25,West,Los Angeles,CUST-1075
+ORD-CLO-10952,2024-11-14,Raw Selvedge Denim Jeans,Clothing,1,81.49,81.49,North,Boston,CUST-1120
+ORD-CLO-10618,2024-11-15,Organic Cotton Classic Tee,Clothing,1,26.89,26.89,West,Los Angeles,CUST-1017
+ORD-CLO-10954,2024-11-15,Winter Hooded Parka Coat,Clothing,1,150.69,150.69,South,Miami,CUST-1071
+ORD-CLO-10308,2024-11-16,Organic Cotton Classic Tee,Clothing,1,28.74,28.74,Central,Austin,CUST-1128
+ORD-CLO-10447,2024-11-16,Raw Selvedge Denim Jeans,Clothing,1,77.9,77.9,West,San Francisco,CUST-1037
+ORD-CLO-10636,2024-11-16,Athletic Performance Runner,Clothing,1,92.14,92.14,North,New York,CUST-1036
+ORD-CLO-10043,2024-11-17,Raw Selvedge Denim Jeans,Clothing,1,76.39,76.39,Central,Denver,CUST-1015
+ORD-CLO-10328,2024-11-17,Organic Cotton Classic Tee,Clothing,1,27.89,27.89,Central,Austin,CUST-1174
+ORD-CLO-10852,2024-11-18,Merino Wool Knit Sweater,Clothing,1,71.34,71.34,West,Seattle,CUST-1196
+ORD-CLO-10857,2024-11-18,Raw Selvedge Denim Jeans,Clothing,3,82.16,246.48,West,San Francisco,CUST-1131
+ORD-CLO-10014,2024-11-19,Athletic Performance Runner,Clothing,1,87.9,87.9,Central,Kansas City,CUST-1081
+ORD-CLO-10116,2024-11-19,Raw Selvedge Denim Jeans,Clothing,4,81.93,327.72,South,Atlanta,CUST-1056
+ORD-CLO-10412,2024-11-20,Tailored Oxford Dress Shirt,Clothing,1,52.36,52.36,West,Seattle,CUST-1093
+ORD-CLO-10832,2024-11-20,Merino Wool Knit Sweater,Clothing,2,69.96,139.92,East,Charlotte,CUST-1050
+ORD-CLO-10558,2024-11-22,Tailored Oxford Dress Shirt,Clothing,1,56.96,56.96,South,Miami,CUST-1042
+ORD-CLO-10897,2024-11-22,Athletic Performance Runner,Clothing,1,94.14,94.14,West,Los Angeles,CUST-1200
+ORD-CLO-10602,2024-11-23,Winter Hooded Parka Coat,Clothing,1,139.78,139.78,East,Washington D.C.,CUST-1067
+ORD-CLO-10152,2024-11-25,Casual Canvas Low Sneakers,Clothing,2,48.43,96.86,Central,Austin,CUST-1060
+ORD-CLO-10383,2024-11-25,Casual Canvas Low Sneakers,Clothing,1,48.91,48.91,West,Seattle,CUST-1067
+ORD-CLO-11043,2024-11-25,Casual Canvas Low Sneakers,Clothing,1,52.31,52.31,North,Chicago,CUST-1045
+ORD-CLO-10670,2024-11-26,Winter Hooded Parka Coat,Clothing,1,139.42,139.42,East,Charlotte,CUST-1147
+ORD-CLO-10193,2024-11-27,Raw Selvedge Denim Jeans,Clothing,1,77.38,77.38,East,Charlotte,CUST-1030
+ORD-CLO-10199,2024-11-28,Athletic Performance Runner,Clothing,1,94.44,94.44,East,Charlotte,CUST-1155
+ORD-CLO-10213,2024-11-28,Casual Canvas Low Sneakers,Clothing,1,52.2,52.2,North,New York,CUST-1041
+ORD-CLO-10223,2024-11-28,Organic Cotton Classic Tee,Clothing,1,28.84,28.84,West,Los Angeles,CUST-1112
+ORD-CLO-10861,2024-11-28,Casual Canvas Low Sneakers,Clothing,1,49.9,49.9,Central,Denver,CUST-1153
+ORD-CLO-10424,2024-11-29,Athletic Performance Runner,Clothing,2,88.01,176.02,West,Los Angeles,CUST-1145
+ORD-CLO-11058,2024-11-29,Athletic Performance Runner,Clothing,2,87.28,174.56,West,Los Angeles,CUST-1200
+ORD-CLO-10518,2024-11-30,Tailored Oxford Dress Shirt,Clothing,1,54.24,54.24,South,Atlanta,CUST-1200
+ORD-CLO-10180,2024-12-01,Merino Wool Knit Sweater,Clothing,1,66.11,66.11,East,Charlotte,CUST-1078
+ORD-CLO-10347,2024-12-01,Raw Selvedge Denim Jeans,Clothing,1,79.2,79.2,South,Miami,CUST-1083
+ORD-CLO-10950,2024-12-01,Organic Cotton Classic Tee,Clothing,1,28.75,28.75,Central,Kansas City,CUST-1034
+ORD-CLO-10632,2024-12-04,Organic Cotton Classic Tee,Clothing,2,26.61,53.22,North,Chicago,CUST-1172
+ORD-CLO-10683,2024-12-04,Athletic Performance Runner,Clothing,1,91.88,91.88,South,Miami,CUST-1153
+ORD-CLO-10406,2024-12-05,Athletic Performance Runner,Clothing,1,92.29,92.29,North,Chicago,CUST-1191
+ORD-CLO-10582,2024-12-05,Winter Hooded Parka Coat,Clothing,2,141.19,282.38,West,Seattle,CUST-1006
+ORD-CLO-10925,2024-12-05,Raw Selvedge Denim Jeans,Clothing,1,76.38,76.38,South,Atlanta,CUST-1173
+ORD-CLO-10268,2024-12-06,Organic Cotton Classic Tee,Clothing,1,26.72,26.72,South,Dallas,CUST-1119
+ORD-CLO-11076,2024-12-06,Merino Wool Knit Sweater,Clothing,1,64.82,64.82,West,San Francisco,CUST-1157
+ORD-CLO-10086,2024-12-09,Tailored Oxford Dress Shirt,Clothing,1,56.64,56.64,South,Atlanta,CUST-1099
+ORD-CLO-10607,2024-12-09,Winter Hooded Parka Coat,Clothing,1,139.04,139.04,West,Seattle,CUST-1085
+ORD-CLO-11044,2024-12-09,Raw Selvedge Denim Jeans,Clothing,1,76.96,76.96,East,Philadelphia,CUST-1179
+ORD-CLO-10583,2024-12-11,Casual Canvas Low Sneakers,Clothing,1,51.46,51.46,East,Charlotte,CUST-1176
+ORD-CLO-10620,2024-12-11,Athletic Performance Runner,Clothing,4,93.48,373.92,West,Seattle,CUST-1092
+ORD-CLO-11011,2024-12-11,Winter Hooded Parka Coat,Clothing,1,147.76,147.76,Central,Denver,CUST-1173
+ORD-CLO-10157,2024-12-12,Merino Wool Knit Sweater,Clothing,1,69.31,69.31,West,San Francisco,CUST-1137
+ORD-CLO-10239,2024-12-12,Winter Hooded Parka Coat,Clothing,2,146.42,292.84,West,Los Angeles,CUST-1085
+ORD-CLO-10645,2024-12-12,Merino Wool Knit Sweater,Clothing,2,68.16,136.32,North,Boston,CUST-1170
+ORD-CLO-10225,2024-12-13,Organic Cotton Classic Tee,Clothing,1,27.53,27.53,Central,Kansas City,CUST-1030
+ORD-CLO-10544,2024-12-14,Winter Hooded Parka Coat,Clothing,2,140.32,280.64,West,Los Angeles,CUST-1006
+ORD-CLO-10245,2024-12-15,Casual Canvas Low Sneakers,Clothing,1,49.92,49.92,South,Atlanta,CUST-1020
+ORD-CLO-10771,2024-12-16,Raw Selvedge Denim Jeans,Clothing,1,80.43,80.43,West,Seattle,CUST-1056
+ORD-CLO-10054,2024-12-17,Organic Cotton Classic Tee,Clothing,3,28.52,85.56,Central,Austin,CUST-1065
+ORD-CLO-10436,2024-12-17,Athletic Performance Runner,Clothing,1,92.55,92.55,West,Seattle,CUST-1025
+ORD-CLO-10796,2024-12-17,Organic Cotton Classic Tee,Clothing,2,27.48,54.96,West,San Francisco,CUST-1166
+ORD-CLO-11004,2024-12-19,Raw Selvedge Denim Jeans,Clothing,2,81.13,162.26,North,New York,CUST-1043
+ORD-CLO-10407,2024-12-20,Raw Selvedge Denim Jeans,Clothing,1,76.77,76.77,North,Boston,CUST-1155
+ORD-CLO-10763,2024-12-21,Casual Canvas Low Sneakers,Clothing,1,48.87,48.87,South,Miami,CUST-1104
+ORD-CLO-10779,2024-12-21,Athletic Performance Runner,Clothing,2,93.23,186.46,East,Philadelphia,CUST-1179
+ORD-CLO-11051,2024-12-22,Athletic Performance Runner,Clothing,1,85.53,85.53,North,Chicago,CUST-1025
+ORD-CLO-10597,2024-12-23,Athletic Performance Runner,Clothing,1,87.76,87.76,Central,Kansas City,CUST-1102
+ORD-CLO-10592,2024-12-24,Tailored Oxford Dress Shirt,Clothing,3,52.67,158.01,North,Boston,CUST-1008
+ORD-CLO-10171,2024-12-26,Organic Cotton Classic Tee,Clothing,1,28.38,28.38,South,Dallas,CUST-1025
+ORD-CLO-10888,2024-12-26,Tailored Oxford Dress Shirt,Clothing,1,55.18,55.18,Central,Austin,CUST-1016
+ORD-CLO-10278,2024-12-27,Merino Wool Knit Sweater,Clothing,1,71.39,71.39,North,New York,CUST-1172
+ORD-CLO-10431,2024-12-29,Organic Cotton Classic Tee,Clothing,1,28.41,28.41,East,Washington D.C.,CUST-1111
+ORD-CLO-10988,2024-12-29,Organic Cotton Classic Tee,Clothing,1,27.12,27.12,Central,Austin,CUST-1188
+ORD-CLO-10451,2025-01-02,Raw Selvedge Denim Jeans,Clothing,1,79.87,79.87,East,Charlotte,CUST-1130
+ORD-CLO-10642,2025-01-02,Merino Wool Knit Sweater,Clothing,2,64.8,129.6,South,Miami,CUST-1125
+ORD-CLO-10675,2025-01-02,Casual Canvas Low Sneakers,Clothing,1,49.75,49.75,Central,Denver,CUST-1191
+ORD-CLO-10900,2025-01-02,Raw Selvedge Denim Jeans,Clothing,1,81.49,81.49,Central,Kansas City,CUST-1121
+ORD-CLO-10981,2025-01-02,Raw Selvedge Denim Jeans,Clothing,3,82.88,248.64,South,Miami,CUST-1180
+ORD-CLO-11072,2025-01-02,Tailored Oxford Dress Shirt,Clothing,4,53.08,212.32,North,Boston,CUST-1172
+ORD-CLO-10384,2025-01-03,Merino Wool Knit Sweater,Clothing,1,70.6,70.6,East,Washington D.C.,CUST-1053
+ORD-CLO-10790,2025-01-03,Merino Wool Knit Sweater,Clothing,2,68.39,136.78,West,Los Angeles,CUST-1106
+ORD-CLO-10984,2025-01-03,Casual Canvas Low Sneakers,Clothing,1,49.58,49.58,South,Atlanta,CUST-1003
+ORD-CLO-10419,2025-01-04,Tailored Oxford Dress Shirt,Clothing,2,56.92,113.84,East,Charlotte,CUST-1158
+ORD-CLO-10489,2025-01-04,Tailored Oxford Dress Shirt,Clothing,3,52.49,157.47,Central,Austin,CUST-1094
+ORD-CLO-10564,2025-01-04,Raw Selvedge Denim Jeans,Clothing,1,79.41,79.41,Central,Austin,CUST-1052
+ORD-CLO-10838,2025-01-07,Casual Canvas Low Sneakers,Clothing,1,50.59,50.59,North,Chicago,CUST-1138
+ORD-CLO-11055,2025-01-07,Tailored Oxford Dress Shirt,Clothing,1,52.92,52.92,Central,Austin,CUST-1012
+ORD-CLO-11079,2025-01-09,Athletic Performance Runner,Clothing,1,91.06,91.06,South,Dallas,CUST-1144
+ORD-CLO-10480,2025-01-11,Tailored Oxford Dress Shirt,Clothing,2,52.52,105.04,South,Dallas,CUST-1174
+ORD-CLO-11085,2025-01-11,Casual Canvas Low Sneakers,Clothing,2,50.86,101.72,North,New York,CUST-1118
+ORD-CLO-10114,2025-01-12,Athletic Performance Runner,Clothing,1,90.47,90.47,Central,Austin,CUST-1091
+ORD-CLO-10928,2025-01-12,Athletic Performance Runner,Clothing,2,92.87,185.74,Central,Denver,CUST-1075
+ORD-CLO-10058,2025-01-13,Merino Wool Knit Sweater,Clothing,1,68.36,68.36,North,Boston,CUST-1094
+ORD-CLO-10724,2025-01-13,Organic Cotton Classic Tee,Clothing,1,26.72,26.72,West,Seattle,CUST-1121
+ORD-CLO-11045,2025-01-13,Merino Wool Knit Sweater,Clothing,1,65.72,65.72,Central,Denver,CUST-1035
+ORD-CLO-10385,2025-01-14,Tailored Oxford Dress Shirt,Clothing,1,54.03,54.03,South,Dallas,CUST-1038
+ORD-CLO-10475,2025-01-15,Winter Hooded Parka Coat,Clothing,1,150.86,150.86,East,Charlotte,CUST-1079
+ORD-CLO-10608,2025-01-15,Tailored Oxford Dress Shirt,Clothing,1,54.97,54.97,North,Boston,CUST-1014
+ORD-CLO-10776,2025-01-15,Merino Wool Knit Sweater,Clothing,3,66.74,200.22,Central,Austin,CUST-1126
+ORD-CLO-10204,2025-01-16,Casual Canvas Low Sneakers,Clothing,1,48.14,48.14,Central,Kansas City,CUST-1085
+ORD-CLO-10515,2025-01-16,Athletic Performance Runner,Clothing,1,94.26,94.26,North,Chicago,CUST-1035
+ORD-CLO-11098,2025-01-16,Athletic Performance Runner,Clothing,1,90.35,90.35,West,Los Angeles,CUST-1007
+ORD-CLO-10353,2025-01-17,Athletic Performance Runner,Clothing,3,91.81,275.43,Central,Kansas City,CUST-1056
+ORD-CLO-10657,2025-01-17,Winter Hooded Parka Coat,Clothing,3,139.29,417.87,East,Philadelphia,CUST-1184
+ORD-CLO-10876,2025-01-17,Organic Cotton Classic Tee,Clothing,3,28.72,86.16,North,Chicago,CUST-1014
+ORD-CLO-10162,2025-01-18,Athletic Performance Runner,Clothing,1,86.8,86.8,Central,Kansas City,CUST-1047
+ORD-CLO-10257,2025-01-18,Organic Cotton Classic Tee,Clothing,3,26.68,80.04,West,Los Angeles,CUST-1036
+ORD-CLO-10466,2025-01-19,Athletic Performance Runner,Clothing,2,86.17,172.34,North,Boston,CUST-1132
+ORD-CLO-10243,2025-01-20,Winter Hooded Parka Coat,Clothing,2,149.23,298.46,Central,Denver,CUST-1166
+ORD-CLO-10375,2025-01-20,Organic Cotton Classic Tee,Clothing,1,28.71,28.71,South,Miami,CUST-1182
+ORD-CLO-10728,2025-01-20,Organic Cotton Classic Tee,Clothing,1,28.05,28.05,West,Seattle,CUST-1124
+ORD-CLO-10379,2025-01-21,Winter Hooded Parka Coat,Clothing,1,146.52,146.52,North,New York,CUST-1195
+ORD-CLO-10428,2025-01-21,Raw Selvedge Denim Jeans,Clothing,1,79.58,79.58,Central,Austin,CUST-1137
+ORD-CLO-10556,2025-01-22,Tailored Oxford Dress Shirt,Clothing,1,54.75,54.75,East,Charlotte,CUST-1167
+ORD-CLO-10366,2025-01-23,Casual Canvas Low Sneakers,Clothing,1,48.64,48.64,South,Miami,CUST-1049
+ORD-CLO-10010,2025-01-24,Tailored Oxford Dress Shirt,Clothing,2,54.25,108.5,South,Miami,CUST-1091
+ORD-CLO-10158,2025-01-24,Tailored Oxford Dress Shirt,Clothing,3,55.19,165.57,East,Charlotte,CUST-1010
+ORD-CLO-10421,2025-01-24,Casual Canvas Low Sneakers,Clothing,1,51.8,51.8,East,Charlotte,CUST-1153
+ORD-CLO-10374,2025-01-25,Casual Canvas Low Sneakers,Clothing,2,50.11,100.22,East,Philadelphia,CUST-1077
+ORD-CLO-10530,2025-01-26,Winter Hooded Parka Coat,Clothing,1,143.94,143.94,South,Miami,CUST-1072
+ORD-CLO-10891,2025-01-26,Merino Wool Knit Sweater,Clothing,1,71.13,71.13,South,Miami,CUST-1062
+ORD-CLO-11003,2025-01-27,Organic Cotton Classic Tee,Clothing,2,28.45,56.9,South,Atlanta,CUST-1148
+ORD-CLO-10234,2025-01-28,Athletic Performance Runner,Clothing,4,90.71,362.84,North,Boston,CUST-1147
+ORD-CLO-10307,2025-01-28,Casual Canvas Low Sneakers,Clothing,1,50.57,50.57,South,Miami,CUST-1148
+ORD-CLO-10484,2025-01-28,Tailored Oxford Dress Shirt,Clothing,1,57.02,57.02,South,Atlanta,CUST-1071
+ORD-CLO-10970,2025-01-28,Raw Selvedge Denim Jeans,Clothing,2,78.72,157.44,Central,Austin,CUST-1112
+ORD-CLO-10019,2025-01-29,Athletic Performance Runner,Clothing,1,90.85,90.85,West,San Francisco,CUST-1003
+ORD-CLO-10274,2025-01-30,Tailored Oxford Dress Shirt,Clothing,1,57.08,57.08,East,Washington D.C.,CUST-1133
+ORD-CLO-10488,2025-01-30,Raw Selvedge Denim Jeans,Clothing,1,77.92,77.92,North,Chicago,CUST-1004
+ORD-CLO-10593,2025-01-30,Raw Selvedge Denim Jeans,Clothing,1,77.29,77.29,South,Atlanta,CUST-1166
+ORD-CLO-10691,2025-01-30,Tailored Oxford Dress Shirt,Clothing,1,54.72,54.72,Central,Austin,CUST-1132
+ORD-CLO-10839,2025-01-31,Organic Cotton Classic Tee,Clothing,1,28.07,28.07,Central,Denver,CUST-1157
+ORD-CLO-10539,2025-02-01,Tailored Oxford Dress Shirt,Clothing,4,56.87,227.48,South,Atlanta,CUST-1061
+ORD-CLO-10266,2025-02-03,Casual Canvas Low Sneakers,Clothing,1,49.84,49.84,West,Seattle,CUST-1192
+ORD-CLO-10495,2025-02-04,Merino Wool Knit Sweater,Clothing,2,68.91,137.82,North,Boston,CUST-1179
+ORD-CLO-11010,2025-02-04,Athletic Performance Runner,Clothing,2,92.45,184.9,Central,Denver,CUST-1134
+ORD-CLO-10821,2025-02-05,Raw Selvedge Denim Jeans,Clothing,1,80.34,80.34,West,Seattle,CUST-1004
+ORD-CLO-10867,2025-02-06,Athletic Performance Runner,Clothing,1,92.27,92.27,North,New York,CUST-1111
+ORD-CLO-10906,2025-02-07,Merino Wool Knit Sweater,Clothing,1,70.99,70.99,Central,Kansas City,CUST-1165
+ORD-CLO-10797,2025-02-08,Tailored Oxford Dress Shirt,Clothing,2,56.61,113.22,West,San Francisco,CUST-1151
+ORD-CLO-10828,2025-02-09,Casual Canvas Low Sneakers,Clothing,4,48.71,194.84,Central,Kansas City,CUST-1122
+ORD-CLO-10800,2025-02-10,Raw Selvedge Denim Jeans,Clothing,3,76.75,230.25,East,Charlotte,CUST-1014
+ORD-CLO-10017,2025-02-12,Tailored Oxford Dress Shirt,Clothing,4,52.97,211.88,Central,Austin,CUST-1024
+ORD-CLO-10305,2025-02-12,Organic Cotton Classic Tee,Clothing,1,28.73,28.73,North,Boston,CUST-1062
+ORD-CLO-10761,2025-02-13,Tailored Oxford Dress Shirt,Clothing,1,55.42,55.42,South,Dallas,CUST-1004
+ORD-CLO-10969,2025-02-14,Merino Wool Knit Sweater,Clothing,1,67.41,67.41,Central,Denver,CUST-1124
+ORD-CLO-10851,2025-02-15,Merino Wool Knit Sweater,Clothing,1,66.9,66.9,Central,Austin,CUST-1091
+ORD-CLO-10045,2025-02-17,Raw Selvedge Denim Jeans,Clothing,1,83.52,83.52,Central,Kansas City,CUST-1011
+ORD-CLO-10440,2025-02-18,Winter Hooded Parka Coat,Clothing,1,140.42,140.42,East,Washington D.C.,CUST-1008
+ORD-CLO-10905,2025-02-18,Casual Canvas Low Sneakers,Clothing,2,47.7,95.4,East,Charlotte,CUST-1081
+ORD-CLO-11099,2025-02-18,Athletic Performance Runner,Clothing,3,92.41,277.23,West,Los Angeles,CUST-1002
+ORD-CLO-10974,2025-02-19,Raw Selvedge Denim Jeans,Clothing,2,80.78,161.56,Central,Austin,CUST-1084
+ORD-CLO-10698,2025-02-21,Athletic Performance Runner,Clothing,1,89.55,89.55,West,Los Angeles,CUST-1100
+ORD-CLO-10293,2025-02-23,Casual Canvas Low Sneakers,Clothing,1,50.36,50.36,West,San Francisco,CUST-1019
+ORD-CLO-10631,2025-02-23,Tailored Oxford Dress Shirt,Clothing,1,52.65,52.65,South,Dallas,CUST-1124
+ORD-CLO-10658,2025-02-23,Raw Selvedge Denim Jeans,Clothing,1,78.02,78.02,North,Boston,CUST-1056
+ORD-CLO-10153,2025-02-24,Raw Selvedge Denim Jeans,Clothing,1,78.54,78.54,East,Washington D.C.,CUST-1170
+ORD-CLO-10337,2025-02-27,Tailored Oxford Dress Shirt,Clothing,1,55.68,55.68,South,Atlanta,CUST-1141
+ORD-CLO-10936,2025-02-27,Raw Selvedge Denim Jeans,Clothing,1,78.66,78.66,South,Atlanta,CUST-1164
+ORD-CLO-10149,2025-02-28,Tailored Oxford Dress Shirt,Clothing,1,56.87,56.87,North,Boston,CUST-1186
+ORD-CLO-10435,2025-03-01,Raw Selvedge Denim Jeans,Clothing,3,76.92,230.76,South,Miami,CUST-1080
+ORD-CLO-10321,2025-03-02,Merino Wool Knit Sweater,Clothing,3,66.69,200.07,North,Chicago,CUST-1122
+ORD-CLO-10585,2025-03-02,Merino Wool Knit Sweater,Clothing,1,68.99,68.99,South,Miami,CUST-1190
+ORD-CLO-11069,2025-03-03,Raw Selvedge Denim Jeans,Clothing,1,76.31,76.31,Central,Denver,CUST-1109
+ORD-CLO-10603,2025-03-04,Athletic Performance Runner,Clothing,1,88.98,88.98,Central,Denver,CUST-1088
+ORD-CLO-10918,2025-03-05,Tailored Oxford Dress Shirt,Clothing,2,53.46,106.92,East,Washington D.C.,CUST-1161
+ORD-CLO-11089,2025-03-06,Athletic Performance Runner,Clothing,1,92.13,92.13,South,Atlanta,CUST-1006
+ORD-CLO-10096,2025-03-07,Tailored Oxford Dress Shirt,Clothing,1,56.33,56.33,Central,Denver,CUST-1090
+ORD-CLO-10795,2025-03-07,Winter Hooded Parka Coat,Clothing,1,146.63,146.63,North,New York,CUST-1042
+ORD-CLO-10167,2025-03-10,Winter Hooded Parka Coat,Clothing,2,141.38,282.76,South,Miami,CUST-1124
+ORD-CLO-10783,2025-03-10,Organic Cotton Classic Tee,Clothing,2,27.77,55.54,West,Seattle,CUST-1072
+ORD-CLO-10080,2025-03-11,Organic Cotton Classic Tee,Clothing,4,27.09,108.36,Central,Austin,CUST-1013
+ORD-CLO-10457,2025-03-11,Raw Selvedge Denim Jeans,Clothing,2,81.88,163.76,South,Miami,CUST-1009
+ORD-CLO-10987,2025-03-11,Merino Wool Knit Sweater,Clothing,1,65.82,65.82,Central,Austin,CUST-1099
+ORD-CLO-10057,2025-03-13,Merino Wool Knit Sweater,Clothing,1,64.67,64.67,South,Dallas,CUST-1010
+ORD-CLO-10932,2025-03-13,Merino Wool Knit Sweater,Clothing,1,70.37,70.37,Central,Kansas City,CUST-1091
+ORD-CLO-10682,2025-03-14,Tailored Oxford Dress Shirt,Clothing,1,54.81,54.81,Central,Austin,CUST-1002
+ORD-CLO-10712,2025-03-14,Organic Cotton Classic Tee,Clothing,1,26.61,26.61,South,Dallas,CUST-1190
+ORD-CLO-10200,2025-03-16,Raw Selvedge Denim Jeans,Clothing,1,82.33,82.33,Central,Kansas City,CUST-1056
+ORD-CLO-10201,2025-03-16,Athletic Performance Runner,Clothing,1,93.48,93.48,East,Washington D.C.,CUST-1107
+ORD-CLO-10811,2025-03-16,Casual Canvas Low Sneakers,Clothing,1,48.95,48.95,North,Chicago,CUST-1096
+ORD-CLO-10034,2025-03-17,Tailored Oxford Dress Shirt,Clothing,1,54.08,54.08,North,Chicago,CUST-1168
+ORD-CLO-10743,2025-03-17,Merino Wool Knit Sweater,Clothing,3,67.46,202.38,Central,Austin,CUST-1059
+ORD-CLO-10106,2025-03-21,Organic Cotton Classic Tee,Clothing,4,28.65,114.6,West,San Francisco,CUST-1138
+ORD-CLO-10496,2025-03-23,Winter Hooded Parka Coat,Clothing,1,151.57,151.57,South,Atlanta,CUST-1112
+ORD-CLO-10051,2025-03-24,Casual Canvas Low Sneakers,Clothing,1,50.21,50.21,Central,Denver,CUST-1171
+ORD-CLO-10249,2025-03-24,Raw Selvedge Denim Jeans,Clothing,2,79.28,158.56,South,Miami,CUST-1157
+ORD-CLO-10437,2025-03-24,Winter Hooded Parka Coat,Clothing,1,147.85,147.85,West,Los Angeles,CUST-1182
+ORD-CLO-10758,2025-03-25,Raw Selvedge Denim Jeans,Clothing,2,77.6,155.2,Central,Austin,CUST-1050
+ORD-CLO-10904,2025-03-25,Casual Canvas Low Sneakers,Clothing,2,50.58,101.16,East,Philadelphia,CUST-1110
+ORD-CLO-10325,2025-03-27,Tailored Oxford Dress Shirt,Clothing,1,54.06,54.06,South,Miami,CUST-1129
+ORD-CLO-10215,2025-03-28,Athletic Performance Runner,Clothing,2,87.95,175.9,North,Boston,CUST-1111
+ORD-CLO-10650,2025-03-30,Casual Canvas Low Sneakers,Clothing,1,50.36,50.36,East,Washington D.C.,CUST-1081
+ORD-CLO-10531,2025-04-01,Organic Cotton Classic Tee,Clothing,1,26.7,26.7,South,Dallas,CUST-1076
+ORD-CLO-10714,2025-04-01,Tailored Oxford Dress Shirt,Clothing,1,56.0,56.0,North,New York,CUST-1166
+ORD-CLO-11013,2025-04-01,Tailored Oxford Dress Shirt,Clothing,1,52.97,52.97,South,Atlanta,CUST-1007
+ORD-CLO-10855,2025-04-03,Athletic Performance Runner,Clothing,1,85.49,85.49,West,San Francisco,CUST-1005
+ORD-CLO-10259,2025-04-04,Merino Wool Knit Sweater,Clothing,1,64.64,64.64,West,Los Angeles,CUST-1039
+ORD-CLO-10736,2025-04-04,Merino Wool Knit Sweater,Clothing,3,71.35,214.05,South,Atlanta,CUST-1106
+ORD-CLO-10084,2025-04-05,Tailored Oxford Dress Shirt,Clothing,2,55.87,111.74,West,San Francisco,CUST-1125
+ORD-CLO-10255,2025-04-05,Merino Wool Knit Sweater,Clothing,1,65.6,65.6,South,Miami,CUST-1090
+ORD-CLO-10294,2025-04-05,Athletic Performance Runner,Clothing,1,91.61,91.61,Central,Kansas City,CUST-1151
+ORD-CLO-10378,2025-04-05,Casual Canvas Low Sneakers,Clothing,1,49.35,49.35,South,Atlanta,CUST-1069
+ORD-CLO-10458,2025-04-05,Tailored Oxford Dress Shirt,Clothing,2,53.67,107.34,East,Philadelphia,CUST-1199
+ORD-CLO-10314,2025-04-06,Casual Canvas Low Sneakers,Clothing,2,50.24,100.48,Central,Kansas City,CUST-1157
+ORD-CLO-10409,2025-04-06,Athletic Performance Runner,Clothing,1,87.54,87.54,East,Washington D.C.,CUST-1048
+ORD-CLO-10784,2025-04-06,Organic Cotton Classic Tee,Clothing,4,28.2,112.8,South,Atlanta,CUST-1185
+ORD-CLO-10029,2025-04-07,Raw Selvedge Denim Jeans,Clothing,1,77.97,77.97,North,Chicago,CUST-1142
+ORD-CLO-10837,2025-04-09,Raw Selvedge Denim Jeans,Clothing,1,82.2,82.2,South,Atlanta,CUST-1159
+ORD-CLO-10140,2025-04-10,Raw Selvedge Denim Jeans,Clothing,1,78.51,78.51,East,Charlotte,CUST-1001
+ORD-CLO-10343,2025-04-10,Winter Hooded Parka Coat,Clothing,1,145.63,145.63,South,Dallas,CUST-1120
+ORD-CLO-10725,2025-04-10,Raw Selvedge Denim Jeans,Clothing,1,76.31,76.31,North,Chicago,CUST-1134
+ORD-CLO-10927,2025-04-11,Winter Hooded Parka Coat,Clothing,3,146.15,438.45,North,Boston,CUST-1083
+ORD-CLO-10589,2025-04-12,Raw Selvedge Denim Jeans,Clothing,2,83.33,166.66,West,Seattle,CUST-1119
+ORD-CLO-10270,2025-04-13,Raw Selvedge Denim Jeans,Clothing,1,78.34,78.34,South,Atlanta,CUST-1081
+ORD-CLO-10659,2025-04-13,Casual Canvas Low Sneakers,Clothing,2,51.4,102.8,North,Boston,CUST-1012
+ORD-CLO-11092,2025-04-13,Tailored Oxford Dress Shirt,Clothing,3,54.87,164.61,West,Los Angeles,CUST-1067
+ORD-CLO-10577,2025-04-14,Casual Canvas Low Sneakers,Clothing,2,47.55,95.1,Central,Kansas City,CUST-1108
+ORD-CLO-10850,2025-04-14,Winter Hooded Parka Coat,Clothing,3,147.4,442.2,South,Atlanta,CUST-1141
+ORD-CLO-10007,2025-04-15,Merino Wool Knit Sweater,Clothing,3,65.45,196.35,North,Chicago,CUST-1076
+ORD-CLO-10426,2025-04-17,Winter Hooded Parka Coat,Clothing,2,140.79,281.58,North,Boston,CUST-1173
+ORD-CLO-10529,2025-04-17,Raw Selvedge Denim Jeans,Clothing,1,77.33,77.33,East,Washington D.C.,CUST-1008
+ORD-CLO-10359,2025-04-18,Winter Hooded Parka Coat,Clothing,2,149.45,298.9,East,Washington D.C.,CUST-1001
+ORD-CLO-10525,2025-04-18,Raw Selvedge Denim Jeans,Clothing,1,82.42,82.42,North,New York,CUST-1200
+ORD-CLO-10820,2025-04-19,Winter Hooded Parka Coat,Clothing,1,149.23,149.23,South,Atlanta,CUST-1069
+ORD-CLO-11074,2025-04-19,Casual Canvas Low Sneakers,Clothing,2,48.18,96.36,South,Miami,CUST-1161
+ORD-CLO-10304,2025-04-20,Organic Cotton Classic Tee,Clothing,1,27.55,27.55,West,San Francisco,CUST-1089
+ORD-CLO-11005,2025-04-20,Athletic Performance Runner,Clothing,1,89.78,89.78,Central,Denver,CUST-1098
+ORD-CLO-11075,2025-04-20,Winter Hooded Parka Coat,Clothing,3,146.93,440.79,North,Boston,CUST-1177
+ORD-CLO-10935,2025-04-21,Winter Hooded Parka Coat,Clothing,2,149.3,298.6,South,Dallas,CUST-1107
+ORD-CLO-10088,2025-04-22,Athletic Performance Runner,Clothing,2,86.05,172.1,East,Charlotte,CUST-1179
+ORD-CLO-10306,2025-04-22,Raw Selvedge Denim Jeans,Clothing,1,78.13,78.13,North,New York,CUST-1075
+ORD-CLO-10093,2025-04-23,Organic Cotton Classic Tee,Clothing,1,29.35,29.35,East,Charlotte,CUST-1145
+ORD-CLO-10231,2025-04-25,Athletic Performance Runner,Clothing,2,91.17,182.34,Central,Denver,CUST-1091
+ORD-CLO-10251,2025-04-25,Casual Canvas Low Sneakers,Clothing,2,48.46,96.92,Central,Austin,CUST-1119
+ORD-CLO-10755,2025-04-27,Merino Wool Knit Sweater,Clothing,1,67.56,67.56,South,Miami,CUST-1021
+ORD-CLO-10929,2025-04-27,Organic Cotton Classic Tee,Clothing,3,26.94,80.82,West,San Francisco,CUST-1106
+ORD-CLO-10504,2025-04-28,Tailored Oxford Dress Shirt,Clothing,1,53.86,53.86,North,Chicago,CUST-1183
+ORD-CLO-10655,2025-04-29,Winter Hooded Parka Coat,Clothing,2,147.28,294.56,North,New York,CUST-1195
+ORD-CLO-10824,2025-04-29,Athletic Performance Runner,Clothing,1,91.62,91.62,West,Los Angeles,CUST-1162
+ORD-CLO-10203,2025-04-30,Raw Selvedge Denim Jeans,Clothing,1,76.72,76.72,East,Philadelphia,CUST-1191
+ORD-CLO-11054,2025-04-30,Athletic Performance Runner,Clothing,2,87.08,174.16,North,New York,CUST-1166
+ORD-CLO-10789,2025-05-02,Casual Canvas Low Sneakers,Clothing,1,50.64,50.64,West,Seattle,CUST-1093
+ORD-CLO-10477,2025-05-03,Raw Selvedge Denim Jeans,Clothing,1,77.05,77.05,East,Philadelphia,CUST-1003
+ORD-CLO-10479,2025-05-04,Raw Selvedge Denim Jeans,Clothing,1,77.82,77.82,North,New York,CUST-1081
+ORD-CLO-10382,2025-05-05,Organic Cotton Classic Tee,Clothing,2,28.55,57.1,East,Philadelphia,CUST-1142
+ORD-CLO-10732,2025-05-05,Athletic Performance Runner,Clothing,1,87.39,87.39,East,Philadelphia,CUST-1063
+ORD-CLO-10742,2025-05-08,Winter Hooded Parka Coat,Clothing,1,139.64,139.64,North,Chicago,CUST-1167
+ORD-CLO-10744,2025-05-08,Casual Canvas Low Sneakers,Clothing,1,51.33,51.33,Central,Denver,CUST-1109
+ORD-CLO-10768,2025-05-08,Raw Selvedge Denim Jeans,Clothing,1,78.05,78.05,South,Dallas,CUST-1180
+ORD-CLO-10560,2025-05-09,Winter Hooded Parka Coat,Clothing,3,138.2,414.6,South,Dallas,CUST-1112
+ORD-CLO-10107,2025-05-10,Athletic Performance Runner,Clothing,2,89.41,178.82,West,Seattle,CUST-1063
+ORD-CLO-10117,2025-05-10,Tailored Oxford Dress Shirt,Clothing,4,55.72,222.88,Central,Kansas City,CUST-1073
+ORD-CLO-10723,2025-05-10,Tailored Oxford Dress Shirt,Clothing,2,52.0,104.0,South,Atlanta,CUST-1068
+ORD-CLO-10535,2025-05-11,Tailored Oxford Dress Shirt,Clothing,1,56.75,56.75,East,Washington D.C.,CUST-1047
+ORD-CLO-10586,2025-05-11,Casual Canvas Low Sneakers,Clothing,1,50.07,50.07,North,Chicago,CUST-1041
+ORD-CLO-10039,2025-05-12,Athletic Performance Runner,Clothing,1,87.41,87.41,North,New York,CUST-1098
+ORD-CLO-10092,2025-05-12,Raw Selvedge Denim Jeans,Clothing,2,79.1,158.2,East,Charlotte,CUST-1043
+ORD-CLO-10842,2025-05-12,Organic Cotton Classic Tee,Clothing,1,26.88,26.88,East,Charlotte,CUST-1126
+ORD-CLO-10449,2025-05-13,Winter Hooded Parka Coat,Clothing,3,145.54,436.62,South,Dallas,CUST-1043
+ORD-CLO-10966,2025-05-14,Raw Selvedge Denim Jeans,Clothing,1,76.51,76.51,East,Washington D.C.,CUST-1044
+ORD-CLO-10112,2025-05-15,Merino Wool Knit Sweater,Clothing,2,69.76,139.52,East,Washington D.C.,CUST-1005
+ORD-CLO-10591,2025-05-15,Merino Wool Knit Sweater,Clothing,4,67.63,270.52,East,Charlotte,CUST-1142
+ORD-CLO-10105,2025-05-16,Raw Selvedge Denim Jeans,Clothing,1,79.46,79.46,East,Charlotte,CUST-1040
+ORD-CLO-10444,2025-05-16,Merino Wool Knit Sweater,Clothing,1,71.17,71.17,East,Charlotte,CUST-1101
+ORD-CLO-10450,2025-05-16,Tailored Oxford Dress Shirt,Clothing,1,52.54,52.54,East,Charlotte,CUST-1014
+ORD-CLO-10389,2025-05-17,Athletic Performance Runner,Clothing,2,87.0,174.0,South,Atlanta,CUST-1185
+ORD-CLO-11026,2025-05-17,Athletic Performance Runner,Clothing,2,89.41,178.82,North,Chicago,CUST-1058
+ORD-CLO-10138,2025-05-18,Raw Selvedge Denim Jeans,Clothing,1,79.75,79.75,West,San Francisco,CUST-1027
+ORD-CLO-10817,2025-05-18,Organic Cotton Classic Tee,Clothing,1,27.5,27.5,Central,Denver,CUST-1048
+ORD-CLO-10134,2025-05-20,Athletic Performance Runner,Clothing,1,86.21,86.21,East,Charlotte,CUST-1083
+ORD-CLO-10510,2025-05-20,Casual Canvas Low Sneakers,Clothing,2,51.37,102.74,Central,Denver,CUST-1039
+ORD-CLO-10633,2025-05-20,Organic Cotton Classic Tee,Clothing,2,29.26,58.52,North,Chicago,CUST-1186
+ORD-CLO-10921,2025-05-20,Organic Cotton Classic Tee,Clothing,2,27.21,54.42,East,Washington D.C.,CUST-1114
+ORD-CLO-10975,2025-05-21,Winter Hooded Parka Coat,Clothing,1,147.32,147.32,South,Dallas,CUST-1194
+ORD-CLO-10455,2025-05-22,Merino Wool Knit Sweater,Clothing,1,68.07,68.07,West,San Francisco,CUST-1094
+ORD-CLO-10164,2025-05-24,Merino Wool Knit Sweater,Clothing,1,65.57,65.57,West,Seattle,CUST-1066
+ORD-CLO-10219,2025-05-24,Winter Hooded Parka Coat,Clothing,1,143.99,143.99,Central,Kansas City,CUST-1059
+ORD-CLO-10532,2025-05-25,Athletic Performance Runner,Clothing,1,93.43,93.43,North,Boston,CUST-1099
+ORD-CLO-10427,2025-05-26,Organic Cotton Classic Tee,Clothing,1,28.37,28.37,South,Dallas,CUST-1109
+ORD-CLO-11034,2025-05-26,Merino Wool Knit Sweater,Clothing,2,71.16,142.32,North,New York,CUST-1087
+ORD-CLO-10220,2025-05-27,Merino Wool Knit Sweater,Clothing,2,70.27,140.54,North,Boston,CUST-1190
+ORD-CLO-10886,2025-05-27,Athletic Performance Runner,Clothing,2,90.54,181.08,North,New York,CUST-1136
+ORD-CLO-10195,2025-05-30,Organic Cotton Classic Tee,Clothing,1,29.25,29.25,Central,Austin,CUST-1118
+ORD-CLO-10765,2025-05-30,Tailored Oxford Dress Shirt,Clothing,1,53.63,53.63,Central,Austin,CUST-1138
+ORD-CLO-10083,2025-05-31,Athletic Performance Runner,Clothing,1,92.96,92.96,South,Dallas,CUST-1122
+ORD-CLO-10740,2025-05-31,Winter Hooded Parka Coat,Clothing,1,143.84,143.84,North,New York,CUST-1122
+ORD-CLO-10356,2025-06-01,Organic Cotton Classic Tee,Clothing,1,28.2,28.2,West,San Francisco,CUST-1114
+ORD-CLO-10590,2025-06-01,Athletic Performance Runner,Clothing,1,91.21,91.21,North,New York,CUST-1096
+ORD-CLO-10429,2025-06-02,Casual Canvas Low Sneakers,Clothing,1,50.95,50.95,West,San Francisco,CUST-1138
+ORD-CLO-10071,2025-06-03,Tailored Oxford Dress Shirt,Clothing,1,55.41,55.41,West,San Francisco,CUST-1033
+ORD-CLO-10232,2025-06-03,Raw Selvedge Denim Jeans,Clothing,1,78.47,78.47,North,Boston,CUST-1074
+ORD-CLO-10605,2025-06-03,Tailored Oxford Dress Shirt,Clothing,2,56.38,112.76,Central,Denver,CUST-1076
+ORD-CLO-10649,2025-06-03,Organic Cotton Classic Tee,Clothing,1,28.14,28.14,South,Atlanta,CUST-1118
+ORD-CLO-10044,2025-06-04,Raw Selvedge Denim Jeans,Clothing,1,82.8,82.8,North,Chicago,CUST-1061
+ORD-CLO-10692,2025-06-04,Athletic Performance Runner,Clothing,1,89.87,89.87,South,Miami,CUST-1132
+ORD-CLO-10753,2025-06-04,Athletic Performance Runner,Clothing,2,92.56,185.12,Central,Kansas City,CUST-1176
+ORD-CLO-10075,2025-06-07,Athletic Performance Runner,Clothing,4,92.63,370.52,South,Dallas,CUST-1022
+ORD-CLO-10448,2025-06-07,Athletic Performance Runner,Clothing,1,89.25,89.25,East,Washington D.C.,CUST-1048
+ORD-CLO-10738,2025-06-07,Tailored Oxford Dress Shirt,Clothing,2,52.69,105.38,East,Charlotte,CUST-1152
+ORD-CLO-10414,2025-06-08,Athletic Performance Runner,Clothing,1,86.42,86.42,Central,Denver,CUST-1153
+ORD-CLO-10722,2025-06-10,Organic Cotton Classic Tee,Clothing,1,27.85,27.85,Central,Kansas City,CUST-1038
+ORD-CLO-10730,2025-06-10,Winter Hooded Parka Coat,Clothing,1,141.82,141.82,South,Miami,CUST-1155
+ORD-CLO-10318,2025-06-11,Organic Cotton Classic Tee,Clothing,1,27.52,27.52,South,Miami,CUST-1158
+ORD-CLO-11057,2025-06-11,Raw Selvedge Denim Jeans,Clothing,1,76.56,76.56,East,Charlotte,CUST-1149
+ORD-CLO-10439,2025-06-12,Organic Cotton Classic Tee,Clothing,1,28.15,28.15,East,Washington D.C.,CUST-1060
+ORD-CLO-10507,2025-06-12,Raw Selvedge Denim Jeans,Clothing,1,83.62,83.62,East,Washington D.C.,CUST-1199
+ORD-CLO-10601,2025-06-13,Casual Canvas Low Sneakers,Clothing,1,48.69,48.69,Central,Austin,CUST-1170
+ORD-CLO-10787,2025-06-13,Merino Wool Knit Sweater,Clothing,2,69.5,139.0,West,Seattle,CUST-1144
+ORD-CLO-10780,2025-06-14,Athletic Performance Runner,Clothing,1,88.33,88.33,South,Miami,CUST-1149
+ORD-CLO-10856,2025-06-14,Organic Cotton Classic Tee,Clothing,1,29.38,29.38,West,Los Angeles,CUST-1055
+ORD-CLO-10327,2025-06-15,Organic Cotton Classic Tee,Clothing,4,28.17,112.68,East,Charlotte,CUST-1097
+ORD-CLO-10908,2025-06-15,Merino Wool Knit Sweater,Clothing,2,67.29,134.58,Central,Austin,CUST-1133
+ORD-CLO-10686,2025-06-17,Raw Selvedge Denim Jeans,Clothing,1,82.28,82.28,Central,Kansas City,CUST-1104
+ORD-CLO-10757,2025-06-17,Tailored Oxford Dress Shirt,Clothing,1,55.65,55.65,South,Dallas,CUST-1127
+ORD-CLO-10798,2025-06-17,Athletic Performance Runner,Clothing,1,89.22,89.22,North,New York,CUST-1187
+ORD-CLO-11066,2025-06-18,Athletic Performance Runner,Clothing,1,93.25,93.25,East,Washington D.C.,CUST-1072
+ORD-CLO-10125,2025-06-19,Athletic Performance Runner,Clothing,1,89.54,89.54,Central,Austin,CUST-1079
+ORD-CLO-10930,2025-06-21,Organic Cotton Classic Tee,Clothing,1,28.55,28.55,North,Chicago,CUST-1187
+ORD-CLO-10843,2025-06-22,Merino Wool Knit Sweater,Clothing,1,69.37,69.37,West,Los Angeles,CUST-1156
+ORD-CLO-10355,2025-06-24,Winter Hooded Parka Coat,Clothing,3,143.0,429.0,North,New York,CUST-1141
+ORD-CLO-10283,2025-06-26,Tailored Oxford Dress Shirt,Clothing,1,53.94,53.94,South,Atlanta,CUST-1007
+ORD-CLO-10377,2025-06-26,Organic Cotton Classic Tee,Clothing,1,27.69,27.69,West,San Francisco,CUST-1021
+ORD-CLO-10537,2025-06-26,Tailored Oxford Dress Shirt,Clothing,4,55.95,223.8,South,Atlanta,CUST-1064
+ORD-CLO-10082,2025-06-27,Merino Wool Knit Sweater,Clothing,4,68.65,274.6,East,Charlotte,CUST-1185
+ORD-CLO-10212,2025-06-27,Organic Cotton Classic Tee,Clothing,1,27.65,27.65,South,Miami,CUST-1080
+ORD-CLO-10226,2025-06-27,Merino Wool Knit Sweater,Clothing,2,65.92,131.84,West,San Francisco,CUST-1166
+ORD-CLO-11070,2025-06-27,Athletic Performance Runner,Clothing,2,89.8,179.6,North,Boston,CUST-1127
+ORD-CLO-10815,2025-06-28,Casual Canvas Low Sneakers,Clothing,1,48.83,48.83,North,New York,CUST-1035
+ORD-CLO-10104,2025-06-29,Athletic Performance Runner,Clothing,1,91.44,91.44,West,Los Angeles,CUST-1108
+ORD-CLO-10896,2025-06-29,Winter Hooded Parka Coat,Clothing,1,139.47,139.47,South,Dallas,CUST-1008
+ORD-CLO-10955,2025-06-29,Tailored Oxford Dress Shirt,Clothing,2,55.99,111.98,West,Los Angeles,CUST-1041
+ORD-CLO-10616,2025-06-30,Organic Cotton Classic Tee,Clothing,4,28.65,114.6,West,San Francisco,CUST-1049
+ORD-CLO-10810,2025-07-01,Raw Selvedge Denim Jeans,Clothing,1,81.49,81.49,East,Washington D.C.,CUST-1003
+ORD-CLO-11028,2025-07-02,Tailored Oxford Dress Shirt,Clothing,1,53.59,53.59,North,Chicago,CUST-1166
+ORD-CLO-10443,2025-07-03,Organic Cotton Classic Tee,Clothing,1,27.62,27.62,North,Boston,CUST-1172
+ORD-CLO-10879,2025-07-04,Organic Cotton Classic Tee,Clothing,1,27.17,27.17,West,San Francisco,CUST-1124
+ORD-CLO-10151,2025-07-05,Athletic Performance Runner,Clothing,1,88.6,88.6,Central,Austin,CUST-1117
+ORD-CLO-11081,2025-07-06,Raw Selvedge Denim Jeans,Clothing,2,81.18,162.36,Central,Kansas City,CUST-1054
+ORD-CLO-10038,2025-07-07,Casual Canvas Low Sneakers,Clothing,1,47.56,47.56,South,Atlanta,CUST-1105
+ORD-CLO-10805,2025-07-07,Tailored Oxford Dress Shirt,Clothing,1,54.76,54.76,Central,Denver,CUST-1152
+ORD-CLO-10456,2025-07-09,Casual Canvas Low Sneakers,Clothing,2,51.27,102.54,East,Charlotte,CUST-1056
+ORD-CLO-10542,2025-07-09,Tailored Oxford Dress Shirt,Clothing,1,52.73,52.73,North,New York,CUST-1155
+ORD-CLO-10893,2025-07-09,Organic Cotton Classic Tee,Clothing,1,27.18,27.18,Central,Kansas City,CUST-1052
+ORD-CLO-10957,2025-07-09,Tailored Oxford Dress Shirt,Clothing,1,54.77,54.77,West,San Francisco,CUST-1063
+ORD-CLO-11077,2025-07-09,Merino Wool Knit Sweater,Clothing,2,70.0,140.0,North,Chicago,CUST-1086
+ORD-CLO-10403,2025-07-10,Merino Wool Knit Sweater,Clothing,1,69.08,69.08,West,Los Angeles,CUST-1054
+ORD-CLO-10534,2025-07-10,Casual Canvas Low Sneakers,Clothing,1,47.59,47.59,West,Seattle,CUST-1140
+ORD-CLO-10746,2025-07-10,Athletic Performance Runner,Clothing,1,87.81,87.81,North,Chicago,CUST-1134
+ORD-CLO-10131,2025-07-11,Organic Cotton Classic Tee,Clothing,3,28.41,85.23,South,Atlanta,CUST-1016
+ORD-CLO-10567,2025-07-11,Athletic Performance Runner,Clothing,3,87.15,261.45,West,Los Angeles,CUST-1115
+ORD-CLO-10276,2025-07-12,Tailored Oxford Dress Shirt,Clothing,1,53.53,53.53,West,Seattle,CUST-1115
+ORD-CLO-10302,2025-07-12,Tailored Oxford Dress Shirt,Clothing,1,55.27,55.27,South,Dallas,CUST-1104
+ORD-CLO-10703,2025-07-12,Tailored Oxford Dress Shirt,Clothing,1,57.01,57.01,West,Los Angeles,CUST-1142
+ORD-CLO-10983,2025-07-12,Organic Cotton Classic Tee,Clothing,1,28.45,28.45,South,Dallas,CUST-1099
+ORD-CLO-10091,2025-07-13,Casual Canvas Low Sneakers,Clothing,1,50.51,50.51,South,Miami,CUST-1112
+ORD-CLO-10390,2025-07-13,Athletic Performance Runner,Clothing,3,87.15,261.45,North,Chicago,CUST-1009
+ORD-CLO-10490,2025-07-13,Winter Hooded Parka Coat,Clothing,1,140.26,140.26,North,New York,CUST-1151
+ORD-CLO-10912,2025-07-13,Organic Cotton Classic Tee,Clothing,1,27.7,27.7,North,New York,CUST-1117
+ORD-CLO-11100,2025-07-13,Merino Wool Knit Sweater,Clothing,2,66.85,133.7,East,Washington D.C.,CUST-1194
+ORD-CLO-10667,2025-07-14,Casual Canvas Low Sneakers,Clothing,2,49.06,98.12,Central,Kansas City,CUST-1056
+ORD-CLO-10705,2025-07-14,Raw Selvedge Denim Jeans,Clothing,2,78.43,156.86,West,Los Angeles,CUST-1106
+ORD-CLO-10260,2025-07-15,Winter Hooded Parka Coat,Clothing,1,146.58,146.58,West,Los Angeles,CUST-1078
+ORD-CLO-10143,2025-07-16,Organic Cotton Classic Tee,Clothing,1,29.2,29.2,East,Philadelphia,CUST-1008
+ORD-CLO-10685,2025-07-17,Tailored Oxford Dress Shirt,Clothing,2,52.17,104.34,Central,Denver,CUST-1048
+ORD-CLO-10938,2025-07-17,Tailored Oxford Dress Shirt,Clothing,1,55.96,55.96,West,Seattle,CUST-1102
+ORD-CLO-10718,2025-07-18,Tailored Oxford Dress Shirt,Clothing,4,54.74,218.96,East,Charlotte,CUST-1199
+ORD-CLO-10145,2025-07-19,Athletic Performance Runner,Clothing,4,86.33,345.32,North,Boston,CUST-1031
+ORD-CLO-10750,2025-07-19,Casual Canvas Low Sneakers,Clothing,1,50.28,50.28,Central,Kansas City,CUST-1124
+ORD-CLO-10662,2025-07-20,Athletic Performance Runner,Clothing,1,93.04,93.04,Central,Denver,CUST-1178
+ORD-CLO-10052,2025-07-21,Tailored Oxford Dress Shirt,Clothing,1,56.85,56.85,South,Miami,CUST-1030
+ORD-CLO-10562,2025-07-21,Winter Hooded Parka Coat,Clothing,1,151.17,151.17,West,Seattle,CUST-1061
+ORD-CLO-10704,2025-07-22,Organic Cotton Classic Tee,Clothing,1,26.95,26.95,Central,Austin,CUST-1138
+ORD-CLO-10111,2025-07-23,Raw Selvedge Denim Jeans,Clothing,1,80.12,80.12,South,Dallas,CUST-1105
+ORD-CLO-10858,2025-07-23,Merino Wool Knit Sweater,Clothing,1,70.9,70.9,North,Boston,CUST-1092
+ORD-CLO-10081,2025-07-24,Organic Cotton Classic Tee,Clothing,1,29.17,29.17,South,Miami,CUST-1171
+ORD-CLO-10652,2025-07-24,Merino Wool Knit Sweater,Clothing,1,64.6,64.6,Central,Kansas City,CUST-1164
+ORD-CLO-10849,2025-07-25,Athletic Performance Runner,Clothing,2,92.2,184.4,Central,Austin,CUST-1173
+ORD-CLO-10060,2025-07-27,Casual Canvas Low Sneakers,Clothing,1,49.52,49.52,South,Atlanta,CUST-1042
+ORD-CLO-10320,2025-07-30,Tailored Oxford Dress Shirt,Clothing,1,54.36,54.36,West,San Francisco,CUST-1029
+ORD-CLO-10579,2025-07-30,Casual Canvas Low Sneakers,Clothing,1,48.0,48.0,Central,Austin,CUST-1106
+ORD-CLO-10229,2025-07-31,Casual Canvas Low Sneakers,Clothing,2,50.39,100.78,Central,Kansas City,CUST-1163
+ORD-CLO-10509,2025-07-31,Casual Canvas Low Sneakers,Clothing,1,49.01,49.01,East,Washington D.C.,CUST-1152
+ORD-CLO-10735,2025-07-31,Winter Hooded Parka Coat,Clothing,2,138.02,276.04,West,Los Angeles,CUST-1056
+ORD-CLO-10749,2025-08-01,Tailored Oxford Dress Shirt,Clothing,4,55.11,220.44,East,Philadelphia,CUST-1106
+ORD-CLO-10401,2025-08-02,Casual Canvas Low Sneakers,Clothing,3,52.36,157.08,North,New York,CUST-1055
+ORD-CLO-10502,2025-08-03,Organic Cotton Classic Tee,Clothing,1,27.63,27.63,North,Chicago,CUST-1173
+ORD-CLO-10971,2025-08-03,Casual Canvas Low Sneakers,Clothing,2,49.2,98.4,South,Dallas,CUST-1172
+ORD-CLO-10788,2025-08-04,Raw Selvedge Denim Jeans,Clothing,2,79.18,158.36,North,New York,CUST-1066
+ORD-CLO-10126,2025-08-05,Merino Wool Knit Sweater,Clothing,4,65.01,260.04,North,New York,CUST-1161
+ORD-CLO-10939,2025-08-05,Merino Wool Knit Sweater,Clothing,2,71.13,142.26,South,Miami,CUST-1087
+ORD-CLO-11063,2025-08-05,Raw Selvedge Denim Jeans,Clothing,1,78.24,78.24,East,Washington D.C.,CUST-1108
+ORD-CLO-10313,2025-08-06,Merino Wool Knit Sweater,Clothing,1,65.92,65.92,North,Boston,CUST-1130
+ORD-CLO-10461,2025-08-06,Tailored Oxford Dress Shirt,Clothing,1,54.68,54.68,South,Miami,CUST-1181
+ORD-CLO-10506,2025-08-08,Tailored Oxford Dress Shirt,Clothing,2,52.43,104.86,North,New York,CUST-1058
+ORD-CLO-10573,2025-08-08,Winter Hooded Parka Coat,Clothing,1,152.0,152.0,East,Philadelphia,CUST-1043
+ORD-CLO-10291,2025-08-09,Tailored Oxford Dress Shirt,Clothing,4,54.32,217.28,South,Dallas,CUST-1023
+ORD-CLO-10892,2025-08-09,Organic Cotton Classic Tee,Clothing,1,27.79,27.79,Central,Austin,CUST-1115
+ORD-CLO-10222,2025-08-10,Athletic Performance Runner,Clothing,1,91.88,91.88,North,Boston,CUST-1006
+ORD-CLO-10340,2025-08-10,Organic Cotton Classic Tee,Clothing,2,28.1,56.2,North,New York,CUST-1107
+ORD-CLO-10772,2025-08-10,Tailored Oxford Dress Shirt,Clothing,2,52.77,105.54,South,Miami,CUST-1189
+ORD-CLO-10995,2025-08-10,Winter Hooded Parka Coat,Clothing,1,142.56,142.56,West,Seattle,CUST-1043
+ORD-CLO-10263,2025-08-11,Organic Cotton Classic Tee,Clothing,1,28.61,28.61,North,Chicago,CUST-1091
+ORD-CLO-10764,2025-08-11,Raw Selvedge Denim Jeans,Clothing,1,78.08,78.08,North,Chicago,CUST-1019
+ORD-CLO-10766,2025-08-11,Tailored Oxford Dress Shirt,Clothing,4,55.56,222.24,Central,Austin,CUST-1198
+ORD-CLO-10501,2025-08-13,Winter Hooded Parka Coat,Clothing,1,138.87,138.87,West,Los Angeles,CUST-1128
+ORD-CLO-10101,2025-08-15,Raw Selvedge Denim Jeans,Clothing,1,83.42,83.42,East,Washington D.C.,CUST-1184
+ORD-CLO-10663,2025-08-15,Organic Cotton Classic Tee,Clothing,1,28.65,28.65,East,Charlotte,CUST-1154
+ORD-CLO-10074,2025-08-16,Merino Wool Knit Sweater,Clothing,1,69.05,69.05,East,Charlotte,CUST-1055
+ORD-CLO-11037,2025-08-16,Organic Cotton Classic Tee,Clothing,1,29.19,29.19,South,Miami,CUST-1168
+ORD-CLO-11068,2025-08-16,Organic Cotton Classic Tee,Clothing,1,29.1,29.1,South,Dallas,CUST-1002
+ORD-CLO-10709,2025-08-17,Athletic Performance Runner,Clothing,1,94.05,94.05,South,Atlanta,CUST-1073
+ORD-CLO-10349,2025-08-19,Winter Hooded Parka Coat,Clothing,1,146.06,146.06,West,San Francisco,CUST-1061
+ORD-CLO-10519,2025-08-21,Raw Selvedge Denim Jeans,Clothing,1,77.23,77.23,East,Washington D.C.,CUST-1105
+ORD-CLO-10598,2025-08-21,Raw Selvedge Denim Jeans,Clothing,4,76.05,304.2,West,San Francisco,CUST-1166
+ORD-CLO-10700,2025-08-22,Raw Selvedge Denim Jeans,Clothing,1,81.6,81.6,Central,Denver,CUST-1075
+ORD-CLO-10380,2025-08-24,Winter Hooded Parka Coat,Clothing,1,147.49,147.49,South,Miami,CUST-1078
+ORD-CLO-10404,2025-08-24,Organic Cotton Classic Tee,Clothing,2,28.71,57.42,East,Philadelphia,CUST-1077
+ORD-CLO-10445,2025-08-24,Raw Selvedge Denim Jeans,Clothing,2,78.77,157.54,Central,Denver,CUST-1173
+ORD-CLO-10570,2025-08-26,Organic Cotton Classic Tee,Clothing,2,28.15,56.3,Central,Austin,CUST-1138
+ORD-CLO-10661,2025-08-26,Merino Wool Knit Sweater,Clothing,1,65.52,65.52,Central,Kansas City,CUST-1013
+ORD-CLO-10641,2025-08-27,Athletic Performance Runner,Clothing,2,92.71,185.42,South,Dallas,CUST-1098
+ORD-CLO-10913,2025-08-27,Winter Hooded Parka Coat,Clothing,3,150.74,452.22,North,Boston,CUST-1083
+ORD-CLO-10982,2025-08-27,Athletic Performance Runner,Clothing,2,91.12,182.24,East,Washington D.C.,CUST-1112
+ORD-CLO-10540,2025-08-29,Tailored Oxford Dress Shirt,Clothing,2,56.17,112.34,Central,Denver,CUST-1181
+ORD-CLO-11033,2025-08-30,Organic Cotton Classic Tee,Clothing,1,27.97,27.97,Central,Kansas City,CUST-1079
+ORD-CLO-10430,2025-08-31,Winter Hooded Parka Coat,Clothing,1,151.01,151.01,South,Dallas,CUST-1171
+ORD-CLO-10599,2025-08-31,Merino Wool Knit Sweater,Clothing,2,66.52,133.04,East,Philadelphia,CUST-1087
+ORD-CLO-11041,2025-09-01,Casual Canvas Low Sneakers,Clothing,1,50.57,50.57,South,Miami,CUST-1087
+ORD-CLO-10067,2025-09-02,Athletic Performance Runner,Clothing,2,88.6,177.2,East,Charlotte,CUST-1131
+ORD-CLO-10973,2025-09-02,Athletic Performance Runner,Clothing,1,88.42,88.42,East,Philadelphia,CUST-1079
+ORD-CLO-10806,2025-09-03,Athletic Performance Runner,Clothing,1,91.17,91.17,Central,Austin,CUST-1135
+ORD-CLO-10415,2025-09-04,Casual Canvas Low Sneakers,Clothing,1,49.11,49.11,West,Seattle,CUST-1100
+ORD-CLO-10024,2025-09-05,Tailored Oxford Dress Shirt,Clothing,1,54.44,54.44,West,Seattle,CUST-1062
+ORD-CLO-10737,2025-09-07,Organic Cotton Classic Tee,Clothing,2,28.82,57.64,South,Dallas,CUST-1169
+ORD-CLO-10551,2025-09-08,Tailored Oxford Dress Shirt,Clothing,4,56.79,227.16,South,Dallas,CUST-1145
+ORD-CLO-10277,2025-09-09,Winter Hooded Parka Coat,Clothing,2,143.93,287.86,West,Seattle,CUST-1011
+ORD-CLO-10522,2025-09-09,Raw Selvedge Denim Jeans,Clothing,3,77.71,233.13,South,Atlanta,CUST-1183
+ORD-CLO-10135,2025-09-10,Tailored Oxford Dress Shirt,Clothing,1,51.92,51.92,Central,Kansas City,CUST-1006
+ORD-CLO-10729,2025-09-10,Raw Selvedge Denim Jeans,Clothing,1,80.0,80.0,South,Atlanta,CUST-1020
+ORD-CLO-11000,2025-09-10,Organic Cotton Classic Tee,Clothing,2,29.15,58.3,East,Washington D.C.,CUST-1045
+ORD-CLO-10100,2025-09-12,Merino Wool Knit Sweater,Clothing,2,71.15,142.3,South,Miami,CUST-1028
+ORD-CLO-10628,2025-09-12,Winter Hooded Parka Coat,Clothing,2,139.74,279.48,North,Chicago,CUST-1185
+ORD-CLO-10664,2025-09-12,Tailored Oxford Dress Shirt,Clothing,1,54.52,54.52,Central,Kansas City,CUST-1196
+ORD-CLO-10899,2025-09-12,Merino Wool Knit Sweater,Clothing,1,68.76,68.76,South,Dallas,CUST-1007
+ORD-CLO-10945,2025-09-12,Athletic Performance Runner,Clothing,1,87.18,87.18,West,San Francisco,CUST-1081
+ORD-CLO-10487,2025-09-13,Merino Wool Knit Sweater,Clothing,1,65.88,65.88,North,New York,CUST-1127
+ORD-CLO-10715,2025-09-13,Raw Selvedge Denim Jeans,Clothing,3,82.72,248.16,South,Dallas,CUST-1051
+ORD-CLO-10280,2025-09-14,Winter Hooded Parka Coat,Clothing,1,149.08,149.08,North,New York,CUST-1200
+ORD-CLO-10023,2025-09-15,Organic Cotton Classic Tee,Clothing,2,27.03,54.06,Central,Kansas City,CUST-1001
+ORD-CLO-10756,2025-09-15,Raw Selvedge Denim Jeans,Clothing,3,81.79,245.37,East,Charlotte,CUST-1168
+ORD-CLO-10238,2025-09-16,Organic Cotton Classic Tee,Clothing,3,27.62,82.86,East,Washington D.C.,CUST-1199
+ORD-CLO-10934,2025-09-16,Organic Cotton Classic Tee,Clothing,4,28.58,114.32,North,New York,CUST-1007
+ORD-CLO-11061,2025-09-16,Athletic Performance Runner,Clothing,1,87.09,87.09,East,Charlotte,CUST-1050
+ORD-CLO-10078,2025-09-17,Casual Canvas Low Sneakers,Clothing,1,51.33,51.33,Central,Denver,CUST-1184
+ORD-CLO-11040,2025-09-17,Organic Cotton Classic Tee,Clothing,1,28.94,28.94,North,New York,CUST-1128
+ORD-CLO-10326,2025-09-18,Athletic Performance Runner,Clothing,2,93.34,186.68,North,Chicago,CUST-1036
+ORD-CLO-10916,2025-09-18,Organic Cotton Classic Tee,Clothing,1,27.66,27.66,South,Miami,CUST-1145
+ORD-CLO-11065,2025-09-18,Organic Cotton Classic Tee,Clothing,1,28.22,28.22,South,Atlanta,CUST-1106
+ORD-CLO-10647,2025-09-19,Raw Selvedge Denim Jeans,Clothing,3,76.08,228.24,Central,Austin,CUST-1127
+ORD-CLO-10408,2025-09-20,Merino Wool Knit Sweater,Clothing,2,67.3,134.6,North,Chicago,CUST-1070
+ORD-CLO-10441,2025-09-20,Organic Cotton Classic Tee,Clothing,1,27.86,27.86,North,Chicago,CUST-1055
+ORD-CLO-10741,2025-09-21,Merino Wool Knit Sweater,Clothing,2,64.87,129.74,Central,Denver,CUST-1024
+ORD-CLO-10965,2025-09-23,Tailored Oxford Dress Shirt,Clothing,1,56.75,56.75,West,Seattle,CUST-1117
+ORD-CLO-10159,2025-09-24,Raw Selvedge Denim Jeans,Clothing,2,77.87,155.74,West,Los Angeles,CUST-1192
+ORD-CLO-10214,2025-09-24,Raw Selvedge Denim Jeans,Clothing,1,81.38,81.38,East,Washington D.C.,CUST-1156
+ORD-CLO-10629,2025-09-24,Raw Selvedge Denim Jeans,Clothing,2,78.25,156.5,East,Philadelphia,CUST-1156
+ORD-CLO-10802,2025-09-24,Organic Cotton Classic Tee,Clothing,3,26.84,80.52,East,Washington D.C.,CUST-1059
+ORD-CLO-10882,2025-09-24,Tailored Oxford Dress Shirt,Clothing,2,52.06,104.12,North,New York,CUST-1100
+ORD-CLO-11052,2025-09-25,Tailored Oxford Dress Shirt,Clothing,4,56.48,225.92,Central,Denver,CUST-1119
+ORD-CLO-10046,2025-09-26,Raw Selvedge Denim Jeans,Clothing,1,79.34,79.34,Central,Austin,CUST-1067
+ORD-CLO-10710,2025-09-26,Raw Selvedge Denim Jeans,Clothing,1,83.19,83.19,East,Washington D.C.,CUST-1158
+ORD-CLO-11014,2025-09-26,Raw Selvedge Denim Jeans,Clothing,1,76.45,76.45,South,Dallas,CUST-1164
+ORD-CLO-10049,2025-09-28,Merino Wool Knit Sweater,Clothing,1,71.37,71.37,South,Dallas,CUST-1068
+ORD-CLO-10690,2025-09-28,Organic Cotton Classic Tee,Clothing,2,29.28,58.56,West,Seattle,CUST-1030
+ORD-CLO-10142,2025-09-29,Casual Canvas Low Sneakers,Clothing,1,49.98,49.98,North,New York,CUST-1069
+ORD-CLO-10880,2025-09-29,Winter Hooded Parka Coat,Clothing,2,152.14,304.28,North,Boston,CUST-1150
+ORD-CLO-10875,2025-09-30,Organic Cotton Classic Tee,Clothing,3,27.83,83.49,South,Atlanta,CUST-1176
+ORD-CLO-10230,2025-10-01,Tailored Oxford Dress Shirt,Clothing,1,56.49,56.49,South,Miami,CUST-1018
+ORD-CLO-10298,2025-10-02,Tailored Oxford Dress Shirt,Clothing,1,55.12,55.12,South,Dallas,CUST-1149
+ORD-CLO-10889,2025-10-02,Tailored Oxford Dress Shirt,Clothing,3,56.56,169.68,North,Chicago,CUST-1072
+ORD-CLO-10085,2025-10-03,Organic Cotton Classic Tee,Clothing,1,27.37,27.37,West,Los Angeles,CUST-1070
+ORD-CLO-10373,2025-10-03,Winter Hooded Parka Coat,Clothing,1,143.94,143.94,West,San Francisco,CUST-1172
+ORD-CLO-10472,2025-10-03,Casual Canvas Low Sneakers,Clothing,1,51.67,51.67,South,Miami,CUST-1117
+ORD-CLO-10694,2025-10-03,Raw Selvedge Denim Jeans,Clothing,1,77.68,77.68,South,Dallas,CUST-1109
+ORD-CLO-11053,2025-10-03,Winter Hooded Parka Coat,Clothing,1,140.77,140.77,North,New York,CUST-1176
+ORD-CLO-10172,2025-10-04,Winter Hooded Parka Coat,Clothing,2,138.32,276.64,North,Chicago,CUST-1094
+ORD-CLO-10941,2025-10-04,Athletic Performance Runner,Clothing,1,93.52,93.52,West,Seattle,CUST-1106
+ORD-CLO-10008,2025-10-05,Merino Wool Knit Sweater,Clothing,1,70.62,70.62,South,Dallas,CUST-1018
+ORD-CLO-10923,2025-10-05,Merino Wool Knit Sweater,Clothing,1,70.18,70.18,South,Atlanta,CUST-1015
+ORD-CLO-10931,2025-10-06,Merino Wool Knit Sweater,Clothing,1,71.31,71.31,Central,Kansas City,CUST-1074
+ORD-CLO-10997,2025-10-06,Athletic Performance Runner,Clothing,1,90.69,90.69,West,San Francisco,CUST-1160
+ORD-CLO-10144,2025-10-07,Merino Wool Knit Sweater,Clothing,2,70.04,140.08,West,San Francisco,CUST-1004
+ORD-CLO-10627,2025-10-07,Raw Selvedge Denim Jeans,Clothing,2,78.4,156.8,Central,Austin,CUST-1160
+ORD-CLO-10909,2025-10-07,Raw Selvedge Denim Jeans,Clothing,1,77.51,77.51,West,Seattle,CUST-1119
+ORD-CLO-10717,2025-10-08,Raw Selvedge Denim Jeans,Clothing,1,82.49,82.49,Central,Denver,CUST-1010
+ORD-CLO-10460,2025-10-09,Athletic Performance Runner,Clothing,1,86.98,86.98,South,Atlanta,CUST-1016
+ORD-CLO-10865,2025-10-09,Athletic Performance Runner,Clothing,1,85.98,85.98,West,San Francisco,CUST-1145
+ORD-CLO-11032,2025-10-09,Athletic Performance Runner,Clothing,1,92.11,92.11,South,Atlanta,CUST-1185
+ORD-CLO-11062,2025-10-09,Tailored Oxford Dress Shirt,Clothing,1,57.09,57.09,South,Atlanta,CUST-1178
+ORD-CLO-10615,2025-10-10,Athletic Performance Runner,Clothing,4,89.12,356.48,East,Philadelphia,CUST-1010
+ORD-CLO-10660,2025-10-10,Casual Canvas Low Sneakers,Clothing,1,50.85,50.85,East,Washington D.C.,CUST-1169
+ORD-CLO-10726,2025-10-10,Casual Canvas Low Sneakers,Clothing,2,48.86,97.72,Central,Kansas City,CUST-1146
+ORD-CLO-10827,2025-10-10,Athletic Performance Runner,Clothing,1,88.41,88.41,West,San Francisco,CUST-1031
+ORD-CLO-10853,2025-10-10,Athletic Performance Runner,Clothing,1,92.93,92.93,South,Dallas,CUST-1140
+ORD-CLO-10609,2025-10-11,Merino Wool Knit Sweater,Clothing,1,68.55,68.55,East,Philadelphia,CUST-1129
+ORD-CLO-10976,2025-10-13,Casual Canvas Low Sneakers,Clothing,1,47.49,47.49,South,Miami,CUST-1137
+ORD-CLO-10279,2025-10-14,Athletic Performance Runner,Clothing,2,88.76,177.52,South,Atlanta,CUST-1037
+ORD-CLO-10516,2025-10-14,Casual Canvas Low Sneakers,Clothing,1,49.46,49.46,North,Boston,CUST-1170
+ORD-CLO-10179,2025-10-15,Tailored Oxford Dress Shirt,Clothing,1,52.37,52.37,North,Chicago,CUST-1144
+ORD-CLO-10001,2025-10-16,Raw Selvedge Denim Jeans,Clothing,1,76.19,76.19,South,Atlanta,CUST-1189
+ORD-CLO-10845,2025-10-16,Raw Selvedge Denim Jeans,Clothing,2,78.88,157.76,East,Washington D.C.,CUST-1182
+ORD-CLO-10807,2025-10-17,Winter Hooded Parka Coat,Clothing,3,145.49,436.47,East,Charlotte,CUST-1059
+ORD-CLO-11049,2025-10-17,Tailored Oxford Dress Shirt,Clothing,1,54.63,54.63,South,Dallas,CUST-1178
+ORD-CLO-10065,2025-10-18,Merino Wool Knit Sweater,Clothing,4,67.32,269.28,Central,Austin,CUST-1008
+ORD-CLO-10713,2025-10-18,Athletic Performance Runner,Clothing,1,87.98,87.98,West,Seattle,CUST-1119
+ORD-CLO-10862,2025-10-19,Tailored Oxford Dress Shirt,Clothing,2,51.98,103.96,East,Philadelphia,CUST-1200
+ORD-CLO-10196,2025-10-20,Raw Selvedge Denim Jeans,Clothing,1,76.48,76.48,East,Washington D.C.,CUST-1176
+ORD-CLO-11022,2025-10-20,Raw Selvedge Denim Jeans,Clothing,2,83.29,166.58,North,New York,CUST-1019
+ORD-CLO-10048,2025-10-22,Tailored Oxford Dress Shirt,Clothing,3,54.27,162.81,North,New York,CUST-1118
+ORD-CLO-10281,2025-10-22,Tailored Oxford Dress Shirt,Clothing,3,53.75,161.25,North,Chicago,CUST-1040
+ORD-CLO-10485,2025-10-22,Raw Selvedge Denim Jeans,Clothing,1,77.98,77.98,Central,Austin,CUST-1200
+ORD-CLO-10708,2025-10-22,Merino Wool Knit Sweater,Clothing,2,65.1,130.2,West,Los Angeles,CUST-1051
+ORD-CLO-10831,2025-10-22,Organic Cotton Classic Tee,Clothing,2,28.56,57.12,South,Miami,CUST-1060
+ORD-CLO-10035,2025-10-23,Raw Selvedge Denim Jeans,Clothing,2,76.48,152.96,North,New York,CUST-1050
+ORD-CLO-10362,2025-10-23,Athletic Performance Runner,Clothing,3,88.86,266.58,East,Washington D.C.,CUST-1097
+ORD-CLO-10706,2025-10-23,Casual Canvas Low Sneakers,Clothing,1,50.05,50.05,South,Dallas,CUST-1065
+ORD-CLO-10813,2025-10-23,Athletic Performance Runner,Clothing,1,92.95,92.95,North,Boston,CUST-1161
+ORD-CLO-10911,2025-10-23,Athletic Performance Runner,Clothing,1,86.3,86.3,South,Dallas,CUST-1179
+ORD-CLO-10272,2025-10-24,Organic Cotton Classic Tee,Clothing,3,27.4,82.2,North,Chicago,CUST-1085
+ORD-CLO-10676,2025-10-24,Merino Wool Knit Sweater,Clothing,1,67.24,67.24,West,San Francisco,CUST-1171
+ORD-CLO-10146,2025-10-25,Casual Canvas Low Sneakers,Clothing,3,48.26,144.78,West,San Francisco,CUST-1181
+ORD-CLO-10181,2025-10-26,Athletic Performance Runner,Clothing,1,86.54,86.54,North,Boston,CUST-1127
+ORD-CLO-10548,2025-10-26,Tailored Oxford Dress Shirt,Clothing,4,52.72,210.88,Central,Austin,CUST-1058
+ORD-CLO-10689,2025-10-26,Raw Selvedge Denim Jeans,Clothing,1,76.91,76.91,South,Dallas,CUST-1158
+ORD-CLO-10004,2025-10-27,Winter Hooded Parka Coat,Clothing,1,145.65,145.65,Central,Austin,CUST-1002
+ORD-CLO-10792,2025-10-27,Winter Hooded Parka Coat,Clothing,4,145.56,582.24,West,Seattle,CUST-1084
+ORD-CLO-10137,2025-10-29,Athletic Performance Runner,Clothing,1,93.73,93.73,Central,Austin,CUST-1163
+ORD-CLO-10154,2025-10-29,Organic Cotton Classic Tee,Clothing,1,27.99,27.99,Central,Kansas City,CUST-1085
+ORD-CLO-10235,2025-10-29,Organic Cotton Classic Tee,Clothing,1,27.5,27.5,South,Atlanta,CUST-1116
+ORD-CLO-10871,2025-10-29,Merino Wool Knit Sweater,Clothing,1,65.93,65.93,Central,Denver,CUST-1063
+ORD-CLO-10452,2025-10-30,Athletic Performance Runner,Clothing,1,89.17,89.17,East,Washington D.C.,CUST-1043
+ORD-CLO-10924,2025-10-30,Tailored Oxford Dress Shirt,Clothing,3,51.98,155.94,Central,Kansas City,CUST-1077
+ORD-CLO-11024,2025-10-30,Winter Hooded Parka Coat,Clothing,1,137.76,137.76,East,Washington D.C.,CUST-1039
+ORD-CLO-10625,2025-10-31,Casual Canvas Low Sneakers,Clothing,2,47.59,95.18,East,Washington D.C.,CUST-1098
+ORD-CLO-10388,2025-11-01,Winter Hooded Parka Coat,Clothing,2,142.64,285.28,East,Charlotte,CUST-1165
+ORD-CLO-10228,2025-11-02,Raw Selvedge Denim Jeans,Clothing,2,77.41,154.82,East,Washington D.C.,CUST-1194
+ORD-CLO-10334,2025-11-02,Tailored Oxford Dress Shirt,Clothing,1,55.85,55.85,Central,Austin,CUST-1144
+ORD-CLO-10505,2025-11-02,Athletic Performance Runner,Clothing,1,87.51,87.51,West,Seattle,CUST-1020
+ORD-CLO-10874,2025-11-02,Raw Selvedge Denim Jeans,Clothing,1,82.15,82.15,West,San Francisco,CUST-1114
+ORD-CLO-11091,2025-11-02,Winter Hooded Parka Coat,Clothing,1,149.16,149.16,Central,Kansas City,CUST-1114
+ORD-CLO-10207,2025-11-03,Athletic Performance Runner,Clothing,1,87.51,87.51,Central,Austin,CUST-1030
+ORD-CLO-10538,2025-11-03,Organic Cotton Classic Tee,Clothing,2,27.35,54.7,North,New York,CUST-1148
+ORD-CLO-11016,2025-11-03,Casual Canvas Low Sneakers,Clothing,1,51.99,51.99,South,Atlanta,CUST-1179
+ORD-CLO-10141,2025-11-04,Casual Canvas Low Sneakers,Clothing,1,50.2,50.2,South,Dallas,CUST-1093
+ORD-CLO-10512,2025-11-04,Athletic Performance Runner,Clothing,2,93.13,186.26,North,New York,CUST-1136
+ORD-CLO-10656,2025-11-05,Organic Cotton Classic Tee,Clothing,1,26.61,26.61,West,San Francisco,CUST-1134
+ORD-CLO-10711,2025-11-06,Tailored Oxford Dress Shirt,Clothing,1,55.55,55.55,Central,Austin,CUST-1081
+ORD-CLO-10752,2025-11-06,Raw Selvedge Denim Jeans,Clothing,1,81.97,81.97,South,Atlanta,CUST-1055
+ORD-CLO-10917,2025-11-06,Casual Canvas Low Sneakers,Clothing,3,48.24,144.72,South,Dallas,CUST-1014
+ORD-CLO-10702,2025-11-07,Raw Selvedge Denim Jeans,Clothing,1,79.78,79.78,South,Dallas,CUST-1101
+ORD-CLO-10883,2025-11-07,Tailored Oxford Dress Shirt,Clothing,3,55.39,166.17,West,Los Angeles,CUST-1005
+ORD-CLO-10094,2025-11-09,Raw Selvedge Denim Jeans,Clothing,1,76.66,76.66,East,Philadelphia,CUST-1013
+ORD-CLO-10242,2025-11-09,Athletic Performance Runner,Clothing,2,86.65,173.3,North,Boston,CUST-1144
+ORD-CLO-10721,2025-11-09,Organic Cotton Classic Tee,Clothing,2,28.97,57.94,Central,Kansas City,CUST-1043
+ORD-CLO-10637,2025-11-10,Winter Hooded Parka Coat,Clothing,1,140.22,140.22,East,Charlotte,CUST-1069
+ORD-CLO-10881,2025-11-10,Merino Wool Knit Sweater,Clothing,1,64.9,64.9,West,Los Angeles,CUST-1179
+ORD-CLO-10993,2025-11-10,Winter Hooded Parka Coat,Clothing,1,138.88,138.88,Central,Austin,CUST-1157
+ORD-CLO-10549,2025-11-12,Merino Wool Knit Sweater,Clothing,1,70.14,70.14,West,Los Angeles,CUST-1046
+ORD-CLO-10165,2025-11-13,Raw Selvedge Denim Jeans,Clothing,1,83.18,83.18,West,San Francisco,CUST-1140
+ORD-CLO-10671,2025-11-14,Winter Hooded Parka Coat,Clothing,2,143.8,287.6,Central,Austin,CUST-1109
+ORD-CLO-11036,2025-11-14,Merino Wool Knit Sweater,Clothing,2,67.72,135.44,Central,Denver,CUST-1190
+ORD-CLO-10109,2025-11-15,Athletic Performance Runner,Clothing,1,88.52,88.52,West,Los Angeles,CUST-1125
+ORD-CLO-10183,2025-11-17,Winter Hooded Parka Coat,Clothing,1,147.85,147.85,Central,Kansas City,CUST-1187
+ORD-CLO-10205,2025-11-17,Raw Selvedge Denim Jeans,Clothing,3,79.28,237.84,East,Charlotte,CUST-1014
+ORD-CLO-10244,2025-11-17,Athletic Performance Runner,Clothing,1,90.07,90.07,West,Los Angeles,CUST-1055
+ORD-CLO-10962,2025-11-17,Casual Canvas Low Sneakers,Clothing,4,50.16,200.64,East,Charlotte,CUST-1034
+ORD-CLO-10873,2025-11-18,Athletic Performance Runner,Clothing,1,89.3,89.3,West,Seattle,CUST-1153
+ORD-CLO-10136,2025-11-19,Casual Canvas Low Sneakers,Clothing,1,48.84,48.84,South,Miami,CUST-1133
+ORD-CLO-10311,2025-11-19,Athletic Performance Runner,Clothing,1,88.06,88.06,North,Boston,CUST-1035
+ORD-CLO-10371,2025-11-19,Casual Canvas Low Sneakers,Clothing,1,49.09,49.09,South,Dallas,CUST-1134
+ORD-CLO-10940,2025-11-19,Athletic Performance Runner,Clothing,2,93.74,187.48,South,Miami,CUST-1040
+ORD-CLO-10699,2025-11-20,Raw Selvedge Denim Jeans,Clothing,1,80.27,80.27,Central,Denver,CUST-1194
+ORD-CLO-10793,2025-11-20,Merino Wool Knit Sweater,Clothing,2,67.91,135.82,North,Boston,CUST-1158
+ORD-CLO-10177,2025-11-21,Athletic Performance Runner,Clothing,2,94.19,188.38,West,Los Angeles,CUST-1102
+ORD-CLO-10760,2025-11-21,Raw Selvedge Denim Jeans,Clothing,2,78.87,157.74,South,Atlanta,CUST-1071
+ORD-CLO-10209,2025-11-22,Winter Hooded Parka Coat,Clothing,1,145.82,145.82,West,Los Angeles,CUST-1047
+ORD-CLO-10465,2025-11-23,Athletic Performance Runner,Clothing,1,89.9,89.9,West,San Francisco,CUST-1107
+ORD-CLO-10775,2025-11-23,Winter Hooded Parka Coat,Clothing,1,144.89,144.89,Central,Denver,CUST-1124
+ORD-CLO-10644,2025-11-25,Merino Wool Knit Sweater,Clothing,1,69.82,69.82,Central,Denver,CUST-1172
+ORD-CLO-11042,2025-11-25,Athletic Performance Runner,Clothing,4,88.41,353.64,Central,Kansas City,CUST-1036
+ORD-CLO-10282,2025-11-26,Athletic Performance Runner,Clothing,1,94.03,94.03,North,Chicago,CUST-1036
+ORD-CLO-10020,2025-11-27,Winter Hooded Parka Coat,Clothing,3,139.41,418.23,West,San Francisco,CUST-1088
+ORD-CLO-10410,2025-11-27,Merino Wool Knit Sweater,Clothing,1,69.09,69.09,Central,Austin,CUST-1064
+ORD-CLO-10324,2025-11-28,Organic Cotton Classic Tee,Clothing,3,26.69,80.07,North,New York,CUST-1005
+ORD-CLO-10329,2025-11-28,Winter Hooded Parka Coat,Clothing,1,149.4,149.4,East,Philadelphia,CUST-1064
+ORD-CLO-10595,2025-11-29,Raw Selvedge Denim Jeans,Clothing,1,79.78,79.78,South,Dallas,CUST-1003
+ORD-CLO-11006,2025-11-30,Winter Hooded Parka Coat,Clothing,1,143.41,143.41,Central,Austin,CUST-1004
+ORD-CLO-10964,2025-12-01,Winter Hooded Parka Coat,Clothing,1,148.05,148.05,South,Atlanta,CUST-1037
+ORD-CLO-10186,2025-12-03,Tailored Oxford Dress Shirt,Clothing,4,54.74,218.96,West,Los Angeles,CUST-1102
+ORD-CLO-10696,2025-12-03,Organic Cotton Classic Tee,Clothing,2,26.67,53.34,North,New York,CUST-1019
+ORD-CLO-10701,2025-12-03,Tailored Oxford Dress Shirt,Clothing,1,55.08,55.08,East,Washington D.C.,CUST-1102
+ORD-CLO-10557,2025-12-04,Organic Cotton Classic Tee,Clothing,1,27.06,27.06,North,Boston,CUST-1006
+ORD-CLO-10571,2025-12-04,Casual Canvas Low Sneakers,Clothing,1,52.17,52.17,South,Miami,CUST-1077
+ORD-CLO-10013,2025-12-05,Merino Wool Knit Sweater,Clothing,1,66.09,66.09,North,New York,CUST-1009
+ORD-CLO-10433,2025-12-05,Merino Wool Knit Sweater,Clothing,1,66.1,66.1,East,Charlotte,CUST-1151
+ORD-CLO-10829,2025-12-05,Merino Wool Knit Sweater,Clothing,2,65.65,131.3,South,Atlanta,CUST-1128
+ORD-CLO-10028,2025-12-07,Organic Cotton Classic Tee,Clothing,1,28.6,28.6,West,Seattle,CUST-1133
+ORD-CLO-10434,2025-12-08,Merino Wool Knit Sweater,Clothing,4,65.63,262.52,East,Philadelphia,CUST-1076
+ORD-CLO-10486,2025-12-08,Raw Selvedge Denim Jeans,Clothing,2,82.77,165.54,West,Los Angeles,CUST-1133
+ORD-CLO-10991,2025-12-08,Raw Selvedge Denim Jeans,Clothing,2,77.13,154.26,West,Seattle,CUST-1133
+ORD-CLO-10402,2025-12-09,Merino Wool Knit Sweater,Clothing,1,67.83,67.83,North,Chicago,CUST-1072
+ORD-CLO-10914,2025-12-09,Winter Hooded Parka Coat,Clothing,2,150.9,301.8,North,New York,CUST-1030
+ORD-CLO-10087,2025-12-11,Organic Cotton Classic Tee,Clothing,1,28.58,28.58,East,Washington D.C.,CUST-1139
+ORD-CLO-10161,2025-12-11,Tailored Oxford Dress Shirt,Clothing,1,56.7,56.7,North,Boston,CUST-1092
+ORD-CLO-10878,2025-12-11,Casual Canvas Low Sneakers,Clothing,1,48.05,48.05,North,Boston,CUST-1054
+ORD-CLO-11048,2025-12-11,Casual Canvas Low Sneakers,Clothing,1,51.45,51.45,South,Atlanta,CUST-1037
+ORD-CLO-10269,2025-12-13,Athletic Performance Runner,Clothing,2,91.18,182.36,North,Chicago,CUST-1199
+ORD-CLO-10335,2025-12-13,Tailored Oxford Dress Shirt,Clothing,1,52.52,52.52,Central,Denver,CUST-1063
+ORD-CLO-10478,2025-12-13,Tailored Oxford Dress Shirt,Clothing,4,56.23,224.92,East,Charlotte,CUST-1034
+ORD-CLO-10041,2025-12-14,Winter Hooded Parka Coat,Clothing,1,152.18,152.18,East,Philadelphia,CUST-1049
+ORD-CLO-10079,2025-12-14,Athletic Performance Runner,Clothing,1,89.94,89.94,North,New York,CUST-1200
+ORD-CLO-10120,2025-12-15,Organic Cotton Classic Tee,Clothing,2,28.39,56.78,North,New York,CUST-1147
+ORD-CLO-10469,2025-12-15,Tailored Oxford Dress Shirt,Clothing,2,56.41,112.82,East,Philadelphia,CUST-1110
+ORD-CLO-10870,2025-12-15,Organic Cotton Classic Tee,Clothing,1,28.73,28.73,South,Miami,CUST-1102
+ORD-CLO-10476,2025-12-17,Casual Canvas Low Sneakers,Clothing,2,48.66,97.32,North,New York,CUST-1055
+ORD-CLO-10961,2025-12-17,Athletic Performance Runner,Clothing,1,91.04,91.04,South,Dallas,CUST-1195
+ORD-CLO-11025,2025-12-17,Tailored Oxford Dress Shirt,Clothing,1,56.71,56.71,Central,Kansas City,CUST-1198
+ORD-CLO-10541,2025-12-18,Tailored Oxford Dress Shirt,Clothing,1,56.94,56.94,Central,Denver,CUST-1127
+ORD-CLO-10770,2025-12-18,Casual Canvas Low Sneakers,Clothing,1,48.81,48.81,East,Charlotte,CUST-1192
+ORD-CLO-10464,2025-12-19,Casual Canvas Low Sneakers,Clothing,1,48.15,48.15,West,Los Angeles,CUST-1195
+ORD-CLO-10115,2025-12-20,Athletic Performance Runner,Clothing,1,87.93,87.93,North,Chicago,CUST-1050
+ORD-CLO-10351,2025-12-21,Casual Canvas Low Sneakers,Clothing,1,49.05,49.05,West,Seattle,CUST-1158
+ORD-CLO-10762,2025-12-21,Raw Selvedge Denim Jeans,Clothing,1,83.34,83.34,Central,Kansas City,CUST-1090
+ORD-CLO-10679,2025-12-22,Winter Hooded Parka Coat,Clothing,2,147.14,294.28,Central,Kansas City,CUST-1155
+ORD-CLO-10907,2025-12-22,Casual Canvas Low Sneakers,Clothing,1,47.68,47.68,East,Philadelphia,CUST-1063
+ORD-CLO-11080,2025-12-22,Raw Selvedge Denim Jeans,Clothing,2,80.48,160.96,South,Miami,CUST-1062
+ORD-CLO-10446,2025-12-23,Casual Canvas Low Sneakers,Clothing,1,48.98,48.98,North,Chicago,CUST-1035
+ORD-CLO-10754,2025-12-24,Raw Selvedge Denim Jeans,Clothing,4,77.28,309.12,North,New York,CUST-1038
+ORD-CLO-10834,2025-12-24,Athletic Performance Runner,Clothing,1,90.52,90.52,East,Philadelphia,CUST-1146
+ORD-CLO-10915,2025-12-24,Athletic Performance Runner,Clothing,1,91.2,91.2,East,Charlotte,CUST-1131
+ORD-CLO-10498,2025-12-25,Organic Cotton Classic Tee,Clothing,1,28.56,28.56,West,San Francisco,CUST-1133
+ORD-CLO-10119,2025-12-26,Merino Wool Knit Sweater,Clothing,1,65.46,65.46,North,Chicago,CUST-1075
+ORD-CLO-10288,2025-12-27,Raw Selvedge Denim Jeans,Clothing,1,80.39,80.39,West,Los Angeles,CUST-1183
+ORD-CLO-10289,2025-12-27,Winter Hooded Parka Coat,Clothing,2,147.0,294.0,Central,Denver,CUST-1032
+ORD-CLO-10946,2025-12-27,Raw Selvedge Denim Jeans,Clothing,1,78.16,78.16,South,Miami,CUST-1116
+ORD-CLO-11084,2025-12-27,Merino Wool Knit Sweater,Clothing,1,69.21,69.21,West,Seattle,CUST-1159
+ORD-CLO-10669,2025-12-28,Winter Hooded Parka Coat,Clothing,1,151.89,151.89,Central,Kansas City,CUST-1164
+ORD-CLO-10254,2025-12-29,Casual Canvas Low Sneakers,Clothing,1,50.07,50.07,North,New York,CUST-1070
+ORD-CLO-10901,2025-12-30,Winter Hooded Parka Coat,Clothing,3,143.17,429.51,East,Washington D.C.,CUST-1036
+ORD-CLO-10411,2025-12-31,Raw Selvedge Denim Jeans,Clothing,1,76.65,76.65,South,Dallas,CUST-1100
+ORD-CLO-10604,2025-12-31,Organic Cotton Classic Tee,Clothing,1,28.52,28.52,East,Charlotte,CUST-1092

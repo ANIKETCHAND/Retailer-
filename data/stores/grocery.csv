@@ -1,0 +1,1501 @@
+Order ID,Order Date,Product,Category,Quantity,Unit Price,Total Amount,Region,City,Customer ID
+ORD-GRO-10438,2024-01-01,Himalayan Pink Salt Grinder,Grocery,2,6.99,13.98,South,Dallas,CUST-1078
+ORD-GRO-10706,2024-01-01,Extra Virgin Olive Oil 500ml,Grocery,1,14.37,14.37,East,Washington D.C.,CUST-1172
+ORD-GRO-10777,2024-01-01,Himalayan Pink Salt Grinder,Grocery,3,7.37,22.11,Central,Austin,CUST-1199
+ORD-GRO-10246,2024-01-02,Free-Range Brown Eggs (12ct),Grocery,1,4.68,4.68,North,Chicago,CUST-1093
+ORD-GRO-10514,2024-01-02,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.43,10.86,South,Miami,CUST-1127
+ORD-GRO-11405,2024-01-02,Single-Origin Coffee Beans (12oz),Grocery,1,14.82,14.82,East,Washington D.C.,CUST-1082
+ORD-GRO-10949,2024-01-04,Himalayan Pink Salt Grinder,Grocery,2,7.53,15.06,East,Philadelphia,CUST-1146
+ORD-GRO-11389,2024-01-04,Aged Cheddar Cheese Wedge,Grocery,1,9.28,9.28,South,Atlanta,CUST-1155
+ORD-GRO-11246,2024-01-05,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.58,5.58,East,Washington D.C.,CUST-1138
+ORD-GRO-11260,2024-01-06,Himalayan Pink Salt Grinder,Grocery,1,6.98,6.98,Central,Denver,CUST-1189
+ORD-GRO-10390,2024-01-07,Himalayan Pink Salt Grinder,Grocery,1,7.08,7.08,West,Seattle,CUST-1086
+ORD-GRO-11190,2024-01-07,Organic Fresh Strawberries,Grocery,1,5.16,5.16,West,San Francisco,CUST-1044
+ORD-GRO-11385,2024-01-08,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.27,5.27,North,Boston,CUST-1155
+ORD-GRO-10289,2024-01-09,Artisan Sourdough Loaf,Grocery,3,6.21,18.63,West,Seattle,CUST-1094
+ORD-GRO-11475,2024-01-09,Himalayan Pink Salt Grinder,Grocery,1,7.19,7.19,North,Boston,CUST-1064
+ORD-GRO-10155,2024-01-10,Aged Cheddar Cheese Wedge,Grocery,2,9.31,18.62,South,Atlanta,CUST-1114
+ORD-GRO-10752,2024-01-10,Himalayan Pink Salt Grinder,Grocery,1,7.41,7.41,North,Chicago,CUST-1096
+ORD-GRO-11407,2024-01-10,Aged Cheddar Cheese Wedge,Grocery,2,8.79,17.58,West,Los Angeles,CUST-1128
+ORD-GRO-11465,2024-01-10,Artisan Sourdough Loaf,Grocery,1,6.21,6.21,Central,Kansas City,CUST-1040
+ORD-GRO-10935,2024-01-11,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.67,5.67,North,Chicago,CUST-1027
+ORD-GRO-11319,2024-01-12,Extra Virgin Olive Oil 500ml,Grocery,3,14.73,44.19,East,Philadelphia,CUST-1029
+ORD-GRO-11272,2024-01-13,Artisan Sourdough Loaf,Grocery,2,6.31,12.62,Central,Denver,CUST-1164
+ORD-GRO-11345,2024-01-13,Himalayan Pink Salt Grinder,Grocery,1,6.99,6.99,West,San Francisco,CUST-1160
+ORD-GRO-10623,2024-01-14,Artisan Sourdough Loaf,Grocery,1,5.95,5.95,North,New York,CUST-1069
+ORD-GRO-10628,2024-01-14,Single-Origin Coffee Beans (12oz),Grocery,3,15.04,45.12,East,Philadelphia,CUST-1163
+ORD-GRO-10166,2024-01-15,Single-Origin Coffee Beans (12oz),Grocery,1,15.56,15.56,West,San Francisco,CUST-1098
+ORD-GRO-10986,2024-01-15,Himalayan Pink Salt Grinder,Grocery,1,7.37,7.37,West,Seattle,CUST-1149
+ORD-GRO-10248,2024-01-17,Free-Range Brown Eggs (12ct),Grocery,1,4.94,4.94,North,Chicago,CUST-1189
+ORD-GRO-10794,2024-01-17,Extra Virgin Olive Oil 500ml,Grocery,1,15.73,15.73,West,Los Angeles,CUST-1055
+ORD-GRO-11392,2024-01-18,Free-Range Brown Eggs (12ct),Grocery,4,4.98,19.92,West,San Francisco,CUST-1114
+ORD-GRO-10573,2024-01-19,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.56,5.56,West,Seattle,CUST-1034
+ORD-GRO-10577,2024-01-20,Organic Fresh Strawberries,Grocery,4,4.85,19.4,South,Dallas,CUST-1006
+ORD-GRO-10871,2024-01-20,Organic Fresh Strawberries,Grocery,1,5.03,5.03,West,Los Angeles,CUST-1039
+ORD-GRO-11250,2024-01-21,Single-Origin Coffee Beans (12oz),Grocery,2,15.78,31.56,South,Atlanta,CUST-1158
+ORD-GRO-11148,2024-01-22,Organic Fresh Strawberries,Grocery,2,4.82,9.64,West,San Francisco,CUST-1193
+ORD-GRO-10334,2024-01-23,Himalayan Pink Salt Grinder,Grocery,1,7.02,7.02,South,Dallas,CUST-1019
+ORD-GRO-10821,2024-01-23,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.35,5.35,West,Seattle,CUST-1101
+ORD-GRO-11005,2024-01-24,Single-Origin Coffee Beans (12oz),Grocery,2,15.37,30.74,South,Miami,CUST-1089
+ORD-GRO-10937,2024-01-25,Artisan Sourdough Loaf,Grocery,1,5.97,5.97,South,Dallas,CUST-1164
+ORD-GRO-11228,2024-01-25,Free-Range Brown Eggs (12ct),Grocery,1,4.74,4.74,North,Chicago,CUST-1044
+ORD-GRO-10127,2024-01-27,Artisan Sourdough Loaf,Grocery,2,6.08,12.16,Central,Kansas City,CUST-1006
+ORD-GRO-10264,2024-01-27,Extra Virgin Olive Oil 500ml,Grocery,1,14.99,14.99,Central,Denver,CUST-1068
+ORD-GRO-10496,2024-01-27,Free-Range Brown Eggs (12ct),Grocery,1,4.85,4.85,West,Los Angeles,CUST-1121
+ORD-GRO-10087,2024-01-28,Himalayan Pink Salt Grinder,Grocery,2,7.27,14.54,North,Chicago,CUST-1110
+ORD-GRO-10922,2024-01-28,Single-Origin Coffee Beans (12oz),Grocery,1,15.48,15.48,North,Boston,CUST-1065
+ORD-GRO-11331,2024-01-28,Artisan Sourdough Loaf,Grocery,2,6.34,12.68,East,Washington D.C.,CUST-1088
+ORD-GRO-11216,2024-01-29,Extra Virgin Olive Oil 500ml,Grocery,1,14.45,14.45,North,Boston,CUST-1073
+ORD-GRO-11097,2024-01-30,Single-Origin Coffee Beans (12oz),Grocery,1,15.95,15.95,Central,Denver,CUST-1165
+ORD-GRO-11398,2024-01-30,Extra Virgin Olive Oil 500ml,Grocery,1,15.63,15.63,East,Washington D.C.,CUST-1057
+ORD-GRO-10462,2024-01-31,Free-Range Brown Eggs (12ct),Grocery,1,4.95,4.95,North,Boston,CUST-1183
+ORD-GRO-11194,2024-01-31,Aged Cheddar Cheese Wedge,Grocery,1,8.63,8.63,Central,Denver,CUST-1022
+ORD-GRO-10336,2024-02-02,Single-Origin Coffee Beans (12oz),Grocery,2,15.36,30.72,East,Washington D.C.,CUST-1098
+ORD-GRO-10374,2024-02-03,Extra Virgin Olive Oil 500ml,Grocery,1,15.63,15.63,South,Dallas,CUST-1037
+ORD-GRO-10854,2024-02-03,Single-Origin Coffee Beans (12oz),Grocery,1,15.24,15.24,North,Boston,CUST-1046
+ORD-GRO-11071,2024-02-03,Extra Virgin Olive Oil 500ml,Grocery,3,15.07,45.21,West,San Francisco,CUST-1043
+ORD-GRO-10705,2024-02-04,Organic Fresh Strawberries,Grocery,2,5.05,10.1,West,Los Angeles,CUST-1168
+ORD-GRO-10746,2024-02-05,Free-Range Brown Eggs (12ct),Grocery,1,4.97,4.97,East,Washington D.C.,CUST-1139
+ORD-GRO-11107,2024-02-05,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.59,11.18,South,Miami,CUST-1142
+ORD-GRO-11337,2024-02-05,Organic Fresh Strawberries,Grocery,1,4.96,4.96,Central,Kansas City,CUST-1170
+ORD-GRO-10920,2024-02-06,Single-Origin Coffee Beans (12oz),Grocery,1,15.85,15.85,North,Chicago,CUST-1122
+ORD-GRO-11196,2024-02-07,Extra Virgin Olive Oil 500ml,Grocery,1,15.59,15.59,Central,Austin,CUST-1108
+ORD-GRO-10316,2024-02-08,Extra Virgin Olive Oil 500ml,Grocery,2,14.87,29.74,North,Boston,CUST-1127
+ORD-GRO-10241,2024-02-09,Single-Origin Coffee Beans (12oz),Grocery,1,16.15,16.15,South,Dallas,CUST-1121
+ORD-GRO-10294,2024-02-09,Extra Virgin Olive Oil 500ml,Grocery,2,15.31,30.62,Central,Austin,CUST-1039
+ORD-GRO-10966,2024-02-11,Extra Virgin Olive Oil 500ml,Grocery,2,14.39,28.78,Central,Austin,CUST-1200
+ORD-GRO-10097,2024-02-12,Free-Range Brown Eggs (12ct),Grocery,2,4.82,9.64,North,Chicago,CUST-1166
+ORD-GRO-10219,2024-02-12,Aged Cheddar Cheese Wedge,Grocery,1,9.32,9.32,South,Miami,CUST-1155
+ORD-GRO-10278,2024-02-12,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.26,15.78,Central,Austin,CUST-1167
+ORD-GRO-10423,2024-02-12,Aged Cheddar Cheese Wedge,Grocery,4,8.99,35.96,North,Chicago,CUST-1168
+ORD-GRO-10802,2024-02-12,Free-Range Brown Eggs (12ct),Grocery,1,4.82,4.82,Central,Kansas City,CUST-1057
+ORD-GRO-10837,2024-02-12,Himalayan Pink Salt Grinder,Grocery,1,7.36,7.36,Central,Kansas City,CUST-1138
+ORD-GRO-11238,2024-02-12,Organic Farm Fresh Milk (1 Gal),Grocery,4,5.66,22.64,Central,Austin,CUST-1168
+ORD-GRO-10207,2024-02-13,Himalayan Pink Salt Grinder,Grocery,3,6.85,20.55,West,San Francisco,CUST-1110
+ORD-GRO-10309,2024-02-13,Single-Origin Coffee Beans (12oz),Grocery,1,16.21,16.21,East,Charlotte,CUST-1066
+ORD-GRO-10957,2024-02-13,Himalayan Pink Salt Grinder,Grocery,2,6.93,13.86,Central,Austin,CUST-1174
+ORD-GRO-11098,2024-02-13,Aged Cheddar Cheese Wedge,Grocery,1,9.2,9.2,North,Boston,CUST-1155
+ORD-GRO-11281,2024-02-13,Aged Cheddar Cheese Wedge,Grocery,1,8.7,8.7,South,Dallas,CUST-1059
+ORD-GRO-11458,2024-02-13,Aged Cheddar Cheese Wedge,Grocery,2,9.37,18.74,Central,Denver,CUST-1045
+ORD-GRO-10681,2024-02-14,Extra Virgin Olive Oil 500ml,Grocery,1,15.1,15.1,Central,Denver,CUST-1147
+ORD-GRO-11259,2024-02-14,Organic Fresh Strawberries,Grocery,3,4.76,14.28,Central,Austin,CUST-1081
+ORD-GRO-11342,2024-02-15,Himalayan Pink Salt Grinder,Grocery,2,7.21,14.42,West,San Francisco,CUST-1161
+ORD-GRO-10290,2024-02-16,Himalayan Pink Salt Grinder,Grocery,1,6.88,6.88,West,San Francisco,CUST-1074
+ORD-GRO-10335,2024-02-16,Himalayan Pink Salt Grinder,Grocery,1,7.09,7.09,North,New York,CUST-1121
+ORD-GRO-11076,2024-02-16,Extra Virgin Olive Oil 500ml,Grocery,1,15.5,15.5,Central,Denver,CUST-1196
+ORD-GRO-11227,2024-02-16,Aged Cheddar Cheese Wedge,Grocery,1,9.27,9.27,East,Philadelphia,CUST-1107
+ORD-GRO-10373,2024-02-17,Artisan Sourdough Loaf,Grocery,1,6.37,6.37,Central,Kansas City,CUST-1169
+ORD-GRO-10881,2024-02-17,Artisan Sourdough Loaf,Grocery,2,6.26,12.52,West,Los Angeles,CUST-1148
+ORD-GRO-11292,2024-02-17,Organic Fresh Strawberries,Grocery,1,5.17,5.17,South,Miami,CUST-1064
+ORD-GRO-10580,2024-02-19,Artisan Sourdough Loaf,Grocery,1,6.2,6.2,Central,Austin,CUST-1122
+ORD-GRO-11339,2024-02-19,Himalayan Pink Salt Grinder,Grocery,3,7.39,22.17,West,Los Angeles,CUST-1052
+ORD-GRO-10484,2024-02-20,Single-Origin Coffee Beans (12oz),Grocery,4,15.13,60.52,North,Boston,CUST-1116
+ORD-GRO-10589,2024-02-21,Artisan Sourdough Loaf,Grocery,3,6.45,19.35,West,Seattle,CUST-1174
+ORD-GRO-10051,2024-02-22,Artisan Sourdough Loaf,Grocery,2,6.33,12.66,North,New York,CUST-1086
+ORD-GRO-10299,2024-02-22,Aged Cheddar Cheese Wedge,Grocery,1,8.66,8.66,Central,Austin,CUST-1038
+ORD-GRO-10976,2024-02-23,Extra Virgin Olive Oil 500ml,Grocery,1,14.48,14.48,Central,Denver,CUST-1019
+ORD-GRO-10918,2024-02-24,Free-Range Brown Eggs (12ct),Grocery,1,4.82,4.82,East,Charlotte,CUST-1121
+ORD-GRO-11066,2024-02-24,Artisan Sourdough Loaf,Grocery,1,6.25,6.25,South,Miami,CUST-1155
+ORD-GRO-11293,2024-02-24,Single-Origin Coffee Beans (12oz),Grocery,3,16.08,48.24,Central,Austin,CUST-1054
+ORD-GRO-11449,2024-02-24,Free-Range Brown Eggs (12ct),Grocery,1,4.9,4.9,Central,Austin,CUST-1181
+ORD-GRO-10607,2024-02-25,Organic Fresh Strawberries,Grocery,1,5.16,5.16,Central,Kansas City,CUST-1122
+ORD-GRO-10646,2024-02-25,Extra Virgin Olive Oil 500ml,Grocery,1,15.43,15.43,Central,Denver,CUST-1067
+ORD-GRO-10887,2024-02-25,Artisan Sourdough Loaf,Grocery,1,6.2,6.2,Central,Kansas City,CUST-1162
+ORD-GRO-10928,2024-02-25,Single-Origin Coffee Beans (12oz),Grocery,1,15.9,15.9,South,Miami,CUST-1103
+ORD-GRO-10980,2024-02-25,Himalayan Pink Salt Grinder,Grocery,3,6.94,20.82,East,Philadelphia,CUST-1100
+ORD-GRO-11264,2024-02-25,Free-Range Brown Eggs (12ct),Grocery,1,4.81,4.81,North,Chicago,CUST-1159
+ORD-GRO-10204,2024-02-26,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.33,15.99,South,Miami,CUST-1075
+ORD-GRO-11267,2024-02-26,Single-Origin Coffee Beans (12oz),Grocery,1,15.67,15.67,North,Chicago,CUST-1015
+ORD-GRO-10800,2024-02-27,Free-Range Brown Eggs (12ct),Grocery,2,4.73,9.46,East,Philadelphia,CUST-1198
+ORD-GRO-11078,2024-02-27,Organic Fresh Strawberries,Grocery,1,4.86,4.86,Central,Denver,CUST-1177
+ORD-GRO-10569,2024-02-29,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.46,5.46,South,Dallas,CUST-1196
+ORD-GRO-11231,2024-02-29,Single-Origin Coffee Beans (12oz),Grocery,1,15.33,15.33,East,Washington D.C.,CUST-1067
+ORD-GRO-10362,2024-03-01,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.68,5.68,North,New York,CUST-1106
+ORD-GRO-11352,2024-03-02,Extra Virgin Olive Oil 500ml,Grocery,1,14.8,14.8,South,Miami,CUST-1053
+ORD-GRO-10486,2024-03-04,Organic Fresh Strawberries,Grocery,2,4.81,9.62,West,San Francisco,CUST-1162
+ORD-GRO-10029,2024-03-06,Free-Range Brown Eggs (12ct),Grocery,1,4.57,4.57,Central,Denver,CUST-1002
+ORD-GRO-10181,2024-03-06,Aged Cheddar Cheese Wedge,Grocery,1,8.9,8.9,Central,Denver,CUST-1116
+ORD-GRO-10858,2024-03-07,Single-Origin Coffee Beans (12oz),Grocery,1,15.45,15.45,West,Seattle,CUST-1135
+ORD-GRO-10893,2024-03-07,Aged Cheddar Cheese Wedge,Grocery,1,8.6,8.6,South,Miami,CUST-1197
+ORD-GRO-11255,2024-03-07,Extra Virgin Olive Oil 500ml,Grocery,1,15.36,15.36,Central,Denver,CUST-1134
+ORD-GRO-10014,2024-03-08,Organic Fresh Strawberries,Grocery,1,5.2,5.2,West,Los Angeles,CUST-1168
+ORD-GRO-11079,2024-03-08,Single-Origin Coffee Beans (12oz),Grocery,1,14.9,14.9,Central,Austin,CUST-1010
+ORD-GRO-10042,2024-03-10,Organic Fresh Strawberries,Grocery,3,4.94,14.82,Central,Denver,CUST-1149
+ORD-GRO-10247,2024-03-10,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.43,5.43,East,Washington D.C.,CUST-1065
+ORD-GRO-10454,2024-03-10,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.36,5.36,North,Boston,CUST-1130
+ORD-GRO-11218,2024-03-10,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.44,5.44,Central,Austin,CUST-1087
+ORD-GRO-11349,2024-03-10,Free-Range Brown Eggs (12ct),Grocery,3,4.57,13.71,East,Washington D.C.,CUST-1131
+ORD-GRO-10047,2024-03-11,Organic Fresh Strawberries,Grocery,1,4.92,4.92,Central,Kansas City,CUST-1078
+ORD-GRO-10091,2024-03-11,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.63,16.89,South,Atlanta,CUST-1160
+ORD-GRO-10756,2024-03-11,Extra Virgin Olive Oil 500ml,Grocery,1,14.45,14.45,East,Charlotte,CUST-1116
+ORD-GRO-10776,2024-03-11,Extra Virgin Olive Oil 500ml,Grocery,2,14.91,29.82,Central,Austin,CUST-1117
+ORD-GRO-10943,2024-03-12,Aged Cheddar Cheese Wedge,Grocery,1,9.38,9.38,East,Philadelphia,CUST-1166
+ORD-GRO-11358,2024-03-12,Organic Fresh Strawberries,Grocery,4,4.77,19.08,South,Atlanta,CUST-1024
+ORD-GRO-11379,2024-03-12,Himalayan Pink Salt Grinder,Grocery,2,7.22,14.44,East,Philadelphia,CUST-1046
+ORD-GRO-10030,2024-03-13,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.34,16.02,West,Los Angeles,CUST-1132
+ORD-GRO-11147,2024-03-13,Himalayan Pink Salt Grinder,Grocery,1,6.91,6.91,South,Miami,CUST-1023
+ORD-GRO-11439,2024-03-13,Single-Origin Coffee Beans (12oz),Grocery,2,16.27,32.54,South,Dallas,CUST-1096
+ORD-GRO-10910,2024-03-14,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.29,15.87,East,Philadelphia,CUST-1022
+ORD-GRO-11414,2024-03-14,Single-Origin Coffee Beans (12oz),Grocery,3,15.16,45.48,Central,Austin,CUST-1025
+ORD-GRO-10073,2024-03-15,Aged Cheddar Cheese Wedge,Grocery,1,8.87,8.87,South,Dallas,CUST-1179
+ORD-GRO-10281,2024-03-15,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.3,5.3,East,Philadelphia,CUST-1088
+ORD-GRO-10291,2024-03-16,Himalayan Pink Salt Grinder,Grocery,2,7.2,14.4,West,San Francisco,CUST-1175
+ORD-GRO-10518,2024-03-17,Artisan Sourdough Loaf,Grocery,4,6.15,24.6,East,Charlotte,CUST-1008
+ORD-GRO-11459,2024-03-17,Free-Range Brown Eggs (12ct),Grocery,1,4.96,4.96,North,Boston,CUST-1127
+ORD-GRO-10218,2024-03-19,Artisan Sourdough Loaf,Grocery,1,6.32,6.32,East,Charlotte,CUST-1142
+ORD-GRO-10263,2024-03-19,Extra Virgin Olive Oil 500ml,Grocery,1,15.03,15.03,West,Los Angeles,CUST-1030
+ORD-GRO-11453,2024-03-19,Organic Fresh Strawberries,Grocery,1,5.21,5.21,North,New York,CUST-1191
+ORD-GRO-10080,2024-03-20,Single-Origin Coffee Beans (12oz),Grocery,1,15.09,15.09,Central,Denver,CUST-1036
+ORD-GRO-11162,2024-03-21,Single-Origin Coffee Beans (12oz),Grocery,1,16.08,16.08,Central,Denver,CUST-1002
+ORD-GRO-10784,2024-03-22,Aged Cheddar Cheese Wedge,Grocery,1,9.22,9.22,Central,Kansas City,CUST-1107
+ORD-GRO-10201,2024-03-24,Single-Origin Coffee Beans (12oz),Grocery,1,15.41,15.41,Central,Austin,CUST-1107
+ORD-GRO-10225,2024-03-24,Extra Virgin Olive Oil 500ml,Grocery,1,15.61,15.61,East,Philadelphia,CUST-1153
+ORD-GRO-10524,2024-03-24,Aged Cheddar Cheese Wedge,Grocery,1,9.26,9.26,East,Washington D.C.,CUST-1126
+ORD-GRO-11247,2024-03-24,Artisan Sourdough Loaf,Grocery,3,6.27,18.81,East,Charlotte,CUST-1032
+ORD-GRO-11294,2024-03-24,Aged Cheddar Cheese Wedge,Grocery,1,9.21,9.21,South,Dallas,CUST-1100
+ORD-GRO-10371,2024-03-25,Aged Cheddar Cheese Wedge,Grocery,1,9.26,9.26,West,San Francisco,CUST-1025
+ORD-GRO-10381,2024-03-25,Single-Origin Coffee Beans (12oz),Grocery,2,14.96,29.92,South,Dallas,CUST-1100
+ORD-GRO-10420,2024-03-25,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.65,5.65,North,Boston,CUST-1058
+ORD-GRO-10642,2024-03-25,Artisan Sourdough Loaf,Grocery,4,6.04,24.16,Central,Kansas City,CUST-1002
+ORD-GRO-11116,2024-03-25,Artisan Sourdough Loaf,Grocery,1,6.04,6.04,South,Dallas,CUST-1176
+ORD-GRO-11438,2024-03-26,Single-Origin Coffee Beans (12oz),Grocery,3,15.77,47.31,South,Dallas,CUST-1053
+ORD-GRO-10386,2024-03-27,Organic Fresh Strawberries,Grocery,1,5.03,5.03,East,Philadelphia,CUST-1036
+ORD-GRO-10414,2024-03-27,Extra Virgin Olive Oil 500ml,Grocery,1,14.71,14.71,North,New York,CUST-1096
+ORD-GRO-11200,2024-03-27,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.51,5.51,South,Dallas,CUST-1139
+ORD-GRO-10806,2024-03-28,Himalayan Pink Salt Grinder,Grocery,2,7.2,14.4,South,Atlanta,CUST-1124
+ORD-GRO-11191,2024-03-28,Single-Origin Coffee Beans (12oz),Grocery,2,15.3,30.6,West,San Francisco,CUST-1171
+ORD-GRO-11383,2024-03-28,Himalayan Pink Salt Grinder,Grocery,1,6.93,6.93,North,Chicago,CUST-1061
+ORD-GRO-11003,2024-03-30,Artisan Sourdough Loaf,Grocery,1,6.18,6.18,North,New York,CUST-1043
+ORD-GRO-11021,2024-03-30,Himalayan Pink Salt Grinder,Grocery,1,6.98,6.98,Central,Kansas City,CUST-1015
+ORD-GRO-11452,2024-03-30,Single-Origin Coffee Beans (12oz),Grocery,1,15.36,15.36,North,Chicago,CUST-1021
+ORD-GRO-10702,2024-03-31,Artisan Sourdough Loaf,Grocery,1,6.1,6.1,Central,Denver,CUST-1186
+ORD-GRO-10542,2024-04-01,Organic Fresh Strawberries,Grocery,3,4.96,14.88,East,Charlotte,CUST-1125
+ORD-GRO-11221,2024-04-01,Himalayan Pink Salt Grinder,Grocery,3,7.12,21.36,West,San Francisco,CUST-1012
+ORD-GRO-10150,2024-04-02,Himalayan Pink Salt Grinder,Grocery,2,7.54,15.08,North,Boston,CUST-1043
+ORD-GRO-10549,2024-04-02,Single-Origin Coffee Beans (12oz),Grocery,1,14.77,14.77,Central,Denver,CUST-1057
+ORD-GRO-10951,2024-04-02,Free-Range Brown Eggs (12ct),Grocery,4,4.82,19.28,North,Boston,CUST-1195
+ORD-GRO-11100,2024-04-02,Himalayan Pink Salt Grinder,Grocery,2,7.52,15.04,South,Atlanta,CUST-1029
+ORD-GRO-11102,2024-04-02,Organic Fresh Strawberries,Grocery,2,5.04,10.08,West,Seattle,CUST-1150
+ORD-GRO-11152,2024-04-02,Himalayan Pink Salt Grinder,Grocery,1,7.42,7.42,East,Charlotte,CUST-1110
+ORD-GRO-10441,2024-04-03,Artisan Sourdough Loaf,Grocery,1,5.94,5.94,South,Dallas,CUST-1058
+ORD-GRO-10606,2024-04-03,Single-Origin Coffee Beans (12oz),Grocery,1,16.1,16.1,East,Washington D.C.,CUST-1094
+ORD-GRO-11340,2024-04-03,Organic Farm Fresh Milk (1 Gal),Grocery,4,5.45,21.8,West,Los Angeles,CUST-1175
+ORD-GRO-10636,2024-04-04,Free-Range Brown Eggs (12ct),Grocery,1,4.67,4.67,West,Seattle,CUST-1093
+ORD-GRO-11019,2024-04-04,Free-Range Brown Eggs (12ct),Grocery,1,4.59,4.59,Central,Kansas City,CUST-1057
+ORD-GRO-11374,2024-04-04,Himalayan Pink Salt Grinder,Grocery,1,7.13,7.13,North,Chicago,CUST-1049
+ORD-GRO-10106,2024-04-05,Single-Origin Coffee Beans (12oz),Grocery,2,15.07,30.14,West,San Francisco,CUST-1149
+ORD-GRO-10432,2024-04-05,Himalayan Pink Salt Grinder,Grocery,1,7.21,7.21,West,Seattle,CUST-1125
+ORD-GRO-10592,2024-04-05,Free-Range Brown Eggs (12ct),Grocery,1,4.95,4.95,East,Washington D.C.,CUST-1117
+ORD-GRO-10890,2024-04-05,Aged Cheddar Cheese Wedge,Grocery,1,8.59,8.59,East,Washington D.C.,CUST-1060
+ORD-GRO-11153,2024-04-05,Organic Farm Fresh Milk (1 Gal),Grocery,4,5.5,22.0,South,Dallas,CUST-1176
+ORD-GRO-11316,2024-04-05,Extra Virgin Olive Oil 500ml,Grocery,1,14.4,14.4,North,Chicago,CUST-1155
+ORD-GRO-10764,2024-04-06,Organic Fresh Strawberries,Grocery,2,4.98,9.96,West,Seattle,CUST-1041
+ORD-GRO-11158,2024-04-06,Aged Cheddar Cheese Wedge,Grocery,1,9.09,9.09,West,Seattle,CUST-1066
+ORD-GRO-10189,2024-04-07,Free-Range Brown Eggs (12ct),Grocery,2,4.76,9.52,West,Los Angeles,CUST-1176
+ORD-GRO-10972,2024-04-07,Free-Range Brown Eggs (12ct),Grocery,4,4.97,19.88,Central,Denver,CUST-1119
+ORD-GRO-11086,2024-04-07,Free-Range Brown Eggs (12ct),Grocery,1,4.69,4.69,Central,Austin,CUST-1110
+ORD-GRO-11129,2024-04-07,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.24,15.72,East,Washington D.C.,CUST-1156
+ORD-GRO-10367,2024-04-08,Extra Virgin Olive Oil 500ml,Grocery,1,14.6,14.6,West,Seattle,CUST-1069
+ORD-GRO-10733,2024-04-08,Aged Cheddar Cheese Wedge,Grocery,1,9.17,9.17,West,San Francisco,CUST-1143
+ORD-GRO-10033,2024-04-09,Himalayan Pink Salt Grinder,Grocery,1,7.1,7.1,North,Chicago,CUST-1168
+ORD-GRO-10562,2024-04-09,Aged Cheddar Cheese Wedge,Grocery,1,8.62,8.62,Central,Denver,CUST-1175
+ORD-GRO-11082,2024-04-10,Aged Cheddar Cheese Wedge,Grocery,2,8.59,17.18,West,Seattle,CUST-1129
+ORD-GRO-11208,2024-04-10,Extra Virgin Olive Oil 500ml,Grocery,2,15.31,30.62,North,New York,CUST-1016
+ORD-GRO-11446,2024-04-11,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.31,15.93,East,Philadelphia,CUST-1089
+ORD-GRO-10111,2024-04-12,Organic Fresh Strawberries,Grocery,1,4.89,4.89,West,Los Angeles,CUST-1182
+ORD-GRO-10447,2024-04-12,Extra Virgin Olive Oil 500ml,Grocery,1,15.37,15.37,East,Washington D.C.,CUST-1110
+ORD-GRO-10536,2024-04-12,Artisan Sourdough Loaf,Grocery,1,6.29,6.29,West,San Francisco,CUST-1089
+ORD-GRO-10588,2024-04-13,Single-Origin Coffee Beans (12oz),Grocery,1,15.72,15.72,West,Seattle,CUST-1119
+ORD-GRO-10725,2024-04-13,Free-Range Brown Eggs (12ct),Grocery,3,4.73,14.19,South,Dallas,CUST-1068
+ORD-GRO-10002,2024-04-14,Artisan Sourdough Loaf,Grocery,1,6.31,6.31,North,New York,CUST-1060
+ORD-GRO-11347,2024-04-14,Extra Virgin Olive Oil 500ml,Grocery,1,14.62,14.62,West,San Francisco,CUST-1179
+ORD-GRO-10574,2024-04-15,Himalayan Pink Salt Grinder,Grocery,1,7.2,7.2,North,New York,CUST-1077
+ORD-GRO-11171,2024-04-15,Himalayan Pink Salt Grinder,Grocery,2,7.55,15.1,Central,Kansas City,CUST-1188
+ORD-GRO-10644,2024-04-16,Organic Fresh Strawberries,Grocery,2,5.01,10.02,East,Charlotte,CUST-1019
+ORD-GRO-10210,2024-04-18,Organic Fresh Strawberries,Grocery,1,4.96,4.96,North,Boston,CUST-1080
+ORD-GRO-10400,2024-04-18,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.27,5.27,Central,Kansas City,CUST-1149
+ORD-GRO-10945,2024-04-18,Aged Cheddar Cheese Wedge,Grocery,1,9.14,9.14,North,New York,CUST-1147
+ORD-GRO-11488,2024-04-18,Extra Virgin Olive Oil 500ml,Grocery,1,15.18,15.18,North,Chicago,CUST-1168
+ORD-GRO-10695,2024-04-19,Extra Virgin Olive Oil 500ml,Grocery,1,14.88,14.88,West,San Francisco,CUST-1109
+ORD-GRO-10719,2024-04-19,Artisan Sourdough Loaf,Grocery,2,6.51,13.02,East,Charlotte,CUST-1002
+ORD-GRO-10184,2024-04-20,Aged Cheddar Cheese Wedge,Grocery,1,9.14,9.14,North,Boston,CUST-1156
+ORD-GRO-11047,2024-04-20,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.65,5.65,North,Boston,CUST-1031
+ORD-GRO-10687,2024-04-21,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.33,15.99,Central,Kansas City,CUST-1108
+ORD-GRO-11468,2024-04-21,Aged Cheddar Cheese Wedge,Grocery,1,9.09,9.09,South,Miami,CUST-1192
+ORD-GRO-10814,2024-04-23,Single-Origin Coffee Beans (12oz),Grocery,1,15.42,15.42,South,Dallas,CUST-1138
+ORD-GRO-11186,2024-04-23,Artisan Sourdough Loaf,Grocery,1,6.43,6.43,North,Chicago,CUST-1011
+ORD-GRO-10053,2024-04-24,Artisan Sourdough Loaf,Grocery,2,6.53,13.06,South,Dallas,CUST-1010
+ORD-GRO-10330,2024-04-24,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.67,17.01,South,Dallas,CUST-1138
+ORD-GRO-11166,2024-04-24,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.6,5.6,North,New York,CUST-1124
+ORD-GRO-11403,2024-04-24,Artisan Sourdough Loaf,Grocery,1,6.15,6.15,South,Dallas,CUST-1030
+ORD-GRO-10422,2024-04-25,Artisan Sourdough Loaf,Grocery,1,6.1,6.1,West,San Francisco,CUST-1194
+ORD-GRO-10594,2024-04-25,Extra Virgin Olive Oil 500ml,Grocery,1,15.28,15.28,South,Atlanta,CUST-1107
+ORD-GRO-10597,2024-04-25,Himalayan Pink Salt Grinder,Grocery,1,7.16,7.16,West,Los Angeles,CUST-1181
+ORD-GRO-11055,2024-04-25,Free-Range Brown Eggs (12ct),Grocery,1,4.62,4.62,South,Miami,CUST-1196
+ORD-GRO-10020,2024-04-27,Single-Origin Coffee Beans (12oz),Grocery,1,15.92,15.92,West,Seattle,CUST-1041
+ORD-GRO-10094,2024-04-27,Extra Virgin Olive Oil 500ml,Grocery,1,15.69,15.69,North,Boston,CUST-1148
+ORD-GRO-10049,2024-04-28,Artisan Sourdough Loaf,Grocery,1,6.4,6.4,West,San Francisco,CUST-1054
+ORD-GRO-10170,2024-04-28,Artisan Sourdough Loaf,Grocery,1,6.08,6.08,East,Washington D.C.,CUST-1095
+ORD-GRO-10403,2024-04-28,Extra Virgin Olive Oil 500ml,Grocery,1,14.76,14.76,South,Dallas,CUST-1124
+ORD-GRO-10465,2024-04-28,Organic Fresh Strawberries,Grocery,1,5.11,5.11,North,New York,CUST-1012
+ORD-GRO-11012,2024-04-29,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.76,5.76,East,Washington D.C.,CUST-1095
+ORD-GRO-10694,2024-04-30,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.42,5.42,West,Seattle,CUST-1093
+ORD-GRO-10864,2024-04-30,Organic Fresh Strawberries,Grocery,4,5.14,20.56,East,Philadelphia,CUST-1086
+ORD-GRO-11420,2024-04-30,Free-Range Brown Eggs (12ct),Grocery,4,4.84,19.36,East,Philadelphia,CUST-1009
+ORD-GRO-11429,2024-04-30,Extra Virgin Olive Oil 500ml,Grocery,2,15.53,31.06,North,Chicago,CUST-1115
+ORD-GRO-11461,2024-04-30,Single-Origin Coffee Beans (12oz),Grocery,1,15.19,15.19,South,Atlanta,CUST-1189
+ORD-GRO-10325,2024-05-01,Aged Cheddar Cheese Wedge,Grocery,1,8.78,8.78,Central,Kansas City,CUST-1198
+ORD-GRO-10679,2024-05-01,Organic Fresh Strawberries,Grocery,1,4.95,4.95,North,Boston,CUST-1173
+ORD-GRO-11070,2024-05-01,Himalayan Pink Salt Grinder,Grocery,3,7.16,21.48,East,Washington D.C.,CUST-1010
+ORD-GRO-11421,2024-05-01,Organic Fresh Strawberries,Grocery,1,4.94,4.94,Central,Denver,CUST-1168
+ORD-GRO-10482,2024-05-02,Artisan Sourdough Loaf,Grocery,2,6.04,12.08,Central,Denver,CUST-1056
+ORD-GRO-10481,2024-05-03,Free-Range Brown Eggs (12ct),Grocery,1,5.02,5.02,West,Seattle,CUST-1068
+ORD-GRO-11225,2024-05-03,Extra Virgin Olive Oil 500ml,Grocery,1,15.68,15.68,South,Atlanta,CUST-1181
+ORD-GRO-10938,2024-05-04,Artisan Sourdough Loaf,Grocery,1,5.99,5.99,East,Charlotte,CUST-1196
+ORD-GRO-11062,2024-05-05,Organic Fresh Strawberries,Grocery,2,5.16,10.32,West,San Francisco,CUST-1197
+ORD-GRO-11065,2024-05-05,Single-Origin Coffee Beans (12oz),Grocery,1,15.48,15.48,South,Atlanta,CUST-1026
+ORD-GRO-11390,2024-05-05,Single-Origin Coffee Beans (12oz),Grocery,2,16.2,32.4,South,Miami,CUST-1116
+ORD-GRO-10547,2024-05-06,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.35,5.35,East,Philadelphia,CUST-1122
+ORD-GRO-11444,2024-05-06,Extra Virgin Olive Oil 500ml,Grocery,3,15.03,45.09,Central,Austin,CUST-1025
+ORD-GRO-10237,2024-05-07,Single-Origin Coffee Beans (12oz),Grocery,1,14.86,14.86,East,Charlotte,CUST-1038
+ORD-GRO-11249,2024-05-07,Aged Cheddar Cheese Wedge,Grocery,1,8.83,8.83,North,New York,CUST-1191
+ORD-GRO-11369,2024-05-07,Himalayan Pink Salt Grinder,Grocery,1,7.51,7.51,East,Washington D.C.,CUST-1198
+ORD-GRO-10026,2024-05-08,Extra Virgin Olive Oil 500ml,Grocery,3,15.23,45.69,South,Miami,CUST-1136
+ORD-GRO-10113,2024-05-09,Aged Cheddar Cheese Wedge,Grocery,1,8.59,8.59,West,Seattle,CUST-1123
+ORD-GRO-10145,2024-05-09,Free-Range Brown Eggs (12ct),Grocery,3,4.98,14.94,East,Philadelphia,CUST-1135
+ORD-GRO-10905,2024-05-10,Single-Origin Coffee Beans (12oz),Grocery,3,14.82,44.46,North,New York,CUST-1181
+ORD-GRO-10270,2024-05-12,Artisan Sourdough Loaf,Grocery,1,5.98,5.98,East,Charlotte,CUST-1106
+ORD-GRO-11320,2024-05-12,Himalayan Pink Salt Grinder,Grocery,1,7.18,7.18,South,Atlanta,CUST-1053
+ORD-GRO-10052,2024-05-13,Single-Origin Coffee Beans (12oz),Grocery,1,14.98,14.98,East,Charlotte,CUST-1003
+ORD-GRO-10436,2024-05-13,Aged Cheddar Cheese Wedge,Grocery,3,9.21,27.63,North,New York,CUST-1026
+ORD-GRO-10045,2024-05-14,Single-Origin Coffee Beans (12oz),Grocery,3,15.43,46.29,North,New York,CUST-1118
+ORD-GRO-10162,2024-05-14,Artisan Sourdough Loaf,Grocery,1,6.51,6.51,East,Philadelphia,CUST-1052
+ORD-GRO-10179,2024-05-14,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.41,10.82,Central,Austin,CUST-1005
+ORD-GRO-11415,2024-05-14,Free-Range Brown Eggs (12ct),Grocery,1,4.92,4.92,North,Chicago,CUST-1078
+ORD-GRO-10163,2024-05-15,Free-Range Brown Eggs (12ct),Grocery,3,4.81,14.43,South,Miami,CUST-1124
+ORD-GRO-10443,2024-05-15,Aged Cheddar Cheese Wedge,Grocery,1,8.57,8.57,North,New York,CUST-1081
+ORD-GRO-10923,2024-05-15,Single-Origin Coffee Beans (12oz),Grocery,1,15.15,15.15,North,Chicago,CUST-1045
+ORD-GRO-11479,2024-05-15,Himalayan Pink Salt Grinder,Grocery,4,6.87,27.48,South,Miami,CUST-1005
+ORD-GRO-10576,2024-05-17,Free-Range Brown Eggs (12ct),Grocery,1,5.04,5.04,South,Atlanta,CUST-1104
+ORD-GRO-11354,2024-05-17,Single-Origin Coffee Beans (12oz),Grocery,2,15.22,30.44,North,Chicago,CUST-1107
+ORD-GRO-10088,2024-05-18,Aged Cheddar Cheese Wedge,Grocery,1,8.67,8.67,West,Los Angeles,CUST-1117
+ORD-GRO-10266,2024-05-18,Artisan Sourdough Loaf,Grocery,3,6.22,18.66,East,Philadelphia,CUST-1175
+ORD-GRO-10429,2024-05-18,Himalayan Pink Salt Grinder,Grocery,4,7.5,30.0,South,Dallas,CUST-1034
+ORD-GRO-10751,2024-05-19,Free-Range Brown Eggs (12ct),Grocery,1,4.7,4.7,East,Washington D.C.,CUST-1077
+ORD-GRO-10869,2024-05-19,Aged Cheddar Cheese Wedge,Grocery,1,8.64,8.64,Central,Austin,CUST-1119
+ORD-GRO-11455,2024-05-19,Aged Cheddar Cheese Wedge,Grocery,2,8.95,17.9,Central,Kansas City,CUST-1032
+ORD-GRO-10229,2024-05-20,Extra Virgin Olive Oil 500ml,Grocery,2,14.36,28.72,North,Chicago,CUST-1198
+ORD-GRO-10311,2024-05-20,Artisan Sourdough Loaf,Grocery,1,6.32,6.32,South,Atlanta,CUST-1172
+ORD-GRO-10363,2024-05-20,Organic Fresh Strawberries,Grocery,1,4.77,4.77,South,Dallas,CUST-1117
+ORD-GRO-10493,2024-05-20,Himalayan Pink Salt Grinder,Grocery,3,6.98,20.94,Central,Denver,CUST-1162
+ORD-GRO-10834,2024-05-20,Extra Virgin Olive Oil 500ml,Grocery,1,14.53,14.53,North,Boston,CUST-1106
+ORD-GRO-10911,2024-05-20,Himalayan Pink Salt Grinder,Grocery,3,7.46,22.38,Central,Austin,CUST-1160
+ORD-GRO-11288,2024-05-20,Himalayan Pink Salt Grinder,Grocery,3,7.31,21.93,West,Los Angeles,CUST-1079
+ORD-GRO-10618,2024-05-21,Himalayan Pink Salt Grinder,Grocery,3,7.27,21.81,Central,Austin,CUST-1180
+ORD-GRO-10396,2024-05-22,Single-Origin Coffee Beans (12oz),Grocery,2,15.1,30.2,East,Washington D.C.,CUST-1019
+ORD-GRO-11311,2024-05-22,Extra Virgin Olive Oil 500ml,Grocery,2,14.7,29.4,East,Charlotte,CUST-1091
+ORD-GRO-10284,2024-05-24,Artisan Sourdough Loaf,Grocery,3,5.97,17.91,Central,Austin,CUST-1064
+ORD-GRO-10816,2024-05-24,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.42,16.26,Central,Denver,CUST-1066
+ORD-GRO-10959,2024-05-24,Aged Cheddar Cheese Wedge,Grocery,1,9.09,9.09,Central,Denver,CUST-1063
+ORD-GRO-10475,2024-05-25,Single-Origin Coffee Beans (12oz),Grocery,3,14.87,44.61,Central,Austin,CUST-1180
+ORD-GRO-10916,2024-05-25,Single-Origin Coffee Beans (12oz),Grocery,1,15.45,15.45,Central,Denver,CUST-1063
+ORD-GRO-10445,2024-05-26,Artisan Sourdough Loaf,Grocery,1,6.27,6.27,South,Miami,CUST-1090
+ORD-GRO-11323,2024-05-26,Aged Cheddar Cheese Wedge,Grocery,1,8.56,8.56,South,Dallas,CUST-1085
+ORD-GRO-10139,2024-05-28,Himalayan Pink Salt Grinder,Grocery,1,6.98,6.98,South,Atlanta,CUST-1071
+ORD-GRO-10178,2024-05-28,Extra Virgin Olive Oil 500ml,Grocery,2,15.05,30.1,North,Chicago,CUST-1007
+ORD-GRO-10737,2024-05-28,Extra Virgin Olive Oil 500ml,Grocery,3,15.2,45.6,East,Charlotte,CUST-1157
+ORD-GRO-10828,2024-05-28,Extra Virgin Olive Oil 500ml,Grocery,1,14.72,14.72,North,New York,CUST-1082
+ORD-GRO-10926,2024-05-28,Extra Virgin Olive Oil 500ml,Grocery,2,15.5,31.0,East,Washington D.C.,CUST-1061
+ORD-GRO-10213,2024-05-29,Single-Origin Coffee Beans (12oz),Grocery,1,15.03,15.03,North,New York,CUST-1198
+ORD-GRO-10761,2024-05-29,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.36,5.36,Central,Austin,CUST-1047
+ORD-GRO-10829,2024-05-29,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.64,16.92,East,Washington D.C.,CUST-1078
+ORD-GRO-10682,2024-05-30,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.31,15.93,Central,Austin,CUST-1154
+ORD-GRO-10902,2024-05-30,Extra Virgin Olive Oil 500ml,Grocery,1,14.92,14.92,Central,Kansas City,CUST-1115
+ORD-GRO-11017,2024-05-30,Aged Cheddar Cheese Wedge,Grocery,1,8.81,8.81,East,Philadelphia,CUST-1036
+ORD-GRO-10185,2024-05-31,Artisan Sourdough Loaf,Grocery,1,6.02,6.02,Central,Kansas City,CUST-1183
+ORD-GRO-10505,2024-05-31,Extra Virgin Olive Oil 500ml,Grocery,2,15.4,30.8,West,Los Angeles,CUST-1096
+ORD-GRO-10533,2024-05-31,Single-Origin Coffee Beans (12oz),Grocery,2,15.22,30.44,North,New York,CUST-1100
+ORD-GRO-11139,2024-05-31,Artisan Sourdough Loaf,Grocery,1,6.16,6.16,West,Los Angeles,CUST-1044
+ORD-GRO-10331,2024-06-02,Extra Virgin Olive Oil 500ml,Grocery,1,14.73,14.73,North,Chicago,CUST-1053
+ORD-GRO-10688,2024-06-02,Artisan Sourdough Loaf,Grocery,3,6.05,18.15,Central,Denver,CUST-1137
+ORD-GRO-10730,2024-06-02,Aged Cheddar Cheese Wedge,Grocery,1,9.22,9.22,East,Philadelphia,CUST-1162
+ORD-GRO-10848,2024-06-02,Extra Virgin Olive Oil 500ml,Grocery,1,15.54,15.54,North,Boston,CUST-1079
+ORD-GRO-10081,2024-06-03,Organic Fresh Strawberries,Grocery,1,4.93,4.93,South,Atlanta,CUST-1107
+ORD-GRO-10402,2024-06-03,Free-Range Brown Eggs (12ct),Grocery,1,5.04,5.04,West,Seattle,CUST-1022
+ORD-GRO-10023,2024-06-05,Free-Range Brown Eggs (12ct),Grocery,1,4.93,4.93,Central,Denver,CUST-1154
+ORD-GRO-10092,2024-06-05,Organic Fresh Strawberries,Grocery,2,4.8,9.6,Central,Denver,CUST-1120
+ORD-GRO-10274,2024-06-05,Single-Origin Coffee Beans (12oz),Grocery,1,14.98,14.98,South,Miami,CUST-1133
+ORD-GRO-10456,2024-06-05,Single-Origin Coffee Beans (12oz),Grocery,1,14.85,14.85,South,Atlanta,CUST-1138
+ORD-GRO-10803,2024-06-05,Organic Farm Fresh Milk (1 Gal),Grocery,4,5.59,22.36,East,Charlotte,CUST-1148
+ORD-GRO-11215,2024-06-05,Artisan Sourdough Loaf,Grocery,4,6.17,24.68,West,Seattle,CUST-1125
+ORD-GRO-10277,2024-06-06,Extra Virgin Olive Oil 500ml,Grocery,2,15.23,30.46,Central,Austin,CUST-1145
+ORD-GRO-10522,2024-06-06,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.41,5.41,West,San Francisco,CUST-1161
+ORD-GRO-11491,2024-06-06,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.29,5.29,West,San Francisco,CUST-1089
+ORD-GRO-10056,2024-06-07,Organic Fresh Strawberries,Grocery,4,5.17,20.68,South,Miami,CUST-1007
+ORD-GRO-10341,2024-06-07,Single-Origin Coffee Beans (12oz),Grocery,3,15.02,45.06,North,New York,CUST-1170
+ORD-GRO-10769,2024-06-07,Free-Range Brown Eggs (12ct),Grocery,1,4.93,4.93,East,Philadelphia,CUST-1176
+ORD-GRO-11363,2024-06-08,Aged Cheddar Cheese Wedge,Grocery,1,8.52,8.52,North,Boston,CUST-1153
+ORD-GRO-10120,2024-06-09,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.44,10.88,East,Washington D.C.,CUST-1009
+ORD-GRO-10822,2024-06-09,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.41,5.41,West,Los Angeles,CUST-1129
+ORD-GRO-10984,2024-06-09,Extra Virgin Olive Oil 500ml,Grocery,1,15.11,15.11,South,Atlanta,CUST-1106
+ORD-GRO-10967,2024-06-10,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.7,5.7,North,New York,CUST-1023
+ORD-GRO-10136,2024-06-11,Single-Origin Coffee Beans (12oz),Grocery,1,15.58,15.58,North,New York,CUST-1030
+ORD-GRO-10439,2024-06-11,Single-Origin Coffee Beans (12oz),Grocery,1,14.87,14.87,North,Boston,CUST-1171
+ORD-GRO-10570,2024-06-11,Aged Cheddar Cheese Wedge,Grocery,2,9.21,18.42,South,Dallas,CUST-1112
+ORD-GRO-11182,2024-06-11,Extra Virgin Olive Oil 500ml,Grocery,3,15.48,46.44,North,New York,CUST-1087
+ORD-GRO-10285,2024-06-12,Free-Range Brown Eggs (12ct),Grocery,2,5.01,10.02,South,Atlanta,CUST-1128
+ORD-GRO-10407,2024-06-12,Free-Range Brown Eggs (12ct),Grocery,4,4.83,19.32,South,Miami,CUST-1162
+ORD-GRO-10131,2024-06-13,Free-Range Brown Eggs (12ct),Grocery,1,4.76,4.76,East,Charlotte,CUST-1010
+ORD-GRO-10624,2024-06-13,Single-Origin Coffee Beans (12oz),Grocery,1,15.78,15.78,North,Chicago,CUST-1076
+ORD-GRO-10632,2024-06-13,Single-Origin Coffee Beans (12oz),Grocery,1,14.73,14.73,South,Atlanta,CUST-1040
+ORD-GRO-11094,2024-06-13,Single-Origin Coffee Beans (12oz),Grocery,1,15.79,15.79,South,Atlanta,CUST-1039
+ORD-GRO-10855,2024-06-14,Single-Origin Coffee Beans (12oz),Grocery,2,15.67,31.34,Central,Kansas City,CUST-1144
+ORD-GRO-10124,2024-06-18,Single-Origin Coffee Beans (12oz),Grocery,2,15.65,31.3,West,Seattle,CUST-1032
+ORD-GRO-10464,2024-06-19,Free-Range Brown Eggs (12ct),Grocery,2,4.64,9.28,Central,Kansas City,CUST-1186
+ORD-GRO-10841,2024-06-19,Himalayan Pink Salt Grinder,Grocery,3,7.05,21.15,Central,Denver,CUST-1119
+ORD-GRO-11239,2024-06-20,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.25,15.75,West,San Francisco,CUST-1065
+ORD-GRO-11061,2024-06-21,Artisan Sourdough Loaf,Grocery,1,6.16,6.16,South,Dallas,CUST-1104
+ORD-GRO-11121,2024-06-21,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.44,5.44,West,Los Angeles,CUST-1023
+ORD-GRO-10153,2024-06-23,Extra Virgin Olive Oil 500ml,Grocery,3,14.36,43.08,Central,Kansas City,CUST-1062
+ORD-GRO-10817,2024-06-23,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.37,10.74,Central,Austin,CUST-1014
+ORD-GRO-11432,2024-06-24,Himalayan Pink Salt Grinder,Grocery,2,7.54,15.08,South,Miami,CUST-1012
+ORD-GRO-11499,2024-06-24,Organic Fresh Strawberries,Grocery,1,4.76,4.76,North,Chicago,CUST-1038
+ORD-GRO-10538,2024-06-25,Single-Origin Coffee Beans (12oz),Grocery,1,15.35,15.35,East,Philadelphia,CUST-1102
+ORD-GRO-11359,2024-06-26,Organic Fresh Strawberries,Grocery,1,4.86,4.86,East,Washington D.C.,CUST-1043
+ORD-GRO-10180,2024-06-27,Single-Origin Coffee Beans (12oz),Grocery,2,14.81,29.62,Central,Denver,CUST-1191
+ORD-GRO-10704,2024-06-28,Aged Cheddar Cheese Wedge,Grocery,1,8.9,8.9,Central,Austin,CUST-1050
+ORD-GRO-11326,2024-06-28,Himalayan Pink Salt Grinder,Grocery,3,7.02,21.06,East,Washington D.C.,CUST-1099
+ORD-GRO-10392,2024-06-30,Himalayan Pink Salt Grinder,Grocery,1,7.54,7.54,East,Charlotte,CUST-1063
+ORD-GRO-10615,2024-06-30,Extra Virgin Olive Oil 500ml,Grocery,1,15.34,15.34,East,Charlotte,CUST-1154
+ORD-GRO-10856,2024-06-30,Aged Cheddar Cheese Wedge,Grocery,1,9.17,9.17,North,New York,CUST-1197
+ORD-GRO-10022,2024-07-01,Artisan Sourdough Loaf,Grocery,1,6.48,6.48,Central,Kansas City,CUST-1051
+ORD-GRO-10621,2024-07-01,Free-Range Brown Eggs (12ct),Grocery,2,4.9,9.8,Central,Austin,CUST-1150
+ORD-GRO-10716,2024-07-01,Aged Cheddar Cheese Wedge,Grocery,1,8.78,8.78,Central,Austin,CUST-1047
+ORD-GRO-10781,2024-07-01,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.33,5.33,North,New York,CUST-1147
+ORD-GRO-10057,2024-07-02,Free-Range Brown Eggs (12ct),Grocery,1,4.94,4.94,South,Miami,CUST-1041
+ORD-GRO-10788,2024-07-02,Himalayan Pink Salt Grinder,Grocery,2,7.38,14.76,Central,Austin,CUST-1173
+ORD-GRO-11302,2024-07-02,Aged Cheddar Cheese Wedge,Grocery,1,8.71,8.71,West,Los Angeles,CUST-1076
+ORD-GRO-10568,2024-07-03,Artisan Sourdough Loaf,Grocery,1,6.24,6.24,South,Miami,CUST-1163
+ORD-GRO-10912,2024-07-03,Aged Cheddar Cheese Wedge,Grocery,1,8.96,8.96,East,Washington D.C.,CUST-1091
+ORD-GRO-10656,2024-07-04,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.68,17.04,Central,Austin,CUST-1166
+ORD-GRO-11054,2024-07-04,Free-Range Brown Eggs (12ct),Grocery,1,5.03,5.03,Central,Denver,CUST-1105
+ORD-GRO-10273,2024-07-05,Extra Virgin Olive Oil 500ml,Grocery,3,14.89,44.67,North,New York,CUST-1133
+ORD-GRO-10408,2024-07-07,Extra Virgin Olive Oil 500ml,Grocery,1,15.2,15.2,North,Chicago,CUST-1158
+ORD-GRO-11013,2024-07-07,Organic Fresh Strawberries,Grocery,1,5.02,5.02,West,Seattle,CUST-1038
+ORD-GRO-11427,2024-07-08,Himalayan Pink Salt Grinder,Grocery,1,7.43,7.43,Central,Kansas City,CUST-1136
+ORD-GRO-11485,2024-07-08,Single-Origin Coffee Beans (12oz),Grocery,1,16.19,16.19,West,Los Angeles,CUST-1025
+ORD-GRO-10317,2024-07-09,Single-Origin Coffee Beans (12oz),Grocery,1,16.08,16.08,Central,Kansas City,CUST-1028
+ORD-GRO-10758,2024-07-09,Artisan Sourdough Loaf,Grocery,1,6.11,6.11,East,Charlotte,CUST-1003
+ORD-GRO-10353,2024-07-11,Organic Fresh Strawberries,Grocery,3,4.98,14.94,West,Seattle,CUST-1004
+ORD-GRO-10753,2024-07-12,Himalayan Pink Salt Grinder,Grocery,1,7.48,7.48,South,Atlanta,CUST-1184
+ORD-GRO-11279,2024-07-12,Aged Cheddar Cheese Wedge,Grocery,4,9.12,36.48,Central,Kansas City,CUST-1085
+ORD-GRO-10035,2024-07-13,Aged Cheddar Cheese Wedge,Grocery,1,8.63,8.63,East,Philadelphia,CUST-1020
+ORD-GRO-10877,2024-07-13,Free-Range Brown Eggs (12ct),Grocery,2,5.0,10.0,Central,Austin,CUST-1199
+ORD-GRO-11343,2024-07-13,Organic Fresh Strawberries,Grocery,1,5.21,5.21,East,Philadelphia,CUST-1060
+ORD-GRO-10352,2024-07-14,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.36,10.72,Central,Denver,CUST-1019
+ORD-GRO-10612,2024-07-14,Free-Range Brown Eggs (12ct),Grocery,1,4.61,4.61,Central,Denver,CUST-1198
+ORD-GRO-11489,2024-07-14,Organic Fresh Strawberries,Grocery,3,5.09,15.27,North,Chicago,CUST-1159
+ORD-GRO-10762,2024-07-15,Single-Origin Coffee Beans (12oz),Grocery,2,15.99,31.98,North,Chicago,CUST-1064
+ORD-GRO-11052,2024-07-15,Single-Origin Coffee Beans (12oz),Grocery,2,14.99,29.98,North,Chicago,CUST-1026
+ORD-GRO-11095,2024-07-15,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.35,10.7,East,Washington D.C.,CUST-1144
+ORD-GRO-11176,2024-07-15,Aged Cheddar Cheese Wedge,Grocery,1,8.81,8.81,South,Dallas,CUST-1176
+ORD-GRO-10532,2024-07-16,Extra Virgin Olive Oil 500ml,Grocery,1,14.3,14.3,East,Philadelphia,CUST-1161
+ORD-GRO-10545,2024-07-16,Organic Fresh Strawberries,Grocery,1,5.16,5.16,East,Philadelphia,CUST-1093
+ORD-GRO-10630,2024-07-17,Single-Origin Coffee Beans (12oz),Grocery,4,15.42,61.68,North,New York,CUST-1045
+ORD-GRO-10472,2024-07-19,Organic Fresh Strawberries,Grocery,3,4.82,14.46,North,New York,CUST-1139
+ORD-GRO-10903,2024-07-19,Organic Fresh Strawberries,Grocery,1,5.08,5.08,Central,Kansas City,CUST-1078
+ORD-GRO-11287,2024-07-19,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.31,5.31,North,New York,CUST-1174
+ORD-GRO-10409,2024-07-21,Aged Cheddar Cheese Wedge,Grocery,1,9.03,9.03,South,Atlanta,CUST-1072
+ORD-GRO-10488,2024-07-21,Aged Cheddar Cheese Wedge,Grocery,1,9.23,9.23,West,Los Angeles,CUST-1011
+ORD-GRO-11360,2024-07-21,Organic Fresh Strawberries,Grocery,1,4.95,4.95,West,Seattle,CUST-1148
+ORD-GRO-10157,2024-07-22,Himalayan Pink Salt Grinder,Grocery,1,7.45,7.45,East,Charlotte,CUST-1092
+ORD-GRO-10394,2024-07-23,Extra Virgin Olive Oil 500ml,Grocery,1,15.26,15.26,East,Charlotte,CUST-1054
+ORD-GRO-10876,2024-07-25,Artisan Sourdough Loaf,Grocery,1,6.21,6.21,East,Charlotte,CUST-1040
+ORD-GRO-11170,2024-07-25,Single-Origin Coffee Beans (12oz),Grocery,2,15.61,31.22,North,Boston,CUST-1003
+ORD-GRO-10625,2024-07-27,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.41,5.41,Central,Kansas City,CUST-1190
+ORD-GRO-10998,2024-07-28,Extra Virgin Olive Oil 500ml,Grocery,1,15.71,15.71,North,Chicago,CUST-1123
+ORD-GRO-10520,2024-07-29,Organic Fresh Strawberries,Grocery,1,4.94,4.94,Central,Austin,CUST-1170
+ORD-GRO-10879,2024-07-29,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.47,10.94,Central,Denver,CUST-1002
+ORD-GRO-11049,2024-07-29,Organic Fresh Strawberries,Grocery,1,4.83,4.83,North,New York,CUST-1192
+ORD-GRO-11283,2024-07-29,Himalayan Pink Salt Grinder,Grocery,4,6.97,27.88,West,Los Angeles,CUST-1019
+ORD-GRO-11356,2024-07-29,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.71,11.42,South,Dallas,CUST-1179
+ORD-GRO-10969,2024-07-30,Extra Virgin Olive Oil 500ml,Grocery,1,15.2,15.2,East,Philadelphia,CUST-1045
+ORD-GRO-10995,2024-07-31,Artisan Sourdough Loaf,Grocery,1,6.33,6.33,North,Chicago,CUST-1173
+ORD-GRO-10897,2024-08-01,Himalayan Pink Salt Grinder,Grocery,1,7.4,7.4,West,San Francisco,CUST-1178
+ORD-GRO-11087,2024-08-02,Free-Range Brown Eggs (12ct),Grocery,2,4.94,9.88,West,San Francisco,CUST-1077
+ORD-GRO-11181,2024-08-02,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.76,5.76,West,Seattle,CUST-1174
+ORD-GRO-11417,2024-08-02,Organic Fresh Strawberries,Grocery,1,5.14,5.14,North,Boston,CUST-1186
+ORD-GRO-10055,2024-08-03,Organic Fresh Strawberries,Grocery,1,5.07,5.07,Central,Austin,CUST-1159
+ORD-GRO-10279,2024-08-03,Himalayan Pink Salt Grinder,Grocery,1,7.29,7.29,Central,Austin,CUST-1165
+ORD-GRO-11411,2024-08-03,Organic Fresh Strawberries,Grocery,1,5.09,5.09,South,Miami,CUST-1187
+ORD-GRO-10119,2024-08-04,Single-Origin Coffee Beans (12oz),Grocery,1,15.75,15.75,South,Dallas,CUST-1020
+ORD-GRO-10354,2024-08-04,Organic Fresh Strawberries,Grocery,1,5.22,5.22,East,Philadelphia,CUST-1179
+ORD-GRO-10435,2024-08-04,Aged Cheddar Cheese Wedge,Grocery,2,8.74,17.48,West,San Francisco,CUST-1148
+ORD-GRO-10815,2024-08-04,Organic Fresh Strawberries,Grocery,2,5.01,10.02,Central,Austin,CUST-1160
+ORD-GRO-10103,2024-08-05,Free-Range Brown Eggs (12ct),Grocery,1,4.94,4.94,Central,Kansas City,CUST-1071
+ORD-GRO-11213,2024-08-05,Aged Cheddar Cheese Wedge,Grocery,2,8.93,17.86,Central,Austin,CUST-1031
+ORD-GRO-10446,2024-08-06,Extra Virgin Olive Oil 500ml,Grocery,1,15.62,15.62,East,Philadelphia,CUST-1023
+ORD-GRO-10964,2024-08-06,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.54,5.54,North,Boston,CUST-1037
+ORD-GRO-11344,2024-08-06,Artisan Sourdough Loaf,Grocery,1,6.16,6.16,East,Charlotte,CUST-1081
+ORD-GRO-11053,2024-08-07,Aged Cheddar Cheese Wedge,Grocery,1,8.83,8.83,East,Charlotte,CUST-1028
+ORD-GRO-11024,2024-08-08,Aged Cheddar Cheese Wedge,Grocery,1,9.17,9.17,East,Washington D.C.,CUST-1042
+ORD-GRO-11217,2024-08-08,Extra Virgin Olive Oil 500ml,Grocery,1,15.47,15.47,North,Chicago,CUST-1090
+ORD-GRO-11410,2024-08-08,Aged Cheddar Cheese Wedge,Grocery,4,8.76,35.04,North,Boston,CUST-1040
+ORD-GRO-10177,2024-08-09,Organic Fresh Strawberries,Grocery,1,4.9,4.9,Central,Denver,CUST-1071
+ORD-GRO-10344,2024-08-10,Organic Farm Fresh Milk (1 Gal),Grocery,4,5.29,21.16,South,Dallas,CUST-1148
+ORD-GRO-11298,2024-08-11,Single-Origin Coffee Beans (12oz),Grocery,1,15.38,15.38,South,Miami,CUST-1066
+ORD-GRO-11497,2024-08-11,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.7,11.4,East,Charlotte,CUST-1182
+ORD-GRO-10017,2024-08-12,Extra Virgin Olive Oil 500ml,Grocery,1,15.0,15.0,North,New York,CUST-1040
+ORD-GRO-10327,2024-08-12,Extra Virgin Olive Oil 500ml,Grocery,1,14.96,14.96,Central,Austin,CUST-1107
+ORD-GRO-10503,2024-08-12,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.5,5.5,Central,Denver,CUST-1034
+ORD-GRO-11286,2024-08-12,Single-Origin Coffee Beans (12oz),Grocery,1,15.84,15.84,Central,Denver,CUST-1046
+ORD-GRO-10358,2024-08-14,Extra Virgin Olive Oil 500ml,Grocery,1,14.26,14.26,Central,Kansas City,CUST-1185
+ORD-GRO-10722,2024-08-15,Extra Virgin Olive Oil 500ml,Grocery,2,14.32,28.64,East,Charlotte,CUST-1009
+ORD-GRO-10835,2024-08-15,Organic Fresh Strawberries,Grocery,1,5.12,5.12,East,Charlotte,CUST-1126
+ORD-GRO-10987,2024-08-15,Extra Virgin Olive Oil 500ml,Grocery,3,15.61,46.83,East,Philadelphia,CUST-1011
+ORD-GRO-11357,2024-08-15,Himalayan Pink Salt Grinder,Grocery,1,7.22,7.22,North,New York,CUST-1126
+ORD-GRO-10339,2024-08-16,Organic Farm Fresh Milk (1 Gal),Grocery,4,5.63,22.52,East,Charlotte,CUST-1185
+ORD-GRO-10240,2024-08-17,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.39,5.39,West,Los Angeles,CUST-1036
+ORD-GRO-10552,2024-08-17,Single-Origin Coffee Beans (12oz),Grocery,3,15.67,47.01,West,Seattle,CUST-1097
+ORD-GRO-10891,2024-08-17,Extra Virgin Olive Oil 500ml,Grocery,1,15.53,15.53,West,Seattle,CUST-1047
+ORD-GRO-10072,2024-08-18,Organic Fresh Strawberries,Grocery,1,4.81,4.81,East,Charlotte,CUST-1197
+ORD-GRO-10824,2024-08-18,Extra Virgin Olive Oil 500ml,Grocery,1,14.75,14.75,South,Atlanta,CUST-1187
+ORD-GRO-10165,2024-08-19,Himalayan Pink Salt Grinder,Grocery,2,7.54,15.08,West,Los Angeles,CUST-1102
+ORD-GRO-10369,2024-08-19,Single-Origin Coffee Beans (12oz),Grocery,2,15.79,31.58,North,New York,CUST-1104
+ORD-GRO-10913,2024-08-19,Extra Virgin Olive Oil 500ml,Grocery,1,14.88,14.88,East,Charlotte,CUST-1061
+ORD-GRO-11261,2024-08-19,Himalayan Pink Salt Grinder,Grocery,3,7.53,22.59,South,Atlanta,CUST-1085
+ORD-GRO-11443,2024-08-19,Single-Origin Coffee Beans (12oz),Grocery,1,14.74,14.74,South,Miami,CUST-1027
+ORD-GRO-10801,2024-08-20,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.56,5.56,North,Boston,CUST-1135
+ORD-GRO-11009,2024-08-20,Aged Cheddar Cheese Wedge,Grocery,1,8.84,8.84,North,New York,CUST-1091
+ORD-GRO-11308,2024-08-20,Organic Fresh Strawberries,Grocery,1,4.98,4.98,Central,Austin,CUST-1185
+ORD-GRO-10379,2024-08-21,Free-Range Brown Eggs (12ct),Grocery,1,4.83,4.83,South,Dallas,CUST-1150
+ORD-GRO-10718,2024-08-22,Organic Fresh Strawberries,Grocery,2,5.16,10.32,West,Los Angeles,CUST-1200
+ORD-GRO-10699,2024-08-23,Aged Cheddar Cheese Wedge,Grocery,3,9.2,27.6,North,New York,CUST-1131
+ORD-GRO-10714,2024-08-23,Free-Range Brown Eggs (12ct),Grocery,1,4.76,4.76,Central,Denver,CUST-1180
+ORD-GRO-11300,2024-08-23,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.47,5.47,East,Washington D.C.,CUST-1120
+ORD-GRO-10787,2024-08-24,Himalayan Pink Salt Grinder,Grocery,1,6.98,6.98,South,Dallas,CUST-1161
+ORD-GRO-10121,2024-08-25,Single-Origin Coffee Beans (12oz),Grocery,2,15.82,31.64,East,Philadelphia,CUST-1176
+ORD-GRO-11007,2024-08-25,Free-Range Brown Eggs (12ct),Grocery,1,4.76,4.76,West,Seattle,CUST-1152
+ORD-GRO-10759,2024-08-26,Artisan Sourdough Loaf,Grocery,1,6.03,6.03,West,Seattle,CUST-1080
+ORD-GRO-10863,2024-08-26,Single-Origin Coffee Beans (12oz),Grocery,1,16.24,16.24,North,Boston,CUST-1161
+ORD-GRO-11318,2024-08-26,Single-Origin Coffee Beans (12oz),Grocery,1,15.75,15.75,North,Boston,CUST-1133
+ORD-GRO-10122,2024-08-27,Single-Origin Coffee Beans (12oz),Grocery,1,15.95,15.95,South,Miami,CUST-1030
+ORD-GRO-11393,2024-08-27,Aged Cheddar Cheese Wedge,Grocery,1,8.86,8.86,North,Boston,CUST-1110
+ORD-GRO-10977,2024-08-28,Aged Cheddar Cheese Wedge,Grocery,1,9.03,9.03,South,Dallas,CUST-1174
+ORD-GRO-10898,2024-08-29,Extra Virgin Olive Oil 500ml,Grocery,1,15.23,15.23,Central,Austin,CUST-1030
+ORD-GRO-10925,2024-08-29,Aged Cheddar Cheese Wedge,Grocery,1,8.66,8.66,North,Boston,CUST-1022
+ORD-GRO-11110,2024-08-29,Single-Origin Coffee Beans (12oz),Grocery,3,15.05,45.15,East,Charlotte,CUST-1082
+ORD-GRO-10037,2024-08-30,Extra Virgin Olive Oil 500ml,Grocery,1,14.85,14.85,East,Philadelphia,CUST-1043
+ORD-GRO-10269,2024-08-30,Aged Cheddar Cheese Wedge,Grocery,1,8.53,8.53,West,Seattle,CUST-1142
+ORD-GRO-10478,2024-08-30,Single-Origin Coffee Beans (12oz),Grocery,1,15.13,15.13,East,Charlotte,CUST-1189
+ORD-GRO-10726,2024-08-30,Single-Origin Coffee Beans (12oz),Grocery,1,15.46,15.46,West,Los Angeles,CUST-1128
+ORD-GRO-11435,2024-08-30,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.32,5.32,South,Atlanta,CUST-1155
+ORD-GRO-10031,2024-08-31,Single-Origin Coffee Beans (12oz),Grocery,1,15.76,15.76,South,Dallas,CUST-1147
+ORD-GRO-10244,2024-09-01,Himalayan Pink Salt Grinder,Grocery,1,7.3,7.3,North,New York,CUST-1128
+ORD-GRO-10896,2024-09-01,Organic Fresh Strawberries,Grocery,4,5.01,20.04,East,Philadelphia,CUST-1088
+ORD-GRO-10755,2024-09-02,Single-Origin Coffee Beans (12oz),Grocery,2,15.17,30.34,West,Seattle,CUST-1049
+ORD-GRO-10025,2024-09-03,Artisan Sourdough Loaf,Grocery,1,5.99,5.99,North,Chicago,CUST-1197
+ORD-GRO-10349,2024-09-03,Organic Fresh Strawberries,Grocery,2,4.89,9.78,East,Philadelphia,CUST-1144
+ORD-GRO-10989,2024-09-03,Artisan Sourdough Loaf,Grocery,1,6.29,6.29,East,Philadelphia,CUST-1034
+ORD-GRO-11397,2024-09-03,Organic Fresh Strawberries,Grocery,2,4.85,9.7,North,New York,CUST-1112
+ORD-GRO-10934,2024-09-04,Organic Fresh Strawberries,Grocery,2,5.0,10.0,South,Miami,CUST-1141
+ORD-GRO-11203,2024-09-04,Single-Origin Coffee Beans (12oz),Grocery,4,15.85,63.4,North,Chicago,CUST-1016
+ORD-GRO-10813,2024-09-05,Extra Virgin Olive Oil 500ml,Grocery,2,15.54,31.08,North,Boston,CUST-1178
+ORD-GRO-11274,2024-09-05,Extra Virgin Olive Oil 500ml,Grocery,1,15.44,15.44,West,San Francisco,CUST-1112
+ORD-GRO-10176,2024-09-06,Extra Virgin Olive Oil 500ml,Grocery,1,15.42,15.42,Central,Denver,CUST-1151
+ORD-GRO-10712,2024-09-06,Free-Range Brown Eggs (12ct),Grocery,1,5.02,5.02,East,Charlotte,CUST-1008
+ORD-GRO-10101,2024-09-08,Artisan Sourdough Loaf,Grocery,1,6.11,6.11,East,Charlotte,CUST-1157
+ORD-GRO-11192,2024-09-08,Extra Virgin Olive Oil 500ml,Grocery,1,15.37,15.37,South,Atlanta,CUST-1110
+ORD-GRO-10016,2024-09-09,Single-Origin Coffee Beans (12oz),Grocery,1,15.88,15.88,Central,Austin,CUST-1093
+ORD-GRO-10079,2024-09-10,Single-Origin Coffee Beans (12oz),Grocery,1,15.91,15.91,South,Miami,CUST-1113
+ORD-GRO-10424,2024-09-10,Single-Origin Coffee Beans (12oz),Grocery,1,16.08,16.08,West,Seattle,CUST-1023
+ORD-GRO-10745,2024-09-10,Single-Origin Coffee Beans (12oz),Grocery,1,15.41,15.41,Central,Denver,CUST-1008
+ORD-GRO-10323,2024-09-11,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.36,5.36,West,Seattle,CUST-1078
+ORD-GRO-10617,2024-09-11,Single-Origin Coffee Beans (12oz),Grocery,1,15.34,15.34,West,Seattle,CUST-1035
+ORD-GRO-10430,2024-09-12,Extra Virgin Olive Oil 500ml,Grocery,2,15.31,30.62,East,Washington D.C.,CUST-1037
+ORD-GRO-10946,2024-09-13,Aged Cheddar Cheese Wedge,Grocery,1,8.52,8.52,North,New York,CUST-1171
+ORD-GRO-11048,2024-09-16,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.25,10.5,North,New York,CUST-1155
+ORD-GRO-10579,2024-09-18,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.54,5.54,North,Chicago,CUST-1006
+ORD-GRO-11431,2024-09-19,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.26,5.26,West,Seattle,CUST-1140
+ORD-GRO-10734,2024-09-20,Free-Range Brown Eggs (12ct),Grocery,1,4.57,4.57,Central,Denver,CUST-1148
+ORD-GRO-11399,2024-09-20,Aged Cheddar Cheese Wedge,Grocery,2,9.35,18.7,South,Dallas,CUST-1163
+ORD-GRO-10461,2024-09-22,Extra Virgin Olive Oil 500ml,Grocery,2,14.8,29.6,West,San Francisco,CUST-1031
+ORD-GRO-10265,2024-09-23,Aged Cheddar Cheese Wedge,Grocery,1,8.69,8.69,East,Philadelphia,CUST-1032
+ORD-GRO-11132,2024-09-23,Extra Virgin Olive Oil 500ml,Grocery,3,15.0,45.0,East,Philadelphia,CUST-1023
+ORD-GRO-10062,2024-09-24,Extra Virgin Olive Oil 500ml,Grocery,4,15.11,60.44,North,New York,CUST-1153
+ORD-GRO-11069,2024-09-24,Free-Range Brown Eggs (12ct),Grocery,1,4.95,4.95,North,New York,CUST-1111
+ORD-GRO-11113,2024-09-24,Artisan Sourdough Loaf,Grocery,1,6.16,6.16,Central,Kansas City,CUST-1084
+ORD-GRO-11126,2024-09-25,Organic Fresh Strawberries,Grocery,3,5.05,15.15,West,San Francisco,CUST-1176
+ORD-GRO-10665,2024-09-26,Artisan Sourdough Loaf,Grocery,3,6.39,19.17,Central,Kansas City,CUST-1008
+ORD-GRO-10715,2024-09-26,Organic Fresh Strawberries,Grocery,1,4.88,4.88,West,Los Angeles,CUST-1142
+ORD-GRO-11135,2024-09-27,Free-Range Brown Eggs (12ct),Grocery,1,4.77,4.77,East,Philadelphia,CUST-1143
+ORD-GRO-10147,2024-09-28,Free-Range Brown Eggs (12ct),Grocery,1,4.86,4.86,North,Boston,CUST-1173
+ORD-GRO-10513,2024-09-28,Organic Fresh Strawberries,Grocery,1,4.87,4.87,West,Los Angeles,CUST-1185
+ORD-GRO-10256,2024-09-30,Artisan Sourdough Loaf,Grocery,1,6.39,6.39,Central,Denver,CUST-1140
+ORD-GRO-10933,2024-09-30,Artisan Sourdough Loaf,Grocery,1,6.1,6.1,East,Charlotte,CUST-1192
+ORD-GRO-10387,2024-10-02,Single-Origin Coffee Beans (12oz),Grocery,1,15.14,15.14,South,Miami,CUST-1071
+ORD-GRO-10527,2024-10-02,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.3,10.6,North,New York,CUST-1172
+ORD-GRO-10383,2024-10-03,Artisan Sourdough Loaf,Grocery,1,6.02,6.02,East,Charlotte,CUST-1143
+ORD-GRO-10729,2024-10-03,Organic Fresh Strawberries,Grocery,3,5.02,15.06,South,Atlanta,CUST-1190
+ORD-GRO-10740,2024-10-04,Aged Cheddar Cheese Wedge,Grocery,3,9.2,27.6,Central,Kansas City,CUST-1116
+ORD-GRO-10593,2024-10-05,Himalayan Pink Salt Grinder,Grocery,1,7.34,7.34,East,Charlotte,CUST-1043
+ORD-GRO-10747,2024-10-05,Aged Cheddar Cheese Wedge,Grocery,3,8.62,25.86,Central,Denver,CUST-1152
+ORD-GRO-10757,2024-10-05,Aged Cheddar Cheese Wedge,Grocery,1,8.67,8.67,North,Chicago,CUST-1006
+ORD-GRO-10138,2024-10-06,Himalayan Pink Salt Grinder,Grocery,4,7.44,29.76,South,Miami,CUST-1142
+ORD-GRO-10197,2024-10-06,Single-Origin Coffee Beans (12oz),Grocery,1,16.15,16.15,South,Atlanta,CUST-1145
+ORD-GRO-10202,2024-10-06,Organic Fresh Strawberries,Grocery,1,5.12,5.12,East,Philadelphia,CUST-1073
+ORD-GRO-10254,2024-10-06,Artisan Sourdough Loaf,Grocery,1,6.44,6.44,East,Charlotte,CUST-1113
+ORD-GRO-11244,2024-10-06,Organic Fresh Strawberries,Grocery,1,5.07,5.07,South,Miami,CUST-1154
+ORD-GRO-11256,2024-10-07,Organic Fresh Strawberries,Grocery,1,5.16,5.16,Central,Kansas City,CUST-1065
+ORD-GRO-11328,2024-10-07,Single-Origin Coffee Beans (12oz),Grocery,1,15.76,15.76,South,Miami,CUST-1106
+ORD-GRO-10366,2024-10-08,Single-Origin Coffee Beans (12oz),Grocery,2,14.75,29.5,East,Philadelphia,CUST-1028
+ORD-GRO-10721,2024-10-08,Aged Cheddar Cheese Wedge,Grocery,2,8.67,17.34,Central,Austin,CUST-1102
+ORD-GRO-11104,2024-10-08,Aged Cheddar Cheese Wedge,Grocery,3,8.87,26.61,North,Boston,CUST-1137
+ORD-GRO-10823,2024-10-09,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.56,16.68,North,Chicago,CUST-1072
+ORD-GRO-11004,2024-10-09,Artisan Sourdough Loaf,Grocery,1,6.37,6.37,South,Dallas,CUST-1161
+ORD-GRO-11451,2024-10-09,Himalayan Pink Salt Grinder,Grocery,2,7.21,14.42,South,Miami,CUST-1163
+ORD-GRO-11020,2024-10-11,Organic Fresh Strawberries,Grocery,1,4.75,4.75,East,Charlotte,CUST-1172
+ORD-GRO-11050,2024-10-11,Free-Range Brown Eggs (12ct),Grocery,3,4.73,14.19,Central,Denver,CUST-1130
+ORD-GRO-11500,2024-10-11,Extra Virgin Olive Oil 500ml,Grocery,2,14.65,29.3,South,Atlanta,CUST-1137
+ORD-GRO-10195,2024-10-12,Organic Fresh Strawberries,Grocery,2,5.14,10.28,Central,Kansas City,CUST-1173
+ORD-GRO-10872,2024-10-14,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.4,5.4,Central,Denver,CUST-1147
+ORD-GRO-11134,2024-10-14,Free-Range Brown Eggs (12ct),Grocery,1,5.0,5.0,West,San Francisco,CUST-1195
+ORD-GRO-11252,2024-10-14,Aged Cheddar Cheese Wedge,Grocery,2,9.31,18.62,South,Atlanta,CUST-1051
+ORD-GRO-10288,2024-10-15,Aged Cheddar Cheese Wedge,Grocery,2,9.04,18.08,East,Washington D.C.,CUST-1138
+ORD-GRO-10521,2024-10-15,Single-Origin Coffee Beans (12oz),Grocery,1,15.09,15.09,Central,Kansas City,CUST-1126
+ORD-GRO-11241,2024-10-15,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.3,5.3,North,Boston,CUST-1023
+ORD-GRO-11179,2024-10-16,Artisan Sourdough Loaf,Grocery,1,6.35,6.35,South,Atlanta,CUST-1156
+ORD-GRO-10071,2024-10-17,Free-Range Brown Eggs (12ct),Grocery,4,4.6,18.4,South,Dallas,CUST-1080
+ORD-GRO-10275,2024-10-17,Artisan Sourdough Loaf,Grocery,1,6.09,6.09,Central,Austin,CUST-1033
+ORD-GRO-11201,2024-10-17,Organic Fresh Strawberries,Grocery,1,4.79,4.79,Central,Austin,CUST-1194
+ORD-GRO-10233,2024-10-18,Aged Cheddar Cheese Wedge,Grocery,1,8.71,8.71,East,Philadelphia,CUST-1095
+ORD-GRO-10708,2024-10-18,Free-Range Brown Eggs (12ct),Grocery,2,4.73,9.46,South,Dallas,CUST-1050
+ORD-GRO-10975,2024-10-18,Organic Fresh Strawberries,Grocery,1,4.96,4.96,East,Philadelphia,CUST-1027
+ORD-GRO-11010,2024-10-18,Aged Cheddar Cheese Wedge,Grocery,1,9.36,9.36,South,Dallas,CUST-1138
+ORD-GRO-11470,2024-10-18,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.29,5.29,West,Los Angeles,CUST-1042
+ORD-GRO-11011,2024-10-19,Extra Virgin Olive Oil 500ml,Grocery,2,15.7,31.4,South,Atlanta,CUST-1061
+ORD-GRO-11229,2024-10-19,Extra Virgin Olive Oil 500ml,Grocery,2,14.51,29.02,South,Miami,CUST-1105
+ORD-GRO-11454,2024-10-19,Aged Cheddar Cheese Wedge,Grocery,1,9.23,9.23,East,Charlotte,CUST-1131
+ORD-GRO-10069,2024-10-20,Organic Fresh Strawberries,Grocery,1,4.96,4.96,West,Seattle,CUST-1114
+ORD-GRO-10455,2024-10-20,Himalayan Pink Salt Grinder,Grocery,1,7.14,7.14,Central,Kansas City,CUST-1158
+ORD-GRO-10193,2024-10-21,Single-Origin Coffee Beans (12oz),Grocery,1,15.27,15.27,South,Atlanta,CUST-1169
+ORD-GRO-10627,2024-10-21,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.72,5.72,West,San Francisco,CUST-1014
+ORD-GRO-10009,2024-10-23,Artisan Sourdough Loaf,Grocery,3,6.47,19.41,East,Washington D.C.,CUST-1117
+ORD-GRO-10952,2024-10-23,Organic Fresh Strawberries,Grocery,1,4.83,4.83,East,Charlotte,CUST-1049
+ORD-GRO-10575,2024-10-24,Aged Cheddar Cheese Wedge,Grocery,1,9.15,9.15,West,Seattle,CUST-1176
+ORD-GRO-10428,2024-10-26,Single-Origin Coffee Beans (12oz),Grocery,4,15.61,62.44,Central,Kansas City,CUST-1025
+ORD-GRO-10819,2024-10-26,Himalayan Pink Salt Grinder,Grocery,1,7.01,7.01,North,Boston,CUST-1125
+ORD-GRO-11188,2024-10-26,Aged Cheddar Cheese Wedge,Grocery,1,9.18,9.18,North,New York,CUST-1166
+ORD-GRO-10257,2024-10-27,Free-Range Brown Eggs (12ct),Grocery,1,4.61,4.61,West,Seattle,CUST-1115
+ORD-GRO-10637,2024-10-27,Organic Fresh Strawberries,Grocery,1,5.21,5.21,East,Charlotte,CUST-1193
+ORD-GRO-10164,2024-10-29,Free-Range Brown Eggs (12ct),Grocery,1,4.95,4.95,North,New York,CUST-1194
+ORD-GRO-10994,2024-10-30,Himalayan Pink Salt Grinder,Grocery,2,7.38,14.76,Central,Kansas City,CUST-1148
+ORD-GRO-11085,2024-10-31,Himalayan Pink Salt Grinder,Grocery,1,7.42,7.42,North,Chicago,CUST-1149
+ORD-GRO-10141,2024-11-01,Aged Cheddar Cheese Wedge,Grocery,1,9.28,9.28,East,Washington D.C.,CUST-1086
+ORD-GRO-10306,2024-11-01,Organic Fresh Strawberries,Grocery,4,5.21,20.84,West,San Francisco,CUST-1054
+ORD-GRO-11099,2024-11-01,Artisan Sourdough Loaf,Grocery,1,6.5,6.5,West,San Francisco,CUST-1169
+ORD-GRO-10296,2024-11-02,Free-Range Brown Eggs (12ct),Grocery,1,4.8,4.8,East,Charlotte,CUST-1145
+ORD-GRO-10297,2024-11-02,Aged Cheddar Cheese Wedge,Grocery,1,9.23,9.23,North,Boston,CUST-1150
+ORD-GRO-10857,2024-11-02,Free-Range Brown Eggs (12ct),Grocery,1,4.74,4.74,North,Boston,CUST-1141
+ORD-GRO-10953,2024-11-02,Himalayan Pink Salt Grinder,Grocery,1,7.49,7.49,West,Seattle,CUST-1022
+ORD-GRO-11313,2024-11-02,Free-Range Brown Eggs (12ct),Grocery,1,4.84,4.84,North,New York,CUST-1040
+ORD-GRO-10346,2024-11-03,Single-Origin Coffee Beans (12oz),Grocery,3,14.82,44.46,South,Dallas,CUST-1174
+ORD-GRO-10405,2024-11-03,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.66,5.66,West,San Francisco,CUST-1028
+ORD-GRO-10541,2024-11-03,Aged Cheddar Cheese Wedge,Grocery,1,9.2,9.2,East,Charlotte,CUST-1166
+ORD-GRO-10971,2024-11-04,Free-Range Brown Eggs (12ct),Grocery,1,4.76,4.76,South,Atlanta,CUST-1136
+ORD-GRO-11168,2024-11-04,Aged Cheddar Cheese Wedge,Grocery,1,8.64,8.64,North,New York,CUST-1040
+ORD-GRO-10280,2024-11-05,Aged Cheddar Cheese Wedge,Grocery,2,8.72,17.44,East,Washington D.C.,CUST-1117
+ORD-GRO-10875,2024-11-05,Organic Fresh Strawberries,Grocery,1,5.0,5.0,West,Los Angeles,CUST-1200
+ORD-GRO-11026,2024-11-06,Aged Cheddar Cheese Wedge,Grocery,1,9.39,9.39,West,Los Angeles,CUST-1152
+ORD-GRO-10786,2024-11-07,Artisan Sourdough Loaf,Grocery,4,6.53,26.12,North,New York,CUST-1186
+ORD-GRO-10991,2024-11-08,Extra Virgin Olive Oil 500ml,Grocery,3,15.29,45.87,Central,Denver,CUST-1117
+ORD-GRO-10474,2024-11-10,Artisan Sourdough Loaf,Grocery,4,6.07,24.28,East,Washington D.C.,CUST-1016
+ORD-GRO-10298,2024-11-11,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.54,5.54,Central,Kansas City,CUST-1059
+ORD-GRO-10750,2024-11-11,Free-Range Brown Eggs (12ct),Grocery,1,4.76,4.76,North,New York,CUST-1134
+ORD-GRO-10866,2024-11-11,Single-Origin Coffee Beans (12oz),Grocery,1,15.51,15.51,North,New York,CUST-1176
+ORD-GRO-10228,2024-11-12,Extra Virgin Olive Oil 500ml,Grocery,1,15.67,15.67,East,Philadelphia,CUST-1058
+ORD-GRO-10849,2024-11-12,Aged Cheddar Cheese Wedge,Grocery,1,8.76,8.76,South,Atlanta,CUST-1001
+ORD-GRO-11276,2024-11-12,Free-Range Brown Eggs (12ct),Grocery,4,4.7,18.8,Central,Kansas City,CUST-1169
+ORD-GRO-11409,2024-11-12,Artisan Sourdough Loaf,Grocery,2,6.11,12.22,Central,Austin,CUST-1162
+ORD-GRO-10252,2024-11-13,Himalayan Pink Salt Grinder,Grocery,1,7.55,7.55,West,Los Angeles,CUST-1193
+ORD-GRO-11321,2024-11-13,Himalayan Pink Salt Grinder,Grocery,2,7.43,14.86,South,Dallas,CUST-1148
+ORD-GRO-11322,2024-11-13,Organic Fresh Strawberries,Grocery,2,4.99,9.98,West,Los Angeles,CUST-1002
+ORD-GRO-10326,2024-11-14,Artisan Sourdough Loaf,Grocery,3,6.34,19.02,West,San Francisco,CUST-1057
+ORD-GRO-10470,2024-11-14,Free-Range Brown Eggs (12ct),Grocery,1,4.6,4.6,West,Los Angeles,CUST-1075
+ORD-GRO-10880,2024-11-14,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.59,5.59,North,Boston,CUST-1120
+ORD-GRO-11262,2024-11-14,Artisan Sourdough Loaf,Grocery,1,6.33,6.33,East,Washington D.C.,CUST-1007
+ORD-GRO-10882,2024-11-15,Organic Fresh Strawberries,Grocery,1,4.9,4.9,West,San Francisco,CUST-1082
+ORD-GRO-10412,2024-11-16,Himalayan Pink Salt Grinder,Grocery,1,7.28,7.28,West,Seattle,CUST-1118
+ORD-GRO-10590,2024-11-16,Himalayan Pink Salt Grinder,Grocery,1,7.37,7.37,North,New York,CUST-1036
+ORD-GRO-11434,2024-11-16,Free-Range Brown Eggs (12ct),Grocery,1,4.85,4.85,North,Chicago,CUST-1012
+ORD-GRO-10304,2024-11-17,Extra Virgin Olive Oil 500ml,Grocery,1,14.93,14.93,Central,Austin,CUST-1174
+ORD-GRO-10739,2024-11-17,Free-Range Brown Eggs (12ct),Grocery,2,4.87,9.74,Central,Kansas City,CUST-1102
+ORD-GRO-11430,2024-11-17,Artisan Sourdough Loaf,Grocery,1,5.96,5.96,South,Atlanta,CUST-1144
+ORD-GRO-10448,2024-11-18,Extra Virgin Olive Oil 500ml,Grocery,1,14.61,14.61,South,Dallas,CUST-1154
+ORD-GRO-10791,2024-11-18,Free-Range Brown Eggs (12ct),Grocery,1,4.97,4.97,East,Charlotte,CUST-1083
+ORD-GRO-10795,2024-11-18,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.64,16.92,West,San Francisco,CUST-1131
+ORD-GRO-10044,2024-11-19,Single-Origin Coffee Beans (12oz),Grocery,2,15.04,30.08,South,Miami,CUST-1102
+ORD-GRO-10109,2024-11-19,Artisan Sourdough Loaf,Grocery,4,6.4,25.6,South,Atlanta,CUST-1056
+ORD-GRO-11038,2024-11-19,Single-Origin Coffee Beans (12oz),Grocery,2,15.15,30.3,West,Los Angeles,CUST-1137
+ORD-GRO-11174,2024-11-19,Artisan Sourdough Loaf,Grocery,1,6.1,6.1,East,Philadelphia,CUST-1127
+ORD-GRO-10382,2024-11-20,Free-Range Brown Eggs (12ct),Grocery,1,4.61,4.61,West,Seattle,CUST-1093
+ORD-GRO-10772,2024-11-20,Free-Range Brown Eggs (12ct),Grocery,1,4.95,4.95,South,Atlanta,CUST-1177
+ORD-GRO-10861,2024-11-20,Single-Origin Coffee Beans (12oz),Grocery,4,15.54,62.16,West,Los Angeles,CUST-1158
+ORD-GRO-11133,2024-11-20,Himalayan Pink Salt Grinder,Grocery,1,6.94,6.94,North,New York,CUST-1128
+ORD-GRO-10345,2024-11-22,Free-Range Brown Eggs (12ct),Grocery,3,4.67,14.01,Central,Denver,CUST-1106
+ORD-GRO-10517,2024-11-22,Single-Origin Coffee Beans (12oz),Grocery,1,16.2,16.2,South,Miami,CUST-1042
+ORD-GRO-11093,2024-11-22,Artisan Sourdough Loaf,Grocery,2,6.33,12.66,West,Seattle,CUST-1166
+ORD-GRO-10267,2024-11-23,Free-Range Brown Eggs (12ct),Grocery,1,4.9,4.9,West,Seattle,CUST-1041
+ORD-GRO-10512,2024-11-23,Extra Virgin Olive Oil 500ml,Grocery,4,15.19,60.76,West,Seattle,CUST-1003
+ORD-GRO-10558,2024-11-23,Extra Virgin Olive Oil 500ml,Grocery,2,15.32,30.64,West,Seattle,CUST-1108
+ORD-GRO-10810,2024-11-24,Free-Range Brown Eggs (12ct),Grocery,1,4.85,4.85,West,Los Angeles,CUST-1090
+ORD-GRO-10633,2024-11-26,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.64,5.64,West,Seattle,CUST-1147
+ORD-GRO-10024,2024-11-27,Aged Cheddar Cheese Wedge,Grocery,3,8.52,25.56,West,Los Angeles,CUST-1015
+ORD-GRO-10013,2024-11-28,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.34,5.34,West,Seattle,CUST-1069
+ORD-GRO-10186,2024-11-28,Himalayan Pink Salt Grinder,Grocery,1,7.56,7.56,East,Charlotte,CUST-1155
+ORD-GRO-10200,2024-11-28,Artisan Sourdough Loaf,Grocery,1,6.49,6.49,Central,Denver,CUST-1173
+ORD-GRO-10209,2024-11-28,Extra Virgin Olive Oil 500ml,Grocery,1,15.44,15.44,West,Los Angeles,CUST-1112
+ORD-GRO-10393,2024-11-29,Himalayan Pink Salt Grinder,Grocery,2,7.04,14.08,West,Los Angeles,CUST-1145
+ORD-GRO-10411,2024-11-29,Organic Fresh Strawberries,Grocery,1,4.97,4.97,East,Charlotte,CUST-1164
+ORD-GRO-10978,2024-11-29,Organic Fresh Strawberries,Grocery,1,5.13,5.13,North,New York,CUST-1189
+ORD-GRO-11330,2024-11-29,Himalayan Pink Salt Grinder,Grocery,1,7.16,7.16,Central,Denver,CUST-1119
+ORD-GRO-10067,2024-11-30,Himalayan Pink Salt Grinder,Grocery,1,7.34,7.34,South,Miami,CUST-1171
+ORD-GRO-10089,2024-11-30,Free-Range Brown Eggs (12ct),Grocery,1,4.93,4.93,East,Washington D.C.,CUST-1021
+ORD-GRO-10457,2024-11-30,Himalayan Pink Salt Grinder,Grocery,2,7.26,14.52,North,Boston,CUST-1179
+ORD-GRO-10479,2024-11-30,Free-Range Brown Eggs (12ct),Grocery,1,4.78,4.78,South,Atlanta,CUST-1200
+ORD-GRO-11333,2024-11-30,Aged Cheddar Cheese Wedge,Grocery,1,8.94,8.94,Central,Kansas City,CUST-1063
+ORD-GRO-10168,2024-12-01,Organic Fresh Strawberries,Grocery,1,5.06,5.06,East,Charlotte,CUST-1078
+ORD-GRO-10205,2024-12-01,Artisan Sourdough Loaf,Grocery,2,5.94,11.88,South,Atlanta,CUST-1098
+ORD-GRO-10322,2024-12-01,Artisan Sourdough Loaf,Grocery,1,6.19,6.19,South,Miami,CUST-1083
+ORD-GRO-10433,2024-12-01,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.69,11.38,North,Chicago,CUST-1118
+ORD-GRO-10483,2024-12-01,Extra Virgin Olive Oil 500ml,Grocery,1,14.38,14.38,West,Seattle,CUST-1132
+ORD-GRO-10878,2024-12-01,Extra Virgin Olive Oil 500ml,Grocery,1,15.39,15.39,Central,Kansas City,CUST-1034
+ORD-GRO-11142,2024-12-02,Organic Farm Fresh Milk (1 Gal),Grocery,4,5.37,21.48,North,Boston,CUST-1096
+ORD-GRO-11245,2024-12-02,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.72,5.72,North,Chicago,CUST-1122
+ORD-GRO-10826,2024-12-03,Aged Cheddar Cheese Wedge,Grocery,1,8.99,8.99,South,Dallas,CUST-1139
+ORD-GRO-11145,2024-12-03,Organic Farm Fresh Milk (1 Gal),Grocery,4,5.58,22.32,West,San Francisco,CUST-1188
+ORD-GRO-10351,2024-12-04,Artisan Sourdough Loaf,Grocery,2,6.51,13.02,North,Chicago,CUST-1186
+ORD-GRO-10868,2024-12-04,Free-Range Brown Eggs (12ct),Grocery,1,5.0,5.0,East,Philadelphia,CUST-1166
+ORD-GRO-11314,2024-12-04,Himalayan Pink Salt Grinder,Grocery,1,7.55,7.55,East,Philadelphia,CUST-1137
+ORD-GRO-10539,2024-12-05,Organic Fresh Strawberries,Grocery,1,4.77,4.77,West,Seattle,CUST-1006
+ORD-GRO-10249,2024-12-06,Extra Virgin Olive Oil 500ml,Grocery,1,14.31,14.31,South,Dallas,CUST-1119
+ORD-GRO-10867,2024-12-07,Free-Range Brown Eggs (12ct),Grocery,1,4.75,4.75,North,New York,CUST-1050
+ORD-GRO-10318,2024-12-09,Single-Origin Coffee Beans (12oz),Grocery,1,15.43,15.43,Central,Austin,CUST-1035
+ORD-GRO-10563,2024-12-09,Artisan Sourdough Loaf,Grocery,1,6.08,6.08,West,Seattle,CUST-1085
+ORD-GRO-10982,2024-12-09,Extra Virgin Olive Oil 500ml,Grocery,1,14.29,14.29,West,Los Angeles,CUST-1029
+ORD-GRO-10086,2024-12-10,Himalayan Pink Salt Grinder,Grocery,2,7.36,14.72,South,Dallas,CUST-1137
+ORD-GRO-10805,2024-12-10,Artisan Sourdough Loaf,Grocery,2,6.23,12.46,Central,Austin,CUST-1068
+ORD-GRO-11387,2024-12-10,Free-Range Brown Eggs (12ct),Grocery,1,4.89,4.89,West,Los Angeles,CUST-1093
+ORD-GRO-10540,2024-12-11,Single-Origin Coffee Beans (12oz),Grocery,2,15.21,30.42,North,New York,CUST-1035
+ORD-GRO-10223,2024-12-12,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.65,5.65,North,Boston,CUST-1025
+ORD-GRO-11195,2024-12-12,Free-Range Brown Eggs (12ct),Grocery,2,4.75,9.5,East,Philadelphia,CUST-1101
+ORD-GRO-10211,2024-12-13,Organic Fresh Strawberries,Grocery,1,4.91,4.91,Central,Kansas City,CUST-1030
+ORD-GRO-11177,2024-12-13,Aged Cheddar Cheese Wedge,Grocery,1,8.62,8.62,East,Washington D.C.,CUST-1173
+ORD-GRO-11312,2024-12-13,Organic Fresh Strawberries,Grocery,2,4.95,9.9,East,Charlotte,CUST-1138
+ORD-GRO-10005,2024-12-14,Single-Origin Coffee Beans (12oz),Grocery,4,14.97,59.88,West,Los Angeles,CUST-1024
+ORD-GRO-10504,2024-12-14,Extra Virgin Olive Oil 500ml,Grocery,2,15.62,31.24,West,Los Angeles,CUST-1006
+ORD-GRO-11184,2024-12-14,Free-Range Brown Eggs (12ct),Grocery,2,4.93,9.86,Central,Austin,CUST-1039
+ORD-GRO-10098,2024-12-15,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.68,11.36,North,Boston,CUST-1093
+ORD-GRO-10567,2024-12-16,Himalayan Pink Salt Grinder,Grocery,3,7.55,22.65,East,Philadelphia,CUST-1081
+ORD-GRO-10686,2024-12-16,Aged Cheddar Cheese Wedge,Grocery,1,9.04,9.04,East,Washington D.C.,CUST-1034
+ORD-GRO-11044,2024-12-16,Extra Virgin Olive Oil 500ml,Grocery,1,15.3,15.3,North,New York,CUST-1033
+ORD-GRO-10050,2024-12-17,Organic Fresh Strawberries,Grocery,3,5.08,15.24,Central,Austin,CUST-1065
+ORD-GRO-11490,2024-12-17,Single-Origin Coffee Beans (12oz),Grocery,4,15.85,63.4,South,Dallas,CUST-1185
+ORD-GRO-10528,2024-12-18,Himalayan Pink Salt Grinder,Grocery,1,7.54,7.54,Central,Denver,CUST-1100
+ORD-GRO-11278,2024-12-18,Organic Fresh Strawberries,Grocery,1,5.23,5.23,South,Atlanta,CUST-1088
+ORD-GRO-11474,2024-12-18,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.64,5.64,West,Seattle,CUST-1153
+ORD-GRO-10156,2024-12-19,Single-Origin Coffee Beans (12oz),Grocery,1,15.72,15.72,West,Seattle,CUST-1078
+ORD-GRO-10377,2024-12-20,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.27,5.27,North,Boston,CUST-1155
+ORD-GRO-10473,2024-12-20,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.74,5.74,East,Charlotte,CUST-1187
+ORD-GRO-10338,2024-12-22,Artisan Sourdough Loaf,Grocery,1,6.05,6.05,Central,Denver,CUST-1187
+ORD-GRO-10404,2024-12-22,Aged Cheddar Cheese Wedge,Grocery,2,8.59,17.18,East,Washington D.C.,CUST-1018
+ORD-GRO-10775,2024-12-22,Free-Range Brown Eggs (12ct),Grocery,1,4.91,4.91,Central,Kansas City,CUST-1042
+ORD-GRO-10894,2024-12-22,Extra Virgin Olive Oil 500ml,Grocery,1,15.0,15.0,North,Boston,CUST-1143
+ORD-GRO-11370,2024-12-22,Aged Cheddar Cheese Wedge,Grocery,1,9.07,9.07,North,Chicago,CUST-1099
+ORD-GRO-10553,2024-12-23,Aged Cheddar Cheese Wedge,Grocery,1,8.73,8.73,Central,Kansas City,CUST-1102
+ORD-GRO-10865,2024-12-24,Organic Fresh Strawberries,Grocery,1,4.75,4.75,West,Seattle,CUST-1018
+ORD-GRO-10084,2024-12-26,Single-Origin Coffee Beans (12oz),Grocery,3,15.89,47.67,East,Charlotte,CUST-1192
+ORD-GRO-10160,2024-12-26,Organic Fresh Strawberries,Grocery,1,5.06,5.06,South,Dallas,CUST-1025
+ORD-GRO-10361,2024-12-26,Extra Virgin Olive Oil 500ml,Grocery,1,14.45,14.45,South,Dallas,CUST-1165
+ORD-GRO-10259,2024-12-27,Himalayan Pink Salt Grinder,Grocery,4,7.04,28.16,North,New York,CUST-1172
+ORD-GRO-11248,2024-12-27,Himalayan Pink Salt Grinder,Grocery,1,7.44,7.44,South,Dallas,CUST-1003
+ORD-GRO-11464,2024-12-28,Artisan Sourdough Loaf,Grocery,3,5.94,17.82,South,Miami,CUST-1091
+ORD-GRO-10609,2024-12-29,Single-Origin Coffee Beans (12oz),Grocery,1,15.57,15.57,North,New York,CUST-1043
+ORD-GRO-11036,2024-12-30,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.37,5.37,North,Chicago,CUST-1050
+ORD-GRO-10508,2024-12-31,Organic Fresh Strawberries,Grocery,2,5.07,10.14,East,Washington D.C.,CUST-1188
+ORD-GRO-11284,2025-01-01,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.52,5.52,East,Philadelphia,CUST-1162
+ORD-GRO-10174,2025-01-02,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.43,5.43,North,Boston,CUST-1024
+ORD-GRO-10418,2025-01-02,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.48,5.48,East,Charlotte,CUST-1130
+ORD-GRO-10596,2025-01-02,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.69,17.07,South,Miami,CUST-1125
+ORD-GRO-10990,2025-01-02,Single-Origin Coffee Beans (12oz),Grocery,4,15.1,60.4,North,Boston,CUST-1172
+ORD-GRO-10398,2025-01-03,Artisan Sourdough Loaf,Grocery,1,6.01,6.01,West,Los Angeles,CUST-1166
+ORD-GRO-10793,2025-01-03,Aged Cheddar Cheese Wedge,Grocery,1,8.9,8.9,North,Boston,CUST-1153
+ORD-GRO-10909,2025-01-03,Himalayan Pink Salt Grinder,Grocery,4,6.95,27.8,South,Atlanta,CUST-1003
+ORD-GRO-11304,2025-01-03,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.52,5.52,West,Seattle,CUST-1078
+ORD-GRO-10452,2025-01-04,Free-Range Brown Eggs (12ct),Grocery,3,4.62,13.86,Central,Austin,CUST-1094
+ORD-GRO-11056,2025-01-04,Single-Origin Coffee Beans (12oz),Grocery,1,15.59,15.59,West,Seattle,CUST-1030
+ORD-GRO-11033,2025-01-05,Aged Cheddar Cheese Wedge,Grocery,3,9.01,27.03,East,Charlotte,CUST-1031
+ORD-GRO-11487,2025-01-05,Free-Range Brown Eggs (12ct),Grocery,1,4.67,4.67,Central,Austin,CUST-1023
+ORD-GRO-11106,2025-01-06,Aged Cheddar Cheese Wedge,Grocery,2,9.14,18.28,North,Chicago,CUST-1156
+ORD-GRO-10996,2025-01-07,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.28,5.28,Central,Denver,CUST-1094
+ORD-GRO-11189,2025-01-07,Free-Range Brown Eggs (12ct),Grocery,1,4.95,4.95,South,Miami,CUST-1107
+ORD-GRO-11092,2025-01-08,Aged Cheddar Cheese Wedge,Grocery,1,8.63,8.63,West,Seattle,CUST-1106
+ORD-GRO-11406,2025-01-08,Extra Virgin Olive Oil 500ml,Grocery,1,15.02,15.02,South,Atlanta,CUST-1102
+ORD-GRO-10293,2025-01-09,Extra Virgin Olive Oil 500ml,Grocery,1,14.54,14.54,Central,Denver,CUST-1012
+ORD-GRO-11492,2025-01-09,Aged Cheddar Cheese Wedge,Grocery,1,9.07,9.07,East,Philadelphia,CUST-1124
+ORD-GRO-10783,2025-01-10,Organic Fresh Strawberries,Grocery,1,5.04,5.04,South,Dallas,CUST-1126
+ORD-GRO-10797,2025-01-10,Organic Fresh Strawberries,Grocery,2,4.86,9.72,North,Chicago,CUST-1103
+ORD-GRO-10997,2025-01-10,Extra Virgin Olive Oil 500ml,Grocery,2,15.21,30.42,Central,Kansas City,CUST-1199
+ORD-GRO-10444,2025-01-11,Single-Origin Coffee Beans (12oz),Grocery,2,14.94,29.88,South,Dallas,CUST-1174
+ORD-GRO-11059,2025-01-11,Extra Virgin Olive Oil 500ml,Grocery,2,14.26,28.52,North,Boston,CUST-1113
+ORD-GRO-11122,2025-01-11,Extra Virgin Olive Oil 500ml,Grocery,1,15.66,15.66,Central,Austin,CUST-1198
+ORD-GRO-10107,2025-01-12,Aged Cheddar Cheese Wedge,Grocery,1,9.0,9.0,Central,Austin,CUST-1091
+ORD-GRO-10785,2025-01-12,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.67,5.67,North,Chicago,CUST-1019
+ORD-GRO-11346,2025-01-12,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.25,5.25,West,San Francisco,CUST-1128
+ORD-GRO-10054,2025-01-13,Extra Virgin Olive Oil 500ml,Grocery,1,14.88,14.88,West,Los Angeles,CUST-1092
+ORD-GRO-10526,2025-01-13,Extra Virgin Olive Oil 500ml,Grocery,1,14.91,14.91,East,Washington D.C.,CUST-1058
+ORD-GRO-10672,2025-01-13,Organic Fresh Strawberries,Grocery,1,4.76,4.76,West,Seattle,CUST-1121
+ORD-GRO-10283,2025-01-14,Artisan Sourdough Loaf,Grocery,1,6.14,6.14,West,Seattle,CUST-1064
+ORD-GRO-10564,2025-01-15,Single-Origin Coffee Beans (12oz),Grocery,1,15.63,15.63,North,Boston,CUST-1014
+ORD-GRO-10191,2025-01-16,Extra Virgin Olive Oil 500ml,Grocery,1,15.07,15.07,Central,Kansas City,CUST-1085
+ORD-GRO-10476,2025-01-16,Aged Cheddar Cheese Wedge,Grocery,1,9.37,9.37,North,Chicago,CUST-1035
+ORD-GRO-11014,2025-01-16,Aged Cheddar Cheese Wedge,Grocery,1,8.99,8.99,West,Los Angeles,CUST-1007
+ORD-GRO-11023,2025-01-16,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.37,5.37,East,Charlotte,CUST-1023
+ORD-GRO-11204,2025-01-16,Single-Origin Coffee Beans (12oz),Grocery,1,15.7,15.7,North,Chicago,CUST-1032
+ORD-GRO-10364,2025-01-17,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.55,11.1,Central,Austin,CUST-1169
+ORD-GRO-10812,2025-01-17,Extra Virgin Olive Oil 500ml,Grocery,3,15.38,46.14,North,Chicago,CUST-1014
+ORD-GRO-10981,2025-01-17,Extra Virgin Olive Oil 500ml,Grocery,1,14.93,14.93,West,Seattle,CUST-1052
+ORD-GRO-11034,2025-01-17,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.68,5.68,North,New York,CUST-1082
+ORD-GRO-10152,2025-01-18,Himalayan Pink Salt Grinder,Grocery,1,6.94,6.94,Central,Kansas City,CUST-1047
+ORD-GRO-11105,2025-01-18,Artisan Sourdough Loaf,Grocery,1,6.14,6.14,South,Miami,CUST-1038
+ORD-GRO-11367,2025-01-18,Aged Cheddar Cheese Wedge,Grocery,1,8.86,8.86,East,Charlotte,CUST-1096
+ORD-GRO-11380,2025-01-18,Extra Virgin Olive Oil 500ml,Grocery,1,15.3,15.3,South,Dallas,CUST-1029
+ORD-GRO-11027,2025-01-19,Artisan Sourdough Loaf,Grocery,1,5.94,5.94,West,Seattle,CUST-1045
+ORD-GRO-11232,2025-01-19,Artisan Sourdough Loaf,Grocery,1,5.97,5.97,Central,Kansas City,CUST-1061
+ORD-GRO-11422,2025-01-19,Artisan Sourdough Loaf,Grocery,3,6.42,19.26,East,Washington D.C.,CUST-1162
+ORD-GRO-10231,2025-01-20,Extra Virgin Olive Oil 500ml,Grocery,2,14.48,28.96,Central,Denver,CUST-1185
+ORD-GRO-10675,2025-01-20,Himalayan Pink Salt Grinder,Grocery,2,7.1,14.2,North,Chicago,CUST-1065
+ORD-GRO-10676,2025-01-20,Organic Fresh Strawberries,Grocery,1,5.0,5.0,West,Seattle,CUST-1124
+ORD-GRO-10773,2025-01-21,Free-Range Brown Eggs (12ct),Grocery,1,4.91,4.91,North,Boston,CUST-1181
+ORD-GRO-11207,2025-01-21,Organic Fresh Strawberries,Grocery,1,4.79,4.79,South,Miami,CUST-1117
+ORD-GRO-11219,2025-01-21,Aged Cheddar Cheese Wedge,Grocery,2,9.25,18.5,South,Atlanta,CUST-1130
+ORD-GRO-11266,2025-01-21,Free-Range Brown Eggs (12ct),Grocery,2,4.99,9.98,South,Atlanta,CUST-1114
+ORD-GRO-11362,2025-01-21,Extra Virgin Olive Oil 500ml,Grocery,1,14.95,14.95,Central,Kansas City,CUST-1111
+ORD-GRO-10515,2025-01-22,Free-Range Brown Eggs (12ct),Grocery,1,4.82,4.82,East,Charlotte,CUST-1167
+ORD-GRO-10847,2025-01-22,Himalayan Pink Salt Grinder,Grocery,1,6.87,6.87,West,San Francisco,CUST-1169
+ORD-GRO-10012,2025-01-23,Single-Origin Coffee Beans (12oz),Grocery,1,16.26,16.26,Central,Denver,CUST-1176
+ORD-GRO-10038,2025-01-23,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.76,5.76,East,Washington D.C.,CUST-1109
+ORD-GRO-10068,2025-01-23,Extra Virgin Olive Oil 500ml,Grocery,1,15.16,15.16,Central,Denver,CUST-1078
+ORD-GRO-10370,2025-01-23,Himalayan Pink Salt Grinder,Grocery,1,7.24,7.24,North,Chicago,CUST-1044
+ORD-GRO-11460,2025-01-23,Extra Virgin Olive Oil 500ml,Grocery,1,14.8,14.8,South,Dallas,CUST-1197
+ORD-GRO-10006,2025-01-24,Artisan Sourdough Loaf,Grocery,1,6.16,6.16,West,Los Angeles,CUST-1187
+ORD-GRO-11029,2025-01-25,Single-Origin Coffee Beans (12oz),Grocery,1,15.58,15.58,West,San Francisco,CUST-1078
+ORD-GRO-10490,2025-01-26,Himalayan Pink Salt Grinder,Grocery,1,6.96,6.96,South,Miami,CUST-1072
+ORD-GRO-10825,2025-01-26,Organic Fresh Strawberries,Grocery,1,4.95,4.95,East,Washington D.C.,CUST-1155
+ORD-GRO-10074,2025-01-28,Aged Cheddar Cheese Wedge,Grocery,1,8.86,8.86,North,New York,CUST-1200
+ORD-GRO-10703,2025-01-28,Himalayan Pink Salt Grinder,Grocery,1,7.28,7.28,Central,Denver,CUST-1199
+ORD-GRO-11108,2025-01-28,Single-Origin Coffee Beans (12oz),Grocery,2,15.72,31.44,North,Chicago,CUST-1061
+ORD-GRO-11270,2025-01-28,Aged Cheddar Cheese Wedge,Grocery,3,9.21,27.63,Central,Denver,CUST-1087
+ORD-GRO-11368,2025-01-28,Aged Cheddar Cheese Wedge,Grocery,4,8.78,35.12,North,Boston,CUST-1010
+ORD-GRO-10064,2025-01-29,Organic Fresh Strawberries,Grocery,2,4.87,9.74,North,Chicago,CUST-1138
+ORD-GRO-10763,2025-01-29,Aged Cheddar Cheese Wedge,Grocery,4,8.72,34.88,South,Miami,CUST-1189
+ORD-GRO-11057,2025-01-29,Single-Origin Coffee Beans (12oz),Grocery,2,15.43,30.86,East,Philadelphia,CUST-1142
+ORD-GRO-10255,2025-01-30,Free-Range Brown Eggs (12ct),Grocery,1,5.03,5.03,East,Washington D.C.,CUST-1133
+ORD-GRO-10451,2025-01-30,Artisan Sourdough Loaf,Grocery,1,6.09,6.09,North,Chicago,CUST-1004
+ORD-GRO-10640,2025-01-30,Single-Origin Coffee Beans (12oz),Grocery,1,15.56,15.56,Central,Austin,CUST-1132
+ORD-GRO-11315,2025-01-30,Organic Fresh Strawberries,Grocery,1,4.98,4.98,East,Charlotte,CUST-1078
+ORD-GRO-10499,2025-02-01,Free-Range Brown Eggs (12ct),Grocery,4,5.01,20.04,South,Atlanta,CUST-1061
+ORD-GRO-10942,2025-02-01,Free-Range Brown Eggs (12ct),Grocery,1,5.04,5.04,West,Los Angeles,CUST-1113
+ORD-GRO-11348,2025-02-01,Extra Virgin Olive Oil 500ml,Grocery,1,14.74,14.74,West,San Francisco,CUST-1124
+ORD-GRO-10376,2025-02-02,Free-Range Brown Eggs (12ct),Grocery,2,4.74,9.48,North,Chicago,CUST-1191
+ORD-GRO-11473,2025-02-02,Extra Virgin Olive Oil 500ml,Grocery,1,14.4,14.4,North,New York,CUST-1040
+ORD-GRO-10947,2025-02-03,Single-Origin Coffee Beans (12oz),Grocery,1,14.96,14.96,East,Charlotte,CUST-1001
+ORD-GRO-11103,2025-02-03,Organic Fresh Strawberries,Grocery,1,5.21,5.21,North,New York,CUST-1055
+ORD-GRO-11496,2025-02-03,Himalayan Pink Salt Grinder,Grocery,1,7.28,7.28,North,New York,CUST-1147
+ORD-GRO-11412,2025-02-05,Single-Origin Coffee Beans (12oz),Grocery,2,16.25,32.5,South,Atlanta,CUST-1141
+ORD-GRO-11413,2025-02-05,Free-Range Brown Eggs (12ct),Grocery,1,4.76,4.76,West,Seattle,CUST-1101
+ORD-GRO-11119,2025-02-06,Himalayan Pink Salt Grinder,Grocery,3,7.52,22.56,South,Atlanta,CUST-1006
+ORD-GRO-11160,2025-02-06,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.26,15.78,West,Seattle,CUST-1151
+ORD-GRO-10707,2025-02-08,Himalayan Pink Salt Grinder,Grocery,1,7.26,7.26,North,New York,CUST-1141
+ORD-GRO-11163,2025-02-08,Artisan Sourdough Loaf,Grocery,2,5.95,11.9,East,Charlotte,CUST-1104
+ORD-GRO-11242,2025-02-08,Artisan Sourdough Loaf,Grocery,2,6.46,12.92,West,Seattle,CUST-1054
+ORD-GRO-11467,2025-02-08,Free-Range Brown Eggs (12ct),Grocery,1,4.7,4.7,South,Dallas,CUST-1069
+ORD-GRO-10768,2025-02-09,Organic Fresh Strawberries,Grocery,1,4.74,4.74,East,Charlotte,CUST-1153
+ORD-GRO-10368,2025-02-10,Artisan Sourdough Loaf,Grocery,1,6.17,6.17,Central,Denver,CUST-1179
+ORD-GRO-10732,2025-02-11,Artisan Sourdough Loaf,Grocery,1,6.37,6.37,West,Seattle,CUST-1162
+ORD-GRO-10028,2025-02-12,Free-Range Brown Eggs (12ct),Grocery,1,4.77,4.77,North,New York,CUST-1058
+ORD-GRO-11332,2025-02-12,Organic Fresh Strawberries,Grocery,1,4.94,4.94,North,Chicago,CUST-1035
+ORD-GRO-10115,2025-02-14,Aged Cheddar Cheese Wedge,Grocery,1,8.57,8.57,North,New York,CUST-1039
+ORD-GRO-10700,2025-02-14,Free-Range Brown Eggs (12ct),Grocery,1,4.94,4.94,North,New York,CUST-1100
+ORD-GRO-10963,2025-02-15,Free-Range Brown Eggs (12ct),Grocery,2,4.62,9.24,Central,Denver,CUST-1083
+ORD-GRO-11197,2025-02-15,Single-Origin Coffee Beans (12oz),Grocery,1,15.84,15.84,West,Los Angeles,CUST-1072
+ORD-GRO-11210,2025-02-16,Himalayan Pink Salt Grinder,Grocery,1,7.47,7.47,East,Washington D.C.,CUST-1177
+ORD-GRO-10559,2025-02-18,Himalayan Pink Salt Grinder,Grocery,1,7.37,7.37,Central,Denver,CUST-1088
+ORD-GRO-11015,2025-02-18,Aged Cheddar Cheese Wedge,Grocery,3,9.19,27.57,West,Los Angeles,CUST-1002
+ORD-GRO-10900,2025-02-19,Artisan Sourdough Loaf,Grocery,2,6.31,12.62,Central,Austin,CUST-1084
+ORD-GRO-11456,2025-02-19,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.55,16.65,North,Chicago,CUST-1109
+ORD-GRO-11234,2025-02-20,Artisan Sourdough Loaf,Grocery,1,6.24,6.24,South,Atlanta,CUST-1069
+ORD-GRO-11236,2025-02-20,Aged Cheddar Cheese Wedge,Grocery,1,8.58,8.58,South,Atlanta,CUST-1096
+ORD-GRO-11258,2025-02-20,Single-Origin Coffee Beans (12oz),Grocery,1,14.91,14.91,East,Washington D.C.,CUST-1133
+ORD-GRO-11442,2025-02-20,Artisan Sourdough Loaf,Grocery,1,6.14,6.14,West,Seattle,CUST-1038
+ORD-GRO-10082,2025-02-21,Free-Range Brown Eggs (12ct),Grocery,1,4.82,4.82,South,Miami,CUST-1100
+ORD-GRO-10647,2025-02-21,Himalayan Pink Salt Grinder,Grocery,1,7.16,7.16,West,Los Angeles,CUST-1100
+ORD-GRO-11058,2025-02-21,Single-Origin Coffee Beans (12oz),Grocery,1,16.25,16.25,North,Boston,CUST-1174
+ORD-GRO-11382,2025-02-22,Aged Cheddar Cheese Wedge,Grocery,1,9.06,9.06,South,Atlanta,CUST-1076
+ORD-GRO-10271,2025-02-23,Artisan Sourdough Loaf,Grocery,1,6.02,6.02,North,Boston,CUST-1120
+ORD-GRO-10537,2025-02-24,Single-Origin Coffee Beans (12oz),Grocery,1,15.32,15.32,Central,Austin,CUST-1010
+ORD-GRO-11117,2025-02-24,Free-Range Brown Eggs (12ct),Grocery,3,4.78,14.34,South,Miami,CUST-1045
+ORD-GRO-11269,2025-02-24,Organic Fresh Strawberries,Grocery,2,5.17,10.34,Central,Denver,CUST-1117
+ORD-GRO-11466,2025-02-24,Artisan Sourdough Loaf,Grocery,1,6.51,6.51,West,Los Angeles,CUST-1121
+ORD-GRO-10350,2025-02-26,Himalayan Pink Salt Grinder,Grocery,1,7.24,7.24,South,Miami,CUST-1053
+ORD-GRO-10979,2025-02-26,Organic Fresh Strawberries,Grocery,1,4.93,4.93,East,Charlotte,CUST-1125
+ORD-GRO-11112,2025-02-26,Free-Range Brown Eggs (12ct),Grocery,3,4.9,14.7,North,New York,CUST-1179
+ORD-GRO-10741,2025-02-27,Extra Virgin Olive Oil 500ml,Grocery,1,14.52,14.52,South,Dallas,CUST-1065
+ORD-GRO-10859,2025-02-27,Organic Fresh Strawberries,Grocery,1,5.09,5.09,North,Chicago,CUST-1187
+ORD-GRO-10870,2025-02-27,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.67,5.67,West,San Francisco,CUST-1138
+ORD-GRO-11193,2025-02-27,Himalayan Pink Salt Grinder,Grocery,4,7.49,29.96,Central,Kansas City,CUST-1093
+ORD-GRO-10140,2025-02-28,Free-Range Brown Eggs (12ct),Grocery,1,5.01,5.01,North,Boston,CUST-1186
+ORD-GRO-10239,2025-02-28,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.43,5.43,East,Philadelphia,CUST-1096
+ORD-GRO-10965,2025-03-01,Extra Virgin Olive Oil 500ml,Grocery,1,15.28,15.28,East,Philadelphia,CUST-1149
+ORD-GRO-10359,2025-03-03,Single-Origin Coffee Beans (12oz),Grocery,1,14.96,14.96,East,Charlotte,CUST-1063
+ORD-GRO-10235,2025-03-04,Extra Virgin Olive Oil 500ml,Grocery,2,15.47,30.94,South,Miami,CUST-1014
+ORD-GRO-10583,2025-03-04,Artisan Sourdough Loaf,Grocery,1,6.26,6.26,West,Los Angeles,CUST-1028
+ORD-GRO-11483,2025-03-04,Organic Fresh Strawberries,Grocery,1,4.9,4.9,North,New York,CUST-1014
+ORD-GRO-10342,2025-03-05,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.35,5.35,Central,Denver,CUST-1115
+ORD-GRO-11493,2025-03-05,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.31,5.31,South,Miami,CUST-1012
+ORD-GRO-11006,2025-03-06,Aged Cheddar Cheese Wedge,Grocery,1,9.16,9.16,South,Atlanta,CUST-1006
+ORD-GRO-10388,2025-03-07,Single-Origin Coffee Beans (12oz),Grocery,1,15.48,15.48,West,Los Angeles,CUST-1185
+ORD-GRO-10416,2025-03-09,Extra Virgin Olive Oil 500ml,Grocery,1,14.97,14.97,South,Dallas,CUST-1043
+ORD-GRO-11375,2025-03-09,Extra Virgin Olive Oil 500ml,Grocery,1,15.48,15.48,West,San Francisco,CUST-1137
+ORD-GRO-10727,2025-03-10,Organic Fresh Strawberries,Grocery,2,4.95,9.9,West,Seattle,CUST-1072
+ORD-GRO-11025,2025-03-10,Himalayan Pink Salt Grinder,Grocery,1,6.94,6.94,North,New York,CUST-1054
+ORD-GRO-11371,2025-03-10,Organic Fresh Strawberries,Grocery,1,4.86,4.86,West,San Francisco,CUST-1181
+ORD-GRO-10075,2025-03-11,Organic Fresh Strawberries,Grocery,4,4.83,19.32,Central,Austin,CUST-1013
+ORD-GRO-11046,2025-03-11,Artisan Sourdough Loaf,Grocery,2,5.99,11.98,East,Philadelphia,CUST-1051
+ORD-GRO-11209,2025-03-11,Extra Virgin Olive Oil 500ml,Grocery,1,14.95,14.95,West,San Francisco,CUST-1135
+ORD-GRO-10078,2025-03-12,Aged Cheddar Cheese Wedge,Grocery,2,9.31,18.62,East,Washington D.C.,CUST-1067
+ORD-GRO-10347,2025-03-13,Aged Cheddar Cheese Wedge,Grocery,1,8.54,8.54,East,Charlotte,CUST-1082
+ORD-GRO-10661,2025-03-14,Extra Virgin Olive Oil 500ml,Grocery,1,14.25,14.25,South,Dallas,CUST-1190
+ORD-GRO-10118,2025-03-15,Single-Origin Coffee Beans (12oz),Grocery,1,15.61,15.61,North,New York,CUST-1161
+ORD-GRO-10691,2025-03-15,Organic Fresh Strawberries,Grocery,1,5.21,5.21,East,Washington D.C.,CUST-1151
+ORD-GRO-10187,2025-03-16,Artisan Sourdough Loaf,Grocery,1,6.43,6.43,Central,Kansas City,CUST-1056
+ORD-GRO-10188,2025-03-16,Aged Cheddar Cheese Wedge,Grocery,1,9.3,9.3,East,Washington D.C.,CUST-1107
+ORD-GRO-10391,2025-03-16,Extra Virgin Olive Oil 500ml,Grocery,1,14.69,14.69,South,Miami,CUST-1081
+ORD-GRO-11183,2025-03-16,Artisan Sourdough Loaf,Grocery,1,6.32,6.32,South,Miami,CUST-1067
+ORD-GRO-10519,2025-03-17,Extra Virgin Olive Oil 500ml,Grocery,1,15.15,15.15,North,New York,CUST-1085
+ORD-GRO-11301,2025-03-18,Himalayan Pink Salt Grinder,Grocery,1,7.1,7.1,West,Seattle,CUST-1007
+ORD-GRO-11088,2025-03-19,Free-Range Brown Eggs (12ct),Grocery,1,4.66,4.66,Central,Kansas City,CUST-1117
+ORD-GRO-10063,2025-03-20,Free-Range Brown Eggs (12ct),Grocery,1,4.91,4.91,Central,Kansas City,CUST-1030
+ORD-GRO-11290,2025-03-20,Artisan Sourdough Loaf,Grocery,3,6.01,18.03,South,Atlanta,CUST-1050
+ORD-GRO-11426,2025-03-20,Single-Origin Coffee Beans (12oz),Grocery,1,15.61,15.61,North,Chicago,CUST-1138
+ORD-GRO-11469,2025-03-20,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.41,16.23,South,Atlanta,CUST-1049
+ORD-GRO-10904,2025-03-21,Free-Range Brown Eggs (12ct),Grocery,1,5.04,5.04,Central,Kansas City,CUST-1104
+ORD-GRO-11096,2025-03-22,Himalayan Pink Salt Grinder,Grocery,1,7.31,7.31,South,Miami,CUST-1035
+ORD-GRO-10238,2025-03-23,Artisan Sourdough Loaf,Grocery,1,6.53,6.53,East,Washington D.C.,CUST-1007
+ORD-GRO-10458,2025-03-23,Organic Fresh Strawberries,Grocery,1,4.77,4.77,East,Philadelphia,CUST-1117
+ORD-GRO-10507,2025-03-23,Aged Cheddar Cheese Wedge,Grocery,1,9.08,9.08,Central,Kansas City,CUST-1158
+ORD-GRO-10126,2025-03-24,Artisan Sourdough Loaf,Grocery,3,6.31,18.93,West,San Francisco,CUST-1065
+ORD-GRO-10135,2025-03-24,Aged Cheddar Cheese Wedge,Grocery,4,8.61,34.44,Central,Denver,CUST-1182
+ORD-GRO-10232,2025-03-24,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.44,10.88,South,Miami,CUST-1157
+ORD-GRO-10395,2025-03-24,Single-Origin Coffee Beans (12oz),Grocery,1,16.01,16.01,East,Charlotte,CUST-1128
+ORD-GRO-10774,2025-03-24,Single-Origin Coffee Beans (12oz),Grocery,1,15.57,15.57,Central,Denver,CUST-1140
+ORD-GRO-10425,2025-03-25,Artisan Sourdough Loaf,Grocery,1,6.42,6.42,Central,Kansas City,CUST-1090
+ORD-GRO-11265,2025-03-25,Artisan Sourdough Loaf,Grocery,1,6.33,6.33,North,New York,CUST-1009
+ORD-GRO-10114,2025-03-27,Free-Range Brown Eggs (12ct),Grocery,1,4.65,4.65,East,Philadelphia,CUST-1017
+ORD-GRO-10301,2025-03-27,Free-Range Brown Eggs (12ct),Grocery,1,4.76,4.76,South,Miami,CUST-1129
+ORD-GRO-10883,2025-03-27,Artisan Sourdough Loaf,Grocery,1,6.11,6.11,North,New York,CUST-1160
+ORD-GRO-10070,2025-03-28,Organic Fresh Strawberries,Grocery,2,5.0,10.0,South,Dallas,CUST-1022
+ORD-GRO-10852,2025-03-28,Artisan Sourdough Loaf,Grocery,1,6.31,6.31,Central,Austin,CUST-1159
+ORD-GRO-11138,2025-03-28,Free-Range Brown Eggs (12ct),Grocery,1,5.03,5.03,East,Washington D.C.,CUST-1029
+ORD-GRO-10036,2025-03-29,Artisan Sourdough Loaf,Grocery,4,5.97,23.88,North,New York,CUST-1193
+ORD-GRO-10830,2025-03-29,Single-Origin Coffee Beans (12oz),Grocery,1,14.96,14.96,South,Atlanta,CUST-1007
+ORD-GRO-11109,2025-03-29,Himalayan Pink Salt Grinder,Grocery,4,6.85,27.4,West,Seattle,CUST-1024
+ORD-GRO-10173,2025-03-31,Organic Fresh Strawberries,Grocery,1,5.17,5.17,West,San Francisco,CUST-1166
+ORD-GRO-10491,2025-04-01,Extra Virgin Olive Oil 500ml,Grocery,1,14.29,14.29,South,Dallas,CUST-1076
+ORD-GRO-10663,2025-04-01,Free-Range Brown Eggs (12ct),Grocery,1,4.93,4.93,North,New York,CUST-1166
+ORD-GRO-10604,2025-04-03,Artisan Sourdough Loaf,Grocery,1,6.47,6.47,North,Boston,CUST-1191
+ORD-GRO-10004,2025-04-04,Single-Origin Coffee Beans (12oz),Grocery,1,15.98,15.98,South,Dallas,CUST-1109
+ORD-GRO-10242,2025-04-04,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.71,5.71,South,Atlanta,CUST-1141
+ORD-GRO-10337,2025-04-04,Himalayan Pink Salt Grinder,Grocery,2,7.11,14.22,Central,Denver,CUST-1168
+ORD-GRO-10397,2025-04-04,Aged Cheddar Cheese Wedge,Grocery,1,9.02,9.02,East,Charlotte,CUST-1010
+ORD-GRO-10684,2025-04-04,Aged Cheddar Cheese Wedge,Grocery,1,9.28,9.28,East,Charlotte,CUST-1037
+ORD-GRO-10931,2025-04-04,Himalayan Pink Salt Grinder,Grocery,4,7.33,29.32,North,New York,CUST-1137
+ORD-GRO-11205,2025-04-04,Single-Origin Coffee Beans (12oz),Grocery,1,15.61,15.61,West,Los Angeles,CUST-1191
+ORD-GRO-11361,2025-04-04,Organic Fresh Strawberries,Grocery,2,4.88,9.76,North,Boston,CUST-1102
+ORD-GRO-10613,2025-04-06,Aged Cheddar Cheese Wedge,Grocery,4,9.09,36.36,South,Miami,CUST-1002
+ORD-GRO-10728,2025-04-06,Extra Virgin Olive Oil 500ml,Grocery,4,15.1,60.4,South,Atlanta,CUST-1185
+ORD-GRO-11381,2025-04-06,Organic Fresh Strawberries,Grocery,1,4.83,4.83,South,Atlanta,CUST-1067
+ORD-GRO-10021,2025-04-09,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.74,17.22,West,San Francisco,CUST-1196
+ORD-GRO-11114,2025-04-09,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.63,5.63,South,Dallas,CUST-1114
+ORD-GRO-11123,2025-04-09,Aged Cheddar Cheese Wedge,Grocery,2,8.61,17.22,South,Miami,CUST-1074
+ORD-GRO-11365,2025-04-09,Single-Origin Coffee Beans (12oz),Grocery,1,15.31,15.31,North,Boston,CUST-1035
+ORD-GRO-10132,2025-04-10,Artisan Sourdough Loaf,Grocery,1,6.13,6.13,East,Charlotte,CUST-1001
+ORD-GRO-10673,2025-04-10,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.24,5.24,North,Chicago,CUST-1134
+ORD-GRO-10709,2025-04-10,Himalayan Pink Salt Grinder,Grocery,1,7.25,7.25,East,Charlotte,CUST-1028
+ORD-GRO-11161,2025-04-10,Aged Cheddar Cheese Wedge,Grocery,1,9.06,9.06,South,Atlanta,CUST-1048
+ORD-GRO-10146,2025-04-12,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.61,5.61,South,Atlanta,CUST-1121
+ORD-GRO-11289,2025-04-12,Organic Fresh Strawberries,Grocery,1,4.92,4.92,South,Dallas,CUST-1160
+ORD-GRO-11325,2025-04-12,Free-Range Brown Eggs (12ct),Grocery,2,4.9,9.8,West,Seattle,CUST-1157
+ORD-GRO-10251,2025-04-13,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.38,5.38,South,Atlanta,CUST-1081
+ORD-GRO-11212,2025-04-13,Extra Virgin Olive Oil 500ml,Grocery,1,15.69,15.69,Central,Denver,CUST-1178
+ORD-GRO-11416,2025-04-13,Extra Virgin Olive Oil 500ml,Grocery,1,15.11,15.11,East,Washington D.C.,CUST-1038
+ORD-GRO-11450,2025-04-13,Extra Virgin Olive Oil 500ml,Grocery,1,14.9,14.9,East,Charlotte,CUST-1074
+ORD-GRO-10320,2025-04-14,Single-Origin Coffee Beans (12oz),Grocery,1,15.84,15.84,West,Seattle,CUST-1146
+ORD-GRO-10789,2025-04-14,Himalayan Pink Salt Grinder,Grocery,1,7.48,7.48,South,Dallas,CUST-1103
+ORD-GRO-10007,2025-04-15,Artisan Sourdough Loaf,Grocery,1,6.55,6.55,Central,Austin,CUST-1161
+ORD-GRO-10059,2025-04-16,Free-Range Brown Eggs (12ct),Grocery,2,4.71,9.42,South,Atlanta,CUST-1007
+ORD-GRO-11080,2025-04-16,Himalayan Pink Salt Grinder,Grocery,3,7.25,21.75,West,Los Angeles,CUST-1179
+ORD-GRO-10137,2025-04-17,Artisan Sourdough Loaf,Grocery,1,6.34,6.34,West,San Francisco,CUST-1181
+ORD-GRO-10489,2025-04-17,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.31,5.31,East,Washington D.C.,CUST-1008
+ORD-GRO-11035,2025-04-17,Extra Virgin Olive Oil 500ml,Grocery,1,14.78,14.78,West,Seattle,CUST-1163
+ORD-GRO-11309,2025-04-17,Free-Range Brown Eggs (12ct),Grocery,1,4.94,4.94,South,Miami,CUST-1198
+ORD-GRO-10992,2025-04-19,Extra Virgin Olive Oil 500ml,Grocery,1,15.55,15.55,West,San Francisco,CUST-1119
+ORD-GRO-10818,2025-04-21,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.25,10.5,West,Los Angeles,CUST-1005
+ORD-GRO-10983,2025-04-21,Aged Cheddar Cheese Wedge,Grocery,2,8.88,17.76,South,Miami,CUST-1155
+ORD-GRO-10356,2025-04-22,Free-Range Brown Eggs (12ct),Grocery,1,4.71,4.71,East,Washington D.C.,CUST-1026
+ORD-GRO-11282,2025-04-22,Organic Fresh Strawberries,Grocery,2,4.86,9.72,West,San Francisco,CUST-1097
+ORD-GRO-11396,2025-04-23,Extra Virgin Olive Oil 500ml,Grocery,4,15.58,62.32,East,Charlotte,CUST-1139
+ORD-GRO-10125,2025-04-24,Single-Origin Coffee Beans (12oz),Grocery,3,15.81,47.43,Central,Kansas City,CUST-1127
+ORD-GRO-11155,2025-04-24,Himalayan Pink Salt Grinder,Grocery,2,6.9,13.8,West,Los Angeles,CUST-1033
+ORD-GRO-10216,2025-04-25,Aged Cheddar Cheese Wedge,Grocery,2,9.07,18.14,Central,Denver,CUST-1091
+ORD-GRO-10357,2025-04-25,Free-Range Brown Eggs (12ct),Grocery,1,5.0,5.0,East,Philadelphia,CUST-1145
+ORD-GRO-11081,2025-04-25,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.76,5.76,East,Washington D.C.,CUST-1147
+ORD-GRO-11366,2025-04-25,Organic Fresh Strawberries,Grocery,1,4.82,4.82,North,Chicago,CUST-1187
+ORD-GRO-10090,2025-04-26,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.63,5.63,West,Los Angeles,CUST-1167
+ORD-GRO-10988,2025-04-26,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.45,5.45,North,Boston,CUST-1127
+ORD-GRO-11137,2025-04-26,Single-Origin Coffee Beans (12oz),Grocery,1,14.98,14.98,North,Boston,CUST-1011
+ORD-GRO-10313,2025-04-28,Artisan Sourdough Loaf,Grocery,1,6.36,6.36,Central,Denver,CUST-1105
+ORD-GRO-10466,2025-04-28,Free-Range Brown Eggs (12ct),Grocery,1,4.74,4.74,North,Chicago,CUST-1183
+ORD-GRO-10917,2025-04-28,Artisan Sourdough Loaf,Grocery,1,6.37,6.37,Central,Austin,CUST-1157
+ORD-GRO-10144,2025-04-29,Himalayan Pink Salt Grinder,Grocery,2,7.12,14.24,South,Miami,CUST-1010
+ORD-GRO-10190,2025-04-30,Artisan Sourdough Loaf,Grocery,1,5.99,5.99,East,Philadelphia,CUST-1191
+ORD-GRO-10220,2025-05-02,Extra Virgin Olive Oil 500ml,Grocery,1,15.68,15.68,West,San Francisco,CUST-1022
+ORD-GRO-10530,2025-05-02,Single-Origin Coffee Beans (12oz),Grocery,3,14.85,44.55,North,Chicago,CUST-1147
+ORD-GRO-10929,2025-05-02,Single-Origin Coffee Beans (12oz),Grocery,3,15.46,46.38,Central,Denver,CUST-1098
+ORD-GRO-11394,2025-05-02,Artisan Sourdough Loaf,Grocery,1,6.4,6.4,South,Dallas,CUST-1037
+ORD-GRO-11384,2025-05-04,Aged Cheddar Cheese Wedge,Grocery,1,9.1,9.1,North,Boston,CUST-1193
+ORD-GRO-10310,2025-05-05,Organic Fresh Strawberries,Grocery,1,4.84,4.84,Central,Kansas City,CUST-1070
+ORD-GRO-10680,2025-05-05,Aged Cheddar Cheese Wedge,Grocery,1,8.69,8.69,East,Philadelphia,CUST-1063
+ORD-GRO-11043,2025-05-06,Free-Range Brown Eggs (12ct),Grocery,1,4.71,4.71,East,Charlotte,CUST-1134
+ORD-GRO-10586,2025-05-07,Free-Range Brown Eggs (12ct),Grocery,1,4.67,4.67,North,New York,CUST-1147
+ORD-GRO-10194,2025-05-08,Organic Fresh Strawberries,Grocery,1,5.16,5.16,Central,Austin,CUST-1030
+ORD-GRO-10713,2025-05-08,Artisan Sourdough Loaf,Grocery,1,6.1,6.1,South,Dallas,CUST-1180
+ORD-GRO-10110,2025-05-10,Single-Origin Coffee Beans (12oz),Grocery,4,15.85,63.4,Central,Kansas City,CUST-1073
+ORD-GRO-10671,2025-05-10,Free-Range Brown Eggs (12ct),Grocery,2,4.58,9.16,South,Atlanta,CUST-1068
+ORD-GRO-10495,2025-05-11,Free-Range Brown Eggs (12ct),Grocery,1,5.0,5.0,East,Washington D.C.,CUST-1047
+ORD-GRO-11040,2025-05-11,Himalayan Pink Salt Grinder,Grocery,3,7.09,21.27,North,New York,CUST-1040
+ORD-GRO-10365,2025-05-14,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.22,5.22,North,New York,CUST-1136
+ORD-GRO-10736,2025-05-14,Aged Cheddar Cheese Wedge,Grocery,1,9.3,9.3,West,Seattle,CUST-1162
+ORD-GRO-10105,2025-05-15,Organic Fresh Strawberries,Grocery,1,5.09,5.09,East,Washington D.C.,CUST-1005
+ORD-GRO-11317,2025-05-15,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.32,5.32,East,Washington D.C.,CUST-1053
+ORD-GRO-11428,2025-05-15,Artisan Sourdough Loaf,Grocery,1,6.26,6.26,North,New York,CUST-1169
+ORD-GRO-11472,2025-05-15,Aged Cheddar Cheese Wedge,Grocery,2,9.22,18.44,West,Seattle,CUST-1129
+ORD-GRO-10172,2025-05-16,Himalayan Pink Salt Grinder,Grocery,1,7.52,7.52,West,Los Angeles,CUST-1114
+ORD-GRO-10417,2025-05-16,Single-Origin Coffee Beans (12oz),Grocery,1,14.94,14.94,East,Charlotte,CUST-1014
+ORD-GRO-11151,2025-05-16,Aged Cheddar Cheese Wedge,Grocery,1,9.29,9.29,Central,Kansas City,CUST-1109
+ORD-GRO-11211,2025-05-16,Himalayan Pink Salt Grinder,Grocery,1,7.43,7.43,South,Miami,CUST-1183
+ORD-GRO-10130,2025-05-18,Artisan Sourdough Loaf,Grocery,1,6.23,6.23,West,San Francisco,CUST-1027
+ORD-GRO-10602,2025-05-18,Free-Range Brown Eggs (12ct),Grocery,4,4.68,18.72,North,Chicago,CUST-1058
+ORD-GRO-10944,2025-05-18,Artisan Sourdough Loaf,Grocery,2,6.03,12.06,South,Dallas,CUST-1165
+ORD-GRO-11032,2025-05-18,Organic Fresh Strawberries,Grocery,2,4.75,9.5,East,Philadelphia,CUST-1154
+ORD-GRO-11072,2025-05-18,Himalayan Pink Salt Grinder,Grocery,2,6.94,13.88,East,Philadelphia,CUST-1146
+ORD-GRO-11180,2025-05-18,Artisan Sourdough Loaf,Grocery,3,6.43,19.29,East,Washington D.C.,CUST-1061
+ORD-GRO-11400,2025-05-18,Artisan Sourdough Loaf,Grocery,1,6.43,6.43,South,Dallas,CUST-1197
+ORD-GRO-10610,2025-05-19,Extra Virgin Olive Oil 500ml,Grocery,2,15.47,30.94,East,Philadelphia,CUST-1066
+ORD-GRO-11233,2025-05-19,Himalayan Pink Salt Grinder,Grocery,1,7.52,7.52,West,Seattle,CUST-1142
+ORD-GRO-11030,2025-05-20,Aged Cheddar Cheese Wedge,Grocery,2,8.7,17.4,South,Miami,CUST-1077
+ORD-GRO-10901,2025-05-21,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.27,10.54,Central,Kansas City,CUST-1001
+ORD-GRO-11124,2025-05-21,Himalayan Pink Salt Grinder,Grocery,3,6.93,20.79,Central,Denver,CUST-1073
+ORD-GRO-10154,2025-05-24,Extra Virgin Olive Oil 500ml,Grocery,1,14.59,14.59,East,Washington D.C.,CUST-1171
+ORD-GRO-10584,2025-05-24,Organic Fresh Strawberries,Grocery,2,5.04,10.08,Central,Denver,CUST-1092
+ORD-GRO-10974,2025-05-24,Extra Virgin Olive Oil 500ml,Grocery,3,14.48,43.44,North,Chicago,CUST-1094
+ORD-GRO-10134,2025-05-25,Aged Cheddar Cheese Wedge,Grocery,1,9.18,9.18,Central,Denver,CUST-1074
+ORD-GRO-10492,2025-05-25,Himalayan Pink Salt Grinder,Grocery,1,7.48,7.48,North,Boston,CUST-1099
+ORD-GRO-10760,2025-05-25,Free-Range Brown Eggs (12ct),Grocery,2,4.78,9.56,West,Los Angeles,CUST-1193
+ORD-GRO-10015,2025-05-26,Himalayan Pink Salt Grinder,Grocery,1,7.48,7.48,South,Miami,CUST-1036
+ORD-GRO-10360,2025-05-26,Free-Range Brown Eggs (12ct),Grocery,2,4.68,9.36,East,Washington D.C.,CUST-1044
+ORD-GRO-10956,2025-05-26,Aged Cheddar Cheese Wedge,Grocery,1,9.37,9.37,West,Los Angeles,CUST-1087
+ORD-GRO-11090,2025-05-26,Organic Fresh Strawberries,Grocery,2,5.07,10.14,East,Washington D.C.,CUST-1164
+ORD-GRO-11001,2025-05-28,Artisan Sourdough Loaf,Grocery,1,6.23,6.23,Central,Austin,CUST-1116
+ORD-GRO-11303,2025-05-28,Artisan Sourdough Loaf,Grocery,3,6.43,19.29,North,New York,CUST-1019
+ORD-GRO-10669,2025-05-29,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.58,11.16,Central,Kansas City,CUST-1043
+ORD-GRO-10723,2025-05-29,Free-Range Brown Eggs (12ct),Grocery,2,4.75,9.5,South,Miami,CUST-1031
+ORD-GRO-10182,2025-05-30,Organic Fresh Strawberries,Grocery,1,5.21,5.21,Central,Austin,CUST-1118
+ORD-GRO-10689,2025-05-30,Artisan Sourdough Loaf,Grocery,2,6.0,12.0,Central,Kansas City,CUST-1001
+ORD-GRO-11000,2025-05-30,Himalayan Pink Salt Grinder,Grocery,1,7.04,7.04,West,Seattle,CUST-1125
+ORD-GRO-11041,2025-05-30,Organic Fresh Strawberries,Grocery,2,5.16,10.32,Central,Kansas City,CUST-1177
+ORD-GRO-10221,2025-05-31,Extra Virgin Olive Oil 500ml,Grocery,2,14.3,28.6,East,Charlotte,CUST-1134
+ORD-GRO-10319,2025-05-31,Aged Cheddar Cheese Wedge,Grocery,2,8.75,17.5,West,Los Angeles,CUST-1188
+ORD-GRO-10790,2025-05-31,Free-Range Brown Eggs (12ct),Grocery,1,4.88,4.88,Central,Austin,CUST-1091
+ORD-GRO-10804,2025-05-31,Artisan Sourdough Loaf,Grocery,1,6.08,6.08,East,Philadelphia,CUST-1034
+ORD-GRO-10003,2025-06-01,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.52,11.04,Central,Austin,CUST-1057
+ORD-GRO-10287,2025-06-01,Aged Cheddar Cheese Wedge,Grocery,1,9.37,9.37,West,Los Angeles,CUST-1013
+ORD-GRO-10217,2025-06-03,Artisan Sourdough Loaf,Grocery,1,6.13,6.13,North,Boston,CUST-1074
+ORD-GRO-10561,2025-06-03,Single-Origin Coffee Beans (12oz),Grocery,2,16.04,32.08,Central,Denver,CUST-1076
+ORD-GRO-11187,2025-06-03,Artisan Sourdough Loaf,Grocery,1,6.04,6.04,South,Miami,CUST-1041
+ORD-GRO-10641,2025-06-04,Aged Cheddar Cheese Wedge,Grocery,1,8.94,8.94,South,Miami,CUST-1132
+ORD-GRO-11140,2025-06-04,Single-Origin Coffee Beans (12oz),Grocery,2,15.6,31.2,South,Dallas,CUST-1002
+ORD-GRO-11273,2025-06-05,Single-Origin Coffee Beans (12oz),Grocery,1,15.28,15.28,Central,Austin,CUST-1048
+ORD-GRO-10384,2025-06-08,Himalayan Pink Salt Grinder,Grocery,1,6.91,6.91,Central,Denver,CUST-1153
+ORD-GRO-10333,2025-06-09,Himalayan Pink Salt Grinder,Grocery,1,7.17,7.17,East,Charlotte,CUST-1079
+ORD-GRO-11275,2025-06-09,Free-Range Brown Eggs (12ct),Grocery,3,4.71,14.13,South,Atlanta,CUST-1121
+ORD-GRO-10631,2025-06-10,Artisan Sourdough Loaf,Grocery,1,6.17,6.17,Central,Austin,CUST-1034
+ORD-GRO-10670,2025-06-10,Extra Virgin Olive Oil 500ml,Grocery,1,14.91,14.91,Central,Kansas City,CUST-1038
+ORD-GRO-10678,2025-06-10,Single-Origin Coffee Beans (12oz),Grocery,1,15.05,15.05,West,San Francisco,CUST-1184
+ORD-GRO-10286,2025-06-11,Aged Cheddar Cheese Wedge,Grocery,1,8.95,8.95,North,New York,CUST-1101
+ORD-GRO-10948,2025-06-11,Aged Cheddar Cheese Wedge,Grocery,1,8.93,8.93,North,Chicago,CUST-1058
+ORD-GRO-10469,2025-06-12,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.74,5.74,East,Washington D.C.,CUST-1199
+ORD-GRO-10543,2025-06-12,Free-Range Brown Eggs (12ct),Grocery,1,4.95,4.95,South,Atlanta,CUST-1080
+ORD-GRO-10531,2025-06-13,Extra Virgin Olive Oil 500ml,Grocery,2,14.42,28.84,South,Atlanta,CUST-1055
+ORD-GRO-10557,2025-06-13,Organic Fresh Strawberries,Grocery,2,5.19,10.38,Central,Austin,CUST-1170
+ORD-GRO-10731,2025-06-13,Free-Range Brown Eggs (12ct),Grocery,1,4.94,4.94,Central,Kansas City,CUST-1013
+ORD-GRO-10303,2025-06-15,Organic Fresh Strawberries,Grocery,4,5.02,20.08,East,Charlotte,CUST-1097
+ORD-GRO-10442,2025-06-15,Aged Cheddar Cheese Wedge,Grocery,2,8.51,17.02,North,Boston,CUST-1178
+ORD-GRO-11433,2025-06-15,Single-Origin Coffee Beans (12oz),Grocery,1,15.75,15.75,Central,Austin,CUST-1178
+ORD-GRO-11068,2025-06-16,Aged Cheddar Cheese Wedge,Grocery,1,9.21,9.21,East,Washington D.C.,CUST-1130
+ORD-GRO-11386,2025-06-16,Single-Origin Coffee Beans (12oz),Grocery,1,16.17,16.17,West,San Francisco,CUST-1110
+ORD-GRO-11395,2025-06-16,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.29,10.58,West,San Francisco,CUST-1141
+ORD-GRO-10635,2025-06-17,Artisan Sourdough Loaf,Grocery,1,6.43,6.43,Central,Kansas City,CUST-1104
+ORD-GRO-10985,2025-06-18,Aged Cheddar Cheese Wedge,Grocery,1,9.27,9.27,East,Washington D.C.,CUST-1072
+ORD-GRO-10529,2025-06-19,Himalayan Pink Salt Grinder,Grocery,2,7.54,15.08,East,Charlotte,CUST-1061
+ORD-GRO-11060,2025-06-19,Artisan Sourdough Loaf,Grocery,1,6.01,6.01,Central,Denver,CUST-1190
+ORD-GRO-10779,2025-06-20,Aged Cheddar Cheese Wedge,Grocery,1,9.19,9.19,West,Seattle,CUST-1105
+ORD-GRO-10808,2025-06-20,Organic Fresh Strawberries,Grocery,1,4.86,4.86,East,Washington D.C.,CUST-1176
+ORD-GRO-10838,2025-06-21,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.5,5.5,North,New York,CUST-1133
+ORD-GRO-11498,2025-06-21,Single-Origin Coffee Beans (12oz),Grocery,1,15.2,15.2,West,San Francisco,CUST-1031
+ORD-GRO-11042,2025-06-22,Artisan Sourdough Loaf,Grocery,3,6.2,18.6,North,New York,CUST-1005
+ORD-GRO-11141,2025-06-22,Extra Virgin Olive Oil 500ml,Grocery,1,14.86,14.86,East,Charlotte,CUST-1025
+ORD-GRO-11296,2025-06-22,Aged Cheddar Cheese Wedge,Grocery,1,9.14,9.14,West,San Francisco,CUST-1103
+ORD-GRO-10372,2025-06-24,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.34,16.02,Central,Austin,CUST-1070
+ORD-GRO-11198,2025-06-24,Extra Virgin Olive Oil 500ml,Grocery,1,15.29,15.29,South,Dallas,CUST-1160
+ORD-GRO-11445,2025-06-25,Free-Range Brown Eggs (12ct),Grocery,3,4.9,14.7,Central,Austin,CUST-1156
+ORD-GRO-10497,2025-06-26,Free-Range Brown Eggs (12ct),Grocery,4,4.93,19.72,South,Atlanta,CUST-1064
+ORD-GRO-10566,2025-06-26,Single-Origin Coffee Beans (12oz),Grocery,3,15.37,46.11,South,Atlanta,CUST-1052
+ORD-GRO-10041,2025-06-27,Extra Virgin Olive Oil 500ml,Grocery,1,14.33,14.33,South,Atlanta,CUST-1153
+ORD-GRO-10077,2025-06-27,Free-Range Brown Eggs (12ct),Grocery,3,5.02,15.06,Central,Kansas City,CUST-1130
+ORD-GRO-10199,2025-06-27,Organic Fresh Strawberries,Grocery,1,4.93,4.93,South,Miami,CUST-1080
+ORD-GRO-10212,2025-06-27,Organic Fresh Strawberries,Grocery,1,5.19,5.19,South,Atlanta,CUST-1027
+ORD-GRO-10312,2025-06-27,Organic Fresh Strawberries,Grocery,1,5.06,5.06,East,Washington D.C.,CUST-1184
+ORD-GRO-10614,2025-06-27,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.52,5.52,Central,Austin,CUST-1131
+ORD-GRO-10206,2025-06-29,Organic Fresh Strawberries,Grocery,2,4.99,9.98,West,Los Angeles,CUST-1102
+ORD-GRO-11091,2025-06-29,Himalayan Pink Salt Grinder,Grocery,2,7.51,15.02,North,Chicago,CUST-1052
+ORD-GRO-11291,2025-06-29,Himalayan Pink Salt Grinder,Grocery,1,7.34,7.34,East,Charlotte,CUST-1063
+ORD-GRO-11495,2025-06-29,Artisan Sourdough Loaf,Grocery,2,6.04,12.08,East,Charlotte,CUST-1200
+ORD-GRO-10112,2025-06-30,Extra Virgin Olive Oil 500ml,Grocery,4,14.65,58.6,Central,Austin,CUST-1179
+ORD-GRO-10148,2025-06-30,Himalayan Pink Salt Grinder,Grocery,1,7.53,7.53,East,Charlotte,CUST-1010
+ORD-GRO-10572,2025-06-30,Organic Fresh Strawberries,Grocery,4,5.11,20.44,West,San Francisco,CUST-1049
+ORD-GRO-10950,2025-07-02,Free-Range Brown Eggs (12ct),Grocery,1,4.72,4.72,North,Chicago,CUST-1166
+ORD-GRO-10958,2025-07-03,Extra Virgin Olive Oil 500ml,Grocery,1,15.35,15.35,North,New York,CUST-1189
+ORD-GRO-10421,2025-07-04,Single-Origin Coffee Beans (12oz),Grocery,1,14.99,14.99,East,Charlotte,CUST-1131
+ORD-GRO-10711,2025-07-04,Single-Origin Coffee Beans (12oz),Grocery,4,15.8,63.2,Central,Austin,CUST-1198
+ORD-GRO-10839,2025-07-04,Himalayan Pink Salt Grinder,Grocery,1,7.55,7.55,East,Charlotte,CUST-1196
+ORD-GRO-11364,2025-07-04,Extra Virgin Olive Oil 500ml,Grocery,1,15.07,15.07,East,Washington D.C.,CUST-1079
+ORD-GRO-10230,2025-07-06,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.58,16.74,Central,Denver,CUST-1153
+ORD-GRO-10886,2025-07-07,Aged Cheddar Cheese Wedge,Grocery,1,8.55,8.55,North,New York,CUST-1099
+ORD-GRO-11237,2025-07-07,Extra Virgin Olive Oil 500ml,Grocery,1,15.41,15.41,East,Charlotte,CUST-1116
+ORD-GRO-10720,2025-07-08,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.68,5.68,West,Seattle,CUST-1148
+ORD-GRO-10040,2025-07-09,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.63,5.63,Central,Austin,CUST-1129
+ORD-GRO-10502,2025-07-09,Single-Origin Coffee Beans (12oz),Grocery,1,15.0,15.0,North,New York,CUST-1155
+ORD-GRO-10494,2025-07-10,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.76,11.52,West,Seattle,CUST-1140
+ORD-GRO-10667,2025-07-10,Aged Cheddar Cheese Wedge,Grocery,1,9.09,9.09,East,Philadelphia,CUST-1198
+ORD-GRO-11306,2025-07-10,Single-Origin Coffee Beans (12oz),Grocery,1,14.74,14.74,West,Seattle,CUST-1104
+ORD-GRO-10123,2025-07-11,Organic Fresh Strawberries,Grocery,3,5.06,15.18,South,Atlanta,CUST-1016
+ORD-GRO-10340,2025-07-11,Himalayan Pink Salt Grinder,Grocery,2,7.22,14.44,South,Miami,CUST-1089
+ORD-GRO-10652,2025-07-12,Single-Origin Coffee Beans (12oz),Grocery,1,16.21,16.21,West,Los Angeles,CUST-1142
+ORD-GRO-10908,2025-07-12,Organic Fresh Strawberries,Grocery,1,5.07,5.07,South,Dallas,CUST-1099
+ORD-GRO-10085,2025-07-13,Organic Fresh Strawberries,Grocery,1,4.98,4.98,East,Philadelphia,CUST-1100
+ORD-GRO-10453,2025-07-13,Extra Virgin Olive Oil 500ml,Grocery,4,15.38,61.52,North,New York,CUST-1151
+ORD-GRO-10843,2025-07-13,Extra Virgin Olive Oil 500ml,Grocery,1,14.83,14.83,North,New York,CUST-1117
+ORD-GRO-11016,2025-07-13,Free-Range Brown Eggs (12ct),Grocery,1,4.87,4.87,West,San Francisco,CUST-1171
+ORD-GRO-10619,2025-07-14,Free-Range Brown Eggs (12ct),Grocery,3,4.9,14.7,South,Atlanta,CUST-1054
+ORD-GRO-10654,2025-07-14,Artisan Sourdough Loaf,Grocery,2,6.13,12.26,West,Los Angeles,CUST-1106
+ORD-GRO-10743,2025-07-15,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.23,5.23,North,New York,CUST-1068
+ORD-GRO-10657,2025-07-16,Artisan Sourdough Loaf,Grocery,1,6.12,6.12,North,New York,CUST-1186
+ORD-GRO-10603,2025-07-17,Himalayan Pink Salt Grinder,Grocery,1,7.13,7.13,East,Washington D.C.,CUST-1147
+ORD-GRO-10634,2025-07-17,Free-Range Brown Eggs (12ct),Grocery,2,4.59,9.18,Central,Denver,CUST-1048
+ORD-GRO-11299,2025-07-17,Artisan Sourdough Loaf,Grocery,1,6.02,6.02,East,Charlotte,CUST-1091
+ORD-GRO-11437,2025-07-17,Single-Origin Coffee Beans (12oz),Grocery,1,15.13,15.13,South,Miami,CUST-1117
+ORD-GRO-11157,2025-07-18,Artisan Sourdough Loaf,Grocery,1,6.51,6.51,Central,Austin,CUST-1106
+ORD-GRO-10142,2025-07-19,Himalayan Pink Salt Grinder,Grocery,1,7.17,7.17,South,Dallas,CUST-1062
+ORD-GRO-10697,2025-07-19,Aged Cheddar Cheese Wedge,Grocery,1,8.66,8.66,East,Washington D.C.,CUST-1079
+ORD-GRO-11254,2025-07-19,Organic Fresh Strawberries,Grocery,1,5.07,5.07,Central,Kansas City,CUST-1045
+ORD-GRO-11436,2025-07-19,Organic Fresh Strawberries,Grocery,1,5.04,5.04,Central,Austin,CUST-1020
+ORD-GRO-11329,2025-07-20,Artisan Sourdough Loaf,Grocery,1,6.56,6.56,North,Chicago,CUST-1197
+ORD-GRO-11172,2025-07-21,Single-Origin Coffee Beans (12oz),Grocery,1,14.78,14.78,Central,Kansas City,CUST-1186
+ORD-GRO-11235,2025-07-21,Artisan Sourdough Loaf,Grocery,1,6.09,6.09,South,Miami,CUST-1146
+ORD-GRO-10653,2025-07-22,Extra Virgin Olive Oil 500ml,Grocery,1,14.43,14.43,Central,Austin,CUST-1138
+ORD-GRO-10104,2025-07-23,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.5,5.5,South,Dallas,CUST-1105
+ORD-GRO-10485,2025-07-23,Organic Fresh Strawberries,Grocery,1,4.79,4.79,South,Atlanta,CUST-1004
+ORD-GRO-10534,2025-07-23,Himalayan Pink Salt Grinder,Grocery,3,7.24,21.72,Central,Austin,CUST-1004
+ORD-GRO-10796,2025-07-23,Extra Virgin Olive Oil 500ml,Grocery,1,14.38,14.38,South,Atlanta,CUST-1068
+ORD-GRO-11028,2025-07-23,Aged Cheddar Cheese Wedge,Grocery,2,9.14,18.28,South,Atlanta,CUST-1048
+ORD-GRO-10076,2025-07-24,Organic Fresh Strawberries,Grocery,1,5.2,5.2,South,Miami,CUST-1171
+ORD-GRO-10224,2025-07-25,Himalayan Pink Salt Grinder,Grocery,2,7.04,14.08,Central,Denver,CUST-1086
+ORD-GRO-11120,2025-07-25,Organic Fresh Strawberries,Grocery,4,5.19,20.76,South,Miami,CUST-1180
+ORD-GRO-10710,2025-07-26,Artisan Sourdough Loaf,Grocery,1,6.25,6.25,North,Chicago,CUST-1066
+ORD-GRO-10807,2025-07-26,Organic Fresh Strawberries,Grocery,2,4.98,9.96,South,Dallas,CUST-1158
+ORD-GRO-11268,2025-07-26,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.38,5.38,North,Chicago,CUST-1193
+ORD-GRO-10884,2025-07-27,Artisan Sourdough Loaf,Grocery,1,6.07,6.07,West,Seattle,CUST-1037
+ORD-GRO-10906,2025-07-27,Free-Range Brown Eggs (12ct),Grocery,1,4.61,4.61,North,New York,CUST-1111
+ORD-GRO-10626,2025-07-29,Organic Fresh Strawberries,Grocery,1,5.11,5.11,South,Dallas,CUST-1179
+ORD-GRO-11074,2025-07-29,Extra Virgin Olive Oil 500ml,Grocery,1,15.0,15.0,East,Charlotte,CUST-1097
+ORD-GRO-11402,2025-07-29,Himalayan Pink Salt Grinder,Grocery,1,7.42,7.42,North,Boston,CUST-1023
+ORD-GRO-10116,2025-07-30,Single-Origin Coffee Beans (12oz),Grocery,1,14.86,14.86,Central,Austin,CUST-1156
+ORD-GRO-10862,2025-07-30,Aged Cheddar Cheese Wedge,Grocery,1,8.97,8.97,East,Philadelphia,CUST-1157
+ORD-GRO-10471,2025-07-31,Single-Origin Coffee Beans (12oz),Grocery,1,15.87,15.87,West,San Francisco,CUST-1127
+ORD-GRO-10683,2025-07-31,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.7,11.4,West,Los Angeles,CUST-1056
+ORD-GRO-11440,2025-07-31,Extra Virgin Olive Oil 500ml,Grocery,1,14.87,14.87,East,Washington D.C.,CUST-1007
+ORD-GRO-10215,2025-08-01,Free-Range Brown Eggs (12ct),Grocery,1,4.97,4.97,South,Miami,CUST-1018
+ORD-GRO-10696,2025-08-01,Free-Range Brown Eggs (12ct),Grocery,4,4.85,19.4,East,Philadelphia,CUST-1106
+ORD-GRO-10159,2025-08-02,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.72,11.44,West,Los Angeles,CUST-1156
+ORD-GRO-10511,2025-08-02,Artisan Sourdough Loaf,Grocery,1,6.52,6.52,North,New York,CUST-1089
+ORD-GRO-11494,2025-08-02,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.65,11.3,East,Washington D.C.,CUST-1176
+ORD-GRO-10262,2025-08-03,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.55,11.1,West,Seattle,CUST-1114
+ORD-GRO-10510,2025-08-04,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.32,5.32,Central,Denver,CUST-1164
+ORD-GRO-10915,2025-08-04,Aged Cheddar Cheese Wedge,Grocery,1,9.13,9.13,East,Charlotte,CUST-1021
+ORD-GRO-10798,2025-08-05,Organic Fresh Strawberries,Grocery,2,5.11,10.22,East,Philadelphia,CUST-1125
+ORD-GRO-11146,2025-08-05,Extra Virgin Olive Oil 500ml,Grocery,1,14.56,14.56,West,Seattle,CUST-1015
+ORD-GRO-11324,2025-08-05,Aged Cheddar Cheese Wedge,Grocery,1,8.91,8.91,North,Boston,CUST-1166
+ORD-GRO-10427,2025-08-06,Free-Range Brown Eggs (12ct),Grocery,1,4.82,4.82,South,Miami,CUST-1181
+ORD-GRO-11051,2025-08-06,Artisan Sourdough Loaf,Grocery,1,6.0,6.0,North,Chicago,CUST-1056
+ORD-GRO-10622,2025-08-07,Himalayan Pink Salt Grinder,Grocery,3,7.33,21.99,Central,Austin,CUST-1109
+ORD-GRO-11101,2025-08-07,Artisan Sourdough Loaf,Grocery,2,6.26,12.52,Central,Austin,CUST-1128
+ORD-GRO-10143,2025-08-08,Himalayan Pink Salt Grinder,Grocery,2,7.01,14.02,North,Boston,CUST-1191
+ORD-GRO-10468,2025-08-08,Free-Range Brown Eggs (12ct),Grocery,2,4.62,9.24,North,New York,CUST-1058
+ORD-GRO-10738,2025-08-08,Himalayan Pink Salt Grinder,Grocery,1,7.45,7.45,South,Miami,CUST-1059
+ORD-GRO-11223,2025-08-08,Single-Origin Coffee Beans (12oz),Grocery,1,15.59,15.59,Central,Denver,CUST-1050
+ORD-GRO-11377,2025-08-09,Free-Range Brown Eggs (12ct),Grocery,1,4.95,4.95,South,Dallas,CUST-1102
+ORD-GRO-11404,2025-08-09,Free-Range Brown Eggs (12ct),Grocery,1,4.62,4.62,East,Charlotte,CUST-1189
+ORD-GRO-10208,2025-08-10,Himalayan Pink Salt Grinder,Grocery,1,7.35,7.35,North,Boston,CUST-1006
+ORD-GRO-10308,2025-08-10,Himalayan Pink Salt Grinder,Grocery,1,7.48,7.48,West,Los Angeles,CUST-1075
+ORD-GRO-10919,2025-08-10,Free-Range Brown Eggs (12ct),Grocery,4,4.76,19.04,West,Seattle,CUST-1043
+ORD-GRO-10158,2025-08-11,Single-Origin Coffee Beans (12oz),Grocery,1,16.26,16.26,East,Washington D.C.,CUST-1003
+ORD-GRO-10735,2025-08-12,Extra Virgin Olive Oil 500ml,Grocery,1,15.71,15.71,West,San Francisco,CUST-1131
+ORD-GRO-10809,2025-08-12,Artisan Sourdough Loaf,Grocery,1,6.01,6.01,West,Seattle,CUST-1049
+ORD-GRO-11418,2025-08-12,Artisan Sourdough Loaf,Grocery,4,6.36,25.44,South,Miami,CUST-1110
+ORD-GRO-10032,2025-08-13,Aged Cheddar Cheese Wedge,Grocery,1,8.72,8.72,East,Philadelphia,CUST-1025
+ORD-GRO-10463,2025-08-13,Artisan Sourdough Loaf,Grocery,1,6.25,6.25,North,Boston,CUST-1146
+ORD-GRO-10431,2025-08-14,Single-Origin Coffee Beans (12oz),Grocery,1,15.7,15.7,North,Chicago,CUST-1197
+ORD-GRO-10698,2025-08-14,Free-Range Brown Eggs (12ct),Grocery,1,4.93,4.93,South,Dallas,CUST-1031
+ORD-GRO-10921,2025-08-15,Extra Virgin Olive Oil 500ml,Grocery,2,15.1,30.2,West,San Francisco,CUST-1160
+ORD-GRO-11280,2025-08-15,Free-Range Brown Eggs (12ct),Grocery,1,4.86,4.86,South,Atlanta,CUST-1117
+ORD-GRO-11039,2025-08-16,Free-Range Brown Eggs (12ct),Grocery,1,4.96,4.96,Central,Austin,CUST-1096
+ORD-GRO-11226,2025-08-16,Aged Cheddar Cheese Wedge,Grocery,1,8.58,8.58,West,Seattle,CUST-1151
+ORD-GRO-11307,2025-08-16,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.47,5.47,South,Miami,CUST-1059
+ORD-GRO-10658,2025-08-17,Aged Cheddar Cheese Wedge,Grocery,1,9.35,9.35,South,Atlanta,CUST-1073
+ORD-GRO-10999,2025-08-17,Organic Fresh Strawberries,Grocery,2,5.12,10.24,West,Seattle,CUST-1069
+ORD-GRO-10666,2025-08-18,Himalayan Pink Salt Grinder,Grocery,1,7.39,7.39,North,Chicago,CUST-1067
+ORD-GRO-11063,2025-08-18,Single-Origin Coffee Beans (12oz),Grocery,2,15.9,31.8,East,Washington D.C.,CUST-1122
+ORD-GRO-11206,2025-08-18,Organic Fresh Strawberries,Grocery,1,4.92,4.92,Central,Kansas City,CUST-1036
+ORD-GRO-10324,2025-08-19,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.36,5.36,South,Atlanta,CUST-1171
+ORD-GRO-10685,2025-08-19,Extra Virgin Olive Oil 500ml,Grocery,1,15.17,15.17,South,Dallas,CUST-1176
+ORD-GRO-10332,2025-08-20,Aged Cheddar Cheese Wedge,Grocery,1,8.58,8.58,North,Boston,CUST-1034
+ORD-GRO-10083,2025-08-21,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.69,11.38,East,Washington D.C.,CUST-1002
+ORD-GRO-10480,2025-08-21,Artisan Sourdough Loaf,Grocery,1,6.03,6.03,East,Washington D.C.,CUST-1105
+ORD-GRO-10554,2025-08-21,Artisan Sourdough Loaf,Grocery,4,5.94,23.76,West,San Francisco,CUST-1166
+ORD-GRO-10649,2025-08-22,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.6,5.6,Central,Denver,CUST-1075
+ORD-GRO-11159,2025-08-22,Artisan Sourdough Loaf,Grocery,1,6.42,6.42,East,Philadelphia,CUST-1047
+ORD-GRO-11285,2025-08-22,Free-Range Brown Eggs (12ct),Grocery,1,4.58,4.58,South,Miami,CUST-1045
+ORD-GRO-10548,2025-08-23,Free-Range Brown Eggs (12ct),Grocery,2,4.73,9.46,West,San Francisco,CUST-1177
+ORD-GRO-10578,2025-08-26,Extra Virgin Olive Oil 500ml,Grocery,2,14.43,28.86,North,Boston,CUST-1164
+ORD-GRO-10668,2025-08-26,Single-Origin Coffee Beans (12oz),Grocery,1,14.93,14.93,North,Boston,CUST-1094
+ORD-GRO-10595,2025-08-27,Aged Cheddar Cheese Wedge,Grocery,2,9.22,18.44,South,Dallas,CUST-1098
+ORD-GRO-10844,2025-08-27,Organic Fresh Strawberries,Grocery,1,5.18,5.18,West,San Francisco,CUST-1167
+ORD-GRO-11143,2025-08-27,Artisan Sourdough Loaf,Grocery,1,6.46,6.46,North,Boston,CUST-1182
+ORD-GRO-10924,2025-08-28,Extra Virgin Olive Oil 500ml,Grocery,1,15.23,15.23,South,Miami,CUST-1180
+ORD-GRO-10500,2025-08-29,Free-Range Brown Eggs (12ct),Grocery,2,4.95,9.9,Central,Denver,CUST-1181
+ORD-GRO-10899,2025-08-29,Aged Cheddar Cheese Wedge,Grocery,1,8.79,8.79,East,Philadelphia,CUST-1079
+ORD-GRO-11263,2025-08-29,Free-Range Brown Eggs (12ct),Grocery,1,4.96,4.96,East,Philadelphia,CUST-1088
+ORD-GRO-10955,2025-08-30,Organic Fresh Strawberries,Grocery,1,4.98,4.98,Central,Kansas City,CUST-1079
+ORD-GRO-10043,2025-08-31,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.56,5.56,Central,Kansas City,CUST-1134
+ORD-GRO-10555,2025-08-31,Single-Origin Coffee Beans (12oz),Grocery,1,15.19,15.19,North,Boston,CUST-1071
+ORD-GRO-10962,2025-09-01,Organic Fresh Strawberries,Grocery,1,4.77,4.77,West,San Francisco,CUST-1174
+ORD-GRO-10019,2025-09-02,Aged Cheddar Cheese Wedge,Grocery,4,8.98,35.92,North,Chicago,CUST-1185
+ORD-GRO-10117,2025-09-02,Organic Fresh Strawberries,Grocery,1,5.13,5.13,East,Washington D.C.,CUST-1151
+ORD-GRO-10329,2025-09-02,Artisan Sourdough Loaf,Grocery,1,6.27,6.27,West,Los Angeles,CUST-1145
+ORD-GRO-10245,2025-09-03,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.56,5.56,South,Miami,CUST-1110
+ORD-GRO-10748,2025-09-03,Aged Cheddar Cheese Wedge,Grocery,1,9.07,9.07,Central,Austin,CUST-1135
+ORD-GRO-10820,2025-09-03,Artisan Sourdough Loaf,Grocery,1,6.05,6.05,East,Charlotte,CUST-1183
+ORD-GRO-10343,2025-09-04,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.35,5.35,East,Philadelphia,CUST-1139
+ORD-GRO-10385,2025-09-04,Free-Range Brown Eggs (12ct),Grocery,1,4.97,4.97,East,Washington D.C.,CUST-1200
+ORD-GRO-10693,2025-09-04,Himalayan Pink Salt Grinder,Grocery,1,7.03,7.03,North,Chicago,CUST-1134
+ORD-GRO-10449,2025-09-06,Single-Origin Coffee Beans (12oz),Grocery,2,15.93,31.86,West,Los Angeles,CUST-1133
+ORD-GRO-10523,2025-09-06,Aged Cheddar Cheese Wedge,Grocery,1,8.68,8.68,South,Dallas,CUST-1075
+ORD-GRO-11401,2025-09-07,Artisan Sourdough Loaf,Grocery,1,6.34,6.34,East,Charlotte,CUST-1165
+ORD-GRO-11214,2025-09-08,Himalayan Pink Salt Grinder,Grocery,1,6.92,6.92,West,Los Angeles,CUST-1134
+ORD-GRO-10258,2025-09-09,Himalayan Pink Salt Grinder,Grocery,1,6.96,6.96,East,Philadelphia,CUST-1187
+ORD-GRO-10355,2025-09-10,Organic Fresh Strawberries,Grocery,1,4.94,4.94,West,Seattle,CUST-1098
+ORD-GRO-10677,2025-09-10,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.49,5.49,South,Atlanta,CUST-1020
+ORD-GRO-11441,2025-09-10,Organic Fresh Strawberries,Grocery,1,4.78,4.78,North,Chicago,CUST-1141
+ORD-GRO-10833,2025-09-11,Aged Cheddar Cheese Wedge,Grocery,1,9.14,9.14,East,Washington D.C.,CUST-1122
+ORD-GRO-10295,2025-09-12,Extra Virgin Olive Oil 500ml,Grocery,1,14.73,14.73,South,Miami,CUST-1158
+ORD-GRO-10616,2025-09-12,Free-Range Brown Eggs (12ct),Grocery,1,4.8,4.8,Central,Kansas City,CUST-1196
+ORD-GRO-10873,2025-09-12,Himalayan Pink Salt Grinder,Grocery,1,6.97,6.97,West,San Francisco,CUST-1081
+ORD-GRO-10027,2025-09-13,Himalayan Pink Salt Grinder,Grocery,3,7.53,22.59,South,Dallas,CUST-1080
+ORD-GRO-10282,2025-09-13,Extra Virgin Olive Oil 500ml,Grocery,2,14.71,29.42,West,Seattle,CUST-1034
+ORD-GRO-10450,2025-09-13,Organic Fresh Strawberries,Grocery,1,5.11,5.11,North,New York,CUST-1127
+ORD-GRO-10664,2025-09-13,Artisan Sourdough Loaf,Grocery,3,6.46,19.38,South,Dallas,CUST-1051
+ORD-GRO-11335,2025-09-13,Artisan Sourdough Loaf,Grocery,1,6.05,6.05,East,Philadelphia,CUST-1020
+ORD-GRO-10261,2025-09-14,Aged Cheddar Cheese Wedge,Grocery,1,8.53,8.53,West,Seattle,CUST-1099
+ORD-GRO-10851,2025-09-14,Aged Cheddar Cheese Wedge,Grocery,1,8.72,8.72,East,Washington D.C.,CUST-1105
+ORD-GRO-10243,2025-09-15,Himalayan Pink Salt Grinder,Grocery,1,6.92,6.92,West,Los Angeles,CUST-1013
+ORD-GRO-10792,2025-09-15,Organic Fresh Strawberries,Grocery,1,5.02,5.02,Central,Kansas City,CUST-1066
+ORD-GRO-10222,2025-09-16,Extra Virgin Olive Oil 500ml,Grocery,3,14.79,44.37,East,Washington D.C.,CUST-1199
+ORD-GRO-10292,2025-09-17,Artisan Sourdough Loaf,Grocery,1,6.02,6.02,West,Seattle,CUST-1143
+ORD-GRO-10611,2025-09-17,Organic Fresh Strawberries,Grocery,3,4.83,14.49,East,Philadelphia,CUST-1118
+ORD-GRO-10961,2025-09-17,Extra Virgin Olive Oil 500ml,Grocery,1,15.49,15.49,North,New York,CUST-1128
+ORD-GRO-10970,2025-09-17,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.54,11.08,Central,Denver,CUST-1161
+ORD-GRO-11243,2025-09-17,Free-Range Brown Eggs (12ct),Grocery,3,4.98,14.94,West,San Francisco,CUST-1116
+ORD-GRO-10048,2025-09-18,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.58,5.58,North,New York,CUST-1068
+ORD-GRO-10302,2025-09-18,Aged Cheddar Cheese Wedge,Grocery,2,9.28,18.56,North,Chicago,CUST-1036
+ORD-GRO-10459,2025-09-18,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.39,10.78,South,Atlanta,CUST-1004
+ORD-GRO-10831,2025-09-18,Single-Origin Coffee Beans (12oz),Grocery,1,15.66,15.66,Central,Denver,CUST-1060
+ORD-GRO-11173,2025-09-18,Aged Cheddar Cheese Wedge,Grocery,1,8.71,8.71,North,Boston,CUST-1148
+ORD-GRO-10399,2025-09-19,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.52,5.52,East,Washington D.C.,CUST-1111
+ORD-GRO-10378,2025-09-20,Himalayan Pink Salt Grinder,Grocery,1,7.54,7.54,West,Seattle,CUST-1126
+ORD-GRO-10100,2025-09-22,Aged Cheddar Cheese Wedge,Grocery,2,8.92,17.84,Central,Austin,CUST-1083
+ORD-GRO-10811,2025-09-23,Aged Cheddar Cheese Wedge,Grocery,1,9.06,9.06,South,Atlanta,CUST-1176
+ORD-GRO-11075,2025-09-23,Free-Range Brown Eggs (12ct),Grocery,1,4.93,4.93,North,New York,CUST-1152
+ORD-GRO-11351,2025-09-23,Artisan Sourdough Loaf,Grocery,2,6.13,12.26,South,Dallas,CUST-1021
+ORD-GRO-11480,2025-09-23,Organic Fresh Strawberries,Grocery,1,4.79,4.79,East,Charlotte,CUST-1079
+ORD-GRO-10149,2025-09-24,Artisan Sourdough Loaf,Grocery,2,6.08,12.16,West,Los Angeles,CUST-1192
+ORD-GRO-10413,2025-09-24,Extra Virgin Olive Oil 500ml,Grocery,2,15.46,30.92,West,San Francisco,CUST-1152
+ORD-GRO-10744,2025-09-24,Extra Virgin Olive Oil 500ml,Grocery,3,14.37,43.11,East,Washington D.C.,CUST-1059
+ORD-GRO-11463,2025-09-24,Aged Cheddar Cheese Wedge,Grocery,1,8.55,8.55,East,Washington D.C.,CUST-1077
+ORD-GRO-11476,2025-09-24,Extra Virgin Olive Oil 500ml,Grocery,1,15.33,15.33,West,Los Angeles,CUST-1068
+ORD-GRO-10008,2025-09-25,Free-Range Brown Eggs (12ct),Grocery,2,4.84,9.68,North,Chicago,CUST-1059
+ORD-GRO-10770,2025-09-25,Free-Range Brown Eggs (12ct),Grocery,4,5.01,20.04,North,New York,CUST-1092
+ORD-GRO-11199,2025-09-25,Aged Cheddar Cheese Wedge,Grocery,3,9.13,27.39,East,Philadelphia,CUST-1078
+ORD-GRO-11224,2025-09-25,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.74,5.74,East,Charlotte,CUST-1005
+ORD-GRO-11391,2025-09-25,Aged Cheddar Cheese Wedge,Grocery,2,8.96,17.92,North,Chicago,CUST-1083
+ORD-GRO-10659,2025-09-26,Artisan Sourdough Loaf,Grocery,1,6.5,6.5,East,Washington D.C.,CUST-1158
+ORD-GRO-10778,2025-09-27,Organic Fresh Strawberries,Grocery,1,4.9,4.9,Central,Austin,CUST-1049
+ORD-GRO-11002,2025-09-27,Free-Range Brown Eggs (12ct),Grocery,3,4.94,14.82,North,New York,CUST-1118
+ORD-GRO-10046,2025-09-28,Artisan Sourdough Loaf,Grocery,1,5.98,5.98,West,Los Angeles,CUST-1090
+ORD-GRO-10639,2025-09-28,Organic Fresh Strawberries,Grocery,2,5.22,10.44,West,Seattle,CUST-1030
+ORD-GRO-10850,2025-09-29,Single-Origin Coffee Beans (12oz),Grocery,1,14.74,14.74,East,Charlotte,CUST-1002
+ORD-GRO-11175,2025-09-29,Free-Range Brown Eggs (12ct),Grocery,1,4.78,4.78,South,Miami,CUST-1186
+ORD-GRO-10620,2025-10-01,Single-Origin Coffee Beans (12oz),Grocery,3,15.79,47.37,South,Dallas,CUST-1167
+ORD-GRO-10276,2025-10-02,Single-Origin Coffee Beans (12oz),Grocery,1,15.68,15.68,South,Dallas,CUST-1149
+ORD-GRO-10389,2025-10-02,Aged Cheddar Cheese Wedge,Grocery,1,9.03,9.03,North,New York,CUST-1078
+ORD-GRO-11077,2025-10-02,Free-Range Brown Eggs (12ct),Grocery,1,4.74,4.74,West,Seattle,CUST-1090
+ORD-GRO-11251,2025-10-02,Single-Origin Coffee Beans (12oz),Grocery,1,15.98,15.98,East,Washington D.C.,CUST-1010
+ORD-GRO-10437,2025-10-03,Aged Cheddar Cheese Wedge,Grocery,3,8.52,25.56,South,Miami,CUST-1117
+ORD-GRO-10643,2025-10-03,Artisan Sourdough Loaf,Grocery,1,6.07,6.07,South,Dallas,CUST-1109
+ORD-GRO-10973,2025-10-03,Organic Fresh Strawberries,Grocery,1,4.88,4.88,South,Dallas,CUST-1122
+ORD-GRO-10018,2025-10-04,Extra Virgin Olive Oil 500ml,Grocery,1,15.43,15.43,North,Boston,CUST-1098
+ORD-GRO-10096,2025-10-04,Organic Fresh Strawberries,Grocery,2,4.79,9.58,Central,Denver,CUST-1145
+ORD-GRO-10161,2025-10-04,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.39,5.39,Central,Austin,CUST-1188
+ORD-GRO-10214,2025-10-05,Aged Cheddar Cheese Wedge,Grocery,1,8.92,8.92,Central,Austin,CUST-1175
+ORD-GRO-10853,2025-10-05,Organic Fresh Strawberries,Grocery,1,4.76,4.76,West,Los Angeles,CUST-1038
+ORD-GRO-11037,2025-10-05,Extra Virgin Olive Oil 500ml,Grocery,1,15.39,15.39,South,Dallas,CUST-1083
+ORD-GRO-10765,2025-10-06,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.62,5.62,North,Boston,CUST-1124
+ORD-GRO-10860,2025-10-06,Artisan Sourdough Loaf,Grocery,2,6.24,12.48,West,Seattle,CUST-1156
+ORD-GRO-10840,2025-10-07,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.32,5.32,West,Seattle,CUST-1119
+ORD-GRO-11462,2025-10-08,Himalayan Pink Salt Grinder,Grocery,1,7.0,7.0,Central,Denver,CUST-1119
+ORD-GRO-10954,2025-10-09,Aged Cheddar Cheese Wedge,Grocery,1,9.16,9.16,South,Atlanta,CUST-1185
+ORD-GRO-10571,2025-10-10,Himalayan Pink Salt Grinder,Grocery,4,7.13,28.52,East,Philadelphia,CUST-1010
+ORD-GRO-10674,2025-10-10,Single-Origin Coffee Beans (12oz),Grocery,1,16.02,16.02,Central,Kansas City,CUST-1045
+ORD-GRO-10767,2025-10-10,Himalayan Pink Salt Grinder,Grocery,1,7.07,7.07,West,San Francisco,CUST-1031
+ORD-GRO-10565,2025-10-11,Artisan Sourdough Loaf,Grocery,1,6.23,6.23,North,Chicago,CUST-1098
+ORD-GRO-10846,2025-10-11,Free-Range Brown Eggs (12ct),Grocery,2,4.6,9.2,Central,Kansas City,CUST-1041
+ORD-GRO-10010,2025-10-12,Free-Range Brown Eggs (12ct),Grocery,1,4.64,4.64,West,San Francisco,CUST-1175
+ORD-GRO-10099,2025-10-12,Aged Cheddar Cheese Wedge,Grocery,1,9.14,9.14,Central,Kansas City,CUST-1070
+ORD-GRO-10434,2025-10-12,Free-Range Brown Eggs (12ct),Grocery,2,4.97,9.94,East,Philadelphia,CUST-1110
+ORD-GRO-11084,2025-10-12,Artisan Sourdough Loaf,Grocery,1,6.46,6.46,West,Seattle,CUST-1013
+ORD-GRO-11202,2025-10-12,Extra Virgin Olive Oil 500ml,Grocery,3,14.28,42.84,Central,Kansas City,CUST-1067
+ORD-GRO-10701,2025-10-13,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.66,11.32,East,Charlotte,CUST-1112
+ORD-GRO-11220,2025-10-13,Aged Cheddar Cheese Wedge,Grocery,2,9.18,18.36,South,Dallas,CUST-1084
+ORD-GRO-10260,2025-10-14,Himalayan Pink Salt Grinder,Grocery,2,7.1,14.2,South,Atlanta,CUST-1037
+ORD-GRO-10477,2025-10-14,Himalayan Pink Salt Grinder,Grocery,1,6.89,6.89,East,Charlotte,CUST-1034
+ORD-GRO-10932,2025-10-14,Free-Range Brown Eggs (12ct),Grocery,1,5.02,5.02,West,Seattle,CUST-1070
+ORD-GRO-10167,2025-10-15,Free-Range Brown Eggs (12ct),Grocery,1,4.61,4.61,North,Chicago,CUST-1144
+ORD-GRO-10766,2025-10-15,Single-Origin Coffee Beans (12oz),Grocery,3,15.03,45.09,South,Atlanta,CUST-1061
+ORD-GRO-11253,2025-10-15,Himalayan Pink Salt Grinder,Grocery,1,6.92,6.92,Central,Austin,CUST-1044
+ORD-GRO-11297,2025-10-15,Organic Farm Fresh Milk (1 Gal),Grocery,3,5.33,15.99,East,Philadelphia,CUST-1102
+ORD-GRO-10001,2025-10-16,Artisan Sourdough Loaf,Grocery,1,5.95,5.95,South,Atlanta,CUST-1189
+ORD-GRO-10556,2025-10-17,Free-Range Brown Eggs (12ct),Grocery,1,4.97,4.97,West,Los Angeles,CUST-1039
+ORD-GRO-10749,2025-10-17,Single-Origin Coffee Beans (12oz),Grocery,1,16.13,16.13,South,Atlanta,CUST-1114
+ORD-GRO-11031,2025-10-17,Aged Cheddar Cheese Wedge,Grocery,2,8.61,17.22,West,Seattle,CUST-1046
+ORD-GRO-11350,2025-10-17,Organic Fresh Strawberries,Grocery,2,4.99,9.98,North,New York,CUST-1006
+ORD-GRO-10061,2025-10-18,Himalayan Pink Salt Grinder,Grocery,2,7.33,14.66,West,Los Angeles,CUST-1030
+ORD-GRO-10236,2025-10-18,Aged Cheddar Cheese Wedge,Grocery,1,9.28,9.28,North,Chicago,CUST-1133
+ORD-GRO-10662,2025-10-18,Himalayan Pink Salt Grinder,Grocery,1,7.04,7.04,West,Seattle,CUST-1119
+ORD-GRO-10780,2025-10-18,Free-Range Brown Eggs (12ct),Grocery,1,4.61,4.61,North,New York,CUST-1034
+ORD-GRO-11115,2025-10-18,Extra Virgin Olive Oil 500ml,Grocery,1,14.25,14.25,West,Seattle,CUST-1148
+ORD-GRO-11424,2025-10-18,Organic Fresh Strawberries,Grocery,1,4.75,4.75,Central,Austin,CUST-1071
+ORD-GRO-10782,2025-10-19,Himalayan Pink Salt Grinder,Grocery,1,7.31,7.31,Central,Austin,CUST-1013
+ORD-GRO-11353,2025-10-19,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.35,10.7,East,Charlotte,CUST-1085
+ORD-GRO-10183,2025-10-20,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.25,5.25,East,Washington D.C.,CUST-1176
+ORD-GRO-10196,2025-10-20,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.55,11.1,West,Los Angeles,CUST-1047
+ORD-GRO-10601,2025-10-20,Extra Virgin Olive Oil 500ml,Grocery,1,15.0,15.0,East,Philadelphia,CUST-1020
+ORD-GRO-11111,2025-10-21,Himalayan Pink Salt Grinder,Grocery,1,7.41,7.41,North,Boston,CUST-1121
+ORD-GRO-11482,2025-10-21,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.38,5.38,West,Seattle,CUST-1183
+ORD-GRO-10487,2025-10-22,Artisan Sourdough Loaf,Grocery,1,6.3,6.3,North,New York,CUST-1017
+ORD-GRO-10771,2025-10-22,Extra Virgin Olive Oil 500ml,Grocery,2,15.29,30.58,South,Miami,CUST-1060
+ORD-GRO-11295,2025-10-22,Free-Range Brown Eggs (12ct),Grocery,1,4.8,4.8,West,San Francisco,CUST-1096
+ORD-GRO-10034,2025-10-23,Artisan Sourdough Loaf,Grocery,2,5.98,11.96,North,New York,CUST-1050
+ORD-GRO-10315,2025-10-23,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.71,5.71,Central,Denver,CUST-1137
+ORD-GRO-10655,2025-10-23,Extra Virgin Olive Oil 500ml,Grocery,1,14.48,14.48,West,Los Angeles,CUST-1030
+ORD-GRO-10754,2025-10-23,Himalayan Pink Salt Grinder,Grocery,1,7.44,7.44,North,Boston,CUST-1161
+ORD-GRO-10842,2025-10-23,Aged Cheddar Cheese Wedge,Grocery,1,8.58,8.58,South,Dallas,CUST-1179
+ORD-GRO-10253,2025-10-24,Organic Fresh Strawberries,Grocery,3,4.88,14.64,North,Chicago,CUST-1085
+ORD-GRO-10550,2025-10-24,Organic Fresh Strawberries,Grocery,1,5.08,5.08,East,Charlotte,CUST-1006
+ORD-GRO-11127,2025-10-24,Aged Cheddar Cheese Wedge,Grocery,1,8.58,8.58,West,San Francisco,CUST-1102
+ORD-GRO-10011,2025-10-25,Artisan Sourdough Loaf,Grocery,1,6.32,6.32,South,Atlanta,CUST-1119
+ORD-GRO-10939,2025-10-25,Extra Virgin Olive Oil 500ml,Grocery,2,15.58,31.16,West,Seattle,CUST-1120
+ORD-GRO-11355,2025-10-25,Single-Origin Coffee Beans (12oz),Grocery,1,15.89,15.89,West,Seattle,CUST-1063
+ORD-GRO-10169,2025-10-26,Himalayan Pink Salt Grinder,Grocery,1,6.92,6.92,North,Boston,CUST-1127
+ORD-GRO-10440,2025-10-26,Extra Virgin Olive Oil 500ml,Grocery,1,14.32,14.32,South,Miami,CUST-1168
+ORD-GRO-10638,2025-10-26,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.28,5.28,South,Dallas,CUST-1158
+ORD-GRO-11167,2025-10-26,Extra Virgin Olive Oil 500ml,Grocery,1,15.21,15.21,Central,Denver,CUST-1023
+ORD-GRO-10895,2025-10-27,Artisan Sourdough Loaf,Grocery,1,6.43,6.43,East,Charlotte,CUST-1106
+ORD-GRO-11271,2025-10-28,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.46,5.46,South,Atlanta,CUST-1027
+ORD-GRO-10129,2025-10-29,Aged Cheddar Cheese Wedge,Grocery,1,9.32,9.32,Central,Austin,CUST-1163
+ORD-GRO-10314,2025-10-30,Aged Cheddar Cheese Wedge,Grocery,1,8.93,8.93,West,Seattle,CUST-1074
+ORD-GRO-10419,2025-10-30,Aged Cheddar Cheese Wedge,Grocery,1,8.87,8.87,East,Washington D.C.,CUST-1043
+ORD-GRO-11178,2025-10-30,Free-Range Brown Eggs (12ct),Grocery,2,4.94,9.88,South,Dallas,CUST-1054
+ORD-GRO-11423,2025-10-30,Aged Cheddar Cheese Wedge,Grocery,1,8.83,8.83,North,New York,CUST-1126
+ORD-GRO-10605,2025-10-31,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.27,5.27,Central,Kansas City,CUST-1001
+ORD-GRO-11149,2025-10-31,Extra Virgin Olive Oil 500ml,Grocery,1,14.42,14.42,East,Charlotte,CUST-1080
+ORD-GRO-10467,2025-11-02,Himalayan Pink Salt Grinder,Grocery,1,7.0,7.0,West,Seattle,CUST-1020
+ORD-GRO-10498,2025-11-03,Organic Fresh Strawberries,Grocery,2,4.87,9.74,North,New York,CUST-1148
+ORD-GRO-10608,2025-11-03,Free-Range Brown Eggs (12ct),Grocery,1,4.9,4.9,South,Atlanta,CUST-1088
+ORD-GRO-10133,2025-11-04,Aged Cheddar Cheese Wedge,Grocery,1,8.87,8.87,West,San Francisco,CUST-1194
+ORD-GRO-10198,2025-11-04,Himalayan Pink Salt Grinder,Grocery,2,6.89,13.78,North,New York,CUST-1192
+ORD-GRO-11136,2025-11-04,Aged Cheddar Cheese Wedge,Grocery,1,8.55,8.55,South,Atlanta,CUST-1010
+ORD-GRO-11164,2025-11-04,Aged Cheddar Cheese Wedge,Grocery,2,8.77,17.54,Central,Austin,CUST-1177
+ORD-GRO-11327,2025-11-05,Extra Virgin Olive Oil 500ml,Grocery,1,15.29,15.29,North,New York,CUST-1041
+ORD-GRO-11376,2025-11-05,Himalayan Pink Salt Grinder,Grocery,2,7.26,14.52,North,New York,CUST-1163
+ORD-GRO-10060,2025-11-06,Organic Fresh Strawberries,Grocery,1,4.94,4.94,North,Boston,CUST-1090
+ORD-GRO-10660,2025-11-06,Single-Origin Coffee Beans (12oz),Grocery,1,15.8,15.8,Central,Austin,CUST-1081
+ORD-GRO-11144,2025-11-06,Aged Cheddar Cheese Wedge,Grocery,4,8.91,35.64,Central,Kansas City,CUST-1002
+ORD-GRO-11338,2025-11-06,Artisan Sourdough Loaf,Grocery,1,6.18,6.18,North,Chicago,CUST-1002
+ORD-GRO-10380,2025-11-07,Himalayan Pink Salt Grinder,Grocery,1,6.9,6.9,South,Dallas,CUST-1019
+ORD-GRO-10525,2025-11-07,Single-Origin Coffee Beans (12oz),Grocery,1,14.87,14.87,South,Miami,CUST-1098
+ORD-GRO-10651,2025-11-07,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.48,5.48,South,Dallas,CUST-1101
+ORD-GRO-10927,2025-11-07,Aged Cheddar Cheese Wedge,Grocery,1,9.15,9.15,Central,Kansas City,CUST-1089
+ORD-GRO-10940,2025-11-07,Artisan Sourdough Loaf,Grocery,3,6.34,19.02,West,Seattle,CUST-1178
+ORD-GRO-11484,2025-11-07,Free-Range Brown Eggs (12ct),Grocery,1,4.66,4.66,Central,Denver,CUST-1111
+ORD-GRO-10582,2025-11-08,Artisan Sourdough Loaf,Grocery,1,6.35,6.35,Central,Kansas City,CUST-1036
+ORD-GRO-10175,2025-11-09,Organic Fresh Strawberries,Grocery,1,5.06,5.06,North,New York,CUST-1086
+ORD-GRO-10066,2025-11-10,Artisan Sourdough Loaf,Grocery,1,6.39,6.39,West,San Francisco,CUST-1105
+ORD-GRO-10591,2025-11-10,Extra Virgin Olive Oil 500ml,Grocery,3,14.73,44.19,Central,Austin,CUST-1188
+ORD-GRO-11008,2025-11-12,Aged Cheddar Cheese Wedge,Grocery,1,8.91,8.91,West,Los Angeles,CUST-1067
+ORD-GRO-11388,2025-11-12,Himalayan Pink Salt Grinder,Grocery,1,7.11,7.11,West,Seattle,CUST-1026
+ORD-GRO-11022,2025-11-13,Free-Range Brown Eggs (12ct),Grocery,2,4.75,9.5,East,Washington D.C.,CUST-1099
+ORD-GRO-11064,2025-11-13,Himalayan Pink Salt Grinder,Grocery,1,7.55,7.55,South,Miami,CUST-1028
+ORD-GRO-11471,2025-11-13,Organic Fresh Strawberries,Grocery,4,5.21,20.84,West,Los Angeles,CUST-1108
+ORD-GRO-10941,2025-11-14,Free-Range Brown Eggs (12ct),Grocery,2,4.68,9.36,West,Los Angeles,CUST-1098
+ORD-GRO-11083,2025-11-14,Free-Range Brown Eggs (12ct),Grocery,1,4.64,4.64,East,Philadelphia,CUST-1128
+ORD-GRO-10102,2025-11-15,Himalayan Pink Salt Grinder,Grocery,1,7.08,7.08,West,Los Angeles,CUST-1125
+ORD-GRO-10587,2025-11-16,Aged Cheddar Cheese Wedge,Grocery,1,8.64,8.64,Central,Denver,CUST-1186
+ORD-GRO-11341,2025-11-16,Artisan Sourdough Loaf,Grocery,3,6.08,18.24,South,Dallas,CUST-1043
+ORD-GRO-11486,2025-11-16,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.59,11.18,South,Miami,CUST-1093
+ORD-GRO-10171,2025-11-17,Himalayan Pink Salt Grinder,Grocery,2,7.26,14.52,East,Charlotte,CUST-1026
+ORD-GRO-10192,2025-11-17,Artisan Sourdough Loaf,Grocery,3,6.19,18.57,East,Charlotte,CUST-1014
+ORD-GRO-10889,2025-11-17,Artisan Sourdough Loaf,Grocery,2,6.55,13.1,East,Charlotte,CUST-1034
+ORD-GRO-11130,2025-11-17,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.22,5.22,East,Washington D.C.,CUST-1102
+ORD-GRO-11222,2025-11-17,Aged Cheddar Cheese Wedge,Grocery,1,9.16,9.16,South,Dallas,CUST-1007
+ORD-GRO-11089,2025-11-18,Extra Virgin Olive Oil 500ml,Grocery,1,15.56,15.56,Central,Denver,CUST-1148
+ORD-GRO-11131,2025-11-18,Free-Range Brown Eggs (12ct),Grocery,3,4.62,13.86,North,Chicago,CUST-1046
+ORD-GRO-11336,2025-11-18,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.59,5.59,West,Los Angeles,CUST-1056
+ORD-GRO-10128,2025-11-19,Single-Origin Coffee Beans (12oz),Grocery,2,15.62,31.24,South,Miami,CUST-1133
+ORD-GRO-10648,2025-11-20,Artisan Sourdough Loaf,Grocery,1,6.27,6.27,Central,Denver,CUST-1194
+ORD-GRO-11165,2025-11-20,Himalayan Pink Salt Grinder,Grocery,1,7.42,7.42,South,Atlanta,CUST-1049
+ORD-GRO-10321,2025-11-21,Organic Fresh Strawberries,Grocery,3,4.83,14.49,East,Washington D.C.,CUST-1132
+ORD-GRO-11073,2025-11-22,Aged Cheddar Cheese Wedge,Grocery,2,9.09,18.18,Central,Austin,CUST-1122
+ORD-GRO-10600,2025-11-23,Himalayan Pink Salt Grinder,Grocery,2,6.95,13.9,Central,Denver,CUST-1003
+ORD-GRO-11372,2025-11-23,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.6,5.6,West,San Francisco,CUST-1117
+ORD-GRO-10095,2025-11-24,Himalayan Pink Salt Grinder,Grocery,2,7.13,14.26,North,Chicago,CUST-1177
+ORD-GRO-10406,2025-11-24,Extra Virgin Olive Oil 500ml,Grocery,2,15.63,31.26,Central,Denver,CUST-1142
+ORD-GRO-11125,2025-11-24,Organic Fresh Strawberries,Grocery,1,4.95,4.95,South,Atlanta,CUST-1075
+ORD-GRO-10203,2025-11-25,Aged Cheddar Cheese Wedge,Grocery,1,8.97,8.97,South,Miami,CUST-1154
+ORD-GRO-10234,2025-11-25,Aged Cheddar Cheese Wedge,Grocery,1,8.92,8.92,East,Charlotte,CUST-1136
+ORD-GRO-10598,2025-11-25,Organic Fresh Strawberries,Grocery,2,5.23,10.46,West,San Francisco,CUST-1134
+ORD-GRO-10690,2025-11-25,Himalayan Pink Salt Grinder,Grocery,1,7.22,7.22,North,Chicago,CUST-1136
+ORD-GRO-11018,2025-11-25,Artisan Sourdough Loaf,Grocery,1,6.13,6.13,South,Miami,CUST-1092
+ORD-GRO-11230,2025-11-25,Extra Virgin Olive Oil 500ml,Grocery,4,14.33,57.32,South,Atlanta,CUST-1183
+ORD-GRO-11277,2025-11-25,Extra Virgin Olive Oil 500ml,Grocery,1,14.33,14.33,Central,Denver,CUST-1109
+ORD-GRO-11447,2025-11-25,Himalayan Pink Salt Grinder,Grocery,1,7.18,7.18,North,Chicago,CUST-1132
+ORD-GRO-11067,2025-11-26,Free-Range Brown Eggs (12ct),Grocery,1,4.63,4.63,North,New York,CUST-1170
+ORD-GRO-11419,2025-11-26,Extra Virgin Olive Oil 500ml,Grocery,1,15.63,15.63,East,Philadelphia,CUST-1014
+ORD-GRO-10272,2025-11-27,Free-Range Brown Eggs (12ct),Grocery,2,4.62,9.24,Central,Kansas City,CUST-1151
+ORD-GRO-11240,2025-11-27,Himalayan Pink Salt Grinder,Grocery,2,7.56,15.12,South,Dallas,CUST-1131
+ORD-GRO-11408,2025-11-27,Aged Cheddar Cheese Wedge,Grocery,1,8.63,8.63,North,Chicago,CUST-1082
+ORD-GRO-10300,2025-11-28,Organic Fresh Strawberries,Grocery,3,4.76,14.28,North,New York,CUST-1005
+ORD-GRO-10305,2025-11-28,Single-Origin Coffee Beans (12oz),Grocery,1,15.67,15.67,South,Miami,CUST-1143
+ORD-GRO-11257,2025-11-28,Aged Cheddar Cheese Wedge,Grocery,1,8.5,8.5,North,Boston,CUST-1111
+ORD-GRO-11373,2025-11-28,Extra Virgin Olive Oil 500ml,Grocery,1,14.62,14.62,South,Atlanta,CUST-1030
+ORD-GRO-10551,2025-11-29,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.48,5.48,South,Dallas,CUST-1003
+ORD-GRO-10717,2025-11-30,Organic Fresh Strawberries,Grocery,1,4.99,4.99,South,Miami,CUST-1053
+ORD-GRO-10930,2025-11-30,Himalayan Pink Salt Grinder,Grocery,1,7.18,7.18,East,Philadelphia,CUST-1074
+ORD-GRO-11305,2025-11-30,Single-Origin Coffee Beans (12oz),Grocery,1,15.02,15.02,South,Dallas,CUST-1190
+ORD-GRO-10827,2025-12-01,Organic Fresh Strawberries,Grocery,1,5.17,5.17,Central,Denver,CUST-1111
+ORD-GRO-11156,2025-12-01,Single-Origin Coffee Beans (12oz),Grocery,1,16.03,16.03,West,San Francisco,CUST-1013
+ORD-GRO-10936,2025-12-02,Aged Cheddar Cheese Wedge,Grocery,2,8.82,17.64,West,Los Angeles,CUST-1009
+ORD-GRO-11150,2025-12-02,Extra Virgin Olive Oil 500ml,Grocery,1,14.78,14.78,West,San Francisco,CUST-1052
+ORD-GRO-10645,2025-12-03,Extra Virgin Olive Oil 500ml,Grocery,2,14.28,28.56,North,New York,CUST-1019
+ORD-GRO-10650,2025-12-03,Single-Origin Coffee Beans (12oz),Grocery,1,15.67,15.67,East,Washington D.C.,CUST-1102
+ORD-GRO-10065,2025-12-04,Organic Fresh Strawberries,Grocery,1,4.92,4.92,West,San Francisco,CUST-1081
+ORD-GRO-10516,2025-12-04,Organic Fresh Strawberries,Grocery,1,4.82,4.82,North,Boston,CUST-1006
+ORD-GRO-10832,2025-12-04,Organic Farm Fresh Milk (1 Gal),Grocery,2,5.41,10.82,East,Philadelphia,CUST-1129
+ORD-GRO-11118,2025-12-04,Free-Range Brown Eggs (12ct),Grocery,1,4.94,4.94,East,Washington D.C.,CUST-1047
+ORD-GRO-11128,2025-12-04,Organic Fresh Strawberries,Grocery,2,5.1,10.2,Central,Austin,CUST-1019
+ORD-GRO-10401,2025-12-05,Organic Fresh Strawberries,Grocery,1,4.96,4.96,Central,Kansas City,CUST-1129
+ORD-GRO-10599,2025-12-05,Artisan Sourdough Loaf,Grocery,2,6.21,12.42,East,Washington D.C.,CUST-1170
+ORD-GRO-10836,2025-12-05,Free-Range Brown Eggs (12ct),Grocery,3,4.98,14.94,East,Washington D.C.,CUST-1199
+ORD-GRO-10509,2025-12-06,Single-Origin Coffee Beans (12oz),Grocery,2,14.92,29.84,Central,Austin,CUST-1198
+ORD-GRO-10307,2025-12-07,Aged Cheddar Cheese Wedge,Grocery,1,8.79,8.79,West,Seattle,CUST-1032
+ORD-GRO-10799,2025-12-07,Artisan Sourdough Loaf,Grocery,1,6.31,6.31,Central,Austin,CUST-1021
+ORD-GRO-10888,2025-12-07,Aged Cheddar Cheese Wedge,Grocery,1,9.05,9.05,South,Dallas,CUST-1195
+ORD-GRO-11185,2025-12-07,Artisan Sourdough Loaf,Grocery,3,6.38,19.14,East,Washington D.C.,CUST-1194
+ORD-GRO-10151,2025-12-11,Single-Origin Coffee Beans (12oz),Grocery,1,16.13,16.13,North,Boston,CUST-1092
+ORD-GRO-10415,2025-12-11,Extra Virgin Olive Oil 500ml,Grocery,1,15.01,15.01,South,Dallas,CUST-1099
+ORD-GRO-11045,2025-12-11,Extra Virgin Olive Oil 500ml,Grocery,1,15.27,15.27,South,Atlanta,CUST-1021
+ORD-GRO-11425,2025-12-11,Artisan Sourdough Loaf,Grocery,1,6.43,6.43,East,Charlotte,CUST-1180
+ORD-GRO-10250,2025-12-13,Aged Cheddar Cheese Wedge,Grocery,2,9.07,18.14,North,Chicago,CUST-1199
+ORD-GRO-10039,2025-12-14,Aged Cheddar Cheese Wedge,Grocery,1,8.64,8.64,North,Chicago,CUST-1189
+ORD-GRO-10348,2025-12-14,Himalayan Pink Salt Grinder,Grocery,1,7.13,7.13,South,Dallas,CUST-1122
+ORD-GRO-10692,2025-12-14,Artisan Sourdough Loaf,Grocery,1,6.2,6.2,South,Atlanta,CUST-1073
+ORD-GRO-11310,2025-12-15,Himalayan Pink Salt Grinder,Grocery,1,6.99,6.99,Central,Denver,CUST-1096
+ORD-GRO-10724,2025-12-16,Aged Cheddar Cheese Wedge,Grocery,1,8.79,8.79,South,Miami,CUST-1149
+ORD-GRO-11378,2025-12-16,Single-Origin Coffee Beans (12oz),Grocery,1,14.73,14.73,East,Philadelphia,CUST-1025
+ORD-GRO-10093,2025-12-17,Single-Origin Coffee Beans (12oz),Grocery,1,15.91,15.91,Central,Kansas City,CUST-1184
+ORD-GRO-10892,2025-12-17,Free-Range Brown Eggs (12ct),Grocery,3,4.94,14.82,East,Washington D.C.,CUST-1008
+ORD-GRO-11481,2025-12-17,Organic Fresh Strawberries,Grocery,1,4.85,4.85,North,Chicago,CUST-1110
+ORD-GRO-10501,2025-12-18,Free-Range Brown Eggs (12ct),Grocery,1,5.01,5.01,Central,Denver,CUST-1127
+ORD-GRO-10535,2025-12-18,Himalayan Pink Salt Grinder,Grocery,1,6.92,6.92,Central,Kansas City,CUST-1150
+ORD-GRO-10742,2025-12-18,Artisan Sourdough Loaf,Grocery,1,6.07,6.07,North,New York,CUST-1122
+ORD-GRO-11477,2025-12-18,Organic Fresh Strawberries,Grocery,1,5.07,5.07,East,Charlotte,CUST-1027
+ORD-GRO-11478,2025-12-18,Extra Virgin Olive Oil 500ml,Grocery,3,14.52,43.56,South,Atlanta,CUST-1031
+ORD-GRO-10058,2025-12-19,Artisan Sourdough Loaf,Grocery,1,6.18,6.18,East,Philadelphia,CUST-1052
+ORD-GRO-10328,2025-12-19,Aged Cheddar Cheese Wedge,Grocery,2,9.18,18.36,South,Atlanta,CUST-1175
+ORD-GRO-10581,2025-12-19,Extra Virgin Olive Oil 500ml,Grocery,2,14.55,29.1,North,Boston,CUST-1108
+ORD-GRO-10960,2025-12-19,Extra Virgin Olive Oil 500ml,Grocery,1,14.26,14.26,West,Los Angeles,CUST-1117
+ORD-GRO-10108,2025-12-20,Aged Cheddar Cheese Wedge,Grocery,1,8.74,8.74,North,Chicago,CUST-1050
+ORD-GRO-10227,2025-12-20,Artisan Sourdough Loaf,Grocery,1,6.34,6.34,West,Los Angeles,CUST-1093
+ORD-GRO-10907,2025-12-20,Himalayan Pink Salt Grinder,Grocery,2,7.29,14.58,East,Washington D.C.,CUST-1112
+ORD-GRO-11169,2025-12-20,Aged Cheddar Cheese Wedge,Grocery,1,9.37,9.37,East,Charlotte,CUST-1063
+ORD-GRO-11457,2025-12-20,Free-Range Brown Eggs (12ct),Grocery,2,4.68,9.36,Central,Kansas City,CUST-1156
+ORD-GRO-10410,2025-12-21,Artisan Sourdough Loaf,Grocery,2,6.3,12.6,Central,Denver,CUST-1094
+ORD-GRO-10585,2025-12-21,Himalayan Pink Salt Grinder,Grocery,1,7.05,7.05,East,Philadelphia,CUST-1177
+ORD-GRO-10993,2025-12-21,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.69,5.69,West,San Francisco,CUST-1009
+ORD-GRO-10506,2025-12-22,Himalayan Pink Salt Grinder,Grocery,1,7.26,7.26,West,Los Angeles,CUST-1041
+ORD-GRO-10546,2025-12-22,Organic Fresh Strawberries,Grocery,2,4.88,9.76,Central,Austin,CUST-1163
+ORD-GRO-10629,2025-12-22,Free-Range Brown Eggs (12ct),Grocery,1,4.92,4.92,Central,Denver,CUST-1199
+ORD-GRO-10885,2025-12-22,Single-Origin Coffee Beans (12oz),Grocery,1,15.61,15.61,West,San Francisco,CUST-1087
+ORD-GRO-10968,2025-12-24,Single-Origin Coffee Beans (12oz),Grocery,2,15.37,30.74,East,Charlotte,CUST-1033
+ORD-GRO-10460,2025-12-25,Extra Virgin Olive Oil 500ml,Grocery,1,15.29,15.29,West,San Francisco,CUST-1133
+ORD-GRO-10226,2025-12-26,Artisan Sourdough Loaf,Grocery,1,6.13,6.13,West,Los Angeles,CUST-1172
+ORD-GRO-10544,2025-12-27,Himalayan Pink Salt Grinder,Grocery,3,6.94,20.82,Central,Denver,CUST-1045
+ORD-GRO-10874,2025-12-27,Organic Farm Fresh Milk (1 Gal),Grocery,1,5.36,5.36,South,Miami,CUST-1116
+ORD-GRO-10426,2025-12-28,Himalayan Pink Salt Grinder,Grocery,1,6.96,6.96,South,Atlanta,CUST-1016
+ORD-GRO-10268,2025-12-29,Extra Virgin Olive Oil 500ml,Grocery,1,15.43,15.43,North,New York,CUST-1036
+ORD-GRO-10845,2025-12-29,Extra Virgin Olive Oil 500ml,Grocery,1,15.32,15.32,North,Chicago,CUST-1116
+ORD-GRO-10375,2025-12-30,Himalayan Pink Salt Grinder,Grocery,1,7.51,7.51,Central,Denver,CUST-1146
+ORD-GRO-10914,2025-12-30,Single-Origin Coffee Beans (12oz),Grocery,1,15.36,15.36,West,Los Angeles,CUST-1010
+ORD-GRO-10560,2025-12-31,Organic Fresh Strawberries,Grocery,1,5.08,5.08,East,Charlotte,CUST-1092
+ORD-GRO-11154,2025-12-31,Extra Virgin Olive Oil 500ml,Grocery,1,15.64,15.64,Central,Denver,CUST-1075
+ORD-GRO-11334,2025-12-31,Aged Cheddar Cheese Wedge,Grocery,2,8.63,17.26,South,Atlanta,CUST-1005
+ORD-GRO-11448,2025-12-31,Extra Virgin Olive Oil 500ml,Grocery,1,15.23,15.23,Central,Kansas City,CUST-1069

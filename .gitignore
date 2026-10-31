@@ -23,6 +23,18 @@ htmlcov/
 .streamlit/
 *.log
 
+# Frontend dependencies & builds
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+node_modules/
+
+# SQLite databases & temp uploads
+*.db
+*.sqlite3
+data/uploads/*
+!data/uploads/.gitkeep
+
 # IDEs
 .vscode/
 .idea/

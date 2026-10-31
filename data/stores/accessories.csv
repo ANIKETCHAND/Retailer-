@@ -1,0 +1,951 @@
+Order ID,Order Date,Product,Category,Quantity,Unit Price,Total Amount,Region,City,Customer ID
+ORD-ACC-10795,2024-01-01,Canvas & Leather Weekend Duffle,Accessories,2,113.47,226.94,West,Seattle,CUST-1121
+ORD-ACC-10068,2024-01-02,Canvas & Leather Weekend Duffle,Accessories,1,114.68,114.68,South,Miami,CUST-1111
+ORD-ACC-10541,2024-01-02,Braided Leather Key Fob,Accessories,1,19.33,19.33,Central,Denver,CUST-1047
+ORD-ACC-10546,2024-01-02,Full-Grain Bifold Leather Wallet,Accessories,2,44.49,88.98,South,Miami,CUST-1127
+ORD-ACC-10359,2024-01-04,Full-Grain Bifold Leather Wallet,Accessories,1,47.15,47.15,Central,Austin,CUST-1137
+ORD-ACC-10751,2024-01-05,Automatic Chronograph Watch,Accessories,1,212.85,212.85,Central,Denver,CUST-1129
+ORD-ACC-10671,2024-01-06,Automatic Chronograph Watch,Accessories,3,219.26,657.78,North,New York,CUST-1083
+ORD-ACC-10393,2024-01-10,Braided Leather Key Fob,Accessories,1,17.89,17.89,East,Charlotte,CUST-1085
+ORD-ACC-10379,2024-01-17,Automatic Chronograph Watch,Accessories,1,221.17,221.17,East,Washington D.C.,CUST-1040
+ORD-ACC-10387,2024-01-17,Full-Grain Bifold Leather Wallet,Accessories,1,45.14,45.14,North,Chicago,CUST-1185
+ORD-ACC-10608,2024-01-19,Braided Leather Key Fob,Accessories,2,17.58,35.16,South,Dallas,CUST-1089
+ORD-ACC-10927,2024-01-20,Polarized Aviator Sunglasses,Accessories,1,75.58,75.58,West,Los Angeles,CUST-1039
+ORD-ACC-10088,2024-01-21,Canvas & Leather Weekend Duffle,Accessories,1,108.68,108.68,West,Seattle,CUST-1193
+ORD-ACC-10819,2024-01-22,Braided Leather Key Fob,Accessories,2,18.27,36.54,West,Los Angeles,CUST-1125
+ORD-ACC-10165,2024-01-23,Braided Leather Key Fob,Accessories,1,18.31,18.31,North,Chicago,CUST-1191
+ORD-ACC-10063,2024-01-25,Braided Leather Key Fob,Accessories,1,17.93,17.93,North,Boston,CUST-1090
+ORD-ACC-10661,2024-01-26,Silk Printed Evening Scarf,Accessories,2,33.76,67.52,South,Miami,CUST-1193
+ORD-ACC-10527,2024-01-27,Automatic Chronograph Watch,Accessories,1,222.14,222.14,West,Los Angeles,CUST-1121
+ORD-ACC-10787,2024-01-27,Silk Printed Evening Scarf,Accessories,4,35.08,140.32,North,Boston,CUST-1159
+ORD-ACC-10092,2024-01-28,Silk Printed Evening Scarf,Accessories,2,35.32,70.64,North,Chicago,CUST-1110
+ORD-ACC-10003,2024-01-31,Full-Grain Bifold Leather Wallet,Accessories,1,43.73,43.73,North,Chicago,CUST-1051
+ORD-ACC-10492,2024-01-31,Automatic Chronograph Watch,Accessories,1,226.76,226.76,North,Boston,CUST-1183
+ORD-ACC-10950,2024-01-31,Full-Grain Bifold Leather Wallet,Accessories,1,44.89,44.89,East,Philadelphia,CUST-1073
+ORD-ACC-10516,2024-02-01,Silk Printed Evening Scarf,Accessories,1,36.24,36.24,Central,Denver,CUST-1025
+ORD-ACC-10031,2024-02-02,Automatic Chronograph Watch,Accessories,1,210.56,210.56,East,Philadelphia,CUST-1139
+ORD-ACC-10392,2024-02-02,Full-Grain Bifold Leather Wallet,Accessories,1,44.57,44.57,East,Philadelphia,CUST-1164
+ORD-ACC-10806,2024-02-02,Automatic Chronograph Watch,Accessories,2,210.76,421.52,South,Atlanta,CUST-1069
+ORD-ACC-10126,2024-02-03,Polarized Aviator Sunglasses,Accessories,1,73.41,73.41,East,Philadelphia,CUST-1176
+ORD-ACC-10180,2024-02-03,Braided Leather Key Fob,Accessories,1,18.26,18.26,South,Miami,CUST-1026
+ORD-ACC-10765,2024-02-03,Canvas & Leather Weekend Duffle,Accessories,3,108.32,324.96,South,Miami,CUST-1031
+ORD-ACC-10746,2024-02-04,Canvas & Leather Weekend Duffle,Accessories,2,110.12,220.24,Central,Denver,CUST-1173
+ORD-ACC-10809,2024-02-04,Polarized Aviator Sunglasses,Accessories,2,74.71,149.42,Central,Kansas City,CUST-1054
+ORD-ACC-10563,2024-02-05,Canvas & Leather Weekend Duffle,Accessories,1,110.78,110.78,Central,Kansas City,CUST-1159
+ORD-ACC-10747,2024-02-06,Automatic Chronograph Watch,Accessories,1,214.26,214.26,South,Atlanta,CUST-1071
+ORD-ACC-10252,2024-02-09,Automatic Chronograph Watch,Accessories,1,229.18,229.18,South,Dallas,CUST-1121
+ORD-ACC-10058,2024-02-10,Automatic Chronograph Watch,Accessories,1,213.62,213.62,North,Boston,CUST-1200
+ORD-ACC-10670,2024-02-11,Silk Printed Evening Scarf,Accessories,1,34.23,34.23,South,Dallas,CUST-1066
+ORD-ACC-10102,2024-02-12,Automatic Chronograph Watch,Accessories,2,220.72,441.44,North,Chicago,CUST-1166
+ORD-ACC-10811,2024-02-13,Braided Leather Key Fob,Accessories,1,19.31,19.31,West,Seattle,CUST-1164
+ORD-ACC-10260,2024-02-14,Braided Leather Key Fob,Accessories,1,18.29,18.29,North,Boston,CUST-1018
+ORD-ACC-10721,2024-02-14,Polarized Aviator Sunglasses,Accessories,1,75.55,75.55,Central,Denver,CUST-1147
+ORD-ACC-10363,2024-02-15,Silk Printed Evening Scarf,Accessories,1,34.79,34.79,North,New York,CUST-1129
+ORD-ACC-10559,2024-02-15,Automatic Chronograph Watch,Accessories,1,218.67,218.67,West,San Francisco,CUST-1016
+ORD-ACC-10009,2024-02-16,Braided Leather Key Fob,Accessories,1,18.0,18.0,North,New York,CUST-1026
+ORD-ACC-10212,2024-02-16,Polarized Aviator Sunglasses,Accessories,1,74.21,74.21,North,New York,CUST-1078
+ORD-ACC-10610,2024-02-16,Automatic Chronograph Watch,Accessories,1,229.87,229.87,Central,Kansas City,CUST-1135
+ORD-ACC-10937,2024-02-17,Full-Grain Bifold Leather Wallet,Accessories,2,45.09,90.18,West,Los Angeles,CUST-1148
+ORD-ACC-10018,2024-02-18,Full-Grain Bifold Leather Wallet,Accessories,1,43.44,43.44,East,Charlotte,CUST-1017
+ORD-ACC-10464,2024-02-19,Full-Grain Bifold Leather Wallet,Accessories,2,43.2,86.4,East,Philadelphia,CUST-1032
+ORD-ACC-10854,2024-02-20,Canvas & Leather Weekend Duffle,Accessories,1,108.89,108.89,Central,Austin,CUST-1199
+ORD-ACC-10330,2024-02-21,Braided Leather Key Fob,Accessories,1,19.25,19.25,South,Atlanta,CUST-1026
+ORD-ACC-10625,2024-02-21,Full-Grain Bifold Leather Wallet,Accessories,3,46.41,139.23,West,Seattle,CUST-1174
+ORD-ACC-10054,2024-02-22,Full-Grain Bifold Leather Wallet,Accessories,2,45.6,91.2,North,New York,CUST-1086
+ORD-ACC-10317,2024-02-22,Canvas & Leather Weekend Duffle,Accessories,1,109.78,109.78,Central,Austin,CUST-1038
+ORD-ACC-10685,2024-02-25,Polarized Aviator Sunglasses,Accessories,1,77.21,77.21,Central,Denver,CUST-1067
+ORD-ACC-10289,2024-02-26,Full-Grain Bifold Leather Wallet,Accessories,1,45.08,45.08,South,Miami,CUST-1182
+ORD-ACC-10352,2024-02-26,Silk Printed Evening Scarf,Accessories,1,33.71,33.71,Central,Denver,CUST-1144
+ORD-ACC-10848,2024-02-27,Automatic Chronograph Watch,Accessories,2,216.65,433.3,East,Philadelphia,CUST-1198
+ORD-ACC-10926,2024-02-27,Canvas & Leather Weekend Duffle,Accessories,2,107.79,215.58,West,San Francisco,CUST-1138
+ORD-ACC-10025,2024-02-29,Polarized Aviator Sunglasses,Accessories,3,77.84,233.52,North,Chicago,CUST-1125
+ORD-ACC-10604,2024-02-29,Full-Grain Bifold Leather Wallet,Accessories,1,44.78,44.78,South,Dallas,CUST-1196
+ORD-ACC-10344,2024-03-04,Braided Leather Key Fob,Accessories,1,17.79,17.79,East,Charlotte,CUST-1129
+ORD-ACC-10189,2024-03-06,Silk Printed Evening Scarf,Accessories,1,34.82,34.82,Central,Denver,CUST-1116
+ORD-ACC-10913,2024-03-07,Automatic Chronograph Watch,Accessories,1,219.36,219.36,West,Seattle,CUST-1135
+ORD-ACC-10362,2024-03-09,Full-Grain Bifold Leather Wallet,Accessories,1,45.42,45.42,North,New York,CUST-1190
+ORD-ACC-10225,2024-03-10,Silk Printed Evening Scarf,Accessories,1,34.8,34.8,West,San Francisco,CUST-1015
+ORD-ACC-10385,2024-03-10,Braided Leather Key Fob,Accessories,1,17.85,17.85,East,Washington D.C.,CUST-1016
+ORD-ACC-10483,2024-03-10,Full-Grain Bifold Leather Wallet,Accessories,1,43.93,43.93,North,Boston,CUST-1130
+ORD-ACC-10026,2024-03-11,Canvas & Leather Weekend Duffle,Accessories,1,112.92,112.92,East,Charlotte,CUST-1043
+ORD-ACC-10096,2024-03-11,Braided Leather Key Fob,Accessories,1,17.65,17.65,South,Atlanta,CUST-1006
+ORD-ACC-10355,2024-03-11,Silk Printed Evening Scarf,Accessories,1,33.36,33.36,South,Dallas,CUST-1187
+ORD-ACC-10727,2024-03-11,Polarized Aviator Sunglasses,Accessories,1,74.09,74.09,North,New York,CUST-1134
+ORD-ACC-10801,2024-03-11,Polarized Aviator Sunglasses,Accessories,1,72.27,72.27,East,Charlotte,CUST-1116
+ORD-ACC-10069,2024-03-12,Braided Leather Key Fob,Accessories,1,19.28,19.28,North,Chicago,CUST-1077
+ORD-ACC-10832,2024-03-13,Automatic Chronograph Watch,Accessories,1,210.71,210.71,Central,Denver,CUST-1026
+ORD-ACC-10857,2024-03-14,Automatic Chronograph Watch,Accessories,1,226.09,226.09,Central,Denver,CUST-1029
+ORD-ACC-10297,2024-03-15,Braided Leather Key Fob,Accessories,1,17.69,17.69,East,Washington D.C.,CUST-1053
+ORD-ACC-10537,2024-03-15,Automatic Chronograph Watch,Accessories,2,224.5,449.0,Central,Denver,CUST-1087
+ORD-ACC-10384,2024-03-17,Braided Leather Key Fob,Accessories,1,17.66,17.66,South,Dallas,CUST-1060
+ORD-ACC-10550,2024-03-17,Canvas & Leather Weekend Duffle,Accessories,4,114.86,459.44,West,San Francisco,CUST-1158
+ORD-ACC-10172,2024-03-18,Polarized Aviator Sunglasses,Accessories,1,76.91,76.91,East,Charlotte,CUST-1094
+ORD-ACC-10486,2024-03-21,Canvas & Leather Weekend Duffle,Accessories,4,114.63,458.52,South,Dallas,CUST-1084
+ORD-ACC-10830,2024-03-22,Silk Printed Evening Scarf,Accessories,1,36.05,36.05,Central,Kansas City,CUST-1107
+ORD-ACC-10357,2024-03-23,Braided Leather Key Fob,Accessories,3,19.36,58.08,South,Dallas,CUST-1090
+ORD-ACC-10294,2024-03-24,Full-Grain Bifold Leather Wallet,Accessories,2,47.02,94.04,West,San Francisco,CUST-1054
+ORD-ACC-10446,2024-03-25,Canvas & Leather Weekend Duffle,Accessories,2,104.84,209.68,West,Los Angeles,CUST-1071
+ORD-ACC-10485,2024-03-25,Braided Leather Key Fob,Accessories,1,18.57,18.57,West,Los Angeles,CUST-1080
+ORD-ACC-10681,2024-03-25,Full-Grain Bifold Leather Wallet,Accessories,4,43.5,174.0,Central,Kansas City,CUST-1002
+ORD-ACC-10403,2024-03-28,Canvas & Leather Weekend Duffle,Accessories,1,107.75,107.75,North,New York,CUST-1069
+ORD-ACC-10944,2024-03-29,Silk Printed Evening Scarf,Accessories,2,34.62,69.24,Central,Kansas City,CUST-1177
+ORD-ACC-10281,2024-03-30,Braided Leather Key Fob,Accessories,4,19.36,77.44,West,San Francisco,CUST-1017
+ORD-ACC-10451,2024-03-30,Silk Printed Evening Scarf,Accessories,1,36.28,36.28,South,Atlanta,CUST-1189
+ORD-ACC-10524,2024-03-30,Automatic Chronograph Watch,Accessories,1,217.43,217.43,Central,Denver,CUST-1162
+ORD-ACC-10743,2024-03-31,Full-Grain Bifold Leather Wallet,Accessories,1,43.93,43.93,Central,Denver,CUST-1186
+ORD-ACC-10794,2024-04-01,Silk Printed Evening Scarf,Accessories,1,34.33,34.33,South,Miami,CUST-1003
+ORD-ACC-10156,2024-04-02,Silk Printed Evening Scarf,Accessories,2,36.67,73.34,North,Boston,CUST-1043
+ORD-ACC-10173,2024-04-02,Silk Printed Evening Scarf,Accessories,1,33.3,33.3,East,Washington D.C.,CUST-1173
+ORD-ACC-10006,2024-04-04,Silk Printed Evening Scarf,Accessories,2,33.59,67.18,Central,Austin,CUST-1012
+ORD-ACC-10675,2024-04-04,Automatic Chronograph Watch,Accessories,1,213.87,213.87,West,Seattle,CUST-1093
+ORD-ACC-10111,2024-04-05,Automatic Chronograph Watch,Accessories,2,213.88,427.76,West,San Francisco,CUST-1149
+ORD-ACC-10292,2024-04-05,Canvas & Leather Weekend Duffle,Accessories,1,111.55,111.55,Central,Denver,CUST-1044
+ORD-ACC-10459,2024-04-05,Silk Printed Evening Scarf,Accessories,1,35.05,35.05,West,Seattle,CUST-1125
+ORD-ACC-10506,2024-04-05,Full-Grain Bifold Leather Wallet,Accessories,3,46.9,140.7,Central,Austin,CUST-1180
+ORD-ACC-10628,2024-04-05,Automatic Chronograph Watch,Accessories,1,226.93,226.93,East,Washington D.C.,CUST-1117
+ORD-ACC-10947,2024-04-05,Braided Leather Key Fob,Accessories,1,18.44,18.44,East,Washington D.C.,CUST-1060
+ORD-ACC-10197,2024-04-07,Automatic Chronograph Watch,Accessories,2,218.39,436.78,West,Los Angeles,CUST-1176
+ORD-ACC-10389,2024-04-08,Canvas & Leather Weekend Duffle,Accessories,1,106.14,106.14,Central,Austin,CUST-1091
+ORD-ACC-10554,2024-04-08,Full-Grain Bifold Leather Wallet,Accessories,1,44.52,44.52,East,Philadelphia,CUST-1014
+ORD-ACC-10309,2024-04-09,Silk Printed Evening Scarf,Accessories,4,34.56,138.24,Central,Austin,CUST-1194
+ORD-ACC-10556,2024-04-09,Full-Grain Bifold Leather Wallet,Accessories,1,43.68,43.68,North,Boston,CUST-1030
+ORD-ACC-10597,2024-04-09,Silk Printed Evening Scarf,Accessories,1,33.7,33.7,Central,Denver,CUST-1175
+ORD-ACC-10037,2024-04-10,Full-Grain Bifold Leather Wallet,Accessories,1,45.68,45.68,North,New York,CUST-1193
+ORD-ACC-10116,2024-04-12,Polarized Aviator Sunglasses,Accessories,1,73.47,73.47,West,Los Angeles,CUST-1182
+ORD-ACC-10771,2024-04-12,Braided Leather Key Fob,Accessories,1,18.07,18.07,East,Washington D.C.,CUST-1051
+ORD-ACC-10570,2024-04-13,Automatic Chronograph Watch,Accessories,3,228.08,684.24,East,Washington D.C.,CUST-1099
+ORD-ACC-10624,2024-04-13,Automatic Chronograph Watch,Accessories,1,223.18,223.18,West,Seattle,CUST-1119
+ORD-ACC-10002,2024-04-14,Braided Leather Key Fob,Accessories,1,18.95,18.95,Central,Austin,CUST-1009
+ORD-ACC-10230,2024-04-15,Automatic Chronograph Watch,Accessories,1,230.61,230.61,South,Atlanta,CUST-1064
+ORD-ACC-10407,2024-04-15,Full-Grain Bifold Leather Wallet,Accessories,1,43.15,43.15,Central,Kansas City,CUST-1084
+ORD-ACC-10472,2024-04-15,Automatic Chronograph Watch,Accessories,1,217.09,217.09,East,Philadelphia,CUST-1165
+ORD-ACC-10543,2024-04-16,Silk Printed Evening Scarf,Accessories,2,33.74,67.48,South,Miami,CUST-1082
+ORD-ACC-10683,2024-04-16,Polarized Aviator Sunglasses,Accessories,2,75.28,150.56,East,Charlotte,CUST-1019
+ORD-ACC-10425,2024-04-18,Full-Grain Bifold Leather Wallet,Accessories,1,43.19,43.19,Central,Kansas City,CUST-1149
+ORD-ACC-10647,2024-04-18,Full-Grain Bifold Leather Wallet,Accessories,1,46.79,46.79,East,Philadelphia,CUST-1066
+ORD-ACC-10052,2024-04-19,Braided Leather Key Fob,Accessories,1,18.6,18.6,Central,Denver,CUST-1184
+ORD-ACC-10164,2024-04-19,Polarized Aviator Sunglasses,Accessories,1,74.11,74.11,West,San Francisco,CUST-1076
+ORD-ACC-10405,2024-04-19,Full-Grain Bifold Leather Wallet,Accessories,1,42.77,42.77,West,Seattle,CUST-1027
+ORD-ACC-10736,2024-04-19,Polarized Aviator Sunglasses,Accessories,1,74.45,74.45,West,San Francisco,CUST-1109
+ORD-ACC-10761,2024-04-19,Full-Grain Bifold Leather Wallet,Accessories,2,46.89,93.78,East,Charlotte,CUST-1002
+ORD-ACC-10192,2024-04-20,Silk Printed Evening Scarf,Accessories,1,35.74,35.74,North,Boston,CUST-1156
+ORD-ACC-10211,2024-04-23,Automatic Chronograph Watch,Accessories,1,223.92,223.92,Central,Kansas City,CUST-1079
+ORD-ACC-10256,2024-04-23,Silk Printed Evening Scarf,Accessories,1,35.34,35.34,Central,Kansas City,CUST-1062
+ORD-ACC-10021,2024-04-24,Automatic Chronograph Watch,Accessories,1,218.56,218.56,West,San Francisco,CUST-1196
+ORD-ACC-10361,2024-04-25,Full-Grain Bifold Leather Wallet,Accessories,1,46.39,46.39,North,New York,CUST-1053
+ORD-ACC-10630,2024-04-25,Polarized Aviator Sunglasses,Accessories,1,76.47,76.47,South,Atlanta,CUST-1107
+ORD-ACC-10633,2024-04-25,Silk Printed Evening Scarf,Accessories,1,34.79,34.79,West,Los Angeles,CUST-1181
+ORD-ACC-10120,2024-04-26,Full-Grain Bifold Leather Wallet,Accessories,1,44.55,44.55,North,New York,CUST-1039
+ORD-ACC-10099,2024-04-27,Polarized Aviator Sunglasses,Accessories,1,78.49,78.49,North,Boston,CUST-1148
+ORD-ACC-10431,2024-04-27,Full-Grain Bifold Leather Wallet,Accessories,1,46.57,46.57,South,Dallas,CUST-1063
+ORD-ACC-10695,2024-04-27,Polarized Aviator Sunglasses,Accessories,1,76.28,76.28,North,Chicago,CUST-1119
+ORD-ACC-10065,2024-04-28,Automatic Chronograph Watch,Accessories,4,212.93,851.72,West,Los Angeles,CUST-1028
+ORD-ACC-10067,2024-04-28,Silk Printed Evening Scarf,Accessories,1,36.4,36.4,North,Chicago,CUST-1112
+ORD-ACC-10489,2024-04-28,Silk Printed Evening Scarf,Accessories,1,35.39,35.39,South,Atlanta,CUST-1004
+ORD-ACC-10495,2024-04-28,Polarized Aviator Sunglasses,Accessories,1,76.81,76.81,North,New York,CUST-1012
+ORD-ACC-10177,2024-04-29,Polarized Aviator Sunglasses,Accessories,1,71.59,71.59,East,Philadelphia,CUST-1025
+ORD-ACC-10351,2024-04-29,Braided Leather Key Fob,Accessories,1,17.95,17.95,North,Chicago,CUST-1115
+ORD-ACC-10735,2024-04-30,Canvas & Leather Weekend Duffle,Accessories,2,104.58,209.16,West,Seattle,CUST-1093
+ORD-ACC-10358,2024-05-01,Polarized Aviator Sunglasses,Accessories,1,78.7,78.7,South,Dallas,CUST-1058
+ORD-ACC-10719,2024-05-01,Braided Leather Key Fob,Accessories,2,18.0,36.0,North,Boston,CUST-1173
+ORD-ACC-10601,2024-05-02,Braided Leather Key Fob,Accessories,1,18.28,18.28,North,New York,CUST-1036
+ORD-ACC-10512,2024-05-03,Canvas & Leather Weekend Duffle,Accessories,2,108.44,216.88,East,Washington D.C.,CUST-1119
+ORD-ACC-10255,2024-05-04,Full-Grain Bifold Leather Wallet,Accessories,1,43.82,43.82,Central,Austin,CUST-1017
+ORD-ACC-10777,2024-05-04,Automatic Chronograph Watch,Accessories,4,228.08,912.32,South,Dallas,CUST-1148
+ORD-ACC-10808,2024-05-04,Braided Leather Key Fob,Accessories,2,18.04,36.08,East,Philadelphia,CUST-1189
+ORD-ACC-10476,2024-05-06,Canvas & Leather Weekend Duffle,Accessories,1,112.53,112.53,East,Washington D.C.,CUST-1036
+ORD-ACC-10248,2024-05-07,Automatic Chronograph Watch,Accessories,1,210.85,210.85,East,Charlotte,CUST-1038
+ORD-ACC-10184,2024-05-08,Canvas & Leather Weekend Duffle,Accessories,2,106.76,213.52,Central,Denver,CUST-1151
+ORD-ACC-10118,2024-05-09,Braided Leather Key Fob,Accessories,1,19.18,19.18,North,Chicago,CUST-1073
+ORD-ACC-10151,2024-05-09,Canvas & Leather Weekend Duffle,Accessories,1,115.12,115.12,North,Boston,CUST-1026
+ORD-ACC-10565,2024-05-09,Full-Grain Bifold Leather Wallet,Accessories,4,44.66,178.64,East,Philadelphia,CUST-1161
+ORD-ACC-10917,2024-05-12,Canvas & Leather Weekend Duffle,Accessories,1,110.69,110.69,East,Washington D.C.,CUST-1047
+ORD-ACC-10055,2024-05-13,Braided Leather Key Fob,Accessories,1,19.39,19.39,East,Charlotte,CUST-1181
+ORD-ACC-10943,2024-05-13,Full-Grain Bifold Leather Wallet,Accessories,2,44.87,89.74,North,Boston,CUST-1014
+ORD-ACC-10169,2024-05-14,Full-Grain Bifold Leather Wallet,Accessories,1,46.84,46.84,East,Philadelphia,CUST-1052
+ORD-ACC-10187,2024-05-14,Full-Grain Bifold Leather Wallet,Accessories,2,44.36,88.72,Central,Austin,CUST-1005
+ORD-ACC-10032,2024-05-15,Braided Leather Key Fob,Accessories,1,19.31,19.31,East,Philadelphia,CUST-1122
+ORD-ACC-10049,2024-05-15,Automatic Chronograph Watch,Accessories,3,228.38,685.14,West,Seattle,CUST-1041
+ORD-ACC-10170,2024-05-15,Canvas & Leather Weekend Duffle,Accessories,1,114.14,114.14,Central,Austin,CUST-1043
+ORD-ACC-10406,2024-05-15,Full-Grain Bifold Leather Wallet,Accessories,1,43.59,43.59,Central,Kansas City,CUST-1105
+ORD-ACC-10466,2024-05-15,Braided Leather Key Fob,Accessories,3,18.13,54.39,West,Los Angeles,CUST-1168
+ORD-ACC-10708,2024-05-17,Silk Printed Evening Scarf,Accessories,1,35.0,35.0,West,San Francisco,CUST-1003
+ORD-ACC-10733,2024-05-17,Automatic Chronograph Watch,Accessories,1,219.5,219.5,North,Boston,CUST-1154
+ORD-ACC-10773,2024-05-17,Braided Leather Key Fob,Accessories,2,18.53,37.06,East,Washington D.C.,CUST-1065
+ORD-ACC-10093,2024-05-18,Silk Printed Evening Scarf,Accessories,1,33.89,33.89,West,Los Angeles,CUST-1117
+ORD-ACC-10145,2024-05-19,Full-Grain Bifold Leather Wallet,Accessories,2,43.99,87.98,East,Washington D.C.,CUST-1130
+ORD-ACC-10311,2024-05-20,Braided Leather Key Fob,Accessories,1,18.19,18.19,East,Philadelphia,CUST-1156
+ORD-ACC-10655,2024-05-21,Silk Printed Evening Scarf,Accessories,3,35.36,106.08,Central,Austin,CUST-1180
+ORD-ACC-10879,2024-05-21,Automatic Chronograph Watch,Accessories,3,224.15,672.45,South,Miami,CUST-1198
+ORD-ACC-10016,2024-05-22,Polarized Aviator Sunglasses,Accessories,1,76.84,76.84,Central,Austin,CUST-1150
+ORD-ACC-10284,2024-05-22,Polarized Aviator Sunglasses,Accessories,1,77.18,77.18,Central,Kansas City,CUST-1095
+ORD-ACC-10420,2024-05-22,Braided Leather Key Fob,Accessories,1,18.14,18.14,South,Dallas,CUST-1109
+ORD-ACC-10453,2024-05-22,Polarized Aviator Sunglasses,Accessories,2,77.35,154.7,Central,Austin,CUST-1137
+ORD-ACC-10399,2024-05-23,Braided Leather Key Fob,Accessories,1,18.91,18.91,West,Los Angeles,CUST-1026
+ORD-ACC-10206,2024-05-26,Canvas & Leather Weekend Duffle,Accessories,1,111.73,111.73,North,New York,CUST-1192
+ORD-ACC-10257,2024-05-27,Automatic Chronograph Watch,Accessories,1,218.44,218.44,South,Dallas,CUST-1107
+ORD-ACC-10310,2024-05-27,Polarized Aviator Sunglasses,Accessories,1,75.77,75.77,North,New York,CUST-1010
+ORD-ACC-10397,2024-05-27,Braided Leather Key Fob,Accessories,3,19.09,57.27,West,Los Angeles,CUST-1145
+ORD-ACC-10572,2024-05-27,Canvas & Leather Weekend Duffle,Accessories,2,111.2,222.4,North,Boston,CUST-1085
+ORD-ACC-10186,2024-05-28,Polarized Aviator Sunglasses,Accessories,2,75.3,150.6,North,Chicago,CUST-1007
+ORD-ACC-10880,2024-05-28,Braided Leather Key Fob,Accessories,3,19.3,57.9,West,Los Angeles,CUST-1143
+ORD-ACC-10222,2024-05-29,Automatic Chronograph Watch,Accessories,1,213.34,213.34,North,New York,CUST-1198
+ORD-ACC-10327,2024-05-29,Automatic Chronograph Watch,Accessories,4,209.93,839.72,North,Boston,CUST-1114
+ORD-ACC-10772,2024-05-29,Braided Leather Key Fob,Accessories,2,17.85,35.7,South,Miami,CUST-1128
+ORD-ACC-10564,2024-05-30,Full-Grain Bifold Leather Wallet,Accessories,1,47.02,47.02,South,Atlanta,CUST-1050
+ORD-ACC-10722,2024-05-30,Full-Grain Bifold Leather Wallet,Accessories,3,43.5,130.5,Central,Austin,CUST-1154
+ORD-ACC-10193,2024-05-31,Full-Grain Bifold Leather Wallet,Accessories,1,43.32,43.32,Central,Kansas City,CUST-1183
+ORD-ACC-10536,2024-05-31,Canvas & Leather Weekend Duffle,Accessories,1,112.25,112.25,North,Chicago,CUST-1094
+ORD-ACC-10566,2024-05-31,Canvas & Leather Weekend Duffle,Accessories,3,107.34,322.02,North,New York,CUST-1100
+ORD-ACC-10569,2024-05-31,Canvas & Leather Weekend Duffle,Accessories,2,110.97,221.94,North,New York,CUST-1145
+ORD-ACC-10908,2024-05-31,Full-Grain Bifold Leather Wallet,Accessories,1,45.69,45.69,North,Chicago,CUST-1148
+ORD-ACC-10707,2024-06-01,Automatic Chronograph Watch,Accessories,3,217.63,652.89,Central,Kansas City,CUST-1075
+ORD-ACC-10851,2024-06-02,Automatic Chronograph Watch,Accessories,1,220.05,220.05,North,Chicago,CUST-1188
+ORD-ACC-10560,2024-06-03,Braided Leather Key Fob,Accessories,1,18.81,18.81,West,San Francisco,CUST-1106
+ORD-ACC-10404,2024-06-06,Silk Printed Evening Scarf,Accessories,1,35.74,35.74,East,Washington D.C.,CUST-1093
+ORD-ACC-10179,2024-06-07,Silk Printed Evening Scarf,Accessories,2,35.54,71.08,Central,Austin,CUST-1072
+ORD-ACC-10815,2024-06-07,Automatic Chronograph Watch,Accessories,1,225.96,225.96,East,Philadelphia,CUST-1176
+ORD-ACC-10788,2024-06-08,Full-Grain Bifold Leather Wallet,Accessories,3,45.7,137.1,West,Los Angeles,CUST-1064
+ORD-ACC-10844,2024-06-08,Polarized Aviator Sunglasses,Accessories,3,73.24,219.72,South,Atlanta,CUST-1066
+ORD-ACC-10552,2024-06-09,Full-Grain Bifold Leather Wallet,Accessories,1,43.21,43.21,South,Miami,CUST-1179
+ORD-ACC-10162,2024-06-10,Full-Grain Bifold Leather Wallet,Accessories,1,44.74,44.74,Central,Austin,CUST-1164
+ORD-ACC-10332,2024-06-10,Silk Printed Evening Scarf,Accessories,3,35.54,106.62,East,Washington D.C.,CUST-1167
+ORD-ACC-10465,2024-06-10,Silk Printed Evening Scarf,Accessories,4,34.85,139.4,East,Philadelphia,CUST-1177
+ORD-ACC-10605,2024-06-11,Silk Printed Evening Scarf,Accessories,2,36.0,72.0,South,Dallas,CUST-1112
+ORD-ACC-10005,2024-06-12,Braided Leather Key Fob,Accessories,1,18.36,18.36,South,Miami,CUST-1027
+ORD-ACC-10136,2024-06-13,Automatic Chronograph Watch,Accessories,1,218.06,218.06,East,Charlotte,CUST-1010
+ORD-ACC-10662,2024-06-13,Automatic Chronograph Watch,Accessories,1,224.03,224.03,North,Chicago,CUST-1076
+ORD-ACC-10822,2024-06-13,Full-Grain Bifold Leather Wallet,Accessories,1,45.14,45.14,West,San Francisco,CUST-1094
+ORD-ACC-10910,2024-06-14,Braided Leather Key Fob,Accessories,2,18.1,36.2,Central,Kansas City,CUST-1144
+ORD-ACC-10887,2024-06-16,Polarized Aviator Sunglasses,Accessories,1,72.95,72.95,North,Boston,CUST-1106
+ORD-ACC-10129,2024-06-18,Automatic Chronograph Watch,Accessories,2,222.09,444.18,West,Seattle,CUST-1032
+ORD-ACC-10638,2024-06-18,Full-Grain Bifold Leather Wallet,Accessories,1,46.13,46.13,West,Seattle,CUST-1013
+ORD-ACC-10544,2024-06-20,Braided Leather Key Fob,Accessories,1,19.21,19.21,West,Seattle,CUST-1003
+ORD-ACC-10614,2024-06-22,Full-Grain Bifold Leather Wallet,Accessories,2,44.4,88.8,North,Boston,CUST-1164
+ORD-ACC-10159,2024-06-23,Polarized Aviator Sunglasses,Accessories,3,71.84,215.52,Central,Kansas City,CUST-1062
+ORD-ACC-10012,2024-06-24,Canvas & Leather Weekend Duffle,Accessories,1,112.52,112.52,East,Washington D.C.,CUST-1164
+ORD-ACC-10942,2024-06-24,Full-Grain Bifold Leather Wallet,Accessories,3,44.15,132.45,Central,Austin,CUST-1013
+ORD-ACC-10579,2024-06-26,Polarized Aviator Sunglasses,Accessories,1,77.81,77.81,North,New York,CUST-1009
+ORD-ACC-10188,2024-06-27,Automatic Chronograph Watch,Accessories,2,210.15,420.3,Central,Denver,CUST-1191
+ORD-ACC-10745,2024-06-28,Braided Leather Key Fob,Accessories,1,18.49,18.49,Central,Austin,CUST-1050
+ORD-ACC-10335,2024-06-29,Full-Grain Bifold Leather Wallet,Accessories,1,47.24,47.24,East,Philadelphia,CUST-1192
+ORD-ACC-10911,2024-06-30,Silk Printed Evening Scarf,Accessories,1,35.87,35.87,North,New York,CUST-1197
+ORD-ACC-10022,2024-07-01,Canvas & Leather Weekend Duffle,Accessories,3,114.54,343.62,West,San Francisco,CUST-1130
+ORD-ACC-10658,2024-07-01,Canvas & Leather Weekend Duffle,Accessories,1,110.47,110.47,North,Boston,CUST-1144
+ORD-ACC-10758,2024-07-01,Silk Printed Evening Scarf,Accessories,1,34.35,34.35,Central,Austin,CUST-1047
+ORD-ACC-10827,2024-07-01,Full-Grain Bifold Leather Wallet,Accessories,1,43.66,43.66,North,New York,CUST-1147
+ORD-ACC-10834,2024-07-02,Canvas & Leather Weekend Duffle,Accessories,1,112.74,112.74,North,Chicago,CUST-1148
+ORD-ACC-10418,2024-07-03,Braided Leather Key Fob,Accessories,1,19.0,19.0,East,Charlotte,CUST-1054
+ORD-ACC-10603,2024-07-03,Full-Grain Bifold Leather Wallet,Accessories,1,44.94,44.94,South,Miami,CUST-1163
+ORD-ACC-10036,2024-07-06,Automatic Chronograph Watch,Accessories,3,219.18,657.54,North,Boston,CUST-1141
+ORD-ACC-10278,2024-07-09,Silk Printed Evening Scarf,Accessories,3,35.06,105.18,North,Boston,CUST-1199
+ORD-ACC-10339,2024-07-09,Full-Grain Bifold Leather Wallet,Accessories,2,46.06,92.12,Central,Kansas City,CUST-1194
+ORD-ACC-10258,2024-07-10,Braided Leather Key Fob,Accessories,1,18.81,18.81,West,Los Angeles,CUST-1135
+ORD-ACC-10522,2024-07-10,Automatic Chronograph Watch,Accessories,3,215.16,645.48,North,Chicago,CUST-1159
+ORD-ACC-10821,2024-07-10,Canvas & Leather Weekend Duffle,Accessories,2,108.32,216.64,West,San Francisco,CUST-1142
+ORD-ACC-10373,2024-07-11,Canvas & Leather Weekend Duffle,Accessories,1,112.47,112.47,East,Philadelphia,CUST-1086
+ORD-ACC-10612,2024-07-11,Polarized Aviator Sunglasses,Accessories,3,78.36,235.08,East,Philadelphia,CUST-1059
+ORD-ACC-10883,2024-07-11,Full-Grain Bifold Leather Wallet,Accessories,1,43.34,43.34,Central,Kansas City,CUST-1069
+ORD-ACC-10167,2024-07-13,Canvas & Leather Weekend Duffle,Accessories,2,107.26,214.52,South,Dallas,CUST-1025
+ORD-ACC-10933,2024-07-13,Automatic Chronograph Watch,Accessories,2,229.32,458.64,Central,Austin,CUST-1199
+ORD-ACC-10372,2024-07-14,Full-Grain Bifold Leather Wallet,Accessories,2,43.96,87.92,Central,Denver,CUST-1019
+ORD-ACC-10649,2024-07-14,Braided Leather Key Fob,Accessories,2,18.2,36.4,North,Chicago,CUST-1173
+ORD-ACC-10071,2024-07-15,Silk Printed Evening Scarf,Accessories,1,35.58,35.58,South,Dallas,CUST-1146
+ORD-ACC-10340,2024-07-16,Polarized Aviator Sunglasses,Accessories,1,75.83,75.83,East,Washington D.C.,CUST-1132
+ORD-ACC-10221,2024-07-17,Automatic Chronograph Watch,Accessories,4,216.72,866.88,South,Atlanta,CUST-1027
+ORD-ACC-10380,2024-07-19,Automatic Chronograph Watch,Accessories,1,214.06,214.06,South,Miami,CUST-1141
+ORD-ACC-10502,2024-07-19,Braided Leather Key Fob,Accessories,2,19.24,38.48,South,Atlanta,CUST-1002
+ORD-ACC-10291,2024-07-20,Braided Leather Key Fob,Accessories,1,19.34,19.34,West,San Francisco,CUST-1137
+ORD-ACC-10280,2024-07-23,Full-Grain Bifold Leather Wallet,Accessories,1,43.36,43.36,South,Dallas,CUST-1114
+ORD-ACC-10333,2024-07-23,Automatic Chronograph Watch,Accessories,1,216.07,216.07,North,Chicago,CUST-1147
+ORD-ACC-10415,2024-07-24,Silk Printed Evening Scarf,Accessories,4,34.35,137.4,West,Seattle,CUST-1189
+ORD-ACC-10602,2024-07-24,Automatic Chronograph Watch,Accessories,1,218.0,218.0,East,Philadelphia,CUST-1081
+ORD-ACC-10921,2024-07-25,Braided Leather Key Fob,Accessories,2,18.1,36.2,West,Seattle,CUST-1130
+ORD-ACC-10932,2024-07-25,Full-Grain Bifold Leather Wallet,Accessories,1,44.75,44.75,East,Charlotte,CUST-1040
+ORD-ACC-10904,2024-07-26,Full-Grain Bifold Leather Wallet,Accessories,1,45.55,45.55,East,Washington D.C.,CUST-1128
+ORD-ACC-10663,2024-07-27,Canvas & Leather Weekend Duffle,Accessories,2,104.86,209.72,North,Chicago,CUST-1173
+ORD-ACC-10046,2024-07-28,Braided Leather Key Fob,Accessories,1,18.9,18.9,East,Philadelphia,CUST-1172
+ORD-ACC-10435,2024-07-29,Automatic Chronograph Watch,Accessories,2,225.55,451.1,North,Chicago,CUST-1027
+ORD-ACC-10935,2024-07-29,Braided Leather Key Fob,Accessories,1,17.64,17.64,Central,Denver,CUST-1002
+ORD-ACC-10124,2024-07-31,Braided Leather Key Fob,Accessories,2,17.97,35.94,South,Atlanta,CUST-1045
+ORD-ACC-10325,2024-07-31,Braided Leather Key Fob,Accessories,1,18.88,18.88,West,San Francisco,CUST-1185
+ORD-ACC-10011,2024-08-02,Braided Leather Key Fob,Accessories,3,18.07,54.21,North,Chicago,CUST-1163
+ORD-ACC-10213,2024-08-04,Polarized Aviator Sunglasses,Accessories,1,76.98,76.98,North,New York,CUST-1128
+ORD-ACC-10015,2024-08-05,Braided Leather Key Fob,Accessories,3,18.5,55.5,East,Philadelphia,CUST-1068
+ORD-ACC-10108,2024-08-05,Automatic Chronograph Watch,Accessories,1,226.55,226.55,Central,Kansas City,CUST-1071
+ORD-ACC-10183,2024-08-05,Braided Leather Key Fob,Accessories,4,18.76,75.04,North,Boston,CUST-1063
+ORD-ACC-10839,2024-08-07,Silk Printed Evening Scarf,Accessories,3,35.93,107.79,West,Seattle,CUST-1116
+ORD-ACC-10304,2024-08-08,Canvas & Leather Weekend Duffle,Accessories,1,108.38,108.38,East,Charlotte,CUST-1168
+ORD-ACC-10185,2024-08-09,Polarized Aviator Sunglasses,Accessories,1,73.71,73.71,Central,Denver,CUST-1071
+ORD-ACC-10354,2024-08-11,Canvas & Leather Weekend Duffle,Accessories,1,105.3,105.3,North,Chicago,CUST-1016
+ORD-ACC-10090,2024-08-12,Automatic Chronograph Watch,Accessories,1,218.59,218.59,West,San Francisco,CUST-1174
+ORD-ACC-10534,2024-08-12,Full-Grain Bifold Leather Wallet,Accessories,1,45.12,45.12,Central,Denver,CUST-1034
+ORD-ACC-10176,2024-08-14,Braided Leather Key Fob,Accessories,2,17.69,35.38,West,San Francisco,CUST-1105
+ORD-ACC-10220,2024-08-14,Automatic Chronograph Watch,Accessories,1,226.14,226.14,North,Chicago,CUST-1131
+ORD-ACC-10346,2024-08-14,Polarized Aviator Sunglasses,Accessories,1,78.43,78.43,East,Charlotte,CUST-1156
+ORD-ACC-10062,2024-08-15,Polarized Aviator Sunglasses,Accessories,1,77.37,77.37,West,Los Angeles,CUST-1058
+ORD-ACC-10518,2024-08-15,Polarized Aviator Sunglasses,Accessories,1,72.74,72.74,North,Chicago,CUST-1151
+ORD-ACC-10764,2024-08-15,Canvas & Leather Weekend Duffle,Accessories,1,105.91,105.91,East,Washington D.C.,CUST-1139
+ORD-ACC-10888,2024-08-15,Braided Leather Key Fob,Accessories,1,18.82,18.82,South,Atlanta,CUST-1046
+ORD-ACC-10644,2024-08-16,Silk Printed Evening Scarf,Accessories,2,34.41,68.82,Central,Austin,CUST-1184
+ORD-ACC-10251,2024-08-17,Full-Grain Bifold Leather Wallet,Accessories,1,44.18,44.18,West,Los Angeles,CUST-1036
+ORD-ACC-10587,2024-08-17,Automatic Chronograph Watch,Accessories,3,222.38,667.14,West,Seattle,CUST-1097
+ORD-ACC-10613,2024-08-17,Braided Leather Key Fob,Accessories,1,19.4,19.4,North,Chicago,CUST-1130
+ORD-ACC-10948,2024-08-17,Polarized Aviator Sunglasses,Accessories,1,77.71,77.71,West,Seattle,CUST-1047
+ORD-ACC-10142,2024-08-18,Full-Grain Bifold Leather Wallet,Accessories,1,44.83,44.83,South,Miami,CUST-1184
+ORD-ACC-10290,2024-08-18,Automatic Chronograph Watch,Accessories,1,229.84,229.84,West,Los Angeles,CUST-1065
+ORD-ACC-10447,2024-08-18,Canvas & Leather Weekend Duffle,Accessories,2,107.68,215.36,Central,Kansas City,CUST-1198
+ORD-ACC-10585,2024-08-18,Braided Leather Key Fob,Accessories,2,17.96,35.92,Central,Denver,CUST-1200
+ORD-ACC-10875,2024-08-18,Polarized Aviator Sunglasses,Accessories,1,73.81,73.81,South,Atlanta,CUST-1187
+ORD-ACC-10849,2024-08-20,Braided Leather Key Fob,Accessories,1,18.78,18.78,North,Chicago,CUST-1200
+ORD-ACC-10760,2024-08-22,Polarized Aviator Sunglasses,Accessories,2,77.51,155.02,West,Los Angeles,CUST-1200
+ORD-ACC-10030,2024-08-23,Canvas & Leather Weekend Duffle,Accessories,1,106.92,106.92,North,New York,CUST-1018
+ORD-ACC-10740,2024-08-23,Silk Printed Evening Scarf,Accessories,3,35.99,107.97,North,New York,CUST-1131
+ORD-ACC-10756,2024-08-23,Automatic Chronograph Watch,Accessories,1,218.07,218.07,Central,Denver,CUST-1180
+ORD-ACC-10833,2024-08-24,Canvas & Leather Weekend Duffle,Accessories,1,108.74,108.74,South,Dallas,CUST-1161
+ORD-ACC-10334,2024-08-25,Canvas & Leather Weekend Duffle,Accessories,3,112.63,337.89,North,New York,CUST-1107
+ORD-ACC-10127,2024-08-27,Automatic Chronograph Watch,Accessories,1,226.33,226.33,South,Miami,CUST-1030
+ORD-ACC-10175,2024-08-27,Silk Printed Evening Scarf,Accessories,3,33.34,100.02,Central,Austin,CUST-1157
+ORD-ACC-10178,2024-08-28,Canvas & Leather Weekend Duffle,Accessories,1,105.99,105.99,Central,Austin,CUST-1151
+ORD-ACC-10785,2024-08-28,Braided Leather Key Fob,Accessories,2,18.04,36.08,North,New York,CUST-1043
+ORD-ACC-10038,2024-08-30,Polarized Aviator Sunglasses,Accessories,1,74.3,74.3,East,Philadelphia,CUST-1043
+ORD-ACC-10509,2024-08-30,Automatic Chronograph Watch,Accessories,1,214.74,214.74,East,Charlotte,CUST-1189
+ORD-ACC-10243,2024-08-31,Silk Printed Evening Scarf,Accessories,2,35.39,70.78,East,Philadelphia,CUST-1137
+ORD-ACC-10505,2024-08-31,Silk Printed Evening Scarf,Accessories,1,34.97,34.97,South,Dallas,CUST-1072
+ORD-ACC-10244,2024-09-01,Automatic Chronograph Watch,Accessories,2,230.24,460.48,South,Miami,CUST-1174
+ORD-ACC-10440,2024-09-01,Automatic Chronograph Watch,Accessories,1,211.57,211.57,South,Dallas,CUST-1100
+ORD-ACC-10141,2024-09-02,Braided Leather Key Fob,Accessories,1,17.87,17.87,Central,Austin,CUST-1024
+ORD-ACC-10369,2024-09-03,Polarized Aviator Sunglasses,Accessories,2,73.51,147.02,East,Philadelphia,CUST-1144
+ORD-ACC-10398,2024-09-03,Canvas & Leather Weekend Duffle,Accessories,1,113.68,113.68,Central,Austin,CUST-1099
+ORD-ACC-10409,2024-09-05,Canvas & Leather Weekend Duffle,Accessories,2,110.23,220.46,South,Atlanta,CUST-1069
+ORD-ACC-10862,2024-09-05,Canvas & Leather Weekend Duffle,Accessories,3,114.69,344.07,West,Los Angeles,CUST-1088
+ORD-ACC-10106,2024-09-08,Full-Grain Bifold Leather Wallet,Accessories,1,44.01,44.01,East,Charlotte,CUST-1157
+ORD-ACC-10348,2024-09-10,Braided Leather Key Fob,Accessories,3,18.97,56.91,North,Chicago,CUST-1115
+ORD-ACC-10477,2024-09-10,Automatic Chronograph Watch,Accessories,1,223.18,223.18,Central,Kansas City,CUST-1185
+ORD-ACC-10061,2024-09-11,Automatic Chronograph Watch,Accessories,2,212.5,425.0,East,Philadelphia,CUST-1121
+ORD-ACC-10342,2024-09-11,Full-Grain Bifold Leather Wallet,Accessories,1,43.92,43.92,West,Seattle,CUST-1078
+ORD-ACC-10515,2024-09-11,Automatic Chronograph Watch,Accessories,1,217.72,217.72,West,Seattle,CUST-1045
+ORD-ACC-10636,2024-09-11,Silk Printed Evening Scarf,Accessories,2,34.46,68.92,East,Philadelphia,CUST-1143
+ORD-ACC-10457,2024-09-12,Polarized Aviator Sunglasses,Accessories,2,76.59,153.18,East,Washington D.C.,CUST-1037
+ORD-ACC-10753,2024-09-13,Braided Leather Key Fob,Accessories,1,18.39,18.39,East,Philadelphia,CUST-1194
+ORD-ACC-10775,2024-09-17,Silk Printed Evening Scarf,Accessories,1,36.19,36.19,West,Seattle,CUST-1093
+ORD-ACC-10615,2024-09-18,Canvas & Leather Weekend Duffle,Accessories,1,111.35,111.35,North,Chicago,CUST-1028
+ORD-ACC-10171,2024-09-20,Silk Printed Evening Scarf,Accessories,1,36.64,36.64,West,Los Angeles,CUST-1120
+ORD-ACC-10755,2024-09-21,Full-Grain Bifold Leather Wallet,Accessories,2,44.47,88.94,South,Dallas,CUST-1180
+ORD-ACC-10491,2024-09-22,Polarized Aviator Sunglasses,Accessories,2,74.04,148.08,West,San Francisco,CUST-1031
+ORD-ACC-10519,2024-09-22,Full-Grain Bifold Leather Wallet,Accessories,1,42.85,42.85,East,Philadelphia,CUST-1024
+ORD-ACC-10279,2024-09-23,Braided Leather Key Fob,Accessories,4,18.4,73.6,West,San Francisco,CUST-1126
+ORD-ACC-10704,2024-09-26,Braided Leather Key Fob,Accessories,1,19.21,19.21,North,New York,CUST-1130
+ORD-ACC-10757,2024-09-26,Polarized Aviator Sunglasses,Accessories,1,73.4,73.4,West,Los Angeles,CUST-1142
+ORD-ACC-10768,2024-09-26,Polarized Aviator Sunglasses,Accessories,4,73.27,293.08,West,Seattle,CUST-1048
+ORD-ACC-10799,2024-09-26,Full-Grain Bifold Leather Wallet,Accessories,1,44.65,44.65,Central,Kansas City,CUST-1176
+ORD-ACC-10306,2024-09-27,Braided Leather Key Fob,Accessories,1,18.25,18.25,North,Boston,CUST-1014
+ORD-ACC-10027,2024-09-28,Canvas & Leather Weekend Duffle,Accessories,1,114.1,114.1,South,Dallas,CUST-1194
+ORD-ACC-10153,2024-09-28,Automatic Chronograph Watch,Accessories,1,222.71,222.71,North,Boston,CUST-1173
+ORD-ACC-10316,2024-09-28,Braided Leather Key Fob,Accessories,2,19.02,38.04,Central,Denver,CUST-1185
+ORD-ACC-10513,2024-09-28,Full-Grain Bifold Leather Wallet,Accessories,2,43.16,86.32,West,San Francisco,CUST-1179
+ORD-ACC-10545,2024-09-28,Polarized Aviator Sunglasses,Accessories,1,73.12,73.12,West,Los Angeles,CUST-1185
+ORD-ACC-10146,2024-09-30,Full-Grain Bifold Leather Wallet,Accessories,1,44.02,44.02,Central,Kansas City,CUST-1169
+ORD-ACC-10269,2024-09-30,Full-Grain Bifold Leather Wallet,Accessories,1,46.02,46.02,Central,Denver,CUST-1140
+ORD-ACC-10390,2024-09-30,Silk Printed Evening Scarf,Accessories,4,33.53,134.12,East,Charlotte,CUST-1063
+ORD-ACC-10455,2024-09-30,Canvas & Leather Weekend Duffle,Accessories,2,115.34,230.68,North,New York,CUST-1193
+ORD-ACC-10629,2024-10-05,Silk Printed Evening Scarf,Accessories,1,35.66,35.66,East,Charlotte,CUST-1043
+ORD-ACC-10791,2024-10-05,Canvas & Leather Weekend Duffle,Accessories,4,109.39,437.56,Central,Denver,CUST-1152
+ORD-ACC-10800,2024-10-05,Automatic Chronograph Watch,Accessories,1,223.27,223.27,West,Seattle,CUST-1049
+ORD-ACC-10802,2024-10-05,Braided Leather Key Fob,Accessories,1,18.73,18.73,North,New York,CUST-1013
+ORD-ACC-10205,2024-10-06,Braided Leather Key Fob,Accessories,3,18.99,56.97,West,Los Angeles,CUST-1047
+ORD-ACC-10267,2024-10-06,Full-Grain Bifold Leather Wallet,Accessories,1,46.35,46.35,East,Charlotte,CUST-1113
+ORD-ACC-10338,2024-10-06,Polarized Aviator Sunglasses,Accessories,1,77.32,77.32,East,Charlotte,CUST-1066
+ORD-ACC-10326,2024-10-07,Automatic Chronograph Watch,Accessories,2,211.68,423.36,East,Washington D.C.,CUST-1089
+ORD-ACC-10940,2024-10-07,Full-Grain Bifold Leather Wallet,Accessories,1,42.82,42.82,Central,Denver,CUST-1053
+ORD-ACC-10388,2024-10-08,Canvas & Leather Weekend Duffle,Accessories,1,115.25,115.25,East,Philadelphia,CUST-1028
+ORD-ACC-10763,2024-10-08,Silk Printed Evening Scarf,Accessories,2,33.89,67.78,Central,Austin,CUST-1102
+ORD-ACC-10182,2024-10-09,Polarized Aviator Sunglasses,Accessories,3,78.51,235.53,East,Philadelphia,CUST-1170
+ORD-ACC-10591,2024-10-10,Braided Leather Key Fob,Accessories,1,18.18,18.18,West,Los Angeles,CUST-1039
+ORD-ACC-10203,2024-10-12,Canvas & Leather Weekend Duffle,Accessories,1,106.99,106.99,Central,Kansas City,CUST-1158
+ORD-ACC-10324,2024-10-12,Canvas & Leather Weekend Duffle,Accessories,3,107.78,323.34,West,Seattle,CUST-1181
+ORD-ACC-10770,2024-10-13,Silk Printed Evening Scarf,Accessories,1,33.88,33.88,Central,Kansas City,CUST-1059
+ORD-ACC-10417,2024-10-14,Silk Printed Evening Scarf,Accessories,3,34.53,103.59,South,Dallas,CUST-1140
+ORD-ACC-10454,2024-10-14,Canvas & Leather Weekend Duffle,Accessories,1,110.43,110.43,West,Seattle,CUST-1147
+ORD-ACC-10928,2024-10-14,Full-Grain Bifold Leather Wallet,Accessories,1,44.28,44.28,Central,Denver,CUST-1147
+ORD-ACC-10075,2024-10-17,Canvas & Leather Weekend Duffle,Accessories,1,111.8,111.8,North,New York,CUST-1173
+ORD-ACC-10789,2024-10-17,Silk Printed Evening Scarf,Accessories,1,35.44,35.44,South,Atlanta,CUST-1009
+ORD-ACC-10227,2024-10-20,Full-Grain Bifold Leather Wallet,Accessories,4,45.65,182.6,North,Chicago,CUST-1153
+ORD-ACC-10484,2024-10-20,Braided Leather Key Fob,Accessories,2,18.89,37.78,East,Charlotte,CUST-1103
+ORD-ACC-10780,2024-10-20,Silk Printed Evening Scarf,Accessories,1,35.46,35.46,South,Dallas,CUST-1087
+ORD-ACC-10140,2024-10-21,Silk Printed Evening Scarf,Accessories,1,36.33,36.33,North,Chicago,CUST-1156
+ORD-ACC-10201,2024-10-21,Canvas & Leather Weekend Duffle,Accessories,1,107.94,107.94,Central,Denver,CUST-1040
+ORD-ACC-10665,2024-10-21,Braided Leather Key Fob,Accessories,3,18.8,56.4,East,Washington D.C.,CUST-1176
+ORD-ACC-10336,2024-10-23,Full-Grain Bifold Leather Wallet,Accessories,1,42.79,42.79,North,Boston,CUST-1073
+ORD-ACC-10364,2024-10-23,Polarized Aviator Sunglasses,Accessories,2,77.37,154.74,West,San Francisco,CUST-1154
+ORD-ACC-10853,2024-10-23,Silk Printed Evening Scarf,Accessories,1,33.77,33.77,East,Charlotte,CUST-1191
+ORD-ACC-10143,2024-10-25,Canvas & Leather Weekend Duffle,Accessories,1,112.26,112.26,East,Washington D.C.,CUST-1063
+ORD-ACC-10869,2024-10-26,Braided Leather Key Fob,Accessories,4,18.29,73.16,Central,Kansas City,CUST-1026
+ORD-ACC-10270,2024-10-27,Automatic Chronograph Watch,Accessories,1,211.26,211.26,West,Seattle,CUST-1115
+ORD-ACC-10676,2024-10-27,Polarized Aviator Sunglasses,Accessories,1,78.38,78.38,East,Charlotte,CUST-1193
+ORD-ACC-10752,2024-10-28,Automatic Chronograph Watch,Accessories,2,229.83,459.66,West,San Francisco,CUST-1148
+ORD-ACC-10041,2024-10-30,Polarized Aviator Sunglasses,Accessories,1,78.52,78.52,Central,Denver,CUST-1192
+ORD-ACC-10812,2024-11-01,Polarized Aviator Sunglasses,Accessories,1,73.95,73.95,South,Atlanta,CUST-1061
+ORD-ACC-10313,2024-11-02,Canvas & Leather Weekend Duffle,Accessories,2,108.2,216.4,Central,Austin,CUST-1182
+ORD-ACC-10411,2024-11-02,Silk Printed Evening Scarf,Accessories,1,35.99,35.99,South,Dallas,CUST-1161
+ORD-ACC-10912,2024-11-02,Automatic Chronograph Watch,Accessories,1,217.11,217.11,North,Boston,CUST-1141
+ORD-ACC-10366,2024-11-03,Automatic Chronograph Watch,Accessories,3,210.34,631.02,South,Dallas,CUST-1174
+ORD-ACC-10575,2024-11-03,Braided Leather Key Fob,Accessories,2,18.39,36.78,West,San Francisco,CUST-1107
+ORD-ACC-10845,2024-11-03,Full-Grain Bifold Leather Wallet,Accessories,1,45.32,45.32,South,Dallas,CUST-1020
+ORD-ACC-10072,2024-11-04,Silk Printed Evening Scarf,Accessories,1,35.17,35.17,West,Los Angeles,CUST-1111
+ORD-ACC-10410,2024-11-04,Automatic Chronograph Watch,Accessories,1,219.85,219.85,East,Washington D.C.,CUST-1108
+ORD-ACC-10296,2024-11-05,Silk Printed Evening Scarf,Accessories,2,34.11,68.22,East,Washington D.C.,CUST-1117
+ORD-ACC-10538,2024-11-05,Automatic Chronograph Watch,Accessories,1,212.0,212.0,East,Charlotte,CUST-1125
+ORD-ACC-10931,2024-11-05,Polarized Aviator Sunglasses,Accessories,1,75.19,75.19,West,Los Angeles,CUST-1200
+ORD-ACC-10374,2024-11-06,Full-Grain Bifold Leather Wallet,Accessories,1,43.7,43.7,North,Chicago,CUST-1194
+ORD-ACC-10739,2024-11-10,Canvas & Leather Weekend Duffle,Accessories,2,108.29,216.58,South,Dallas,CUST-1031
+ORD-ACC-10303,2024-11-11,Silk Printed Evening Scarf,Accessories,3,33.33,99.99,Central,Austin,CUST-1062
+ORD-ACC-10557,2024-11-11,Silk Printed Evening Scarf,Accessories,3,34.9,104.7,West,Los Angeles,CUST-1165
+ORD-ACC-10903,2024-11-12,Braided Leather Key Fob,Accessories,1,19.0,19.0,South,Atlanta,CUST-1034
+ORD-ACC-10076,2024-11-13,Polarized Aviator Sunglasses,Accessories,1,77.3,77.3,North,New York,CUST-1122
+ORD-ACC-10265,2024-11-13,Canvas & Leather Weekend Duffle,Accessories,2,108.88,217.76,East,Washington D.C.,CUST-1010
+ORD-ACC-10500,2024-11-14,Automatic Chronograph Watch,Accessories,1,210.9,210.9,West,Los Angeles,CUST-1075
+ORD-ACC-10936,2024-11-14,Full-Grain Bifold Leather Wallet,Accessories,1,45.84,45.84,North,Boston,CUST-1120
+ORD-ACC-10609,2024-11-15,Polarized Aviator Sunglasses,Accessories,1,72.02,72.02,West,Los Angeles,CUST-1017
+ORD-ACC-10938,2024-11-15,Braided Leather Key Fob,Accessories,1,19.23,19.23,South,Miami,CUST-1071
+ORD-ACC-10302,2024-11-16,Polarized Aviator Sunglasses,Accessories,1,76.97,76.97,Central,Austin,CUST-1128
+ORD-ACC-10626,2024-11-16,Silk Printed Evening Scarf,Accessories,1,35.83,35.83,North,New York,CUST-1036
+ORD-ACC-10666,2024-11-16,Canvas & Leather Weekend Duffle,Accessories,2,105.09,210.18,South,Dallas,CUST-1200
+ORD-ACC-10042,2024-11-17,Full-Grain Bifold Leather Wallet,Accessories,1,42.98,42.98,Central,Denver,CUST-1015
+ORD-ACC-10322,2024-11-17,Polarized Aviator Sunglasses,Accessories,1,74.7,74.7,Central,Austin,CUST-1174
+ORD-ACC-10842,2024-11-18,Full-Grain Bifold Leather Wallet,Accessories,3,46.22,138.66,West,San Francisco,CUST-1131
+ORD-ACC-10014,2024-11-19,Silk Printed Evening Scarf,Accessories,1,34.19,34.19,Central,Kansas City,CUST-1081
+ORD-ACC-10114,2024-11-19,Full-Grain Bifold Leather Wallet,Accessories,4,46.09,184.36,South,Atlanta,CUST-1056
+ORD-ACC-10870,2024-11-19,Silk Printed Evening Scarf,Accessories,1,36.28,36.28,South,Atlanta,CUST-1129
+ORD-ACC-10287,2024-11-20,Braided Leather Key Fob,Accessories,1,17.71,17.71,Central,Austin,CUST-1033
+ORD-ACC-10818,2024-11-20,Canvas & Leather Weekend Duffle,Accessories,2,113.17,226.34,East,Charlotte,CUST-1050
+ORD-ACC-10549,2024-11-22,Automatic Chronograph Watch,Accessories,1,229.94,229.94,South,Miami,CUST-1042
+ORD-ACC-10882,2024-11-22,Silk Printed Evening Scarf,Accessories,1,36.61,36.61,West,Los Angeles,CUST-1200
+ORD-ACC-10593,2024-11-23,Braided Leather Key Fob,Accessories,1,17.83,17.83,East,Washington D.C.,CUST-1067
+ORD-ACC-10376,2024-11-25,Automatic Chronograph Watch,Accessories,1,217.37,217.37,West,Seattle,CUST-1067
+ORD-ACC-10194,2024-11-28,Silk Printed Evening Scarf,Accessories,1,36.73,36.73,East,Charlotte,CUST-1155
+ORD-ACC-10208,2024-11-28,Canvas & Leather Weekend Duffle,Accessories,3,111.06,333.18,South,Atlanta,CUST-1194
+ORD-ACC-10846,2024-11-28,Silk Printed Evening Scarf,Accessories,2,33.86,67.72,Central,Denver,CUST-1153
+ORD-ACC-10094,2024-11-30,Automatic Chronograph Watch,Accessories,1,225.75,225.75,East,Washington D.C.,CUST-1021
+ORD-ACC-10401,2024-11-30,Full-Grain Bifold Leather Wallet,Accessories,2,45.6,91.2,East,Washington D.C.,CUST-1059
+ORD-ACC-10510,2024-11-30,Automatic Chronograph Watch,Accessories,1,218.96,218.96,South,Atlanta,CUST-1200
+ORD-ACC-10341,2024-12-01,Full-Grain Bifold Leather Wallet,Accessories,1,44.55,44.55,South,Miami,CUST-1083
+ORD-ACC-10460,2024-12-01,Canvas & Leather Weekend Duffle,Accessories,2,104.53,209.06,North,Chicago,CUST-1118
+ORD-ACC-10934,2024-12-01,Polarized Aviator Sunglasses,Accessories,1,77.02,77.02,Central,Kansas City,CUST-1034
+ORD-ACC-10371,2024-12-04,Braided Leather Key Fob,Accessories,1,17.72,17.72,West,Los Angeles,CUST-1138
+ORD-ACC-10520,2024-12-05,Full-Grain Bifold Leather Wallet,Accessories,1,42.94,42.94,South,Dallas,CUST-1111
+ORD-ACC-10262,2024-12-06,Polarized Aviator Sunglasses,Accessories,1,71.58,71.58,South,Dallas,CUST-1119
+ORD-ACC-10872,2024-12-07,Silk Printed Evening Scarf,Accessories,1,34.63,34.63,West,San Francisco,CUST-1091
+ORD-ACC-10085,2024-12-09,Automatic Chronograph Watch,Accessories,1,228.65,228.65,South,Atlanta,CUST-1099
+ORD-ACC-10598,2024-12-09,Braided Leather Key Fob,Accessories,1,17.74,17.74,West,Seattle,CUST-1085
+ORD-ACC-10574,2024-12-11,Automatic Chronograph Watch,Accessories,2,215.84,431.68,North,New York,CUST-1035
+ORD-ACC-10611,2024-12-11,Silk Printed Evening Scarf,Accessories,4,36.36,145.44,West,Seattle,CUST-1092
+ORD-ACC-10635,2024-12-12,Canvas & Leather Weekend Duffle,Accessories,2,110.25,220.5,North,Boston,CUST-1170
+ORD-ACC-10035,2024-12-13,Full-Grain Bifold Leather Wallet,Accessories,1,43.87,43.87,East,Philadelphia,CUST-1109
+ORD-ACC-10754,2024-12-13,Silk Printed Evening Scarf,Accessories,3,35.64,106.92,North,Boston,CUST-1030
+ORD-ACC-10298,2024-12-14,Canvas & Leather Weekend Duffle,Accessories,3,106.08,318.24,West,San Francisco,CUST-1089
+ORD-ACC-10535,2024-12-14,Braided Leather Key Fob,Accessories,2,17.9,35.8,West,Los Angeles,CUST-1006
+ORD-ACC-10103,2024-12-15,Full-Grain Bifold Leather Wallet,Accessories,2,46.57,93.14,North,Boston,CUST-1093
+ORD-ACC-10805,2024-12-16,Silk Printed Evening Scarf,Accessories,2,34.34,68.68,West,Seattle,CUST-1179
+ORD-ACC-10053,2024-12-17,Polarized Aviator Sunglasses,Accessories,3,76.41,229.23,Central,Austin,CUST-1065
+ORD-ACC-10429,2024-12-17,Silk Printed Evening Scarf,Accessories,1,35.99,35.99,West,Seattle,CUST-1025
+ORD-ACC-10782,2024-12-17,Polarized Aviator Sunglasses,Accessories,2,73.6,147.2,West,San Francisco,CUST-1166
+ORD-ACC-10261,2024-12-19,Polarized Aviator Sunglasses,Accessories,1,76.75,76.75,Central,Kansas City,CUST-1194
+ORD-ACC-10750,2024-12-21,Automatic Chronograph Watch,Accessories,4,213.98,855.92,East,Washington D.C.,CUST-1148
+ORD-ACC-10588,2024-12-23,Silk Printed Evening Scarf,Accessories,1,34.13,34.13,Central,Kansas City,CUST-1102
+ORD-ACC-10235,2024-12-24,Automatic Chronograph Watch,Accessories,2,230.29,460.58,East,Philadelphia,CUST-1153
+ORD-ACC-10583,2024-12-24,Automatic Chronograph Watch,Accessories,3,212.6,637.8,North,Boston,CUST-1008
+ORD-ACC-10226,2024-12-26,Canvas & Leather Weekend Duffle,Accessories,1,105.32,105.32,North,New York,CUST-1095
+ORD-ACC-10837,2024-12-26,Automatic Chronograph Watch,Accessories,4,221.1,884.4,West,Seattle,CUST-1196
+ORD-ACC-10272,2024-12-27,Canvas & Leather Weekend Duffle,Accessories,1,115.48,115.48,North,New York,CUST-1172
+ORD-ACC-10424,2024-12-29,Polarized Aviator Sunglasses,Accessories,1,76.1,76.1,East,Washington D.C.,CUST-1111
+ORD-ACC-10646,2024-12-29,Braided Leather Key Fob,Accessories,1,19.36,19.36,Central,Austin,CUST-1180
+ORD-ACC-10873,2024-12-29,Braided Leather Key Fob,Accessories,4,18.13,72.52,Central,Austin,CUST-1016
+ORD-ACC-10402,2024-12-30,Canvas & Leather Weekend Duffle,Accessories,1,114.85,114.85,Central,Kansas City,CUST-1098
+ORD-ACC-10835,2025-01-01,Braided Leather Key Fob,Accessories,2,18.42,36.84,North,New York,CUST-1047
+ORD-ACC-10444,2025-01-02,Full-Grain Bifold Leather Wallet,Accessories,1,44.93,44.93,East,Charlotte,CUST-1130
+ORD-ACC-10632,2025-01-02,Canvas & Leather Weekend Duffle,Accessories,2,104.82,209.64,South,Miami,CUST-1125
+ORD-ACC-10885,2025-01-02,Full-Grain Bifold Leather Wallet,Accessories,1,45.85,45.85,Central,Kansas City,CUST-1121
+ORD-ACC-10377,2025-01-03,Canvas & Leather Weekend Duffle,Accessories,1,114.21,114.21,East,Washington D.C.,CUST-1053
+ORD-ACC-10776,2025-01-03,Canvas & Leather Weekend Duffle,Accessories,2,110.63,221.26,West,Los Angeles,CUST-1106
+ORD-ACC-10467,2025-01-04,Automatic Chronograph Watch,Accessories,2,210.81,421.62,South,Atlanta,CUST-1102
+ORD-ACC-10481,2025-01-04,Automatic Chronograph Watch,Accessories,3,211.9,635.7,Central,Austin,CUST-1094
+ORD-ACC-10555,2025-01-04,Full-Grain Bifold Leather Wallet,Accessories,1,44.67,44.67,Central,Austin,CUST-1052
+ORD-ACC-10824,2025-01-07,Canvas & Leather Weekend Duffle,Accessories,2,107.13,214.26,Central,Austin,CUST-1049
+ORD-ACC-10829,2025-01-10,Polarized Aviator Sunglasses,Accessories,1,75.79,75.79,South,Dallas,CUST-1126
+ORD-ACC-10112,2025-01-12,Silk Printed Evening Scarf,Accessories,1,35.19,35.19,Central,Austin,CUST-1091
+ORD-ACC-10831,2025-01-12,Braided Leather Key Fob,Accessories,1,17.68,17.68,Central,Denver,CUST-1188
+ORD-ACC-10057,2025-01-13,Canvas & Leather Weekend Duffle,Accessories,1,110.58,110.58,North,Boston,CUST-1094
+ORD-ACC-10712,2025-01-13,Polarized Aviator Sunglasses,Accessories,1,71.57,71.57,West,Seattle,CUST-1121
+ORD-ACC-10378,2025-01-14,Automatic Chronograph Watch,Accessories,1,218.11,218.11,South,Dallas,CUST-1038
+ORD-ACC-10599,2025-01-15,Automatic Chronograph Watch,Accessories,1,221.88,221.88,North,Boston,CUST-1014
+ORD-ACC-10199,2025-01-16,Polarized Aviator Sunglasses,Accessories,1,75.42,75.42,Central,Kansas City,CUST-1085
+ORD-ACC-10232,2025-01-16,Automatic Chronograph Watch,Accessories,2,217.52,435.04,Central,Denver,CUST-1162
+ORD-ACC-10507,2025-01-16,Silk Printed Evening Scarf,Accessories,1,36.66,36.66,North,Chicago,CUST-1035
+ORD-ACC-10347,2025-01-17,Silk Printed Evening Scarf,Accessories,3,35.71,107.13,Central,Kansas City,CUST-1056
+ORD-ACC-10861,2025-01-17,Polarized Aviator Sunglasses,Accessories,3,76.93,230.79,North,Chicago,CUST-1014
+ORD-ACC-10158,2025-01-18,Silk Printed Evening Scarf,Accessories,1,33.76,33.76,Central,Kansas City,CUST-1047
+ORD-ACC-10715,2025-01-20,Braided Leather Key Fob,Accessories,1,18.28,18.28,North,Chicago,CUST-1065
+ORD-ACC-10716,2025-01-20,Polarized Aviator Sunglasses,Accessories,1,75.12,75.12,West,Seattle,CUST-1124
+ORD-ACC-10421,2025-01-21,Full-Grain Bifold Leather Wallet,Accessories,1,44.77,44.77,Central,Austin,CUST-1137
+ORD-ACC-10547,2025-01-22,Automatic Chronograph Watch,Accessories,1,221.01,221.01,East,Charlotte,CUST-1167
+ORD-ACC-10039,2025-01-23,Full-Grain Bifold Leather Wallet,Accessories,1,47.18,47.18,East,Washington D.C.,CUST-1109
+ORD-ACC-10360,2025-01-23,Polarized Aviator Sunglasses,Accessories,1,73.11,73.11,West,Los Angeles,CUST-1186
+ORD-ACC-10767,2025-01-23,Canvas & Leather Weekend Duffle,Accessories,1,105.61,105.61,West,Los Angeles,CUST-1141
+ORD-ACC-10010,2025-01-24,Automatic Chronograph Watch,Accessories,2,218.98,437.96,South,Miami,CUST-1091
+ORD-ACC-10876,2025-01-26,Canvas & Leather Weekend Duffle,Accessories,1,115.07,115.07,South,Miami,CUST-1062
+ORD-ACC-10301,2025-01-28,Canvas & Leather Weekend Duffle,Accessories,4,109.1,436.4,South,Miami,CUST-1148
+ORD-ACC-10744,2025-01-28,Silk Printed Evening Scarf,Accessories,1,35.4,35.4,Central,Denver,CUST-1199
+ORD-ACC-10019,2025-01-29,Silk Printed Evening Scarf,Accessories,1,35.34,35.34,West,San Francisco,CUST-1003
+ORD-ACC-10408,2025-01-29,Full-Grain Bifold Leather Wallet,Accessories,1,44.06,44.06,North,Chicago,CUST-1144
+ORD-ACC-10268,2025-01-30,Automatic Chronograph Watch,Accessories,1,230.42,230.42,East,Washington D.C.,CUST-1133
+ORD-ACC-10480,2025-01-30,Full-Grain Bifold Leather Wallet,Accessories,1,43.83,43.83,North,Chicago,CUST-1004
+ORD-ACC-10584,2025-01-30,Full-Grain Bifold Leather Wallet,Accessories,1,43.48,43.48,South,Atlanta,CUST-1166
+ORD-ACC-10679,2025-01-30,Automatic Chronograph Watch,Accessories,1,220.89,220.89,Central,Austin,CUST-1132
+ORD-ACC-10530,2025-02-01,Automatic Chronograph Watch,Accessories,4,229.57,918.28,South,Atlanta,CUST-1061
+ORD-ACC-10089,2025-02-03,Silk Printed Evening Scarf,Accessories,2,35.13,70.26,Central,Denver,CUST-1125
+ORD-ACC-10487,2025-02-04,Canvas & Leather Weekend Duffle,Accessories,2,111.48,222.96,North,Boston,CUST-1179
+ORD-ACC-10807,2025-02-05,Full-Grain Bifold Leather Wallet,Accessories,1,45.19,45.19,West,Seattle,CUST-1004
+ORD-ACC-10852,2025-02-06,Silk Printed Evening Scarf,Accessories,1,35.88,35.88,North,New York,CUST-1111
+ORD-ACC-10521,2025-02-08,Silk Printed Evening Scarf,Accessories,2,33.35,66.7,South,Miami,CUST-1055
+ORD-ACC-10783,2025-02-08,Automatic Chronograph Watch,Accessories,2,228.53,457.06,West,San Francisco,CUST-1151
+ORD-ACC-10413,2025-02-09,Automatic Chronograph Watch,Accessories,1,227.52,227.52,West,Seattle,CUST-1086
+ORD-ACC-10814,2025-02-09,Polarized Aviator Sunglasses,Accessories,1,71.32,71.32,East,Charlotte,CUST-1153
+ORD-ACC-10893,2025-02-09,Braided Leather Key Fob,Accessories,1,17.65,17.65,North,New York,CUST-1075
+ORD-ACC-10786,2025-02-10,Full-Grain Bifold Leather Wallet,Accessories,3,43.18,129.54,East,Charlotte,CUST-1014
+ORD-ACC-10017,2025-02-12,Automatic Chronograph Watch,Accessories,4,213.83,855.32,Central,Austin,CUST-1024
+ORD-ACC-10299,2025-02-12,Polarized Aviator Sunglasses,Accessories,1,76.95,76.95,North,Boston,CUST-1062
+ORD-ACC-10748,2025-02-13,Automatic Chronograph Watch,Accessories,1,223.73,223.73,South,Dallas,CUST-1004
+ORD-ACC-10741,2025-02-14,Automatic Chronograph Watch,Accessories,1,226.62,226.62,North,New York,CUST-1100
+ORD-ACC-10044,2025-02-17,Full-Grain Bifold Leather Wallet,Accessories,1,46.99,46.99,Central,Kansas City,CUST-1011
+ORD-ACC-10091,2025-02-18,Braided Leather Key Fob,Accessories,1,17.88,17.88,South,Dallas,CUST-1137
+ORD-ACC-10433,2025-02-18,Braided Leather Key Fob,Accessories,1,17.92,17.92,East,Washington D.C.,CUST-1008
+ORD-ACC-10890,2025-02-18,Full-Grain Bifold Leather Wallet,Accessories,2,45.49,90.98,West,Seattle,CUST-1157
+ORD-ACC-10033,2025-02-20,Polarized Aviator Sunglasses,Accessories,2,71.96,143.92,West,Seattle,CUST-1106
+ORD-ACC-10686,2025-02-21,Silk Printed Evening Scarf,Accessories,1,34.83,34.83,West,Los Angeles,CUST-1100
+ORD-ACC-10503,2025-02-23,Full-Grain Bifold Leather Wallet,Accessories,1,43.8,43.8,North,Boston,CUST-1001
+ORD-ACC-10826,2025-02-23,Braided Leather Key Fob,Accessories,1,18.17,18.17,North,New York,CUST-1034
+ORD-ACC-10456,2025-02-25,Full-Grain Bifold Leather Wallet,Accessories,3,47.22,141.66,South,Dallas,CUST-1034
+ORD-ACC-10798,2025-02-25,Canvas & Leather Weekend Duffle,Accessories,1,109.31,109.31,East,Washington D.C.,CUST-1057
+ORD-ACC-10060,2025-02-26,Full-Grain Bifold Leather Wallet,Accessories,3,43.56,130.68,East,Charlotte,CUST-1189
+ORD-ACC-10370,2025-02-26,Silk Printed Evening Scarf,Accessories,1,35.2,35.2,South,Miami,CUST-1053
+ORD-ACC-10331,2025-02-27,Automatic Chronograph Watch,Accessories,1,224.78,224.78,South,Atlanta,CUST-1141
+ORD-ACC-10914,2025-02-27,Canvas & Leather Weekend Duffle,Accessories,1,106.81,106.81,North,New York,CUST-1147
+ORD-ACC-10920,2025-02-27,Full-Grain Bifold Leather Wallet,Accessories,1,44.25,44.25,South,Atlanta,CUST-1164
+ORD-ACC-10250,2025-02-28,Full-Grain Bifold Leather Wallet,Accessories,1,44.53,44.53,East,Philadelphia,CUST-1096
+ORD-ACC-10428,2025-03-01,Full-Grain Bifold Leather Wallet,Accessories,3,43.27,129.81,South,Miami,CUST-1080
+ORD-ACC-10315,2025-03-02,Canvas & Leather Weekend Duffle,Accessories,3,107.88,323.64,North,Chicago,CUST-1122
+ORD-ACC-10246,2025-03-04,Polarized Aviator Sunglasses,Accessories,2,77.38,154.76,South,Miami,CUST-1014
+ORD-ACC-10441,2025-03-04,Canvas & Leather Weekend Duffle,Accessories,1,106.02,106.02,South,Miami,CUST-1163
+ORD-ACC-10594,2025-03-04,Silk Printed Evening Scarf,Accessories,1,34.61,34.61,Central,Denver,CUST-1088
+ORD-ACC-10619,2025-03-04,Full-Grain Bifold Leather Wallet,Accessories,1,45.05,45.05,West,Los Angeles,CUST-1028
+ORD-ACC-10781,2025-03-07,Braided Leather Key Fob,Accessories,1,18.71,18.71,North,New York,CUST-1042
+ORD-ACC-10895,2025-03-08,Automatic Chronograph Watch,Accessories,1,222.49,222.49,Central,Denver,CUST-1119
+ORD-ACC-10238,2025-03-09,Canvas & Leather Weekend Duffle,Accessories,1,108.48,108.48,South,Atlanta,CUST-1088
+ORD-ACC-10163,2025-03-10,Braided Leather Key Fob,Accessories,2,18.04,36.08,South,Miami,CUST-1124
+ORD-ACC-10079,2025-03-11,Polarized Aviator Sunglasses,Accessories,4,72.57,290.28,Central,Austin,CUST-1013
+ORD-ACC-10056,2025-03-13,Canvas & Leather Weekend Duffle,Accessories,1,104.61,104.61,South,Dallas,CUST-1010
+ORD-ACC-10367,2025-03-13,Canvas & Leather Weekend Duffle,Accessories,4,109.95,439.8,East,Charlotte,CUST-1082
+ORD-ACC-10916,2025-03-13,Canvas & Leather Weekend Duffle,Accessories,1,113.83,113.83,Central,Kansas City,CUST-1091
+ORD-ACC-10700,2025-03-14,Polarized Aviator Sunglasses,Accessories,1,71.29,71.29,South,Dallas,CUST-1190
+ORD-ACC-10462,2025-03-15,Polarized Aviator Sunglasses,Accessories,1,74.96,74.96,West,Seattle,CUST-1141
+ORD-ACC-10195,2025-03-16,Full-Grain Bifold Leather Wallet,Accessories,1,46.32,46.32,Central,Kansas City,CUST-1056
+ORD-ACC-10196,2025-03-16,Silk Printed Evening Scarf,Accessories,1,36.36,36.36,East,Washington D.C.,CUST-1107
+ORD-ACC-10214,2025-03-16,Polarized Aviator Sunglasses,Accessories,1,72.22,72.22,South,Dallas,CUST-1144
+ORD-ACC-10414,2025-03-16,Braided Leather Key Fob,Accessories,1,19.38,19.38,West,San Francisco,CUST-1178
+ORD-ACC-10797,2025-03-16,Automatic Chronograph Watch,Accessories,2,222.13,444.26,Central,Austin,CUST-1049
+ORD-ACC-10731,2025-03-17,Canvas & Leather Weekend Duffle,Accessories,3,109.13,327.39,Central,Austin,CUST-1059
+ORD-ACC-10249,2025-03-23,Full-Grain Bifold Leather Wallet,Accessories,1,47.01,47.01,East,Washington D.C.,CUST-1007
+ORD-ACC-10400,2025-03-23,Polarized Aviator Sunglasses,Accessories,1,77.54,77.54,Central,Kansas City,CUST-1102
+ORD-ACC-10488,2025-03-23,Braided Leather Key Fob,Accessories,1,19.34,19.34,South,Atlanta,CUST-1112
+ORD-ACC-10050,2025-03-24,Canvas & Leather Weekend Duffle,Accessories,1,112.24,112.24,Central,Denver,CUST-1171
+ORD-ACC-10419,2025-03-24,Automatic Chronograph Watch,Accessories,1,227.29,227.29,East,Charlotte,CUST-1128
+ORD-ACC-10430,2025-03-24,Braided Leather Key Fob,Accessories,1,18.86,18.86,West,Los Angeles,CUST-1182
+ORD-ACC-10804,2025-03-24,Braided Leather Key Fob,Accessories,1,17.59,17.59,North,Boston,CUST-1056
+ORD-ACC-10889,2025-03-25,Canvas & Leather Weekend Duffle,Accessories,1,109.89,109.89,East,Philadelphia,CUST-1110
+ORD-ACC-10474,2025-03-26,Automatic Chronograph Watch,Accessories,1,224.89,224.89,South,Miami,CUST-1158
+ORD-ACC-10894,2025-03-26,Silk Printed Evening Scarf,Accessories,2,36.35,72.7,West,Seattle,CUST-1043
+ORD-ACC-10319,2025-03-27,Automatic Chronograph Watch,Accessories,1,218.21,218.21,South,Miami,CUST-1129
+ORD-ACC-10210,2025-03-28,Silk Printed Evening Scarf,Accessories,2,34.21,68.42,North,Boston,CUST-1111
+ORD-ACC-10667,2025-03-29,Polarized Aviator Sunglasses,Accessories,2,78.09,156.18,West,San Francisco,CUST-1140
+ORD-ACC-10640,2025-03-30,Canvas & Leather Weekend Duffle,Accessories,3,109.43,328.29,East,Washington D.C.,CUST-1031
+ORD-ACC-10702,2025-04-01,Automatic Chronograph Watch,Accessories,1,226.04,226.04,North,New York,CUST-1166
+ORD-ACC-10840,2025-04-03,Silk Printed Evening Scarf,Accessories,1,33.25,33.25,West,San Francisco,CUST-1005
+ORD-ACC-10253,2025-04-04,Canvas & Leather Weekend Duffle,Accessories,1,104.56,104.56,West,Los Angeles,CUST-1039
+ORD-ACC-10724,2025-04-04,Canvas & Leather Weekend Duffle,Accessories,3,115.42,346.26,South,Atlanta,CUST-1106
+ORD-ACC-10083,2025-04-05,Automatic Chronograph Watch,Accessories,2,225.54,451.08,West,San Francisco,CUST-1125
+ORD-ACC-10308,2025-04-06,Canvas & Leather Weekend Duffle,Accessories,4,107.58,430.32,Central,Denver,CUST-1033
+ORD-ACC-10029,2025-04-07,Full-Grain Bifold Leather Wallet,Accessories,1,43.87,43.87,North,Chicago,CUST-1142
+ORD-ACC-10892,2025-04-07,Silk Printed Evening Scarf,Accessories,1,36.14,36.14,South,Dallas,CUST-1138
+ORD-ACC-10823,2025-04-09,Full-Grain Bifold Leather Wallet,Accessories,1,46.24,46.24,South,Atlanta,CUST-1159
+ORD-ACC-10137,2025-04-10,Full-Grain Bifold Leather Wallet,Accessories,1,44.17,44.17,East,Charlotte,CUST-1001
+ORD-ACC-10337,2025-04-10,Braided Leather Key Fob,Accessories,1,18.58,18.58,South,Dallas,CUST-1120
+ORD-ACC-10713,2025-04-10,Full-Grain Bifold Leather Wallet,Accessories,1,42.93,42.93,North,Chicago,CUST-1134
+ORD-ACC-10144,2025-04-12,Canvas & Leather Weekend Duffle,Accessories,1,106.09,106.09,Central,Kansas City,CUST-1192
+ORD-ACC-10580,2025-04-12,Full-Grain Bifold Leather Wallet,Accessories,2,46.88,93.76,West,Seattle,CUST-1119
+ORD-ACC-10264,2025-04-13,Full-Grain Bifold Leather Wallet,Accessories,1,44.07,44.07,South,Atlanta,CUST-1081
+ORD-ACC-10871,2025-04-13,Canvas & Leather Weekend Duffle,Accessories,1,114.69,114.69,South,Dallas,CUST-1079
+ORD-ACC-10007,2025-04-15,Canvas & Leather Weekend Duffle,Accessories,3,105.87,317.61,North,Chicago,CUST-1076
+ORD-ACC-10216,2025-04-15,Full-Grain Bifold Leather Wallet,Accessories,1,46.63,46.63,Central,Austin,CUST-1182
+ORD-ACC-10218,2025-04-16,Braided Leather Key Fob,Accessories,1,19.28,19.28,North,New York,CUST-1112
+ORD-ACC-10353,2025-04-18,Braided Leather Key Fob,Accessories,2,19.07,38.14,East,Washington D.C.,CUST-1001
+ORD-ACC-10517,2025-04-18,Full-Grain Bifold Leather Wallet,Accessories,1,46.37,46.37,North,New York,CUST-1200
+ORD-ACC-10098,2025-04-21,Braided Leather Key Fob,Accessories,1,18.05,18.05,Central,Kansas City,CUST-1192
+ORD-ACC-10919,2025-04-21,Braided Leather Key Fob,Accessories,2,19.05,38.1,South,Dallas,CUST-1107
+ORD-ACC-10087,2025-04-22,Silk Printed Evening Scarf,Accessories,2,33.47,66.94,East,Charlotte,CUST-1179
+ORD-ACC-10300,2025-04-22,Full-Grain Bifold Leather Wallet,Accessories,1,43.95,43.95,North,New York,CUST-1075
+ORD-ACC-10034,2025-04-23,Braided Leather Key Fob,Accessories,2,17.68,35.36,North,New York,CUST-1104
+ORD-ACC-10285,2025-04-23,Canvas & Leather Weekend Duffle,Accessories,3,105.93,317.79,North,Boston,CUST-1102
+ORD-ACC-10130,2025-04-24,Braided Leather Key Fob,Accessories,1,18.14,18.14,West,San Francisco,CUST-1139
+ORD-ACC-10119,2025-04-25,Silk Printed Evening Scarf,Accessories,1,34.79,34.79,North,Boston,CUST-1123
+ORD-ACC-10095,2025-04-26,Full-Grain Bifold Leather Wallet,Accessories,1,46.12,46.12,West,Los Angeles,CUST-1167
+ORD-ACC-10496,2025-04-28,Automatic Chronograph Watch,Accessories,1,217.43,217.43,North,Chicago,CUST-1183
+ORD-ACC-10150,2025-04-29,Braided Leather Key Fob,Accessories,1,19.26,19.26,South,Miami,CUST-1010
+ORD-ACC-10810,2025-04-29,Silk Printed Evening Scarf,Accessories,1,35.64,35.64,West,Los Angeles,CUST-1162
+ORD-ACC-10198,2025-04-30,Full-Grain Bifold Leather Wallet,Accessories,1,43.16,43.16,East,Philadelphia,CUST-1191
+ORD-ACC-10906,2025-05-02,Silk Printed Evening Scarf,Accessories,1,34.69,34.69,Central,Denver,CUST-1063
+ORD-ACC-10286,2025-05-05,Canvas & Leather Weekend Duffle,Accessories,1,109.02,109.02,Central,Denver,CUST-1033
+ORD-ACC-10375,2025-05-05,Polarized Aviator Sunglasses,Accessories,2,76.47,152.94,East,Philadelphia,CUST-1142
+ORD-ACC-10720,2025-05-05,Silk Printed Evening Scarf,Accessories,1,33.99,33.99,East,Philadelphia,CUST-1063
+ORD-ACC-10659,2025-05-06,Canvas & Leather Weekend Duffle,Accessories,2,110.78,221.56,East,Charlotte,CUST-1192
+ORD-ACC-10622,2025-05-07,Automatic Chronograph Watch,Accessories,1,214.16,214.16,North,New York,CUST-1147
+ORD-ACC-10730,2025-05-08,Braided Leather Key Fob,Accessories,1,17.82,17.82,North,Chicago,CUST-1167
+ORD-ACC-10732,2025-05-08,Silk Printed Evening Scarf,Accessories,2,34.48,68.96,Central,Denver,CUST-1109
+ORD-ACC-10551,2025-05-09,Braided Leather Key Fob,Accessories,3,17.63,52.89,South,Dallas,CUST-1112
+ORD-ACC-10115,2025-05-10,Automatic Chronograph Watch,Accessories,4,224.94,899.76,Central,Kansas City,CUST-1073
+ORD-ACC-10711,2025-05-10,Automatic Chronograph Watch,Accessories,2,209.89,419.78,South,Atlanta,CUST-1068
+ORD-ACC-10526,2025-05-11,Automatic Chronograph Watch,Accessories,1,229.08,229.08,East,Washington D.C.,CUST-1047
+ORD-ACC-10239,2025-05-12,Polarized Aviator Sunglasses,Accessories,1,72.95,72.95,North,Boston,CUST-1026
+ORD-ACC-10110,2025-05-15,Canvas & Leather Weekend Duffle,Accessories,2,112.84,225.68,East,Washington D.C.,CUST-1005
+ORD-ACC-10582,2025-05-15,Canvas & Leather Weekend Duffle,Accessories,4,109.41,437.64,East,Charlotte,CUST-1142
+ORD-ACC-10147,2025-05-16,Polarized Aviator Sunglasses,Accessories,1,74.6,74.6,West,San Francisco,CUST-1196
+ORD-ACC-10437,2025-05-16,Canvas & Leather Weekend Duffle,Accessories,1,115.13,115.13,East,Charlotte,CUST-1101
+ORD-ACC-10443,2025-05-16,Automatic Chronograph Watch,Accessories,1,212.09,212.09,East,Charlotte,CUST-1014
+ORD-ACC-10382,2025-05-17,Silk Printed Evening Scarf,Accessories,2,33.84,67.68,South,Atlanta,CUST-1185
+ORD-ACC-10135,2025-05-18,Full-Grain Bifold Leather Wallet,Accessories,1,44.87,44.87,West,San Francisco,CUST-1027
+ORD-ACC-10131,2025-05-20,Silk Printed Evening Scarf,Accessories,1,33.53,33.53,East,Charlotte,CUST-1083
+ORD-ACC-10412,2025-05-22,Canvas & Leather Weekend Duffle,Accessories,1,111.28,111.28,South,Miami,CUST-1002
+ORD-ACC-10448,2025-05-22,Canvas & Leather Weekend Duffle,Accessories,1,110.12,110.12,West,San Francisco,CUST-1094
+ORD-ACC-10166,2025-05-23,Automatic Chronograph Watch,Accessories,1,226.07,226.07,West,Los Angeles,CUST-1163
+ORD-ACC-10160,2025-05-24,Canvas & Leather Weekend Duffle,Accessories,1,106.07,106.07,West,Seattle,CUST-1066
+ORD-ACC-10620,2025-05-24,Polarized Aviator Sunglasses,Accessories,2,75.82,151.64,Central,Denver,CUST-1092
+ORD-ACC-10641,2025-05-24,Braided Leather Key Fob,Accessories,1,18.78,18.78,East,Philadelphia,CUST-1143
+ORD-ACC-10139,2025-05-25,Braided Leather Key Fob,Accessories,1,18.39,18.39,West,San Francisco,CUST-1034
+ORD-ACC-10651,2025-05-25,Full-Grain Bifold Leather Wallet,Accessories,1,45.14,45.14,East,Charlotte,CUST-1124
+ORD-ACC-10769,2025-05-25,Silk Printed Evening Scarf,Accessories,2,33.99,67.98,West,Seattle,CUST-1103
+ORD-ACC-10190,2025-05-30,Polarized Aviator Sunglasses,Accessories,1,78.34,78.34,Central,Austin,CUST-1118
+ORD-ACC-10082,2025-05-31,Silk Printed Evening Scarf,Accessories,1,36.16,36.16,South,Dallas,CUST-1122
+ORD-ACC-10728,2025-05-31,Braided Leather Key Fob,Accessories,1,18.35,18.35,North,New York,CUST-1122
+ORD-ACC-10350,2025-06-01,Polarized Aviator Sunglasses,Accessories,1,75.55,75.55,West,San Francisco,CUST-1114
+ORD-ACC-10581,2025-06-01,Silk Printed Evening Scarf,Accessories,1,35.47,35.47,North,New York,CUST-1096
+ORD-ACC-10422,2025-06-02,Braided Leather Key Fob,Accessories,1,18.35,18.35,West,San Francisco,CUST-1138
+ORD-ACC-10070,2025-06-03,Automatic Chronograph Watch,Accessories,1,223.67,223.67,West,San Francisco,CUST-1033
+ORD-ACC-10228,2025-06-03,Silk Printed Evening Scarf,Accessories,1,34.87,34.87,North,Boston,CUST-1147
+ORD-ACC-10240,2025-06-03,Canvas & Leather Weekend Duffle,Accessories,3,113.69,341.07,North,Chicago,CUST-1087
+ORD-ACC-10596,2025-06-03,Automatic Chronograph Watch,Accessories,2,227.6,455.2,Central,Denver,CUST-1076
+ORD-ACC-10639,2025-06-03,Polarized Aviator Sunglasses,Accessories,1,75.38,75.38,South,Atlanta,CUST-1118
+ORD-ACC-10043,2025-06-04,Full-Grain Bifold Leather Wallet,Accessories,1,46.58,46.58,North,Chicago,CUST-1061
+ORD-ACC-10643,2025-06-04,Canvas & Leather Weekend Duffle,Accessories,2,106.78,213.56,West,Seattle,CUST-1014
+ORD-ACC-10652,2025-06-04,Polarized Aviator Sunglasses,Accessories,1,76.44,76.44,South,Atlanta,CUST-1100
+ORD-ACC-10680,2025-06-04,Silk Printed Evening Scarf,Accessories,1,34.95,34.95,South,Miami,CUST-1132
+ORD-ACC-10074,2025-06-07,Silk Printed Evening Scarf,Accessories,4,36.03,144.12,South,Dallas,CUST-1022
+ORD-ACC-10726,2025-06-07,Automatic Chronograph Watch,Accessories,2,212.69,425.38,East,Charlotte,CUST-1152
+ORD-ACC-10710,2025-06-10,Polarized Aviator Sunglasses,Accessories,1,74.6,74.6,Central,Kansas City,CUST-1038
+ORD-ACC-10718,2025-06-10,Braided Leather Key Fob,Accessories,1,18.09,18.09,South,Miami,CUST-1155
+ORD-ACC-10312,2025-06-11,Polarized Aviator Sunglasses,Accessories,1,73.71,73.71,South,Miami,CUST-1158
+ORD-ACC-10432,2025-06-12,Polarized Aviator Sunglasses,Accessories,1,75.39,75.39,East,Washington D.C.,CUST-1060
+ORD-ACC-10499,2025-06-12,Full-Grain Bifold Leather Wallet,Accessories,1,47.04,47.04,East,Washington D.C.,CUST-1199
+ORD-ACC-10577,2025-06-12,Automatic Chronograph Watch,Accessories,1,227.06,227.06,South,Atlanta,CUST-1080
+ORD-ACC-10592,2025-06-13,Polarized Aviator Sunglasses,Accessories,2,78.0,156.0,Central,Austin,CUST-1170
+ORD-ACC-10841,2025-06-14,Polarized Aviator Sunglasses,Accessories,1,78.7,78.7,West,Los Angeles,CUST-1055
+ORD-ACC-10321,2025-06-15,Polarized Aviator Sunglasses,Accessories,4,75.46,301.84,East,Charlotte,CUST-1097
+ORD-ACC-10470,2025-06-15,Braided Leather Key Fob,Accessories,1,18.4,18.4,West,Los Angeles,CUST-1109
+ORD-ACC-10674,2025-06-17,Full-Grain Bifold Leather Wallet,Accessories,1,46.29,46.29,Central,Kansas City,CUST-1104
+ORD-ACC-10784,2025-06-17,Silk Printed Evening Scarf,Accessories,1,34.7,34.7,North,New York,CUST-1187
+ORD-ACC-10825,2025-06-20,Braided Leather Key Fob,Accessories,1,18.5,18.5,Central,Austin,CUST-1083
+ORD-ACC-10152,2025-06-22,Silk Printed Evening Scarf,Accessories,1,33.3,33.3,South,Atlanta,CUST-1121
+ORD-ACC-10349,2025-06-24,Braided Leather Key Fob,Accessories,3,18.24,54.72,North,New York,CUST-1141
+ORD-ACC-10277,2025-06-26,Automatic Chronograph Watch,Accessories,1,217.76,217.76,South,Atlanta,CUST-1007
+ORD-ACC-10528,2025-06-26,Automatic Chronograph Watch,Accessories,4,225.87,903.48,South,Atlanta,CUST-1064
+ORD-ACC-10081,2025-06-27,Canvas & Leather Weekend Duffle,Accessories,4,111.05,444.2,East,Charlotte,CUST-1185
+ORD-ACC-10207,2025-06-27,Polarized Aviator Sunglasses,Accessories,1,74.07,74.07,South,Miami,CUST-1080
+ORD-ACC-10881,2025-06-29,Braided Leather Key Fob,Accessories,1,17.79,17.79,South,Dallas,CUST-1008
+ORD-ACC-10939,2025-06-29,Automatic Chronograph Watch,Accessories,2,226.0,452.0,West,Los Angeles,CUST-1041
+ORD-ACC-10117,2025-06-30,Polarized Aviator Sunglasses,Accessories,4,73.31,293.24,Central,Austin,CUST-1179
+ORD-ACC-10154,2025-06-30,Silk Printed Evening Scarf,Accessories,1,36.59,36.59,East,Charlotte,CUST-1010
+ORD-ACC-10607,2025-06-30,Polarized Aviator Sunglasses,Accessories,4,76.73,306.92,West,San Francisco,CUST-1049
+ORD-ACC-10660,2025-06-30,Automatic Chronograph Watch,Accessories,1,228.3,228.3,North,Chicago,CUST-1028
+ORD-ACC-10796,2025-07-01,Full-Grain Bifold Leather Wallet,Accessories,1,45.84,45.84,East,Washington D.C.,CUST-1003
+ORD-ACC-10803,2025-07-01,Full-Grain Bifold Leather Wallet,Accessories,1,43.59,43.59,West,Los Angeles,CUST-1184
+ORD-ACC-10436,2025-07-03,Polarized Aviator Sunglasses,Accessories,1,73.99,73.99,North,Boston,CUST-1172
+ORD-ACC-10442,2025-07-04,Braided Leather Key Fob,Accessories,3,19.28,57.84,South,Dallas,CUST-1043
+ORD-ACC-10864,2025-07-04,Polarized Aviator Sunglasses,Accessories,1,72.78,72.78,West,San Francisco,CUST-1124
+ORD-ACC-10762,2025-07-08,Full-Grain Bifold Leather Wallet,Accessories,1,46.57,46.57,West,Seattle,CUST-1148
+ORD-ACC-10449,2025-07-09,Full-Grain Bifold Leather Wallet,Accessories,1,46.17,46.17,South,Miami,CUST-1027
+ORD-ACC-10533,2025-07-09,Automatic Chronograph Watch,Accessories,1,212.86,212.86,North,New York,CUST-1155
+ORD-ACC-10878,2025-07-09,Polarized Aviator Sunglasses,Accessories,1,72.8,72.8,Central,Kansas City,CUST-1052
+ORD-ACC-10941,2025-07-09,Automatic Chronograph Watch,Accessories,1,221.09,221.09,West,San Francisco,CUST-1063
+ORD-ACC-10148,2025-07-10,Silk Printed Evening Scarf,Accessories,1,34.84,34.84,South,Dallas,CUST-1062
+ORD-ACC-10525,2025-07-10,Full-Grain Bifold Leather Wallet,Accessories,2,47.2,94.4,West,Seattle,CUST-1140
+ORD-ACC-10734,2025-07-10,Silk Printed Evening Scarf,Accessories,1,34.15,34.15,North,Chicago,CUST-1134
+ORD-ACC-10905,2025-07-10,Full-Grain Bifold Leather Wallet,Accessories,1,45.49,45.49,South,Dallas,CUST-1169
+ORD-ACC-10128,2025-07-11,Polarized Aviator Sunglasses,Accessories,3,76.11,228.33,South,Atlanta,CUST-1016
+ORD-ACC-10259,2025-07-11,Canvas & Leather Weekend Duffle,Accessories,1,113.15,113.15,North,Boston,CUST-1121
+ORD-ACC-10558,2025-07-11,Silk Printed Evening Scarf,Accessories,3,33.9,101.7,West,Los Angeles,CUST-1115
+ORD-ACC-10691,2025-07-12,Automatic Chronograph Watch,Accessories,1,230.12,230.12,West,Los Angeles,CUST-1142
+ORD-ACC-10383,2025-07-13,Silk Printed Evening Scarf,Accessories,3,33.89,101.67,North,Chicago,CUST-1009
+ORD-ACC-10482,2025-07-13,Braided Leather Key Fob,Accessories,1,17.89,17.89,North,New York,CUST-1151
+ORD-ACC-10897,2025-07-13,Polarized Aviator Sunglasses,Accessories,1,74.2,74.2,North,New York,CUST-1117
+ORD-ACC-10617,2025-07-14,Automatic Chronograph Watch,Accessories,1,219.44,219.44,North,Boston,CUST-1108
+ORD-ACC-10656,2025-07-14,Automatic Chronograph Watch,Accessories,3,224.66,673.98,South,Atlanta,CUST-1054
+ORD-ACC-10693,2025-07-14,Full-Grain Bifold Leather Wallet,Accessories,2,44.12,88.24,West,Los Angeles,CUST-1106
+ORD-ACC-10907,2025-07-14,Automatic Chronograph Watch,Accessories,1,222.63,222.63,South,Atlanta,CUST-1048
+ORD-ACC-10254,2025-07-15,Braided Leather Key Fob,Accessories,1,18.7,18.7,West,Los Angeles,CUST-1078
+ORD-ACC-10642,2025-07-16,Full-Grain Bifold Leather Wallet,Accessories,2,46.47,92.94,Central,Kansas City,CUST-1078
+ORD-ACC-10282,2025-07-17,Canvas & Leather Weekend Duffle,Accessories,1,107.69,107.69,South,Dallas,CUST-1182
+ORD-ACC-10673,2025-07-17,Automatic Chronograph Watch,Accessories,2,210.6,421.2,Central,Denver,CUST-1048
+ORD-ACC-10836,2025-07-17,Silk Printed Evening Scarf,Accessories,2,35.02,70.04,Central,Kansas City,CUST-1114
+ORD-ACC-10922,2025-07-17,Automatic Chronograph Watch,Accessories,1,225.87,225.87,West,Seattle,CUST-1102
+ORD-ACC-10288,2025-07-18,Braided Leather Key Fob,Accessories,2,18.66,37.32,South,Miami,CUST-1129
+ORD-ACC-10706,2025-07-18,Automatic Chronograph Watch,Accessories,4,220.96,883.84,East,Charlotte,CUST-1199
+ORD-ACC-10125,2025-07-19,Full-Grain Bifold Leather Wallet,Accessories,1,43.45,43.45,Central,Austin,CUST-1075
+ORD-ACC-10738,2025-07-19,Canvas & Leather Weekend Duffle,Accessories,1,109.81,109.81,Central,Austin,CUST-1065
+ORD-ACC-10051,2025-07-21,Automatic Chronograph Watch,Accessories,1,229.5,229.5,South,Miami,CUST-1030
+ORD-ACC-10553,2025-07-21,Braided Leather Key Fob,Accessories,1,19.29,19.29,West,Seattle,CUST-1061
+ORD-ACC-10692,2025-07-22,Polarized Aviator Sunglasses,Accessories,1,72.17,72.17,Central,Austin,CUST-1138
+ORD-ACC-10109,2025-07-23,Full-Grain Bifold Leather Wallet,Accessories,1,45.07,45.07,South,Dallas,CUST-1105
+ORD-ACC-10567,2025-07-23,Silk Printed Evening Scarf,Accessories,3,35.18,105.54,Central,Austin,CUST-1004
+ORD-ACC-10843,2025-07-23,Canvas & Leather Weekend Duffle,Accessories,1,114.69,114.69,North,Boston,CUST-1092
+ORD-ACC-10080,2025-07-24,Polarized Aviator Sunglasses,Accessories,1,78.13,78.13,South,Miami,CUST-1171
+ORD-ACC-10059,2025-07-27,Silk Printed Evening Scarf,Accessories,2,36.66,73.32,South,Atlanta,CUST-1046
+ORD-ACC-10664,2025-07-29,Polarized Aviator Sunglasses,Accessories,1,76.82,76.82,South,Dallas,CUST-1179
+ORD-ACC-10774,2025-07-29,Canvas & Leather Weekend Duffle,Accessories,1,105.02,105.02,South,Atlanta,CUST-1056
+ORD-ACC-10121,2025-07-30,Automatic Chronograph Watch,Accessories,1,210.87,210.87,Central,Austin,CUST-1156
+ORD-ACC-10314,2025-07-30,Automatic Chronograph Watch,Accessories,1,219.45,219.45,West,San Francisco,CUST-1029
+ORD-ACC-10501,2025-07-31,Automatic Chronograph Watch,Accessories,1,225.27,225.27,West,San Francisco,CUST-1127
+ORD-ACC-10723,2025-07-31,Braided Leather Key Fob,Accessories,2,17.61,35.22,West,Los Angeles,CUST-1056
+ORD-ACC-10224,2025-08-01,Braided Leather Key Fob,Accessories,1,18.75,18.75,West,Los Angeles,CUST-1113
+ORD-ACC-10737,2025-08-01,Automatic Chronograph Watch,Accessories,4,222.46,889.84,East,Philadelphia,CUST-1106
+ORD-ACC-10394,2025-08-02,Full-Grain Bifold Leather Wallet,Accessories,3,46.78,140.34,South,Atlanta,CUST-1178
+ORD-ACC-10395,2025-08-03,Silk Printed Evening Scarf,Accessories,3,34.2,102.6,West,San Francisco,CUST-1145
+ORD-ACC-10494,2025-08-03,Polarized Aviator Sunglasses,Accessories,1,74.01,74.01,North,Chicago,CUST-1173
+ORD-ACC-10923,2025-08-05,Canvas & Leather Weekend Duffle,Accessories,2,115.06,230.12,South,Miami,CUST-1087
+ORD-ACC-10307,2025-08-06,Canvas & Leather Weekend Duffle,Accessories,1,106.64,106.64,North,Boston,CUST-1130
+ORD-ACC-10245,2025-08-07,Silk Printed Evening Scarf,Accessories,1,34.87,34.87,East,Charlotte,CUST-1136
+ORD-ACC-10149,2025-08-08,Silk Printed Evening Scarf,Accessories,2,34.07,68.14,North,Boston,CUST-1191
+ORD-ACC-10295,2025-08-08,Silk Printed Evening Scarf,Accessories,1,35.41,35.41,Central,Austin,CUST-1165
+ORD-ACC-10498,2025-08-08,Automatic Chronograph Watch,Accessories,2,211.63,423.26,North,New York,CUST-1058
+ORD-ACC-10891,2025-08-08,Canvas & Leather Weekend Duffle,Accessories,1,110.4,110.4,North,Chicago,CUST-1028
+ORD-ACC-10877,2025-08-09,Polarized Aviator Sunglasses,Accessories,1,74.45,74.45,Central,Austin,CUST-1115
+ORD-ACC-10493,2025-08-13,Braided Leather Key Fob,Accessories,1,17.72,17.72,West,Los Angeles,CUST-1128
+ORD-ACC-10458,2025-08-14,Braided Leather Key Fob,Accessories,1,18.07,18.07,East,Philadelphia,CUST-1163
+ORD-ACC-10463,2025-08-14,Polarized Aviator Sunglasses,Accessories,1,75.5,75.5,West,San Francisco,CUST-1196
+ORD-ACC-10073,2025-08-16,Canvas & Leather Weekend Duffle,Accessories,1,111.7,111.7,East,Charlotte,CUST-1055
+ORD-ACC-10697,2025-08-17,Silk Printed Evening Scarf,Accessories,1,36.58,36.58,South,Atlanta,CUST-1073
+ORD-ACC-10343,2025-08-19,Braided Leather Key Fob,Accessories,1,18.63,18.63,West,San Francisco,CUST-1061
+ORD-ACC-10511,2025-08-21,Full-Grain Bifold Leather Wallet,Accessories,1,43.45,43.45,East,Washington D.C.,CUST-1105
+ORD-ACC-10589,2025-08-21,Full-Grain Bifold Leather Wallet,Accessories,4,42.78,171.12,West,San Francisco,CUST-1166
+ORD-ACC-10688,2025-08-22,Full-Grain Bifold Leather Wallet,Accessories,1,45.9,45.9,Central,Denver,CUST-1075
+ORD-ACC-10438,2025-08-24,Full-Grain Bifold Leather Wallet,Accessories,2,44.32,88.64,Central,Denver,CUST-1173
+ORD-ACC-10123,2025-08-25,Silk Printed Evening Scarf,Accessories,1,34.32,34.32,Central,Kansas City,CUST-1026
+ORD-ACC-10452,2025-08-25,Braided Leather Key Fob,Accessories,2,18.22,36.44,East,Philadelphia,CUST-1158
+ORD-ACC-10650,2025-08-25,Full-Grain Bifold Leather Wallet,Accessories,1,46.22,46.22,Central,Kansas City,CUST-1035
+ORD-ACC-10219,2025-08-26,Silk Printed Evening Scarf,Accessories,1,35.08,35.08,West,San Francisco,CUST-1087
+ORD-ACC-10561,2025-08-26,Polarized Aviator Sunglasses,Accessories,2,75.4,150.8,Central,Austin,CUST-1138
+ORD-ACC-10631,2025-08-27,Silk Printed Evening Scarf,Accessories,2,36.06,72.12,South,Dallas,CUST-1098
+ORD-ACC-10898,2025-08-27,Braided Leather Key Fob,Accessories,3,19.23,57.69,North,Boston,CUST-1083
+ORD-ACC-10531,2025-08-29,Automatic Chronograph Watch,Accessories,2,226.74,453.48,Central,Denver,CUST-1181
+ORD-ACC-10423,2025-08-31,Braided Leather Key Fob,Accessories,1,19.27,19.27,South,Dallas,CUST-1171
+ORD-ACC-10590,2025-08-31,Canvas & Leather Weekend Duffle,Accessories,2,107.61,215.22,East,Philadelphia,CUST-1087
+ORD-ACC-10066,2025-09-02,Silk Printed Evening Scarf,Accessories,2,34.46,68.92,East,Charlotte,CUST-1131
+ORD-ACC-10122,2025-09-02,Canvas & Leather Weekend Duffle,Accessories,1,106.98,106.98,East,Washington D.C.,CUST-1077
+ORD-ACC-10672,2025-09-03,Full-Grain Bifold Leather Wallet,Accessories,1,46.23,46.23,West,Seattle,CUST-1147
+ORD-ACC-10792,2025-09-03,Silk Printed Evening Scarf,Accessories,1,35.46,35.46,Central,Austin,CUST-1135
+ORD-ACC-10024,2025-09-05,Automatic Chronograph Watch,Accessories,1,219.75,219.75,West,Seattle,CUST-1062
+ORD-ACC-10725,2025-09-07,Polarized Aviator Sunglasses,Accessories,2,77.21,154.42,South,Dallas,CUST-1169
+ORD-ACC-10542,2025-09-08,Automatic Chronograph Watch,Accessories,4,229.26,917.04,South,Dallas,CUST-1145
+ORD-ACC-10271,2025-09-09,Braided Leather Key Fob,Accessories,2,18.36,36.72,West,Seattle,CUST-1011
+ORD-ACC-10514,2025-09-09,Full-Grain Bifold Leather Wallet,Accessories,3,43.72,131.16,South,Atlanta,CUST-1183
+ORD-ACC-10668,2025-09-09,Polarized Aviator Sunglasses,Accessories,4,77.07,308.28,West,Seattle,CUST-1046
+ORD-ACC-10909,2025-09-09,Automatic Chronograph Watch,Accessories,1,216.28,216.28,North,Boston,CUST-1046
+ORD-ACC-10132,2025-09-10,Automatic Chronograph Watch,Accessories,1,209.57,209.57,Central,Kansas City,CUST-1006
+ORD-ACC-10717,2025-09-10,Full-Grain Bifold Leather Wallet,Accessories,1,45.01,45.01,South,Atlanta,CUST-1020
+ORD-ACC-10576,2025-09-11,Braided Leather Key Fob,Accessories,1,17.74,17.74,East,Charlotte,CUST-1125
+ORD-ACC-10884,2025-09-12,Canvas & Leather Weekend Duffle,Accessories,1,111.24,111.24,South,Dallas,CUST-1007
+ORD-ACC-10929,2025-09-12,Silk Printed Evening Scarf,Accessories,1,33.91,33.91,West,San Francisco,CUST-1081
+ORD-ACC-10479,2025-09-13,Canvas & Leather Weekend Duffle,Accessories,1,106.58,106.58,North,New York,CUST-1127
+ORD-ACC-10703,2025-09-13,Full-Grain Bifold Leather Wallet,Accessories,3,46.54,139.62,South,Dallas,CUST-1051
+ORD-ACC-10274,2025-09-14,Braided Leather Key Fob,Accessories,1,19.02,19.02,North,New York,CUST-1200
+ORD-ACC-10478,2025-09-14,Automatic Chronograph Watch,Accessories,2,226.14,452.28,West,Los Angeles,CUST-1133
+ORD-ACC-10023,2025-09-15,Polarized Aviator Sunglasses,Accessories,2,72.4,144.8,Central,Kansas City,CUST-1001
+ORD-ACC-10918,2025-09-16,Polarized Aviator Sunglasses,Accessories,4,76.56,306.24,North,New York,CUST-1007
+ORD-ACC-10077,2025-09-17,Full-Grain Bifold Leather Wallet,Accessories,3,44.8,134.4,Central,Denver,CUST-1184
+ORD-ACC-10648,2025-09-17,Polarized Aviator Sunglasses,Accessories,3,72.66,217.98,East,Philadelphia,CUST-1118
+ORD-ACC-10320,2025-09-18,Silk Printed Evening Scarf,Accessories,2,36.3,72.6,North,Chicago,CUST-1036
+ORD-ACC-10901,2025-09-18,Polarized Aviator Sunglasses,Accessories,1,74.09,74.09,South,Miami,CUST-1145
+ORD-ACC-10637,2025-09-19,Full-Grain Bifold Leather Wallet,Accessories,3,42.8,128.4,Central,Austin,CUST-1127
+ORD-ACC-10434,2025-09-20,Polarized Aviator Sunglasses,Accessories,1,74.62,74.62,North,Chicago,CUST-1055
+ORD-ACC-10729,2025-09-21,Canvas & Leather Weekend Duffle,Accessories,2,104.93,209.86,Central,Denver,CUST-1024
+ORD-ACC-10105,2025-09-22,Canvas & Leather Weekend Duffle,Accessories,1,113.02,113.02,Central,Austin,CUST-1083
+ORD-ACC-10523,2025-09-23,Polarized Aviator Sunglasses,Accessories,1,76.1,76.1,Central,Austin,CUST-1016
+ORD-ACC-10155,2025-09-24,Full-Grain Bifold Leather Wallet,Accessories,2,43.81,87.62,West,Los Angeles,CUST-1192
+ORD-ACC-10209,2025-09-24,Full-Grain Bifold Leather Wallet,Accessories,1,45.78,45.78,East,Washington D.C.,CUST-1156
+ORD-ACC-10241,2025-09-24,Polarized Aviator Sunglasses,Accessories,1,75.73,75.73,South,Dallas,CUST-1198
+ORD-ACC-10386,2025-09-24,Braided Leather Key Fob,Accessories,1,18.81,18.81,East,Charlotte,CUST-1125
+ORD-ACC-10867,2025-09-24,Automatic Chronograph Watch,Accessories,2,210.17,420.34,North,New York,CUST-1100
+ORD-ACC-10816,2025-09-25,Automatic Chronograph Watch,Accessories,4,229.48,917.92,North,New York,CUST-1092
+ORD-ACC-10045,2025-09-26,Full-Grain Bifold Leather Wallet,Accessories,1,44.64,44.64,Central,Austin,CUST-1067
+ORD-ACC-10698,2025-09-26,Full-Grain Bifold Leather Wallet,Accessories,1,46.8,46.8,East,Washington D.C.,CUST-1158
+ORD-ACC-10048,2025-09-28,Canvas & Leather Weekend Duffle,Accessories,1,115.46,115.46,South,Dallas,CUST-1068
+ORD-ACC-10097,2025-09-28,Polarized Aviator Sunglasses,Accessories,1,73.04,73.04,North,Chicago,CUST-1056
+ORD-ACC-10678,2025-09-28,Polarized Aviator Sunglasses,Accessories,2,78.44,156.88,West,Seattle,CUST-1030
+ORD-ACC-10865,2025-09-29,Braided Leather Key Fob,Accessories,2,19.41,38.82,North,Boston,CUST-1150
+ORD-ACC-10860,2025-09-30,Polarized Aviator Sunglasses,Accessories,3,74.55,223.65,South,Atlanta,CUST-1176
+ORD-ACC-10242,2025-10-01,Polarized Aviator Sunglasses,Accessories,1,76.66,76.66,West,San Francisco,CUST-1185
+ORD-ACC-10657,2025-10-01,Braided Leather Key Fob,Accessories,1,18.11,18.11,South,Dallas,CUST-1167
+ORD-ACC-10468,2025-10-02,Automatic Chronograph Watch,Accessories,2,224.97,449.94,East,Charlotte,CUST-1024
+ORD-ACC-10874,2025-10-02,Automatic Chronograph Watch,Accessories,3,228.33,684.99,North,Chicago,CUST-1072
+ORD-ACC-10084,2025-10-03,Polarized Aviator Sunglasses,Accessories,1,73.31,73.31,West,Los Angeles,CUST-1070
+ORD-ACC-10682,2025-10-03,Full-Grain Bifold Leather Wallet,Accessories,1,43.7,43.7,South,Dallas,CUST-1109
+ORD-ACC-10101,2025-10-04,Polarized Aviator Sunglasses,Accessories,2,72.01,144.02,Central,Denver,CUST-1145
+ORD-ACC-10168,2025-10-04,Braided Leather Key Fob,Accessories,2,17.65,35.3,North,Chicago,CUST-1094
+ORD-ACC-10925,2025-10-04,Silk Printed Evening Scarf,Accessories,1,36.37,36.37,West,Seattle,CUST-1106
+ORD-ACC-10008,2025-10-05,Canvas & Leather Weekend Duffle,Accessories,1,114.24,114.24,South,Dallas,CUST-1018
+ORD-ACC-10223,2025-10-05,Silk Printed Evening Scarf,Accessories,1,34.87,34.87,Central,Austin,CUST-1175
+ORD-ACC-10915,2025-10-06,Canvas & Leather Weekend Duffle,Accessories,1,115.36,115.36,Central,Kansas City,CUST-1074
+ORD-ACC-10705,2025-10-08,Full-Grain Bifold Leather Wallet,Accessories,1,46.41,46.41,Central,Denver,CUST-1010
+ORD-ACC-10850,2025-10-09,Silk Printed Evening Scarf,Accessories,1,33.44,33.44,West,San Francisco,CUST-1145
+ORD-ACC-10606,2025-10-10,Silk Printed Evening Scarf,Accessories,4,34.66,138.64,East,Philadelphia,CUST-1010
+ORD-ACC-10714,2025-10-10,Automatic Chronograph Watch,Accessories,1,227.37,227.37,Central,Kansas City,CUST-1045
+ORD-ACC-10813,2025-10-10,Silk Printed Evening Scarf,Accessories,1,34.39,34.39,West,San Francisco,CUST-1031
+ORD-ACC-10838,2025-10-10,Silk Printed Evening Scarf,Accessories,1,36.14,36.14,South,Dallas,CUST-1140
+ORD-ACC-10600,2025-10-11,Canvas & Leather Weekend Duffle,Accessories,1,110.88,110.88,East,Philadelphia,CUST-1129
+ORD-ACC-10104,2025-10-12,Silk Printed Evening Scarf,Accessories,1,35.73,35.73,Central,Kansas City,CUST-1070
+ORD-ACC-10461,2025-10-12,Braided Leather Key Fob,Accessories,3,18.86,56.58,Central,Austin,CUST-1056
+ORD-ACC-10742,2025-10-13,Full-Grain Bifold Leather Wallet,Accessories,2,46.37,92.74,East,Charlotte,CUST-1112
+ORD-ACC-10273,2025-10-14,Silk Printed Evening Scarf,Accessories,2,34.52,69.04,South,Atlanta,CUST-1037
+ORD-ACC-10508,2025-10-14,Silk Printed Evening Scarf,Accessories,1,33.51,33.51,East,Charlotte,CUST-1034
+ORD-ACC-10001,2025-10-16,Full-Grain Bifold Leather Wallet,Accessories,1,42.86,42.86,South,Atlanta,CUST-1189
+ORD-ACC-10217,2025-10-17,Silk Printed Evening Scarf,Accessories,1,34.26,34.26,West,Los Angeles,CUST-1159
+ORD-ACC-10793,2025-10-17,Braided Leather Key Fob,Accessories,3,18.56,55.68,East,Charlotte,CUST-1059
+ORD-ACC-10064,2025-10-18,Canvas & Leather Weekend Duffle,Accessories,4,108.9,435.6,Central,Austin,CUST-1008
+ORD-ACC-10247,2025-10-18,Silk Printed Evening Scarf,Accessories,1,36.31,36.31,North,Chicago,CUST-1133
+ORD-ACC-10701,2025-10-18,Silk Printed Evening Scarf,Accessories,1,34.22,34.22,West,Seattle,CUST-1119
+ORD-ACC-10828,2025-10-19,Silk Printed Evening Scarf,Accessories,1,35.55,35.55,Central,Austin,CUST-1013
+ORD-ACC-10847,2025-10-19,Automatic Chronograph Watch,Accessories,2,209.82,419.64,East,Philadelphia,CUST-1200
+ORD-ACC-10191,2025-10-20,Full-Grain Bifold Leather Wallet,Accessories,1,43.02,43.02,East,Washington D.C.,CUST-1176
+ORD-ACC-10047,2025-10-22,Automatic Chronograph Watch,Accessories,3,219.06,657.18,North,New York,CUST-1118
+ORD-ACC-10275,2025-10-22,Automatic Chronograph Watch,Accessories,3,216.97,650.91,North,Chicago,CUST-1040
+ORD-ACC-10696,2025-10-22,Canvas & Leather Weekend Duffle,Accessories,2,105.3,210.6,West,Los Angeles,CUST-1051
+ORD-ACC-10817,2025-10-22,Polarized Aviator Sunglasses,Accessories,2,76.51,153.02,South,Miami,CUST-1060
+ORD-ACC-10356,2025-10-23,Silk Printed Evening Scarf,Accessories,3,34.56,103.68,East,Washington D.C.,CUST-1097
+ORD-ACC-10694,2025-10-23,Canvas & Leather Weekend Duffle,Accessories,1,106.07,106.07,Central,Austin,CUST-1050
+ORD-ACC-10896,2025-10-23,Silk Printed Evening Scarf,Accessories,1,33.57,33.57,South,Dallas,CUST-1179
+ORD-ACC-10233,2025-10-24,Automatic Chronograph Watch,Accessories,1,210.45,210.45,East,Washington D.C.,CUST-1065
+ORD-ACC-10266,2025-10-24,Polarized Aviator Sunglasses,Accessories,3,73.4,220.2,North,Chicago,CUST-1085
+ORD-ACC-10539,2025-10-26,Automatic Chronograph Watch,Accessories,4,212.83,851.32,Central,Austin,CUST-1058
+ORD-ACC-10677,2025-10-26,Full-Grain Bifold Leather Wallet,Accessories,1,43.27,43.27,South,Dallas,CUST-1158
+ORD-ACC-10004,2025-10-27,Braided Leather Key Fob,Accessories,1,18.58,18.58,Central,Austin,CUST-1002
+ORD-ACC-10778,2025-10-27,Braided Leather Key Fob,Accessories,4,18.57,74.28,West,Seattle,CUST-1084
+ORD-ACC-10134,2025-10-29,Silk Printed Evening Scarf,Accessories,1,36.46,36.46,Central,Austin,CUST-1163
+ORD-ACC-10229,2025-10-29,Polarized Aviator Sunglasses,Accessories,1,73.66,73.66,South,Atlanta,CUST-1116
+ORD-ACC-10856,2025-10-29,Canvas & Leather Weekend Duffle,Accessories,1,106.66,106.66,Central,Denver,CUST-1063
+ORD-ACC-10445,2025-10-30,Silk Printed Evening Scarf,Accessories,1,34.68,34.68,East,Washington D.C.,CUST-1043
+ORD-ACC-10450,2025-10-31,Polarized Aviator Sunglasses,Accessories,4,73.48,293.92,East,Washington D.C.,CUST-1090
+ORD-ACC-10616,2025-10-31,Full-Grain Bifold Leather Wallet,Accessories,1,42.97,42.97,East,Washington D.C.,CUST-1032
+ORD-ACC-10381,2025-11-01,Braided Leather Key Fob,Accessories,2,18.2,36.4,East,Charlotte,CUST-1165
+ORD-ACC-10571,2025-11-01,Silk Printed Evening Scarf,Accessories,1,35.25,35.25,South,Miami,CUST-1104
+ORD-ACC-10328,2025-11-02,Automatic Chronograph Watch,Accessories,1,225.44,225.44,Central,Austin,CUST-1144
+ORD-ACC-10497,2025-11-02,Silk Printed Evening Scarf,Accessories,1,34.04,34.04,West,Seattle,CUST-1020
+ORD-ACC-10859,2025-11-02,Full-Grain Bifold Leather Wallet,Accessories,1,46.21,46.21,West,San Francisco,CUST-1114
+ORD-ACC-10202,2025-11-03,Silk Printed Evening Scarf,Accessories,1,34.03,34.03,Central,Austin,CUST-1030
+ORD-ACC-10234,2025-11-03,Canvas & Leather Weekend Duffle,Accessories,1,114.11,114.11,Central,Kansas City,CUST-1037
+ORD-ACC-10529,2025-11-03,Polarized Aviator Sunglasses,Accessories,2,73.25,146.5,North,New York,CUST-1148
+ORD-ACC-10645,2025-11-03,Automatic Chronograph Watch,Accessories,1,224.75,224.75,South,Atlanta,CUST-1088
+ORD-ACC-10138,2025-11-04,Canvas & Leather Weekend Duffle,Accessories,1,109.58,109.58,Central,Austin,CUST-1160
+ORD-ACC-10396,2025-11-04,Full-Grain Bifold Leather Wallet,Accessories,3,43.56,130.68,North,New York,CUST-1151
+ORD-ACC-10504,2025-11-04,Silk Printed Evening Scarf,Accessories,2,36.22,72.44,North,New York,CUST-1136
+ORD-ACC-10653,2025-11-04,Canvas & Leather Weekend Duffle,Accessories,1,111.17,111.17,East,Washington D.C.,CUST-1156
+ORD-ACC-10293,2025-11-05,Canvas & Leather Weekend Duffle,Accessories,1,112.43,112.43,Central,Denver,CUST-1008
+ORD-ACC-10699,2025-11-06,Automatic Chronograph Watch,Accessories,1,224.26,224.26,Central,Austin,CUST-1081
+ORD-ACC-10902,2025-11-06,Polarized Aviator Sunglasses,Accessories,1,72.47,72.47,North,Boston,CUST-1079
+ORD-ACC-10690,2025-11-07,Full-Grain Bifold Leather Wallet,Accessories,1,44.88,44.88,South,Dallas,CUST-1101
+ORD-ACC-10868,2025-11-07,Automatic Chronograph Watch,Accessories,3,223.59,670.77,West,Los Angeles,CUST-1005
+ORD-ACC-10618,2025-11-08,Full-Grain Bifold Leather Wallet,Accessories,1,45.73,45.73,Central,Kansas City,CUST-1036
+ORD-ACC-10709,2025-11-09,Polarized Aviator Sunglasses,Accessories,2,77.61,155.22,Central,Kansas City,CUST-1043
+ORD-ACC-10627,2025-11-10,Braided Leather Key Fob,Accessories,1,17.89,17.89,East,Charlotte,CUST-1069
+ORD-ACC-10790,2025-11-10,Automatic Chronograph Watch,Accessories,1,227.93,227.93,East,Washington D.C.,CUST-1139
+ORD-ACC-10866,2025-11-10,Canvas & Leather Weekend Duffle,Accessories,1,104.98,104.98,West,Los Angeles,CUST-1179
+ORD-ACC-10540,2025-11-12,Canvas & Leather Weekend Duffle,Accessories,1,113.46,113.46,West,Los Angeles,CUST-1046
+ORD-ACC-10161,2025-11-13,Full-Grain Bifold Leather Wallet,Accessories,1,46.8,46.8,West,San Francisco,CUST-1140
+ORD-ACC-10107,2025-11-15,Silk Printed Evening Scarf,Accessories,1,34.43,34.43,West,Los Angeles,CUST-1125
+ORD-ACC-10215,2025-11-15,Automatic Chronograph Watch,Accessories,3,210.59,631.77,North,Boston,CUST-1005
+ORD-ACC-10623,2025-11-16,Silk Printed Evening Scarf,Accessories,1,33.77,33.77,Central,Denver,CUST-1186
+ORD-ACC-10200,2025-11-17,Full-Grain Bifold Leather Wallet,Accessories,3,44.6,133.8,East,Charlotte,CUST-1014
+ORD-ACC-10946,2025-11-17,Canvas & Leather Weekend Duffle,Accessories,3,105.36,316.08,East,Charlotte,CUST-1034
+ORD-ACC-10858,2025-11-18,Silk Printed Evening Scarf,Accessories,1,34.73,34.73,West,Seattle,CUST-1153
+ORD-ACC-10133,2025-11-19,Automatic Chronograph Watch,Accessories,2,221.68,443.36,South,Miami,CUST-1133
+ORD-ACC-10174,2025-11-19,Automatic Chronograph Watch,Accessories,2,221.86,443.72,West,Los Angeles,CUST-1173
+ORD-ACC-10305,2025-11-19,Silk Printed Evening Scarf,Accessories,1,34.25,34.25,North,Boston,CUST-1035
+ORD-ACC-10365,2025-11-19,Automatic Chronograph Watch,Accessories,3,214.21,642.63,Central,Denver,CUST-1106
+ORD-ACC-10924,2025-11-19,Silk Printed Evening Scarf,Accessories,2,36.46,72.92,South,Miami,CUST-1040
+ORD-ACC-10687,2025-11-20,Full-Grain Bifold Leather Wallet,Accessories,1,45.16,45.16,Central,Denver,CUST-1194
+ORD-ACC-10779,2025-11-20,Canvas & Leather Weekend Duffle,Accessories,2,109.86,219.72,North,Boston,CUST-1158
+ORD-ACC-10204,2025-11-22,Braided Leather Key Fob,Accessories,1,18.6,18.6,West,Los Angeles,CUST-1047
+ORD-ACC-10100,2025-11-24,Silk Printed Evening Scarf,Accessories,2,34.64,69.28,North,Chicago,CUST-1177
+ORD-ACC-10473,2025-11-24,Polarized Aviator Sunglasses,Accessories,1,71.76,71.76,Central,Kansas City,CUST-1043
+ORD-ACC-10634,2025-11-25,Canvas & Leather Weekend Duffle,Accessories,1,112.94,112.94,Central,Denver,CUST-1172
+ORD-ACC-10276,2025-11-26,Silk Printed Evening Scarf,Accessories,1,36.57,36.57,North,Chicago,CUST-1036
+ORD-ACC-10020,2025-11-27,Braided Leather Key Fob,Accessories,3,17.79,53.37,West,San Francisco,CUST-1088
+ORD-ACC-10318,2025-11-28,Polarized Aviator Sunglasses,Accessories,3,71.49,214.47,North,New York,CUST-1005
+ORD-ACC-10323,2025-11-28,Braided Leather Key Fob,Accessories,1,19.06,19.06,East,Philadelphia,CUST-1064
+ORD-ACC-10586,2025-11-29,Full-Grain Bifold Leather Wallet,Accessories,1,44.88,44.88,South,Dallas,CUST-1003
+ORD-ACC-10669,2025-11-30,Full-Grain Bifold Leather Wallet,Accessories,1,43.59,43.59,Central,Denver,CUST-1097
+ORD-ACC-10759,2025-11-30,Polarized Aviator Sunglasses,Accessories,1,74.99,74.99,South,Miami,CUST-1053
+ORD-ACC-10181,2025-12-03,Automatic Chronograph Watch,Accessories,4,220.98,883.92,West,Los Angeles,CUST-1102
+ORD-ACC-10684,2025-12-03,Polarized Aviator Sunglasses,Accessories,2,71.43,142.86,North,New York,CUST-1019
+ORD-ACC-10689,2025-12-03,Automatic Chronograph Watch,Accessories,1,222.34,222.34,East,Washington D.C.,CUST-1102
+ORD-ACC-10475,2025-12-04,Silk Printed Evening Scarf,Accessories,1,36.26,36.26,North,New York,CUST-1193
+ORD-ACC-10548,2025-12-04,Polarized Aviator Sunglasses,Accessories,1,72.47,72.47,North,Boston,CUST-1006
+ORD-ACC-10562,2025-12-04,Silk Printed Evening Scarf,Accessories,1,35.25,35.25,West,Los Angeles,CUST-1102
+ORD-ACC-10013,2025-12-05,Canvas & Leather Weekend Duffle,Accessories,1,106.92,106.92,North,New York,CUST-1009
+ORD-ACC-10426,2025-12-05,Canvas & Leather Weekend Duffle,Accessories,1,106.93,106.93,East,Charlotte,CUST-1151
+ORD-ACC-10028,2025-12-07,Polarized Aviator Sunglasses,Accessories,1,76.6,76.6,West,Seattle,CUST-1133
+ORD-ACC-10427,2025-12-08,Canvas & Leather Weekend Duffle,Accessories,4,106.16,424.64,East,Philadelphia,CUST-1076
+ORD-ACC-10573,2025-12-08,Polarized Aviator Sunglasses,Accessories,1,71.62,71.62,West,Seattle,CUST-1006
+ORD-ACC-10899,2025-12-09,Braided Leather Key Fob,Accessories,2,19.25,38.5,North,New York,CUST-1030
+ORD-ACC-10654,2025-12-10,Polarized Aviator Sunglasses,Accessories,4,73.3,293.2,West,Seattle,CUST-1035
+ORD-ACC-10086,2025-12-11,Polarized Aviator Sunglasses,Accessories,1,76.55,76.55,East,Washington D.C.,CUST-1139
+ORD-ACC-10157,2025-12-11,Automatic Chronograph Watch,Accessories,1,228.88,228.88,North,Boston,CUST-1092
+ORD-ACC-10471,2025-12-11,Polarized Aviator Sunglasses,Accessories,1,74.83,74.83,North,Chicago,CUST-1027
+ORD-ACC-10863,2025-12-11,Full-Grain Bifold Leather Wallet,Accessories,1,44.12,44.12,West,Los Angeles,CUST-1190
+ORD-ACC-10416,2025-12-12,Braided Leather Key Fob,Accessories,1,18.48,18.48,South,Miami,CUST-1097
+ORD-ACC-10263,2025-12-13,Silk Printed Evening Scarf,Accessories,2,35.46,70.92,North,Chicago,CUST-1199
+ORD-ACC-10329,2025-12-13,Automatic Chronograph Watch,Accessories,1,212.02,212.02,Central,Denver,CUST-1063
+ORD-ACC-10040,2025-12-14,Braided Leather Key Fob,Accessories,1,19.42,19.42,East,Philadelphia,CUST-1049
+ORD-ACC-10078,2025-12-14,Silk Printed Evening Scarf,Accessories,1,34.98,34.98,North,New York,CUST-1200
+ORD-ACC-10368,2025-12-14,Silk Printed Evening Scarf,Accessories,1,34.68,34.68,South,Dallas,CUST-1122
+ORD-ACC-10391,2025-12-14,Polarized Aviator Sunglasses,Accessories,2,73.5,147.0,North,Chicago,CUST-1167
+ORD-ACC-10855,2025-12-15,Polarized Aviator Sunglasses,Accessories,1,76.97,76.97,South,Miami,CUST-1102
+ORD-ACC-10766,2025-12-16,Canvas & Leather Weekend Duffle,Accessories,2,109.56,219.12,North,Chicago,CUST-1054
+ORD-ACC-10945,2025-12-17,Silk Printed Evening Scarf,Accessories,1,35.41,35.41,South,Dallas,CUST-1195
+ORD-ACC-10949,2025-12-17,Braided Leather Key Fob,Accessories,3,18.19,54.57,West,Seattle,CUST-1125
+ORD-ACC-10283,2025-12-18,Braided Leather Key Fob,Accessories,1,17.9,17.9,South,Atlanta,CUST-1052
+ORD-ACC-10532,2025-12-18,Automatic Chronograph Watch,Accessories,1,229.85,229.85,Central,Denver,CUST-1127
+ORD-ACC-10568,2025-12-18,Canvas & Leather Weekend Duffle,Accessories,2,110.96,221.92,North,Boston,CUST-1039
+ORD-ACC-10113,2025-12-20,Silk Printed Evening Scarf,Accessories,1,34.2,34.2,North,Chicago,CUST-1050
+ORD-ACC-10237,2025-12-20,Braided Leather Key Fob,Accessories,3,19.42,58.26,North,Chicago,CUST-1172
+ORD-ACC-10345,2025-12-21,Automatic Chronograph Watch,Accessories,1,224.19,224.19,West,Seattle,CUST-1158
+ORD-ACC-10469,2025-12-21,Full-Grain Bifold Leather Wallet,Accessories,1,42.75,42.75,South,Dallas,CUST-1058
+ORD-ACC-10621,2025-12-21,Silk Printed Evening Scarf,Accessories,1,34.28,34.28,East,Philadelphia,CUST-1177
+ORD-ACC-10749,2025-12-21,Full-Grain Bifold Leather Wallet,Accessories,1,46.89,46.89,Central,Kansas City,CUST-1090
+ORD-ACC-10439,2025-12-23,Automatic Chronograph Watch,Accessories,1,229.21,229.21,South,Miami,CUST-1031
+ORD-ACC-10820,2025-12-24,Silk Printed Evening Scarf,Accessories,1,35.21,35.21,East,Philadelphia,CUST-1146
+ORD-ACC-10900,2025-12-24,Silk Printed Evening Scarf,Accessories,1,35.47,35.47,East,Charlotte,CUST-1131
+ORD-ACC-10231,2025-12-25,Silk Printed Evening Scarf,Accessories,1,36.72,36.72,Central,Denver,CUST-1094
+ORD-ACC-10490,2025-12-25,Polarized Aviator Sunglasses,Accessories,1,76.51,76.51,West,San Francisco,CUST-1133
+ORD-ACC-10236,2025-12-26,Full-Grain Bifold Leather Wallet,Accessories,1,44.14,44.14,West,Los Angeles,CUST-1172
+ORD-ACC-10578,2025-12-27,Canvas & Leather Weekend Duffle,Accessories,2,108.94,217.88,Central,Kansas City,CUST-1008
+ORD-ACC-10930,2025-12-27,Full-Grain Bifold Leather Wallet,Accessories,1,43.97,43.97,South,Miami,CUST-1116
+ORD-ACC-10886,2025-12-30,Braided Leather Key Fob,Accessories,3,18.27,54.81,East,Washington D.C.,CUST-1036
+ORD-ACC-10595,2025-12-31,Polarized Aviator Sunglasses,Accessories,1,76.4,76.4,East,Charlotte,CUST-1092
