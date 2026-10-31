@@ -1,11 +1,13 @@
 /**
- * RetailVision - GTA 6 Style GPS Minimap & Radar Guide (Glitch-Free Edition)
- * Highlights:
- *  - High-performance direct DOM/SVG transform tracking (Zero React re-render thrash)
- *  - Native SVG animation elements instead of broken CSS transform keyframes
- *  - Fixed collision hitboxes to prevent hover-scale oscillation loops
- *  - Clamped coordinates to guarantee camera icon stays inside radar boundaries
- *  - Interactive colored store blips, pulsing construction beacon, and quick travel
+ * RetailVision - Modern Architectural City Minimap & Radar Guide
+ * Seamlessly matched to the RetailVision glassmorphic dashboard theme.
+ * Features:
+ *  - 100% theme harmony with FloatingNav and StoreAnalyticsModal
+ *  - Modern cartographic styling (soft asphalt roads, water canal, railway, district blocks)
+ *  - Interactive colored store blips with category-matched glow rings
+ *  - Construction beacon matching the orange Construct Store branding
+ *  - Real-time 60 FPS camera heading tracker with zero React re-render thrashing
+ *  - City retail metrics (Revenue, Orders, Stores) replacing retro game health bars
  */
 
 import React, { useEffect, useRef, useState } from 'react'
@@ -14,7 +16,10 @@ import {
   Minimize2,
   Navigation,
   Crosshair,
-  Info
+  MapPin,
+  Coins,
+  ShoppingBag,
+  Sparkles
 } from 'lucide-react'
 import type { Store } from '../../types'
 
@@ -40,15 +45,16 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
     category: string
     revenue: number
     orders: number
+    color: string
     isConstruct?: boolean
   } | null>(null)
 
-  // Direct ref to the player / camera icon so we can update transform at 60 FPS without re-rendering React!
+  // Direct ref to the camera orientation cone (buttery-smooth 60 FPS tracking)
   const playerMarkerRef = useRef<SVGGElement>(null)
 
   // Radar dimensions
   const worldRadius = isExpanded ? 32 : 20
-  const mapSize = isExpanded ? 360 : 220
+  const mapSize = isExpanded ? 360 : 224
   const center = mapSize / 2
   const scale = (mapSize * 0.42) / worldRadius
 
@@ -58,18 +64,16 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
     return { x: mx, y: my }
   }
 
-  // Listen to camera movements directly via CustomEvent to avoid re-rendering root App
+  // Real-time camera listener
   useEffect(() => {
     const handleCamUpdate = (e: Event) => {
       const customEvent = e as CustomEvent<{ cx: number; cz: number; tx: number; tz: number; heading: number }>
       if (!customEvent.detail || !playerMarkerRef.current) return
 
       const { cx, cz, heading } = customEvent.detail
-
-      // Convert camera coordinates to map coordinates
       const camPos = worldToMap(cx, cz)
 
-      // Clamp camera position within radar boundary (margin of 14px)
+      // Clamp camera marker inside radar boundary
       const maxR = center - 14
       const dx = camPos.x - center
       const dy = camPos.y - center
@@ -77,11 +81,8 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
 
       const clampedX = dist > maxR ? center + (dx / dist) * maxR : camPos.x
       const clampedY = dist > maxR ? center + (dy / dist) * maxR : camPos.y
-
-      // Calculate heading angle in degrees (pointing towards target)
       const headingDeg = (heading * 180) / Math.PI
 
-      // Update SVG transform directly (buttery smooth 60 FPS, zero React re-renders)
       playerMarkerRef.current.setAttribute(
         'transform',
         `translate(${clampedX.toFixed(1)}, ${clampedY.toFixed(1)}) rotate(${headingDeg.toFixed(1)})`
@@ -94,19 +95,7 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
     }
   }, [center, scale])
 
-  // Get category icon symbol
-  const getCatSymbol = (cat: string) => {
-    switch (cat) {
-      case 'Electronics': return '💻'
-      case 'Grocery': return '🛒'
-      case 'Clothing': return '👗'
-      case 'Furniture': return '🪑'
-      case 'Accessories': return '💎'
-      default: return '🏬'
-    }
-  }
-
-  // Calculate city metrics
+  // Aggregate metrics
   const totalRev = stores.reduce((acc, s) => acc + (s.total_revenue || 0), 0)
   const totalOrders = stores.reduce((acc, s) => acc + (s.total_orders || 0), 0)
 
@@ -114,73 +103,85 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
     <aside
       className={`fixed z-40 transition-all duration-300 select-none ${
         isExpanded
-          ? 'bottom-8 left-8 w-[380px]'
-          : 'bottom-6 left-6 w-[236px] sm:w-[246px]'
+          ? 'bottom-6 left-6 w-[384px]'
+          : 'bottom-6 left-6 w-[248px]'
       }`}
-      aria-label="GTA 6 Minimap Navigation Radar"
+      aria-label="City District Map"
     >
-      {/* TACTICAL RADAR CONTAINER */}
-      <div className="relative rounded-3xl bg-slate-950/92 backdrop-blur-2xl border-2 border-slate-700/80 shadow-2xl shadow-black/90 overflow-hidden p-2.5">
-        {/* Subtle Cyberpunk Radar Bezel & Scanlines */}
-        <div className="absolute inset-0 pointer-events-none rounded-3xl bg-gradient-to-b from-sky-500/5 via-transparent to-black/40" />
+      {/* GLASSMORPHIC CONTAINER (MATCHING FLOATINGNAV & THEME) */}
+      <div className="relative rounded-2xl bg-slate-900/90 backdrop-blur-xl border border-white/15 shadow-2xl shadow-black/70 overflow-hidden p-3 transition-colors">
+        {/* Subtle Ambient Sheen */}
+        <div className="absolute inset-0 pointer-events-none rounded-2xl bg-gradient-to-b from-white/5 via-transparent to-transparent" />
 
         {/* TOP STATUS HEADER */}
-        <div className="relative z-10 flex items-center justify-between mb-1.5 px-1 text-[10px] font-mono tracking-wider text-slate-300">
-          <div className="flex items-center gap-1.5 font-bold">
-            <span className="w-2 h-2 rounded-full bg-emerald-400" />
-            <span className="text-white">GPS // METROPOLIS</span>
+        <div className="relative z-10 flex items-center justify-between mb-2 px-0.5">
+          {/* Title & Live Status */}
+          <div className="flex items-center gap-2">
+            <div className="flex items-center justify-center w-6 h-6 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 shadow-sm">
+              <MapPin className="w-3.5 h-3.5" />
+            </div>
+            <div>
+              <div className="flex items-center gap-1.5">
+                <span className="text-xs font-extrabold text-white tracking-tight">
+                  City Radar
+                </span>
+                <span className="flex items-center gap-1 px-1.5 py-0.2 rounded-full text-[9px] font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Live
+                </span>
+              </div>
+            </div>
           </div>
 
+          {/* Quick Controls */}
           <div className="flex items-center gap-1">
-            {/* Quick Reset Camera Icon */}
             <button
               onClick={onResetCamera}
-              className="p-1 rounded-md bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer"
-              title="Center Map / Overview"
+              className="p-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white border border-white/10 transition-colors cursor-pointer"
+              title="Reset View to Metropolis Overview"
             >
-              <Crosshair className="w-3 h-3 text-sky-400" />
+              <Crosshair className="w-3.5 h-3.5 text-sky-400" />
             </button>
-            {/* Expand / Minimize Minimap */}
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="p-1 rounded-md bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer"
+              className="p-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white border border-white/10 transition-colors cursor-pointer"
               title={isExpanded ? 'Minimize Radar' : 'Expand Radar'}
             >
               {isExpanded ? (
-                <Minimize2 className="w-3 h-3 text-amber-400" />
+                <Minimize2 className="w-3.5 h-3.5 text-amber-400" />
               ) : (
-                <Maximize2 className="w-3 h-3 text-amber-400" />
+                <Maximize2 className="w-3.5 h-3.5 text-amber-400" />
               )}
             </button>
           </div>
         </div>
 
-        {/* RADAR MAP SURFACE (Vector Top-Down View) */}
+        {/* CARTOGRAPHIC MAP CANVAS */}
         <div
-          className="relative rounded-2xl bg-slate-900 border border-slate-800/90 overflow-hidden shadow-inner cursor-crosshair"
+          className="relative rounded-xl bg-slate-950 border border-slate-800/80 overflow-hidden shadow-inner cursor-crosshair"
           style={{ width: `${mapSize}px`, height: `${mapSize}px` }}
         >
-          {/* Subtle Radar Radial Gradient */}
-          <div className="absolute inset-0 pointer-events-none rounded-2xl opacity-25 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-500/30 via-slate-900/10 to-transparent" />
+          {/* Soft Depth Gradient */}
+          <div className="absolute inset-0 pointer-events-none rounded-xl opacity-40 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-500/15 via-slate-950/20 to-transparent" />
 
-          {/* SVG MAP GRAPHICS */}
+          {/* VECTOR MAP GRAPHICS */}
           <svg
             width={mapSize}
             height={mapSize}
             className="absolute inset-0 pointer-events-auto"
           >
             <defs>
-              {/* Tactical Radar Grid */}
-              <pattern id="gtaGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="0.8" />
+              {/* Subtle Grid */}
+              <pattern id="themeGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+                <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(255,255,255,0.035)" strokeWidth="0.8" />
               </pattern>
             </defs>
 
-            {/* Tactical Grid Background */}
-            <rect width={mapSize} height={mapSize} fill="#090e17" />
-            <rect width={mapSize} height={mapSize} fill="url(#gtaGrid)" />
+            {/* Base Background */}
+            <rect width={mapSize} height={mapSize} fill="#0b0f19" />
+            <rect width={mapSize} height={mapSize} fill="url(#themeGrid)" />
 
-            {/* Concentric Distance Radar Rings */}
+            {/* Concentric Soft Radar Rings */}
             {[0.32, 0.64, 0.94].map((fraction, i) => (
               <circle
                 key={`ring-${i}`}
@@ -188,9 +189,9 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
                 cy={center}
                 r={(mapSize / 2) * fraction}
                 fill="none"
-                stroke="rgba(56, 189, 248, 0.12)"
+                stroke="rgba(56, 189, 248, 0.08)"
                 strokeWidth="1"
-                strokeDasharray="3 3"
+                strokeDasharray="4 4"
               />
             ))}
 
@@ -204,10 +205,10 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
                     y={canalY - 4}
                     width={mapSize}
                     height="9"
-                    fill="#0891b2"
-                    opacity="0.8"
+                    fill="#0284c7"
+                    opacity="0.85"
                   />
-                  {/* Road Bridge at center */}
+                  {/* Road Bridge Crossing */}
                   <rect
                     x={center - 7}
                     y={canalY - 5}
@@ -219,7 +220,7 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
               )
             })()}
 
-            {/* RAILWAY TRACK (z = -14.5) */}
+            {/* RAILWAY LINE (z = -14.5) */}
             {(() => {
               const railY = worldToMap(0, -14.5).y
               return (
@@ -228,15 +229,15 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
                   y1={railY}
                   x2={mapSize}
                   y2={railY}
-                  stroke="#475569"
-                  strokeWidth="2.5"
+                  stroke="#64748b"
+                  strokeWidth="2"
                   strokeDasharray="4 3"
                 />
               )
             })()}
 
-            {/* ROADS & HIGHWAYS */}
-            {/* Main East-West Highway (z = 0) */}
+            {/* ROAD NETWORK */}
+            {/* East-West Boulevard (z = 0) */}
             <rect
               x="0"
               y={center - 6}
@@ -249,13 +250,13 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
               y1={center}
               x2={mapSize}
               y2={center}
-              stroke="#f8fafc"
-              strokeWidth="1.2"
-              strokeDasharray="5 4"
-              opacity="0.8"
+              stroke="#e2e8f0"
+              strokeWidth="1"
+              strokeDasharray="4 4"
+              opacity="0.6"
             />
 
-            {/* Main North-South Boulevard (x = 0) */}
+            {/* North-South Avenue (x = 0) */}
             <rect
               x={center - 6}
               y="0"
@@ -268,13 +269,13 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
               y1="0"
               x2={center}
               y2={mapSize}
-              stroke="#f8fafc"
-              strokeWidth="1.2"
-              strokeDasharray="5 4"
-              opacity="0.8"
+              stroke="#e2e8f0"
+              strokeWidth="1"
+              strokeDasharray="4 4"
+              opacity="0.6"
             />
 
-            {/* Central Intersection Crossing */}
+            {/* Central Intersection */}
             <rect
               x={center - 6}
               y={center - 6}
@@ -283,7 +284,7 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
               fill="#334155"
             />
 
-            {/* CONSTRUCT PLOT RADAR BLIP (x = 13.0, z = -6.0) */}
+            {/* CONSTRUCT STORE LOT BLIP (x = 13.0, z = -6.0) */}
             {(() => {
               const cPos = worldToMap(13.0, -6.0)
               const isHovered = hoveredBlip?.id === 'construct'
@@ -299,15 +300,15 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
                     setHoveredBlip({
                       id: 'construct',
                       name: 'Construction Site',
-                      category: 'Expansion Parcel',
+                      category: 'New Expansion',
                       revenue: 0,
                       orders: 0,
+                      color: '#f97316',
                       isConstruct: true
                     })
                   }
                   onMouseLeave={() => setHoveredBlip(null)}
                 >
-                  {/* Stable Transparent Hit Target */}
                   <circle cx={cPos.x} cy={cPos.y} r="14" fill="transparent" />
 
                   {/* Parcel Footprint */}
@@ -316,31 +317,31 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
                     y={cPos.y - 9}
                     width="18"
                     height="18"
-                    fill={isHovered ? 'rgba(249, 115, 22, 0.35)' : 'rgba(249, 115, 22, 0.18)'}
-                    stroke="#ea580c"
+                    fill={isHovered ? 'rgba(249, 115, 22, 0.4)' : 'rgba(249, 115, 22, 0.2)'}
+                    stroke="#f97316"
                     strokeWidth={isHovered ? '2' : '1.2'}
                     strokeDasharray="3 2"
-                    rx="3"
+                    rx="4"
                   />
 
-                  {/* Native SVG Pulsing Ring (Zero CSS keyframe offset glitch) */}
-                  <circle cx={cPos.x} cy={cPos.y} r="6" fill="none" stroke="#f97316" strokeWidth="1.5">
-                    <animate attributeName="r" from="6" to="14" dur="1.8s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" from="0.9" to="0" dur="1.8s" repeatCount="indefinite" />
+                  {/* Pulsing Beacon Ring */}
+                  <circle cx={cPos.x} cy={cPos.y} r="5" fill="none" stroke="#f97316" strokeWidth="1.5">
+                    <animate attributeName="r" from="5" to="14" dur="2s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" from="0.9" to="0" dur="2s" repeatCount="indefinite" />
                   </circle>
 
-                  {/* Core Dot */}
+                  {/* Core Orange Pin */}
                   <circle cx={cPos.x} cy={cPos.y} r="4" fill="#f97316" />
                 </g>
               )
             })()}
 
-            {/* STORE RADAR BLIPS */}
+            {/* STORE PINS */}
             {stores.map((s) => {
               const pos = worldToMap(s.grid_x, s.grid_z)
               const isSelected = selectedStore?.id === s.id
               const isHovered = hoveredBlip?.id === s.id
-              const blipColor = s.color || '#3b82f6'
+              const color = s.color || '#3b82f6'
 
               return (
                 <g
@@ -356,15 +357,16 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
                       name: s.name,
                       category: s.category,
                       revenue: s.total_revenue || 0,
-                      orders: s.total_orders || 0
+                      orders: s.total_orders || 0,
+                      color
                     })
                   }
                   onMouseLeave={() => setHoveredBlip(null)}
                 >
-                  {/* Stable Transparent Hit Target */}
+                  {/* Stable Invisible Hit Area */}
                   <circle cx={pos.x} cy={pos.y} r="14" fill="transparent" />
 
-                  {/* Building Parcel Footprint */}
+                  {/* Architectural Building Footprint */}
                   <rect
                     x={pos.x - 9}
                     y={pos.y - 9}
@@ -372,144 +374,141 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
                     height="18"
                     fill={
                       isSelected
-                        ? 'rgba(56, 189, 248, 0.4)'
+                        ? `${color}40`
                         : isHovered
-                        ? 'rgba(56, 189, 248, 0.25)'
-                        : 'rgba(30, 41, 59, 0.85)'
+                        ? `${color}25`
+                        : '#1e293b'
                     }
-                    stroke={isSelected || isHovered ? '#38bdf8' : blipColor}
+                    stroke={isSelected || isHovered ? color : '#475569'}
                     strokeWidth={isSelected || isHovered ? '2' : '1.2'}
-                    rx="3"
+                    rx="4"
                   />
 
-                  {/* Native SVG Pulsing Ring when Selected */}
+                  {/* Selected Pulse Wave */}
                   {isSelected && (
-                    <circle cx={pos.x} cy={pos.y} r="5" fill="none" stroke="#38bdf8" strokeWidth="1.5">
-                      <animate attributeName="r" from="5" to="15" dur="1.5s" repeatCount="indefinite" />
-                      <animate attributeName="opacity" from="1" to="0" dur="1.5s" repeatCount="indefinite" />
+                    <circle cx={pos.x} cy={pos.y} r="5" fill="none" stroke={color} strokeWidth="1.5">
+                      <animate attributeName="r" from="5" to="15" dur="1.6s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" from="1" to="0" dur="1.6s" repeatCount="indefinite" />
                     </circle>
                   )}
 
-                  {/* Core Radar Blip */}
+                  {/* Core Pin Dot */}
                   <circle
                     cx={pos.x}
                     cy={pos.y}
                     r={isSelected || isHovered ? 4.5 : 3.5}
-                    fill={blipColor}
+                    fill={color}
                   />
                 </g>
               )
             })}
 
-            {/* CAMERA / PLAYER VISION CONE (FOV) */}
+            {/* CAMERA / PLAYER FIELD-OF-VIEW CONE */}
             <g
               ref={playerMarkerRef}
               transform={`translate(${center}, ${center}) rotate(45)`}
             >
-              {/* Vision Cone Wedge */}
+              {/* Soft directional view cone */}
               <path
-                d="M 0 0 L -18 -36 A 38 38 0 0 1 18 -36 Z"
-                fill="rgba(56, 189, 248, 0.25)"
-                stroke="rgba(56, 189, 248, 0.6)"
+                d="M 0 0 L -16 -34 A 36 36 0 0 1 16 -34 Z"
+                fill="rgba(56, 189, 248, 0.22)"
+                stroke="rgba(56, 189, 248, 0.55)"
                 strokeWidth="1"
               />
-              {/* Player Icon Diamond */}
+              {/* Sleek Navigation Pointer */}
               <polygon
-                points="0,-6 5,4 0,2 -5,4"
+                points="0,-7 5,3 0,1 -5,3"
                 fill="#ffffff"
                 stroke="#0284c7"
                 strokeWidth="1.2"
               />
             </g>
 
-            {/* NORTH COMPASS INDICATOR (Always at Top Right) */}
+            {/* NORTH COMPASS BADGE */}
             <g transform={`translate(${mapSize - 16}, 16)`}>
-              <circle cx="0" cy="0" r="9" fill="#0f172a" stroke="#475569" strokeWidth="1" />
+              <circle cx="0" cy="0" r="8" fill="#1e293b" stroke="#334155" strokeWidth="1" />
               <text
                 x="0"
-                y="3.5"
+                y="3"
                 textAnchor="middle"
-                fontSize="9"
-                fontWeight="black"
+                fontSize="8"
+                fontWeight="bold"
                 fill="#f43f5e"
-                fontFamily="sans-serif"
+                fontFamily="system-ui, sans-serif"
               >
                 N
               </text>
             </g>
           </svg>
 
-          {/* HOVER TOOLTIP POPUP (GTA Tactical Target Lock) */}
+          {/* HOVER TOOLTIP CARD */}
           {hoveredBlip && (
-            <div className="absolute top-2 left-2 right-2 z-20 px-2.5 py-1.5 rounded-xl bg-slate-950/95 backdrop-blur-xl border border-sky-500/50 shadow-2xl text-left pointer-events-none">
-              <div className="flex items-center justify-between text-[11px] font-bold text-white">
-                <span className="truncate flex items-center gap-1">
-                  <span>{hoveredBlip.isConstruct ? '🔨' : getCatSymbol(hoveredBlip.category)}</span>
-                  <span className="text-sky-300 truncate">{hoveredBlip.name}</span>
+            <div className="absolute top-2 left-2 right-2 z-20 px-2.5 py-1.5 rounded-xl bg-slate-900/95 backdrop-blur-xl border border-white/20 shadow-2xl text-left pointer-events-none animate-fadeIn">
+              <div className="flex items-center justify-between text-xs font-bold text-white">
+                <span className="truncate flex items-center gap-1.5">
+                  <span
+                    className="w-2 h-2 rounded-full shrink-0"
+                    style={{ backgroundColor: hoveredBlip.color }}
+                  />
+                  <span className="truncate">{hoveredBlip.name}</span>
                 </span>
-                <span className="text-[10px] text-amber-400 font-mono">
-                  {hoveredBlip.isConstruct ? 'BUILD' : `$${hoveredBlip.revenue.toLocaleString()}`}
+                <span className="text-[10px] text-amber-300 font-semibold shrink-0 ml-1">
+                  {hoveredBlip.isConstruct ? 'CONSTRUCT' : `$${(hoveredBlip.revenue / 1000).toFixed(0)}K`}
                 </span>
               </div>
-              <p className="text-[9px] text-slate-400 font-medium">
+              <p className="text-[10px] text-slate-400 font-medium mt-0.5">
                 {hoveredBlip.isConstruct
-                  ? 'Click to construct new retail store'
+                  ? 'Click to build new retail store'
                   : `${hoveredBlip.category} • ${hoveredBlip.orders} Orders • Click to jump`}
               </p>
             </div>
           )}
         </div>
 
-        {/* BOTTOM VITALS METERS (GTA VI Style Status HUD) */}
-        <div className="mt-2 space-y-1.5 px-0.5 font-mono text-[9px]">
-          {/* Street / District Name */}
-          <div className="flex items-center justify-between text-slate-300 font-bold uppercase tracking-wider text-[10px]">
-            <span className="flex items-center gap-1 truncate">
-              <Navigation className="w-3 h-3 text-sky-400" />
+        {/* BOTTOM METRICS & DISTRICT INTEL (REPLACED RETRO HEALTH BARS) */}
+        <div className="mt-2.5 space-y-2 px-0.5">
+          {/* Active District / Store Focus */}
+          <div className="flex items-center justify-between text-xs font-bold">
+            <span className="flex items-center gap-1.5 text-slate-200 truncate">
+              <Navigation className="w-3.5 h-3.5 text-sky-400 shrink-0" />
               <span className="truncate">
-                {selectedStore ? selectedStore.name : 'Central Marketplace'}
+                {selectedStore ? selectedStore.name : 'Metropolis Central'}
               </span>
             </span>
-            <span className="text-emerald-400 font-black">
-              {stores.length} STORES
+            <span className="px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30 shrink-0">
+              {stores.length} Stores
             </span>
           </div>
 
-          {/* Health / Stability Bar (Green) */}
-          <div className="flex items-center gap-1.5">
-            <span className="text-slate-400 w-12 text-right font-semibold">HEALTH</span>
-            <div className="flex-1 h-1.5 rounded-full bg-slate-800 overflow-hidden border border-slate-700">
-              <div className="h-full bg-gradient-to-r from-emerald-500 to-green-400 w-[96%]" />
+          {/* Clean Metric Pills (Matching FloatingNav aesthetic) */}
+          <div className="grid grid-cols-2 gap-1.5 pt-0.5">
+            {/* Revenue Badge */}
+            <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-slate-800/80 border border-white/10">
+              <Coins className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+              <div className="truncate">
+                <div className="text-[9px] uppercase tracking-wider text-slate-400 font-semibold leading-none">Revenue</div>
+                <div className="text-[11px] font-bold text-emerald-400 leading-tight">
+                  ${(totalRev / 1000).toFixed(0)}K
+                </div>
+              </div>
             </div>
-            <span className="text-emerald-400 font-bold text-[8px]">98%</span>
+
+            {/* Orders Badge */}
+            <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-slate-800/80 border border-white/10">
+              <ShoppingBag className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+              <div className="truncate">
+                <div className="text-[9px] uppercase tracking-wider text-slate-400 font-semibold leading-none">Orders</div>
+                <div className="text-[11px] font-bold text-sky-300 leading-tight">
+                  {totalOrders.toLocaleString()}
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Revenue Capital Bar (Cyan) */}
-          <div className="flex items-center gap-1.5">
-            <span className="text-slate-400 w-12 text-right font-semibold">CAPITAL</span>
-            <div className="flex-1 h-1.5 rounded-full bg-slate-800 overflow-hidden border border-slate-700">
-              <div className="h-full bg-gradient-to-r from-sky-500 to-cyan-400 w-[84%]" />
-            </div>
-            <span className="text-sky-300 font-bold text-[8px] truncate">
-              ${(totalRev / 1000).toFixed(0)}K
-            </span>
-          </div>
-
-          {/* Orders Volume Bar (Amber) */}
-          <div className="flex items-center gap-1.5">
-            <span className="text-slate-400 w-12 text-right font-semibold">ORDERS</span>
-            <div className="flex-1 h-1.5 rounded-full bg-slate-800 overflow-hidden border border-slate-700">
-              <div className="h-full bg-gradient-to-r from-amber-500 to-orange-400 w-[78%]" />
-            </div>
-            <span className="text-amber-300 font-bold text-[8px] truncate">
-              {totalOrders.toLocaleString()}
-            </span>
-          </div>
-
-          {/* Quick Click-to-Travel Notice */}
-          <div className="pt-1 text-center text-[8.5px] text-slate-400 flex items-center justify-center gap-1">
-            <Info className="w-2.5 h-2.5 text-sky-400" />
-            <span>Click any radar blip to quick-travel</span>
+          {/* Quick-Travel Tip */}
+          <div className="text-center text-[10px] text-slate-400 flex items-center justify-center gap-1.5 pt-0.5">
+            <Sparkles className="w-3 h-3 text-amber-400 shrink-0" />
+            <span>Click any store pin to quick-travel</span>
           </div>
         </div>
       </div>
