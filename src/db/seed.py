@@ -112,8 +112,8 @@ def seed_database():
             "category": "Electronics",
             "description": "High-tech gadgets, smartphones, 4K displays, and audio systems.",
             "color": "#3B82F6",
-            "grid_x": -6.0,
-            "grid_z": -5.0,
+            "grid_x": -6.5,
+            "grid_z": -6.0,
             "rotation_y": 0.0,
             "catalog": [
                 ("Pro Smartphone Max", 899.99),
@@ -133,8 +133,8 @@ def seed_database():
             "category": "Grocery",
             "description": "Organic produce, artisan baked goods, dairy, and gourmet pantry staples.",
             "color": "#10B981",
-            "grid_x": 6.0,
-            "grid_z": -5.0,
+            "grid_x": 6.5,
+            "grid_z": 6.0,
             "rotation_y": 0.0,
             "catalog": [
                 ("Organic Farm Fresh Milk (1 Gal)", 5.49),
@@ -154,8 +154,8 @@ def seed_database():
             "category": "Clothing",
             "description": "Contemporary fashion, designer denim, casual wear, and seasonal coats.",
             "color": "#EC4899",
-            "grid_x": -6.0,
-            "grid_z": 5.0,
+            "grid_x": -6.5,
+            "grid_z": 6.0,
             "rotation_y": 0.0,
             "catalog": [
                 ("Raw Selvedge Denim Jeans", 79.99),
@@ -174,8 +174,8 @@ def seed_database():
             "category": "Furniture",
             "description": "Minimalist Scandinavian furniture, ergonomic desks, and ambient lighting.",
             "color": "#F59E0B",
-            "grid_x": 6.0,
-            "grid_z": 5.0,
+            "grid_x": 13.0,
+            "grid_z": 6.0,
             "rotation_y": 0.0,
             "catalog": [
                 ("Ergonomic Lumbar Office Chair", 199.99),
@@ -193,8 +193,8 @@ def seed_database():
             "category": "Accessories",
             "description": "Handcrafted leather wallets, aviator sunglasses, and chronograph timepieces.",
             "color": "#8B5CF6",
-            "grid_x": 0.0,
-            "grid_z": -8.5,
+            "grid_x": 6.5,
+            "grid_z": -6.0,
             "rotation_y": 0.0,
             "catalog": [
                 ("Full-Grain Bifold Leather Wallet", 45.00),
@@ -248,6 +248,9 @@ def seed_database():
             existing_store.total_orders = tot_orders
             existing_store.total_products = tot_prods
             existing_store.dataset_path = str(csv_path)
+            existing_store.grid_x = s_def["grid_x"]
+            existing_store.grid_z = s_def["grid_z"]
+            existing_store.rotation_y = s_def["rotation_y"]
 
     db.commit()
     db.close()

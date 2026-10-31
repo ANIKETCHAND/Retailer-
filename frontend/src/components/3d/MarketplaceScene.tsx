@@ -98,8 +98,8 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
         {/* Town Environment Infrastructure */}
         <EnvironmentDecor />
 
-        {/* Dedicated Empty Construction Plot (Image 2 style) */}
-        <ConstructPlot onConstructClick={onConstructClick} />
+        {/* Dedicated Empty Construction Plot (Shifted onto East Empty Land Parcel) */}
+        <ConstructPlot position={[13.0, 0, -6.0]} onConstructClick={onConstructClick} />
 
         {/* Retail Store Buildings */}
         {stores.map((store) => (

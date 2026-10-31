@@ -11,10 +11,14 @@ import { Text } from '@react-three/drei'
 import * as THREE from 'three'
 
 interface ConstructPlotProps {
+  position?: [number, number, number]
   onConstructClick: () => void
 }
 
-export const ConstructPlot: React.FC<ConstructPlotProps> = ({ onConstructClick }) => {
+export const ConstructPlot: React.FC<ConstructPlotProps> = ({
+  position = [13.0, 0, -6.0],
+  onConstructClick
+}) => {
   const [hovered, setHovered] = useState(false)
   const craneArmRef = useRef<THREE.Group>(null)
   const beaconRef = useRef<THREE.PointLight>(null)
@@ -33,7 +37,7 @@ export const ConstructPlot: React.FC<ConstructPlotProps> = ({ onConstructClick }
 
   return (
     <group
-      position={[0, 0, 0]}
+      position={position}
       onClick={(e) => {
         e.stopPropagation()
         onConstructClick()
@@ -48,9 +52,9 @@ export const ConstructPlot: React.FC<ConstructPlotProps> = ({ onConstructClick }
         document.body.style.cursor = 'default'
       }}
     >
-      {/* Foundation Concrete Slab */}
+      {/* Foundation Concrete Slab on Empty Land */}
       <mesh position={[0, 0.08, 0]} receiveShadow>
-        <boxGeometry args={[4.4, 0.16, 4.0]} />
+        <boxGeometry args={[4.8, 0.16, 4.4]} />
         <meshStandardMaterial
           color={hovered ? '#fbbf24' : '#64748b'}
           roughness={0.8}
@@ -59,16 +63,32 @@ export const ConstructPlot: React.FC<ConstructPlotProps> = ({ onConstructClick }
 
       {/* Gravel / Rebar foundation center */}
       <mesh position={[0, 0.18, 0]}>
-        <boxGeometry args={[3.2, 0.06, 2.8]} />
+        <boxGeometry args={[3.8, 0.06, 3.2]} />
         <meshStandardMaterial color="#475569" roughness={0.9} />
       </mesh>
 
+      {/* Access Pathway connecting Plot to Road Curb */}
+      <mesh position={[-1.0, 0.04, 3.2]} receiveShadow>
+        <boxGeometry args={[1.6, 0.08, 2.2]} />
+        <meshStandardMaterial color="#94a3b8" roughness={0.7} />
+      </mesh>
+
+      {/* Concrete Foundation Rebar Pillars (Rising from gravel like in Image 2) */}
+      {[-1.2, -0.4, 0.4, 1.2].map((rx, i) =>
+        [-0.8, 0.0, 0.8].map((rz, j) => (
+          <mesh key={`rebar-${i}-${j}`} position={[rx, 0.45, rz]}>
+            <cylinderGeometry args={[0.04, 0.04, 0.6, 6]} />
+            <meshStandardMaterial color="#64748b" metalness={0.8} roughness={0.4} />
+          </mesh>
+        ))
+      )}
+
       {/* Safety Construction Cones (4 corners) */}
       {[
-        [-1.8, -1.6],
-        [1.8, -1.6],
-        [-1.8, 1.6],
-        [1.8, 1.6]
+        [-2.1, -1.9],
+        [2.1, -1.9],
+        [-2.1, 1.9],
+        [2.1, 1.9]
       ].map(([cx, cz], idx) => (
         <group key={idx} position={[cx, 0.2, cz]}>
           <mesh castShadow>
@@ -83,7 +103,7 @@ export const ConstructPlot: React.FC<ConstructPlotProps> = ({ onConstructClick }
       ))}
 
       {/* ORANGE CONSTRUCTION CRANE (Image 2 style) */}
-      <group position={[1.4, 0.16, -1.2]}>
+      <group position={[1.6, 0.16, -1.2]}>
         {/* Crane Vertical Tower */}
         <mesh position={[0, 1.8, 0]} castShadow>
           <boxGeometry args={[0.25, 3.6, 0.25]} />
@@ -120,7 +140,7 @@ export const ConstructPlot: React.FC<ConstructPlotProps> = ({ onConstructClick }
       </group>
 
       {/* 3D SIGNBOARD: "CONSTRUCT - BUILD YOUR STORE" */}
-      <group position={[-0.2, 1.2, 1.4]}>
+      <group position={[-0.2, 1.2, 1.6]}>
         <mesh position={[0, 0, 0]} castShadow>
           <boxGeometry args={[2.8, 0.95, 0.14]} />
           <meshStandardMaterial

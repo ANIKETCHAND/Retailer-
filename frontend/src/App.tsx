@@ -142,7 +142,7 @@ export const App: React.FC = () => {
             selectedStore={selectedStore}
             onSelectStore={handleStoreSelect}
             onOpenConstruct={() => {
-              setCameraTarget([0, 0, 0]) // Fly to construct plot
+              setCameraTarget([13.0, 0, -6.0]) // Fly to construct plot on empty land
               setIsConstructOpen(true)
             }}
             onResetCamera={handleResetCamera}

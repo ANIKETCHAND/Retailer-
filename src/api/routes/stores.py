@@ -37,20 +37,18 @@ CATEGORY_COLORS = {
     "Custom": "#6366F1"
 }
 
-# Grid plots for dynamically constructed buildings
+# Grid plots for dynamically constructed buildings (strictly on empty land, zero road overlap)
 CANDIDATE_PLOTS = [
-    (-11.0, -5.0),
-    (11.0, -5.0),
-    (-11.0, 5.0),
-    (11.0, 5.0),
-    (-6.0, -10.0),
-    (6.0, -10.0),
-    (-6.0, 10.0),
-    (6.0, 10.0),
-    (0.0, 9.0),
-    (-11.0, 0.0),
-    (11.0, 0.0),
-    (0.0, -12.0)
+    (-13.0, -6.0),   # North-West outer land parcel
+    (-13.0, 6.0),    # South-West outer land parcel
+    (-6.5, -15.5),   # North-West far park parcel
+    (6.5, -15.5),    # North-East far park parcel
+    (-13.0, -15.5),  # North-West corner parcel
+    (13.0, -15.5),   # North-East corner parcel
+    (-6.5, 15.5),    # South-West far park parcel
+    (6.5, 15.5),     # South-East far park parcel
+    (-13.0, 15.5),   # South-West corner parcel
+    (13.0, 15.5),    # South-East corner parcel
 ]
 
 
