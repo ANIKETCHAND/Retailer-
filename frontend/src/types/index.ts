@@ -146,3 +146,6 @@ export interface UserSession {
   email: string
   token: string
 }
+
+export type TimeOfDay = 'day' | 'night'
+export type GraphicsQuality = 'low' | 'medium' | 'high' | 'ultra'

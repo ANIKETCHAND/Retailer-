@@ -4,6 +4,7 @@
  * Scene 1: Locked Storefront Window -> Unlock / Sign-In -> Flythrough
  * Scene 2: 3D Retail Marketplace Town with interactive buildings
  * Scene 3: Construct Plot with CSV Upload & Procedural Spawning
+ * Features dynamic Day & Night cycles, Graphics Quality scaling, and construction staging!
  */
 
 import React, { useEffect, useState } from 'react'
@@ -15,7 +16,7 @@ import { StoreAnalyticsModal } from './components/ui/StoreAnalyticsModal'
 import { ConstructModal } from './components/ui/ConstructModal'
 import { FloatingNav } from './components/ui/FloatingNav'
 import { StoreCardTooltip } from './components/ui/StoreCardTooltip'
-import type { Store, UserSession } from './types'
+import type { Store, UserSession, TimeOfDay, GraphicsQuality } from './types'
 
 export const App: React.FC = () => {
   // App Scene State: 'LOCKED' | 'MARKETPLACE'
@@ -25,6 +26,10 @@ export const App: React.FC = () => {
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [userSession, setUserSession] = useState<UserSession | null>(null)
 
+  // Simulation Environment Controls
+  const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>('day')
+  const [graphicsQuality, setGraphicsQuality] = useState<GraphicsQuality>('high')
+
   // Marketplace Stores State
   const [stores, setStores] = useState<Store[]>([])
   const [selectedStore, setSelectedStore] = useState<Store | null>(null)
@@ -32,6 +37,7 @@ export const App: React.FC = () => {
   const [isAnalyticsOpen, setIsAnalyticsOpen] = useState(false)
   const [isConstructOpen, setIsConstructOpen] = useState(false)
   const [cameraTarget, setCameraTarget] = useState<[number, number, number] | null>(null)
+  const [constructingStoreId, setConstructingStoreId] = useState<string | null>(null)
 
   // Load stores from FastAPI backend on mount
   useEffect(() => {
@@ -75,16 +81,19 @@ export const App: React.FC = () => {
     setIsAnalyticsOpen(true)
   }
 
-  // Handle constructing a new store
+  // Handle constructing a new store with procedural staging animation
   const handleStoreConstructed = (newStore: Store) => {
     setStores(prev => [...prev, newStore])
-    // Focus camera on newly constructed building
+    // Focus camera directly on the new building
     setCameraTarget([newStore.grid_x, 0, newStore.grid_z])
-    // Open its analytics shortly after construction
+    setConstructingStoreId(newStore.id)
+
+    // After celebratory staging animation, open analytics modal
     setTimeout(() => {
+      setConstructingStoreId(null)
       setSelectedStore(newStore)
       setIsAnalyticsOpen(true)
-    }, 800)
+    }, 2200)
   }
 
   // Reset Camera back to overview
@@ -148,6 +157,10 @@ export const App: React.FC = () => {
             onResetCamera={handleResetCamera}
             userSession={userSession}
             onLogout={handleLogout}
+            timeOfDay={timeOfDay}
+            onToggleTimeOfDay={() => setTimeOfDay(t => t === 'day' ? 'night' : 'day')}
+            graphicsQuality={graphicsQuality}
+            onChangeGraphicsQuality={setGraphicsQuality}
           />
 
           {/* 3D Interactive Town */}
@@ -161,6 +174,9 @@ export const App: React.FC = () => {
             onCameraTargetReached={() => setCameraTarget(null)}
             onUserInteract={() => setCameraTarget(null)}
             onDeselectStore={() => setSelectedStore(null)}
+            timeOfDay={timeOfDay}
+            graphicsQuality={graphicsQuality}
+            constructingStoreId={constructingStoreId}
           />
 
           {/* Hover Tooltip HUD over buildings */}

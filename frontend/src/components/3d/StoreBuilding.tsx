@@ -1,661 +1,683 @@
 /**
- * RetailVision - High-Fidelity 3D Store Architectural Models
- * Inspired by Image 6: SimCity/Megapolis game art style.
- * Bespoke architectural landmarks:
- *  - Electronics: The Curved Glass Sky-Garden Eco-Tower
- *  - Grocery: The Giant Rooftop 3D Cheeseburger & Gourmet Market
- *  - Clothing: Modern Glass High-Rise with Pink Podium & Rooftop Lounge
- *  - Furniture: Stacked Timber Barrel Showroom with Deck
- *  - Accessories: Classical Neoclassical Domed Pavilion & Portico
- *  - Custom: Modular High-Tech Glass & Steel Pavilion
+ * RetailVision - AAA Architectural 3D Store Buildings
+ * High-detail PBR architectural models matching reference designs:
+ *  - Electronics (Ref: Image 4): Blue & white striped awning, 3D rooftop lightbox sign,
+ *    dark glass storefront with gold handles, potted topiary balls.
+ *  - Grocery (Ref: Image 3): 3D "GROCERY" typography, pink/white striped awning,
+ *    produce crates, sidewalk bench, potted plant, rooftop AC vents.
+ *  - Clothing: High-end fashion boutique, rose-gold cornice, display mannequins.
+ *  - Furniture: Scandinavian timber showroom, sofa & brass lamp, hardwood deck.
+ *  - Accessories: Neoclassical luxury salon, marble colonnade, cupola dome & fountain.
+ *  - Custom: Modular commercial pavilion with category styling.
+ *  - Construction Staging: Animated construction scaffold, laser grid, spark particles.
+ * Supports Dynamic Day & Night lighting transitions!
  */
 
-import React, { useRef, useState } from 'react'
+import React, { useMemo, useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Text } from '@react-three/drei'
 import * as THREE from 'three'
-import type { Store } from '../../types'
+import type { Store, TimeOfDay } from '../../types'
+import { createMarbleTexture, createWoodDeckTexture } from './textures'
 
 interface StoreBuildingProps {
   store: Store
   isSelected: boolean
   onClick: (store: Store) => void
   onHover: (store: Store | null) => void
+  timeOfDay?: TimeOfDay
+  isConstructing?: boolean
 }
 
 // -------------------------------------------------------------
-// 1. ELECTRONICS: CURVED GLASS SKY-GARDEN ECO-TOWER (Image 6 style)
+// 1. ELECTRONICS: MODERN TECH STORE (Matching Image 4)
 // -------------------------------------------------------------
-function CurvedGlassEcoTower({ hovered, isSelected }: { hovered: boolean; isSelected: boolean }) {
-  const gardenRef = useRef<THREE.Group>(null)
-
-  useFrame((state) => {
-    if (gardenRef.current) {
-      gardenRef.current.rotation.y = Math.sin(state.clock.getElapsedTime() * 0.5) * 0.05
-    }
-  })
-
+function ElectronicsStore({ hovered, isSelected, isNight }: { hovered: boolean; isSelected: boolean; isNight: boolean }) {
   return (
     <group position={[0, 0, 0]}>
-      {/* Foundation & Paved Plaza */}
-      <mesh position={[0, 0.06, 0]} receiveShadow>
-        <boxGeometry args={[4.4, 0.12, 4.0]} />
+      {/* Concrete Platform Base with Pedestrian Walkway */}
+      <mesh position={[0, 0.08, 0]} receiveShadow>
+        <boxGeometry args={[4.4, 0.16, 4.0]} />
         <meshStandardMaterial color={hovered || isSelected ? '#38bdf8' : '#e2e8f0'} roughness={0.4} />
       </mesh>
 
-      {/* Podium Ground Floor (Granite & Chrome) */}
-      <mesh position={[0, 0.65, 0]} castShadow receiveShadow>
-        <boxGeometry args={[3.8, 1.1, 3.4]} />
-        <meshStandardMaterial color="#0f172a" roughness={0.3} metalness={0.5} />
+      {/* Main Structural Building: Slate Grey Facade */}
+      <mesh position={[0, 1.35, -0.2]} castShadow receiveShadow>
+        <boxGeometry args={[3.8, 2.4, 3.2]} />
+        <meshStandardMaterial color="#94a3b8" roughness={0.4} />
       </mesh>
 
-      {/* Entrance Glass Revolving Door / Atrium */}
-      <mesh position={[0, 0.55, 1.72]}>
-        <boxGeometry args={[1.4, 0.9, 0.06]} />
-        <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.6} roughness={0.1} />
-      </mesh>
-      {/* Blue LED Entrance Canopy */}
-      <mesh position={[0, 1.1, 1.9]} castShadow>
-        <boxGeometry args={[1.8, 0.08, 0.8]} />
-        <meshStandardMaterial color="#0284c7" emissive="#0284c7" emissiveIntensity={0.6} />
-      </mesh>
-
-      {/* Upper Main Body: Tiered Glass Sky-Tower */}
-      <mesh position={[0, 2.2, -0.1]} castShadow receiveShadow>
-        <boxGeometry args={[3.2, 2.0, 2.8]} />
+      {/* Dark Reflective Panoramic Glass Windows with Gold/Wood Trim */}
+      <mesh position={[-1.0, 1.25, 1.42]}>
+        <boxGeometry args={[1.4, 1.6, 0.04]} />
         <meshPhysicalMaterial
-          color="#0284c7"
+          color={isNight ? '#38bdf8' : '#1e293b'}
           transparent
-          opacity={0.45}
-          roughness={0.1}
-          metalness={0.3}
-          clearcoat={1.0}
+          opacity={0.85}
+          roughness={0.08}
+          metalness={0.2}
+        />
+      </mesh>
+      <mesh position={[1.0, 1.25, 1.42]}>
+        <boxGeometry args={[1.4, 1.6, 0.04]} />
+        <meshPhysicalMaterial
+          color={isNight ? '#38bdf8' : '#1e293b'}
+          transparent
+          opacity={0.85}
+          roughness={0.08}
+          metalness={0.2}
         />
       </mesh>
 
-      {/* ICONIC CURVED GLASS ARCHED FACADE (Walkie-Talkie style) */}
-      {[-1.3, -0.65, 0, 0.65, 1.3].map((rx, idx) => (
-        <group key={`arch-${idx}`} position={[rx, 2.3, 1.35]}>
-          {/* Vertical Mullion Ribs */}
-          <mesh castShadow>
-            <cylinderGeometry args={[0.035, 0.045, 2.2, 8]} />
-            <meshStandardMaterial color="#f8fafc" metalness={0.9} roughness={0.2} />
-          </mesh>
-        </group>
-      ))}
-
-      {/* Horizontal Curved Glass Floor Rings */}
-      {[1.6, 2.2, 2.8].map((fy, idx) => (
-        <mesh key={`ring-${idx}`} position={[0, fy, 1.34]}>
-          <boxGeometry args={[3.3, 0.06, 0.08]} />
-          <meshStandardMaterial color="#f8fafc" metalness={0.8} />
+      {/* Double Glass Doors with Gold Vertical Handles */}
+      <group position={[0, 0.95, 1.43]}>
+        <mesh>
+          <boxGeometry args={[1.0, 1.7, 0.04]} />
+          <meshPhysicalMaterial color={isNight ? '#60a5fa' : '#334155'} transparent opacity={0.8} />
         </mesh>
-      ))}
-
-      {/* Lush Sky-Garden / Vertical Greenhouse visible through curved glass */}
-      <group ref={gardenRef} position={[0, 2.2, 0.4]}>
-        {[-0.8, 0, 0.8].map((gx, i) => (
-          <group key={`tree-${i}`} position={[gx, -0.4, 0]}>
-            <mesh position={[0, 0.3, 0]}>
-              <cylinderGeometry args={[0.05, 0.07, 0.6, 6]} />
-              <meshStandardMaterial color="#78350f" />
-            </mesh>
-            <mesh position={[0, 0.7, 0]}>
-              <sphereGeometry args={[0.35, 12, 12]} />
-              <meshStandardMaterial color={i === 1 ? '#22c55e' : '#16a34a'} roughness={0.8} />
-            </mesh>
-          </group>
-        ))}
-      </group>
-
-      {/* Angled Glass Sky-Crown / Sloped Penthouse */}
-      <group position={[0, 3.4, -0.2]} rotation={[-0.2, 0, 0]}>
-        <mesh castShadow>
-          <boxGeometry args={[3.3, 0.4, 2.6]} />
-          <meshPhysicalMaterial
-            color="#38bdf8"
-            transparent
-            opacity={0.65}
-            roughness={0.1}
-            metalness={0.4}
-          />
+        {/* Door Frame Trim */}
+        <mesh position={[0, 0, 0.02]}>
+          <boxGeometry args={[1.08, 1.78, 0.02]} />
+          <meshStandardMaterial color="#d97706" roughness={0.3} metalness={0.6} wireframe />
         </mesh>
-        {/* Antennas & Communication Spire */}
-        <mesh position={[1.1, 0.6, -0.5]}>
-          <cylinderGeometry args={[0.02, 0.04, 1.2, 8]} />
-          <meshStandardMaterial color="#e2e8f0" metalness={0.9} />
+        {/* Brass Handles */}
+        <mesh position={[-0.08, 0, 0.04]}>
+          <cylinderGeometry args={[0.015, 0.015, 0.5, 8]} />
+          <meshStandardMaterial color="#fbbf24" metalness={0.9} roughness={0.2} />
         </mesh>
-        <mesh position={[-1.1, 0.45, -0.5]}>
-          <cylinderGeometry args={[0.02, 0.03, 0.9, 8]} />
-          <meshStandardMaterial color="#e2e8f0" metalness={0.9} />
+        <mesh position={[0.08, 0, 0.04]}>
+          <cylinderGeometry args={[0.015, 0.015, 0.5, 8]} />
+          <meshStandardMaterial color="#fbbf24" metalness={0.9} roughness={0.2} />
         </mesh>
       </group>
-    </group>
-  )
-}
 
-// -------------------------------------------------------------
-// 2. GROCERY: GOURMET MARKET & GIANT 3D ROOFTOP CHEESEBURGER (Image 6 style)
-// -------------------------------------------------------------
-function BurgerMarketBuilding({ hovered, isSelected }: { hovered: boolean; isSelected: boolean }) {
-  const burgerRef = useRef<THREE.Group>(null)
-
-  useFrame((state) => {
-    if (burgerRef.current) {
-      // Gentle floating/wobble for the giant burger
-      burgerRef.current.position.y = 3.0 + Math.sin(state.clock.getElapsedTime() * 1.5) * 0.05
-    }
-  })
-
-  return (
-    <group position={[0, 0, 0]}>
-      {/* Foundation & Outdoor Patio */}
-      <mesh position={[0, 0.06, 0]} receiveShadow>
-        <boxGeometry args={[4.4, 0.12, 4.0]} />
-        <meshStandardMaterial color={hovered || isSelected ? '#f59e0b' : '#fef08a'} roughness={0.5} />
-      </mesh>
-
-      {/* Two-Story Restaurant Diner Body (Sunny Yellow & Cream) */}
-      <mesh position={[0, 1.05, -0.2]} castShadow receiveShadow>
-        <boxGeometry args={[3.6, 1.9, 2.8]} />
-        <meshStandardMaterial color="#fde047" roughness={0.4} />
-      </mesh>
-
-      {/* Lower Storefront Trim / Brick Foundation */}
-      <mesh position={[0, 0.25, -0.19]}>
-        <boxGeometry args={[3.65, 0.35, 2.85]} />
-        <meshStandardMaterial color="#b45309" roughness={0.7} />
-      </mesh>
-
-      {/* Front Entrance & Windows */}
-      <mesh position={[0, 0.8, 1.22]}>
-        <boxGeometry args={[1.2, 1.2, 0.04]} />
-        <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.5} />
-      </mesh>
-      {[-1.2, 1.2].map((wx, i) => (
-        <mesh key={`win-${i}`} position={[wx, 0.9, 1.22]}>
-          <boxGeometry args={[0.8, 0.9, 0.04]} />
-          <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.5} />
-        </mesh>
-      ))}
-
-      {/* Striped Red & White Diner Canopy */}
-      <group position={[0, 1.5, 1.45]} rotation={[0.3, 0, 0]}>
+      {/* Blue & White Striped Canopy Awning (Image 4 Style) */}
+      <group position={[0, 2.05, 1.62]} rotation={[0.26, 0, 0]}>
         <mesh castShadow>
-          <boxGeometry args={[3.7, 0.08, 0.8]} />
-          <meshStandardMaterial color="#dc2626" />
+          <boxGeometry args={[4.0, 0.08, 0.85]} />
+          <meshStandardMaterial color="#1d4ed8" />
         </mesh>
-        {[-1.5, -0.9, -0.3, 0.3, 0.9, 1.5].map((sx, idx) => (
-          <mesh key={`stripe-${idx}`} position={[sx, 0.05, 0]}>
-            <boxGeometry args={[0.3, 0.02, 0.82]} />
+        {[-1.6, -1.0, -0.4, 0.2, 0.8, 1.4].map((sx, idx) => (
+          <mesh key={`e-stripe-${idx}`} position={[sx, 0.05, 0]}>
+            <boxGeometry args={[0.3, 0.02, 0.87]} />
             <meshStandardMaterial color="#ffffff" />
           </mesh>
         ))}
       </group>
 
-      {/* Rooftop Parapet Border */}
-      <mesh position={[0, 2.05, -0.2]} castShadow>
-        <boxGeometry args={[3.75, 0.15, 2.95]} />
-        <meshStandardMaterial color="#dc2626" roughness={0.3} />
+      {/* Rooftop Dark Asphalt Stepped Tiers with HVAC Vents */}
+      <mesh position={[0, 2.65, -0.2]} castShadow>
+        <boxGeometry args={[4.0, 0.2, 3.4]} />
+        <meshStandardMaterial color="#334155" roughness={0.6} />
+      </mesh>
+      <mesh position={[0, 2.9, -0.3]} castShadow>
+        <boxGeometry args={[3.2, 0.3, 2.4]} />
+        <meshStandardMaterial color="#1e293b" roughness={0.7} />
       </mesh>
 
-      {/* GIGANTIC 3D CHEESEBURGER LANDMARK ON ROOF (Exact match to Image 6) */}
-      <group ref={burgerRef} position={[0, 3.0, -0.2]}>
-        {/* Bottom Bun */}
-        <mesh position={[0, -0.35, 0]} castShadow>
-          <cylinderGeometry args={[1.1, 1.05, 0.3, 24]} />
-          <meshStandardMaterial color="#d97706" roughness={0.6} />
+      {/* Prominent 3D Lightbox Sign on Roof: "ELECTRONIC STORE" (Image 4 Style) */}
+      <group position={[0, 3.35, 0.4]}>
+        <mesh castShadow>
+          <boxGeometry args={[2.8, 0.65, 0.2]} />
+          <meshStandardMaterial
+            color="#1e40af"
+            emissive="#1d4ed8"
+            emissiveIntensity={isNight ? 1.4 : 0.6}
+            roughness={0.2}
+          />
         </mesh>
-        {/* Beef Patty */}
-        <mesh position={[0, -0.15, 0]} castShadow>
-          <cylinderGeometry args={[1.2, 1.2, 0.25, 24]} />
-          <meshStandardMaterial color="#451a03" roughness={0.8} />
+        <mesh position={[0, 0, 0.11]}>
+          <boxGeometry args={[2.7, 0.55, 0.02]} />
+          <meshStandardMaterial color="#1e3a8a" />
         </mesh>
-        {/* Melted Yellow Cheese (Diagonal Corners) */}
-        <mesh position={[0, 0.02, 0]} rotation={[0, Math.PI / 4, 0]}>
-          <boxGeometry args={[1.8, 0.06, 1.8]} />
-          <meshStandardMaterial color="#facc15" roughness={0.3} />
-        </mesh>
-        {/* Wavy Green Lettuce Leaf */}
-        <mesh position={[0, 0.1, 0]}>
-          <cylinderGeometry args={[1.25, 1.25, 0.08, 12]} />
-          <meshStandardMaterial color="#22c55e" roughness={0.7} />
-        </mesh>
-        {/* Red Tomato Slice */}
-        <mesh position={[0, 0.18, 0]}>
-          <cylinderGeometry args={[1.15, 1.15, 0.09, 24]} />
-          <meshStandardMaterial color="#ef4444" roughness={0.4} />
-        </mesh>
-        {/* Top Sesame Bun (Dome) */}
-        <mesh position={[0, 0.42, 0]} castShadow>
-          <sphereGeometry args={[1.18, 24, 16, 0, Math.PI * 2, 0, Math.PI / 2]} />
-          <meshStandardMaterial color="#d97706" roughness={0.5} />
-        </mesh>
-        {/* White Sesame Seeds on Top Bun */}
-        {[
-          [0.2, 0.95, 0.3],
-          [-0.3, 0.92, -0.2],
-          [0.5, 0.85, -0.4],
-          [-0.5, 0.88, 0.3],
-          [0.0, 1.0, 0.0]
-        ].map(([sx, sy, sz], idx) => (
-          <mesh key={`sesame-${idx}`} position={[sx, sy - 0.2, sz]}>
-            <sphereGeometry args={[0.035, 8, 8]} />
-            <meshStandardMaterial color="#fef08a" />
-          </mesh>
-        ))}
-      </group>
-
-      {/* Outdoor Patio Umbrella & Tables */}
-      <group position={[1.4, 0.12, 1.2]}>
-        <mesh position={[0, 0.5, 0]}>
-          <cylinderGeometry args={[0.02, 0.02, 1.0, 8]} />
+        <Text
+          position={[0, 0.06, 0.13]}
+          fontSize={0.2}
+          color="#ffffff"
+          anchorX="center"
+          anchorY="middle"
+          fontWeight="black"
+        >
+          ELECTRONIC
+        </Text>
+        <Text
+          position={[0, -0.12, 0.13]}
+          fontSize={0.16}
+          color="#67e8f9"
+          anchorX="center"
+          anchorY="middle"
+          fontWeight="bold"
+        >
+          STORE
+        </Text>
+        {/* Support Stilts */}
+        <mesh position={[-1.1, -0.42, 0]}>
+          <cylinderGeometry args={[0.04, 0.04, 0.35, 8]} />
           <meshStandardMaterial color="#64748b" />
         </mesh>
-        <mesh position={[0, 0.95, 0]} castShadow>
-          <coneGeometry args={[0.65, 0.3, 8]} />
-          <meshStandardMaterial color="#dc2626" />
-        </mesh>
-        <mesh position={[0, 0.35, 0]}>
-          <cylinderGeometry args={[0.3, 0.3, 0.04, 12]} />
-          <meshStandardMaterial color="#ffffff" />
+        <mesh position={[1.1, -0.42, 0]}>
+          <cylinderGeometry args={[0.04, 0.04, 0.35, 8]} />
+          <meshStandardMaterial color="#64748b" />
         </mesh>
       </group>
+
+      {/* Potted Round Topiary Trees Flanking the Entrance (Image 4 Style) */}
+      {[-1.6, 1.6].map((tx, idx) => (
+        <group key={`topiary-${idx}`} position={[tx, 0.16, 1.6]}>
+          {/* Terracotta Pot */}
+          <mesh castShadow>
+            <cylinderGeometry args={[0.18, 0.14, 0.3, 12]} />
+            <meshStandardMaterial color="#b45309" roughness={0.8} />
+          </mesh>
+          {/* Trunk */}
+          <mesh position={[0, 0.22, 0]}>
+            <cylinderGeometry args={[0.04, 0.04, 0.2, 8]} />
+            <meshStandardMaterial color="#78350f" />
+          </mesh>
+          {/* Spherical Topiary Bush */}
+          <mesh position={[0, 0.45, 0]} castShadow>
+            <sphereGeometry args={[0.26, 16, 16]} />
+            <meshStandardMaterial color="#22c55e" roughness={0.5} />
+          </mesh>
+        </group>
+      ))}
+
+      {/* Night Interior Light Spilling Through Windows */}
+      {isNight && (
+        <pointLight position={[0, 1.6, 0.8]} intensity={3.2} distance={6} color="#38bdf8" />
+      )}
     </group>
   )
 }
 
 // -------------------------------------------------------------
-// 3. CLOTHING: GLASS HIGH-RISE WITH PINK PODIUM & ROOFTOP CAFE (Image 6 style)
+// 2. GROCERY: FRESH HARVEST MARKET (Matching Image 3)
 // -------------------------------------------------------------
-function GlassHighRiseHotel({ hovered, isSelected }: { hovered: boolean; isSelected: boolean }) {
+function GroceryStore({ hovered, isSelected, isNight }: { hovered: boolean; isSelected: boolean; isNight: boolean }) {
   return (
     <group position={[0, 0, 0]}>
-      {/* Foundation & Pavement */}
-      <mesh position={[0, 0.06, 0]} receiveShadow>
-        <boxGeometry args={[4.4, 0.12, 4.0]} />
-        <meshStandardMaterial color={hovered || isSelected ? '#ec4899' : '#fbcfe8'} roughness={0.5} />
+      {/* Base Platform */}
+      <mesh position={[0, 0.08, 0]} receiveShadow>
+        <boxGeometry args={[4.4, 0.16, 4.0]} />
+        <meshStandardMaterial color={hovered || isSelected ? '#10b981' : '#f1f5f9'} roughness={0.5} />
       </mesh>
 
-      {/* Vibrant Magenta/Pink Ground Podium Boutique */}
-      <mesh position={[0, 0.75, 0]} castShadow receiveShadow>
-        <boxGeometry args={[3.8, 1.3, 3.4]} />
-        <meshStandardMaterial color="#db2777" roughness={0.3} />
-      </mesh>
-      {/* White Podium Trim */}
-      <mesh position={[0, 1.42, 0]}>
-        <boxGeometry args={[3.9, 0.12, 3.5]} />
-        <meshStandardMaterial color="#ffffff" />
+      {/* Soft Lilac / Pastel Stucco Market Walls (Image 3 Style) */}
+      <mesh position={[0, 1.35, -0.2]} castShadow receiveShadow>
+        <boxGeometry args={[3.8, 2.4, 3.2]} />
+        <meshStandardMaterial color="#e9d5ff" roughness={0.5} />
       </mesh>
 
-      {/* Ground Floor Fashion Showcases */}
-      {[-1.1, 1.1].map((fx, i) => (
-        <mesh key={`showcase-${i}`} position={[fx, 0.7, 1.72]}>
-          <boxGeometry args={[1.2, 0.9, 0.04]} />
-          <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.5} roughness={0.1} />
-        </mesh>
-      ))}
-
-      {/* Multi-Story Glass Tower Grid (Cyan Grid Windows) */}
-      <mesh position={[0, 2.45, -0.2]} castShadow receiveShadow>
-        <boxGeometry args={[2.8, 2.0, 2.6]} />
+      {/* Large Glass Corner Windows with Peach Frames */}
+      <mesh position={[-0.9, 1.25, 1.42]}>
+        <boxGeometry args={[1.6, 1.6, 0.04]} />
         <meshPhysicalMaterial
-          color="#38bdf8"
+          color={isNight ? '#fef08a' : '#bae6fd'}
           transparent
-          opacity={0.65}
-          roughness={0.1}
-          metalness={0.4}
+          opacity={isNight ? 0.85 : 0.4}
+          roughness={0.05}
         />
       </mesh>
 
-      {/* White Grid Facade Frames (4 floors) */}
-      {[-1.0, 0, 1.0].map((gx, idx) => (
-        <mesh key={`mullion-${idx}`} position={[gx, 2.45, 1.11]}>
-          <boxGeometry args={[0.06, 2.0, 0.04]} />
-          <meshStandardMaterial color="#ffffff" metalness={0.6} />
+      {/* Double Glass Doors with Handles */}
+      <group position={[0.9, 1.0, 1.43]}>
+        <mesh>
+          <boxGeometry args={[1.2, 1.7, 0.04]} />
+          <meshPhysicalMaterial color={isNight ? '#fde047' : '#38bdf8'} transparent opacity={0.65} />
         </mesh>
-      ))}
-      {[1.7, 2.2, 2.7, 3.2].map((gy, idx) => (
-        <mesh key={`floor-beam-${idx}`} position={[0, gy, 1.11]}>
-          <boxGeometry args={[2.82, 0.06, 0.04]} />
-          <meshStandardMaterial color="#ffffff" metalness={0.6} />
+        <mesh position={[-0.1, 0, 0.04]}>
+          <cylinderGeometry args={[0.015, 0.015, 0.45, 8]} />
+          <meshStandardMaterial color="#f43f5e" metalness={0.7} />
         </mesh>
-      ))}
+        <mesh position={[0.1, 0, 0.04]}>
+          <cylinderGeometry args={[0.015, 0.015, 0.45, 8]} />
+          <meshStandardMaterial color="#f43f5e" metalness={0.7} />
+        </mesh>
+      </group>
 
-      {/* ROOFTOP OPEN-AIR CAFE & PATIO (Exact match to Image 6) */}
-      <group position={[0, 3.5, -0.2]}>
-        {/* Roof Deck Flooring */}
-        <mesh position={[0, 0, 0]} receiveShadow>
-          <boxGeometry args={[2.85, 0.08, 2.65]} />
-          <meshStandardMaterial color="#f472b6" roughness={0.3} />
+      {/* Striped Pink & White Awning Canopy (Image 3 Style) */}
+      <group position={[-0.9, 2.05, 1.65]} rotation={[0.26, 0, 0]}>
+        <mesh castShadow>
+          <boxGeometry args={[2.0, 0.08, 0.82]} />
+          <meshStandardMaterial color="#f43f5e" />
         </mesh>
-        {/* Perimeter Glass Balustrade / Railing */}
-        <mesh position={[0, 0.22, 1.3]}>
-          <boxGeometry args={[2.8, 0.35, 0.04]} />
-          <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.5} />
-        </mesh>
-        {/* Cafe Tables & Chairs on Rooftop */}
-        {[
-          [-0.7, 0.4],
-          [0.7, 0.4],
-          [-0.7, -0.5],
-          [0.7, -0.5]
-        ].map(([tx, tz], i) => (
-          <group key={`cafe-table-${i}`} position={[tx, 0.04, tz]}>
-            {/* Table */}
-            <mesh position={[0, 0.16, 0]}>
-              <cylinderGeometry args={[0.18, 0.18, 0.04, 12]} />
-              <meshStandardMaterial color="#ffffff" />
-            </mesh>
-            <mesh position={[0, 0.08, 0]}>
-              <cylinderGeometry args={[0.02, 0.02, 0.16, 8]} />
-              <meshStandardMaterial color="#475569" />
-            </mesh>
-            {/* 2 Chairs */}
-            <mesh position={[-0.22, 0.08, 0]}>
-              <boxGeometry args={[0.12, 0.16, 0.12]} />
-              <meshStandardMaterial color="#f43f5e" />
-            </mesh>
-            <mesh position={[0.22, 0.08, 0]}>
-              <boxGeometry args={[0.12, 0.16, 0.12]} />
-              <meshStandardMaterial color="#f43f5e" />
-            </mesh>
-          </group>
+        {[-0.7, -0.2, 0.3, 0.8].map((sx, idx) => (
+          <mesh key={`g-stripe-${idx}`} position={[sx, 0.05, 0]}>
+            <boxGeometry args={[0.24, 0.02, 0.84]} />
+            <meshStandardMaterial color="#ffffff" />
+          </mesh>
         ))}
       </group>
 
-      {/* Palm Tree in Front Plaza */}
-      <group position={[1.5, 0.12, 1.4]}>
-        <mesh position={[0, 0.7, 0]} rotation={[0, 0, -0.15]} castShadow>
-          <cylinderGeometry args={[0.08, 0.12, 1.4, 8]} />
-          <meshStandardMaterial color="#854d0e" roughness={0.8} />
+      {/* Rounded Purple Roof Parapet (Image 3 Style) */}
+      <mesh position={[0, 2.65, -0.2]} castShadow>
+        <boxGeometry args={[4.1, 0.28, 3.4]} />
+        <meshStandardMaterial color="#c084fc" roughness={0.3} />
+      </mesh>
+
+      {/* 3D Cyan Letters "GROCERY" along Roof Parapet (Image 3 Style) */}
+      <group position={[0.8, 2.7, 1.52]}>
+        <Text
+          fontSize={0.28}
+          color="#38bdf8"
+          anchorX="center"
+          anchorY="middle"
+          fontWeight="black"
+          letterSpacing={0.06}
+        >
+          GROCERY
+        </Text>
+      </group>
+
+      {/* Rooftop Air Conditioner Units & Exhaust Vents (Image 3 Style) */}
+      <group position={[-0.8, 2.95, -0.4]}>
+        {/* Main AC Blue Box */}
+        <mesh castShadow>
+          <boxGeometry args={[0.9, 0.6, 0.7]} />
+          <meshStandardMaterial color="#3b82f6" roughness={0.4} />
         </mesh>
-        <mesh position={[0.2, 1.45, 0]}>
-          <sphereGeometry args={[0.5, 8, 8]} />
-          <meshStandardMaterial color="#16a34a" roughness={0.6} />
+        {/* Twin Exhaust Fans */}
+        <mesh position={[0.65, 0.05, 0]} castShadow>
+          <boxGeometry args={[0.4, 0.45, 0.5]} />
+          <meshStandardMaterial color="#f43f5e" roughness={0.5} />
         </mesh>
       </group>
+
+      {/* Wooden Sidewalk Bench (Image 3 Style) */}
+      <group position={[-1.3, 0.25, 1.65]}>
+        <mesh position={[0, 0.15, 0]} castShadow>
+          <boxGeometry args={[0.9, 0.06, 0.32]} />
+          <meshStandardMaterial color="#d97706" roughness={0.6} />
+        </mesh>
+        <mesh position={[0, 0.3, -0.14]} castShadow>
+          <boxGeometry args={[0.9, 0.24, 0.05]} />
+          <meshStandardMaterial color="#d97706" roughness={0.6} />
+        </mesh>
+        {[-0.38, 0.38].map((bx, i) => (
+          <mesh key={`bench-leg-${i}`} position={[bx, 0.08, 0]}>
+            <boxGeometry args={[0.06, 0.2, 0.28]} />
+            <meshStandardMaterial color="#1e293b" />
+          </mesh>
+        ))}
+      </group>
+
+      {/* Potted Plant and Trash Bin in Front (Image 3 Style) */}
+      <group position={[-0.6, 0.16, 1.65]}>
+        <mesh castShadow>
+          <cylinderGeometry args={[0.14, 0.1, 0.24, 12]} />
+          <meshStandardMaterial color="#b45309" />
+        </mesh>
+        <mesh position={[0, 0.2, 0]} castShadow>
+          <sphereGeometry args={[0.18, 12, 12]} />
+          <meshStandardMaterial color="#10b981" />
+        </mesh>
+      </group>
+
+      {/* Night Warm Illumination */}
+      {isNight && (
+        <pointLight position={[0, 1.6, 0.8]} intensity={3.0} distance={6} color="#fef08a" />
+      )}
     </group>
   )
 }
 
 // -------------------------------------------------------------
-// 4. FURNITURE: STACKED TIMBER BARRELS SHOWROOM (Image 6 style)
+// 3. CLOTHING: CHIC FASHION BOUTIQUE & MANNEQUINS
 // -------------------------------------------------------------
-function BarrelFurnitureShowroom({ hovered, isSelected }: { hovered: boolean; isSelected: boolean }) {
+function ClothingStore({ hovered, isSelected, isNight }: { hovered: boolean; isSelected: boolean; isNight: boolean }) {
   return (
     <group position={[0, 0, 0]}>
-      {/* Foundation & Timber Deck */}
-      <mesh position={[0, 0.06, 0]} receiveShadow>
-        <boxGeometry args={[4.4, 0.12, 4.0]} />
-        <meshStandardMaterial color={hovered || isSelected ? '#f59e0b' : '#fed7aa'} roughness={0.6} />
+      {/* Polished Marble Step Foundation */}
+      <mesh position={[0, 0.08, 0]} receiveShadow>
+        <boxGeometry args={[4.4, 0.16, 4.0]} />
+        <meshStandardMaterial color={hovered || isSelected ? '#ec4899' : '#fdf2f8'} roughness={0.3} />
       </mesh>
 
-      {/* Ground Floor Timber Showroom */}
-      <mesh position={[0, 0.7, 0]} castShadow receiveShadow>
-        <boxGeometry args={[3.8, 1.2, 3.4]} />
-        <meshStandardMaterial color="#b45309" roughness={0.5} />
+      {/* Elegant Rose-Gold & Slate Boutique Structure */}
+      <mesh position={[0, 1.4, -0.2]} castShadow receiveShadow>
+        <boxGeometry args={[3.8, 2.5, 3.2]} />
+        <meshStandardMaterial color="#1e1b4b" roughness={0.3} />
       </mesh>
 
-      {/* Front Entrance / Wide Glass Display */}
-      <mesh position={[0, 0.65, 1.72]}>
-        <boxGeometry args={[2.0, 0.9, 0.04]} />
-        <meshPhysicalMaterial color="#fed7aa" transparent opacity={0.4} />
+      {/* Large Boutique Showcase Display Windows with Rose Trim */}
+      <mesh position={[-0.95, 1.25, 1.42]}>
+        <boxGeometry args={[1.5, 1.9, 0.04]} />
+        <meshPhysicalMaterial
+          color={isNight ? '#fbcfe8' : '#bae6fd'}
+          transparent
+          opacity={isNight ? 0.85 : 0.4}
+          roughness={0.05}
+        />
+      </mesh>
+      <mesh position={[0.95, 1.25, 1.42]}>
+        <boxGeometry args={[1.5, 1.9, 0.04]} />
+        <meshPhysicalMaterial
+          color={isNight ? '#fbcfe8' : '#bae6fd'}
+          transparent
+          opacity={isNight ? 0.85 : 0.4}
+          roughness={0.05}
+        />
       </mesh>
 
-      {/* STACKED GIANT WOODEN BARRELS ARCHITECTURE (Exact match to Image 6) */}
-      {/* Lower Left Barrel */}
-      <group position={[-0.85, 1.7, 0]} rotation={[0, 0, Math.PI / 2]}>
-        <mesh castShadow>
-          <cylinderGeometry args={[0.85, 0.75, 2.2, 24]} />
-          <meshStandardMaterial color="#d97706" roughness={0.6} />
-        </mesh>
-        {/* Metal Hoops */}
-        {[-0.7, 0, 0.7].map((hy, idx) => (
-          <mesh key={`b1-hoop-${idx}`} position={[0, hy, 0]}>
-            <cylinderGeometry args={[0.87, 0.87, 0.06, 24]} />
-            <meshStandardMaterial color="#1e293b" metalness={0.9} roughness={0.2} />
+      {/* Boutique Entrance in Center */}
+      <mesh position={[0, 0.9, 1.43]}>
+        <boxGeometry args={[0.8, 1.6, 0.04]} />
+        <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.6} />
+      </mesh>
+
+      {/* Stylized Fashion Mannequins Behind Windows */}
+      {[-0.95, 0.95].map((mx, idx) => (
+        <group key={`mannequin-${idx}`} position={[mx, 0.7, 1.0]}>
+          <mesh castShadow>
+            <cylinderGeometry args={[0.08, 0.12, 0.6, 12]} />
+            <meshStandardMaterial color="#ffffff" roughness={0.2} />
           </mesh>
-        ))}
-        {/* Glass Port Window on Barrel Face */}
-        <mesh position={[0, 1.11, 0]}>
-          <cylinderGeometry args={[0.65, 0.65, 0.02, 16]} />
-          <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.6} />
-        </mesh>
-      </group>
-
-      {/* Lower Right Barrel */}
-      <group position={[0.85, 1.7, 0]} rotation={[0, 0, Math.PI / 2]}>
-        <mesh castShadow>
-          <cylinderGeometry args={[0.85, 0.75, 2.2, 24]} />
-          <meshStandardMaterial color="#d97706" roughness={0.6} />
-        </mesh>
-        {[-0.7, 0, 0.7].map((hy, idx) => (
-          <mesh key={`b2-hoop-${idx}`} position={[0, hy, 0]}>
-            <cylinderGeometry args={[0.87, 0.87, 0.06, 24]} />
-            <meshStandardMaterial color="#1e293b" metalness={0.9} roughness={0.2} />
+          <mesh position={[0, 0.42, 0]} castShadow>
+            <sphereGeometry args={[0.09, 12, 12]} />
+            <meshStandardMaterial color="#fcd34d" metalness={0.8} />
           </mesh>
-        ))}
-      </group>
-
-      {/* Top Stacked Center Barrel */}
-      <group position={[0, 2.8, 0]} rotation={[0, 0, Math.PI / 2]}>
-        <mesh castShadow>
-          <cylinderGeometry args={[0.95, 0.82, 2.4, 24]} />
-          <meshStandardMaterial color="#b45309" roughness={0.5} />
-        </mesh>
-        {[-0.8, -0.2, 0.2, 0.8].map((hy, idx) => (
-          <mesh key={`top-hoop-${idx}`} position={[0, hy, 0]}>
-            <cylinderGeometry args={[0.97, 0.97, 0.06, 24]} />
-            <meshStandardMaterial color="#1e293b" metalness={0.9} roughness={0.2} />
+          <mesh position={[0, -0.1, 0]}>
+            <coneGeometry args={[0.22, 0.45, 12]} />
+            <meshStandardMaterial color={idx === 0 ? '#ec4899' : '#8b5cf6'} roughness={0.5} />
           </mesh>
-        ))}
-        <mesh position={[0, 1.21, 0]}>
-          <cylinderGeometry args={[0.7, 0.7, 0.02, 16]} />
-          <meshPhysicalMaterial color="#fef08a" transparent opacity={0.6} />
-        </mesh>
-      </group>
+        </group>
+      ))}
 
-      {/* Outdoor Furniture Display Bench */}
-      <mesh position={[1.2, 0.3, 1.3]} castShadow>
-        <boxGeometry args={[1.0, 0.35, 0.5]} />
-        <meshStandardMaterial color="#78350f" roughness={0.7} />
+      {/* Rose Gold Facade Cornice Trim */}
+      <mesh position={[0, 2.68, -0.2]} castShadow>
+        <boxGeometry args={[4.0, 0.2, 3.4]} />
+        <meshStandardMaterial color="#f472b6" emissive="#db2777" emissiveIntensity={isNight ? 1.0 : 0.3} />
       </mesh>
+
+      {/* Night Warm Boutique Illumination */}
+      {isNight && (
+        <pointLight position={[0, 1.6, 0.9]} intensity={2.6} distance={6} color="#f472b6" />
+      )}
     </group>
   )
 }
 
 // -------------------------------------------------------------
-// 5. ACCESSORIES: NEOCLASSICAL DOMED PALACE & PLAZA FOUNTAIN (Image 6 style)
+// 4. FURNITURE: SCANDINAVIAN SHOWROOM & ICONIC TIMBER ROOF
 // -------------------------------------------------------------
-function NeoclassicalDomedPavilion({ hovered, isSelected }: { hovered: boolean; isSelected: boolean }) {
+function FurnitureStore({ hovered, isSelected, isNight }: { hovered: boolean; isSelected: boolean; isNight: boolean }) {
+  const woodDeck = useMemo(() => createWoodDeckTexture(), [])
+
+  return (
+    <group position={[0, 0, 0]}>
+      {/* Hardwood Timber Platform Deck */}
+      <mesh position={[0, 0.08, 0]} receiveShadow>
+        <boxGeometry args={[4.4, 0.16, 4.0]} />
+        <meshStandardMaterial map={woodDeck} roughness={0.6} />
+      </mesh>
+
+      {/* Minimalist Solid Oak & White Showroom Walls */}
+      <mesh position={[0, 1.35, -0.2]} castShadow receiveShadow>
+        <boxGeometry args={[3.8, 2.4, 3.2]} />
+        <meshStandardMaterial color="#fffbeb" roughness={0.4} />
+      </mesh>
+
+      {/* Large Floor-to-Ceiling Showroom Glass Window */}
+      <mesh position={[-0.4, 1.25, 1.42]}>
+        <boxGeometry args={[2.6, 2.0, 0.04]} />
+        <meshPhysicalMaterial
+          color={isNight ? '#fef3c7' : '#bae6fd'}
+          transparent
+          opacity={isNight ? 0.85 : 0.4}
+          roughness={0.05}
+        />
+      </mesh>
+
+      {/* Interior Designer Furniture on Display (Armchair & Lamp) */}
+      <group position={[-0.6, 0.45, 0.8]}>
+        <mesh position={[0, 0.18, 0]} castShadow>
+          <boxGeometry args={[0.65, 0.25, 0.6]} />
+          <meshStandardMaterial color="#d97706" roughness={0.6} />
+        </mesh>
+        <mesh position={[0, 0.45, -0.25]} castShadow>
+          <boxGeometry args={[0.65, 0.4, 0.12]} />
+          <meshStandardMaterial color="#d97706" roughness={0.6} />
+        </mesh>
+        <mesh position={[0.5, 0.55, -0.1]} castShadow>
+          <cylinderGeometry args={[0.02, 0.02, 1.1, 8]} />
+          <meshStandardMaterial color="#eab308" metalness={0.9} />
+        </mesh>
+        <mesh position={[0.5, 1.1, -0.1]}>
+          <coneGeometry args={[0.18, 0.22, 12]} />
+          <meshStandardMaterial color="#ffffff" emissive="#fef08a" emissiveIntensity={isNight ? 1.5 : 0.3} />
+        </mesh>
+      </group>
+
+      {/* Modern Slat Timber Pergola Canopy */}
+      {[-0.8, -0.2, 0.4, 1.0].map((px, idx) => (
+        <mesh key={`pergola-${idx}`} position={[px, 2.5, 1.6]} castShadow>
+          <boxGeometry args={[0.1, 0.1, 1.2]} />
+          <meshStandardMaterial color="#78350f" roughness={0.6} />
+        </mesh>
+      ))}
+
+      {/* Amber Illuminated Facade Trim */}
+      <mesh position={[0, 2.65, -0.2]} castShadow>
+        <boxGeometry args={[3.9, 0.18, 3.3]} />
+        <meshStandardMaterial
+          color={hovered || isSelected ? '#fbbf24' : '#f59e0b'}
+          emissive="#f59e0b"
+          emissiveIntensity={isNight ? 0.9 : (hovered ? 0.5 : 0.25)}
+        />
+      </mesh>
+
+      {isNight && (
+        <pointLight position={[-0.2, 1.5, 0.8]} intensity={2.6} distance={6} color="#fed7aa" />
+      )}
+    </group>
+  )
+}
+
+// -------------------------------------------------------------
+// 5. ACCESSORIES: NEOCLASSICAL LUXURY SALON & PLAZA FOUNTAIN
+// -------------------------------------------------------------
+function AccessoriesStore({ hovered, isSelected, isNight }: { hovered: boolean; isSelected: boolean; isNight: boolean }) {
+  const marbleTex = useMemo(() => createMarbleTexture(), [])
   const fountainWaterRef = useRef<THREE.Mesh>(null)
 
   useFrame((state) => {
     if (fountainWaterRef.current) {
-      fountainWaterRef.current.rotation.y = state.clock.getElapsedTime() * 0.8
+      fountainWaterRef.current.rotation.y = state.clock.getElapsedTime() * 0.9
     }
   })
 
   return (
     <group position={[0, 0, 0]}>
-      {/* Foundation & Cobblestone Plaza */}
-      <mesh position={[0, 0.06, 0]} receiveShadow>
-        <boxGeometry args={[4.4, 0.12, 4.0]} />
-        <meshStandardMaterial color={hovered || isSelected ? '#8b5cf6' : '#e0e7ff'} roughness={0.4} />
+      {/* Polished Marble Plaza Platform */}
+      <mesh position={[0, 0.08, 0]} receiveShadow>
+        <boxGeometry args={[4.4, 0.16, 4.0]} />
+        <meshStandardMaterial map={marbleTex} roughness={0.3} />
       </mesh>
 
-      {/* Neoclassical Main Palace Body (Royal Blue & Ivory White) */}
-      <mesh position={[0, 1.15, -0.4]} castShadow receiveShadow>
-        <boxGeometry args={[3.8, 2.1, 2.4]} />
-        <meshStandardMaterial color="#1e3a8a" roughness={0.3} />
+      {/* Neoclassical Royal Blue Salon Body */}
+      <mesh position={[0, 1.4, -0.4]} castShadow receiveShadow>
+        <boxGeometry args={[3.8, 2.5, 2.6]} />
+        <meshStandardMaterial color={hovered || isSelected ? '#2563eb' : '#1e3a8a'} roughness={0.3} />
       </mesh>
 
-      {/* Classical Ivory White Colonnade Pillars & Portico */}
-      {[-1.5, -0.9, -0.3, 0.3, 0.9, 1.5].map((px, idx) => (
-        <group key={`col-${idx}`} position={[px, 1.1, 0.85]}>
-          {/* Pillar Column */}
-          <mesh castShadow>
-            <cylinderGeometry args={[0.07, 0.09, 1.9, 16]} />
-            <meshStandardMaterial color="#ffffff" roughness={0.3} />
-          </mesh>
-          {/* Capital & Base */}
-          <mesh position={[0, 0.98, 0]}>
-            <boxGeometry args={[0.22, 0.08, 0.22]} />
-            <meshStandardMaterial color="#ffffff" />
-          </mesh>
-          <mesh position={[0, -0.98, 0]}>
-            <boxGeometry args={[0.22, 0.08, 0.22]} />
-            <meshStandardMaterial color="#ffffff" />
-          </mesh>
-        </group>
-      ))}
-
-      {/* Classical Portico Pediment (Triangle Roof above pillars) */}
-      <mesh position={[0, 2.2, 0.85]} castShadow>
-        <boxGeometry args={[3.6, 0.25, 0.4]} />
-        <meshStandardMaterial color="#ffffff" />
-      </mesh>
-
-      {/* Roof Balustrades */}
-      <mesh position={[0, 2.3, -0.4]} castShadow>
-        <boxGeometry args={[3.85, 0.12, 2.45]} />
-        <meshStandardMaterial color="#ffffff" />
-      </mesh>
-
-      {/* CLASSICAL CENTRAL CUPOLA DOME & SPIRE (Exact match to Image 6) */}
-      <group position={[0, 2.4, -0.4]}>
-        {/* Octagonal Drum Base */}
-        <mesh position={[0, 0.4, 0]} castShadow>
-          <cylinderGeometry args={[0.85, 0.95, 0.8, 8]} />
+      {/* Classical White Colonnade Pillars */}
+      {[-1.4, -0.7, 0.7, 1.4].map((px, i) => (
+        <mesh key={`col-${i}`} position={[px, 1.25, 0.85]} castShadow>
+          <cylinderGeometry args={[0.08, 0.1, 2.3, 16]} />
           <meshStandardMaterial color="#ffffff" roughness={0.3} />
         </mesh>
-        {/* Arched Drum Windows */}
-        {[0, Math.PI / 2, Math.PI, (3 * Math.PI) / 2].map((ang, i) => (
-          <mesh key={`drum-win-${i}`} position={[Math.sin(ang) * 0.86, 0.4, Math.cos(ang) * 0.86]} rotation={[0, ang, 0]}>
-            <boxGeometry args={[0.3, 0.5, 0.04]} />
-            <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.6} />
-          </mesh>
-        ))}
-        {/* Silver Classical Dome */}
+      ))}
+
+      {/* Pediment & Classical Balustrade Roof */}
+      <mesh position={[0, 2.5, 0.85]} castShadow>
+        <boxGeometry args={[3.6, 0.28, 0.4]} />
+        <meshStandardMaterial color="#ffffff" />
+      </mesh>
+      <mesh position={[0, 2.7, -0.4]} castShadow>
+        <boxGeometry args={[3.9, 0.15, 2.7]} />
+        <meshStandardMaterial color="#ffffff" />
+      </mesh>
+
+      {/* Silver Cupola Dome with Golden Needle Finial */}
+      <group position={[0, 2.8, -0.4]}>
+        <mesh position={[0, 0.4, 0]} castShadow>
+          <cylinderGeometry args={[0.85, 0.95, 0.8, 8]} />
+          <meshStandardMaterial color="#ffffff" />
+        </mesh>
         <mesh position={[0, 1.15, 0]} castShadow>
           <sphereGeometry args={[0.9, 24, 16, 0, Math.PI * 2, 0, Math.PI / 2]} />
-          <meshStandardMaterial color="#94a3b8" metalness={0.8} roughness={0.2} />
+          <meshStandardMaterial color="#94a3b8" metalness={0.9} roughness={0.2} />
         </mesh>
-        {/* Golden Finial Spire */}
-        <mesh position={[0, 2.2, 0]}>
+        <mesh position={[0, 2.1, 0]}>
           <cylinderGeometry args={[0.02, 0.05, 0.6, 8]} />
           <meshStandardMaterial color="#f59e0b" metalness={0.9} />
         </mesh>
       </group>
 
-      {/* TIERED CIRCULAR WATER FOUNTAIN IN FRONT PLAZA (Exact match to Image 6) */}
-      <group position={[0, 0.12, 1.35]}>
-        {/* Lower Stone Basin */}
-        <mesh position={[0, 0.12, 0]} castShadow receiveShadow>
-          <cylinderGeometry args={[0.9, 1.0, 0.24, 24]} />
-          <meshStandardMaterial color="#cbd5e1" roughness={0.6} />
+      {/* Tiered Circular Water Fountain in Front Plaza */}
+      <group position={[0, 0.16, 1.45]}>
+        <mesh castShadow receiveShadow>
+          <cylinderGeometry args={[0.85, 0.95, 0.24, 24]} />
+          <meshStandardMaterial color="#e2e8f0" roughness={0.4} />
         </mesh>
-        {/* Lower Water Surface */}
-        <mesh position={[0, 0.2, 0]}>
-          <cylinderGeometry args={[0.82, 0.82, 0.05, 24]} />
-          <meshPhysicalMaterial color="#06b6d4" transparent opacity={0.7} roughness={0.1} />
+        <mesh position={[0, 0.1, 0]}>
+          <cylinderGeometry args={[0.78, 0.78, 0.05, 24]} />
+          <meshPhysicalMaterial color="#06b6d4" transparent opacity={0.8} roughness={0.1} />
         </mesh>
-        {/* Center Pedestal & Upper Tier Basin */}
-        <mesh position={[0, 0.42, 0]}>
-          <cylinderGeometry args={[0.12, 0.18, 0.4, 12]} />
-          <meshStandardMaterial color="#cbd5e1" />
-        </mesh>
-        <mesh position={[0, 0.62, 0]} castShadow>
-          <cylinderGeometry args={[0.45, 0.52, 0.16, 16]} />
-          <meshStandardMaterial color="#cbd5e1" />
-        </mesh>
-        {/* Cascading Sparkling Water Jet */}
-        <mesh ref={fountainWaterRef} position={[0, 0.85, 0]}>
-          <coneGeometry args={[0.25, 0.45, 12]} />
-          <meshStandardMaterial color="#38bdf8" emissive="#38bdf8" emissiveIntensity={0.6} transparent opacity={0.8} />
+        <mesh ref={fountainWaterRef} position={[0, 0.55, 0]}>
+          <coneGeometry args={[0.22, 0.5, 12]} />
+          <meshStandardMaterial
+            color="#38bdf8"
+            emissive="#38bdf8"
+            emissiveIntensity={isNight ? 1.2 : 0.6}
+            transparent
+            opacity={0.85}
+          />
         </mesh>
       </group>
+
+      {isNight && (
+        <pointLight position={[0, 1.8, 0.8]} intensity={2.8} distance={6} color="#818cf8" />
+      )}
     </group>
   )
 }
 
 // -------------------------------------------------------------
-// 6. CUSTOM / PROCEDURAL STORE: HIGH-TECH MODULAR PAVILION
+// 6. CUSTOM / PROCEDURAL STORE: HIGH-TECH COMMERCIAL PAVILION
 // -------------------------------------------------------------
-function ModularCustomPavilion({
+function CustomStorePavilion({
   color,
   hovered,
-  isSelected
+  isSelected,
+  isNight
 }: {
-  category?: string
   color: string
   hovered: boolean
   isSelected: boolean
+  isNight: boolean
 }) {
   return (
     <group position={[0, 0, 0]}>
-      <mesh position={[0, 0.06, 0]} receiveShadow>
-        <boxGeometry args={[4.4, 0.12, 4.0]} />
-        <meshStandardMaterial color={hovered || isSelected ? color : '#e2e8f0'} roughness={0.4} />
+      <mesh position={[0, 0.08, 0]} receiveShadow>
+        <boxGeometry args={[4.4, 0.16, 4.0]} />
+        <meshStandardMaterial color={hovered || isSelected ? color : '#334155'} roughness={0.4} />
       </mesh>
-      <mesh position={[0, 1.1, 0]} castShadow receiveShadow>
-        <boxGeometry args={[3.6, 2.0, 3.0]} />
-        <meshStandardMaterial color="#1e293b" roughness={0.3} metalness={0.4} />
+      <mesh position={[0, 1.35, 0]} castShadow receiveShadow>
+        <boxGeometry args={[3.8, 2.4, 3.2]} />
+        <meshStandardMaterial color="#1e293b" roughness={0.3} metalness={0.5} />
       </mesh>
-      <mesh position={[0, 1.1, 1.52]}>
-        <boxGeometry args={[3.2, 1.6, 0.04]} />
-        <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.6} roughness={0.1} />
+      <mesh position={[0, 1.35, 1.62]}>
+        <boxGeometry args={[3.4, 1.8, 0.04]} />
+        <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.6} roughness={0.05} />
       </mesh>
-      <mesh position={[0, 2.15, 0]} castShadow>
-        <boxGeometry args={[3.8, 0.2, 3.2]} />
-        <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.4} />
+      <mesh position={[0, 2.65, 0]} castShadow>
+        <boxGeometry args={[4.0, 0.2, 3.4]} />
+        <meshStandardMaterial color={color} emissive={color} emissiveIntensity={isNight ? 1.2 : 0.4} />
       </mesh>
-      <mesh position={[0, 2.5, 0]} castShadow>
-        <boxGeometry args={[2.4, 0.5, 2.0]} />
-        <meshStandardMaterial color="#0f172a" />
-      </mesh>
+      {isNight && (
+        <pointLight position={[0, 1.5, 0.8]} intensity={2.5} distance={6} color={color} />
+      )}
     </group>
   )
 }
 
 // -------------------------------------------------------------
-// MAIN STORE BUILDING WRAPPER WITH WORLD-SPACE 3D HUD PIN
+// 7. ANIMATED CONSTRUCTION STAGING (Active when constructing)
+// -------------------------------------------------------------
+function ConstructionStaging({ color }: { color: string }) {
+  const scaffoldRef = useRef<THREE.Group>(null)
+
+  useFrame((state) => {
+    if (scaffoldRef.current) {
+      scaffoldRef.current.rotation.y = state.clock.getElapsedTime() * 0.4
+    }
+  })
+
+  return (
+    <group position={[0, 0, 0]}>
+      {/* Foundation Base */}
+      <mesh position={[0, 0.08, 0]}>
+        <boxGeometry args={[4.4, 0.16, 4.0]} />
+        <meshStandardMaterial color="#f59e0b" roughness={0.7} />
+      </mesh>
+      {/* Laser Scanning Grid */}
+      <group ref={scaffoldRef}>
+        <mesh position={[0, 1.6, 0]}>
+          <boxGeometry args={[4.2, 3.2, 3.8]} />
+          <meshBasicMaterial color={color} wireframe transparent opacity={0.7} />
+        </mesh>
+      </group>
+      {/* Central Rebar Rising */}
+      <mesh position={[0, 1.2, 0]}>
+        <cylinderGeometry args={[1.2, 1.2, 2.2, 8]} />
+        <meshStandardMaterial color="#64748b" metalness={0.8} roughness={0.3} />
+      </mesh>
+      {/* Flashing Beacon */}
+      <pointLight position={[0, 3.5, 0]} intensity={4.0} distance={10} color="#f59e0b" />
+    </group>
+  )
+}
+
+// -------------------------------------------------------------
+// MAIN STORE BUILDING EXPORT WITH SLEEK WORLD-SPACE BADGE
 // -------------------------------------------------------------
 export const StoreBuilding: React.FC<StoreBuildingProps> = ({
   store,
   isSelected,
   onClick,
-  onHover
+  onHover,
+  timeOfDay = 'day',
+  isConstructing = false
 }) => {
   const [hovered, setHovered] = useState(false)
   const groupRef = useRef<THREE.Group>(null)
   const pinRef = useRef<THREE.Group>(null)
 
+  const isNight = timeOfDay === 'night'
   const primaryColor = store.color || '#3B82F6'
 
   useFrame((state) => {
     if (!groupRef.current) return
-    // Smooth hover elevation and scale bounce
-    const targetScale = hovered || isSelected ? 1.05 : 1.0
-    const targetY = hovered ? 0.22 : 0.0
+    // Smooth hover elevation and gentle bounce
+    const targetScale = hovered || isSelected ? 1.04 : 1.0
+    const targetY = hovered ? 0.2 : 0.0
 
     groupRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.12)
     groupRef.current.position.y = THREE.MathUtils.lerp(groupRef.current.position.y, targetY, 0.12)
 
-    // Gentle float for 3D world pin
+    // Gentle float for world pin
     if (pinRef.current) {
-      pinRef.current.position.y = 5.4 + Math.sin(state.clock.getElapsedTime() * 2.5) * 0.06
+      pinRef.current.position.y = 5.2 + Math.sin(state.clock.getElapsedTime() * 2.5) * 0.06
     }
   })
 
-  // Category Icon helper
   const getCategoryIcon = (cat: string) => {
     switch (cat) {
       case 'Electronics':
         return '💻'
       case 'Grocery':
-        return '🍔'
+        return '🛒'
       case 'Clothing':
         return '👗'
       case 'Furniture':
@@ -667,26 +689,29 @@ export const StoreBuilding: React.FC<StoreBuildingProps> = ({
     }
   }
 
-  // Render appropriate landmark based on category
-  const renderBuildingArchitecture = () => {
+  const renderArchitecture = () => {
+    if (isConstructing) {
+      return <ConstructionStaging color={primaryColor} />
+    }
+
     switch (store.category) {
       case 'Electronics':
-        return <CurvedGlassEcoTower hovered={hovered} isSelected={isSelected} />
+        return <ElectronicsStore hovered={hovered} isSelected={isSelected} isNight={isNight} />
       case 'Grocery':
-        return <BurgerMarketBuilding hovered={hovered} isSelected={isSelected} />
+        return <GroceryStore hovered={hovered} isSelected={isSelected} isNight={isNight} />
       case 'Clothing':
-        return <GlassHighRiseHotel hovered={hovered} isSelected={isSelected} />
+        return <ClothingStore hovered={hovered} isSelected={isSelected} isNight={isNight} />
       case 'Furniture':
-        return <BarrelFurnitureShowroom hovered={hovered} isSelected={isSelected} />
+        return <FurnitureStore hovered={hovered} isSelected={isSelected} isNight={isNight} />
       case 'Accessories':
-        return <NeoclassicalDomedPavilion hovered={hovered} isSelected={isSelected} />
+        return <AccessoriesStore hovered={hovered} isSelected={isSelected} isNight={isNight} />
       default:
         return (
-          <ModularCustomPavilion
-            category={store.category}
+          <CustomStorePavilion
             color={primaryColor}
             hovered={hovered}
             isSelected={isSelected}
+            isNight={isNight}
           />
         )
     }
@@ -713,39 +738,38 @@ export const StoreBuilding: React.FC<StoreBuildingProps> = ({
         document.body.style.cursor = 'default'
       }}
     >
-      {/* GLOWING HOLOGRAPHIC PEDESTAL RING (Active on hover/select) */}
+      {/* Active Glowing Holographic Pedestal on Hover/Select */}
       {(hovered || isSelected) && (
         <group position={[0, 0.02, 0]}>
           <mesh rotation={[-Math.PI / 2, 0, 0]}>
             <ringGeometry args={[2.5, 2.7, 32]} />
-            <meshBasicMaterial color={primaryColor} transparent opacity={0.7} />
+            <meshBasicMaterial color={primaryColor} transparent opacity={0.8} />
           </mesh>
-          <pointLight position={[0, 4.0, 1.5]} intensity={3.5} distance={7} color={primaryColor} />
+          <pointLight position={[0, 3.8, 1.5]} intensity={3.0} distance={6} color={primaryColor} />
         </group>
       )}
 
-      {/* BESPOKE 3D ARCHITECTURAL MODEL */}
-      {renderBuildingArchitecture()}
+      {/* BESPOKE STORE ARCHITECTURE */}
+      {renderArchitecture()}
 
-      {/* SLEEK FLOATING GAME-STYLE HUD PIN (Floating above roof, unobstructed) */}
-      <group ref={pinRef} position={[0, 5.4, 0]}>
-        {/* Sleek Dark Pill Background */}
+      {/* SLEEK FLOATING GAME-STYLE HUD PIN */}
+      <group ref={pinRef} position={[0, 5.2, 0]}>
+        {/* Dark Pill Capsule */}
         <mesh position={[0, 0, 0]}>
-          <boxGeometry args={[2.2, 0.44, 0.08]} />
+          <boxGeometry args={[2.3, 0.44, 0.08]} />
           <meshStandardMaterial
             color="#0f172a"
             roughness={0.2}
             emissive={primaryColor}
-            emissiveIntensity={hovered || isSelected ? 0.3 : 0.1}
+            emissiveIntensity={isNight ? 0.4 : 0.15}
           />
         </mesh>
-        {/* Glowing Colored Accent Border */}
         <mesh position={[0, 0, -0.01]}>
-          <boxGeometry args={[2.26, 0.5, 0.04]} />
+          <boxGeometry args={[2.36, 0.5, 0.04]} />
           <meshStandardMaterial color={primaryColor} />
         </mesh>
 
-        {/* Store Title with Category Emoji */}
+        {/* Store Title */}
         <Text
           position={[0, 0.08, 0.06]}
           fontSize={0.14}
@@ -753,12 +777,12 @@ export const StoreBuilding: React.FC<StoreBuildingProps> = ({
           anchorX="center"
           anchorY="middle"
           fontWeight="bold"
-          maxWidth={2.1}
+          maxWidth={2.2}
         >
           {`${getCategoryIcon(store.category)}  ${store.name}`}
         </Text>
 
-        {/* Live Metrics Pill */}
+        {/* Revenue Metric Pill */}
         <Text
           position={[0, -0.1, 0.06]}
           fontSize={0.11}
@@ -770,7 +794,7 @@ export const StoreBuilding: React.FC<StoreBuildingProps> = ({
           {`$${(store.total_revenue || 0).toLocaleString()} • ${store.total_orders || 0} Orders`}
         </Text>
 
-        {/* Diamond Indicator Pointer */}
+        {/* Pointer Diamond */}
         <mesh position={[0, -0.32, 0]} rotation={[0, 0, Math.PI / 4]}>
           <boxGeometry args={[0.12, 0.12, 0.04]} />
           <meshStandardMaterial color={primaryColor} />
