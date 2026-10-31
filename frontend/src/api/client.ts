@@ -8,6 +8,7 @@
 
 import axios from 'axios'
 import type { Store, StoreAnalyticsBundle, StoreForecastResponse, UserSession } from '../types'
+import { isSupabaseConfigured, supabase } from './supabase'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api'
 
@@ -229,6 +230,20 @@ export const authApi = {
 
 export const storeApi = {
   listStores: async (): Promise<Store[]> => {
+    // 1. If Supabase is configured, fetch directly from cloud database
+    if (isSupabaseConfigured && supabase) {
+      try {
+        const { data, error } = await supabase.from('stores').select('*').order('created_at', { ascending: true })
+        if (!error && data && data.length > 0) {
+          inMemoryStores = data as Store[]
+          return inMemoryStores
+        }
+      } catch (err) {
+        console.warn('Supabase fetch failed, falling back to API/local:', err)
+      }
+    }
+
+    // 2. Try FastAPI REST endpoint
     try {
       const res = await api.get('/stores')
       if (Array.isArray(res.data) && res.data.length > 0) {
@@ -238,6 +253,8 @@ export const storeApi = {
     } catch {
       // Fallback
     }
+
+    // 3. Fallback to resilient in-memory default stores
     return inMemoryStores
   },
 
@@ -262,12 +279,14 @@ export const storeApi = {
   },
 
   constructStore: async (formData: FormData): Promise<Store> => {
+    let createdStore: Store | null = null
+
+    // 1. Try backend API construction
     try {
       const res = await api.post('/stores/construct', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
-      inMemoryStores.push(res.data)
-      return res.data
+      createdStore = res.data
     } catch {
       // Standalone procedural building creation for demo
       const name = (formData.get('name') as string) || 'Custom Enterprise Store'
@@ -275,7 +294,7 @@ export const storeApi = {
       const description = (formData.get('description') as string) || 'Procedurally generated retail store from uploaded sales dataset.'
 
       // Generate next lot position
-      const newStore: Store = {
+      createdStore = {
         id: `store_custom_${Date.now()}`,
         name,
         category,
@@ -290,10 +309,23 @@ export const storeApi = {
         total_products: 12,
         created_at: new Date().toISOString().split('T')[0]
       }
-
-      inMemoryStores.push(newStore)
-      return newStore
     }
+
+    if (createdStore) {
+      inMemoryStores.push(createdStore)
+
+      // 2. If Supabase is configured, persist new building directly to Supabase cloud database
+      if (isSupabaseConfigured && supabase) {
+        try {
+          await supabase.from('stores').upsert(createdStore)
+        } catch (err) {
+          console.warn('Supabase store persistence notice:', err)
+        }
+      }
+      return createdStore
+    }
+
+    return inMemoryStores[0]
   },
 
   deleteStore: async (storeId: string): Promise<{ success: boolean; message: string }> => {

@@ -12,11 +12,15 @@ from src.core.config import settings
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 if DATABASE_URL:
-    # Normalize postgres:// to postgresql:// for SQLAlchemy compatibility (Neon, Supabase, etc.)
+    # Normalize postgres:// to postgresql:// for SQLAlchemy compatibility (Supabase, Neon, etc.)
     if DATABASE_URL.startswith("postgres://"):
         DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
     SQLALCHEMY_DATABASE_URL = DATABASE_URL
-    engine = create_engine(SQLALCHEMY_DATABASE_URL)
+    engine = create_engine(
+        SQLALCHEMY_DATABASE_URL,
+        pool_pre_ping=True,
+        pool_recycle=300
+    )
 else:
     DB_PATH = settings.DATA_DIR / "retailvision.db"
     SQLALCHEMY_DATABASE_URL = f"sqlite:///{DB_PATH}"
