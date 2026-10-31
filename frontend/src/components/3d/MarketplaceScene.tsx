@@ -107,11 +107,11 @@ function SmoothMarketplaceCamera({
       dampingFactor={0.08}
       rotateSpeed={0.9}
       zoomSpeed={1.8}     // Snappy, responsive scroll zoom sensitivity!
-      panSpeed={1.4}      // Fast, effortless drag panning!
-      minDistance={4}     // Can zoom close to inspect storefronts
-      maxDistance={80}    // Can zoom way out to see the entire city easily
-      maxPolarAngle={Math.PI / 2.15} // Don't allow camera to go underground
-      minPolarAngle={Math.PI / 10}   // Prevent awkward top-down gimbal lock
+      panSpeed={1.4}      // Fast, effortless drag panning across the city!
+      minDistance={5}     // Can zoom close to inspect storefronts
+      maxDistance={140}   // Can zoom way out to see the entire thriving metropolis!
+      maxPolarAngle={Math.PI / 2.12} // Don't allow camera to go underground
+      minPolarAngle={Math.PI / 12}   // Prevent awkward top-down gimbal lock
       target={[0, 0, 0]}
     />
   )
@@ -133,10 +133,10 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
       <Canvas
         shadows
         camera={{
-          position: [14, 18, 16],
-          fov: 40,
+          position: [18, 22, 20],
+          fov: 42,
           near: 0.1,
-          far: 200
+          far: 500
         }}
         onPointerDown={(e) => {
           // Deselect when clicking on empty canvas/background
@@ -151,21 +151,21 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
           onUserInteract={onUserInteract}
         />
 
-        {/* Atmospheric Sky Fog */}
-        <fog attach="fog" args={['#bae6fd', 45, 85]} />
+        {/* Atmospheric Sky Fog spanning the full metropolis */}
+        <fog attach="fog" args={['#bae6fd', 85, 220]} />
 
         {/* Sunlight & Ambient illumination (Vibrant daylight game look) */}
         <ambientLight intensity={0.75} color="#ffffff" />
         <directionalLight
-          position={[24, 32, 18]}
-          intensity={1.5}
+          position={[32, 45, 24]}
+          intensity={1.55}
           color="#fffbeb"
           castShadow
           shadow-mapSize={[2048, 2048]}
-          shadow-camera-left={-26}
-          shadow-camera-right={26}
-          shadow-camera-top={26}
-          shadow-camera-bottom={-26}
+          shadow-camera-left={-55}
+          shadow-camera-right={55}
+          shadow-camera-top={55}
+          shadow-camera-bottom={-55}
           shadow-bias={-0.0001}
         />
         {/* Soft fill sky & ground bounce light */}
