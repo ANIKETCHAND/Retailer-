@@ -31,7 +31,7 @@ class Settings:
     # Server configuration
     APP_HOST: str = os.getenv("APP_HOST", "0.0.0.0")
     APP_PORT: int = int(os.getenv("APP_PORT", "8501"))
-    API_PORT: int = int(os.getenv("API_PORT", "8000"))
+    API_PORT: int = int(os.getenv("API_PORT", "8001"))
 
     # Logging configuration
     LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO").upper()
