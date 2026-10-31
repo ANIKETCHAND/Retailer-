@@ -3,7 +3,8 @@
  * Main simulation environment:
  * Elevated isometric camera, roads, stores, construct plot, and interactive selection.
  * Dynamic Day & Night lighting transitions with night sky stars,
- * Graphics quality scaling, and responsive frictionless camera controls!
+ * Graphics quality scaling, responsive camera controls,
+ * and real-time camera tracking for the GTA 6 Minimap Guide!
  */
 
 import React, { useEffect, useRef } from 'react'
@@ -29,22 +30,26 @@ interface MarketplaceSceneProps {
   timeOfDay?: TimeOfDay
   graphicsQuality?: GraphicsQuality
   constructingStoreId?: string | null
+  onCameraTransform?: (transform: { x: number; z: number; heading: number }) => void
 }
 
 // Snappy, friction-free camera controller that glides once then gives 100% control back to user
 function SmoothMarketplaceCamera({
   cameraTarget,
   onCameraTargetReached,
-  onUserInteract
+  onUserInteract,
+  onCameraTransform
 }: {
   cameraTarget: [number, number, number] | null
   onCameraTargetReached?: () => void
   onUserInteract?: () => void
+  onCameraTransform?: (transform: { x: number; z: number; heading: number }) => void
 }) {
   const controlsRef = useRef<any>(null)
   const isTransitioningRef = useRef<boolean>(false)
   const activeTargetRef = useRef<THREE.Vector3 | null>(null)
   const activePosRef = useRef<THREE.Vector3 | null>(null)
+  const lastUpdateRef = useRef<number>(0)
 
   // Trigger smooth one-shot glide when cameraTarget changes
   useEffect(() => {
@@ -81,6 +86,7 @@ function SmoothMarketplaceCamera({
   }, [onUserInteract])
 
   useFrame((state) => {
+    // 1. Programmatic smooth camera glide
     if (
       isTransitioningRef.current &&
       activePosRef.current &&
@@ -103,6 +109,18 @@ function SmoothMarketplaceCamera({
         isTransitioningRef.current = false
         if (onCameraTargetReached) onCameraTargetReached()
       }
+    }
+
+    // 2. Real-time camera tracking for GTA 6 Minimap (throttled to ~20 FPS)
+    const now = performance.now()
+    if (onCameraTransform && now - lastUpdateRef.current > 50) {
+      lastUpdateRef.current = now
+      const cx = state.camera.position.x
+      const cz = state.camera.position.z
+      const tx = controlsRef.current?.target?.x || 0
+      const tz = controlsRef.current?.target?.z || 0
+      const heading = Math.atan2(tx - cx, tz - cz)
+      onCameraTransform({ x: cx, z: cz, heading })
     }
   })
 
@@ -135,7 +153,8 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
   onDeselectStore,
   timeOfDay = 'day',
   graphicsQuality = 'high',
-  constructingStoreId
+  constructingStoreId,
+  onCameraTransform
 }) => {
   const isNight = timeOfDay === 'night'
 
@@ -182,6 +201,7 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
           cameraTarget={cameraTarget}
           onCameraTargetReached={onCameraTargetReached}
           onUserInteract={onUserInteract}
+          onCameraTransform={onCameraTransform}
         />
 
         {/* Dynamic Fog (Day: Sky Blue, Night: Deep Midnight Slate) */}

@@ -1,8 +1,8 @@
 /**
  * RetailVision - Floating Top Navigation Bar
- * Provides instant access to marketplace navigation, store selector,
- * construct trigger, camera reset, Day/Night mode toggle, Graphics quality,
- * and user session controls.
+ * Cleaned up by replacing the clunky dropdown with the GTA 6 style corner Minimap GPS guide!
+ * Preserves Brand, City Revenue metrics, Construct Store button, Reset View,
+ * Day/Night switcher, Graphics quality, and Exit controls.
  */
 
 import React from 'react'
@@ -10,16 +10,15 @@ import {
   Coins,
   Hammer, LogOut, RotateCcw,
   Sparkles,
-  Store as StoreIcon,
   Sun, Moon,
-  SlidersHorizontal
+  SlidersHorizontal,
+  MapPin
 } from 'lucide-react'
 import type { Store, UserSession, TimeOfDay, GraphicsQuality } from '../../types'
 
 interface FloatingNavProps {
   stores: Store[]
   selectedStore: Store | null
-  onSelectStore: (store: Store) => void
   onOpenConstruct: () => void
   onResetCamera: () => void
   userSession: UserSession | null
@@ -28,12 +27,13 @@ interface FloatingNavProps {
   onToggleTimeOfDay: () => void
   graphicsQuality: GraphicsQuality
   onChangeGraphicsQuality: (quality: GraphicsQuality) => void
+  isMinimapExpanded?: boolean
+  onToggleMinimap?: () => void
 }
 
 export const FloatingNav: React.FC<FloatingNavProps> = ({
   stores,
   selectedStore,
-  onSelectStore,
   onOpenConstruct,
   onResetCamera,
   userSession,
@@ -41,7 +41,9 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
   timeOfDay,
   onToggleTimeOfDay,
   graphicsQuality,
-  onChangeGraphicsQuality
+  onChangeGraphicsQuality,
+  isMinimapExpanded,
+  onToggleMinimap
 }) => {
   // Compute total city revenue across all retail stores
   const totalCityRevenue = stores.reduce((sum, s) => sum + (s.total_revenue || 0), 0)
@@ -69,6 +71,12 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
               <Sparkles className="w-2.5 h-2.5" />
               Metropolis
             </span>
+            {selectedStore && (
+              <span className="hidden lg:flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold rounded-full bg-sky-500/20 text-sky-300 border border-sky-500/30">
+                <MapPin className="w-2.5 h-2.5" />
+                {selectedStore.name}
+              </span>
+            )}
           </div>
           <p className="text-[11px] text-slate-300 font-medium flex items-center gap-2">
             <span>{stores.length} Retail Landmarks</span>
@@ -81,28 +89,8 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
         </div>
       </div>
 
-      {/* Middle Controls: Store Selector & Construct Button */}
+      {/* Middle Controls: Construct Button, Camera Reset, and Minimap Toggle */}
       <div className="flex items-center gap-2 sm:gap-2.5">
-        {/* Store Quick-Jump Selector */}
-        <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800/90 border border-slate-700 text-xs">
-          <StoreIcon className="w-3.5 h-3.5 text-sky-400" />
-          <select
-            value={selectedStore?.id || ''}
-            onChange={(e) => {
-              const found = stores.find(s => s.id === e.target.value)
-              if (found) onSelectStore(found)
-            }}
-            className="bg-transparent text-white text-xs focus:outline-none cursor-pointer"
-          >
-            <option value="" disabled className="bg-slate-900 text-slate-400">Jump to Building...</option>
-            {stores.map((s) => (
-              <option key={s.id} value={s.id} className="bg-slate-900 text-white">
-                {s.name} ({s.category})
-              </option>
-            ))}
-          </select>
-        </div>
-
         {/* Construct Store Button */}
         <button
           onClick={onOpenConstruct}
@@ -121,6 +109,22 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({
         >
           <RotateCcw className="w-3.5 h-3.5" />
         </button>
+
+        {/* GPS Radar Toggle (If provided) */}
+        {onToggleMinimap && (
+          <button
+            onClick={onToggleMinimap}
+            className={`hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-bold transition-all cursor-pointer shadow-sm ${
+              isMinimapExpanded
+                ? 'bg-sky-500/20 text-sky-300 border-sky-400/40'
+                : 'bg-slate-800/80 hover:bg-slate-700 text-slate-300 border-slate-700'
+            }`}
+            title="Toggle GTA 6 Minimap Guide"
+          >
+            <MapPin className="w-3.5 h-3.5 text-sky-400" />
+            <span className="text-[11px]">GPS Map</span>
+          </button>
+        )}
       </div>
 
       {/* Right Controls: Day/Night, Quality, Profile & Exit */}

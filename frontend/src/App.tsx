@@ -4,7 +4,7 @@
  * Scene 1: Locked Storefront Window -> Unlock / Sign-In -> Flythrough
  * Scene 2: 3D Retail Marketplace Town with interactive buildings
  * Scene 3: Construct Plot with CSV Upload & Procedural Spawning
- * Features dynamic Day & Night cycles, Graphics Quality scaling, and construction staging!
+ * Features GTA 6 Style Corner Minimap Guide, Dynamic Day/Night, and Analytics Dashboards!
  */
 
 import React, { useEffect, useState } from 'react'
@@ -15,6 +15,7 @@ import { LockOverlay } from './components/ui/LockOverlay'
 import { StoreAnalyticsModal } from './components/ui/StoreAnalyticsModal'
 import { ConstructModal } from './components/ui/ConstructModal'
 import { FloatingNav } from './components/ui/FloatingNav'
+import { GtaMinimap } from './components/ui/GtaMinimap'
 import { StoreCardTooltip } from './components/ui/StoreCardTooltip'
 import type { Store, UserSession, TimeOfDay, GraphicsQuality } from './types'
 
@@ -29,6 +30,13 @@ export const App: React.FC = () => {
   // Simulation Environment Controls
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>('day')
   const [graphicsQuality, setGraphicsQuality] = useState<GraphicsQuality>('high')
+
+  // Real-time Camera Tracking for GTA 6 Minimap
+  const [cameraState, setCameraState] = useState<{ x: number; z: number; heading: number }>({
+    x: 18,
+    z: 20,
+    heading: 0.8
+  })
 
   // Marketplace Stores State
   const [stores, setStores] = useState<Store[]>([])
@@ -74,7 +82,7 @@ export const App: React.FC = () => {
     }, 1200)
   }
 
-  // Handle clicking a store building in the 3D marketplace
+  // Handle clicking a store building in the 3D marketplace or GTA Minimap
   const handleStoreSelect = (store: Store) => {
     setSelectedStore(store)
     setCameraTarget([store.grid_x, 0, store.grid_z])
@@ -145,11 +153,10 @@ export const App: React.FC = () => {
       {/* SCENE 2: 3D RETAIL MARKETPLACE & SIMULATION */}
       {scene === 'MARKETPLACE' && (
         <div className="w-full h-full relative">
-          {/* Top Floating Navigation */}
+          {/* Top Floating Navigation (Dropdown removed in favor of GTA 6 Minimap Guide!) */}
           <FloatingNav
             stores={stores}
             selectedStore={selectedStore}
-            onSelectStore={handleStoreSelect}
             onOpenConstruct={() => {
               setCameraTarget([13.0, 0, -6.0]) // Fly to construct plot on empty land
               setIsConstructOpen(true)
@@ -177,9 +184,23 @@ export const App: React.FC = () => {
             timeOfDay={timeOfDay}
             graphicsQuality={graphicsQuality}
             constructingStoreId={constructingStoreId}
+            onCameraTransform={setCameraState}
           />
 
-          {/* Hover Tooltip HUD over buildings */}
+          {/* GTA 6 Corner Radar Minimap Guide */}
+          <GtaMinimap
+            stores={stores}
+            selectedStore={selectedStore}
+            onSelectStore={handleStoreSelect}
+            onOpenConstruct={() => {
+              setCameraTarget([13.0, 0, -6.0])
+              setIsConstructOpen(true)
+            }}
+            onResetCamera={handleResetCamera}
+            cameraState={cameraState}
+          />
+
+          {/* Hover Tooltip HUD over buildings in 3D */}
           <StoreCardTooltip store={hoveredStore} />
 
           {/* Floating Pill when a store is selected and dashboard is closed */}
