@@ -133,6 +133,10 @@ const DEFAULT_STORES: Store[] = [
 const LOCAL_STORAGE_KEY = 'retailvision_constructed_stores'
 const LOCAL_ANALYTICS_PREFIX = 'retailvision_analytics_'
 
+// In-memory cache for dynamically generated store analytics (prevents localStorage quota errors)
+const inMemoryAnalyticsCache = new Map<string, StoreAnalyticsBundle>()
+
+
 function getStoredCustomStores(): Store[] {
   try {
     const raw = localStorage.getItem(LOCAL_STORAGE_KEY)
@@ -434,6 +438,11 @@ async function parseAndConstructStoreLocally(formData: FormData): Promise<Store>
     throw new Error(`CSV Validation Failed: Could not read file: ${err?.message || err}`)
   }
 
+  // Strip UTF-8 Byte Order Mark (BOM) if present
+  if (text.charCodeAt(0) === 0xFEFF) {
+    text = text.slice(1)
+  }
+
   if (!text || !text.trim()) {
     throw new Error('CSV Validation Failed: Uploaded file is empty (0 bytes found).')
   }
@@ -443,7 +452,19 @@ async function parseAndConstructStoreLocally(formData: FormData): Promise<Store>
     throw new Error('CSV Validation Failed: Dataset must contain a header and at least one data row.')
   }
 
-  function splitCsvRow(row: string): string[] {
+  // Auto-detect delimiter from the header line
+  const headerLine = rawLines[0]
+  let delimiter = ','
+  const commaCount = (headerLine.match(/,/g) || []).length
+  const semiCount = (headerLine.match(/;/g) || []).length
+  const tabCount = (headerLine.match(/\t/g) || []).length
+  if (semiCount > commaCount && semiCount > tabCount) {
+    delimiter = ';'
+  } else if (tabCount > commaCount && tabCount > semiCount) {
+    delimiter = '\t'
+  }
+
+  function splitCsvRow(row: string, delim: string = ','): string[] {
     const result: string[] = []
     let current = ''
     let inQuotes = false
@@ -456,18 +477,18 @@ async function parseAndConstructStoreLocally(formData: FormData): Promise<Store>
         } else {
           inQuotes = !inQuotes
         }
-      } else if (char === ',' && !inQuotes) {
-        result.push(current.trim())
+      } else if (char === delim && !inQuotes) {
+        result.push(current.trim().replace(/^["']|["']$/g, ''))
         current = ''
       } else {
         current += char
       }
     }
-    result.push(current.trim())
+    result.push(current.trim().replace(/^["']|["']$/g, ''))
     return result
   }
 
-  const rawHeaders = splitCsvRow(rawLines[0])
+  const rawHeaders = splitCsvRow(rawLines[0], delimiter)
   const normalize = (h: string) => h.toLowerCase().replace(/[^a-z0-9]/g, '')
   const normHeaders = rawHeaders.map(normalize)
 
@@ -485,23 +506,54 @@ async function parseAndConstructStoreLocally(formData: FormData): Promise<Store>
   }
 
   const colIdx: Record<string, number> = {}
+  const usedIndices = new Set<number>()
+
+  // Pass 1: exact matches on alias list
   for (const [key, aliasList] of Object.entries(ALIASES)) {
     for (let i = 0; i < normHeaders.length; i++) {
+      if (usedIndices.has(i)) continue
       const h = normHeaders[i]
-      if (aliasList.includes(h) || aliasList.some(a => h === a || h.includes(a))) {
+      if (aliasList.includes(h)) {
         colIdx[key] = i
+        usedIndices.add(i)
         break
       }
     }
   }
 
-  // Validate essential required columns (same as backend data_service.py: order_date, product)
-  const hasOrderDate = colIdx.order_date !== undefined
-  const hasProduct = colIdx.product !== undefined
-  const hasAmount = colIdx.total_amount !== undefined || (colIdx.unit_price !== undefined && colIdx.quantity !== undefined)
+  // Pass 2: prefix/substring matches for remaining unmapped keys (skip short aliases like 'id' to prevent false positives)
+  for (const [key, aliasList] of Object.entries(ALIASES)) {
+    if (colIdx[key] !== undefined) continue
+    for (let i = 0; i < normHeaders.length; i++) {
+      if (usedIndices.has(i)) continue
+      const h = normHeaders[i]
+      const matched = aliasList.some(a => {
+        if (a.length <= 2) return false
+        return h.startsWith(a) || (h.includes(a) && a.length >= 4)
+      })
+      if (matched) {
+        colIdx[key] = i
+        usedIndices.add(i)
+        break
+      }
+    }
+  }
 
-  if (!hasOrderDate && !hasProduct && !hasAmount) {
-    throw new Error('CSV Validation Failed: Missing required columns: order_date, product.')
+  // Validate essential required columns (same as backend data_service.py: order_date, product, and revenue/amount)
+  const missingCols: string[] = []
+  if (colIdx.order_date === undefined) missingCols.push('order_date')
+  if (colIdx.product === undefined) missingCols.push('product')
+  if (missingCols.length > 0) {
+    throw new Error(
+      `CSV Validation Failed: Missing essential required column(s): ${missingCols.join(', ')}. Please ensure CSV includes an order date and a product column.`
+    )
+  }
+
+  const hasAmount = colIdx.total_amount !== undefined || (colIdx.unit_price !== undefined && colIdx.quantity !== undefined)
+  if (!hasAmount) {
+    throw new Error(
+      "CSV Validation Failed: Cannot calculate revenue: dataset must have either a 'Total Amount / Revenue' column, or both 'Quantity' and 'Unit Price' columns."
+    )
   }
 
   interface ParsedRow {
@@ -519,7 +571,7 @@ async function parseAndConstructStoreLocally(formData: FormData): Promise<Store>
 
   const parsedRows: ParsedRow[] = []
   for (let r = 1; r < rawLines.length; r++) {
-    const cells = splitCsvRow(rawLines[r])
+    const cells = splitCsvRow(rawLines[r], delimiter)
     if (cells.length === 0 || (cells.length === 1 && !cells[0])) continue
 
     const getVal = (col: string) => {
@@ -545,7 +597,23 @@ async function parseAndConstructStoreLocally(formData: FormData): Promise<Store>
     }
 
     const orderId = getVal('order_id') || `ORD-${r + 1000}`
-    const orderDate = getVal('order_date') || new Date(Date.now() - (r % 90) * 86400000).toISOString().split('T')[0]
+    
+    // Parse order_date robustly (handling YYYY-MM-DD, MM/DD/YYYY, timestamps)
+    const rawDate = getVal('order_date')
+    let orderDate = rawDate
+    if (rawDate) {
+      const parsedDate = new Date(rawDate)
+      if (!isNaN(parsedDate.getTime())) {
+        const yr = parsedDate.getFullYear()
+        const mo = String(parsedDate.getMonth() + 1).padStart(2, '0')
+        const day = String(parsedDate.getDate()).padStart(2, '0')
+        orderDate = `${yr}-${mo}-${day}`
+      }
+    }
+    if (!orderDate) {
+      orderDate = new Date(Date.now() - (r % 90) * 86400000).toISOString().split('T')[0]
+    }
+
     const prod = getVal('product') || `${category} Model ${((r - 1) % 7) + 1}`
     const cat = getVal('category') || category
     const region = getVal('region') || ['North America', 'Europe', 'Asia Pacific', 'Latin America'][r % 4]
@@ -648,7 +716,7 @@ async function parseAndConstructStoreLocally(formData: FormData): Promise<Store>
   // Monthly trend
   const monthMap = new Map<string, { revenue: number; orders: Set<string>; units: number }>()
   for (const r of parsedRows) {
-    const ym = r.order_date.length >= 7 && r.order_date.includes('-') ? r.order_date.substring(0, 7) : '2025-01'
+    const ym = r.order_date.length >= 7 ? r.order_date.substring(0, 7) : '2025-01'
     const m = monthMap.get(ym) || { revenue: 0, orders: new Set<string>(), units: 0 }
     m.revenue += r.total_amount
     m.orders.add(r.order_id)
@@ -777,6 +845,10 @@ async function parseAndConstructStoreLocally(formData: FormData): Promise<Store>
     repeat_breakdown: []
   }
 
+  // Cache in-memory for instant UI availability
+  inMemoryAnalyticsCache.set(newStore.id, bundle)
+
+  // Persist to localStorage
   try {
     localStorage.setItem(`${LOCAL_ANALYTICS_PREFIX}${newStore.id}`, JSON.stringify(bundle))
   } catch (e) {
@@ -852,14 +924,34 @@ export const storeApi = {
   },
 
   getStoreAnalytics: async (storeId: string): Promise<StoreAnalyticsBundle> => {
+    // 1. Check in-memory bundle cache first (fastest, guaranteed for local/offline created stores)
+    if (inMemoryAnalyticsCache.has(storeId)) {
+      return inMemoryAnalyticsCache.get(storeId)!
+    }
+
+    // 2. Check localStorage cache
+    try {
+      const cached = localStorage.getItem(`${LOCAL_ANALYTICS_PREFIX}${storeId}`)
+      if (cached) {
+        const parsed = JSON.parse(cached)
+        inMemoryAnalyticsCache.set(storeId, parsed)
+        return parsed
+      }
+    } catch {
+      // Continue to API or procedural fallback
+    }
+
+    // 3. Try backend API
     try {
       const res = await api.get(`/stores/${storeId}/analytics`)
       if (res && res.data && res.data.kpis) {
         return res.data
       }
     } catch {
-      // Fallback
+      // Backend offline / 404 / 405
     }
+
+    // 4. Procedural fallback generator
     const found = inMemoryStores.find(s => s.id === storeId) || inMemoryStores[0]
     return generateFallbackAnalytics(found)
   },
@@ -912,13 +1004,20 @@ export const storeApi = {
   },
 
   deleteStore: async (storeId: string): Promise<{ success: boolean; message: string }> => {
+    inMemoryAnalyticsCache.delete(storeId)
+    try {
+      localStorage.removeItem(`${LOCAL_ANALYTICS_PREFIX}${storeId}`)
+    } catch {
+      // Ignore storage errors
+    }
+
     try {
       const res = await api.delete(`/stores/${storeId}`)
       inMemoryStores = inMemoryStores.filter(s => s.id !== storeId)
       persistCustomStores(inMemoryStores)
       return res.data
     } catch (err: any) {
-      if (err.response) {
+      if (err.response && (err.response.status === 400 || err.response.status === 403)) {
         throw err
       }
       inMemoryStores = inMemoryStores.filter(s => s.id !== storeId)

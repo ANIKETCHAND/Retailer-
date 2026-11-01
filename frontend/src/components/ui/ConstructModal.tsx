@@ -50,10 +50,21 @@ export const ConstructModal: React.FC<ConstructModalProps> = ({
 
   const parseAndPreviewFile = async (selected: File) => {
     try {
-      const text = await selected.text()
+      let text = await selected.text()
+      if (text.charCodeAt(0) === 0xFEFF) {
+        text = text.slice(1)
+      }
       const lines = text.split(/\r?\n/).filter(l => l.trim().length > 0)
       if (lines.length > 1) {
-        const headers = lines[0].split(',').map(h => h.trim().replace(/"/g, ''))
+        const headerLine = lines[0]
+        let delim = ','
+        const commaCount = (headerLine.match(/,/g) || []).length
+        const semiCount = (headerLine.match(/;/g) || []).length
+        const tabCount = (headerLine.match(/\t/g) || []).length
+        if (semiCount > commaCount && semiCount > tabCount) delim = ';'
+        else if (tabCount > commaCount && tabCount > semiCount) delim = '\t'
+
+        const headers = headerLine.split(delim).map(h => h.trim().replace(/^["']|["']$/g, ''))
         setFilePreview({
           rows: lines.length - 1,
           headers: headers.slice(0, 6)
