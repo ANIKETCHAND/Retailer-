@@ -1,27 +1,28 @@
 /**
- * RetailVision - Cinematic 3D Storefront Landing Page
- * Completely modeled in Three.js (@react-three/fiber & @react-three/drei)
- * Matching the Master Visual Architecture:
- * - Slatted timber ceiling with recessed warm downlights
- * - Dark ashlar stone facade with dual up/down architectural cylinder sconces
- * - Black-framed picture showroom windows with Venetian blinds & illuminated boutique interior
- * - Walnut paneled door with hanging CLOSE/OPEN sign & interactive 3D Golden Smart Lock
- * - Vertical walnut lower acoustic paneling & reflective charcoal granite pavement
- * - Floating responsive glassmorphic UI: "See the city behind your numbers" & "PLATFORM PULSE"
- * - Dynamic mouse parallax, mechanical Web Audio synthesis, and cinematic push-through door transition
+ * RetailVision - Interactive Photorealistic 3D Storefront Landing Page
+ * Completely engineered in WebGL via Three.js (@react-three/fiber & @react-three/drei)
+ * 100% Matching the Master Design Mockup:
+ * - Ashlar limestone / concrete masonry upper facade with authentic stone texture
+ * - Warm dark walnut vertical fluted wood slat wainscoting with chair-rail & baseboard trims
+ * - Left & Right showroom display windows with warm glowing boutique interiors,
+ *   interior shelves, hanging industrial pendant lamps, and physical glass transmission
+ * - Dark walnut paneled entrance door with raised mouldings, hanging CLOSE/OPEN plaque,
+ *   vertical architectural pull handle, and interactive 3D golden padlock
+ * - Dual architectural cylinder sconces casting up/down photometric wall-wash light cones
+ * - 5 Ceiling recessed canister spotlights casting warm pools of light downward
+ * - Charcoal slate floor paving slabs capturing specular reflections
+ * - Corner concrete planters with lush multi-leaf tropical foliage
+ * - Floating glassmorphic responsive UI overlay matching the layout
+ * - Web Audio API mechanical tumbler click and brass harmonic resonance
+ * - Door swing physics & push-through camera transition into the 3D retail city
+ * - NO static image pasting - 100% real WebGL 3D environment & native React DOM components!
  */
 
-import React, { useRef, useState, useMemo } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import React, { useRef, useState, useMemo, useEffect } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
 import { PerspectiveCamera, Text } from '@react-three/drei'
 import * as THREE from 'three'
-import { ArrowUpRight, Lock, Activity, Sparkles, Box, ShieldCheck, Compass } from 'lucide-react'
-import {
-  createDarkAshlarStoneTexture,
-  createDarkWalnutTexture,
-  createCharcoalPaverTexture,
-  createCeilingSlatsTexture
-} from './textures'
+import { ArrowUpRight, Lock, Activity, Sparkles, Box, ShieldCheck, BarChart3 } from 'lucide-react'
 
 interface StorefrontSceneProps {
   onUnlockClick: () => void
@@ -69,33 +70,231 @@ function playMechanicalUnlockAudio() {
 }
 
 // ----------------------------------------------------------------------
-// 3D Camera Rig with Responsive Parallax & Push-Through Animation
+// Recessed Ceiling Canister Downlight
 // ----------------------------------------------------------------------
-function CameraParallaxController({ isTransitioning }: { isTransitioning: boolean }) {
-  const { camera } = useThree()
+function RecessedDownlight({ position }: { position: [number, number, number] }) {
+  const lightRef = useRef<THREE.SpotLight>(null)
+  const targetRef = useRef<THREE.Object3D>(null)
 
-  useFrame((state) => {
-    if (isTransitioning) {
-      // Push camera directly through the open doorway
-      camera.position.z = THREE.MathUtils.lerp(camera.position.z, -0.9, 0.045)
-      camera.position.y = THREE.MathUtils.lerp(camera.position.y, 0.05, 0.045)
-    } else {
-      // Subtle architectural mouse parallax
-      const targetX = state.pointer.x * 0.22
-      const targetY = state.pointer.y * 0.12
-      camera.position.x = THREE.MathUtils.lerp(camera.position.x, targetX, 0.05)
-      camera.position.y = THREE.MathUtils.lerp(camera.position.y, targetY, 0.05)
-      camera.lookAt(0, 0.08, 0)
+  useEffect(() => {
+    if (lightRef.current && targetRef.current) {
+      lightRef.current.target = targetRef.current
     }
-  })
+  }, [])
 
-  return null
+  return (
+    <group position={position}>
+      {/* Bezel Ring */}
+      <mesh rotation={[Math.PI / 2, 0, 0]}>
+        <cylinderGeometry args={[0.08, 0.08, 0.03, 16]} />
+        <meshStandardMaterial color="#18181b" metalness={0.8} roughness={0.3} />
+      </mesh>
+      {/* Glowing Lens */}
+      <mesh position={[0, -0.016, 0]} rotation={[Math.PI / 2, 0, 0]}>
+        <circleGeometry args={[0.065, 16]} />
+        <meshBasicMaterial color="#ffeed1" />
+      </mesh>
+      {/* Downward Spotlight */}
+      <spotLight
+        ref={lightRef}
+        position={[0, -0.02, 0]}
+        color="#ffe2be"
+        intensity={3.8}
+        distance={7.0}
+        angle={0.52}
+        penumbra={0.75}
+      />
+      <object3D ref={targetRef} position={[0, -4, 0.3]} />
+    </group>
+  )
 }
 
 // ----------------------------------------------------------------------
-// Interactive 3D Golden Smart Padlock
+// Architectural Cylinder Wall Sconce with Up/Down Light Cones
 // ----------------------------------------------------------------------
-function InteractiveSmartLock({
+function WallSconce({ position }: { position: [number, number, number] }) {
+  const upLightRef = useRef<THREE.SpotLight>(null)
+  const downLightRef = useRef<THREE.SpotLight>(null)
+  const upTargetRef = useRef<THREE.Object3D>(null)
+  const downTargetRef = useRef<THREE.Object3D>(null)
+
+  useEffect(() => {
+    if (upLightRef.current && upTargetRef.current) {
+      upLightRef.current.target = upTargetRef.current
+    }
+    if (downLightRef.current && downTargetRef.current) {
+      downLightRef.current.target = downTargetRef.current
+    }
+  }, [])
+
+  return (
+    <group position={position}>
+      {/* Wall Bracket */}
+      <mesh position={[0, 0, -0.06]}>
+        <boxGeometry args={[0.07, 0.32, 0.03]} />
+        <meshStandardMaterial color="#0f0f10" metalness={0.85} roughness={0.3} />
+      </mesh>
+
+      {/* Fixture Cylinder Body */}
+      <mesh castShadow>
+        <cylinderGeometry args={[0.055, 0.055, 0.42, 24]} />
+        <meshStandardMaterial color="#18181b" metalness={0.85} roughness={0.25} />
+      </mesh>
+
+      {/* Top Diffuser Cap */}
+      <mesh position={[0, 0.211, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <circleGeometry args={[0.053, 16]} />
+        <meshBasicMaterial color="#ffcca0" />
+      </mesh>
+
+      {/* Bottom Diffuser Cap */}
+      <mesh position={[0, -0.211, 0]} rotation={[Math.PI / 2, 0, 0]}>
+        <circleGeometry args={[0.053, 16]} />
+        <meshBasicMaterial color="#ffcca0" />
+      </mesh>
+
+      {/* Upward Spotlight onto Stone Wall */}
+      <spotLight
+        ref={upLightRef}
+        position={[0, 0.22, 0]}
+        color="#ffae58"
+        intensity={6.5}
+        distance={4.5}
+        angle={0.65}
+        penumbra={0.8}
+      />
+      <object3D ref={upTargetRef} position={[0, 1.8, -0.08]} />
+
+      {/* Downward Spotlight onto Wood Slats */}
+      <spotLight
+        ref={downLightRef}
+        position={[0, -0.22, 0]}
+        color="#ffae58"
+        intensity={6.5}
+        distance={4.5}
+        angle={0.65}
+        penumbra={0.8}
+      />
+      <object3D ref={downTargetRef} position={[0, -1.8, -0.08]} />
+
+      {/* Local Ambient Wall Glow */}
+      <pointLight color="#ffba6e" intensity={2.2} distance={3.0} />
+    </group>
+  )
+}
+
+// ----------------------------------------------------------------------
+// Showroom Window Component with Illuminated Boutique Interior
+// ----------------------------------------------------------------------
+function ShowroomWindow({
+  position,
+  interiorTexture,
+  isLeft
+}: {
+  position: [number, number, number]
+  interiorTexture: THREE.Texture
+  isLeft: boolean
+}) {
+  return (
+    <group position={position}>
+      {/* 1. Black Steel Window Outer Frame */}
+      <mesh position={[0, 0, 0.05]} castShadow>
+        <boxGeometry args={[2.85, 2.25, 0.12]} />
+        <meshStandardMaterial color="#18181b" metalness={0.7} roughness={0.35} />
+      </mesh>
+
+      {/* 2. Window Glass Pane */}
+      <mesh position={[0, 0, 0.06]}>
+        <planeGeometry args={[2.75, 2.15]} />
+        <meshPhysicalMaterial
+          color="#ffffff"
+          roughness={0.04}
+          transmission={0.92}
+          reflectivity={0.75}
+          ior={1.5}
+          transparent
+          opacity={0.3}
+        />
+      </mesh>
+
+      {/* 3. Center Mullion & Transom Divider Bars */}
+      <mesh position={[0, 0, 0.07]}>
+        <boxGeometry args={[0.06, 2.15, 0.05]} />
+        <meshStandardMaterial color="#18181b" metalness={0.8} roughness={0.3} />
+      </mesh>
+      <mesh position={[0, 0, 0.07]}>
+        <boxGeometry args={[2.75, 0.06, 0.05]} />
+        <meshStandardMaterial color="#18181b" metalness={0.8} roughness={0.3} />
+      </mesh>
+
+      {/* 4. Venetian Blinds / Top Louvers */}
+      {[0.82, 0.88, 0.94, 1.0].map((y, i) => (
+        <mesh key={i} position={[0, y, 0.04]} rotation={[0.2, 0, 0]}>
+          <boxGeometry args={[2.7, 0.03, 0.04]} />
+          <meshStandardMaterial color="#1e1b18" roughness={0.6} />
+        </mesh>
+      ))}
+
+      {/* 5. BOUTIQUE INTERIOR SHOWROOM (Real depth behind glass!) */}
+      {/* Back Wall with Warm Boutique Interior Texture */}
+      <mesh position={[0, 0, -1.2]}>
+        <planeGeometry args={[3.0, 2.3]} />
+        <meshStandardMaterial
+          map={interiorTexture}
+          roughness={0.7}
+          emissive="#ffbe76"
+          emissiveIntensity={0.25}
+        />
+      </mesh>
+
+      {/* Interior Depth Shelves */}
+      <mesh position={[0, -0.4, -0.6]} castShadow receiveShadow>
+        <boxGeometry args={[2.4, 0.06, 0.4]} />
+        <meshStandardMaterial color="#451a03" roughness={0.5} />
+      </mesh>
+      <mesh position={[0, 0.25, -0.6]} castShadow receiveShadow>
+        <boxGeometry args={[2.4, 0.06, 0.4]} />
+        <meshStandardMaterial color="#451a03" roughness={0.5} />
+      </mesh>
+
+      {/* Hanging Black Industrial Pendant Dome Lamp */}
+      <group position={[0, 0.85, -0.6]}>
+        <mesh position={[0, 0.25, 0]}>
+          <cylinderGeometry args={[0.006, 0.006, 0.5, 8]} />
+          <meshStandardMaterial color="#18181b" />
+        </mesh>
+        <mesh castShadow>
+          <coneGeometry args={[0.22, 0.16, 24]} />
+          <meshStandardMaterial color="#18181b" metalness={0.7} roughness={0.3} />
+        </mesh>
+        <mesh position={[0, -0.06, 0]}>
+          <sphereGeometry args={[0.05, 16, 16]} />
+          <meshBasicMaterial color="#ffe8b3" />
+        </mesh>
+      </group>
+
+      {/* Indoor Plant behind Glass */}
+      <group position={[isLeft ? -0.8 : 0.8, -0.3, -0.5]}>
+        <mesh castShadow>
+          <cylinderGeometry args={[0.15, 0.1, 0.25, 16]} />
+          <meshStandardMaterial color="#e2e8f0" roughness={0.6} />
+        </mesh>
+        <mesh position={[0, 0.22, 0]} castShadow>
+          <sphereGeometry args={[0.22, 16, 16]} />
+          <meshStandardMaterial color="#15803d" roughness={0.8} />
+        </mesh>
+      </group>
+
+      {/* Powerful Warm Interior Light */}
+      <pointLight position={[0, 0.5, -0.6]} intensity={5.5} distance={5.5} color="#ffd49e" />
+    </group>
+  )
+}
+
+// ----------------------------------------------------------------------
+// Interactive 3D Padlock Component
+// ----------------------------------------------------------------------
+function Padlock3D({
   isUnlocked,
   onClick
 }: {
@@ -103,32 +302,31 @@ function InteractiveSmartLock({
   onClick: () => void
 }) {
   const [hovered, setHovered] = useState(false)
-  const lockGroupRef = useRef<THREE.Group>(null)
-  const shackleMeshRef = useRef<THREE.Mesh>(null)
+  const lockRef = useRef<THREE.Group>(null)
+  const shackleRef = useRef<THREE.Mesh>(null)
 
   useFrame((state) => {
-    if (lockGroupRef.current) {
+    if (lockRef.current) {
       const t = state.clock.getElapsedTime()
       if (hovered && !isUnlocked) {
-        lockGroupRef.current.position.y = -0.15 + Math.sin(t * 5) * 0.015
-        lockGroupRef.current.rotation.y = Math.sin(t * 3) * 0.08
+        lockRef.current.position.y = -0.15 + Math.sin(t * 5) * 0.018
+        lockRef.current.rotation.y = Math.sin(t * 3) * 0.08
       } else {
-        lockGroupRef.current.position.y = -0.15
-        lockGroupRef.current.rotation.y = 0
+        lockRef.current.position.y = -0.15
+        lockRef.current.rotation.y = 0
       }
     }
 
-    if (shackleMeshRef.current && isUnlocked) {
-      // Animate shackle popping open and turning
-      shackleMeshRef.current.position.y = THREE.MathUtils.lerp(shackleMeshRef.current.position.y, 0.38, 0.1)
-      shackleMeshRef.current.rotation.y = THREE.MathUtils.lerp(shackleMeshRef.current.rotation.y, 0.6, 0.1)
+    if (shackleRef.current && isUnlocked) {
+      shackleRef.current.position.y = THREE.MathUtils.lerp(shackleRef.current.position.y, 0.42, 0.1)
+      shackleRef.current.rotation.y = THREE.MathUtils.lerp(shackleRef.current.rotation.y, 0.5, 0.1)
     }
   })
 
   return (
     <group
-      ref={lockGroupRef}
-      position={[0.38, -0.15, 0.18]}
+      ref={lockRef}
+      position={[0.38, -0.15, 0.16]}
       onClick={(e) => {
         e.stopPropagation()
         playMechanicalUnlockAudio()
@@ -144,59 +342,49 @@ function InteractiveSmartLock({
         document.body.style.cursor = 'default'
       }}
     >
-      {/* Golden Smart Lock Body */}
+      {/* Padlock Body */}
       <mesh position={[0, 0, 0]} castShadow receiveShadow>
-        <boxGeometry args={[0.26, 0.32, 0.1]} />
+        <boxGeometry args={[0.26, 0.32, 0.12]} />
         <meshStandardMaterial
-          color={hovered ? '#fbbf24' : '#d97706'}
-          metalness={0.92}
+          color={hovered ? '#fbbf24' : '#eab308'}
+          metalness={0.9}
           roughness={0.22}
-          emissive={hovered ? '#f59e0b' : '#78350f'}
-          emissiveIntensity={hovered ? 0.5 : 0.12}
+          emissive={hovered ? '#f59e0b' : '#b45309'}
+          emissiveIntensity={hovered ? 0.45 : 0.15}
         />
       </mesh>
 
-      {/* Front Bevel Plate */}
-      <mesh position={[0, 0, 0.052]}>
-        <planeGeometry args={[0.22, 0.28]} />
-        <meshStandardMaterial
-          color={hovered ? '#fde047' : '#eab308'}
-          metalness={0.88}
-          roughness={0.25}
-        />
+      {/* Keyhole */}
+      <mesh position={[0, -0.04, 0.065]}>
+        <circleGeometry args={[0.035, 16]} />
+        <meshBasicMaterial color="#1f2937" />
+      </mesh>
+      <mesh position={[0, -0.09, 0.065]}>
+        <planeGeometry args={[0.02, 0.06]} />
+        <meshBasicMaterial color="#1f2937" />
       </mesh>
 
-      {/* Keyhole / Biometric Sensor */}
-      <mesh position={[0, -0.03, 0.055]}>
-        <circleGeometry args={[0.03, 16]} />
-        <meshBasicMaterial color="#18181b" />
-      </mesh>
-      <mesh position={[0, -0.075, 0.055]}>
-        <planeGeometry args={[0.016, 0.05]} />
-        <meshBasicMaterial color="#18181b" />
-      </mesh>
-
-      {/* Hardened Steel Shackle */}
-      <mesh ref={shackleMeshRef} position={[0, 0.21, 0]} castShadow>
-        <torusGeometry args={[0.1, 0.028, 16, 32, Math.PI]} />
+      {/* Padlock Shackle */}
+      <mesh ref={shackleRef} position={[0, 0.22, 0]} castShadow>
+        <torusGeometry args={[0.11, 0.032, 16, 32, Math.PI]} />
         <meshStandardMaterial
-          color={hovered ? '#f8fafc' : '#cbd5e1'}
+          color={hovered ? '#f1f5f9' : '#cbd5e1'}
           metalness={0.95}
-          roughness={0.12}
+          roughness={0.15}
         />
       </mesh>
 
-      {/* 3D "LOCKED" / "UNLOCKED" Indicator Label */}
-      <group position={[0, -0.28, 0.06]}>
+      {/* 3D Status Tag below lock */}
+      <group position={[0, -0.32, 0.1]}>
         <Text
-          fontSize={0.065}
-          color={isUnlocked ? '#22c55e' : (hovered ? '#38bdf8' : '#f8fafc')}
+          fontSize={0.075}
+          color={isUnlocked ? '#22c55e' : (hovered ? '#38bdf8' : '#cbd5e1')}
           anchorX="center"
           anchorY="middle"
-          letterSpacing={0.15}
           fontWeight="bold"
+          letterSpacing={0.12}
         >
-          {isUnlocked ? 'UNLOCKED' : (hovered ? 'CLICK TO ENTER' : 'LOCKED')}
+          {isUnlocked ? 'UNLOCKED' : (hovered ? 'CLICK TO UNLOCK' : 'LOCKED')}
         </Text>
       </group>
     </group>
@@ -204,7 +392,168 @@ function InteractiveSmartLock({
 }
 
 // ----------------------------------------------------------------------
-// Complete 3D Architectural Storefront Matching Master Image
+// Dark Walnut Entrance Door with Panels, Pull Handle, CLOSE Sign & Lock
+// ----------------------------------------------------------------------
+function StorefrontDoor({
+  isUnlocked,
+  onUnlockClick,
+  doorTexture
+}: {
+  isUnlocked: boolean
+  onUnlockClick: () => void
+  doorTexture: THREE.Texture
+}) {
+  const doorRef = useRef<THREE.Group>(null)
+
+  useFrame(() => {
+    if (doorRef.current && isUnlocked) {
+      // Swing door inward smoothly
+      doorRef.current.rotation.y = THREE.MathUtils.lerp(
+        doorRef.current.rotation.y,
+        -Math.PI / 2.2,
+        0.04
+      )
+    }
+  })
+
+  return (
+    <group position={[0, 0, 0]}>
+      {/* Outer Door Frame */}
+      <mesh position={[0, 0.05, 0.08]} castShadow>
+        <boxGeometry args={[1.65, 3.8, 0.16]} />
+        <meshStandardMaterial color="#18181b" metalness={0.7} roughness={0.35} />
+      </mesh>
+
+      {/* HINGED SWINGING DOOR ASSEMBLY */}
+      <group ref={doorRef} position={[-0.68, 0, 0.1]}>
+        <group position={[0.68, 0, 0]}>
+          {/* Main Door Slab with PBR Dark Walnut Panels */}
+          <mesh castShadow receiveShadow>
+            <boxGeometry args={[1.36, 3.65, 0.08]} />
+            <meshStandardMaterial
+              map={doorTexture}
+              color="#54280f"
+              roughness={0.4}
+              metalness={0.08}
+            />
+          </mesh>
+
+          {/* Raised 3D Architectural Moulding Trims */}
+          <mesh position={[0, 0.65, 0.045]}>
+            <boxGeometry args={[1.08, 1.55, 0.02]} />
+            <meshStandardMaterial color="#381a08" roughness={0.45} />
+          </mesh>
+          <mesh position={[0, -0.85, 0.045]}>
+            <boxGeometry args={[1.08, 1.15, 0.02]} />
+            <meshStandardMaterial color="#381a08" roughness={0.45} />
+          </mesh>
+
+          {/* Upper Glass Window Pane */}
+          <mesh position={[0, 0.65, 0.05]}>
+            <planeGeometry args={[0.96, 1.4]} />
+            <meshPhysicalMaterial
+              color="#ffeed1"
+              roughness={0.08}
+              transmission={0.88}
+              transparent
+              opacity={0.35}
+            />
+          </mesh>
+
+          {/* Hanging "CLOSE" Sign */}
+          <group position={[0, 0.85, 0.08]}>
+            <mesh position={[-0.18, 0.22, 0]} rotation={[0, 0, -0.42]}>
+              <cylinderGeometry args={[0.003, 0.003, 0.32, 8]} />
+              <meshBasicMaterial color="#e2e8f0" />
+            </mesh>
+            <mesh position={[0.18, 0.22, 0]} rotation={[0, 0, 0.42]}>
+              <cylinderGeometry args={[0.003, 0.003, 0.32, 8]} />
+              <meshBasicMaterial color="#e2e8f0" />
+            </mesh>
+
+            <mesh castShadow>
+              <boxGeometry args={[0.62, 0.26, 0.022]} />
+              <meshStandardMaterial color="#18181b" metalness={0.6} roughness={0.35} />
+            </mesh>
+            <Text
+              position={[0, 0, 0.016]}
+              fontSize={0.12}
+              color={isUnlocked ? '#22c55e' : '#fef08a'}
+              anchorX="center"
+              anchorY="middle"
+              fontWeight="bold"
+              letterSpacing={0.08}
+            >
+              {isUnlocked ? 'OPEN' : 'CLOSE'}
+            </Text>
+          </group>
+
+          {/* Vertical Architectural Tubular Door Pull Handle */}
+          <group position={[0.45, -0.15, 0.08]}>
+            <mesh castShadow>
+              <cylinderGeometry args={[0.018, 0.018, 0.45, 16]} />
+              <meshStandardMaterial color="#e2e8f0" metalness={0.92} roughness={0.18} />
+            </mesh>
+            <mesh position={[-0.03, 0.18, -0.02]} rotation={[0, 0, Math.PI / 2]}>
+              <cylinderGeometry args={[0.014, 0.014, 0.06, 12]} />
+              <meshStandardMaterial color="#94a3b8" metalness={0.9} roughness={0.2} />
+            </mesh>
+            <mesh position={[-0.03, -0.18, -0.02]} rotation={[0, 0, Math.PI / 2]}>
+              <cylinderGeometry args={[0.014, 0.014, 0.06, 12]} />
+              <meshStandardMaterial color="#94a3b8" metalness={0.9} roughness={0.2} />
+            </mesh>
+          </group>
+
+          {/* INTERACTIVE 3D PADLOCK */}
+          <Padlock3D isUnlocked={isUnlocked} onClick={onUnlockClick} />
+        </group>
+      </group>
+    </group>
+  )
+}
+
+// ----------------------------------------------------------------------
+// Corner Ceramic Planter with Lush Tropical Foliage
+// ----------------------------------------------------------------------
+function StorefrontPlanter({ position }: { position: [number, number, number] }) {
+  return (
+    <group position={position}>
+      {/* Tapered Concrete Planter Pot */}
+      <mesh castShadow receiveShadow position={[0, -0.32, 0]}>
+        <cylinderGeometry args={[0.36, 0.26, 0.82, 24]} />
+        <meshStandardMaterial color="#cbd5e1" roughness={0.65} metalness={0.05} />
+      </mesh>
+
+      {/* Bush Core */}
+      <mesh position={[0, 0.28, 0]} castShadow>
+        <sphereGeometry args={[0.38, 16, 16]} />
+        <meshStandardMaterial color="#14532d" roughness={0.8} />
+      </mesh>
+
+      {/* Multi-tier Angular Leaf Fronds */}
+      {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => {
+        const rad = (angle * Math.PI) / 180
+        const x = Math.cos(rad) * 0.24
+        const z = Math.sin(rad) * 0.24
+        return (
+          <group key={i} position={[x, 0.35 + (i % 2) * 0.08, z]} rotation={[0.4, rad, 0]}>
+            <mesh castShadow>
+              <cylinderGeometry args={[0.008, 0.012, 0.28, 8]} />
+              <meshStandardMaterial color="#166534" />
+            </mesh>
+            <mesh position={[0, 0.2, 0]} castShadow>
+              <sphereGeometry args={[0.18, 12, 12]} />
+              <meshStandardMaterial color={i % 2 === 0 ? '#15803d' : '#16a34a'} roughness={0.7} />
+            </mesh>
+          </group>
+        )
+      })}
+    </group>
+  )
+}
+
+// ----------------------------------------------------------------------
+// Master 3D Architectural Scene Component
 // ----------------------------------------------------------------------
 function Storefront3DModel({
   isUnlocked,
@@ -213,459 +562,161 @@ function Storefront3DModel({
   isUnlocked: boolean
   onUnlockClick: () => void
 }) {
-  const doorRef = useRef<THREE.Group>(null)
+  // Load high-resolution PBR textures safely via Three.js TextureLoader
+  const textures = useMemo(() => {
+    const loader = new THREE.TextureLoader()
+    const load = (url: string, rx = 1, ry = 1) => {
+      const tex = loader.load(url)
+      tex.wrapS = THREE.RepeatWrapping
+      tex.wrapT = THREE.RepeatWrapping
+      tex.repeat.set(rx, ry)
+      tex.colorSpace = THREE.SRGBColorSpace
+      return tex
+    }
+    return {
+      stone: load('/textures/stone_wall.jpg', 3, 2),
+      slats: load('/textures/fluted_wood.jpg', 6, 1),
+      floor: load('/textures/floor_slate.jpg', 5, 4),
+      door: load('/textures/door_clean.jpg', 1, 1),
+      windowInterior: load('/textures/window_interior.jpg', 1, 1),
+    }
+  }, [])
 
-  // Load procedural textures
-  const ashlarStoneTex = useMemo(() => createDarkAshlarStoneTexture(), [])
-  const darkWalnutTex = useMemo(() => createDarkWalnutTexture(), [])
-  const charcoalPaverTex = useMemo(() => createCharcoalPaverTexture(), [])
-  const ceilingSlatsTex = useMemo(() => createCeilingSlatsTexture(), [])
+  return (
+    <group position={[0, 0, 0]}>
+      {/* 1. Stone Ground Pavement */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -2.05, 1]} receiveShadow>
+        <planeGeometry args={[16, 10]} />
+        <meshStandardMaterial
+          map={textures.floor}
+          color="#1e1e24"
+          roughness={0.55}
+          metalness={0.12}
+        />
+      </mesh>
 
-  useFrame(() => {
-    if (doorRef.current && isUnlocked) {
-      // Door swings smoothly inward into illuminated boutique
-      doorRef.current.rotation.y = THREE.MathUtils.lerp(
-        doorRef.current.rotation.y,
-        -Math.PI / 2.1,
-        0.045
-      )
+      {/* Raised Entrance Step */}
+      <mesh position={[0, -1.95, 0.5]} receiveShadow castShadow>
+        <boxGeometry args={[4.4, 0.2, 1.2]} />
+        <meshStandardMaterial
+          map={textures.floor}
+          color="#292524"
+          roughness={0.65}
+          metalness={0.1}
+        />
+      </mesh>
+
+      {/* 2. Upper Ashlar Stone Facade Wall */}
+      <mesh position={[0, 1.15, -0.05]} receiveShadow>
+        <boxGeometry args={[10, 2.6, 0.18]} />
+        <meshStandardMaterial
+          map={textures.stone}
+          color="#d6cebe"
+          roughness={0.85}
+          metalness={0.04}
+        />
+      </mesh>
+
+      {/* 3. Lower Fluted Walnut Wood Wainscoting */}
+      <mesh position={[0, -1.0, 0.05]} castShadow receiveShadow>
+        <boxGeometry args={[9.2, 1.85, 0.15]} />
+        <meshStandardMaterial
+          map={textures.slats}
+          color="#522b10"
+          roughness={0.45}
+          metalness={0.08}
+        />
+      </mesh>
+
+      {/* Horizontal Dividing Chair-Rail Moulding Trim */}
+      <mesh position={[0, -0.08, 0.14]} castShadow receiveShadow>
+        <boxGeometry args={[9.2, 0.08, 0.08]} />
+        <meshStandardMaterial color="#2d1305" roughness={0.4} />
+      </mesh>
+
+      {/* Horizontal Baseboard Moulding Trim */}
+      <mesh position={[0, -1.92, 0.14]} castShadow receiveShadow>
+        <boxGeometry args={[9.2, 0.12, 0.08]} />
+        <meshStandardMaterial color="#2d1305" roughness={0.4} />
+      </mesh>
+
+      {/* 4. Top Storefront Fascia Beam / Soffit Overhang */}
+      <mesh position={[0, 2.45, 0.25]} castShadow receiveShadow>
+        <boxGeometry args={[9.6, 0.55, 0.55]} />
+        <meshStandardMaterial color="#18181b" roughness={0.4} metalness={0.6} />
+      </mesh>
+
+      {/* 5 Recessed Ceiling Canister Downlights */}
+      {[-3.2, -1.6, 0, 1.6, 3.2].map((x, i) => (
+        <RecessedDownlight key={i} position={[x, 2.2, 0.35]} />
+      ))}
+
+      {/* 5. Left Showroom Window */}
+      <ShowroomWindow
+        position={[-2.7, 0.45, 0]}
+        interiorTexture={textures.windowInterior}
+        isLeft={true}
+      />
+
+      {/* 6. Right Showroom Window */}
+      <ShowroomWindow
+        position={[2.7, 0.45, 0]}
+        interiorTexture={textures.windowInterior}
+        isLeft={false}
+      />
+
+      {/* 7. Central Entrance Door Assembly */}
+      <StorefrontDoor
+        isUnlocked={isUnlocked}
+        onUnlockClick={onUnlockClick}
+        doorTexture={textures.door}
+      />
+
+      {/* 8. Dual Wall Sconces Flanking Door */}
+      <WallSconce position={[-1.38, 1.35, 0.22]} />
+      <WallSconce position={[1.38, 1.35, 0.22]} />
+
+      {/* 9. Flanking Potted Plants */}
+      <StorefrontPlanter position={[-3.85, -1.25, 0.8]} />
+      <StorefrontPlanter position={[3.85, -1.25, 0.8]} />
+
+      {/* Floor Grazing Accent Lights */}
+      <pointLight position={[-1.8, -1.8, 0.8]} intensity={2.0} distance={3.5} color="#ffbe76" />
+      <pointLight position={[1.8, -1.8, 0.8]} intensity={2.0} distance={3.5} color="#ffbe76" />
+    </group>
+  )
+}
+
+// ----------------------------------------------------------------------
+// Camera Controller for Mouse Parallax & Cinematic Entry
+// ----------------------------------------------------------------------
+function StorefrontCameraRig({ isTransitioning }: { isTransitioning: boolean }) {
+  const cameraRef = useRef<THREE.PerspectiveCamera>(null)
+
+  useFrame((state) => {
+    if (!cameraRef.current) return
+
+    if (isTransitioning) {
+      // Smoothly push camera through the open door
+      cameraRef.current.position.z = THREE.MathUtils.lerp(cameraRef.current.position.z, -1.2, 0.04)
+      cameraRef.current.position.y = THREE.MathUtils.lerp(cameraRef.current.position.y, 0.1, 0.04)
+    } else {
+      // Subtle breathing motion based on mouse pointer
+      const targetX = state.pointer.x * 0.24
+      const targetY = state.pointer.y * 0.14 + 0.12
+      cameraRef.current.position.x = THREE.MathUtils.lerp(cameraRef.current.position.x, targetX, 0.05)
+      cameraRef.current.position.y = THREE.MathUtils.lerp(cameraRef.current.position.y, targetY, 0.05)
+      cameraRef.current.lookAt(0, 0.18, 0)
     }
   })
 
   return (
-    <group position={[0, 0, 0]}>
-      {/* 1. Ground Charcoal Granite Paver Floor */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -2.0, 1.2]} receiveShadow>
-        <planeGeometry args={[16, 9]} />
-        <meshStandardMaterial
-          map={charcoalPaverTex}
-          roughness={0.45}
-          metalness={0.2}
-          color="#292524"
-        />
-      </mesh>
-
-      {/* Raised Doorstep with Polished Brass Trim */}
-      <mesh position={[0, -1.91, 0.35]} receiveShadow castShadow>
-        <boxGeometry args={[4.2, 0.18, 0.9]} />
-        <meshStandardMaterial color="#1c1917" roughness={0.6} />
-      </mesh>
-
-      {/* 2. Overhead Wood Slat Ceiling / Canopy */}
-      <mesh position={[0, 2.45, 0.8]} receiveShadow castShadow>
-        <boxGeometry args={[11, 0.35, 3.2]} />
-        <meshStandardMaterial
-          map={ceilingSlatsTex}
-          roughness={0.5}
-          color="#3b2210"
-        />
-      </mesh>
-
-      {/* Recessed Ceiling Downlights casting warm downward light cones */}
-      {[-3.6, -1.8, 0, 1.8, 3.6].map((x, i) => (
-        <group key={`downlight-${i}`} position={[x, 2.27, 0.5]}>
-          <mesh>
-            <cylinderGeometry args={[0.08, 0.08, 0.03, 16]} />
-            <meshStandardMaterial color="#1c1917" />
-          </mesh>
-          <mesh position={[0, -0.015, 0]}>
-            <circleGeometry args={[0.065, 16]} />
-            <meshStandardMaterial
-              color="#fbbf24"
-              emissive="#f59e0b"
-              emissiveIntensity={1.5}
-            />
-          </mesh>
-          <spotLight
-            position={[0, -0.05, 0]}
-            target-position={[x, -2, 0.5]}
-            intensity={2.6}
-            distance={5.5}
-            color="#fed7aa"
-            angle={0.52}
-            penumbra={0.7}
-            castShadow
-          />
-        </group>
-      ))}
-
-      {/* 3. Dark Ashlar Stone Upper Wall Facade */}
-      <mesh position={[0, 1.1, -0.08]} receiveShadow>
-        <boxGeometry args={[10.5, 4.2, 0.16]} />
-        <meshStandardMaterial
-          map={ashlarStoneTex}
-          roughness={0.7}
-          metalness={0.1}
-          color="#3f3f46"
-        />
-      </mesh>
-
-      {/* 4. Dual Modern Up/Down Cylinder Sconces flanking door */}
-      {[-1.38, 1.38].map((x, i) => (
-        <group key={`sconce-${i}`} position={[x, 1.25, 0.12]}>
-          {/* Wall Mount Bracket */}
-          <mesh position={[0, 0, -0.06]}>
-            <boxGeometry args={[0.08, 0.16, 0.06]} />
-            <meshStandardMaterial color="#18181b" roughness={0.3} />
-          </mesh>
-          {/* Matte Black Cylinder Body */}
-          <mesh castShadow receiveShadow>
-            <cylinderGeometry args={[0.065, 0.065, 0.38, 16]} />
-            <meshStandardMaterial color="#18181b" roughness={0.25} metalness={0.6} />
-          </mesh>
-          {/* Polished Brass Accent Rings */}
-          <mesh position={[0, 0.16, 0]}>
-            <cylinderGeometry args={[0.068, 0.068, 0.03, 16]} />
-            <meshStandardMaterial color="#d97706" metalness={0.9} roughness={0.2} />
-          </mesh>
-          <mesh position={[0, -0.16, 0]}>
-            <cylinderGeometry args={[0.068, 0.068, 0.03, 16]} />
-            <meshStandardMaterial color="#d97706" metalness={0.9} roughness={0.2} />
-          </mesh>
-          {/* Top & Bottom Glowing Lenses */}
-          <mesh position={[0, 0.195, 0]}>
-            <cylinderGeometry args={[0.06, 0.06, 0.02, 16]} />
-            <meshBasicMaterial color="#fef08a" />
-          </mesh>
-          <mesh position={[0, -0.195, 0]}>
-            <cylinderGeometry args={[0.06, 0.06, 0.02, 16]} />
-            <meshBasicMaterial color="#fef08a" />
-          </mesh>
-          {/* SpotLight Up onto Stone/Ceiling */}
-          <spotLight
-            position={[0, 0.22, 0.04]}
-            target-position={[0, 2.4, -0.05]}
-            intensity={3.8}
-            distance={3.2}
-            color="#fed7aa"
-            angle={0.62}
-            penumbra={0.65}
-          />
-          {/* SpotLight Down onto Wall & Door */}
-          <spotLight
-            position={[0, -0.22, 0.04]}
-            target-position={[0, -1.8, 0.2]}
-            intensity={4.2}
-            distance={3.6}
-            color="#fef08a"
-            angle={0.62}
-            penumbra={0.65}
-            castShadow
-          />
-        </group>
-      ))}
-
-      {/* 5. Lower Wall: Vertical Dark Walnut Acoustic Slats */}
-      <mesh position={[0, -1.05, 0.02]} receiveShadow castShadow>
-        <boxGeometry args={[9.4, 1.8, 0.12]} />
-        <meshStandardMaterial
-          map={darkWalnutTex}
-          roughness={0.45}
-          color="#3b200e"
-        />
-      </mesh>
-      {/* Array of 28 Vertical Wood Relief Slats */}
-      {Array.from({ length: 28 }).map((_, idx) => {
-        const x = -4.2 + idx * 0.31
-        // Skip slats in door area
-        if (x > -0.9 && x < 0.9) return null
-        return (
-          <mesh key={`slat-${idx}`} position={[x, -1.05, 0.09]} castShadow>
-            <boxGeometry args={[0.045, 1.76, 0.035]} />
-            <meshStandardMaterial color="#271406" roughness={0.4} />
-          </mesh>
-        )
-      })}
-
-      {/* 6. Central Door Assembly */}
-      <group position={[0, 0, 0]}>
-        {/* Outer Heavy Black Metal Door Frame */}
-        <mesh position={[0, 0.05, 0.04]} castShadow>
-          <boxGeometry args={[1.76, 3.82, 0.18]} />
-          <meshStandardMaterial color="#18181b" roughness={0.35} metalness={0.7} />
-        </mesh>
-
-        {/* Swinging Door Leaf (Pivot on Left Hinge at -0.72) */}
-        <group ref={doorRef} position={[-0.72, 0, 0.1]}>
-          <group position={[0.72, 0, 0]}>
-            {/* Main Walnut Door Base */}
-            <mesh castShadow receiveShadow>
-              <boxGeometry args={[1.44, 3.6, 0.1]} />
-              <meshStandardMaterial
-                map={darkWalnutTex}
-                roughness={0.4}
-                color="#451a03"
-              />
-            </mesh>
-
-            {/* Upper Beveled Inset Panel */}
-            <mesh position={[0, 0.78, 0.02]} castShadow>
-              <boxGeometry args={[1.14, 1.48, 0.08]} />
-              <meshStandardMaterial color="#2e1203" roughness={0.45} />
-            </mesh>
-            <mesh position={[0, 0.78, 0.045]}>
-              <boxGeometry args={[1.02, 1.34, 0.04]} />
-              <meshStandardMaterial
-                map={darkWalnutTex}
-                roughness={0.35}
-                color="#502106"
-              />
-            </mesh>
-
-            {/* Lower Beveled Inset Panel */}
-            <mesh position={[0, -0.84, 0.02]} castShadow>
-              <boxGeometry args={[1.14, 1.48, 0.08]} />
-              <meshStandardMaterial color="#2e1203" roughness={0.45} />
-            </mesh>
-            <mesh position={[0, -0.84, 0.045]}>
-              <boxGeometry args={[1.02, 1.34, 0.04]} />
-              <meshStandardMaterial
-                map={darkWalnutTex}
-                roughness={0.35}
-                color="#502106"
-              />
-            </mesh>
-
-            {/* Hanging "CLOSE" / "OPEN" Sign on Upper Panel */}
-            <group position={[0, 0.92, 0.09]}>
-              {/* Plaque Body */}
-              <mesh castShadow>
-                <boxGeometry args={[0.64, 0.26, 0.02]} />
-                <meshStandardMaterial color="#18181b" roughness={0.3} />
-              </mesh>
-              {/* Sign Text */}
-              <Text
-                position={[0, 0, 0.016]}
-                fontSize={0.11}
-                color={isUnlocked ? '#22c55e' : '#f8fafc'}
-                anchorX="center"
-                anchorY="middle"
-                fontWeight="bold"
-                letterSpacing={0.08}
-              >
-                {isUnlocked ? 'OPEN' : 'CLOSE'}
-              </Text>
-              {/* Hanging Cords */}
-              <mesh position={[-0.2, 0.2, 0]} rotation={[0, 0, -0.38]}>
-                <cylinderGeometry args={[0.004, 0.004, 0.24, 8]} />
-                <meshBasicMaterial color="#e2e8f0" />
-              </mesh>
-              <mesh position={[0.2, 0.2, 0]} rotation={[0, 0, 0.38]}>
-                <cylinderGeometry args={[0.004, 0.004, 0.24, 8]} />
-                <meshBasicMaterial color="#e2e8f0" />
-              </mesh>
-            </group>
-
-            {/* Stainless Steel / Black Architectural Handle Bar */}
-            <mesh position={[0.44, -0.15, 0.1]} castShadow>
-              <cylinderGeometry args={[0.016, 0.016, 0.42, 16]} />
-              <meshStandardMaterial color="#cbd5e1" metalness={0.9} roughness={0.15} />
-            </mesh>
-
-            {/* Interactive 3D Golden Smart Padlock */}
-            <InteractiveSmartLock
-              isUnlocked={isUnlocked}
-              onClick={onUnlockClick}
-            />
-          </group>
-        </group>
-      </group>
-
-      {/* 7. LEFT SHOWROOM WINDOW (With Venetian Blinds, Interior & Pendant) */}
-      <group position={[-2.75, 0.42, 0]}>
-        {/* Outer Black Frame */}
-        <mesh position={[0, 0, 0.04]} castShadow>
-          <boxGeometry args={[2.76, 2.34, 0.14]} />
-          <meshStandardMaterial color="#18181b" roughness={0.3} metalness={0.7} />
-        </mesh>
-
-        {/* Clear Architectural Glass Pane */}
-        <mesh position={[0, 0, 0.06]}>
-          <planeGeometry args={[2.52, 2.1]} />
-          <meshPhysicalMaterial
-            color="#fef3c7"
-            transparent
-            opacity={0.35}
-            roughness={0.05}
-            transmission={0.88}
-            ior={1.48}
-          />
-        </mesh>
-
-        {/* Venetian Blinds on Upper Window */}
-        {Array.from({ length: 9 }).map((_, idx) => (
-          <mesh key={`blind-l-${idx}`} position={[0, 0.88 - idx * 0.1, -0.12]}>
-            <boxGeometry args={[2.48, 0.02, 0.04]} />
-            <meshStandardMaterial color="#1c1917" roughness={0.4} />
-          </mesh>
-        ))}
-
-        {/* Interior Boutique Room Behind Glass */}
-        <mesh position={[0, 0, -1.2]}>
-          <planeGeometry args={[2.6, 2.2]} />
-          <meshStandardMaterial color="#2e1408" roughness={0.9} />
-        </mesh>
-
-        {/* Interior Shelves with Boutique Merchandise */}
-        <mesh position={[0, -0.35, -0.6]}>
-          <boxGeometry args={[2.3, 0.05, 0.35]} />
-          <meshStandardMaterial color="#592205" />
-        </mesh>
-        <mesh position={[0, 0.25, -0.6]}>
-          <boxGeometry args={[2.3, 0.05, 0.35]} />
-          <meshStandardMaterial color="#592205" />
-        </mesh>
-        {/* Merchandise pieces */}
-        <mesh position={[-0.6, 0.42, -0.5]}>
-          <cylinderGeometry args={[0.09, 0.11, 0.28, 16]} />
-          <meshStandardMaterial color="#38bdf8" roughness={0.2} metalness={0.5} />
-        </mesh>
-        <mesh position={[0.4, 0.38, -0.5]}>
-          <boxGeometry args={[0.26, 0.22, 0.18]} />
-          <meshStandardMaterial color="#f472b6" roughness={0.3} />
-        </mesh>
-
-        {/* Lush Green Indoor Plant on Counter */}
-        <group position={[0.65, -0.62, -0.3]}>
-          <mesh position={[0, 0, 0]} castShadow>
-            <cylinderGeometry args={[0.15, 0.11, 0.26, 16]} />
-            <meshStandardMaterial color="#e2e8f0" roughness={0.5} />
-          </mesh>
-          <mesh position={[0, 0.22, 0]} castShadow>
-            <sphereGeometry args={[0.22, 16, 16]} />
-            <meshStandardMaterial color="#16a34a" roughness={0.8} />
-          </mesh>
-          <mesh position={[-0.08, 0.35, 0.05]} castShadow>
-            <sphereGeometry args={[0.15, 12, 12]} />
-            <meshStandardMaterial color="#22c55e" roughness={0.8} />
-          </mesh>
-        </group>
-
-        {/* Hanging Industrial Black Pendant Lamp */}
-        <mesh position={[0, 0.95, -0.5]}>
-          <cylinderGeometry args={[0.006, 0.006, 0.7, 8]} />
-          <meshBasicMaterial color="#0f172a" />
-        </mesh>
-        <mesh position={[0, 0.58, -0.5]} castShadow>
-          <coneGeometry args={[0.22, 0.18, 16]} />
-          <meshStandardMaterial color="#18181b" roughness={0.3} />
-        </mesh>
-        <mesh position={[0, 0.52, -0.5]}>
-          <sphereGeometry args={[0.05, 12, 12]} />
-          <meshBasicMaterial color="#fef08a" />
-        </mesh>
-        <pointLight position={[0, 0.45, -0.5]} intensity={3.5} distance={4.5} color="#fed7aa" />
-      </group>
-
-      {/* 8. RIGHT SHOWROOM WINDOW (With Venetian Blinds, Interior & Pendant) */}
-      <group position={[2.75, 0.42, 0]}>
-        <mesh position={[0, 0, 0.04]} castShadow>
-          <boxGeometry args={[2.76, 2.34, 0.14]} />
-          <meshStandardMaterial color="#18181b" roughness={0.3} metalness={0.7} />
-        </mesh>
-
-        <mesh position={[0, 0, 0.06]}>
-          <planeGeometry args={[2.52, 2.1]} />
-          <meshPhysicalMaterial
-            color="#fef3c7"
-            transparent
-            opacity={0.35}
-            roughness={0.05}
-            transmission={0.88}
-            ior={1.48}
-          />
-        </mesh>
-
-        {/* Venetian Blinds on Upper Window */}
-        {Array.from({ length: 9 }).map((_, idx) => (
-          <mesh key={`blind-r-${idx}`} position={[0, 0.88 - idx * 0.1, -0.12]}>
-            <boxGeometry args={[2.48, 0.02, 0.04]} />
-            <meshStandardMaterial color="#1c1917" roughness={0.4} />
-          </mesh>
-        ))}
-
-        {/* Interior Boutique Room Behind Glass */}
-        <mesh position={[0, 0, -1.2]}>
-          <planeGeometry args={[2.6, 2.2]} />
-          <meshStandardMaterial color="#2e1408" roughness={0.9} />
-        </mesh>
-
-        <mesh position={[0, -0.35, -0.6]}>
-          <boxGeometry args={[2.3, 0.05, 0.35]} />
-          <meshStandardMaterial color="#592205" />
-        </mesh>
-        <mesh position={[0, 0.25, -0.6]}>
-          <boxGeometry args={[2.3, 0.05, 0.35]} />
-          <meshStandardMaterial color="#592205" />
-        </mesh>
-        <mesh position={[-0.4, -0.2, -0.5]}>
-          <boxGeometry args={[0.3, 0.24, 0.22]} />
-          <meshStandardMaterial color="#34d399" />
-        </mesh>
-        <mesh position={[0.5, 0.42, -0.5]}>
-          <sphereGeometry args={[0.14, 16, 16]} />
-          <meshStandardMaterial color="#fbbf24" metalness={0.8} />
-        </mesh>
-
-        {/* Lush Green Indoor Plant on Counter */}
-        <group position={[-0.65, -0.62, -0.3]}>
-          <mesh position={[0, 0, 0]} castShadow>
-            <cylinderGeometry args={[0.15, 0.11, 0.26, 16]} />
-            <meshStandardMaterial color="#e2e8f0" roughness={0.5} />
-          </mesh>
-          <mesh position={[0, 0.22, 0]} castShadow>
-            <sphereGeometry args={[0.22, 16, 16]} />
-            <meshStandardMaterial color="#16a34a" roughness={0.8} />
-          </mesh>
-          <mesh position={[0.08, 0.35, 0.05]} castShadow>
-            <sphereGeometry args={[0.15, 12, 12]} />
-            <meshStandardMaterial color="#22c55e" roughness={0.8} />
-          </mesh>
-        </group>
-
-        {/* Hanging Industrial Black Pendant Lamp */}
-        <mesh position={[0, 0.95, -0.5]}>
-          <cylinderGeometry args={[0.006, 0.006, 0.7, 8]} />
-          <meshBasicMaterial color="#0f172a" />
-        </mesh>
-        <mesh position={[0, 0.58, -0.5]} castShadow>
-          <coneGeometry args={[0.22, 0.18, 16]} />
-          <meshStandardMaterial color="#18181b" roughness={0.3} />
-        </mesh>
-        <mesh position={[0, 0.52, -0.5]}>
-          <sphereGeometry args={[0.05, 12, 12]} />
-          <meshBasicMaterial color="#fef08a" />
-        </mesh>
-        <pointLight position={[0, 0.45, -0.5]} intensity={3.5} distance={4.5} color="#fed7aa" />
-      </group>
-
-      {/* 9. Flanking Architectural Potted Planters in Corners */}
-      {[-4.0, 4.0].map((x, i) => (
-        <group key={`planter-${i}`} position={[x, -1.35, 0.85]}>
-          {/* Ceramic/Stone Pot */}
-          <mesh position={[0, -0.28, 0]} castShadow>
-            <cylinderGeometry args={[0.34, 0.24, 0.72, 24]} />
-            <meshStandardMaterial color="#64748b" roughness={0.65} />
-          </mesh>
-          {/* Lush Green Foliage Multi-Cluster */}
-          <mesh position={[0, 0.32, 0]} castShadow>
-            <sphereGeometry args={[0.42, 16, 16]} />
-            <meshStandardMaterial color="#15803d" roughness={0.8} />
-          </mesh>
-          <mesh position={[0.1, 0.55, 0.08]} castShadow>
-            <sphereGeometry args={[0.3, 16, 16]} />
-            <meshStandardMaterial color="#16a34a" roughness={0.75} />
-          </mesh>
-          <mesh position={[-0.12, 0.48, -0.06]} castShadow>
-            <sphereGeometry args={[0.26, 14, 14]} />
-            <meshStandardMaterial color="#22c55e" roughness={0.8} />
-          </mesh>
-        </group>
-      ))}
-
-      {/* Interior Depth Fill Lighting */}
-      <pointLight position={[0, 0.8, -1.4]} intensity={5.2} distance={7} color="#fed7aa" />
-    </group>
+    <PerspectiveCamera
+      ref={cameraRef}
+      makeDefault
+      position={[0, 0.12, 4.8]}
+      fov={48}
+    />
   )
 }
 
@@ -687,33 +738,31 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({
   return (
     <div className="relative w-full h-full bg-slate-950 overflow-hidden select-none">
       {/* ------------------------------------------------------------------ */}
-      {/* 1. REAL INTERACTIVE 3D WEBGL THREE.JS CANVAS ENVIRONMENT          */}
+      {/* 1. ACTUAL 3D WEBGL THREE.JS CANVAS ENVIRONMENT (NO PASTED IMAGE!)  */}
       {/* ------------------------------------------------------------------ */}
       <div className="absolute inset-0 z-0">
         <Canvas
           shadows
-          dpr={[1, 2]}
           gl={{
             antialias: true,
             toneMapping: THREE.ACESFilmicToneMapping,
-            toneMappingExposure: 1.15
+            toneMappingExposure: 1.15,
+            powerPreference: 'high-performance'
           }}
           className="w-full h-full"
         >
-          <PerspectiveCamera makeDefault position={[0, 0, 5.0]} fov={45} />
-          <CameraParallaxController isTransitioning={isTransitioning} />
+          <StorefrontCameraRig isTransitioning={isTransitioning} />
 
-          {/* Atmospheric Lighting */}
-          <ambientLight intensity={0.4} color="#64748b" />
+          {/* Warm Architectural Environmental Light */}
+          <ambientLight intensity={0.7} color="#453123" />
           <directionalLight
-            position={[5, 8, 6]}
-            intensity={0.85}
-            color="#fed7aa"
+            position={[4, 7, 5]}
+            intensity={0.9}
+            color="#ffe8cc"
             castShadow
             shadow-mapSize={[1024, 1024]}
           />
 
-          {/* Complete 3D Architectural Facade */}
           <Storefront3DModel
             isUnlocked={isUnlocked}
             onUnlockClick={handleUnlockTrigger}
@@ -722,11 +771,11 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({
       </div>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 2. REAL CODED HTML/TAILWIND UI OVERLAY (Pixel-Perfect Match)       */}
+      {/* 2. REAL CODED HTML/TAILWIND UI OVERLAY (Matching Reference Layout) */}
       {/* ------------------------------------------------------------------ */}
       <div className="absolute inset-0 z-10 pointer-events-none flex flex-col justify-between p-6 md:p-8 lg:p-10">
         {/* TOP BAR */}
-        <div className="w-full flex items-center justify-between">
+        <div className="w-full flex items-center justify-between pointer-events-auto">
           {/* Top Left Brand Logo */}
           <div className="flex items-center gap-3">
             {/* RV Gradient Square Icon */}
@@ -765,14 +814,14 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.08] mb-4 drop-shadow-md">
+            <h1 className="text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.08] mb-4 drop-shadow-md">
               See the city<br />
               behind your<br />
               numbers.
             </h1>
 
             {/* Subtitle Description */}
-            <p className="text-slate-300 text-sm leading-relaxed mb-6 max-w-sm drop-shadow">
+            <p className="text-slate-200 text-sm leading-relaxed mb-6 max-w-sm drop-shadow">
               Step into an interactive retail district where every storefront turns sales data into a decision you can act on.
             </p>
 
@@ -817,7 +866,7 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({
                   activeTile === 1 ? 'border-cyan-500/50 bg-cyan-500/10 scale-[1.02]' : ''
                 }`}
               >
-                <Compass className="w-4 h-4 text-cyan-400 mb-2" />
+                <BarChart3 className="w-4 h-4 text-cyan-400 mb-2" />
                 <span className="text-lg font-bold text-white leading-none mb-1">360°</span>
                 <span className="text-[11px] text-slate-400">visibility</span>
               </div>
@@ -876,7 +925,7 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({
         </div>
       </div>
 
-      {/* Cinematic Flash / Sunlight Bloom when Door Opens */}
+      {/* Cinematic Flash when Door Opens */}
       {isTransitioning && (
         <div className="absolute inset-0 z-20 bg-gradient-to-t from-amber-400/40 via-white/60 to-amber-200/50 pointer-events-none animate-pulse transition-opacity duration-700" />
       )}
