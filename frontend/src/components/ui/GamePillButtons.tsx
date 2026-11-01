@@ -390,10 +390,14 @@ interface CityViewPillProps {
   currentStoreIndex?: number
   totalStores?: number
   storeName?: string
+  isPlotMode?: boolean
+  plotIndex?: number
+  onOpenBuild?: () => void
 }
 
 /**
- * CityViewPill - Displayed when user is focused on a store, allowing 1-click return to City View mode
+ * CityViewPill - Displayed when user is focused on a store or a construction plot,
+ * allowing 1-click return to City View overview mode where Explore and Build buttons reappear.
  */
 export const CityViewPill: React.FC<CityViewPillProps> = ({
   onCityView,
@@ -401,6 +405,9 @@ export const CityViewPill: React.FC<CityViewPillProps> = ({
   currentStoreIndex,
   totalStores,
   storeName,
+  isPlotMode = false,
+  plotIndex,
+  onOpenBuild,
 }) => {
   const cartoonTextStyle: React.CSSProperties = {
     WebkitTextStroke: '1.5px #0f172a',
@@ -411,7 +418,7 @@ export const CityViewPill: React.FC<CityViewPillProps> = ({
 
   return (
     <aside
-      aria-label="Store View Controls"
+      aria-label="Focus Navigation Controls"
       className="fixed top-20 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5 sm:gap-4 animate-in fade-in slide-in-from-top-4 duration-500 max-w-[95vw] overflow-x-auto p-1"
     >
       {/* ======================================================== */}
@@ -439,9 +446,37 @@ export const CityViewPill: React.FC<CityViewPillProps> = ({
       </button>
 
       {/* ======================================================== */}
-      {/* OPTIONAL NEXT STORE TOUR BUTTON                          */}
+      {/* PLOT MODE: RE-OPEN BUILD MENU / CONSTRUCT                */}
       {/* ======================================================== */}
-      {onNextStore && totalStores && totalStores > 1 && (
+      {isPlotMode && onOpenBuild && (
+        <button
+          type="button"
+          onClick={onOpenBuild}
+          className="group relative flex items-center gap-2 sm:gap-3 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full border-[3px] border-white bg-gradient-to-b from-[#38bdf8] via-[#2563eb] to-[#1d4ed8] shadow-[0_8px_25px_rgba(37,99,235,0.6),inset_0_2px_4px_rgba(255,255,255,0.7)] hover:scale-105 hover:brightness-110 active:scale-95 transition-all duration-200 cursor-pointer overflow-hidden flex-shrink-0"
+          title={`Construct store on Plot #${plotIndex ?? ''}`}
+        >
+          <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full pointer-events-none" />
+          <HardHatGameIcon className="w-8 h-8 sm:w-10 sm:h-10 relative z-10 transition-transform group-hover:-rotate-6 group-hover:scale-110" />
+          <span
+            className="relative z-10 font-black text-white text-base sm:text-2xl tracking-wide select-none"
+            style={cartoonTextStyle}
+          >
+            Build
+          </span>
+          {plotIndex && (
+            <span
+              className="relative z-10 px-2 py-0.5 rounded-full bg-amber-400/30 border border-amber-300 text-amber-200 font-extrabold text-xs shadow-inner"
+            >
+              #{plotIndex}
+            </span>
+          )}
+        </button>
+      )}
+
+      {/* ======================================================== */}
+      {/* STORE MODE: NEXT STORE TOUR BUTTON                       */}
+      {/* ======================================================== */}
+      {!isPlotMode && onNextStore && totalStores && totalStores > 1 && (
         <button
           type="button"
           onClick={onNextStore}
@@ -465,8 +500,16 @@ export const CityViewPill: React.FC<CityViewPillProps> = ({
         </button>
       )}
 
-      {/* Store Name Indicator Tag if present */}
-      {storeName && (
+      {/* Plot Name or Store Name Tag */}
+      {isPlotMode && plotIndex && (
+        <div className="hidden md:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/85 backdrop-blur-md border border-white/30 text-white text-xs font-bold shadow-lg">
+          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+          <span className="text-slate-300">Plot:</span>
+          <span className="text-amber-300">Plot #{plotIndex} Available</span>
+        </div>
+      )}
+
+      {!isPlotMode && storeName && (
         <div className="hidden md:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/85 backdrop-blur-md border border-white/30 text-white text-xs font-bold shadow-lg">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           <span className="text-slate-300">Viewing:</span>

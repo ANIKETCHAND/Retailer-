@@ -34,6 +34,7 @@ export const App: React.FC = () => {
 
   // Store Focus Mode: When true, camera is focused on a store and "City View" pill is displayed
   const [isStoreFocusMode, setIsStoreFocusMode] = useState(false)
+  const [isPlotFocusMode, setIsPlotFocusMode] = useState(false)
   const [exploreIndex, setExploreIndex] = useState(0)
 
   // Simulation Environment Controls
@@ -88,6 +89,7 @@ export const App: React.FC = () => {
   // OPTION A: EXPLORE EXISTING STORES
   const handleExploreStores = () => {
     setShowWelcomeOptions(false)
+    setIsPlotFocusMode(false)
     if (stores.length > 0) {
       setIsStoreFocusMode(true)
       const targetStore = stores[0]
@@ -112,8 +114,10 @@ export const App: React.FC = () => {
   // Return back to panoramic City View mode & restore explore/build options
   const handleReturnToCityView = () => {
     setIsStoreFocusMode(false)
+    setIsPlotFocusMode(false)
     setSelectedStore(null)
     setIsAnalyticsOpen(false)
+    setIsConstructOpen(false)
     setCameraTarget([0, 0, 0])
     setShowWelcomeOptions(true)
   }
@@ -122,6 +126,7 @@ export const App: React.FC = () => {
   const handleConstructNewStore = () => {
     setShowWelcomeOptions(false)
     setIsStoreFocusMode(false)
+    setIsPlotFocusMode(true)
     const nextPlot = findNextAvailablePlot(stores)
     // Smoothly fly camera to the highlighted empty plot
     setCameraTarget([nextPlot.grid_x, 0, nextPlot.grid_z])
@@ -131,6 +136,7 @@ export const App: React.FC = () => {
   // Handle clicking a store building in the 3D marketplace or GTA Minimap
   const handleStoreSelect = (store: Store) => {
     setShowWelcomeOptions(false)
+    setIsPlotFocusMode(false)
     setIsStoreFocusMode(true)
     const idx = stores.findIndex(s => s.id === store.id)
     if (idx !== -1) setExploreIndex(idx)
@@ -163,7 +169,10 @@ export const App: React.FC = () => {
   // Reset Camera back to overview
   const handleResetCamera = () => {
     setIsStoreFocusMode(false)
+    setIsPlotFocusMode(false)
     setSelectedStore(null)
+    setIsAnalyticsOpen(false)
+    setIsConstructOpen(false)
     setCameraTarget([0, 0, 0])
     setShowWelcomeOptions(true)
   }
@@ -173,6 +182,8 @@ export const App: React.FC = () => {
     await authApi.logout()
     setIsAnalyticsOpen(false)
     setIsConstructOpen(false)
+    setIsStoreFocusMode(false)
+    setIsPlotFocusMode(false)
     setSelectedStore(null)
     setUserSession(null)
     setIsUnlocked(false)
@@ -221,7 +232,7 @@ export const App: React.FC = () => {
           />
 
           {/* REQUIREMENT 2: AFTER LOGIN - PRIMARY MARKETPLACE GAME PILL ACTION BUTTONS */}
-          {showWelcomeOptions && !isStoreFocusMode && (
+          {showWelcomeOptions && !isStoreFocusMode && !isPlotFocusMode && (
             <GamePillButtons
               storeCount={stores.length}
               onExplore={handleExploreStores}
@@ -230,14 +241,17 @@ export const App: React.FC = () => {
             />
           )}
 
-          {/* CITY VIEW BUTTON: Appears when user is focused on a store */}
-          {isStoreFocusMode && (
+          {/* CITY VIEW BUTTON: Appears when user is focused on a store OR on a construction plot */}
+          {(isStoreFocusMode || isPlotFocusMode) && (
             <CityViewPill
               onCityView={handleReturnToCityView}
-              onNextStore={stores.length > 1 ? handleNextStore : undefined}
+              onNextStore={stores.length > 1 && !isPlotFocusMode ? handleNextStore : undefined}
               currentStoreIndex={exploreIndex}
               totalStores={stores.length}
               storeName={selectedStore?.name}
+              isPlotMode={isPlotFocusMode}
+              plotIndex={nextPlot.plot_index + 1}
+              onOpenBuild={() => setIsConstructOpen(true)}
             />
           )}
 
