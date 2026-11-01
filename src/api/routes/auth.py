@@ -1,18 +1,19 @@
 """
 RetailVision - Authentication API
-Handles login, registration, Google OAuth sign-in, and user session verification.
+Handles login, registration, logout, Google OAuth sign-in, and user session verification.
+Integrates with Profile and AuditLog models with Supabase compatibility.
 """
 
 import base64
 from datetime import datetime
 import json
-from typing import Optional
+from typing import Optional, Union
 import uuid
-from fastapi import APIRouter, Depends, HTTPException, status
-from pydantic import BaseModel
+from fastapi import APIRouter, Depends, Header, HTTPException, Query, status
+from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
 from src.db.database import get_db
-from src.db.models import User
+from src.db.models import AuditLog, Profile, User
 from src.db.seed import hash_password
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
@@ -21,6 +22,13 @@ router = APIRouter(prefix="/auth", tags=["Authentication"])
 class LoginRequest(BaseModel):
     login: str  # email or username
     password: str
+
+
+class RegisterRequest(BaseModel):
+    username: str
+    email: str
+    password: str
+    full_name: Optional[str] = ""
 
 
 class GoogleLoginRequest(BaseModel):
@@ -33,16 +41,124 @@ class GoogleLoginRequest(BaseModel):
 
 class AuthResponse(BaseModel):
     success: bool
-    user_id: int
+    user_id: Union[int, str]
     username: str
     email: str
     token: str
     message: str
 
 
+def resolve_user_from_token(token: Optional[str], db: Session) -> Optional[User]:
+    """Resolves authenticated user from session token or Bearer authorization."""
+    if not token:
+        return None
+
+    clean_token = token.replace("Bearer ", "").strip()
+    if clean_token.startswith("rv_token_") or clean_token.startswith("rv_google_"):
+        parts = clean_token.split("_")
+        if len(parts) >= 3:
+            user_id = parts[2]
+            user = db.query(User).filter(User.id == str(user_id)).first()
+            if user:
+                return user
+    return None
+
+
+def get_current_user_optional(
+    authorization: Optional[str] = Header(None),
+    token: Optional[str] = Query(None),
+    db: Session = Depends(get_db)
+) -> Optional[User]:
+    """Dependency returning the currently authenticated user, or None if guest."""
+    auth_header = authorization or token
+    user = resolve_user_from_token(auth_header, db)
+    if not user:
+        # Fallback to demo admin for unauthenticated requests in development
+        user = db.query(User).filter(User.email == "admin@retailvision.com").first()
+    return user
+
+
+def get_current_user_required(
+    authorization: Optional[str] = Header(None),
+    token: Optional[str] = Query(None),
+    db: Session = Depends(get_db)
+) -> User:
+    """Dependency strictly requiring an authenticated user."""
+    auth_header = authorization or token
+    user = resolve_user_from_token(auth_header, db)
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Authentication required. Please provide a valid authorization token."
+        )
+    return user
+
+
+@router.post("/register", response_model=AuthResponse)
+def register(req: RegisterRequest, db: Session = Depends(get_db)):
+    """Registers a new user and creates their associated profile."""
+    username_clean = req.username.strip()
+    email_clean = req.email.strip().lower()
+
+    if len(username_clean) < 3:
+        raise HTTPException(status_code=400, detail="Username must be at least 3 characters long.")
+    if len(req.password) < 6:
+        raise HTTPException(status_code=400, detail="Password must be at least 6 characters long.")
+
+    # Check if user already exists
+    existing = db.query(User).filter(
+        (User.email.ilike(email_clean)) | (User.username.ilike(username_clean))
+    ).first()
+    if existing:
+        raise HTTPException(status_code=400, detail="A user with that email or username already exists.")
+
+    new_user = User(
+        username=username_clean,
+        email=email_clean,
+        hashed_password=hash_password(req.password),
+        created_at=datetime.utcnow()
+    )
+    db.add(new_user)
+    db.flush()
+
+    # Create associated profile
+    new_profile = Profile(
+        id=f"prof_{new_user.id}",
+        user_id=new_user.id,
+        full_name=req.full_name or username_clean,
+        email=email_clean,
+        created_at=datetime.utcnow()
+    )
+    db.add(new_profile)
+
+    # Audit log
+    audit = AuditLog(
+        id=str(uuid.uuid4()),
+        user_id=str(new_user.id),
+        action="user_registered",
+        entity_type="user",
+        entity_id=str(new_user.id),
+        created_at=datetime.utcnow()
+    )
+    db.add(audit)
+
+    db.commit()
+    db.refresh(new_user)
+
+    token = f"rv_token_{new_user.id}_{new_user.username}"
+    return AuthResponse(
+        success=True,
+        user_id=new_user.id,
+        username=new_user.username,
+        email=new_user.email,
+        token=token,
+        message="Registration successful."
+    )
+
+
 @router.post("/login", response_model=AuthResponse)
 def login(req: LoginRequest, db: Session = Depends(get_db)):
-    """Authenticates user against SQLite database."""
+    """Authenticates user against database credentials."""
     login_clean = req.login.strip().lower()
     user = db.query(User).filter(
         (User.email.ilike(login_clean)) | (User.username.ilike(login_clean))
@@ -61,8 +177,20 @@ def login(req: LoginRequest, db: Session = Depends(get_db)):
             detail="Invalid credentials: password incorrect."
         )
 
-    # Simple session token for demo auth
+    # Session token
     token = f"rv_token_{user.id}_{user.username}"
+
+    # Audit log
+    audit = AuditLog(
+        id=str(uuid.uuid4()),
+        user_id=str(user.id),
+        action="user_login",
+        entity_type="auth",
+        entity_id=str(user.id),
+        created_at=datetime.utcnow()
+    )
+    db.add(audit)
+    db.commit()
 
     return AuthResponse(
         success=True,
@@ -74,6 +202,25 @@ def login(req: LoginRequest, db: Session = Depends(get_db)):
     )
 
 
+@router.post("/logout")
+def logout(authorization: Optional[str] = Header(None), db: Session = Depends(get_db)):
+    """Logs out user session and records audit event."""
+    user = resolve_user_from_token(authorization, db)
+    if user:
+        audit = AuditLog(
+            id=str(uuid.uuid4()),
+            user_id=str(user.id),
+            action="user_logout",
+            entity_type="auth",
+            entity_id=str(user.id),
+            created_at=datetime.utcnow()
+        )
+        db.add(audit)
+        db.commit()
+
+    return {"success": True, "message": "Successfully logged out."}
+
+
 @router.post("/google", response_model=AuthResponse)
 def google_login(req: GoogleLoginRequest, db: Session = Depends(get_db)):
     """
@@ -83,12 +230,10 @@ def google_login(req: GoogleLoginRequest, db: Session = Depends(get_db)):
     email = req.email
     name = req.name
 
-    # If Google Identity Services JWT was passed, decode claims
     if req.credential and not email:
         try:
             parts = req.credential.split(".")
             if len(parts) >= 2:
-                # Add padding if needed
                 padded = parts[1] + "=" * ((4 - len(parts[1]) % 4) % 4)
                 claims = json.loads(base64.urlsafe_b64decode(padded).decode("utf-8"))
                 email = claims.get("email")
@@ -105,7 +250,6 @@ def google_login(req: GoogleLoginRequest, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.email.ilike(email_clean)).first()
 
     if not user:
-        # Check if username exists, if so make it unique
         base_username = name[:40]
         username = base_username
         suffix = 1
@@ -120,6 +264,16 @@ def google_login(req: GoogleLoginRequest, db: Session = Depends(get_db)):
             created_at=datetime.utcnow()
         )
         db.add(user)
+        db.flush()
+
+        profile = Profile(
+            id=f"prof_{user.id}",
+            user_id=user.id,
+            full_name=name,
+            email=email_clean,
+            created_at=datetime.utcnow()
+        )
+        db.add(profile)
         db.commit()
         db.refresh(user)
 
@@ -136,13 +290,26 @@ def google_login(req: GoogleLoginRequest, db: Session = Depends(get_db)):
 
 
 @router.get("/me")
-def get_current_user(token: Optional[str] = None, db: Session = Depends(get_db)):
-    """Verifies authentication token."""
-    admin = db.query(User).filter(User.email == "admin@retailvision.com").first()
-    if admin:
-        return {
-            "user_id": admin.id,
-            "username": admin.username,
-            "email": admin.email
-        }
-    return {"message": "Guest"}
+def get_current_user(
+    authorization: Optional[str] = Header(None),
+    token: Optional[str] = Query(None),
+    db: Session = Depends(get_db)
+):
+    """Verifies authentication token and returns user profile."""
+    auth_val = authorization or token
+    user = resolve_user_from_token(auth_val, db)
+    if not user:
+        admin = db.query(User).filter(User.email == "admin@retailvision.com").first()
+        if admin:
+            return {
+                "user_id": admin.id,
+                "username": admin.username,
+                "email": admin.email
+            }
+        return {"message": "Guest"}
+
+    return {
+        "user_id": user.id,
+        "username": user.username,
+        "email": user.email
+    }

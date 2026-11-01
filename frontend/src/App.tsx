@@ -9,7 +9,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { Building2, Hammer, Sparkles, X } from 'lucide-react'
-import { storeApi, findNextAvailablePlot } from './api/client'
+import { authApi, storeApi, findNextAvailablePlot } from './api/client'
 import { StorefrontScene } from './components/3d/StorefrontScene'
 import { MarketplaceScene } from './components/3d/MarketplaceScene'
 import { LockOverlay } from './components/ui/LockOverlay'
@@ -137,7 +137,8 @@ export const App: React.FC = () => {
   }
 
   // Handle Logout
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await authApi.logout()
     setIsAnalyticsOpen(false)
     setIsConstructOpen(false)
     setSelectedStore(null)

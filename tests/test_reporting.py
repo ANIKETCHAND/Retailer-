@@ -45,3 +45,32 @@ def test_export_dataframe_to_csv(sample_data):
     assert len(csv_bytes) > 0
     assert b"order_date" in csv_bytes
     assert b"total_amount" in csv_bytes
+
+
+def test_report_database_persistence():
+    """Verify that exporting PDF and CSV reports creates Report records in database."""
+    from fastapi.testclient import TestClient
+    from src.api.app import api_app
+    from src.db.database import SessionLocal
+    from src.db.models import Report
+
+    client = TestClient(api_app)
+    db = SessionLocal()
+    initial_reports_count = db.query(Report).count()
+
+    pdf_resp = client.get("/api/stores/store_electronics/report/pdf")
+    assert pdf_resp.status_code == 200
+    assert pdf_resp.headers["content-type"] == "application/pdf"
+
+    csv_resp = client.get("/api/stores/store_electronics/report/csv")
+    assert csv_resp.status_code == 200
+    assert "text/csv" in csv_resp.headers["content-type"]
+
+    new_reports_count = db.query(Report).count()
+    assert new_reports_count >= initial_reports_count + 2
+    latest = db.query(Report).order_by(Report.created_at.desc()).first()
+    assert latest is not None
+    assert latest.store_id == "store_electronics"
+    assert latest.report_type in ("pdf", "csv")
+    db.close()
+

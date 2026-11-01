@@ -34,6 +34,8 @@ node_modules/
 *.sqlite3
 data/uploads/*
 !data/uploads/.gitkeep
+reports/*.pdf
+data/reports/*
 
 # IDEs
 .vscode/

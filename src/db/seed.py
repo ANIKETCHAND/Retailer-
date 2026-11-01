@@ -10,11 +10,16 @@ import datetime
 import hashlib
 import os
 import random
+import uuid
 from pathlib import Path
 import numpy as np
+import pandas as pd
 from src.core.config import settings
 from src.db.database import Base, SessionLocal, engine
-from src.db.models import ConstructionPlot, Store, User
+from src.db.models import (
+    AuditLog, ConstructionPlot, Dataset, District, Profile,
+    SalesRecord, Store, User
+)
 from src.services.data_service import validate_and_clean_dataset
 from src.services.procedural_layout import get_plot_definition
 
@@ -89,14 +94,15 @@ def generate_store_dataset(
 
 
 def seed_database():
-    """Initializes tables and seeds default user, 5 default stores, and dynamic plots."""
+    """Initializes tables and seeds default user, profile, districts, 5 default stores, datasets, and plots."""
     Base.metadata.create_all(bind=engine)
     db = SessionLocal()
 
-    # 1. Create or get Admin Demo User
+    # 1. Create or get Admin Demo User & Profile
     admin = db.query(User).filter(User.email == "admin@retailvision.com").first()
     if not admin:
         admin = User(
+            id="1",
             username="admin",
             email="admin@retailvision.com",
             hashed_password=hash_password("admin123"),
@@ -106,7 +112,31 @@ def seed_database():
         db.commit()
         db.refresh(admin)
 
-    # 2. Store Catalog Definitions (5 Default Stores)
+    admin_profile = db.query(Profile).filter(Profile.user_id == str(admin.id)).first()
+    if not admin_profile:
+        admin_profile = Profile(
+            id=f"prof_{admin.id}",
+            user_id=str(admin.id),
+            full_name="RetailVision Administrator",
+            email=admin.email,
+            created_at=datetime.datetime.utcnow()
+        )
+        db.add(admin_profile)
+
+    # 2. Seed Primary District
+    primary_district = db.query(District).filter(District.id == "district_1").first()
+    if not primary_district:
+        primary_district = District(
+            id="district_1",
+            user_id=str(admin.id),
+            district_name="Central Commercial Plaza",
+            grid_x=0.0,
+            grid_z=0.0,
+            created_at=datetime.datetime.utcnow()
+        )
+        db.add(primary_district)
+
+    # 3. Store Catalog Definitions (5 Default Stores)
     store_definitions = [
         {
             "id": "store_electronics",
@@ -215,16 +245,17 @@ def seed_database():
         tot_prods = int(clean_df["product"].nunique())
 
         plot_info = get_plot_definition(s_def["plot_index"])
+        dataset_id = f"ds_{s_def['id']}"
 
         existing_store = db.query(Store).filter(Store.id == s_def["id"]).first()
         if not existing_store:
             store = Store(
                 id=s_def["id"],
-                user_id=admin.id,
+                user_id=str(admin.id),
                 name=s_def["name"],
                 category=s_def["category"],
                 description=s_def["description"],
-                dataset_id=f"ds_{s_def['id']}",
+                dataset_id=dataset_id,
                 dataset_path=str(csv_path),
                 grid_x=plot_info["grid_x"],
                 grid_z=plot_info["grid_z"],
@@ -245,18 +276,63 @@ def seed_database():
             existing_store.total_orders = tot_orders
             existing_store.total_products = tot_prods
             existing_store.dataset_path = str(csv_path)
+            existing_store.dataset_id = dataset_id
             existing_store.grid_x = plot_info["grid_x"]
             existing_store.grid_z = plot_info["grid_z"]
             existing_store.rotation_y = plot_info["rotation_y"]
             existing_store.district_id = plot_info["district_id"]
             existing_store.district_name = plot_info["district_name"]
 
+        # Ensure Dataset Record is tracked
+        existing_ds = db.query(Dataset).filter(Dataset.id == dataset_id).first()
+        file_size_bytes = csv_path.stat().st_size if csv_path.exists() else 0
+        if not existing_ds:
+            ds_rec = Dataset(
+                id=dataset_id,
+                store_id=s_def["id"],
+                user_id=str(admin.id),
+                original_filename=f"{s_def['category'].lower()}.csv",
+                storage_path=str(csv_path),
+                file_size=file_size_bytes,
+                row_count=len(clean_df),
+                column_count=len(clean_df.columns),
+                upload_status="completed",
+                uploaded_at=datetime.datetime.utcnow()
+            )
+            db.add(ds_rec)
+        else:
+            existing_ds.row_count = len(clean_df)
+            existing_ds.column_count = len(clean_df.columns)
+            existing_ds.file_size = file_size_bytes
+
+        # Seed SalesRecord rows for this dataset if not yet inserted
+        records_count = db.query(SalesRecord).filter(SalesRecord.dataset_id == dataset_id).count()
+        if records_count == 0:
+            sales_objects = []
+            for _, r in clean_df.iterrows():
+                sales_objects.append(SalesRecord(
+                    id=str(uuid.uuid4()),
+                    dataset_id=dataset_id,
+                    order_id=str(r.get("order_id", "")),
+                    order_date=pd.to_datetime(r["order_date"]).to_pydatetime() if "order_date" in r else datetime.datetime.utcnow(),
+                    customer_id=str(r.get("customer_id", "Guest")),
+                    product=str(r.get("product", "")),
+                    category=str(r.get("category", s_def["category"])),
+                    quantity=int(r.get("quantity", 1)),
+                    unit_price=float(r.get("unit_price", 0.0)),
+                    revenue=float(r.get("total_amount", 0.0)),
+                    region=str(r.get("region", "All Regions")),
+                    city=str(r.get("city", "All Cities")),
+                    created_at=datetime.datetime.utcnow()
+                ))
+            db.bulk_save_objects(sales_objects)
+
         # Ensure Plot Record is registered as occupied
         plot_record = db.query(ConstructionPlot).filter(ConstructionPlot.plot_index == s_def["plot_index"]).first()
         if not plot_record:
             plot_record = ConstructionPlot(
                 id=f"plot_{s_def['plot_index']}",
-                user_id=admin.id,
+                user_id=str(admin.id),
                 plot_index=s_def["plot_index"],
                 district_id=plot_info["district_id"],
                 district_name=plot_info["district_name"],
@@ -270,15 +346,17 @@ def seed_database():
             db.add(plot_record)
         else:
             plot_record.is_occupied = True
+            plot_record.status = "occupied"
             plot_record.store_id = s_def["id"]
+            plot_record.associated_store_id = s_def["id"]
 
-    # 3. Ensure the first empty construction plot (Plot Index 5) is seeded and available
+    # 4. Ensure the first empty construction plot (Plot Index 5) is seeded and available
     first_empty_plot = get_plot_definition(5)
     existing_empty = db.query(ConstructionPlot).filter(ConstructionPlot.plot_index == 5).first()
     if not existing_empty:
         empty_plot_rec = ConstructionPlot(
             id="plot_5",
-            user_id=admin.id,
+            user_id=str(admin.id),
             plot_index=5,
             district_id=first_empty_plot["district_id"],
             district_name=first_empty_plot["district_name"],
@@ -286,10 +364,28 @@ def seed_database():
             grid_z=first_empty_plot["grid_z"],
             rotation_y=first_empty_plot["rotation_y"],
             is_occupied=False,
+            status="available",
             store_id=None,
+            associated_store_id=None,
             created_at=datetime.datetime.utcnow()
         )
         db.add(empty_plot_rec)
+    else:
+        existing_empty.is_occupied = False
+        existing_empty.status = "available"
+        existing_empty.store_id = None
+        existing_empty.associated_store_id = None
+
+    # 5. Seed Audit Log for initial setup
+    audit = AuditLog(
+        id=f"audit_seed_{uuid.uuid4().hex[:8]}",
+        user_id=str(admin.id),
+        action="seed_database",
+        entity_type="system",
+        entity_id="init_seed",
+        created_at=datetime.datetime.utcnow()
+    )
+    db.add(audit)
 
     db.commit()
     db.close()

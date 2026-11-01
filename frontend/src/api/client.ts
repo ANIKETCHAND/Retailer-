@@ -20,6 +20,15 @@ const api = axios.create({
   timeout: 15000,
 })
 
+// Attach Bearer token to all outgoing API requests if authenticated
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('retailvision_token') || sessionStorage.getItem('retailvision_token')
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`
+  }
+  return config
+})
+
 // Default realistic 3D retail stores (matching database seed)
 const DEFAULT_STORES: Store[] = [
   {
@@ -275,8 +284,14 @@ export const authApi = {
   login: async (login: string, password: string): Promise<UserSession> => {
     try {
       const res = await api.post('/auth/login', { login, password })
+      if (res.data && res.data.token) {
+        localStorage.setItem('retailvision_token', res.data.token)
+      }
       return res.data
-    } catch {
+    } catch (err: any) {
+      if (err.response) {
+        throw err
+      }
       return {
         user_id: 1,
         username: login || 'admin',
@@ -288,14 +303,30 @@ export const authApi = {
   googleLogin: async (payload?: { credential?: string; email?: string; name?: string }): Promise<UserSession> => {
     try {
       const res = await api.post('/auth/google', payload || {})
+      if (res.data && res.data.token) {
+        localStorage.setItem('retailvision_token', res.data.token)
+      }
       return res.data
-    } catch {
+    } catch (err: any) {
+      if (err.response) {
+        throw err
+      }
       return {
         user_id: 2,
         username: payload?.name || 'Google User',
         email: payload?.email || 'user@gmail.com',
         token: `rv_google_jwt_${Date.now()}`
       }
+    }
+  },
+  logout: async (): Promise<void> => {
+    try {
+      await api.post('/auth/logout')
+    } catch {
+      // Ignore network errors on logout
+    } finally {
+      localStorage.removeItem('retailvision_token')
+      sessionStorage.removeItem('retailvision_token')
     }
   },
   me: async (): Promise<any> => {
@@ -308,7 +339,7 @@ export const authApi = {
   }
 }
 
-const CATEGORY_COLORS: Record<string, string> = {
+export const CATEGORY_COLORS: Record<string, string> = {
   Electronics: '#3B82F6',
   Grocery: '#10B981',
   Clothing: '#EC4899',
@@ -407,7 +438,6 @@ export const storeApi = {
   },
 
   constructStore: async (formData: FormData): Promise<Store> => {
-    // 1. Try server endpoint first
     try {
       const res = await api.post('/stores/construct', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
@@ -425,199 +455,13 @@ export const storeApi = {
         return store
       }
       throw new Error('Server returned invalid data format')
-    } catch (serverErr) {
-      console.warn('Construct API fallback active:', serverErr)
-
-      // 2. Client-side CSV parser and procedural plot allocation fallback
-      let computedRevenue = 0
-      let computedOrders = 0
-      let computedProducts = 0
-      const categorySalesMap = new Map<string, number>()
-      const regionalSalesMap = new Map<string, number>()
-      const productSalesMap = new Map<string, { rev: number; count: number }>()
-
-      const file = formData.get('file') as File | null
-      if (file && typeof file.text === 'function') {
-        try {
-          const text = await file.text()
-          const lines = text.split(/\r?\n/).filter(l => l.trim().length > 0)
-          if (lines.length > 1) {
-            const headers = lines[0].split(',').map(h => h.trim().toLowerCase().replace(/"/g, ''))
-            const revIdx = headers.findIndex(h => h.includes('amount') || h.includes('revenue') || h.includes('price') || h.includes('sales'))
-            const orderIdx = headers.findIndex(h => h.includes('order') || h.includes('id') || h.includes('transaction'))
-            const prodIdx = headers.findIndex(h => h.includes('product') || h.includes('item') || h.includes('sku'))
-            const catIdx = headers.findIndex(h => h.includes('category') || h.includes('dept'))
-            const regIdx = headers.findIndex(h => h.includes('region') || h.includes('city') || h.includes('state'))
-
-            const uniqueOrders = new Set<string>()
-            const uniqueProducts = new Set<string>()
-
-            for (let i = 1; i < lines.length; i++) {
-              const row = lines[i].split(',').map(c => c.trim().replace(/"/g, ''))
-              let lineRev = 0
-              if (revIdx >= 0 && row[revIdx]) {
-                const val = parseFloat(row[revIdx])
-                if (!isNaN(val)) {
-                  lineRev = val
-                  computedRevenue += val
-                }
-              }
-              if (orderIdx >= 0 && row[orderIdx]) uniqueOrders.add(row[orderIdx])
-              if (prodIdx >= 0 && row[prodIdx]) {
-                const pName = row[prodIdx]
-                uniqueProducts.add(pName)
-                const cur = productSalesMap.get(pName) || { rev: 0, count: 0 }
-                productSalesMap.set(pName, { rev: cur.rev + lineRev, count: cur.count + 1 })
-              }
-              if (catIdx >= 0 && row[catIdx]) {
-                const cName = row[catIdx]
-                categorySalesMap.set(cName, (categorySalesMap.get(cName) || 0) + lineRev)
-              }
-              if (regIdx >= 0 && row[regIdx]) {
-                const rName = row[regIdx]
-                regionalSalesMap.set(rName, (regionalSalesMap.get(rName) || 0) + lineRev)
-              }
-            }
-
-            computedOrders = uniqueOrders.size || lines.length - 1
-            computedProducts = uniqueProducts.size || 8
-            if (computedRevenue <= 0) computedRevenue = (lines.length - 1) * 85
-          }
-        } catch (err) {
-          console.warn('Client CSV parse notice:', err)
-        }
+    } catch (serverErr: any) {
+      // Propagate server errors (400 CSV validation error, 401 unauthorized, 403 forbidden, etc.)
+      if (serverErr.response) {
+        throw serverErr
       }
-
-      // Procedurally assign the next available plot
-      const nextPlot = findNextAvailablePlot(inMemoryStores)
-      const name = (formData.get('name') as string) || 'Custom Enterprise Store'
-      const category = (formData.get('category') as string) || 'Custom'
-      const description = (formData.get('description') as string) || 'Procedurally generated retail store from uploaded sales dataset.'
-      const uniqueStoreId = `store_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`
-
-      const newStore: Store = {
-        id: uniqueStoreId,
-        name: name.trim(),
-        category,
-        description: description.trim(),
-        grid_x: nextPlot.grid_x,
-        grid_z: nextPlot.grid_z,
-        rotation_y: nextPlot.rotation_y,
-        color: CATEGORY_COLORS[category] || '#6366F1',
-        is_default: false,
-        district_id: nextPlot.district_id,
-        district_name: nextPlot.district_name,
-        construction_status: 'completed',
-        total_revenue: Math.round(computedRevenue || (220000 + Math.random() * 80000)),
-        total_orders: computedOrders || Math.round(850 + Math.random() * 300),
-        total_products: computedProducts || 10,
-        created_at: new Date().toISOString().split('T')[0]
-      }
-
-      // Generate and cache bespoke analytics bundle for this exact store
-      const rev = newStore.total_revenue
-      const orders = newStore.total_orders
-      const aov = Math.round(rev / Math.max(orders, 1))
-
-      const customBundle: StoreAnalyticsBundle = {
-        store: {
-          id: newStore.id,
-          name: newStore.name,
-          category: newStore.category,
-          description: newStore.description,
-          color: newStore.color,
-          is_default: false,
-          district_id: newStore.district_id,
-          district_name: newStore.district_name
-        },
-        kpis: {
-          total_revenue: rev,
-          total_orders: orders,
-          total_units_sold: Math.round(orders * 1.8),
-          average_order_value: aov,
-          total_products: newStore.total_products,
-          total_customers: Math.round(orders * 0.42),
-          revenue_growth_pct: 16.4,
-          orders_growth_pct: 9.2
-        },
-        monthly_trend: [
-          { year_month: '2024-07', month_name: 'Jul', revenue: Math.round(rev * 0.07), orders: Math.round(orders * 0.07), units: Math.round(orders * 0.12), mom_growth_pct: 4.8, avg_order_value: aov },
-          { year_month: '2024-08', month_name: 'Aug', revenue: Math.round(rev * 0.08), orders: Math.round(orders * 0.08), units: Math.round(orders * 0.14), mom_growth_pct: 6.2, avg_order_value: aov },
-          { year_month: '2024-09', month_name: 'Sep', revenue: Math.round(rev * 0.10), orders: Math.round(orders * 0.10), units: Math.round(orders * 0.16), mom_growth_pct: 8.5, avg_order_value: aov },
-          { year_month: '2024-10', month_name: 'Oct', revenue: Math.round(rev * 0.12), orders: Math.round(orders * 0.11), units: Math.round(orders * 0.18), mom_growth_pct: 11.2, avg_order_value: aov },
-          { year_month: '2024-11', month_name: 'Nov', revenue: Math.round(rev * 0.18), orders: Math.round(orders * 0.16), units: Math.round(orders * 0.25), mom_growth_pct: 29.4, avg_order_value: Math.round(aov * 1.1) },
-          { year_month: '2024-12', month_name: 'Dec', revenue: Math.round(rev * 0.22), orders: Math.round(orders * 0.20), units: Math.round(orders * 0.32), mom_growth_pct: 35.8, avg_order_value: Math.round(aov * 1.15) }
-        ],
-        recent_daily: Array.from({ length: 14 }).map((_, i) => ({
-          date: `Day -${14 - i}`,
-          revenue: Math.round(rev / 365 + (Math.sin(i) * 0.35 * (rev / 365))),
-          moving_avg_7d: Math.round(rev / 365)
-        })),
-        categories: categorySalesMap.size > 0
-          ? Array.from(categorySalesMap.entries()).map(([cat, cRev]) => ({
-              category: cat,
-              revenue: Math.round(cRev),
-              units: Math.round((cRev / rev) * orders * 1.5),
-              orders: Math.round((cRev / rev) * orders),
-              revenue_share_pct: Math.round((cRev / Math.max(rev, 1)) * 100),
-              avg_unit_price: aov
-            }))
-          : [
-              { category: newStore.category, revenue: Math.round(rev * 0.7), units: Math.round(orders * 1.3), orders: Math.round(orders * 0.7), revenue_share_pct: 70, avg_unit_price: aov },
-              { category: 'Accessories', revenue: Math.round(rev * 0.3), units: Math.round(orders * 0.5), orders: Math.round(orders * 0.3), revenue_share_pct: 30, avg_unit_price: Math.round(aov * 0.7) }
-            ],
-        regions: regionalSalesMap.size > 0
-          ? Array.from(regionalSalesMap.entries()).map(([rg, rRev]) => ({
-              region: rg,
-              revenue: Math.round(rRev),
-              orders: Math.round((rRev / rev) * orders),
-              units: Math.round((rRev / rev) * orders * 1.4),
-              revenue_share_pct: Math.round((rRev / Math.max(rev, 1)) * 100)
-            }))
-          : [
-              { region: 'North', revenue: Math.round(rev * 0.38), orders: Math.round(orders * 0.38), units: Math.round(orders * 0.6), revenue_share_pct: 38 },
-              { region: 'South', revenue: Math.round(rev * 0.32), orders: Math.round(orders * 0.32), units: Math.round(orders * 0.5), revenue_share_pct: 32 },
-              { region: 'West', revenue: Math.round(rev * 0.30), orders: Math.round(orders * 0.30), units: Math.round(orders * 0.4), revenue_share_pct: 30 }
-            ],
-        top_products: productSalesMap.size > 0
-          ? Array.from(productSalesMap.entries())
-              .sort((a, b) => b[1].rev - a[1].rev)
-              .slice(0, 10)
-              .map(([pName, pData]) => ({
-                product: pName,
-                category: newStore.category,
-                revenue: Math.round(pData.rev),
-                units_sold: pData.count * 2,
-                orders_count: pData.count,
-                avg_price: Math.round(pData.rev / Math.max(pData.count, 1)),
-                revenue_share_pct: Math.round((pData.rev / Math.max(rev, 1)) * 100),
-                cumulative_revenue_pct: Math.round((pData.rev / Math.max(rev, 1)) * 100)
-              }))
-          : [
-              { product: `${newStore.category} Premium Line #1`, category: newStore.category, revenue: Math.round(rev * 0.35), units_sold: 250, orders_count: 210, avg_price: Math.round(aov * 1.3), revenue_share_pct: 35, cumulative_revenue_pct: 35 },
-              { product: `${newStore.category} Deluxe Unit #2`, category: newStore.category, revenue: Math.round(rev * 0.25), units_sold: 180, orders_count: 160, avg_price: Math.round(aov * 1.0), revenue_share_pct: 25, cumulative_revenue_pct: 60 }
-            ],
-        customer_metrics: {
-          total_customers: Math.round(orders * 0.45),
-          total_repeat_customers: Math.round(orders * 0.18),
-          repeat_customer_rate_pct: 40.0,
-          avg_revenue_per_customer: Math.round(rev / Math.max(orders * 0.45, 1)),
-          avg_orders_per_customer: 2.2,
-          has_customer_ids: true,
-          guest_orders_count: Math.round(orders * 0.1)
-        },
-        repeat_breakdown: []
-      }
-
-      try {
-        localStorage.setItem(`${LOCAL_ANALYTICS_PREFIX}${newStore.id}`, JSON.stringify(customBundle))
-      } catch {
-        // Ignore quota
-      }
-
-      inMemoryStores = [...inMemoryStores.filter(s => s.id !== newStore.id), newStore]
-      persistCustomStores(inMemoryStores)
-      return newStore
+      console.warn('Construct API network failure:', serverErr)
+      throw serverErr
     }
   },
 
@@ -627,10 +471,13 @@ export const storeApi = {
       inMemoryStores = inMemoryStores.filter(s => s.id !== storeId)
       persistCustomStores(inMemoryStores)
       return res.data
-    } catch {
+    } catch (err: any) {
+      if (err.response) {
+        throw err
+      }
       inMemoryStores = inMemoryStores.filter(s => s.id !== storeId)
       persistCustomStores(inMemoryStores)
-      return { success: true, message: 'Store removed' }
+      return { success: true, message: 'Store removed locally' }
     }
   },
 

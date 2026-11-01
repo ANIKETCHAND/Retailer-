@@ -51,6 +51,10 @@ STANDARD_COLUMNS = {
     "customer_id": [
         "customer id", "customer_id", "customerid", "customer", "client id",
         "client_id", "user id", "user_id", "account_id"
+    ],
+    "discount_pct": [
+        "discount_pct", "discount pct", "discount_percentage", "discount percentage",
+        "discount", "discount_rate", "discount rate", "discount_percent", "discount%"
     ]
 }
 
@@ -105,6 +109,18 @@ def load_raw_dataframe(source: Union[str, Path, BytesIO, StringIO, pd.DataFrame]
     """Reads dataframe safely from path, buffer, or existing DataFrame."""
     if isinstance(source, pd.DataFrame):
         return source.copy()
+
+    if isinstance(source, (BytesIO, StringIO)):
+        source.seek(0, 2)
+        length = source.tell()
+        source.seek(0)
+        if length == 0:
+            raise DataValidationError("Uploaded file is empty (0 bytes found).")
+
+    if isinstance(source, (str, Path)):
+        p = Path(source)
+        if p.exists() and p.stat().st_size == 0:
+            raise DataValidationError("Uploaded file is empty (0 bytes found).")
 
     encodings = ["utf-8", "utf-8-sig", "latin1", "cp1252"]
     for enc in encodings:
@@ -230,25 +246,61 @@ def validate_and_clean_dataset(
 
     if "unit_price" in clean_df.columns:
         clean_df["unit_price"] = pd.to_numeric(clean_df["unit_price"], errors="coerce")
+        # Invalidate negative prices
+        clean_df.loc[clean_df["unit_price"] < 0, "unit_price"] = np.nan
     else:
         clean_df["unit_price"] = np.nan
+
+    # Discount Percentage Handling (Academic Convention: percentage or fraction)
+    if "discount_pct" in clean_df.columns:
+        raw_str = clean_df["discount_pct"].astype(str).str.strip()
+        has_pct = raw_str.str.contains("%", regex=False)
+        num_val = pd.to_numeric(raw_str.str.replace("%", "", regex=False).str.strip(), errors="coerce").fillna(0.0)
+        num_val = num_val.clip(lower=0.0)
+
+        # Calculate discount rate:
+        # If explicitly formatted with '%', always divide by 100 (e.g. '1%' -> 0.01)
+        # If numeric > 1.0, it is a percentage (e.g. 10.0 -> 0.10)
+        # If numeric <= 1.0 and no '%', it is already a fraction (e.g. 0.15 -> 0.15)
+        rates = []
+        for v, pct_flag in zip(num_val, has_pct):
+            if pct_flag:
+                rates.append(min(1.0, float(v) / 100.0))
+            elif v > 1.0:
+                rates.append(min(1.0, float(v) / 100.0))
+            else:
+                rates.append(min(1.0, float(v)))
+
+        clean_df["discount_rate"] = rates
+        clean_df["discount_pct"] = num_val
+    else:
+        clean_df["discount_pct"] = 0.0
+        clean_df["discount_rate"] = 0.0
 
     if "total_amount" in clean_df.columns:
         clean_df["total_amount"] = pd.to_numeric(clean_df["total_amount"], errors="coerce")
     else:
         clean_df["total_amount"] = np.nan
 
-    # Cross-imputation
+    # Cross-imputation: Total Amount = Quantity * Unit Price * (1 - Discount Rate)
+    # Never treat discount percentages as flat currency amounts!
     calc_total_mask = clean_df["total_amount"].isna() & clean_df["unit_price"].notna()
     if calc_total_mask.any():
+        discount_multiplier = 1.0 - clean_df.loc[calc_total_mask, "discount_rate"]
         clean_df.loc[calc_total_mask, "total_amount"] = (
-            clean_df.loc[calc_total_mask, "quantity"] * clean_df.loc[calc_total_mask, "unit_price"]
+            clean_df.loc[calc_total_mask, "quantity"] *
+            clean_df.loc[calc_total_mask, "unit_price"] *
+            discount_multiplier
         )
 
     calc_price_mask = clean_df["unit_price"].isna() & clean_df["total_amount"].notna()
     if calc_price_mask.any():
+        effective_mult = 1.0 - clean_df.loc[calc_price_mask, "discount_rate"]
+        # Guard against 100% discount dividing by zero
+        safe_mult = effective_mult.apply(lambda m: m if m > 0.01 else 1.0)
         clean_df.loc[calc_price_mask, "unit_price"] = (
-            clean_df.loc[calc_price_mask, "total_amount"] / clean_df.loc[calc_price_mask, "quantity"]
+            clean_df.loc[calc_price_mask, "total_amount"] /
+            (clean_df.loc[calc_price_mask, "quantity"] * safe_mult)
         )
 
     invalid_revenue = clean_df["total_amount"].isna() | (clean_df["total_amount"] < 0)
@@ -257,6 +309,7 @@ def validate_and_clean_dataset(
 
     clean_df["total_amount"] = clean_df["total_amount"].round(2)
     clean_df["unit_price"] = clean_df["unit_price"].round(2)
+    clean_df["discount_pct"] = clean_df["discount_pct"].round(2)
 
     # 7. Regions, Cities, Customers, Orders
     clean_df["region"] = clean_df.get("region", "All Regions")

@@ -6,10 +6,14 @@ Decouples environment variables from business logic.
 
 import os
 from pathlib import Path
-from typing import Literal
+from typing import Literal, Optional
+from dotenv import load_dotenv
 
 # Base directory paths
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+# Load .env if present
+load_dotenv(BASE_DIR / ".env")
 
 # On Vercel serverless runtime, only /tmp is writable
 if os.getenv("VERCEL"):
@@ -50,6 +54,15 @@ class Settings:
     DEFAULT_DATASET_PATH: Path = DEFAULT_DATASET_PATH
     REPORTS_DIR: Path = REPORTS_DIR
     ASSETS_DIR: Path = ASSETS_DIR
+
+    # Supabase & Cloud Database Configuration
+    SUPABASE_URL: Optional[str] = os.getenv("SUPABASE_URL")
+    SUPABASE_ANON_KEY: Optional[str] = os.getenv("SUPABASE_ANON_KEY")
+    SUPABASE_SERVICE_ROLE_KEY: Optional[str] = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+    DATABASE_URL: Optional[str] = os.getenv("DATABASE_URL")
+    SUPABASE_STORAGE_BUCKET_DATASETS: str = os.getenv("SUPABASE_STORAGE_BUCKET_DATASETS", "retail-datasets")
+    SUPABASE_STORAGE_BUCKET_REPORTS: str = os.getenv("SUPABASE_STORAGE_BUCKET_REPORTS", "retail-reports")
+    JWT_SECRET: str = os.getenv("JWT_SECRET", "retailvision-jwt-production-secret-2026")
 
     # UI Defaults
     DEFAULT_THEME: str = os.getenv("DEFAULT_THEME", "dark").lower()
