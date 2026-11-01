@@ -2,14 +2,52 @@
  * GamePillButtons - AAA Casual Game Style Action Pills
  * Matches the visual design of the city-builder reference UI:
  *  - Elongated capsule pill with rounded-full geometry
- *  - Crisp 3px solid white border
- *  - Glossy top-to-bottom blue gradient with upper reflection gloss
+ *  - Crisp 3.5px solid white border
+ *  - Saturated skyblue glossy gradient matching reference image (#38bdf8 -> #0ea5e9 -> #0284c7 -> #0369a1)
+ *  - Upper-half glass reflection shine
  *  - 3D cartoon safety hard hat helmet & retail storefront icons with bold black outlines
  *  - Chunky cartoon white typography with dark outline sticker effect and drop shadow
  */
 
 import React from 'react'
 import { X } from 'lucide-react'
+
+// Reusable inline style object guaranteeing skyblue gradient and solid white border
+export const skyBluePillStyle: React.CSSProperties = {
+  background: 'linear-gradient(180deg, #38bdf8 0%, #0ea5e9 40%, #0284c7 75%, #0369a1 100%)',
+  border: '3.5px solid #ffffff',
+  borderRadius: '9999px',
+  boxShadow: '0 8px 25px rgba(2, 132, 199, 0.65), inset 0 2px 4px rgba(255, 255, 255, 0.75)',
+  color: '#ffffff',
+}
+
+export const pillShineStyle: React.CSSProperties = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  height: '50%',
+  background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%)',
+  borderTopLeftRadius: '9999px',
+  borderTopRightRadius: '9999px',
+  pointerEvents: 'none',
+}
+
+export const pillBadgeStyle: React.CSSProperties = {
+  background: 'rgba(255, 255, 255, 0.3)',
+  border: '1.5px solid #ffffff',
+  borderRadius: '9999px',
+  color: '#ffffff',
+  boxShadow: 'inset 0 1px 2px rgba(255, 255, 255, 0.4), 0 2px 4px rgba(0, 0, 0, 0.25)',
+  textShadow: '0 1px 2px rgba(0, 0, 0, 0.6)',
+}
+
+export const cartoonTextStyle: React.CSSProperties = {
+  WebkitTextStroke: '1.5px #0f172a',
+  paintOrder: 'stroke fill',
+  textShadow:
+    '-2px -2px 0 #0f172a, 2px -2px 0 #0f172a, -2px 2px 0 #0f172a, 2px 2px 0 #0f172a, 0 3px 0 #020617, 0 5px 8px rgba(0,0,0,0.65)',
+}
 
 interface GamePillButtonsProps {
   storeCount: number
@@ -193,95 +231,6 @@ export const StorefrontGameIcon: React.FC<{ className?: string }> = ({ className
   </svg>
 )
 
-export const GamePillButtons: React.FC<GamePillButtonsProps> = ({
-  storeCount,
-  onExplore,
-  onBuild,
-  onDismiss,
-}) => {
-  // Cartoon text stroke & shadow style matching reference image
-  const cartoonTextStyle: React.CSSProperties = {
-    WebkitTextStroke: '1.5px #0f172a',
-    paintOrder: 'stroke fill',
-    textShadow:
-      '-2px -2px 0 #0f172a, 2px -2px 0 #0f172a, -2px 2px 0 #0f172a, 2px 2px 0 #0f172a, 0 3px 0 #020617, 0 5px 8px rgba(0,0,0,0.65)',
-  }
-
-  return (
-    <aside
-      aria-label="Marketplace Quick Action Pills"
-      className="fixed top-20 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5 sm:gap-4 animate-in fade-in slide-in-from-top-4 duration-500 max-w-[95vw] overflow-x-auto p-1"
-    >
-      {/* ======================================================== */}
-      {/* BUTTON 1: EXPLORE EXISTING STORES                        */}
-      {/* ======================================================== */}
-      <button
-        type="button"
-        onClick={onExplore}
-        className="group relative flex items-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-2.5 rounded-full border-[3px] border-white bg-gradient-to-b from-[#38bdf8] via-[#2563eb] to-[#1d4ed8] shadow-[0_8px_25px_rgba(37,99,235,0.6),inset_0_2px_4px_rgba(255,255,255,0.7)] hover:scale-105 hover:brightness-110 active:scale-95 transition-all duration-200 cursor-pointer overflow-hidden flex-shrink-0"
-        title={`Explore all ${storeCount} active retail stores`}
-      >
-        {/* Top curved glossy shine */}
-        <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full pointer-events-none" />
-
-        {/* 3D Storefront Game Icon */}
-        <StorefrontGameIcon className="w-8 h-8 sm:w-10 sm:h-10 relative z-10 transition-transform group-hover:rotate-6 group-hover:scale-110" />
-
-        {/* Bold White Text with Cartoon Outline */}
-        <span
-          className="relative z-10 font-black text-white text-base sm:text-2xl tracking-wide select-none"
-          style={cartoonTextStyle}
-        >
-          Explore Stores
-        </span>
-
-        {/* Store Count Badge */}
-        <span
-          className="relative z-10 px-2 py-0.5 rounded-full bg-white/25 border border-white/70 text-white font-black text-xs sm:text-sm shadow-inner drop-shadow select-none"
-          style={{ textShadow: '0 1px 2px rgba(0,0,0,0.6)' }}
-        >
-          {storeCount}
-        </span>
-      </button>
-
-      {/* ======================================================== */}
-      {/* BUTTON 2: CONSTRUCT NEW STORE (EXACT MATCH TO IMAGE 2)   */}
-      {/* ======================================================== */}
-      <button
-        type="button"
-        onClick={onBuild}
-        className="group relative flex items-center gap-2 sm:gap-3 px-5 py-2 sm:px-7 sm:py-2.5 rounded-full border-[3px] border-white bg-gradient-to-b from-[#38bdf8] via-[#2563eb] to-[#1d4ed8] shadow-[0_8px_25px_rgba(37,99,235,0.6),inset_0_2px_4px_rgba(255,255,255,0.7)] hover:scale-105 hover:brightness-110 active:scale-95 transition-all duration-200 cursor-pointer overflow-hidden flex-shrink-0"
-        title="Construct a new store on the next plot"
-      >
-        {/* Top curved glossy shine */}
-        <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full pointer-events-none" />
-
-        {/* Yellow Hard Hat Helmet Game Icon */}
-        <HardHatGameIcon className="w-8 h-8 sm:w-10 sm:h-10 relative z-10 transition-transform group-hover:-rotate-6 group-hover:scale-110" />
-
-        {/* Bold White Text with Cartoon Outline: "Build" */}
-        <span
-          className="relative z-10 font-black text-white text-lg sm:text-2xl tracking-wide select-none"
-          style={cartoonTextStyle}
-        >
-          Build
-        </span>
-      </button>
-
-      {/* Dismiss / Close Icon */}
-      <button
-        type="button"
-        onClick={onDismiss}
-        className="p-1.5 sm:p-2 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white/80 hover:text-white border-2 border-white/40 shadow-lg backdrop-blur-md transition-all hover:scale-110 cursor-pointer flex-shrink-0"
-        title="Dismiss quick action buttons"
-        aria-label="Dismiss quick action buttons"
-      >
-        <X className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-      </button>
-    </aside>
-  )
-}
-
 /**
  * 3D Cartoon Metropolis Skyline Icon for City View Mode
  */
@@ -384,6 +333,89 @@ export const CityViewGameIcon: React.FC<{ className?: string }> = ({ className =
   </svg>
 )
 
+export const GamePillButtons: React.FC<GamePillButtonsProps> = ({
+  storeCount,
+  onExplore,
+  onBuild,
+  onDismiss,
+}) => {
+  return (
+    <aside
+      aria-label="Marketplace Quick Action Pills"
+      className="fixed top-20 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5 sm:gap-4 animate-in fade-in slide-in-from-top-4 duration-500 max-w-[95vw] overflow-x-auto p-1"
+    >
+      {/* ======================================================== */}
+      {/* BUTTON 1: EXPLORE EXISTING STORES                        */}
+      {/* ======================================================== */}
+      <button
+        type="button"
+        onClick={onExplore}
+        className="game-pill-btn group relative flex items-center gap-2 sm:gap-3 px-5 py-2 sm:px-6 sm:py-2.5 flex-shrink-0"
+        style={skyBluePillStyle}
+        title={`Explore all ${storeCount} active retail stores`}
+      >
+        {/* Top curved glossy shine */}
+        <div className="game-pill-shine" style={pillShineStyle} />
+
+        {/* 3D Storefront Game Icon */}
+        <StorefrontGameIcon className="w-8 h-8 sm:w-10 sm:h-10 relative z-10 transition-transform group-hover:rotate-6 group-hover:scale-110" />
+
+        {/* Bold White Text with Cartoon Outline */}
+        <span
+          className="relative z-10 font-black text-white text-base sm:text-2xl tracking-wide select-none"
+          style={cartoonTextStyle}
+        >
+          Explore Stores
+        </span>
+
+        {/* Store Count Badge */}
+        <span
+          className="relative z-10 px-2.5 py-0.5 text-xs sm:text-sm font-black select-none"
+          style={pillBadgeStyle}
+        >
+          {storeCount}
+        </span>
+      </button>
+
+      {/* ======================================================== */}
+      {/* BUTTON 2: CONSTRUCT NEW STORE (EXACT MATCH TO IMAGE 2)   */}
+      {/* ======================================================== */}
+      <button
+        type="button"
+        onClick={onBuild}
+        className="game-pill-btn group relative flex items-center gap-2 sm:gap-3 px-6 py-2 sm:px-7 sm:py-2.5 flex-shrink-0"
+        style={skyBluePillStyle}
+        title="Construct a new store on the next plot"
+      >
+        {/* Top curved glossy shine */}
+        <div className="game-pill-shine" style={pillShineStyle} />
+
+        {/* Yellow Hard Hat Helmet Game Icon */}
+        <HardHatGameIcon className="w-8 h-8 sm:w-10 sm:h-10 relative z-10 transition-transform group-hover:-rotate-6 group-hover:scale-110" />
+
+        {/* Bold White Text with Cartoon Outline: "Build" */}
+        <span
+          className="relative z-10 font-black text-white text-lg sm:text-2xl tracking-wide select-none"
+          style={cartoonTextStyle}
+        >
+          Build
+        </span>
+      </button>
+
+      {/* Dismiss / Close Icon */}
+      <button
+        type="button"
+        onClick={onDismiss}
+        className="p-1.5 sm:p-2 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white/80 hover:text-white border-2 border-white/40 shadow-lg backdrop-blur-md transition-all hover:scale-110 cursor-pointer flex-shrink-0"
+        title="Dismiss quick action buttons"
+        aria-label="Dismiss quick action buttons"
+      >
+        <X className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+      </button>
+    </aside>
+  )
+}
+
 interface CityViewPillProps {
   onCityView: () => void
   onNextStore?: () => void
@@ -409,13 +441,6 @@ export const CityViewPill: React.FC<CityViewPillProps> = ({
   plotIndex,
   onOpenBuild,
 }) => {
-  const cartoonTextStyle: React.CSSProperties = {
-    WebkitTextStroke: '1.5px #0f172a',
-    paintOrder: 'stroke fill',
-    textShadow:
-      '-2px -2px 0 #0f172a, 2px -2px 0 #0f172a, -2px 2px 0 #0f172a, 2px 2px 0 #0f172a, 0 3px 0 #020617, 0 5px 8px rgba(0,0,0,0.65)',
-  }
-
   return (
     <aside
       aria-label="Focus Navigation Controls"
@@ -427,11 +452,12 @@ export const CityViewPill: React.FC<CityViewPillProps> = ({
       <button
         type="button"
         onClick={onCityView}
-        className="group relative flex items-center gap-2.5 sm:gap-3 px-5 py-2 sm:px-7 sm:py-2.5 rounded-full border-[3px] border-white bg-gradient-to-b from-[#38bdf8] via-[#2563eb] to-[#1d4ed8] shadow-[0_8px_25px_rgba(37,99,235,0.6),inset_0_2px_4px_rgba(255,255,255,0.7)] hover:scale-105 hover:brightness-110 active:scale-95 transition-all duration-200 cursor-pointer overflow-hidden flex-shrink-0"
+        className="game-pill-btn group relative flex items-center gap-2.5 sm:gap-3 px-5 py-2 sm:px-7 sm:py-2.5 flex-shrink-0"
+        style={skyBluePillStyle}
         title="Return to full city view mode"
       >
         {/* Top curved glossy shine */}
-        <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full pointer-events-none" />
+        <div className="game-pill-shine" style={pillShineStyle} />
 
         {/* 3D City Skyline Game Icon */}
         <CityViewGameIcon className="w-8 h-8 sm:w-10 sm:h-10 relative z-10 transition-transform group-hover:scale-110" />
@@ -452,10 +478,11 @@ export const CityViewPill: React.FC<CityViewPillProps> = ({
         <button
           type="button"
           onClick={onOpenBuild}
-          className="group relative flex items-center gap-2 sm:gap-3 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full border-[3px] border-white bg-gradient-to-b from-[#38bdf8] via-[#2563eb] to-[#1d4ed8] shadow-[0_8px_25px_rgba(37,99,235,0.6),inset_0_2px_4px_rgba(255,255,255,0.7)] hover:scale-105 hover:brightness-110 active:scale-95 transition-all duration-200 cursor-pointer overflow-hidden flex-shrink-0"
+          className="game-pill-btn group relative flex items-center gap-2 sm:gap-3 px-5 py-2 sm:px-6 sm:py-2.5 flex-shrink-0"
+          style={skyBluePillStyle}
           title={`Construct store on Plot #${plotIndex ?? ''}`}
         >
-          <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full pointer-events-none" />
+          <div className="game-pill-shine" style={pillShineStyle} />
           <HardHatGameIcon className="w-8 h-8 sm:w-10 sm:h-10 relative z-10 transition-transform group-hover:-rotate-6 group-hover:scale-110" />
           <span
             className="relative z-10 font-black text-white text-base sm:text-2xl tracking-wide select-none"
@@ -480,10 +507,11 @@ export const CityViewPill: React.FC<CityViewPillProps> = ({
         <button
           type="button"
           onClick={onNextStore}
-          className="group relative flex items-center gap-2 sm:gap-2.5 px-4 py-2 sm:px-6 sm:py-2.5 rounded-full border-[3px] border-white bg-gradient-to-b from-[#38bdf8] via-[#2563eb] to-[#1d4ed8] shadow-[0_8px_25px_rgba(37,99,235,0.6),inset_0_2px_4px_rgba(255,255,255,0.7)] hover:scale-105 hover:brightness-110 active:scale-95 transition-all duration-200 cursor-pointer overflow-hidden flex-shrink-0"
+          className="game-pill-btn group relative flex items-center gap-2 sm:gap-2.5 px-4 py-2 sm:px-6 sm:py-2.5 flex-shrink-0"
+          style={skyBluePillStyle}
           title="Tour next store"
         >
-          <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full pointer-events-none" />
+          <div className="game-pill-shine" style={pillShineStyle} />
           <StorefrontGameIcon className="w-7 h-7 sm:w-9 sm:h-9 relative z-10 transition-transform group-hover:rotate-6 group-hover:scale-110" />
           <span
             className="relative z-10 font-black text-white text-sm sm:text-xl tracking-wide select-none"
@@ -492,8 +520,8 @@ export const CityViewPill: React.FC<CityViewPillProps> = ({
             Next Store
           </span>
           <span
-            className="relative z-10 px-2 py-0.5 rounded-full bg-white/25 border border-white/70 text-white font-black text-xs sm:text-sm shadow-inner drop-shadow select-none"
-            style={{ textShadow: '0 1px 2px rgba(0,0,0,0.6)' }}
+            className="relative z-10 px-2.5 py-0.5 text-xs sm:text-sm font-black select-none"
+            style={pillBadgeStyle}
           >
             {(currentStoreIndex ?? 0) + 1}/{totalStores}
           </span>
