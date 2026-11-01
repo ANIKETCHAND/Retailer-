@@ -464,24 +464,84 @@ function WindTurbine({ position, isNight = false }: { position: [number, number,
 }
 
 // -------------------------------------------------------------
-// 6. TROPICAL PALM TREE & JACARANDA
+// 6. LOW-POLY FACETED TREES & BOTANICALS (Matching Reference Style)
 // -------------------------------------------------------------
+export function LowPolyFacetedTree({
+  position,
+  scale = 1.0,
+  type = 'round',
+  shade = '#22c55e'
+}: {
+  position: [number, number, number]
+  scale?: number
+  type?: 'round' | 'tiered' | 'pine'
+  shade?: string
+}) {
+  return (
+    <group position={position} scale={[scale, scale, scale]}>
+      {/* Low-Poly Faceted Trunk */}
+      <mesh position={[0, 0.65, 0]} castShadow>
+        <cylinderGeometry args={[0.08, 0.13, 1.3, 6]} />
+        <meshStandardMaterial color="#78350f" roughness={0.9} flatShading />
+      </mesh>
+
+      {/* Faceted Canopy */}
+      {type === 'round' && (
+        <mesh position={[0, 1.8, 0]} castShadow>
+          <dodecahedronGeometry args={[1.05, 0]} />
+          <meshStandardMaterial color={shade} roughness={0.6} flatShading />
+        </mesh>
+      )}
+
+      {type === 'tiered' && (
+        <group position={[0, 1.5, 0]}>
+          <mesh position={[0, 0, 0]} castShadow>
+            <dodecahedronGeometry args={[1.0, 0]} />
+            <meshStandardMaterial color={shade} roughness={0.6} flatShading />
+          </mesh>
+          <mesh position={[0, 0.95, 0]} castShadow>
+            <dodecahedronGeometry args={[0.72, 0]} />
+            <meshStandardMaterial color="#4ade80" roughness={0.6} flatShading />
+          </mesh>
+        </group>
+      )}
+
+      {type === 'pine' && (
+        <group position={[0, 1.4, 0]}>
+          <mesh position={[0, 0, 0]} castShadow>
+            <coneGeometry args={[1.05, 1.3, 6]} />
+            <meshStandardMaterial color={shade} roughness={0.7} flatShading />
+          </mesh>
+          <mesh position={[0, 0.75, 0]} castShadow>
+            <coneGeometry args={[0.82, 1.1, 6]} />
+            <meshStandardMaterial color="#16a34a" roughness={0.7} flatShading />
+          </mesh>
+          <mesh position={[0, 1.4, 0]} castShadow>
+            <coneGeometry args={[0.55, 0.9, 6]} />
+            <meshStandardMaterial color="#4ade80" roughness={0.7} flatShading />
+          </mesh>
+        </group>
+      )}
+    </group>
+  )
+}
+
 export function PalmTree({ position }: { position: [number, number, number] }) {
   return (
     <group position={position}>
       <mesh position={[0, 0.65, 0]} rotation={[0.06, 0, -0.1]} castShadow>
-        <cylinderGeometry args={[0.1, 0.18, 1.3, 8]} />
-        <meshStandardMaterial color="#854d0e" roughness={0.9} />
+        <cylinderGeometry args={[0.1, 0.18, 1.3, 6]} />
+        <meshStandardMaterial color="#854d0e" roughness={0.9} flatShading />
       </mesh>
       <mesh position={[0.12, 1.8, 0]} rotation={[0.14, 0, -0.18]} castShadow>
-        <cylinderGeometry args={[0.08, 0.11, 1.2, 8]} />
-        <meshStandardMaterial color="#78350f" roughness={0.9} />
+        <cylinderGeometry args={[0.08, 0.11, 1.2, 6]} />
+        <meshStandardMaterial color="#78350f" roughness={0.9} flatShading />
       </mesh>
       {[0, Math.PI / 3, (2 * Math.PI) / 3, Math.PI, (4 * Math.PI) / 3, (5 * Math.PI) / 3].map((ang, i) => (
         <group key={`frond-${i}`} position={[0.25, 2.35, 0]} rotation={[0.35, ang, 0.55]}>
           <mesh castShadow>
             <boxGeometry args={[1.05, 0.04, 0.28]} />
-            <meshStandardMaterial color={i % 2 === 0 ? '#15803d' : '#22c55e'} roughness={0.7} />
+            <meshStandardMaterial color={i % 2 === 0 ? '#15803d' : '#22c55e'} roughness={0.7} flatShading />
           </mesh>
         </group>
       ))}
@@ -489,21 +549,837 @@ export function PalmTree({ position }: { position: [number, number, number] }) {
   )
 }
 
-function JacarandaTree({ position }: { position: [number, number, number] }) {
+export function JacarandaTree({ position }: { position: [number, number, number] }) {
   return (
     <group position={position}>
       <mesh position={[0, 0.9, 0]} castShadow>
-        <cylinderGeometry args={[0.15, 0.22, 1.8, 8]} />
-        <meshStandardMaterial color="#573a1e" roughness={0.9} />
+        <cylinderGeometry args={[0.12, 0.18, 1.8, 6]} />
+        <meshStandardMaterial color="#573a1e" roughness={0.9} flatShading />
       </mesh>
-      <mesh position={[0, 2.3, 0]} castShadow>
-        <sphereGeometry args={[1.3, 12, 12]} />
-        <meshStandardMaterial color="#a855f7" roughness={0.8} />
+      <mesh position={[0, 2.2, 0]} castShadow>
+        <dodecahedronGeometry args={[1.2, 0]} />
+        <meshStandardMaterial color="#a855f7" roughness={0.7} flatShading />
       </mesh>
-      <mesh position={[0.4, 2.8, -0.2]} castShadow>
-        <sphereGeometry args={[0.9, 10, 10]} />
-        <meshStandardMaterial color="#c084fc" roughness={0.8} />
+      <mesh position={[0.35, 2.7, -0.2]} castShadow>
+        <dodecahedronGeometry args={[0.8, 0]} />
+        <meshStandardMaterial color="#c084fc" roughness={0.7} flatShading />
       </mesh>
+    </group>
+  )
+}
+
+// -------------------------------------------------------------
+// 6B. PARKED STYLIZED VEHICLES (Matching Reference Style)
+// -------------------------------------------------------------
+export function ParkedCar({
+  position,
+  rotation = 0,
+  carType = 'sedan',
+  color = '#3b82f6',
+  isPolice: isPoliceProp,
+  isAmbulance: isAmbulanceProp,
+  isTaxi: isTaxiProp,
+  isTruck: isTruckProp
+}: {
+  position: [number, number, number]
+  rotation?: number
+  carType?: 'sedan' | 'taxi' | 'police' | 'ambulance' | 'truck'
+  color?: string
+  isPolice?: boolean
+  isAmbulance?: boolean
+  isTaxi?: boolean
+  isTruck?: boolean
+}) {
+  const isPolice = isPoliceProp ?? carType === 'police'
+  const isAmbulance = isAmbulanceProp ?? carType === 'ambulance'
+  const isTaxi = isTaxiProp ?? carType === 'taxi'
+  const isTruck = isTruckProp ?? carType === 'truck'
+
+  const w = isTruck ? 1.05 : isAmbulance ? 1.0 : 0.88
+  const l = isTruck ? 2.8 : isAmbulance ? 2.6 : isTaxi || isPolice ? 1.85 : 1.75
+  const h = isTruck ? 1.2 : isAmbulance ? 1.0 : 0.48
+
+  return (
+    <group position={position} rotation={[0, rotation, 0]}>
+      {/* Chassis Body */}
+      <mesh position={[0, h * 0.45, 0]} castShadow>
+        <boxGeometry args={[w, h * 0.5, l]} />
+        <meshStandardMaterial
+          color={isPolice ? '#1e293b' : isAmbulance ? '#f8fafc' : isTaxi ? '#eab308' : color}
+          roughness={0.3}
+          metalness={0.2}
+          flatShading
+        />
+      </mesh>
+      {/* Cabin Roof */}
+      <mesh position={[0, h * 0.8, isTruck ? -0.4 : isAmbulance ? 0 : -0.1]} castShadow>
+        <boxGeometry args={[w * 0.86, h * 0.45, isTruck ? l * 0.6 : isAmbulance ? l * 0.9 : l * 0.52]} />
+        <meshStandardMaterial
+          color={isPolice ? '#f8fafc' : isAmbulance ? '#f8fafc' : isTruck ? '#cbd5e1' : '#0f172a'}
+          roughness={0.4}
+          flatShading
+        />
+      </mesh>
+      {/* Police / Taxi / Ambulance Rooftop Lights */}
+      {isPolice && (
+        <mesh position={[0, h + 0.12, -0.1]}>
+          <boxGeometry args={[0.3, 0.08, 0.12]} />
+          <meshStandardMaterial color="#0284c7" emissive="#0284c7" emissiveIntensity={1.8} />
+        </mesh>
+      )}
+      {isTaxi && (
+        <mesh position={[0, h + 0.12, -0.1]}>
+          <boxGeometry args={[0.26, 0.08, 0.12]} />
+          <meshStandardMaterial color="#fef08a" emissive="#eab308" emissiveIntensity={1.2} />
+        </mesh>
+      )}
+      {isAmbulance && (
+        <group position={[0, h + 0.12, 0.2]}>
+          <mesh>
+            <boxGeometry args={[0.35, 0.08, 0.14]} />
+            <meshStandardMaterial color="#ef4444" emissive="#ef4444" emissiveIntensity={2.0} />
+          </mesh>
+          <mesh position={[w * 0.44, 0, 0]}>
+            <boxGeometry args={[0.02, 0.35, 0.35]} />
+            <meshStandardMaterial color="#ef4444" />
+          </mesh>
+        </group>
+      )}
+      {/* Wheels */}
+      {[-w * 0.51, w * 0.51].map((wx, i) =>
+        [-l * 0.3, l * 0.3].map((wz, j) => (
+          <mesh key={`pwhl-${i}-${j}`} position={[wx, 0.12, wz]} rotation={[0, 0, Math.PI / 2]}>
+            <cylinderGeometry args={[0.13, 0.13, 0.08, 8]} />
+            <meshStandardMaterial color="#0f172a" roughness={0.9} flatShading />
+          </mesh>
+        ))
+      )}
+    </group>
+  )
+}
+
+// -------------------------------------------------------------
+// 6C. STYLIZED BASKETBALL COURT (Matching Reference Bottom-Center)
+// -------------------------------------------------------------
+function BasketballCourt({ position }: { position: [number, number, number] }) {
+  return (
+    <group position={position}>
+      {/* Court Asphalt Base */}
+      <mesh position={[0, 0.06, 0]} receiveShadow>
+        <boxGeometry args={[7.8, 0.12, 5.2]} />
+        <meshStandardMaterial color="#334155" roughness={0.8} />
+      </mesh>
+      {/* Red Key Court Surface */}
+      <mesh position={[0, 0.125, 0]}>
+        <planeGeometry args={[7.2, 4.6]} />
+        <meshStandardMaterial color="#dc2626" roughness={0.7} />
+      </mesh>
+      {/* Blue 3-point Area */}
+      {[-2.2, 2.2].map((bx, i) => (
+        <mesh key={`b-arc-${i}`} position={[bx, 0.13, 0]}>
+          <circleGeometry args={[1.4, 16, 0, Math.PI]} />
+          <meshStandardMaterial color="#0284c7" />
+        </mesh>
+      ))}
+      {/* Center Circle & Lines */}
+      <mesh position={[0, 0.131, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <ringGeometry args={[0.65, 0.72, 16]} />
+        <meshBasicMaterial color="#ffffff" />
+      </mesh>
+      {/* Perimeter White Line */}
+      <mesh position={[0, 0.13, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[7.2, 0.06]} />
+        <meshBasicMaterial color="#ffffff" />
+      </mesh>
+      {/* 2 Basketball Hoops */}
+      {[-3.3, 3.3].map((hx, idx) => (
+        <group key={`b-hoop-${idx}`} position={[hx, 0.12, 0]} rotation={[0, idx === 0 ? Math.PI / 2 : -Math.PI / 2, 0]}>
+          <mesh position={[0, 1.3, -0.3]}>
+            <cylinderGeometry args={[0.04, 0.04, 2.6, 6]} />
+            <meshStandardMaterial color="#1e293b" />
+          </mesh>
+          <mesh position={[0, 2.35, 0]}>
+            <boxGeometry args={[1.0, 0.7, 0.04]} />
+            <meshStandardMaterial color="#ffffff" />
+          </mesh>
+          <mesh position={[0, 2.15, 0.22]} rotation={[Math.PI / 2, 0, 0]}>
+            <torusGeometry args={[0.18, 0.02, 6, 12]} />
+            <meshStandardMaterial color="#ea580c" />
+          </mesh>
+        </group>
+      ))}
+      {/* Chainlink Fence Railing */}
+      {[-2.55, 2.55].map((fz, i) => (
+        <mesh key={`fence-${i}`} position={[0, 0.7, fz]}>
+          <boxGeometry args={[7.8, 1.2, 0.04]} />
+          <meshStandardMaterial color="#94a3b8" transparent opacity={0.4} metalness={0.7} />
+        </mesh>
+      ))}
+      {/* Courtside Waiting Bench */}
+      <mesh position={[0, 0.35, 2.9]}>
+        <boxGeometry args={[2.4, 0.12, 0.4]} />
+        <meshStandardMaterial color="#78350f" flatShading />
+      </mesh>
+    </group>
+  )
+}
+
+// -------------------------------------------------------------
+// 6D. STYLIZED LOW-POLY HOSPITAL COMPLEX (Matching Reference Left)
+// -------------------------------------------------------------
+function StylizedHospital({ position, isNight = false }: { position: [number, number, number]; isNight?: boolean }) {
+  return (
+    <group position={position}>
+      {/* Concrete Foundation / Sidewalk Setback */}
+      <mesh position={[0, 0.05, 0]} receiveShadow>
+        <boxGeometry args={[11.6, 0.1, 10.4]} />
+        <meshStandardMaterial color="#e2e8f0" roughness={0.7} flatShading />
+      </mesh>
+
+      {/* Main Ground & 2nd Floor Hospital Wing */}
+      <mesh position={[0, 1.8, -0.6]} castShadow receiveShadow>
+        <boxGeometry args={[10.4, 3.5, 7.2]} />
+        <meshStandardMaterial color="#f8fafc" roughness={0.4} flatShading />
+      </mesh>
+
+      {/* Blue Horizontal Accent Ribbon */}
+      <mesh position={[0, 1.8, -0.6]}>
+        <boxGeometry args={[10.45, 0.45, 7.25]} />
+        <meshStandardMaterial color="#0284c7" flatShading />
+      </mesh>
+
+      {/* Window Rows (Ground & Upper) */}
+      {[-3.6, -1.8, 0, 1.8, 3.6].map((wx, i) => (
+        <group key={`hosp-win-${i}`}>
+          <mesh position={[wx, 2.7, 3.02]}>
+            <boxGeometry args={[1.2, 0.85, 0.04]} />
+            <meshStandardMaterial color="#38bdf8" roughness={0.2} metalness={0.4} />
+          </mesh>
+          <mesh position={[wx, 0.9, 3.02]}>
+            <boxGeometry args={[1.2, 0.85, 0.04]} />
+            <meshStandardMaterial color="#38bdf8" roughness={0.2} metalness={0.4} />
+          </mesh>
+        </group>
+      ))}
+
+      {/* 3rd Floor Stepped Penthouse Wing */}
+      <mesh position={[-0.8, 4.3, -0.8]} castShadow receiveShadow>
+        <boxGeometry args={[7.2, 1.6, 5.4]} />
+        <meshStandardMaterial color="#f1f5f9" roughness={0.4} flatShading />
+      </mesh>
+
+      {/* Front Entrance Canopy & "HOSPITAL" Marquee */}
+      <group position={[0, 0, 3.0]}>
+        <mesh position={[0, 1.9, 0.8]} castShadow>
+          <boxGeometry args={[3.8, 0.18, 1.6]} />
+          <meshStandardMaterial color="#0284c7" flatShading />
+        </mesh>
+        {[-1.6, 1.6].map((px, i) => (
+          <mesh key={`hosp-pillar-${i}`} position={[px, 0.9, 1.4]} castShadow>
+            <cylinderGeometry args={[0.07, 0.07, 1.8, 6]} />
+            <meshStandardMaterial color="#ffffff" flatShading />
+          </mesh>
+        ))}
+        {/* Entrance Glass Sliding Doors */}
+        <mesh position={[0, 0.9, 0.04]}>
+          <boxGeometry args={[2.2, 1.7, 0.06]} />
+          <meshStandardMaterial color="#38bdf8" transparent opacity={0.7} />
+        </mesh>
+        {/* Sign Fascia with Blue Header */}
+        <mesh position={[0, 2.2, 0.85]}>
+          <boxGeometry args={[3.0, 0.45, 0.08]} />
+          <meshStandardMaterial color="#0284c7" />
+        </mesh>
+      </group>
+
+      {/* Circular Blue Rooftop Helipad with "H" */}
+      <group position={[1.8, 5.15, -0.8]}>
+        {/* Helipad Base */}
+        <mesh receiveShadow>
+          <cylinderGeometry args={[2.0, 2.0, 0.12, 24]} />
+          <meshStandardMaterial color="#1e293b" flatShading />
+        </mesh>
+        {/* Cyan Circle */}
+        <mesh position={[0, 0.07, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+          <circleGeometry args={[1.8, 24]} />
+          <meshStandardMaterial color="#0284c7" />
+        </mesh>
+        {/* White Ring */}
+        <mesh position={[0, 0.075, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+          <ringGeometry args={[1.5, 1.65, 24]} />
+          <meshBasicMaterial color="#ffffff" />
+        </mesh>
+        {/* Helipad "H" Marking */}
+        {[-0.45, 0.45].map((hx, idx) => (
+          <mesh key={`h-bar-${idx}`} position={[hx, 0.08, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+            <planeGeometry args={[0.2, 1.2]} />
+            <meshBasicMaterial color="#ffffff" />
+          </mesh>
+        ))}
+        <mesh position={[0, 0.08, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+          <planeGeometry args={[0.7, 0.2]} />
+          <meshBasicMaterial color="#ffffff" />
+        </mesh>
+      </group>
+
+      {/* Rooftop HVAC Chiller Units */}
+      <group position={[-2.8, 5.3, -1.2]}>
+        <mesh castShadow>
+          <boxGeometry args={[1.4, 0.8, 1.1]} />
+          <meshStandardMaterial color="#94a3b8" flatShading />
+        </mesh>
+        <mesh position={[0, 0.42, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+          <circleGeometry args={[0.35, 12]} />
+          <meshStandardMaterial color="#334155" />
+        </mesh>
+      </group>
+      <group position={[-1.2, 5.25, -2.2]}>
+        <mesh castShadow>
+          <boxGeometry args={[1.1, 0.7, 0.9]} />
+          <meshStandardMaterial color="#cbd5e1" flatShading />
+        </mesh>
+      </group>
+
+      {/* Emergency Parking Apron with Marked Stalls */}
+      <group position={[0, 0.06, 4.2]}>
+        <mesh receiveShadow>
+          <boxGeometry args={[10.4, 0.02, 3.2]} />
+          <meshStandardMaterial color="#334155" roughness={0.8} />
+        </mesh>
+        {/* White Parking Stripe Dividers */}
+        {[-4.2, -2.1, 0, 2.1, 4.2].map((sx, i) => (
+          <mesh key={`hosp-stall-${i}`} position={[sx, 0.015, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+            <planeGeometry args={[0.08, 2.8]} />
+            <meshBasicMaterial color="#ffffff" />
+          </mesh>
+        ))}
+
+        {/* 2 Parked Ambulances */}
+        <ParkedCar position={[-3.1, 0.02, 0.1]} rotation={0} color="#f8fafc" isAmbulance />
+        <ParkedCar position={[-1.0, 0.02, 0.1]} rotation={0} color="#f8fafc" isAmbulance />
+
+        {/* Parked Yellow Taxi & Sedan */}
+        <ParkedCar position={[1.0, 0.02, 0.1]} rotation={0} isTaxi />
+        <ParkedCar position={[3.1, 0.02, 0.1]} rotation={0} color="#0284c7" />
+      </group>
+
+      {/* Bus Stop Shelter with Curved Blue Canopy */}
+      <group position={[-5.0, 0.1, 4.2]} rotation={[0, Math.PI / 2, 0]}>
+        <mesh position={[0, 1.1, -0.4]} castShadow>
+          <boxGeometry args={[2.0, 1.8, 0.05]} />
+          <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.6} />
+        </mesh>
+        <mesh position={[0, 2.05, 0]} castShadow>
+          <boxGeometry args={[2.2, 0.1, 1.0]} />
+          <meshStandardMaterial color="#0284c7" flatShading />
+        </mesh>
+        {/* Waiting Bench */}
+        <mesh position={[0, 0.45, -0.2]}>
+          <boxGeometry args={[1.5, 0.1, 0.35]} />
+          <meshStandardMaterial color="#78350f" flatShading />
+        </mesh>
+      </group>
+
+      {/* Lush Low-Poly Faceted Trees around perimeter */}
+      <LowPolyFacetedTree position={[-5.2, 0.1, -3.8]} scale={1.1} type="round" shade="#16a34a" />
+      <LowPolyFacetedTree position={[5.2, 0.1, -3.8]} scale={1.0} type="tiered" shade="#22c55e" />
+      <LowPolyFacetedTree position={[5.2, 0.1, 3.8]} scale={0.9} type="round" shade="#4ade80" />
+
+      {isNight && (
+        <pointLight position={[0, 2.4, 3.8]} intensity={2.2} distance={8} color="#fde047" />
+      )}
+    </group>
+  )
+}
+
+// -------------------------------------------------------------
+// 6E. STYLIZED SUPERMARKET & LOADING DOCK (Matching Reference Middle-Right)
+// -------------------------------------------------------------
+function StylizedSupermarket({ position, isNight = false }: { position: [number, number, number]; isNight?: boolean }) {
+  return (
+    <group position={position}>
+      {/* Foundation & Pavement Base */}
+      <mesh position={[0, 0.05, 0]} receiveShadow>
+        <boxGeometry args={[11.2, 0.1, 8.8]} />
+        <meshStandardMaterial color="#e2e8f0" roughness={0.7} flatShading />
+      </mesh>
+
+      {/* Main Commercial Store Building */}
+      <mesh position={[0, 1.9, -0.6]} castShadow receiveShadow>
+        <boxGeometry args={[9.8, 3.7, 5.6]} />
+        <meshStandardMaterial color="#f1f5f9" roughness={0.5} flatShading />
+      </mesh>
+
+      {/* Red Parapet Header / Marquee (Matching "SUPERMARKET" in reference) */}
+      <mesh position={[0, 3.85, 2.22]} castShadow>
+        <boxGeometry args={[7.8, 1.05, 0.25]} />
+        <meshStandardMaterial color="#dc2626" roughness={0.4} flatShading />
+      </mesh>
+      {/* White Signplate Contrast Inset */}
+      <mesh position={[0, 3.85, 2.36]}>
+        <boxGeometry args={[6.8, 0.65, 0.04]} />
+        <meshStandardMaterial color="#ffffff" flatShading />
+      </mesh>
+      {/* Red Sign Accent Bar */}
+      <mesh position={[0, 3.85, 2.39]}>
+        <boxGeometry args={[6.2, 0.22, 0.02]} />
+        <meshStandardMaterial color="#ef4444" flatShading />
+      </mesh>
+
+      {/* Glass Storefront Windows & Sliding Doors */}
+      <mesh position={[0, 1.1, 2.22]}>
+        <boxGeometry args={[8.4, 2.0, 0.06]} />
+        <meshStandardMaterial color="#38bdf8" roughness={0.2} metalness={0.5} />
+      </mesh>
+
+      {/* Rear Loading Dock for Delivery Trucks */}
+      <group position={[0, 0, -3.5]}>
+        <mesh position={[0, 0.35, -0.8]} receiveShadow>
+          <boxGeometry args={[3.8, 0.6, 1.6]} />
+          <meshStandardMaterial color="#64748b" roughness={0.7} flatShading />
+        </mesh>
+        {/* Roll-up Loading Bay Door */}
+        <mesh position={[0, 1.4, 0.02]}>
+          <boxGeometry args={[2.2, 2.1, 0.06]} />
+          <meshStandardMaterial color="#334155" roughness={0.8} flatShading />
+        </mesh>
+        {/* Parked White Delivery Truck at Loading Bay */}
+        <ParkedCar position={[0, 0.05, -1.8]} rotation={0} color="#f8fafc" isTruck />
+      </group>
+
+      {/* Front Customer Parking Lot with Marked Stalls */}
+      <group position={[0, 0.06, 3.2]}>
+        <mesh receiveShadow>
+          <boxGeometry args={[9.8, 0.02, 2.2]} />
+          <meshStandardMaterial color="#334155" roughness={0.8} />
+        </mesh>
+        {[-3.6, -1.8, 0, 1.8, 3.6].map((sx, i) => (
+          <mesh key={`market-stall-${i}`} position={[sx, 0.015, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+            <planeGeometry args={[0.08, 1.8]} />
+            <meshBasicMaterial color="#ffffff" />
+          </mesh>
+        ))}
+        {/* Parked Customer Cars */}
+        <ParkedCar position={[-2.7, 0.02, 0]} rotation={0} color="#e2e8f0" />
+        <ParkedCar position={[-0.9, 0.02, 0]} rotation={0} color="#ef4444" />
+        <ParkedCar position={[2.7, 0.02, 0]} rotation={0} color="#3b82f6" />
+      </group>
+
+      {/* Low-Poly Faceted Trees around store */}
+      <LowPolyFacetedTree position={[-4.8, 0.1, -1.5]} scale={1.0} type="round" shade="#16a34a" />
+      <LowPolyFacetedTree position={[4.8, 0.1, -1.5]} scale={1.05} type="tiered" shade="#22c55e" />
+
+      {isNight && (
+        <pointLight position={[0, 2.8, 2.8]} intensity={2.0} distance={7} color="#fef08a" />
+      )}
+    </group>
+  )
+}
+
+// -------------------------------------------------------------
+// 6F. INDUSTRIAL QUONSET HANGARS & PROPANE TANKS (Matching Reference Right)
+// -------------------------------------------------------------
+function IndustrialQuonsetHangars({ position }: { position: [number, number, number] }) {
+  return (
+    <group position={position}>
+      {/* Foundation Concrete Apron */}
+      <mesh position={[0, 0.05, 0]} receiveShadow>
+        <boxGeometry args={[11.8, 0.1, 10.5]} />
+        <meshStandardMaterial color="#cbd5e1" roughness={0.8} flatShading />
+      </mesh>
+
+      {/* Hangar 1 (Left Blue Semi-Cylindrical Arched Hangar) */}
+      <group position={[-2.8, 0.1, 0]}>
+        {/* Semi-Cylinder Arched Roof: half cylinder rotated on its side */}
+        <mesh position={[0, 0, 0]} rotation={[0, 0, -Math.PI / 2]} castShadow>
+          <cylinderGeometry args={[2.5, 2.5, 7.8, 16, 1, false, 0, Math.PI]} />
+          <meshStandardMaterial color="#2563eb" roughness={0.5} flatShading />
+        </mesh>
+        {/* Front End Wall with Bay Door */}
+        <mesh position={[0, 0, 3.9]} rotation={[0, 0, 0]}>
+          <circleGeometry args={[2.48, 16, 0, Math.PI]} />
+          <meshStandardMaterial color="#1e40af" flatShading />
+        </mesh>
+        <mesh position={[0, 0.9, 3.92]}>
+          <boxGeometry args={[1.8, 1.8, 0.06]} />
+          <meshStandardMaterial color="#0f172a" flatShading />
+        </mesh>
+        {/* Rear End Wall */}
+        <mesh position={[0, 0, -3.9]} rotation={[0, Math.PI, 0]}>
+          <circleGeometry args={[2.48, 16, 0, Math.PI]} />
+          <meshStandardMaterial color="#1e40af" flatShading />
+        </mesh>
+      </group>
+
+      {/* Hangar 2 (Right Blue Semi-Cylindrical Arched Hangar) */}
+      <group position={[3.2, 0.1, 0]}>
+        <mesh position={[0, 0, 0]} rotation={[0, 0, -Math.PI / 2]} castShadow>
+          <cylinderGeometry args={[2.5, 2.5, 7.8, 16, 1, false, 0, Math.PI]} />
+          <meshStandardMaterial color="#1d4ed8" roughness={0.5} flatShading />
+        </mesh>
+        {/* Front End Wall with Bay Door */}
+        <mesh position={[0, 0, 3.9]} rotation={[0, 0, 0]}>
+          <circleGeometry args={[2.48, 16, 0, Math.PI]} />
+          <meshStandardMaterial color="#1e40af" flatShading />
+        </mesh>
+        <mesh position={[0, 0.9, 3.92]}>
+          <boxGeometry args={[1.8, 1.8, 0.06]} />
+          <meshStandardMaterial color="#0f172a" flatShading />
+        </mesh>
+        {/* Rear End Wall */}
+        <mesh position={[0, 0, -3.9]} rotation={[0, Math.PI, 0]}>
+          <circleGeometry args={[2.48, 16, 0, Math.PI]} />
+          <meshStandardMaterial color="#1e40af" flatShading />
+        </mesh>
+      </group>
+
+      {/* 3 Bright Yellow Propane / Gas Cylindrical Tanks */}
+      <group position={[0, 0.1, 4.4]}>
+        {[-1.6, 0, 1.6].map((tx, i) => (
+          <group key={`prop-tank-${i}`} position={[tx, 0, 0]}>
+            {/* Concrete Cradles */}
+            <mesh position={[0, 0.12, -0.4]}>
+              <boxGeometry args={[0.7, 0.24, 0.15]} />
+              <meshStandardMaterial color="#64748b" flatShading />
+            </mesh>
+            <mesh position={[0, 0.12, 0.4]}>
+              <boxGeometry args={[0.7, 0.24, 0.15]} />
+              <meshStandardMaterial color="#64748b" flatShading />
+            </mesh>
+            {/* Yellow Horizontal Tank */}
+            <mesh position={[0, 0.45, 0]} rotation={[Math.PI / 2, 0, 0]} castShadow>
+              <cylinderGeometry args={[0.35, 0.35, 1.2, 12]} />
+              <meshStandardMaterial color="#eab308" roughness={0.4} flatShading />
+            </mesh>
+          </group>
+        ))}
+        {/* Silver Connecting Pipe */}
+        <mesh position={[0, 0.75, 0]} rotation={[0, 0, Math.PI / 2]}>
+          <cylinderGeometry args={[0.04, 0.04, 3.4, 8]} />
+          <meshStandardMaterial color="#cbd5e1" metalness={0.8} />
+        </mesh>
+      </group>
+
+      {/* Wooden Cargo Pallets & Crates */}
+      <group position={[-4.5, 0.1, 2.5]}>
+        <mesh position={[0, 0.4, 0]} castShadow>
+          <boxGeometry args={[0.8, 0.8, 0.8]} />
+          <meshStandardMaterial color="#b45309" roughness={0.9} flatShading />
+        </mesh>
+        <mesh position={[0.7, 0.3, 0.4]} castShadow>
+          <boxGeometry args={[0.6, 0.6, 0.6]} />
+          <meshStandardMaterial color="#d97706" roughness={0.9} flatShading />
+        </mesh>
+      </group>
+
+      {/* Parked Cargo Box Truck */}
+      <ParkedCar position={[4.6, 0.1, 3.2]} rotation={0} color="#f8fafc" isTruck />
+
+      {/* Lush Faceted Low-Poly Trees along the back */}
+      <LowPolyFacetedTree position={[-4.8, 0.1, -4.2]} scale={1.2} type="pine" shade="#15803d" />
+      <LowPolyFacetedTree position={[0, 0.1, -4.2]} scale={1.1} type="round" shade="#16a34a" />
+      <LowPolyFacetedTree position={[4.8, 0.1, -4.2]} scale={1.2} type="pine" shade="#15803d" />
+    </group>
+  )
+}
+
+// -------------------------------------------------------------
+// 6G. STYLIZED POLICE STATION & CLASSIC HOTEL (Matching Reference Bottom-Right)
+// -------------------------------------------------------------
+function StylizedPoliceAndHotel({ isNight = false }: { isNight?: boolean }) {
+  return (
+    <group position={[0, 0, 0]}>
+      {/* Stylized Police Precinct Station (x: -10.5, z: 33) */}
+      <group position={[-10.5, 0, 33]}>
+        {/* Base */}
+        <mesh position={[0, 0.05, 0]} receiveShadow>
+          <boxGeometry args={[7.2, 0.1, 6.8]} />
+          <meshStandardMaterial color="#e2e8f0" roughness={0.7} flatShading />
+        </mesh>
+        {/* Main Station Building */}
+        <mesh position={[0, 1.8, -0.6]} castShadow receiveShadow>
+          <boxGeometry args={[6.2, 3.6, 4.8]} />
+          <meshStandardMaterial color="#f8fafc" roughness={0.4} flatShading />
+        </mesh>
+        {/* Dark Blue Roof Parapet / Trim */}
+        <mesh position={[0, 3.7, -0.6]} castShadow>
+          <boxGeometry args={[6.5, 0.3, 5.1]} />
+          <meshStandardMaterial color="#1e3a8a" flatShading />
+        </mesh>
+        {/* Blue "POLICE" Sign Strip */}
+        <mesh position={[0, 3.2, 1.83]}>
+          <boxGeometry args={[3.8, 0.55, 0.06]} />
+          <meshStandardMaterial color="#1e40af" />
+        </mesh>
+        {/* Glass Entrance Canopy */}
+        <mesh position={[0, 1.8, 2.2]} castShadow>
+          <boxGeometry args={[2.4, 0.12, 1.0]} />
+          <meshStandardMaterial color="#0284c7" flatShading />
+        </mesh>
+        {/* Blue Flashing Emergency Rooftop Beacon */}
+        <mesh position={[0, 4.0, -0.6]}>
+          <cylinderGeometry args={[0.22, 0.25, 0.35, 8]} />
+          <meshStandardMaterial color="#0284c7" emissive="#0284c7" emissiveIntensity={isNight ? 2.5 : 1.0} />
+        </mesh>
+        {/* Parked Police Cruisers */}
+        <group position={[0, 0.06, 2.3]}>
+          <ParkedCar position={[-1.5, 0.02, 0]} rotation={0} isPolice />
+          <ParkedCar position={[1.5, 0.02, 0]} rotation={0} isPolice />
+        </group>
+        {/* Trees */}
+        <LowPolyFacetedTree position={[-3.0, 0.1, -2.8]} scale={0.9} type="round" shade="#16a34a" />
+      </group>
+
+      {/* Classic Mint Hotel (x: 10.5, z: 33) */}
+      <group position={[10.5, 0, 33]}>
+        {/* Base */}
+        <mesh position={[0, 0.05, 0]} receiveShadow>
+          <boxGeometry args={[7.2, 0.1, 6.8]} />
+          <meshStandardMaterial color="#e2e8f0" roughness={0.7} flatShading />
+        </mesh>
+        {/* Hotel Facade in Mint Green */}
+        <mesh position={[0, 2.6, -0.6]} castShadow receiveShadow>
+          <boxGeometry args={[6.2, 5.2, 4.8]} />
+          <meshStandardMaterial color="#a7f3d0" roughness={0.4} flatShading />
+        </mesh>
+        {/* Classical White Columns at Entrance */}
+        {[-1.6, -0.5, 0.5, 1.6].map((cx, i) => (
+          <mesh key={`hotel-col-${i}`} position={[cx, 1.4, 1.9]} castShadow>
+            <cylinderGeometry args={[0.12, 0.14, 2.8, 8]} />
+            <meshStandardMaterial color="#f8fafc" flatShading />
+          </mesh>
+        ))}
+        {/* Balcony Overhang over Columns */}
+        <mesh position={[0, 2.85, 2.0]} castShadow>
+          <boxGeometry args={[4.2, 0.15, 1.0]} />
+          <meshStandardMaterial color="#ffffff" flatShading />
+        </mesh>
+        {/* Golden "HOTEL" Rooftop Sign Header */}
+        <mesh position={[0, 5.35, 1.82]}>
+          <boxGeometry args={[3.2, 0.5, 0.06]} />
+          <meshStandardMaterial color="#f59e0b" metalness={0.8} roughness={0.2} />
+        </mesh>
+        {/* Parked Guest Luxury Car */}
+        <ParkedCar position={[0, 0.08, 2.3]} rotation={0} color="#0f172a" />
+        {/* Trees */}
+        <LowPolyFacetedTree position={[3.0, 0.1, -2.8]} scale={1.0} type="tiered" shade="#22c55e" />
+      </group>
+    </group>
+  )
+}
+
+// -------------------------------------------------------------
+// 6H. STYLIZED COFFEE HOUSE & BARBER SHOP (Matching Reference Center-Bottom)
+// -------------------------------------------------------------
+function StylizedCoffeeAndBarber() {
+  return (
+    <group position={[0, 0, 0]}>
+      {/* Barber Shop (x: -10.5, z: 40) */}
+      <group position={[-10.5, 0, 40]}>
+        <mesh position={[0, 1.4, 0]} castShadow receiveShadow>
+          <boxGeometry args={[5.2, 2.8, 4.2]} />
+          <meshStandardMaterial color="#1e293b" roughness={0.6} flatShading />
+        </mesh>
+        {/* White Upper Parapet */}
+        <mesh position={[0, 2.9, 0]} castShadow>
+          <boxGeometry args={[5.4, 0.25, 4.4]} />
+          <meshStandardMaterial color="#f8fafc" flatShading />
+        </mesh>
+        {/* Striped Canopy Awning */}
+        <mesh position={[0, 1.9, 2.2]} rotation={[-0.25, 0, 0]} castShadow>
+          <boxGeometry args={[4.2, 0.08, 1.0]} />
+          <meshStandardMaterial color="#0284c7" flatShading />
+        </mesh>
+        {/* Barber Pole */}
+        <group position={[2.4, 1.4, 2.15]}>
+          <mesh>
+            <cylinderGeometry args={[0.08, 0.08, 0.9, 8]} />
+            <meshStandardMaterial color="#ef4444" flatShading />
+          </mesh>
+          <mesh position={[0, 0.5, 0]}>
+            <sphereGeometry args={[0.1, 8, 8]} />
+            <meshStandardMaterial color="#ffffff" />
+          </mesh>
+        </group>
+        {/* Parked Taxi */}
+        <ParkedCar position={[-1.2, 0.05, 2.6]} rotation={0} isTaxi />
+      </group>
+
+      {/* Coffee House with Outdoor Umbrella Patio (x: 10.5, z: 40) */}
+      <group position={[10.5, 0, 40]}>
+        <mesh position={[0, 1.6, 0]} castShadow receiveShadow>
+          <boxGeometry args={[5.2, 3.2, 4.2]} />
+          <meshStandardMaterial color="#fef3c7" roughness={0.5} flatShading />
+        </mesh>
+        {/* Red Roof Coping */}
+        <mesh position={[0, 3.3, 0]} castShadow>
+          <boxGeometry args={[5.4, 0.25, 4.4]} />
+          <meshStandardMaterial color="#dc2626" flatShading />
+        </mesh>
+        {/* Coffee Sign Header */}
+        <mesh position={[0, 2.7, 2.13]}>
+          <boxGeometry args={[3.2, 0.45, 0.06]} />
+          <meshStandardMaterial color="#78350f" flatShading />
+        </mesh>
+        {/* Outdoor Cafe Patio with Umbrella Tables */}
+        {[-1.2, 1.2].map((tx, i) => (
+          <group key={`cafe-tab-${i}`} position={[tx, 0, 2.6]}>
+            <mesh position={[0, 0.35, 0]}>
+              <cylinderGeometry args={[0.35, 0.35, 0.05, 8]} />
+              <meshStandardMaterial color="#ffffff" flatShading />
+            </mesh>
+            <mesh position={[0, 0.17, 0]}>
+              <cylinderGeometry args={[0.03, 0.03, 0.35, 6]} />
+              <meshStandardMaterial color="#334155" />
+            </mesh>
+            {/* Colorful Sun Umbrella */}
+            <mesh position={[0, 1.1, 0]}>
+              <coneGeometry args={[0.65, 0.35, 6]} />
+              <meshStandardMaterial color={i === 0 ? '#dc2626' : '#0284c7'} flatShading />
+            </mesh>
+          </group>
+        ))}
+      </group>
+    </group>
+  )
+}
+
+// -------------------------------------------------------------
+// 6I. SUBURBAN LOW-POLY HOMES WITH DORMERS & LAWNS (Matching Reference Top)
+// -------------------------------------------------------------
+function SuburbanLowPolyHomes() {
+  const homes = [
+    { x: -36, z: -30, roofColor: '#0284c7', wallColor: '#f8fafc', dormer: true, car: 'yellow' },
+    { x: -29, z: -30, roofColor: '#ea580c', wallColor: '#fed7aa', dormer: true, car: 'blue' },
+    { x: -36, z: -37, roofColor: '#15803d', wallColor: '#fef08a', dormer: true, car: 'red' },
+    { x: -29, z: -37, roofColor: '#334155', wallColor: '#bae6fd', dormer: true, car: 'white' }
+  ]
+
+  return (
+    <group position={[0, 0, 0]}>
+      {homes.map((hm, idx) => (
+        <group key={`sub-home-${idx}`} position={[hm.x, 0, hm.z]}>
+          {/* Green Manicured Lawn */}
+          <mesh position={[0, 0.03, 0]} receiveShadow>
+            <boxGeometry args={[5.6, 0.06, 5.6]} />
+            <meshStandardMaterial color="#22c55e" roughness={0.7} flatShading />
+          </mesh>
+
+          {/* House 2-Story Body */}
+          <mesh position={[0, 1.3, -0.2]} castShadow receiveShadow>
+            <boxGeometry args={[4.2, 2.6, 3.6]} />
+            <meshStandardMaterial color={hm.wallColor} roughness={0.5} flatShading />
+          </mesh>
+
+          {/* Pitched Gable Roof */}
+          <mesh position={[0, 3.1, -0.2]} rotation={[0, 0, 0]} castShadow>
+            <coneGeometry args={[3.2, 1.5, 4]} />
+            <meshStandardMaterial color={hm.roofColor} roughness={0.6} flatShading />
+          </mesh>
+
+          {/* White Dormer Window Protruding from Roof */}
+          {hm.dormer && (
+            <group position={[0, 3.0, 1.1]}>
+              <mesh castShadow>
+                <boxGeometry args={[0.85, 0.75, 0.8]} />
+                <meshStandardMaterial color="#ffffff" flatShading />
+              </mesh>
+              <mesh position={[0, 0.45, 0]} rotation={[0, Math.PI / 4, 0]}>
+                <coneGeometry args={[0.65, 0.4, 4]} />
+                <meshStandardMaterial color={hm.roofColor} flatShading />
+              </mesh>
+              <mesh position={[0, 0, 0.42]}>
+                <planeGeometry args={[0.55, 0.45]} />
+                <meshStandardMaterial color="#38bdf8" roughness={0.2} />
+              </mesh>
+            </group>
+          )}
+
+          {/* Brick Chimney */}
+          <mesh position={[1.1, 3.4, -0.8]} castShadow>
+            <boxGeometry args={[0.4, 1.1, 0.4]} />
+            <meshStandardMaterial color="#991b1b" flatShading />
+          </mesh>
+
+          {/* Front Porch & Door */}
+          <mesh position={[0, 0.7, 1.62]}>
+            <boxGeometry args={[0.9, 1.4, 0.05]} />
+            <meshStandardMaterial color="#78350f" flatShading />
+          </mesh>
+
+          {/* Concrete Driveway with Parked Car */}
+          <group position={[1.8, 0.04, 1.6]}>
+            <mesh receiveShadow>
+              <boxGeometry args={[1.4, 0.02, 2.2]} />
+              <meshStandardMaterial color="#cbd5e1" roughness={0.8} />
+            </mesh>
+            <ParkedCar
+              position={[0, 0.02, 0]}
+              rotation={0}
+              color={hm.car === 'yellow' ? '#eab308' : hm.car === 'blue' ? '#3b82f6' : hm.car === 'red' ? '#ef4444' : '#f8fafc'}
+              isTaxi={hm.car === 'yellow'}
+            />
+          </group>
+
+          {/* Low-Poly Faceted Garden Tree */}
+          <LowPolyFacetedTree position={[-1.9, 0.06, 1.8]} scale={0.75} type="round" shade="#16a34a" />
+        </group>
+      ))}
+    </group>
+  )
+}
+
+// -------------------------------------------------------------
+// 6J. ZEBRA PEDESTRIAN CROSSWALKS (At all 9 Intersections)
+// -------------------------------------------------------------
+function ZebraCrosswalks() {
+  // 9 Intersections: (0,0), (0, ±24), (±24, 0), (±24, ±24)
+  const intersections = [
+    { x: 0, z: 0 },
+    { x: 0, z: -24 },
+    { x: 0, z: 24 },
+    { x: -24, z: 0 },
+    { x: 24, z: 0 },
+    { x: -24, z: -24 },
+    { x: 24, z: -24 },
+    { x: -24, z: 24 },
+    { x: 24, z: 24 }
+  ]
+
+  return (
+    <group position={[0, 0, 0]}>
+      {intersections.map((inter, idx) => (
+        <group key={`zebra-int-${idx}`} position={[inter.x, 0.022, inter.z]}>
+          {/* North Approach (Horizontal bar of stripes) */}
+          {[-1.0, -0.5, 0, 0.5, 1.0].map((sx, i) => (
+            <mesh key={`n-stripe-${i}`} position={[sx, 0, -2.4]} rotation={[-Math.PI / 2, 0, 0]}>
+              <planeGeometry args={[0.26, 0.8]} />
+              <meshBasicMaterial color="#ffffff" />
+            </mesh>
+          ))}
+          {/* South Approach */}
+          {[-1.0, -0.5, 0, 0.5, 1.0].map((sx, i) => (
+            <mesh key={`s-stripe-${i}`} position={[sx, 0, 2.4]} rotation={[-Math.PI / 2, 0, 0]}>
+              <planeGeometry args={[0.26, 0.8]} />
+              <meshBasicMaterial color="#ffffff" />
+            </mesh>
+          ))}
+          {/* West Approach */}
+          {[-1.0, -0.5, 0, 0.5, 1.0].map((sz, i) => (
+            <mesh key={`w-stripe-${i}`} position={[-2.4, 0, sz]} rotation={[-Math.PI / 2, 0, 0]}>
+              <planeGeometry args={[0.8, 0.26]} />
+              <meshBasicMaterial color="#ffffff" />
+            </mesh>
+          ))}
+          {/* East Approach */}
+          {[-1.0, -0.5, 0, 0.5, 1.0].map((sz, i) => (
+            <mesh key={`e-stripe-${i}`} position={[2.4, 0, sz]} rotation={[-Math.PI / 2, 0, 0]}>
+              <planeGeometry args={[0.8, 0.26]} />
+              <meshBasicMaterial color="#ffffff" />
+            </mesh>
+          ))}
+        </group>
+      ))}
     </group>
   )
 }
@@ -769,103 +1645,35 @@ function NorthCivicSector({ isNight = false }: { isNight?: boolean }) {
 }
 
 // -------------------------------------------------------------
-// 10. CIVIC SPORTS ARENA & EMERGENCY SERVICES (North-West)
+// 10. CIVIC LOW-POLY SUBURBAN RESIDENTIAL QUARTER (North-West)
 // -------------------------------------------------------------
 function CivicSportsAndEmergency({ isNight = false }: { isNight?: boolean }) {
   return (
     <group position={[0, 0, 0]}>
-      {/* Sports Stadium Arena (x: -35, z: -35) */}
-      <group position={[-35, 0, -35]}>
-        <mesh position={[0, 1.8, 0]} castShadow receiveShadow>
-          <cylinderGeometry args={[5.2, 5.8, 3.6, 24]} />
-          <meshStandardMaterial color="#e2e8f0" roughness={0.5} />
-        </mesh>
-        <mesh position={[0, 2.4, 0]}>
-          <cylinderGeometry args={[4.6, 4.6, 1.8, 24, 1, true]} />
-          <meshStandardMaterial color="#0284c7" side={THREE.DoubleSide} />
-        </mesh>
-        <mesh position={[0, 0.45, 0]}>
-          <boxGeometry args={[5.0, 0.1, 3.2]} />
-          <meshStandardMaterial color="#16a34a" roughness={0.8} />
-        </mesh>
-        {[-4.0, 4.0].map((lx, i) =>
-          [-2.6, 2.6].map((lz, j) => (
-            <group key={`light-${i}-${j}`} position={[lx, 0, lz]}>
-              <mesh position={[0, 3.2, 0]}>
-                <cylinderGeometry args={[0.07, 0.12, 6.4, 8]} />
-                <meshStandardMaterial color="#64748b" metalness={0.8} />
-              </mesh>
-              <mesh position={[0, 6.4, 0]}>
-                <boxGeometry args={[0.8, 0.35, 0.2]} />
-                <meshStandardMaterial
-                  color="#fef08a"
-                  emissive="#fef08a"
-                  emissiveIntensity={isNight ? 2.5 : 0.4}
-                />
-              </mesh>
-              {isNight && (
-                <pointLight position={[0, 6.2, 0]} intensity={3.0} distance={12} color="#fef08a" />
-              )}
-            </group>
-          ))
-        )}
-      </group>
+      {/* Low-Poly Suburban Homes with Pitched Roofs & Dormers (Matching Reference) */}
+      <SuburbanLowPolyHomes />
 
       {/* Community Fire Station (x: -29, z: -41) */}
       <group position={[-29, 0, -41]}>
         <mesh position={[0, 1.8, 0]} castShadow receiveShadow>
           <boxGeometry args={[4.5, 3.6, 4.0]} />
-          <meshStandardMaterial color="#b91c1c" roughness={0.6} />
+          <meshStandardMaterial color="#b91c1c" roughness={0.6} flatShading />
         </mesh>
         {/* 2 Red Garage Bay Doors */}
         {[-1.2, 1.2].map((gx, i) => (
           <mesh key={`bay-${i}`} position={[gx, 1.2, 2.05]}>
             <boxGeometry args={[1.8, 2.4, 0.08]} />
-            <meshStandardMaterial color="#dc2626" roughness={0.4} />
+            <meshStandardMaterial color="#dc2626" roughness={0.4} flatShading />
           </mesh>
         ))}
         {/* Siren Tower */}
         <mesh position={[1.5, 4.2, -1.2]} castShadow>
           <cylinderGeometry args={[0.3, 0.4, 1.5, 8]} />
-          <meshStandardMaterial color="#7f1d1d" />
+          <meshStandardMaterial color="#7f1d1d" flatShading />
         </mesh>
         <mesh position={[1.5, 5.0, -1.2]}>
           <sphereGeometry args={[0.18, 8, 8]} />
           <meshStandardMaterial color="#facc15" emissive="#facc15" emissiveIntensity={isNight ? 2.0 : 0.5} />
-        </mesh>
-      </group>
-
-      {/* Police Precinct Station (x: -41, z: -41) */}
-      <group position={[-41, 0, -41]}>
-        <mesh position={[0, 1.8, 0]} castShadow receiveShadow>
-          <boxGeometry args={[4.5, 3.6, 4.0]} />
-          <meshStandardMaterial color="#1e293b" roughness={0.4} />
-        </mesh>
-        {/* Glass Front Entrance */}
-        <mesh position={[0, 1.5, 2.05]}>
-          <boxGeometry args={[3.2, 2.2, 0.08]} />
-          <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.7} />
-        </mesh>
-        {/* Blue Siren Beacon on Roof */}
-        <mesh position={[0, 3.8, 0]}>
-          <cylinderGeometry args={[0.2, 0.25, 0.4, 8]} />
-          <meshStandardMaterial color="#0284c7" emissive="#0284c7" emissiveIntensity={isNight ? 2.5 : 0.8} />
-        </mesh>
-      </group>
-
-      {/* Town Clinic & Pharmacy (x: -29, z: -29) */}
-      <group position={[-29, 0, -29]}>
-        <mesh position={[0, 1.6, 0]} castShadow receiveShadow>
-          <boxGeometry args={[4.5, 3.2, 4.0]} />
-          <meshStandardMaterial color="#f8fafc" roughness={0.3} />
-        </mesh>
-        <mesh position={[0, 2.2, 2.05]}>
-          <boxGeometry args={[1.2, 0.35, 0.08]} />
-          <meshStandardMaterial color="#16a34a" emissive="#16a34a" emissiveIntensity={isNight ? 2.0 : 0.6} />
-        </mesh>
-        <mesh position={[0, 2.2, 2.05]}>
-          <boxGeometry args={[0.35, 1.2, 0.08]} />
-          <meshStandardMaterial color="#16a34a" emissive="#16a34a" emissiveIntensity={isNight ? 2.0 : 0.6} />
         </mesh>
       </group>
     </group>
@@ -873,16 +1681,19 @@ function CivicSportsAndEmergency({ isNight = false }: { isNight?: boolean }) {
 }
 
 // -------------------------------------------------------------
-// 11. WEST CULTURE, DINING & GARDENS (Middle-West Sector)
+// 11. WEST CULTURE, RETAIL & SUPERMARKET (Middle-West Sector)
 // -------------------------------------------------------------
 function WestCultureAndDining({ isNight = false }: { isNight?: boolean }) {
   return (
     <group position={[0, 0, 0]}>
+      {/* Stylized Low-Poly Supermarket & Loading Dock (Matching Reference) */}
+      <StylizedSupermarket position={[-35, 0, 10.5]} isNight={isNight} />
+
       {/* Downtown Cinema & Theater (x: -35, z: -14) */}
       <group position={[-35, 0, -14]}>
         <mesh position={[0, 2.2, 0]} castShadow receiveShadow>
           <boxGeometry args={[6.0, 4.4, 5.0]} />
-          <meshStandardMaterial color="#0f172a" roughness={0.4} />
+          <meshStandardMaterial color="#0f172a" roughness={0.4} flatShading />
         </mesh>
         {/* Illuminated Neon Marquee */}
         <mesh position={[0, 3.2, 2.65]}>
@@ -895,52 +1706,6 @@ function WestCultureAndDining({ isNight = false }: { isNight?: boolean }) {
           <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.7} />
         </mesh>
       </group>
-
-      {/* Waterfront Seafood Bistro & Dining Terrace (x: -35, z: 14) */}
-      <group position={[-35, 0, 14]}>
-        <mesh position={[0, 1.8, 0]} castShadow receiveShadow>
-          <boxGeometry args={[6.0, 3.6, 5.0]} />
-          <meshStandardMaterial color="#fef3c7" roughness={0.5} />
-        </mesh>
-        {/* Striped Red/White Fabric Canopy */}
-        <mesh position={[0, 2.4, 2.8]} rotation={[-0.2, 0, 0]}>
-          <boxGeometry args={[5.2, 0.08, 1.6]} />
-          <meshStandardMaterial color="#dc2626" roughness={0.6} />
-        </mesh>
-        {/* Outdoor Cafe Dining Tables */}
-        {[-1.6, 0, 1.6].map((tx, i) => (
-          <group key={`bistro-table-${i}`} position={[tx, 0, 3.4]}>
-            <mesh position={[0, 0.4, 0]}>
-              <cylinderGeometry args={[0.4, 0.4, 0.05, 12]} />
-              <meshStandardMaterial color="#ffffff" />
-            </mesh>
-            <mesh position={[0, 0.2, 0]}>
-              <cylinderGeometry args={[0.04, 0.04, 0.4, 6]} />
-              <meshStandardMaterial color="#334155" />
-            </mesh>
-            <mesh position={[0, 1.1, 0]}>
-              <coneGeometry args={[0.7, 0.4, 8]} />
-              <meshStandardMaterial color={i % 2 === 0 ? '#0284c7' : '#ea580c'} />
-            </mesh>
-          </group>
-        ))}
-      </group>
-
-      {/* Tropical Garden Pavilions (x: -35, z: -7 & z: 7) */}
-      {[-7, 7].map((gz, idx) => (
-        <group key={`garden-pav-${idx}`} position={[-35, 0, gz]}>
-          <mesh position={[0, 0.05, 0]} receiveShadow>
-            <cylinderGeometry args={[2.2, 2.2, 0.1, 16]} />
-            <meshStandardMaterial color="#e2e8f0" roughness={0.6} />
-          </mesh>
-          <mesh position={[0, 0.35, 0]}>
-            <cylinderGeometry args={[0.9, 1.0, 0.6, 12]} />
-            <meshStandardMaterial color="#94a3b8" />
-          </mesh>
-          <JacarandaTree position={[-1.8, 0, -1.2]} />
-          <JacarandaTree position={[1.8, 0, 1.2]} />
-        </group>
-      ))}
     </group>
   )
 }
@@ -973,7 +1738,7 @@ function EastInnovationPark({ isNight = false }: { isNight?: boolean }) {
       <group position={[35, 0, 14]}>
         <mesh position={[0, 3.0, 0]} castShadow receiveShadow>
           <boxGeometry args={[6.5, 6.0, 5.0]} />
-          <meshStandardMaterial color="#f8fafc" roughness={0.3} />
+          <meshStandardMaterial color="#f8fafc" roughness={0.3} flatShading />
         </mesh>
         {/* Cyan Glass Window Banding */}
         <mesh position={[0, 3.0, 2.54]}>
@@ -981,255 +1746,48 @@ function EastInnovationPark({ isNight = false }: { isNight?: boolean }) {
           <meshPhysicalMaterial color="#06b6d4" transparent opacity={0.8} />
         </mesh>
       </group>
-
-      {/* Business Hotel & Suites (x: 35, z: -7) */}
-      <group position={[35, 0, -7]}>
-        <mesh position={[0, 3.5, 0]} castShadow receiveShadow>
-          <boxGeometry args={[6.0, 7.0, 4.8]} />
-          <meshStandardMaterial color="#fed7aa" roughness={0.4} />
-        </mesh>
-        {/* Glass Entrance Canopy */}
-        <mesh position={[0, 1.4, 2.7]}>
-          <boxGeometry args={[3.6, 0.1, 1.2]} />
-          <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.7} />
-        </mesh>
-      </group>
-
-      {/* Creative Design Hub with Rooftop Garden (x: 35, z: 7) */}
-      <group position={[35, 0, 7]}>
-        <mesh position={[0, 2.5, 0]} castShadow receiveShadow>
-          <boxGeometry args={[6.0, 5.0, 4.8]} />
-          <meshStandardMaterial color="#334155" roughness={0.5} />
-        </mesh>
-        {/* Wood Slat Architectural Accent */}
-        <mesh position={[0, 2.5, 2.45]}>
-          <boxGeometry args={[4.2, 3.2, 0.08]} />
-          <meshStandardMaterial color="#b45309" roughness={0.7} />
-        </mesh>
-        <JacarandaTree position={[1.5, 5.0, 0]} />
-      </group>
     </group>
   )
 }
 
 // -------------------------------------------------------------
-// 13. SUBURBAN NEIGHBORHOOD (South-East Residential Sector)
+// 13. INDUSTRIAL QUONSET HANGARS & LOGISTICS (South-East Sector)
 // -------------------------------------------------------------
-function SuburbanNeighborhood({ isNight = false }: { isNight?: boolean }) {
-  const cottageColors = ['#fef08a', '#fed7aa', '#ffedd5', '#fbcfe8', '#e0f2fe', '#fef3c7', '#dcfce7', '#ede9fe', '#fce7f3']
-  const roofColors = ['#ea580c', '#dc2626', '#15803d', '#0369a1', '#b45309', '#c026d3', '#ea580c', '#dc2626', '#15803d']
-
+function SuburbanNeighborhood({ isNight: _isNight = false }: { isNight?: boolean } = {}) {
   return (
     <group position={[0, 0, 0]}>
-      {/* 9 Terracotta Cottages in Dedicated Suburban Lawn Block (x: 28 to 43, z: 28 to 43) */}
-      {[
-        { x: 29, z: 29 }, { x: 35, z: 29 }, { x: 41, z: 29 },
-        { x: 29, z: 35 }, { x: 35, z: 35 }, { x: 41, z: 35 },
-        { x: 29, z: 41 }, { x: 35, z: 41 }, { x: 41, z: 41 }
-      ].map((pos, idx) => (
-        <group key={`se-cottage-${idx}`} position={[pos.x, 0, pos.z]}>
-          <mesh position={[0, 1.4, 0]} castShadow receiveShadow>
-            <boxGeometry args={[3.8, 2.8, 3.4]} />
-            <meshStandardMaterial color={cottageColors[idx % cottageColors.length]} roughness={0.6} />
-          </mesh>
-          <mesh position={[0, 3.3, 0]} rotation={[0, Math.PI / 4, 0]} castShadow>
-            <coneGeometry args={[3.2, 1.4, 4]} />
-            <meshStandardMaterial color={roofColors[idx % roofColors.length]} roughness={0.7} />
-          </mesh>
-          <mesh position={[0, 0.75, 1.75]}>
-            <boxGeometry args={[0.85, 1.5, 0.06]} />
-            <meshStandardMaterial color="#78350f" />
-          </mesh>
-          {/* Chimney */}
-          <mesh position={[0.9, 3.4, -0.6]} castShadow>
-            <boxGeometry args={[0.4, 1.2, 0.4]} />
-            <meshStandardMaterial color="#7f1d1d" />
-          </mesh>
-          {isNight && (
-            <pointLight position={[0, 1.8, 2.1]} intensity={1.5} distance={4} color="#fef08a" />
-          )}
-        </group>
-      ))}
-
-      {/* Neighborhood School & Campus Playground (South Beachfront Greenway z = 52.5) */}
-      <group position={[36, 0, 52.5]}>
-        <mesh position={[0, 2.2, 0]} castShadow receiveShadow>
-          <boxGeometry args={[9.5, 4.4, 4.8]} />
-          <meshStandardMaterial color="#fef3c7" roughness={0.5} />
-        </mesh>
-        <mesh position={[0, 4.6, 0]} castShadow>
-          <boxGeometry args={[10.0, 0.4, 5.2]} />
-          <meshStandardMaterial color="#0284c7" />
-        </mesh>
-      </group>
+      {/* Blue Quonset Hangars & Propane Logistics (Matching Reference Bottom-Right) */}
+      <IndustrialQuonsetHangars position={[35, 0, 35]} />
     </group>
   )
 }
 
 // -------------------------------------------------------------
-// 14. SOUTH CENTER GARDEN VILLAGE & MARKETPLACE
+// 14. SOUTH CENTER POLICE PRECINCT, HOTEL & ARTISAN SHOPS
 // -------------------------------------------------------------
 function SouthCenterVillage({ isNight = false }: { isNight?: boolean }) {
-  const townColors = ['#fbcfe8', '#e0f2fe', '#fef08a', '#dcfce7', '#fed7aa', '#f3e8ff', '#fce7f3', '#ffedd5']
-
   return (
     <group position={[0, 0, 0]}>
-      {/* 8 Colorful Artisan Townhouses with Balconies */}
-      {[
-        { x: -14, z: 30 }, { x: -7, z: 30 }, { x: 7, z: 30 }, { x: 14, z: 30 },
-        { x: -14, z: 37 }, { x: -7, z: 37 }, { x: 7, z: 37 }, { x: 14, z: 37 }
-      ].map((pos, idx) => (
-        <group key={`sc-town-${idx}`} position={[pos.x, 0, pos.z]}>
-          <mesh position={[0, 1.8, 0]} castShadow receiveShadow>
-            <boxGeometry args={[3.8, 3.6, 3.6]} />
-            <meshStandardMaterial color={townColors[idx % townColors.length]} roughness={0.5} />
-          </mesh>
-          <mesh position={[0, 3.8, 0]} castShadow>
-            <boxGeometry args={[4.1, 0.4, 3.9]} />
-            <meshStandardMaterial color="#475569" />
-          </mesh>
-          {/* Balcony */}
-          <mesh position={[0, 2.2, 1.95]} castShadow>
-            <boxGeometry args={[2.2, 0.6, 0.3]} />
-            <meshStandardMaterial color="#1e293b" />
-          </mesh>
-          {isNight && (
-            <pointLight position={[0, 1.8, 2.2]} intensity={1.4} distance={4.5} color="#fef08a" />
-          )}
-        </group>
-      ))}
+      {/* Stylized Police Station & Classic Mint Hotel (Matching Reference) */}
+      <StylizedPoliceAndHotel isNight={isNight} />
 
-      {/* Town Square Clock Gazebo (x: -6, z: 34) */}
-      <group position={[-6, 0, 34]}>
-        <mesh position={[0, 0.15, 0]} receiveShadow>
-          <cylinderGeometry args={[1.8, 1.8, 0.3, 8]} />
-          <meshStandardMaterial color="#e2e8f0" roughness={0.6} />
-        </mesh>
-        <mesh position={[0, 1.8, 0]} castShadow>
-          <cylinderGeometry args={[0.08, 0.08, 3.0, 8]} />
-          <meshStandardMaterial color="#78350f" />
-        </mesh>
-        <mesh position={[0, 3.4, 0]} castShadow>
-          <coneGeometry args={[1.9, 1.0, 8]} />
-          <meshStandardMaterial color="#15803d" />
-        </mesh>
-        <mesh position={[0, 4.1, 0]}>
-          <sphereGeometry args={[0.18, 8, 8]} />
-          <meshStandardMaterial color="#f59e0b" metalness={0.9} />
-        </mesh>
-      </group>
-
-      {/* Village Fountain Plaza (x: 6, z: 34) */}
-      <group position={[6, 0, 34]}>
-        <mesh position={[0, 0.1, 0]} receiveShadow>
-          <cylinderGeometry args={[2.0, 2.0, 0.2, 16]} />
-          <meshStandardMaterial color="#cbd5e1" roughness={0.5} />
-        </mesh>
-        <mesh position={[0, 0.35, 0]}>
-          <cylinderGeometry args={[1.2, 1.4, 0.4, 16]} />
-          <meshStandardMaterial color="#94a3b8" />
-        </mesh>
-        <mesh position={[0, 0.7, 0]}>
-          <coneGeometry args={[0.7, 0.8, 12]} />
-          <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.8} />
-        </mesh>
-      </group>
-
-      {/* Village Bakery & Cafe (x: -8 & 8, z: 41.5) */}
-      <group position={[-8, 0, 41.5]}>
-        <mesh position={[0, 1.6, 0]} castShadow receiveShadow>
-          <boxGeometry args={[3.8, 3.2, 3.2]} />
-          <meshStandardMaterial color="#fed7aa" roughness={0.6} />
-        </mesh>
-        <mesh position={[0, 2.2, 1.7]} rotation={[-0.2, 0, 0]}>
-          <boxGeometry args={[3.4, 0.08, 1.0]} />
-          <meshStandardMaterial color="#ea580c" />
-        </mesh>
-      </group>
-
-      <group position={[8, 0, 41.5]}>
-        <mesh position={[0, 1.6, 0]} castShadow receiveShadow>
-          <boxGeometry args={[3.8, 3.2, 3.2]} />
-          <meshStandardMaterial color="#e0f2fe" roughness={0.6} />
-        </mesh>
-        <mesh position={[0, 2.2, 1.7]} rotation={[-0.2, 0, 0]}>
-          <boxGeometry args={[3.4, 0.08, 1.0]} />
-          <meshStandardMaterial color="#0284c7" />
-        </mesh>
-      </group>
+      {/* Stylized Coffee House with Umbrella Patio & Barber Shop (Matching Reference) */}
+      <StylizedCoffeeAndBarber />
     </group>
   )
 }
 
 // -------------------------------------------------------------
-// 15. SOUTH-WEST LUXURY ESTATES & CENTRAL HOSPITAL
+// 15. SOUTH-WEST HOSPITAL COMPLEX & BASKETBALL COURT
 // -------------------------------------------------------------
 function SouthWestLuxuryEstates({ isNight = false }: { isNight?: boolean }) {
   return (
     <group position={[0, 0, 0]}>
-      {/* 4 Modern Luxury Villas with Pools in South-West Sector */}
-      {[
-        { x: -36, z: 29 }, { x: -29, z: 29 },
-        { x: -36, z: 41 }, { x: -29, z: 41 }
-      ].map((pos, idx) => (
-        <group key={`sw-villa-${idx}`} position={[pos.x, 0, pos.z]}>
-          <mesh position={[0, 1.8, 0]} castShadow receiveShadow>
-            <boxGeometry args={[5.2, 3.6, 4.0]} />
-            <meshStandardMaterial color="#f8fafc" roughness={0.3} />
-          </mesh>
-          <mesh position={[0, 1.6, 2.05]}>
-            <boxGeometry args={[4.4, 2.2, 0.05]} />
-            <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.7} />
-          </mesh>
-          <mesh position={[0, 3.7, 0]}>
-            <boxGeometry args={[5.6, 0.25, 4.4]} />
-            <meshStandardMaterial color="#1e293b" />
-          </mesh>
-          {/* Swimming Pool */}
-          <mesh position={[0, 0.05, 2.8]} receiveShadow>
-            <boxGeometry args={[3.8, 0.1, 1.4]} />
-            <meshStandardMaterial color="#e2e8f0" />
-          </mesh>
-          <mesh position={[0, 0.09, 2.8]}>
-            <boxGeometry args={[3.4, 0.06, 1.1]} />
-            <meshPhysicalMaterial
-              color="#06b6d4"
-              emissive={isNight ? '#06b6d4' : '#000000'}
-              emissiveIntensity={isNight ? 1.0 : 0}
-              transparent
-              opacity={0.85}
-            />
-          </mesh>
-        </group>
-      ))}
+      {/* Stylized Hospital with Helipad, HVAC & Ambulances (Matching Reference Left) */}
+      <StylizedHospital position={[-35, 0, 33]} isNight={isNight} />
 
-      {/* Central Hospital with Emergency Helipad (x: -35, z: 35) */}
-      <group position={[-35, 0, 35]}>
-        <mesh position={[0, 2.6, 0]} castShadow receiveShadow>
-          <boxGeometry args={[8.5, 5.2, 5.2]} />
-          <meshStandardMaterial color="#f8fafc" roughness={0.3} />
-        </mesh>
-        <group position={[0, 3.8, 2.65]}>
-          <mesh>
-            <boxGeometry args={[0.4, 1.4, 0.08]} />
-            <meshStandardMaterial color="#dc2626" emissive="#dc2626" emissiveIntensity={isNight ? 2.0 : 0.6} />
-          </mesh>
-          <mesh>
-            <boxGeometry args={[1.4, 0.4, 0.08]} />
-            <meshStandardMaterial color="#dc2626" emissive="#dc2626" emissiveIntensity={isNight ? 2.0 : 0.6} />
-          </mesh>
-        </group>
-        <group position={[2.5, 5.3, 0]}>
-          <mesh>
-            <cylinderGeometry args={[1.8, 1.8, 0.18, 20]} />
-            <meshStandardMaterial color="#334155" />
-          </mesh>
-          <mesh position={[0, 0.1, 0]}>
-            <ringGeometry args={[1.4, 1.6, 20]} />
-            <meshBasicMaterial color="#ef4444" />
-          </mesh>
-        </group>
-      </group>
+      {/* Stylized Community Basketball Court (Matching Reference Bottom-Center) */}
+      <BasketballCourt position={[-35, 0, 41]} />
     </group>
   )
 }
@@ -2486,6 +3044,9 @@ export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 
         )
       })}
 
+      {/* Pedestrian Crosswalks at All 9 Intersections (Matching Reference) */}
+      <ZebraCrosswalks />
+
       {/* 5. WATER CANAL & RAILWAY LINE (Running along northern seaside buffer) */}
       <WaterCanal isNight={isNight} />
       <RailwayAndTrain />
@@ -2536,13 +3097,23 @@ export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 
       <WestDeepSeaPortIsland isNight={isNight} />
       <OceanChannelTraffic isNight={isNight} />
 
-      {/* 8. TROPICAL PALM TREE AVENUES (Planted along sidewalk curbs) */}
+      {/* 8. LOW-POLY FACETED TREES & BOTANICALS (Planted along sidewalk curbs & road margins) */}
       {[-40, -32, -16, -8, 8, 16, 32, 40].map((tx, i) => (
-        <React.Fragment key={`palms-grid-${i}`}>
-          <PalmTree position={[tx, 0, -2.4]} />
-          <PalmTree position={[tx, 0, 2.4]} />
-          <PalmTree position={[tx, 0, 21.6]} />
-          <PalmTree position={[tx, 0, -21.6]} />
+        <React.Fragment key={`faceted-trees-grid-${i}`}>
+          <LowPolyFacetedTree
+            position={[tx, 0, -2.4]}
+            scale={0.9}
+            type={i % 3 === 0 ? 'tiered' : i % 3 === 1 ? 'round' : 'pine'}
+            shade={i % 2 === 0 ? '#22c55e' : '#16a34a'}
+          />
+          <LowPolyFacetedTree
+            position={[tx, 0, 2.4]}
+            scale={0.9}
+            type={i % 2 === 0 ? 'round' : 'tiered'}
+            shade={i % 2 === 0 ? '#16a34a' : '#4ade80'}
+          />
+          <LowPolyFacetedTree position={[tx, 0, 21.6]} scale={0.95} type="round" shade="#22c55e" />
+          <LowPolyFacetedTree position={[tx, 0, -21.6]} scale={0.95} type="tiered" shade="#15803d" />
         </React.Fragment>
       ))}
 
