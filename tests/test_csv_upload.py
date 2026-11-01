@@ -83,3 +83,12 @@ def test_upload_valid_csv_success(client):
     # Clean up created store
     del_resp = client.delete(f"/api/stores/{store['id']}")
     assert del_resp.status_code == 200
+
+
+def test_options_construct_store(client):
+    """Verify OPTIONS preflight request to /api/stores/construct returns 200 with Allow headers."""
+    resp = client.options("/api/stores/construct")
+    assert resp.status_code == 200
+    allow_header = resp.headers.get("allow", "").upper()
+    assert "POST" in allow_header or "OPTIONS" in allow_header
+

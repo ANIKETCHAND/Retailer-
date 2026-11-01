@@ -273,7 +273,24 @@ def list_plots(db: Session = Depends(get_db)):
     return result
 
 
+@router.options("/construct")
+@router.options("/construct/", include_in_schema=False)
+def options_construct_store():
+    """Explicitly handle preflight OPTIONS requests for store construction."""
+    return Response(
+        status_code=status.HTTP_200_OK,
+        headers={
+            "Allow": "POST, OPTIONS",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "POST, OPTIONS",
+            "Access-Control-Allow-Headers": "*",
+            "Access-Control-Max-Age": "86400",
+        }
+    )
+
+
 @router.post("/construct", response_model=StoreListItem)
+@router.post("/construct/", response_model=StoreListItem, include_in_schema=False)
 async def construct_store(
     file: UploadFile = File(...),
     name: str = Form(...),
