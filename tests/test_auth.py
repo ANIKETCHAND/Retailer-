@@ -69,6 +69,33 @@ def test_auth_login_success(client):
     assert data["username"] == "admin"
 
 
+def test_auth_login_success_alternative_demo_credentials(client):
+    """Verify demo login succeeds with password123 and username admin."""
+    # Test with email + password123
+    resp1 = client.post("/api/auth/login", json={
+        "login": "admin@retailvision.com",
+        "password": "password123"
+    })
+    assert resp1.status_code == 200
+    assert resp1.json()["success"] is True
+
+    # Test with username + admin123
+    resp2 = client.post("/api/auth/login", json={
+        "login": "admin",
+        "password": "admin123"
+    })
+    assert resp2.status_code == 200
+    assert resp2.json()["success"] is True
+
+    # Test with username + password123
+    resp3 = client.post("/api/auth/login", json={
+        "login": "admin",
+        "password": "password123"
+    })
+    assert resp3.status_code == 200
+    assert resp3.json()["success"] is True
+
+
 def test_auth_login_invalid_password(client):
     """Verify login with incorrect password returns HTTP 401."""
     resp = client.post("/api/auth/login", json={
@@ -123,3 +150,27 @@ def test_google_login(client):
     data = resp.json()
     assert data["success"] is True
     assert "token" in data
+
+
+def test_auth_login_with_whitespace_tolerance(client):
+    """Verify demo login handles leading and trailing whitespaces cleanly."""
+    resp = client.post("/api/auth/login", json={
+        "login": "  admin@retailvision.com  ",
+        "password": "  admin123  "
+    })
+    assert resp.status_code == 200
+    assert resp.json()["success"] is True
+
+
+def test_auth_offline_and_demo_tokens_resolution(client):
+    """Verify offline and demo tokens resolve cleanly to admin user."""
+    # Offline token
+    resp_offline = client.get("/api/auth/me", headers={"Authorization": "Bearer rv_offline_token_12345"})
+    assert resp_offline.status_code == 200
+    assert resp_offline.json()["username"] == "admin"
+
+    # Demo token
+    resp_demo = client.get("/api/auth/me", headers={"Authorization": "Bearer rv_demo_token"})
+    assert resp_demo.status_code == 200
+    assert resp_demo.json()["username"] == "admin"
+

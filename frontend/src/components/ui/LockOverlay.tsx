@@ -54,7 +54,16 @@ export const LockOverlay: React.FC<LockOverlayProps> = ({ isOpen, onClose, onSuc
       const session = await authApi.login(email, password)
       onSuccess(session)
     } catch (err: any) {
-      setErrorMsg(err.response?.data?.detail || 'Authentication failed. Please verify credentials.')
+      let detail = err?.response?.data?.detail
+      if (typeof detail === 'string') {
+        setErrorMsg(detail)
+      } else if (Array.isArray(detail)) {
+        setErrorMsg(detail.map((d: any) => d.msg || JSON.stringify(d)).join(', '))
+      } else if (err?.message && typeof err.message === 'string') {
+        setErrorMsg(err.message)
+      } else {
+        setErrorMsg('Authentication failed. Please verify credentials.')
+      }
     } finally {
       setIsLoading(false)
     }
@@ -70,7 +79,7 @@ export const LockOverlay: React.FC<LockOverlayProps> = ({ isOpen, onClose, onSuc
       })
       setShowGoogleChooser(false)
       onSuccess(session)
-    } catch (err: any) {
+    } catch {
       setErrorMsg('Google login failed. Please try again.')
     } finally {
       setIsLoading(false)
@@ -92,6 +101,7 @@ export const LockOverlay: React.FC<LockOverlayProps> = ({ isOpen, onClose, onSuc
         email: `user@${provider}.com`,
         token: `mock_jwt_${provider}_${Date.now()}`
       }
+      localStorage.setItem('retailvision_token', session.token)
       setTimeout(() => {
         setIsLoading(false)
         onSuccess(session)
