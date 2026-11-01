@@ -342,7 +342,7 @@ export const GamePillButtons: React.FC<GamePillButtonsProps> = ({
   return (
     <aside
       aria-label="Marketplace Quick Action Pills"
-      className="fixed top-20 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5 sm:gap-4 animate-in fade-in slide-in-from-top-4 duration-500 max-w-[95vw] overflow-x-auto p-1"
+      className="fixed top-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5 sm:gap-4 animate-in fade-in slide-in-from-top-4 duration-500 max-w-[95vw] overflow-x-auto p-1"
     >
       {/* ======================================================== */}
       {/* BUTTON 1: EXPLORE EXISTING STORES                        */}
@@ -444,7 +444,7 @@ export const CityViewPill: React.FC<CityViewPillProps> = ({
   return (
     <aside
       aria-label="Focus Navigation Controls"
-      className="fixed top-20 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5 sm:gap-4 animate-in fade-in slide-in-from-top-4 duration-500 max-w-[95vw] overflow-x-auto p-1"
+      className="fixed top-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5 sm:gap-4 animate-in fade-in slide-in-from-top-4 duration-500 max-w-[95vw] overflow-x-auto p-1"
     >
       {/* ======================================================== */}
       {/* CITY VIEW BUTTON: Returns to Full 3D City Overview       */}

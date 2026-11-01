@@ -14,7 +14,7 @@ import { MarketplaceScene } from './components/3d/MarketplaceScene'
 import { LockOverlay } from './components/ui/LockOverlay'
 import { StoreAnalyticsModal } from './components/ui/StoreAnalyticsModal'
 import { ConstructModal } from './components/ui/ConstructModal'
-import { FloatingNav } from './components/ui/FloatingNav'
+import { CornerSettingsTab } from './components/ui/CornerSettingsTab'
 import { GtaMinimap } from './components/ui/GtaMinimap'
 import { StoreCardTooltip } from './components/ui/StoreCardTooltip'
 import { ErrorBoundary } from './components/ui/ErrorBoundary'
@@ -215,20 +215,14 @@ export const App: React.FC = () => {
       {/* SCENE 2: 3D RETAIL MARKETPLACE & SIMULATION */}
       {scene === 'MARKETPLACE' && (
         <div className="w-full h-full relative">
-          {/* Top Floating Navigation */}
-          <FloatingNav
-            stores={stores}
-            selectedStore={selectedStore}
-            onSelectStore={handleStoreSelect}
-            onOpenConstruct={handleConstructNewStore}
-            onResetCamera={handleResetCamera}
-            userSession={userSession}
-            onLogout={handleLogout}
+          {/* CORNER SETTINGS TAB: Replaces top bar, matching Build/Explore button visual aesthetic */}
+          <CornerSettingsTab
             timeOfDay={timeOfDay}
-            onToggleTimeOfDay={() => setTimeOfDay(t => t === 'day' ? 'night' : 'day')}
+            onToggleTimeOfDay={setTimeOfDay}
             graphicsQuality={graphicsQuality}
             onChangeGraphicsQuality={setGraphicsQuality}
-            nextPlotIndex={nextPlot.plot_index + 1}
+            onLogout={handleLogout}
+            userSession={userSession}
           />
 
           {/* REQUIREMENT 2: AFTER LOGIN - PRIMARY MARKETPLACE GAME PILL ACTION BUTTONS */}
