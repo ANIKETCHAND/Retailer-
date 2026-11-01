@@ -17,6 +17,7 @@ import { ConstructModal } from './components/ui/ConstructModal'
 import { FloatingNav } from './components/ui/FloatingNav'
 import { GtaMinimap } from './components/ui/GtaMinimap'
 import { StoreCardTooltip } from './components/ui/StoreCardTooltip'
+import { ErrorBoundary } from './components/ui/ErrorBoundary'
 import type { Store, UserSession, TimeOfDay, GraphicsQuality } from './types'
 
 export const App: React.FC = () => {
@@ -84,9 +85,15 @@ export const App: React.FC = () => {
 
   // Handle constructing a new store with procedural staging animation
   const handleStoreConstructed = (newStore: Store) => {
-    setStores(prev => [...prev, newStore])
+    if (!newStore || typeof newStore !== 'object' || !newStore.id) {
+      console.warn('Invalid store received from constructStore:', newStore)
+      return
+    }
+    setStores(prev => [...prev.filter(s => s.id !== newStore.id), newStore])
     // Focus camera directly on the new building
-    setCameraTarget([newStore.grid_x, 0, newStore.grid_z])
+    const targetX = typeof newStore.grid_x === 'number' ? newStore.grid_x : 13.0
+    const targetZ = typeof newStore.grid_z === 'number' ? newStore.grid_z : -6.0
+    setCameraTarget([targetX, 0, targetZ])
     setConstructingStoreId(newStore.id)
 
     // After celebratory staging animation, open analytics modal
@@ -155,20 +162,22 @@ export const App: React.FC = () => {
           />
 
           {/* 3D Interactive Town */}
-          <MarketplaceScene
-            stores={stores}
-            selectedStore={selectedStore}
-            onStoreSelect={handleStoreSelect}
-            onHoverStore={setHoveredStore}
-            onConstructClick={() => setIsConstructOpen(true)}
-            cameraTarget={cameraTarget}
-            onCameraTargetReached={() => setCameraTarget(null)}
-            onUserInteract={() => setCameraTarget(null)}
-            onDeselectStore={() => setSelectedStore(null)}
-            timeOfDay={timeOfDay}
-            graphicsQuality={graphicsQuality}
-            constructingStoreId={constructingStoreId}
-          />
+          <ErrorBoundary fallbackTitle="3D Metropolis Scene Warning">
+            <MarketplaceScene
+              stores={stores}
+              selectedStore={selectedStore}
+              onStoreSelect={handleStoreSelect}
+              onHoverStore={setHoveredStore}
+              onConstructClick={() => setIsConstructOpen(true)}
+              cameraTarget={cameraTarget}
+              onCameraTargetReached={() => setCameraTarget(null)}
+              onUserInteract={() => setCameraTarget(null)}
+              onDeselectStore={() => setSelectedStore(null)}
+              timeOfDay={timeOfDay}
+              graphicsQuality={graphicsQuality}
+              constructingStoreId={constructingStoreId}
+            />
+          </ErrorBoundary>
 
           {/* GTA 6 Corner Radar Minimap Guide */}
           <GtaMinimap
@@ -207,14 +216,16 @@ export const App: React.FC = () => {
           )}
 
           {/* Store Analytics Modal Dashboard */}
-          <StoreAnalyticsModal
-            store={selectedStore}
-            isOpen={isAnalyticsOpen}
-            onClose={() => {
-              setIsAnalyticsOpen(false)
-              setCameraTarget(null)
-            }}
-          />
+          <ErrorBoundary fallbackTitle="Store Analytics Warning">
+            <StoreAnalyticsModal
+              store={selectedStore}
+              isOpen={isAnalyticsOpen}
+              onClose={() => {
+                setIsAnalyticsOpen(false)
+                setCameraTarget(null)
+              }}
+            />
+          </ErrorBoundary>
 
           {/* Construct Store Modal */}
           <ConstructModal

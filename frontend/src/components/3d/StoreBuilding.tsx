@@ -720,7 +720,7 @@ export const StoreBuilding: React.FC<StoreBuildingProps> = ({
   return (
     <group
       ref={groupRef}
-      position={[store.grid_x, 0, store.grid_z]}
+      position={[store.grid_x ?? 13.0, 0, store.grid_z ?? -6.0]}
       rotation={[0, store.rotation_y || 0, 0]}
       onClick={(e) => {
         e.stopPropagation()
@@ -779,7 +779,7 @@ export const StoreBuilding: React.FC<StoreBuildingProps> = ({
           fontWeight="bold"
           maxWidth={2.2}
         >
-          {`${getCategoryIcon(store.category)}  ${store.name}`}
+          {`${getCategoryIcon(store.category)}  ${store.name || 'Store'}`}
         </Text>
 
         {/* Revenue Metric Pill */}

@@ -92,11 +92,11 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                 className="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg text-white shadow-lg"
                 style={{ backgroundColor: store.color || '#3b82f6' }}
               >
-                {store.name.charAt(0)}
+                {(store.name || 'S').charAt(0)}
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h2 className="text-xl font-bold text-white tracking-tight">{store.name}</h2>
+                  <h2 className="text-xl font-bold text-white tracking-tight">{store.name || 'Store'}</h2>
                   <span
                     className="px-2.5 py-0.5 text-xs font-semibold rounded-full border"
                     style={{
@@ -181,9 +181,9 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                       <DollarSign className="w-3.5 h-3.5 text-blue-400" />
                     </div>
                     <div className="text-xl font-extrabold text-white">
-                      ${analytics.kpis.total_revenue.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                      ${(analytics.kpis?.total_revenue ?? 0).toLocaleString('en-US', { minimumFractionDigits: 2 })}
                     </div>
-                    {analytics.kpis.revenue_growth_pct !== null && analytics.kpis.revenue_growth_pct !== undefined && (
+                    {analytics.kpis?.revenue_growth_pct !== null && analytics.kpis?.revenue_growth_pct !== undefined && (
                       <div className={`text-[11px] font-semibold mt-1 ${analytics.kpis.revenue_growth_pct >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
                         {analytics.kpis.revenue_growth_pct >= 0 ? '↑' : '↓'} {analytics.kpis.revenue_growth_pct.toFixed(1)}% vs prior
                       </div>
@@ -196,7 +196,7 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                       <ShoppingBag className="w-3.5 h-3.5 text-emerald-400" />
                     </div>
                     <div className="text-xl font-extrabold text-white">
-                      {analytics.kpis.total_orders.toLocaleString()}
+                      {(analytics.kpis?.total_orders ?? 0).toLocaleString()}
                     </div>
                     <div className="text-[11px] text-slate-400 mt-1">Processed transactions</div>
                   </div>
@@ -207,7 +207,7 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                       <Package className="w-3.5 h-3.5 text-purple-400" />
                     </div>
                     <div className="text-xl font-extrabold text-white">
-                      {analytics.kpis.total_units_sold.toLocaleString()}
+                      {(analytics.kpis?.total_units_sold ?? 0).toLocaleString()}
                     </div>
                     <div className="text-[11px] text-slate-400 mt-1">Total items shipped</div>
                   </div>
@@ -218,7 +218,7 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                       <TrendingUp className="w-3.5 h-3.5 text-amber-400" />
                     </div>
                     <div className="text-xl font-extrabold text-white">
-                      ${analytics.kpis.average_order_value.toFixed(2)}
+                      ${(analytics.kpis?.average_order_value ?? 0).toFixed(2)}
                     </div>
                     <div className="text-[11px] text-slate-400 mt-1">Revenue per basket</div>
                   </div>
@@ -229,7 +229,7 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                       <Package className="w-3.5 h-3.5 text-cyan-400" />
                     </div>
                     <div className="text-xl font-extrabold text-white">
-                      {analytics.kpis.total_products.toLocaleString()}
+                      {(analytics.kpis?.total_products ?? 0).toLocaleString()}
                     </div>
                     <div className="text-[11px] text-slate-400 mt-1">Catalog items</div>
                   </div>
@@ -240,7 +240,7 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                       <Users className="w-3.5 h-3.5 text-rose-400" />
                     </div>
                     <div className="text-xl font-extrabold text-white">
-                      {analytics.kpis.total_customers.toLocaleString()}
+                      {(analytics.kpis?.total_customers ?? 0).toLocaleString()}
                     </div>
                     <div className="text-[11px] text-slate-400 mt-1">Active buyers</div>
                   </div>
@@ -259,13 +259,14 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                       </div>
 
                       <div className="h-56 w-full flex items-end gap-2 pt-6 pb-2 border-b border-slate-700/50">
-                        {analytics.monthly_trend.map((m, idx) => {
-                          const maxRev = Math.max(...analytics.monthly_trend.map(x => x.revenue))
-                          const heightPct = (m.revenue / maxRev) * 100
+                        {(analytics.monthly_trend || []).map((m, idx) => {
+                          const maxRev = Math.max(1, ...(analytics.monthly_trend || []).map(x => x.revenue || 0))
+                          const heightPct = Math.min(100, Math.max(4, ((m.revenue || 0) / maxRev) * 100))
+                          const momPct = m.mom_growth_pct ?? 0
                           return (
                             <div key={idx} className="flex-1 flex flex-col items-center gap-1 group relative h-full justify-end">
                               <div className="opacity-0 group-hover:opacity-100 transition-opacity absolute -top-8 px-2 py-1 rounded bg-slate-900 text-white text-[10px] font-bold whitespace-nowrap border border-slate-700 pointer-events-none z-10 shadow-lg">
-                                {m.month_name}: ${m.revenue.toLocaleString()} ({m.mom_growth_pct >= 0 ? '+' : ''}{m.mom_growth_pct.toFixed(1)}%)
+                                {m.month_name || 'Month'}: ${(m.revenue ?? 0).toLocaleString()} ({momPct >= 0 ? '+' : ''}{momPct.toFixed(1)}%)
                               </div>
                               <div
                                 className="w-full rounded-t-md transition-all duration-300 group-hover:brightness-125"
@@ -276,7 +277,7 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                                 }}
                               />
                               <span className="text-[10px] text-slate-400 truncate w-full text-center mt-1">
-                                {m.month_name.split(' ')[0]}
+                                {(m.month_name || 'Month').split(' ')[0]}
                               </span>
                             </div>
                           )
@@ -291,18 +292,18 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                           Regional Demand Distribution
                         </h3>
                         <div className="space-y-3">
-                          {analytics.regions.map((reg, i) => (
+                          {(analytics.regions || []).map((reg, i) => (
                             <div key={i} className="space-y-1">
                               <div className="flex justify-between text-xs">
-                                <span className="font-semibold text-slate-200">{reg.region}</span>
+                                <span className="font-semibold text-slate-200">{reg.region || 'Region'}</span>
                                 <span className="font-mono text-slate-300">
-                                  ${reg.revenue.toLocaleString()} ({reg.revenue_share_pct.toFixed(1)}%)
+                                  ${(reg.revenue ?? 0).toLocaleString()} ({(reg.revenue_share_pct ?? 0).toFixed(1)}%)
                                 </span>
                               </div>
                               <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
                                 <div
                                   className="h-full rounded-full bg-emerald-500"
-                                  style={{ width: `${reg.revenue_share_pct}%` }}
+                                  style={{ width: `${Math.min(100, Math.max(0, reg.revenue_share_pct ?? 0))}%` }}
                                 />
                               </div>
                             </div>
@@ -316,18 +317,18 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                           Category Revenue Breakdown
                         </h3>
                         <div className="space-y-3">
-                          {analytics.categories.map((cat, i) => (
+                          {(analytics.categories || []).map((cat, i) => (
                             <div key={i} className="space-y-1">
                               <div className="flex justify-between text-xs">
-                                <span className="font-semibold text-slate-200">{cat.category}</span>
+                                <span className="font-semibold text-slate-200">{cat.category || 'Category'}</span>
                                 <span className="font-mono text-slate-300">
-                                  ${cat.revenue.toLocaleString()} ({cat.revenue_share_pct.toFixed(1)}%)
+                                  ${(cat.revenue ?? 0).toLocaleString()} ({(cat.revenue_share_pct ?? 0).toFixed(1)}%)
                                 </span>
                               </div>
                               <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
                                 <div
                                   className="h-full rounded-full bg-purple-500"
-                                  style={{ width: `${cat.revenue_share_pct}%` }}
+                                  style={{ width: `${Math.min(100, Math.max(0, cat.revenue_share_pct ?? 0))}%` }}
                                 />
                               </div>
                             </div>
@@ -364,16 +365,16 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-800/60 font-mono">
-                          {analytics.top_products.map((prod, idx) => (
+                          {(analytics.top_products || []).map((prod, idx) => (
                             <tr key={idx} className="hover:bg-slate-800/40 transition-colors">
                               <td className="py-2.5 px-3 font-sans font-bold text-blue-400">#{idx + 1}</td>
-                              <td className="py-2.5 px-3 font-sans font-semibold text-slate-100">{prod.product}</td>
-                              <td className="py-2.5 px-3 font-sans text-slate-400">{prod.category}</td>
-                              <td className="py-2.5 px-3 text-slate-300">{prod.units_sold.toLocaleString()}</td>
-                              <td className="py-2.5 px-3 text-slate-300">${prod.avg_price.toFixed(2)}</td>
-                              <td className="py-2.5 px-3 font-bold text-emerald-400">${prod.revenue.toLocaleString()}</td>
-                              <td className="py-2.5 px-3 text-slate-400">{prod.revenue_share_pct.toFixed(1)}%</td>
-                              <td className="py-2.5 px-3 text-purple-400 font-bold">{prod.cumulative_revenue_pct.toFixed(1)}%</td>
+                              <td className="py-2.5 px-3 font-sans font-semibold text-slate-100">{prod.product || 'Product'}</td>
+                              <td className="py-2.5 px-3 font-sans text-slate-400">{prod.category || 'General'}</td>
+                              <td className="py-2.5 px-3 text-slate-300">{(prod.units_sold ?? 0).toLocaleString()}</td>
+                              <td className="py-2.5 px-3 text-slate-300">${(prod.avg_price ?? 0).toFixed(2)}</td>
+                              <td className="py-2.5 px-3 font-bold text-emerald-400">${(prod.revenue ?? 0).toLocaleString()}</td>
+                              <td className="py-2.5 px-3 text-slate-400">{(prod.revenue_share_pct ?? 0).toFixed(1)}%</td>
+                              <td className="py-2.5 px-3 text-purple-400 font-bold">{(prod.cumulative_revenue_pct ?? 0).toFixed(1)}%</td>
                             </tr>
                           ))}
                         </tbody>
@@ -391,18 +392,18 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                         Buyer Retention Rate
                       </h3>
                       <div className="text-3xl font-extrabold text-rose-400">
-                        {analytics.customer_metrics.repeat_customer_rate_pct.toFixed(1)}%
+                        {(analytics.customer_metrics?.repeat_customer_rate_pct ?? 0).toFixed(1)}%
                       </div>
                       <p className="text-xs text-slate-400 leading-relaxed">
                         Proportion of total customers who made 2 or more separate purchases in this store dataset.
                       </p>
                       <div className="pt-2 border-t border-slate-700/50 flex justify-between text-xs">
                         <span className="text-slate-400">Repeat Customers:</span>
-                        <span className="font-bold text-white">{analytics.customer_metrics.total_repeat_customers}</span>
+                        <span className="font-bold text-white">{analytics.customer_metrics?.total_repeat_customers ?? 0}</span>
                       </div>
                       <div className="flex justify-between text-xs">
                         <span className="text-slate-400">Total Unique Buyers:</span>
-                        <span className="font-bold text-white">{analytics.customer_metrics.total_customers}</span>
+                        <span className="font-bold text-white">{analytics.customer_metrics?.total_customers ?? 0}</span>
                       </div>
                     </div>
 
@@ -412,14 +413,14 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                         Average Revenue Per User (ARPU)
                       </h3>
                       <div className="text-3xl font-extrabold text-emerald-400">
-                        ${analytics.customer_metrics.avg_revenue_per_customer.toFixed(2)}
+                        ${(analytics.customer_metrics?.avg_revenue_per_customer ?? 0).toFixed(2)}
                       </div>
                       <p className="text-xs text-slate-400 leading-relaxed">
                         Mean lifetime customer value generated across the customer cohort for this store.
                       </p>
                       <div className="pt-2 border-t border-slate-700/50 flex justify-between text-xs">
                         <span className="text-slate-400">Avg Orders per User:</span>
-                        <span className="font-bold text-white">{analytics.customer_metrics.avg_orders_per_customer.toFixed(2)}</span>
+                        <span className="font-bold text-white">{(analytics.customer_metrics?.avg_orders_per_customer ?? 0).toFixed(2)}</span>
                       </div>
                     </div>
 
@@ -429,16 +430,16 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                         Single vs Repeat Revenue
                       </h3>
                       <div className="space-y-3 pt-2">
-                        {analytics.repeat_breakdown.map((seg, i) => (
+                        {(analytics.repeat_breakdown || []).map((seg, i) => (
                           <div key={i} className="space-y-1">
                             <div className="flex justify-between text-xs">
-                              <span className="text-slate-300 font-semibold">{seg.segment}</span>
-                              <span className="font-mono text-emerald-400">${seg.total_revenue.toLocaleString()}</span>
+                              <span className="text-slate-300 font-semibold">{seg.segment || 'Segment'}</span>
+                              <span className="font-mono text-emerald-400">${(seg.total_revenue ?? 0).toLocaleString()}</span>
                             </div>
                             <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
                               <div
                                 className="h-full rounded-full bg-blue-500"
-                                style={{ width: `${seg.revenue_share_pct}%` }}
+                                style={{ width: `${Math.min(100, Math.max(0, seg.revenue_share_pct ?? 0))}%` }}
                               />
                             </div>
                           </div>
@@ -487,25 +488,25 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                           <div className="p-3.5 rounded-xl glass-card border border-white/5">
                             <span className="text-[10px] font-bold uppercase text-slate-400">Projected {forecastHorizon}d Revenue</span>
                             <div className="text-lg font-extrabold text-purple-400 mt-1">
-                              ${forecastData.total_projected_revenue.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                              ${(forecastData.total_projected_revenue ?? 0).toLocaleString('en-US', { minimumFractionDigits: 2 })}
                             </div>
                           </div>
                           <div className="p-3.5 rounded-xl glass-card border border-white/5">
                             <span className="text-[10px] font-bold uppercase text-slate-400">Daily Projected Run-rate</span>
                             <div className="text-lg font-extrabold text-blue-400 mt-1">
-                              ${forecastData.daily_avg_projected_revenue.toFixed(2)}/day
+                              ${(forecastData.daily_avg_projected_revenue ?? 0).toFixed(2)}/day
                             </div>
                           </div>
                           <div className="p-3.5 rounded-xl glass-card border border-white/5">
                             <span className="text-[10px] font-bold uppercase text-slate-400">Out-of-Sample Test RMSE</span>
                             <div className="text-lg font-extrabold text-amber-400 mt-1">
-                              ${forecastData.metrics.rmse.toFixed(2)}
+                              ${(forecastData.metrics?.rmse ?? 0).toFixed(2)}
                             </div>
                           </div>
                           <div className="p-3.5 rounded-xl glass-card border border-white/5">
                             <span className="text-[10px] font-bold uppercase text-slate-400">Test MAPE</span>
                             <div className="text-lg font-extrabold text-emerald-400 mt-1">
-                              {forecastData.metrics.mape.toFixed(1)}%
+                              {(forecastData.metrics?.mape ?? 0).toFixed(1)}%
                             </div>
                           </div>
                         </div>
@@ -525,12 +526,12 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                                 </tr>
                               </thead>
                               <tbody className="divide-y divide-slate-800">
-                                {forecastData.forecast.slice(0, 15).map((pt, i) => (
+                                {(forecastData.forecast || []).slice(0, 15).map((pt, i) => (
                                   <tr key={i} className="hover:bg-slate-800/30">
                                     <td className="py-1.5 px-3 text-slate-300">{pt.date}</td>
-                                    <td className="py-1.5 px-3 font-bold text-purple-400">${pt.forecast_revenue.toFixed(2)}</td>
-                                    <td className="py-1.5 px-3 text-slate-500">${pt.lower_bound.toFixed(2)}</td>
-                                    <td className="py-1.5 px-3 text-slate-500">${pt.upper_bound.toFixed(2)}</td>
+                                    <td className="py-1.5 px-3 font-bold text-purple-400">${(pt.forecast_revenue ?? 0).toFixed(2)}</td>
+                                    <td className="py-1.5 px-3 text-slate-500">${(pt.lower_bound ?? 0).toFixed(2)}</td>
+                                    <td className="py-1.5 px-3 text-slate-500">${(pt.upper_bound ?? 0).toFixed(2)}</td>
                                   </tr>
                                 ))}
                               </tbody>

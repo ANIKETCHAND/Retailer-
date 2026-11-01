@@ -39,16 +39,15 @@ CATEGORY_COLORS = {
 
 # Grid plots for dynamically constructed buildings (strictly on empty land, zero road overlap)
 CANDIDATE_PLOTS = [
-    (-13.0, -6.0),   # North-West outer land parcel
-    (-13.0, 6.0),    # South-West outer land parcel
-    (-6.5, -15.5),   # North-West far park parcel
-    (6.5, -15.5),    # North-East far park parcel
-    (-13.0, -15.5),  # North-West corner parcel
-    (13.0, -15.5),   # North-East corner parcel
-    (-6.5, 15.5),    # South-West far park parcel
-    (6.5, 15.5),     # South-East far park parcel
-    (-13.0, 15.5),   # South-West corner parcel
-    (13.0, 15.5),    # South-East corner parcel
+    (13.0, -6.0),    # Plot 1: Dedicated construction crane plot on East commercial plaza
+    (-13.0, -6.0),   # Plot 2: North-West commercial plaza plot
+    (-13.0, 6.0),    # Plot 3: South-West commercial plaza plot
+    (13.0, 11.0),    # Plot 4: South-East outer plaza extension
+    (-13.0, 11.0),   # Plot 5: South-West outer plaza extension
+    (6.5, 11.0),     # Plot 6: South-East parkside parcel
+    (-6.5, 11.0),    # Plot 7: South-West parkside parcel
+    (13.0, -11.0),   # Plot 8: North-East outer parcel
+    (-13.0, -11.0),  # Plot 9: North-West outer parcel
 ]
 
 
@@ -141,8 +140,14 @@ async def construct_store(
 
     store_id = f"store_{uuid.uuid4().hex[:8]}"
     upload_dir = settings.DATA_DIR / "uploads"
-    upload_dir.mkdir(parents=True, exist_ok=True)
-    saved_csv_path = upload_dir / f"{store_id}.csv"
+    try:
+        upload_dir.mkdir(parents=True, exist_ok=True)
+        saved_csv_path = upload_dir / f"{store_id}.csv"
+    except Exception:
+        import tempfile
+        upload_dir = Path(tempfile.gettempdir()) / "retailvision_uploads"
+        upload_dir.mkdir(parents=True, exist_ok=True)
+        saved_csv_path = upload_dir / f"{store_id}.csv"
 
     # Save uploaded file
     try:

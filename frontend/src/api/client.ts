@@ -227,6 +227,43 @@ export const authApi = {
   }
 }
 
+// Designated commercial construction plots (strictly on plaza sidewalks / empty land parcels, ZERO road overlap)
+export const PLANNED_BUILDING_PLOTS: Array<{ x: number; z: number }> = [
+  { x: 13.0, z: -6.0 },   // Plot 1: Dedicated construction crane plot on East commercial plaza
+  { x: -13.0, z: -6.0 },  // Plot 2: North-West commercial plaza plot
+  { x: -13.0, z: 6.0 },   // Plot 3: South-West commercial plaza plot
+  { x: 13.0, z: 11.0 },   // Plot 4: South-East outer plaza extension
+  { x: -13.0, z: 11.0 },  // Plot 5: South-West outer plaza extension
+  { x: 6.5, z: 11.0 },    // Plot 6: South-East parkside parcel
+  { x: -6.5, z: 11.0 },   // Plot 7: South-West parkside parcel
+  { x: 13.0, z: -11.0 },  // Plot 8: North-East outer parcel
+  { x: -13.0, z: -11.0 }  // Plot 9: North-West outer parcel
+]
+
+export function findNextAvailablePlot(existingStores: Store[]): { x: number; z: number } {
+  const occupied = new Set(
+    existingStores.map(s => `${Math.round(s.grid_x)},${Math.round(s.grid_z)}`)
+  )
+  for (const plot of PLANNED_BUILDING_PLOTS) {
+    if (!occupied.has(`${Math.round(plot.x)},${Math.round(plot.z)}`)) {
+      return plot
+    }
+  }
+  // Safe outer perimeter offset (never on road networks)
+  const offset = existingStores.length * 3.5
+  return { x: 16.0 + offset, z: -6.0 }
+}
+
+const CATEGORY_COLORS: Record<string, string> = {
+  Electronics: '#3B82F6',
+  Grocery: '#10B981',
+  Clothing: '#EC4899',
+  Furniture: '#F59E0B',
+  Accessories: '#8B5CF6',
+  Healthcare: '#06B6D4',
+  Custom: '#6366F1'
+}
+
 export const storeApi = {
   listStores: async (): Promise<Store[]> => {
     try {
@@ -262,32 +299,81 @@ export const storeApi = {
   },
 
   constructStore: async (formData: FormData): Promise<Store> => {
+    // 1. Try server endpoint first
     try {
       const res = await api.post('/stores/construct', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
-      inMemoryStores.push(res.data)
-      return res.data
+      // Ensure response is a valid parsed JSON store object and NOT HTML text or an error page
+      if (
+        res &&
+        res.data &&
+        typeof res.data === 'object' &&
+        typeof res.data.id === 'string' &&
+        typeof res.data.grid_x === 'number'
+      ) {
+        inMemoryStores.push(res.data)
+        return res.data
+      }
+      throw new Error('Server returned invalid data format')
     } catch {
-      // Standalone procedural building creation for demo
+      // 2. Client-side CSV parser fallback for standalone/serverless preview deployments
+      let computedRevenue = 0
+      let computedOrders = 0
+      let computedProducts = 0
+
+      const file = formData.get('file') as File | null
+      if (file && typeof file.text === 'function') {
+        try {
+          const text = await file.text()
+          const lines = text.split(/\r?\n/).filter(l => l.trim().length > 0)
+          if (lines.length > 1) {
+            const headers = lines[0].split(',').map(h => h.trim().toLowerCase().replace(/"/g, ''))
+            const revIdx = headers.findIndex(h => h.includes('amount') || h.includes('revenue') || h.includes('price') || h.includes('sales'))
+            const orderIdx = headers.findIndex(h => h.includes('order') || h.includes('id') || h.includes('transaction'))
+            const prodIdx = headers.findIndex(h => h.includes('product') || h.includes('item') || h.includes('sku'))
+
+            const uniqueOrders = new Set<string>()
+            const uniqueProducts = new Set<string>()
+
+            for (let i = 1; i < lines.length; i++) {
+              const row = lines[i].split(',').map(c => c.trim().replace(/"/g, ''))
+              if (revIdx >= 0 && row[revIdx]) {
+                const val = parseFloat(row[revIdx])
+                if (!isNaN(val)) computedRevenue += val
+              }
+              if (orderIdx >= 0 && row[orderIdx]) uniqueOrders.add(row[orderIdx])
+              if (prodIdx >= 0 && row[prodIdx]) uniqueProducts.add(row[prodIdx])
+            }
+
+            computedOrders = uniqueOrders.size || lines.length - 1
+            computedProducts = uniqueProducts.size || 8
+            if (computedRevenue <= 0) computedRevenue = (lines.length - 1) * 85
+          }
+        } catch (err) {
+          console.warn('Client CSV parse notice:', err)
+        }
+      }
+
+      // Generate on next vacant commercial plot (strictly off roads!)
+      const nextPlot = findNextAvailablePlot(inMemoryStores)
       const name = (formData.get('name') as string) || 'Custom Enterprise Store'
       const category = (formData.get('category') as string) || 'Custom'
       const description = (formData.get('description') as string) || 'Procedurally generated retail store from uploaded sales dataset.'
 
-      // Generate next lot position
       const newStore: Store = {
         id: `store_custom_${Date.now()}`,
-        name,
+        name: name.trim(),
         category,
-        description,
-        grid_x: 0,
-        grid_z: 8.0,
+        description: description.trim(),
+        grid_x: nextPlot.x,
+        grid_z: nextPlot.z,
         rotation_y: 0,
-        color: '#06B6D4',
+        color: CATEGORY_COLORS[category] || '#6366F1',
         is_default: false,
-        total_revenue: 185000 + Math.floor(Math.random() * 100000),
-        total_orders: 850 + Math.floor(Math.random() * 400),
-        total_products: 12,
+        total_revenue: Math.round(computedRevenue || (220000 + Math.random() * 80000)),
+        total_orders: computedOrders || Math.round(850 + Math.random() * 300),
+        total_products: computedProducts || 10,
         created_at: new Date().toISOString().split('T')[0]
       }
 
