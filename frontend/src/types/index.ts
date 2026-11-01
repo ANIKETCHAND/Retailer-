@@ -16,6 +16,22 @@ export interface Store {
   total_orders: number
   total_products: number
   created_at: string
+  district_id?: string
+  district_name?: string
+  construction_status?: string
+}
+
+export interface PlotResponse {
+  plot_index: number
+  grid_x: number
+  grid_z: number
+  rotation_y: number
+  district_id: string
+  district_name: string
+  theme: string
+  color: string
+  is_occupied: boolean
+  store_id?: string | null
 }
 
 export interface KPISummary {
@@ -97,6 +113,8 @@ export interface StoreAnalyticsBundle {
     description: string
     color: string
     is_default: boolean
+    district_id?: string
+    district_name?: string
   }
   kpis: KPISummary
   monthly_trend: MonthlyTrend[]

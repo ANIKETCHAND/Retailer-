@@ -1,7 +1,8 @@
 """
 RetailVision - Database Seeder & Default Store Initializer
-Creates database schema, sets up default demo user account, and generates
-distinct realistic retail sales datasets for each default store.
+Creates database schema, sets up default demo user account, generates
+distinct realistic retail sales datasets for each default store, and
+initializes the dynamic construction plot system.
 """
 
 import csv
@@ -13,8 +14,9 @@ from pathlib import Path
 import numpy as np
 from src.core.config import settings
 from src.db.database import Base, SessionLocal, engine
-from src.db.models import Store, User
+from src.db.models import ConstructionPlot, Store, User
 from src.services.data_service import validate_and_clean_dataset
+from src.services.procedural_layout import get_plot_definition
 
 
 def hash_password(password: str) -> str:
@@ -87,7 +89,7 @@ def generate_store_dataset(
 
 
 def seed_database():
-    """Initializes tables and seeds default user and stores."""
+    """Initializes tables and seeds default user, 5 default stores, and dynamic plots."""
     Base.metadata.create_all(bind=engine)
     db = SessionLocal()
 
@@ -104,7 +106,7 @@ def seed_database():
         db.commit()
         db.refresh(admin)
 
-    # 2. Store Catalog Definitions
+    # 2. Store Catalog Definitions (5 Default Stores)
     store_definitions = [
         {
             "id": "store_electronics",
@@ -112,9 +114,7 @@ def seed_database():
             "category": "Electronics",
             "description": "High-tech gadgets, smartphones, 4K displays, and audio systems.",
             "color": "#3B82F6",
-            "grid_x": -6.5,
-            "grid_z": -6.0,
-            "rotation_y": 0.0,
+            "plot_index": 0,
             "catalog": [
                 ("Pro Smartphone Max", 899.99),
                 ("Noise-Cancelling Headphones", 189.99),
@@ -133,9 +133,7 @@ def seed_database():
             "category": "Grocery",
             "description": "Organic produce, artisan baked goods, dairy, and gourmet pantry staples.",
             "color": "#10B981",
-            "grid_x": 6.5,
-            "grid_z": 6.0,
-            "rotation_y": 0.0,
+            "plot_index": 1,
             "catalog": [
                 ("Organic Farm Fresh Milk (1 Gal)", 5.49),
                 ("Artisan Sourdough Loaf", 6.25),
@@ -154,9 +152,7 @@ def seed_database():
             "category": "Clothing",
             "description": "Contemporary fashion, designer denim, casual wear, and seasonal coats.",
             "color": "#EC4899",
-            "grid_x": -6.5,
-            "grid_z": 6.0,
-            "rotation_y": 0.0,
+            "plot_index": 2,
             "catalog": [
                 ("Raw Selvedge Denim Jeans", 79.99),
                 ("Organic Cotton Classic Tee", 28.00),
@@ -174,9 +170,7 @@ def seed_database():
             "category": "Furniture",
             "description": "Minimalist Scandinavian furniture, ergonomic desks, and ambient lighting.",
             "color": "#F59E0B",
-            "grid_x": 13.0,
-            "grid_z": 6.0,
-            "rotation_y": 0.0,
+            "plot_index": 3,
             "catalog": [
                 ("Ergonomic Lumbar Office Chair", 199.99),
                 ("Solid Oak Dining Table", 450.00),
@@ -193,9 +187,7 @@ def seed_database():
             "category": "Accessories",
             "description": "Handcrafted leather wallets, aviator sunglasses, and chronograph timepieces.",
             "color": "#8B5CF6",
-            "grid_x": 6.5,
-            "grid_z": -6.0,
-            "rotation_y": 0.0,
+            "plot_index": 4,
             "catalog": [
                 ("Full-Grain Bifold Leather Wallet", 45.00),
                 ("Polarized Aviator Sunglasses", 75.00),
@@ -217,11 +209,12 @@ def seed_database():
             num_records=s_def["records"]
         )
 
-        # Validate and calculate aggregate stats
         clean_df, report = validate_and_clean_dataset(csv_path)
         tot_rev = round(float(clean_df["total_amount"].sum()), 2)
         tot_orders = int(clean_df["order_id"].nunique())
         tot_prods = int(clean_df["product"].nunique())
+
+        plot_info = get_plot_definition(s_def["plot_index"])
 
         existing_store = db.query(Store).filter(Store.id == s_def["id"]).first()
         if not existing_store:
@@ -231,12 +224,16 @@ def seed_database():
                 name=s_def["name"],
                 category=s_def["category"],
                 description=s_def["description"],
+                dataset_id=f"ds_{s_def['id']}",
                 dataset_path=str(csv_path),
-                grid_x=s_def["grid_x"],
-                grid_z=s_def["grid_z"],
-                rotation_y=s_def["rotation_y"],
+                grid_x=plot_info["grid_x"],
+                grid_z=plot_info["grid_z"],
+                rotation_y=plot_info["rotation_y"],
                 color=s_def["color"],
                 is_default=True,
+                district_id=plot_info["district_id"],
+                district_name=plot_info["district_name"],
+                construction_status="completed",
                 total_revenue=tot_rev,
                 total_orders=tot_orders,
                 total_products=tot_prods,
@@ -248,9 +245,51 @@ def seed_database():
             existing_store.total_orders = tot_orders
             existing_store.total_products = tot_prods
             existing_store.dataset_path = str(csv_path)
-            existing_store.grid_x = s_def["grid_x"]
-            existing_store.grid_z = s_def["grid_z"]
-            existing_store.rotation_y = s_def["rotation_y"]
+            existing_store.grid_x = plot_info["grid_x"]
+            existing_store.grid_z = plot_info["grid_z"]
+            existing_store.rotation_y = plot_info["rotation_y"]
+            existing_store.district_id = plot_info["district_id"]
+            existing_store.district_name = plot_info["district_name"]
+
+        # Ensure Plot Record is registered as occupied
+        plot_record = db.query(ConstructionPlot).filter(ConstructionPlot.plot_index == s_def["plot_index"]).first()
+        if not plot_record:
+            plot_record = ConstructionPlot(
+                id=f"plot_{s_def['plot_index']}",
+                user_id=admin.id,
+                plot_index=s_def["plot_index"],
+                district_id=plot_info["district_id"],
+                district_name=plot_info["district_name"],
+                grid_x=plot_info["grid_x"],
+                grid_z=plot_info["grid_z"],
+                rotation_y=plot_info["rotation_y"],
+                is_occupied=True,
+                store_id=s_def["id"],
+                created_at=datetime.datetime.utcnow()
+            )
+            db.add(plot_record)
+        else:
+            plot_record.is_occupied = True
+            plot_record.store_id = s_def["id"]
+
+    # 3. Ensure the first empty construction plot (Plot Index 5) is seeded and available
+    first_empty_plot = get_plot_definition(5)
+    existing_empty = db.query(ConstructionPlot).filter(ConstructionPlot.plot_index == 5).first()
+    if not existing_empty:
+        empty_plot_rec = ConstructionPlot(
+            id="plot_5",
+            user_id=admin.id,
+            plot_index=5,
+            district_id=first_empty_plot["district_id"],
+            district_name=first_empty_plot["district_name"],
+            grid_x=first_empty_plot["grid_x"],
+            grid_z=first_empty_plot["grid_z"],
+            rotation_y=first_empty_plot["rotation_y"],
+            is_occupied=False,
+            store_id=None,
+            created_at=datetime.datetime.utcnow()
+        )
+        db.add(empty_plot_rec)
 
     db.commit()
     db.close()

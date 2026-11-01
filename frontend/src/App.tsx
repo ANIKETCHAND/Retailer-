@@ -2,12 +2,13 @@
  * RetailVision - Master 3D Retail Marketplace & Analytics Application
  * Coordinates Scene Transitions:
  * Scene 1: Locked Storefront Window -> Unlock / Sign-In -> Flythrough
- * Scene 2: 3D Retail Marketplace Town with interactive buildings
- * Scene 3: Construct Plot with CSV Upload & Procedural Spawning
+ * Scene 2: 3D Retail Marketplace Town with interactive buildings & infinite procedural plots
+ * Scene 3: Construct Plot with CSV Upload & Never-Ending Construction Loop
  * Features GTA 6 Style Corner Minimap Guide, Dynamic Day/Night, and Analytics Dashboards!
  */
 
 import React, { useEffect, useState } from 'react'
+import { Building2, Hammer, Sparkles, X } from 'lucide-react'
 import { storeApi, findNextAvailablePlot } from './api/client'
 import { StorefrontScene } from './components/3d/StorefrontScene'
 import { MarketplaceScene } from './components/3d/MarketplaceScene'
@@ -27,6 +28,9 @@ export const App: React.FC = () => {
   const [isUnlocked, setIsUnlocked] = useState(false)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [userSession, setUserSession] = useState<UserSession | null>(null)
+
+  // In-World Welcome Options (Requirement 2: Option A vs Option B)
+  const [showWelcomeOptions, setShowWelcomeOptions] = useState(true)
 
   // Simulation Environment Controls
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>('day')
@@ -73,11 +77,33 @@ export const App: React.FC = () => {
     setTimeout(() => {
       setScene('MARKETPLACE')
       setIsTransitioning(false)
+      setShowWelcomeOptions(true)
     }, 1200)
+  }
+
+  // OPTION A: EXPLORE EXISTING STORES
+  const handleExploreStores = () => {
+    setShowWelcomeOptions(false)
+    if (stores.length > 0) {
+      // Focus on first store or central plaza
+      setCameraTarget([stores[0].grid_x, 0, stores[0].grid_z])
+    } else {
+      setCameraTarget([0, 0, 0])
+    }
+  }
+
+  // OPTION B: CONSTRUCT NEW STORE
+  const handleConstructNewStore = () => {
+    setShowWelcomeOptions(false)
+    const nextPlot = findNextAvailablePlot(stores)
+    // Smoothly fly camera to the highlighted empty plot
+    setCameraTarget([nextPlot.grid_x, 0, nextPlot.grid_z])
+    setIsConstructOpen(true)
   }
 
   // Handle clicking a store building in the 3D marketplace or GTA Minimap
   const handleStoreSelect = (store: Store) => {
+    setShowWelcomeOptions(false)
     setSelectedStore(store)
     setCameraTarget([store.grid_x, 0, store.grid_z])
     setIsAnalyticsOpen(true)
@@ -120,6 +146,8 @@ export const App: React.FC = () => {
     setScene('LOCKED')
   }
 
+  const nextPlot = findNextAvailablePlot(stores)
+
   return (
     <main className="w-screen h-screen relative overflow-hidden bg-slate-950 font-sans">
       {/* SCENE 1: THE LOCKED WINDOW LANDING PAGE */}
@@ -130,7 +158,6 @@ export const App: React.FC = () => {
             isUnlocked={isUnlocked}
             isTransitioning={isTransitioning}
           />
-
 
           {/* Sign-In Modal Overlay */}
           <LockOverlay
@@ -144,15 +171,12 @@ export const App: React.FC = () => {
       {/* SCENE 2: 3D RETAIL MARKETPLACE & SIMULATION */}
       {scene === 'MARKETPLACE' && (
         <div className="w-full h-full relative">
-          {/* Top Floating Navigation (Dropdown removed in favor of GTA 6 Minimap Guide!) */}
+          {/* Top Floating Navigation */}
           <FloatingNav
             stores={stores}
             selectedStore={selectedStore}
-            onOpenConstruct={() => {
-              const nextPlot = findNextAvailablePlot(stores)
-              setCameraTarget([nextPlot.x, 0, nextPlot.z])
-              setIsConstructOpen(true)
-            }}
+            onSelectStore={handleStoreSelect}
+            onOpenConstruct={handleConstructNewStore}
             onResetCamera={handleResetCamera}
             userSession={userSession}
             onLogout={handleLogout}
@@ -160,7 +184,48 @@ export const App: React.FC = () => {
             onToggleTimeOfDay={() => setTimeOfDay(t => t === 'day' ? 'night' : 'day')}
             graphicsQuality={graphicsQuality}
             onChangeGraphicsQuality={setGraphicsQuality}
+            nextPlotIndex={nextPlot.plot_index + 1}
           />
+
+          {/* REQUIREMENT 2: AFTER LOGIN - PRIMARY MARKETPLACE OPTIONS BANNER */}
+          {showWelcomeOptions && (
+            <aside aria-label="Marketplace Navigation Options" className="fixed top-20 left-1/2 -translate-x-1/2 z-30 flex flex-col sm:flex-row items-center gap-3 p-3 px-5 rounded-2xl bg-slate-900/90 backdrop-blur-2xl border border-white/20 shadow-2xl shadow-black/70 animate-in fade-in slide-in-from-top-4 duration-500">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-extrabold uppercase tracking-widest text-emerald-400 flex items-center gap-1">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  Marketplace Hub
+                </span>
+                <span className="text-slate-500">•</span>
+                <span className="text-xs font-semibold text-slate-200">Choose an action:</span>
+              </div>
+              <div className="flex items-center gap-2">
+                {/* OPTION A: EXPLORE EXISTING STORES */}
+                <button
+                  onClick={handleExploreStores}
+                  className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 text-sky-200 border border-sky-400/40 text-xs font-bold transition-all cursor-pointer shadow-sm active:scale-95"
+                >
+                  <Building2 className="w-3.5 h-3.5 text-sky-400" />
+                  <span>Option A: Explore Existing Stores ({stores.length})</span>
+                </button>
+                {/* OPTION B: CONSTRUCT NEW STORE */}
+                <button
+                  onClick={handleConstructNewStore}
+                  className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white text-xs font-extrabold shadow-lg shadow-orange-500/30 border border-amber-300/40 transition-all cursor-pointer active:scale-95"
+                >
+                  <Hammer className="w-3.5 h-3.5 animate-bounce" />
+                  <span>Option B: Construct New Store</span>
+                </button>
+                {/* Dismiss */}
+                <button
+                  onClick={() => setShowWelcomeOptions(false)}
+                  className="p-1 rounded-lg text-slate-400 hover:text-white transition-colors cursor-pointer"
+                  title="Dismiss options banner"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </aside>
+          )}
 
           {/* 3D Interactive Town */}
           <ErrorBoundary fallbackTitle="3D Metropolis Scene Warning">
@@ -169,7 +234,7 @@ export const App: React.FC = () => {
               selectedStore={selectedStore}
               onStoreSelect={handleStoreSelect}
               onHoverStore={setHoveredStore}
-              onConstructClick={() => setIsConstructOpen(true)}
+              onConstructClick={handleConstructNewStore}
               cameraTarget={cameraTarget}
               onCameraTargetReached={() => setCameraTarget(null)}
               onUserInteract={() => setCameraTarget(null)}
@@ -185,11 +250,7 @@ export const App: React.FC = () => {
             stores={stores}
             selectedStore={selectedStore}
             onSelectStore={handleStoreSelect}
-            onOpenConstruct={() => {
-              const nextPlot = findNextAvailablePlot(stores)
-              setCameraTarget([nextPlot.x, 0, nextPlot.z])
-              setIsConstructOpen(true)
-            }}
+            onOpenConstruct={handleConstructNewStore}
             onResetCamera={handleResetCamera}
           />
 

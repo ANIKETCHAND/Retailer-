@@ -753,10 +753,10 @@ export const StoreBuilding: React.FC<StoreBuildingProps> = ({
       {renderArchitecture()}
 
       {/* SLEEK FLOATING GAME-STYLE HUD PIN */}
-      <group ref={pinRef} position={[0, 5.2, 0]}>
+      <group ref={pinRef} position={[0, 5.3, 0]}>
         {/* Dark Pill Capsule */}
         <mesh position={[0, 0, 0]}>
-          <boxGeometry args={[2.3, 0.44, 0.08]} />
+          <boxGeometry args={[2.5, 0.62, 0.08]} />
           <meshStandardMaterial
             color="#0f172a"
             roughness={0.2}
@@ -765,27 +765,40 @@ export const StoreBuilding: React.FC<StoreBuildingProps> = ({
           />
         </mesh>
         <mesh position={[0, 0, -0.01]}>
-          <boxGeometry args={[2.36, 0.5, 0.04]} />
+          <boxGeometry args={[2.56, 0.68, 0.04]} />
           <meshStandardMaterial color={primaryColor} />
         </mesh>
 
         {/* Store Title */}
         <Text
-          position={[0, 0.08, 0.06]}
-          fontSize={0.14}
+          position={[0, 0.16, 0.06]}
+          fontSize={0.13}
           color="#ffffff"
           anchorX="center"
           anchorY="middle"
           fontWeight="bold"
-          maxWidth={2.2}
+          maxWidth={2.4}
         >
-          {`${getCategoryIcon(store.category)}  ${store.name || 'Store'}`}
+          {store.name || 'Store'}
+        </Text>
+
+        {/* Category & Unique ID Badge */}
+        <Text
+          position={[0, 0.01, 0.06]}
+          fontSize={0.09}
+          color="#fef08a"
+          anchorX="center"
+          anchorY="middle"
+          fontWeight="bold"
+          maxWidth={2.4}
+        >
+          {`${getCategoryIcon(store.category)} ${store.category.toUpperCase()} • ID: ${store.id}`}
         </Text>
 
         {/* Revenue Metric Pill */}
         <Text
-          position={[0, -0.1, 0.06]}
-          fontSize={0.11}
+          position={[0, -0.16, 0.06]}
+          fontSize={0.10}
           color="#38bdf8"
           anchorX="center"
           anchorY="middle"
@@ -795,7 +808,7 @@ export const StoreBuilding: React.FC<StoreBuildingProps> = ({
         </Text>
 
         {/* Pointer Diamond */}
-        <mesh position={[0, -0.32, 0]} rotation={[0, 0, Math.PI / 4]}>
+        <mesh position={[0, -0.40, 0]} rotation={[0, 0, Math.PI / 4]}>
           <boxGeometry args={[0.12, 0.12, 0.04]} />
           <meshStandardMaterial color={primaryColor} />
         </mesh>

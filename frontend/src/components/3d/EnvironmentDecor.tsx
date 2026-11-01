@@ -18,11 +18,13 @@
 import React, { useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
-import type { TimeOfDay } from '../../types'
+import type { Store, TimeOfDay } from '../../types'
+import { getActiveDistricts } from '../../lib/proceduralLayout'
 import { createAsphaltTexture, createGrassTexture, createPaverTexture } from './textures'
 
 interface EnvironmentDecorProps {
   timeOfDay?: TimeOfDay
+  stores?: Store[]
 }
 
 // -------------------------------------------------------------
@@ -1285,11 +1287,50 @@ function TrafficSignalPost({ position, rotation = 0, isNight = false }: { positi
 // -------------------------------------------------------------
 // MAIN ENVIRONMENT DECORATION COMPONENT
 // -------------------------------------------------------------
-export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 'day' }) => {
+export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 'day', stores = [] }) => {
   const isNight = timeOfDay === 'night'
   const grassTexture = useMemo(() => createGrassTexture(), [])
   const asphaltTexture = useMemo(() => createAsphaltTexture(), [])
   const paverTexture = useMemo(() => createPaverTexture(), [])
+  const activeDistricts = useMemo(() => getActiveDistricts(stores), [stores])
+
+  // Procedural District Commercial Foundations that dynamically expand as stores are built
+  const proceduralBlocks = useMemo(() => {
+    const blocks = [
+      // Central District 1 Plaza Core
+      { id: 'nw', x: -10.5, z: -7.0, w: 16.6, d: 9.6 },
+      { id: 'ne', x: 10.5, z: -7.0, w: 16.6, d: 9.6 },
+      { id: 'sw', x: -10.5, z: 7.0, w: 16.6, d: 9.6 },
+      { id: 'se', x: 10.5, z: 7.0, w: 16.6, d: 9.6 }
+    ]
+
+    if (activeDistricts.includes('district_2')) {
+      blocks.push(
+        { id: 'd2_n', x: 22.5, z: -9.0, w: 10.5, d: 11.2 },
+        { id: 'd2_s', x: 22.5, z: 9.0, w: 10.5, d: 11.2 }
+      )
+    }
+    if (activeDistricts.includes('district_3')) {
+      blocks.push(
+        { id: 'd3_n', x: -22.5, z: -9.0, w: 10.5, d: 11.2 },
+        { id: 'd3_s', x: -22.5, z: 9.0, w: 10.5, d: 11.2 }
+      )
+    }
+    if (activeDistricts.includes('district_4')) {
+      blocks.push(
+        { id: 'd4_w', x: -9.75, z: -19.0, w: 11.2, d: 10.5 },
+        { id: 'd4_e', x: 9.75, z: -19.0, w: 11.2, d: 10.5 }
+      )
+    }
+    if (activeDistricts.includes('district_5')) {
+      blocks.push(
+        { id: 'd5_w', x: -9.75, z: 19.0, w: 11.2, d: 10.5 },
+        { id: 'd5_e', x: 9.75, z: 19.0, w: 11.2, d: 10.5 }
+      )
+    }
+
+    return blocks
+  }, [activeDistricts])
 
   return (
     <group position={[0, 0, 0]}>
@@ -1306,13 +1347,8 @@ export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 
         />
       </mesh>
 
-      {/* 3. CENTRAL COMMERCIAL PLAZA BLOCKS (Hosting the user's interactive stores) */}
-      {[
-        { id: 'nw', x: -10.5, z: -7.0, w: 16.6, d: 9.6 },
-        { id: 'ne', x: 10.5, z: -7.0, w: 16.6, d: 9.6 },
-        { id: 'sw', x: -10.5, z: 7.0, w: 16.6, d: 9.6 },
-        { id: 'se', x: 10.5, z: 7.0, w: 16.6, d: 9.6 }
-      ].map((block) => (
+      {/* 3. DYNAMIC PROCEDURAL COMMERCIAL DISTRICT PLAZA FOUNDATIONS */}
+      {proceduralBlocks.map((block) => (
         <group key={block.id} position={[block.x, 0.035, block.z]}>
           <mesh receiveShadow>
             <boxGeometry args={[block.w, 0.05, block.d]} />

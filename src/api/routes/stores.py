@@ -1,6 +1,6 @@
 """
-RetailVision - Store Management & Store Analytics API
-Provides store listing, procedural construction, individual store analytics,
+RetailVision - Infinite Dynamic Store Construction & Analytics API
+Provides store listing, procedural construction loop, individual store analytics,
 forecasting, and PDF/CSV reporting.
 """
 
@@ -15,7 +15,7 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from src.core.config import settings
 from src.db.database import get_db
-from src.db.models import Store, User
+from src.db.models import ConstructionPlot, Store, User
 from src.services.analytics_service import (
     calculate_kpis, get_category_sales, get_daily_sales, get_monthly_sales,
     get_product_rankings, get_regional_sales
@@ -23,6 +23,7 @@ from src.services.analytics_service import (
 from src.services.customer_service import calculate_customer_metrics, get_repeat_customer_breakdown
 from src.services.data_service import validate_and_clean_dataset
 from src.services.forecasting_service import train_and_forecast_sales
+from src.services.procedural_layout import find_next_unoccupied_plot, get_plot_definition
 from src.services.reporting_service import export_dataframe_to_csv, generate_pdf_report
 
 router = APIRouter(prefix="/stores", tags=["Stores"])
@@ -36,19 +37,6 @@ CATEGORY_COLORS = {
     "Healthcare": "#06B6D4",
     "Custom": "#6366F1"
 }
-
-# Grid plots for dynamically constructed buildings (strictly on empty land, zero road overlap)
-CANDIDATE_PLOTS = [
-    (13.0, -6.0),    # Plot 1: Dedicated construction crane plot on East commercial plaza
-    (-13.0, -6.0),   # Plot 2: North-West commercial plaza plot
-    (-13.0, 6.0),    # Plot 3: South-West commercial plaza plot
-    (13.0, 11.0),    # Plot 4: South-East outer plaza extension
-    (-13.0, 11.0),   # Plot 5: South-West outer plaza extension
-    (6.5, 11.0),     # Plot 6: South-East parkside parcel
-    (-6.5, 11.0),    # Plot 7: South-West parkside parcel
-    (13.0, -11.0),   # Plot 8: North-East outer parcel
-    (-13.0, -11.0),  # Plot 9: North-West outer parcel
-]
 
 
 class StoreListItem(BaseModel):
@@ -65,25 +53,61 @@ class StoreListItem(BaseModel):
     total_orders: int
     total_products: int
     created_at: str
+    district_id: Optional[str] = "district_1"
+    district_name: Optional[str] = "Central Commercial Plaza"
+    construction_status: Optional[str] = "completed"
+
+
+class PlotResponse(BaseModel):
+    plot_index: int
+    grid_x: float
+    grid_z: float
+    rotation_y: float
+    district_id: str
+    district_name: str
+    theme: str
+    color: str
+    is_occupied: bool
+    store_id: Optional[str] = None
 
 
 class ForecastRequest(BaseModel):
     horizon_days: int = 30
 
 
-def find_available_plot(db: Session) -> tuple:
-    """Finds first unoccupied 3D grid coordinate in the marketplace."""
-    stores = db.query(Store).all()
-    for x, z in CANDIDATE_PLOTS:
-        is_occupied = any(
-            ((s.grid_x - x) ** 2 + (s.grid_z - z) ** 2) ** 0.5 < 3.0
-            for s in stores
-        )
-        if not is_occupied:
-            return x, z
-    # Safe outer perimeter fallback offset
-    count = len(stores)
-    return 16.0 + (count * 3.5), -6.0
+def get_or_create_next_available_plot(db: Session, user_id: Optional[int] = None) -> ConstructionPlot:
+    """
+    Finds the active empty construction plot in the database,
+    or dynamically creates the next procedural plot if none is currently open.
+    Guarantees that exactly one empty construction plot is always ready.
+    """
+    # 1. Check if an unoccupied plot is already waiting
+    empty_plot = db.query(ConstructionPlot).filter(ConstructionPlot.is_occupied == False).first()
+    if empty_plot:
+        return empty_plot
+
+    # 2. Otherwise calculate next unoccupied index based on existing stores and plots
+    occupied_coords = [(s.grid_x, s.grid_z) for s in db.query(Store).all()]
+    plot_def = find_next_unoccupied_plot(occupied_coords)
+
+    # 3. Persist and return new unoccupied plot record
+    new_plot = ConstructionPlot(
+        id=f"plot_{plot_def['plot_index']}_{uuid.uuid4().hex[:6]}",
+        user_id=user_id,
+        plot_index=plot_def["plot_index"],
+        district_id=plot_def["district_id"],
+        district_name=plot_def["district_name"],
+        grid_x=plot_def["grid_x"],
+        grid_z=plot_def["grid_z"],
+        rotation_y=plot_def["rotation_y"],
+        is_occupied=False,
+        store_id=None,
+        created_at=datetime.utcnow()
+    )
+    db.add(new_plot)
+    db.commit()
+    db.refresh(new_plot)
+    return new_plot
 
 
 def load_store_dataframe(store: Store):
@@ -122,7 +146,56 @@ def list_stores(db: Session = Depends(get_db)):
             total_revenue=float(s.total_revenue or 0.0),
             total_orders=int(s.total_orders or 0),
             total_products=int(s.total_products or 0),
-            created_at=s.created_at.strftime("%Y-%m-%d %H:%M") if s.created_at else ""
+            created_at=s.created_at.strftime("%Y-%m-%d %H:%M") if s.created_at else "",
+            district_id=s.district_id or "district_1",
+            district_name=s.district_name or "Central Commercial Plaza",
+            construction_status=s.construction_status or "completed"
+        ))
+    return result
+
+
+@router.get("/plots/next", response_model=PlotResponse)
+def get_next_plot(db: Session = Depends(get_db)):
+    """
+    Returns the next available empty construction plot in the marketplace.
+    Guarantees at least one plot is always available.
+    """
+    plot = get_or_create_next_available_plot(db)
+    plot_def = get_plot_definition(plot.plot_index)
+    return PlotResponse(
+        plot_index=plot.plot_index,
+        grid_x=plot.grid_x,
+        grid_z=plot.grid_z,
+        rotation_y=plot.rotation_y,
+        district_id=plot.district_id,
+        district_name=plot.district_name,
+        theme=plot_def["theme"],
+        color=plot_def["color"],
+        is_occupied=plot.is_occupied,
+        store_id=plot.store_id
+    )
+
+
+@router.get("/plots", response_model=List[PlotResponse])
+def list_plots(db: Session = Depends(get_db)):
+    """Returns all current construction plots including occupied and available."""
+    # Ensure next plot exists
+    get_or_create_next_available_plot(db)
+    plots = db.query(ConstructionPlot).order_by(ConstructionPlot.plot_index.asc()).all()
+    result = []
+    for p in plots:
+        plot_def = get_plot_definition(p.plot_index)
+        result.append(PlotResponse(
+            plot_index=p.plot_index,
+            grid_x=p.grid_x,
+            grid_z=p.grid_z,
+            rotation_y=p.rotation_y,
+            district_id=p.district_id,
+            district_name=p.district_name,
+            theme=plot_def["theme"],
+            color=plot_def["color"],
+            is_occupied=p.is_occupied,
+            store_id=p.store_id
         ))
     return result
 
@@ -137,9 +210,9 @@ async def construct_store(
 ):
     """
     Constructs a new store in the 3D marketplace by validating and saving an uploaded CSV dataset.
-    Assigns a 3D coordinate on an open plot.
+    Occupies the current construction plot and immediately creates the next available empty plot.
     """
-    if not file.filename.lower().endswith(".csv"):
+    if not file.filename or not file.filename.lower().endswith(".csv"):
         raise HTTPException(status_code=400, detail="Invalid file type: Please upload a valid .csv file.")
 
     store_id = f"store_{uuid.uuid4().hex[:8]}"
@@ -170,36 +243,67 @@ async def construct_store(
             detail=f"CSV Validation Failed: {', '.join(report.errors)}"
         )
 
-    # Compute stats
+    # Compute independent dataset statistics
     tot_rev = round(float(clean_df["total_amount"].sum()), 2)
     tot_orders = int(clean_df["order_id"].nunique())
     tot_prods = int(clean_df["product"].nunique())
 
-    # Find available plot
-    grid_x, grid_z = find_available_plot(db)
+    # 1. Fetch the active empty construction plot
+    target_plot = get_or_create_next_available_plot(db)
     color = CATEGORY_COLORS.get(category, "#6366F1")
 
     admin = db.query(User).filter(User.email == "admin@retailvision.com").first()
     user_id = admin.id if admin else None
 
+    # 2. Create the Store record on this plot
     new_store = Store(
         id=store_id,
         user_id=user_id,
         name=name.strip(),
         category=category,
         description=description.strip() if description else "",
+        dataset_id=f"ds_{store_id}",
         dataset_path=str(saved_csv_path),
-        grid_x=grid_x,
-        grid_z=grid_z,
-        rotation_y=0.0,
+        grid_x=target_plot.grid_x,
+        grid_z=target_plot.grid_z,
+        rotation_y=target_plot.rotation_y,
         color=color,
         is_default=False,
+        district_id=target_plot.district_id,
+        district_name=target_plot.district_name,
+        construction_status="completed",
         total_revenue=tot_rev,
         total_orders=tot_orders,
         total_products=tot_prods,
         created_at=datetime.utcnow()
     )
     db.add(new_store)
+
+    # 3. Mark the construction plot as occupied
+    target_plot.is_occupied = True
+    target_plot.store_id = store_id
+
+    # 4. THE NEVER-ENDING CONSTRUCTION LOOP:
+    # Automatically allocate and spawn the NEXT available empty plot in the database!
+    occupied_coords = [(s.grid_x, s.grid_z) for s in db.query(Store).all()]
+    occupied_coords.append((target_plot.grid_x, target_plot.grid_z))
+    next_plot_def = find_next_unoccupied_plot(occupied_coords)
+
+    next_plot = ConstructionPlot(
+        id=f"plot_{next_plot_def['plot_index']}_{uuid.uuid4().hex[:6]}",
+        user_id=user_id,
+        plot_index=next_plot_def["plot_index"],
+        district_id=next_plot_def["district_id"],
+        district_name=next_plot_def["district_name"],
+        grid_x=next_plot_def["grid_x"],
+        grid_z=next_plot_def["grid_z"],
+        rotation_y=next_plot_def["rotation_y"],
+        is_occupied=False,
+        store_id=None,
+        created_at=datetime.utcnow()
+    )
+    db.add(next_plot)
+
     db.commit()
     db.refresh(new_store)
 
@@ -216,13 +320,16 @@ async def construct_store(
         total_revenue=new_store.total_revenue,
         total_orders=new_store.total_orders,
         total_products=new_store.total_products,
-        created_at=new_store.created_at.strftime("%Y-%m-%d %H:%M")
+        created_at=new_store.created_at.strftime("%Y-%m-%d %H:%M"),
+        district_id=new_store.district_id,
+        district_name=new_store.district_name,
+        construction_status=new_store.construction_status
     )
 
 
 @router.delete("/{store_id}")
 def delete_store(store_id: str, db: Session = Depends(get_db)):
-    """Deletes a custom store."""
+    """Deletes a custom store and reopens its plot."""
     store = db.query(Store).filter(Store.id == store_id).first()
     if not store:
         raise HTTPException(status_code=404, detail="Store not found.")
@@ -235,6 +342,12 @@ def delete_store(store_id: str, db: Session = Depends(get_db)):
         except Exception:
             pass
 
+    # Free up plot if found
+    plot = db.query(ConstructionPlot).filter(ConstructionPlot.store_id == store_id).first()
+    if plot:
+        plot.is_occupied = False
+        plot.store_id = None
+
     db.delete(store)
     db.commit()
     return {"success": True, "message": f"Store '{store.name}' deleted successfully."}
@@ -242,7 +355,7 @@ def delete_store(store_id: str, db: Session = Depends(get_db)):
 
 @router.get("/{store_id}/analytics")
 def get_store_analytics(store_id: str, db: Session = Depends(get_db)):
-    """Computes and returns full analytics dashboard metrics for the store's dataset."""
+    """Computes and returns full analytics dashboard metrics for the store's independent dataset."""
     store = db.query(Store).filter(Store.id == store_id).first()
     if not store:
         raise HTTPException(status_code=404, detail="Store not found.")
@@ -257,14 +370,14 @@ def get_store_analytics(store_id: str, db: Session = Depends(get_db)):
     cust_metrics = calculate_customer_metrics(df)
     repeat_df = get_repeat_customer_breakdown(df)
 
-    # Convert timestamps
-    daily_records = []
-    for _, r in daily_df.tail(60).iterrows():
-        daily_records.append({
-            "date": r["date"].strftime("%Y-%m-%d"),
-            "revenue": float(r["revenue"]),
-            "moving_avg_7d": float(r.get("moving_avg_7d", r["revenue"]))
-        })
+    def convert_records(records):
+        for r in records:
+            for k, v in r.items():
+                if hasattr(v, "isoformat"):
+                    r[k] = v.isoformat()
+                elif hasattr(v, "strftime"):
+                    r[k] = v.strftime("%Y-%m-%d")
+        return records
 
     return {
         "store": {
@@ -273,103 +386,83 @@ def get_store_analytics(store_id: str, db: Session = Depends(get_db)):
             "category": store.category,
             "description": store.description,
             "color": store.color,
-            "is_default": store.is_default
+            "is_default": store.is_default,
+            "district_id": store.district_id,
+            "district_name": store.district_name
         },
-        "kpis": kpis.__dict__,
-        "monthly_trend": monthly_df.to_dict(orient="records"),
-        "recent_daily": daily_records,
-        "categories": cat_df.to_dict(orient="records"),
-        "regions": reg_df.to_dict(orient="records"),
-        "top_products": top_prods_df.to_dict(orient="records"),
-        "customer_metrics": cust_metrics.__dict__,
-        "repeat_breakdown": repeat_df.to_dict(orient="records") if not repeat_df.empty else []
+        "kpis": kpis,
+        "monthly_trend": convert_records(monthly_df.to_dict(orient="records")),
+        "recent_daily": convert_records(daily_df.tail(30).to_dict(orient="records")),
+        "categories": convert_records(cat_df.to_dict(orient="records")),
+        "regions": convert_records(reg_df.to_dict(orient="records")),
+        "top_products": convert_records(top_prods_df.to_dict(orient="records")),
+        "customer_metrics": cust_metrics,
+        "repeat_breakdown": convert_records(repeat_df.to_dict(orient="records"))
     }
 
 
 @router.post("/{store_id}/forecast")
-def get_store_forecast(store_id: str, req: ForecastRequest, db: Session = Depends(get_db)):
-    """Executes time-series forecast for the store's dataset."""
+def get_store_forecast(store_id: str, payload: ForecastRequest, db: Session = Depends(get_db)):
+    """Trains forecasting model and returns future sales projection for the store."""
     store = db.query(Store).filter(Store.id == store_id).first()
     if not store:
         raise HTTPException(status_code=404, detail="Store not found.")
 
     df = load_store_dataframe(store)
-    res = train_and_forecast_sales(df, horizon_days=req.horizon_days)
+    forecast_bundle = train_and_forecast_sales(df, horizon_days=payload.horizon_days)
 
-    if not res.is_successful:
-        raise HTTPException(status_code=400, detail=res.error_message)
-
-    m = res.metrics
-    forecast_points = []
-    for _, r in res.future_forecast.iterrows():
-        forecast_points.append({
-            "date": r["date"].strftime("%Y-%m-%d"),
-            "forecast_revenue": float(r["forecast_revenue"]),
-            "lower_bound": float(r["lower_bound"]),
-            "upper_bound": float(r["upper_bound"])
-        })
-
-    validation_points = []
-    for _, r in res.test_predictions.iterrows():
-        validation_points.append({
-            "date": r["date"].strftime("%Y-%m-%d") if hasattr(r["date"], "strftime") else str(r["date"]),
-            "predicted_revenue": float(r["predicted_revenue"])
-        })
+    def serialize_records(records):
+        for r in records:
+            for k, v in r.items():
+                if hasattr(v, "isoformat"):
+                    r[k] = v.isoformat()
+                elif hasattr(v, "strftime"):
+                    r[k] = v.strftime("%Y-%m-%d")
+        return records
 
     return {
-        "is_successful": True,
-        "horizon_days": res.horizon_days,
-        "total_projected_revenue": res.total_projected_revenue,
-        "daily_avg_projected_revenue": res.daily_avg_projected_revenue,
-        "metrics": m.__dict__ if m else {},
-        "forecast": forecast_points,
-        "validation": validation_points
+        "is_successful": forecast_bundle.is_successful,
+        "horizon_days": forecast_bundle.horizon_days,
+        "total_projected_revenue": forecast_bundle.total_projected_revenue,
+        "daily_avg_projected_revenue": forecast_bundle.daily_avg_projected_revenue,
+        "metrics": forecast_bundle.metrics,
+        "forecast": serialize_records(forecast_bundle.future_forecast.to_dict(orient="records")),
+        "validation": serialize_records(forecast_bundle.test_predictions.to_dict(orient="records"))
     }
 
 
 @router.get("/{store_id}/report/pdf")
-def download_store_pdf_report(store_id: str, db: Session = Depends(get_db)):
-    """Generates and downloads ReportLab PDF for this specific store."""
+def export_store_report_pdf(store_id: str, db: Session = Depends(get_db)):
+    """Generates and streams an executive PDF intelligence report for the store."""
     store = db.query(Store).filter(Store.id == store_id).first()
     if not store:
         raise HTTPException(status_code=404, detail="Store not found.")
 
     df = load_store_dataframe(store)
     kpis = calculate_kpis(df)
-    fc = train_and_forecast_sales(df, horizon_days=30)
-
-    filter_summary = {
-        "Store Name": store.name,
-        "Category": store.category,
-        "Date Range": "Full Historical Period"
-    }
     pdf_bytes = generate_pdf_report(
         df=df,
         kpi=kpis,
-        forecast_res=fc,
-        filter_summary=filter_summary
+        filter_summary={"Store": store.name, "Category": store.category, "District": store.district_name or "Commercial"}
     )
-
-    filename = f"retailvision_{store.category.lower()}_{datetime.now().strftime('%Y%m%d')}.pdf"
     return Response(
         content=pdf_bytes,
         media_type="application/pdf",
-        headers={"Content-Disposition": f"attachment; filename={filename}"}
+        headers={"Content-Disposition": f"attachment; filename=report_{store.id}.pdf"}
     )
 
 
 @router.get("/{store_id}/report/csv")
-def download_store_csv_data(store_id: str, db: Session = Depends(get_db)):
-    """Downloads this store's CSV transactions."""
+def export_store_cleaned_csv(store_id: str, db: Session = Depends(get_db)):
+    """Exports cleaned store dataset as CSV."""
     store = db.query(Store).filter(Store.id == store_id).first()
     if not store:
         raise HTTPException(status_code=404, detail="Store not found.")
 
     df = load_store_dataframe(store)
-    csv_bytes = export_dataframe_to_csv(df)
-    filename = f"{store.name.lower().replace(' ', '_')}_sales.csv"
+    csv_str = export_dataframe_to_csv(df)
     return Response(
-        content=csv_bytes,
+        content=csv_str,
         media_type="text/csv",
-        headers={"Content-Disposition": f"attachment; filename={filename}"}
+        headers={"Content-Disposition": f"attachment; filename=dataset_{store.id}.csv"}
     )

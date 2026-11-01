@@ -11,14 +11,15 @@ from src.api.schemas import HealthResponse
 from src.core.config import settings
 from src.core.exceptions import RetailVisionError
 from src.core.logging import logger
-from src.db.database import Base, SessionLocal, engine
+from src.db.database import Base, SessionLocal, engine, run_migrations
 from src.db.models import Store
 from src.db.seed import seed_database
 
 
 def create_app() -> FastAPI:
     """Creates and configures the FastAPI application instance."""
-    # Ensure tables exist
+    # Ensure migrations and tables exist
+    run_migrations()
     Base.metadata.create_all(bind=engine)
 
     # Auto-seed if database is empty

@@ -159,9 +159,6 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
 }) => {
   const isNight = timeOfDay === 'night'
   const nextPlot = findNextAvailablePlot(stores)
-  const isPlotOccupied = stores.some(
-    s => Math.hypot((s.grid_x ?? 0) - nextPlot.x, (s.grid_z ?? 0) - nextPlot.z) < 2.5
-  )
 
   // Shadow map resolution based on quality tier
   const shadowResolution = (() => {
@@ -255,15 +252,15 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
         />
 
         {/* Town Environment Infrastructure */}
-        <EnvironmentDecor timeOfDay={timeOfDay} />
+        <EnvironmentDecor timeOfDay={timeOfDay} stores={stores} />
 
         {/* Dedicated Empty Construction Plot (Relocates to next vacant plot, never overlaps finished stores) */}
-        {!isPlotOccupied && (
-          <ConstructPlot
-            position={[nextPlot.x, 0, nextPlot.z]}
-            onConstructClick={onConstructClick}
-          />
-        )}
+        <ConstructPlot
+          position={[nextPlot.grid_x, 0, nextPlot.grid_z]}
+          plotNumber={nextPlot.plot_index + 1}
+          districtName={nextPlot.district_name}
+          onConstructClick={onConstructClick}
+        />
 
         {/* Retail Store Buildings */}
         {stores.map((store) => (

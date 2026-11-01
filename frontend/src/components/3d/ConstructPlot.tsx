@@ -12,11 +12,15 @@ import * as THREE from 'three'
 
 interface ConstructPlotProps {
   position?: [number, number, number]
+  plotNumber?: number
+  districtName?: string
   onConstructClick: () => void
 }
 
 export const ConstructPlot: React.FC<ConstructPlotProps> = ({
   position = [13.0, 0, -6.0],
+  plotNumber = 1,
+  districtName = 'BUILD YOUR STORE',
   onConstructClick
 }) => {
   const [hovered, setHovered] = useState(false)
@@ -162,28 +166,28 @@ export const ConstructPlot: React.FC<ConstructPlotProps> = ({
 
         {/* Text on Sign */}
         <Text
-          position={[0, 0.22, 0.08]}
-          fontSize={0.24}
+          position={[0, 0.24, 0.08]}
+          fontSize={0.18}
           color="#fef08a"
           anchorX="center"
           anchorY="middle"
           fontWeight="bold"
         >
-          CONSTRUCT
+          {`PLOT #${plotNumber} • CONSTRUCT`}
         </Text>
         <Text
-          position={[0, -0.12, 0.08]}
-          fontSize={0.12}
+          position={[0, -0.06, 0.08]}
+          fontSize={0.10}
           color="#38bdf8"
           anchorX="center"
           anchorY="middle"
           fontWeight="bold"
-          letterSpacing={0.08}
+          letterSpacing={0.05}
         >
-          BUILD YOUR STORE
+          {districtName}
         </Text>
         <Text
-          position={[0, -0.32, 0.08]}
+          position={[0, -0.26, 0.08]}
           fontSize={0.08}
           color="#cbd5e1"
           anchorX="center"
