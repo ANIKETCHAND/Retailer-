@@ -1,0 +1,283 @@
+/**
+ * GamePillButtons - AAA Casual Game Style Action Pills
+ * Matches the visual design of the city-builder reference UI:
+ *  - Elongated capsule pill with rounded-full geometry
+ *  - Crisp 3px solid white border
+ *  - Glossy top-to-bottom blue gradient with upper reflection gloss
+ *  - 3D cartoon safety hard hat helmet & retail storefront icons with bold black outlines
+ *  - Chunky cartoon white typography with dark outline sticker effect and drop shadow
+ */
+
+import React from 'react'
+import { X } from 'lucide-react'
+
+interface GamePillButtonsProps {
+  storeCount: number
+  onExplore: () => void
+  onBuild: () => void
+  onDismiss: () => void
+}
+
+/**
+ * 3D Cartoon Yellow Construction Hard Hat Icon (Matches User Reference Image)
+ */
+export const HardHatGameIcon: React.FC<{ className?: string }> = ({ className = 'w-9 h-9' }) => (
+  <svg
+    viewBox="0 0 100 100"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={`drop-shadow-[0_3px_5px_rgba(0,0,0,0.5)] select-none pointer-events-none flex-shrink-0 ${className}`}
+  >
+    <defs>
+      <linearGradient id="hardhatDomeGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+        <stop offset="0%" stopColor="#fef08a" />
+        <stop offset="35%" stopColor="#facc15" />
+        <stop offset="85%" stopColor="#eab308" />
+        <stop offset="100%" stopColor="#ca8a04" />
+      </linearGradient>
+      <linearGradient id="hardhatBrimGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#fde047" />
+        <stop offset="50%" stopColor="#eab308" />
+        <stop offset="100%" stopColor="#a16207" />
+      </linearGradient>
+    </defs>
+
+    {/* Under helmet shadow */}
+    <ellipse cx="50" cy="76" rx="36" ry="7" fill="#000000" fillOpacity="0.35" />
+
+    {/* Main Yellow Dome with Crisp Dark Contour */}
+    <path
+      d="M22 62 C22 34 32 18 50 18 C68 18 78 34 78 62 Z"
+      fill="url(#hardhatDomeGrad)"
+      stroke="#111827"
+      strokeWidth="5"
+      strokeLinejoin="round"
+    />
+
+    {/* Center Structural Ridges */}
+    <path
+      d="M50 18 C50 32 50 46 50 60"
+      stroke="#b45309"
+      strokeWidth="3.5"
+      strokeLinecap="round"
+    />
+    <path
+      d="M44 20 C42 34 38 47 36 60"
+      stroke="#ca8a04"
+      strokeWidth="3"
+      strokeLinecap="round"
+    />
+    <path
+      d="M56 20 C58 34 62 47 64 60"
+      stroke="#ca8a04"
+      strokeWidth="3"
+      strokeLinecap="round"
+    />
+
+    {/* Glossy Top-Left Reflection */}
+    <path
+      d="M31 29 C35 22 42 20 49 20"
+      stroke="#ffffff"
+      strokeWidth="4.5"
+      strokeLinecap="round"
+      opacity="0.9"
+    />
+    <circle cx="33" cy="37" r="3" fill="#ffffff" opacity="0.85" />
+
+    {/* Wide Helmet Protective Brim */}
+    <path
+      d="M12 65 C15 57 32 59 50 59 C68 59 85 57 88 65 C90 71 82 74 50 74 C18 74 10 71 12 65 Z"
+      fill="url(#hardhatBrimGrad)"
+      stroke="#111827"
+      strokeWidth="4.5"
+      strokeLinejoin="round"
+    />
+
+    {/* Side Tab Detail */}
+    <circle cx="76" cy="62" r="4" fill="#facc15" stroke="#111827" strokeWidth="2.5" />
+  </svg>
+)
+
+/**
+ * 3D Cartoon Storefront Icon (Matches Game-Pill Theme)
+ */
+export const StorefrontGameIcon: React.FC<{ className?: string }> = ({ className = 'w-9 h-9' }) => (
+  <svg
+    viewBox="0 0 100 100"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={`drop-shadow-[0_3px_5px_rgba(0,0,0,0.5)] select-none pointer-events-none flex-shrink-0 ${className}`}
+  >
+    <defs>
+      <linearGradient id="storeWallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#ffffff" />
+        <stop offset="100%" stopColor="#cbd5e1" />
+      </linearGradient>
+      <linearGradient id="storeAwningRed" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#f87171" />
+        <stop offset="100%" stopColor="#dc2626" />
+      </linearGradient>
+      <linearGradient id="storeAwningWhite" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#ffffff" />
+        <stop offset="100%" stopColor="#e2e8f0" />
+      </linearGradient>
+      <linearGradient id="storeGlass" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#7dd3fc" />
+        <stop offset="100%" stopColor="#0284c7" />
+      </linearGradient>
+    </defs>
+
+    {/* Under shadow */}
+    <ellipse cx="50" cy="78" rx="36" ry="6" fill="#000000" fillOpacity="0.35" />
+
+    {/* Shop Building Base */}
+    <rect
+      x="20"
+      y="36"
+      width="60"
+      height="40"
+      rx="6"
+      fill="url(#storeWallGrad)"
+      stroke="#111827"
+      strokeWidth="4.5"
+    />
+
+    {/* Window with reflection */}
+    <rect
+      x="26"
+      y="48"
+      width="22"
+      height="20"
+      rx="3"
+      fill="url(#storeGlass)"
+      stroke="#111827"
+      strokeWidth="3"
+    />
+    <path d="M29 51 L41 63" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" opacity="0.8" />
+
+    {/* Door */}
+    <rect
+      x="53"
+      y="46"
+      width="20"
+      height="30"
+      rx="3"
+      fill="#0284c7"
+      stroke="#111827"
+      strokeWidth="3"
+    />
+    <circle cx="57" cy="61" r="2.2" fill="#facc15" stroke="#111827" strokeWidth="1.5" />
+
+    {/* Striped Canopy / Awning */}
+    <g stroke="#111827" strokeWidth="4" strokeLinejoin="round">
+      <path d="M16 38 L22 23 L31 23 L28 38 Z" fill="url(#storeAwningRed)" />
+      <path d="M28 38 L31 23 L40 23 L38 38 Z" fill="url(#storeAwningWhite)" />
+      <path d="M38 38 L40 23 L50 23 L50 38 Z" fill="url(#storeAwningRed)" />
+      <path d="M50 38 L50 23 L60 23 L62 38 Z" fill="url(#storeAwningWhite)" />
+      <path d="M62 38 L60 23 L69 23 L72 38 Z" fill="url(#storeAwningRed)" />
+      <path d="M72 38 L69 23 L78 23 L84 38 Z" fill="url(#storeAwningWhite)" />
+    </g>
+
+    {/* Store Signboard on Roof */}
+    <rect
+      x="36"
+      y="14"
+      width="28"
+      height="12"
+      rx="3"
+      fill="#facc15"
+      stroke="#111827"
+      strokeWidth="3.5"
+    />
+    <circle cx="50" cy="20" r="3" fill="#dc2626" />
+  </svg>
+)
+
+export const GamePillButtons: React.FC<GamePillButtonsProps> = ({
+  storeCount,
+  onExplore,
+  onBuild,
+  onDismiss,
+}) => {
+  // Cartoon text stroke & shadow style matching reference image
+  const cartoonTextStyle: React.CSSProperties = {
+    WebkitTextStroke: '1.5px #0f172a',
+    paintOrder: 'stroke fill',
+    textShadow:
+      '-2px -2px 0 #0f172a, 2px -2px 0 #0f172a, -2px 2px 0 #0f172a, 2px 2px 0 #0f172a, 0 3px 0 #020617, 0 5px 8px rgba(0,0,0,0.65)',
+  }
+
+  return (
+    <aside
+      aria-label="Marketplace Quick Action Pills"
+      className="fixed top-20 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5 sm:gap-4 animate-in fade-in slide-in-from-top-4 duration-500 max-w-[95vw] overflow-x-auto p-1"
+    >
+      {/* ======================================================== */}
+      {/* BUTTON 1: EXPLORE EXISTING STORES                        */}
+      {/* ======================================================== */}
+      <button
+        type="button"
+        onClick={onExplore}
+        className="group relative flex items-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-2.5 rounded-full border-[3px] border-white bg-gradient-to-b from-[#38bdf8] via-[#2563eb] to-[#1d4ed8] shadow-[0_8px_25px_rgba(37,99,235,0.6),inset_0_2px_4px_rgba(255,255,255,0.7)] hover:scale-105 hover:brightness-110 active:scale-95 transition-all duration-200 cursor-pointer overflow-hidden flex-shrink-0"
+        title={`Explore all ${storeCount} active retail stores`}
+      >
+        {/* Top curved glossy shine */}
+        <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full pointer-events-none" />
+
+        {/* 3D Storefront Game Icon */}
+        <StorefrontGameIcon className="w-8 h-8 sm:w-10 sm:h-10 relative z-10 transition-transform group-hover:rotate-6 group-hover:scale-110" />
+
+        {/* Bold White Text with Cartoon Outline */}
+        <span
+          className="relative z-10 font-black text-white text-base sm:text-2xl tracking-wide select-none"
+          style={cartoonTextStyle}
+        >
+          Explore Stores
+        </span>
+
+        {/* Store Count Badge */}
+        <span
+          className="relative z-10 px-2 py-0.5 rounded-full bg-white/25 border border-white/70 text-white font-black text-xs sm:text-sm shadow-inner drop-shadow select-none"
+          style={{ textShadow: '0 1px 2px rgba(0,0,0,0.6)' }}
+        >
+          {storeCount}
+        </span>
+      </button>
+
+      {/* ======================================================== */}
+      {/* BUTTON 2: CONSTRUCT NEW STORE (EXACT MATCH TO IMAGE 2)   */}
+      {/* ======================================================== */}
+      <button
+        type="button"
+        onClick={onBuild}
+        className="group relative flex items-center gap-2 sm:gap-3 px-5 py-2 sm:px-7 sm:py-2.5 rounded-full border-[3px] border-white bg-gradient-to-b from-[#38bdf8] via-[#2563eb] to-[#1d4ed8] shadow-[0_8px_25px_rgba(37,99,235,0.6),inset_0_2px_4px_rgba(255,255,255,0.7)] hover:scale-105 hover:brightness-110 active:scale-95 transition-all duration-200 cursor-pointer overflow-hidden flex-shrink-0"
+        title="Construct a new store on the next plot"
+      >
+        {/* Top curved glossy shine */}
+        <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full pointer-events-none" />
+
+        {/* Yellow Hard Hat Helmet Game Icon */}
+        <HardHatGameIcon className="w-8 h-8 sm:w-10 sm:h-10 relative z-10 transition-transform group-hover:-rotate-6 group-hover:scale-110" />
+
+        {/* Bold White Text with Cartoon Outline: "Build" */}
+        <span
+          className="relative z-10 font-black text-white text-lg sm:text-2xl tracking-wide select-none"
+          style={cartoonTextStyle}
+        >
+          Build
+        </span>
+      </button>
+
+      {/* Dismiss / Close Icon */}
+      <button
+        type="button"
+        onClick={onDismiss}
+        className="p-1.5 sm:p-2 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white/80 hover:text-white border-2 border-white/40 shadow-lg backdrop-blur-md transition-all hover:scale-110 cursor-pointer flex-shrink-0"
+        title="Dismiss quick action buttons"
+        aria-label="Dismiss quick action buttons"
+      >
+        <X className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+      </button>
+    </aside>
+  )
+}

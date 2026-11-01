@@ -8,7 +8,6 @@
  */
 
 import React, { useEffect, useState } from 'react'
-import { Building2, Hammer, Sparkles, X } from 'lucide-react'
 import { authApi, storeApi, findNextAvailablePlot } from './api/client'
 import { StorefrontScene } from './components/3d/StorefrontScene'
 import { MarketplaceScene } from './components/3d/MarketplaceScene'
@@ -19,6 +18,7 @@ import { FloatingNav } from './components/ui/FloatingNav'
 import { GtaMinimap } from './components/ui/GtaMinimap'
 import { StoreCardTooltip } from './components/ui/StoreCardTooltip'
 import { ErrorBoundary } from './components/ui/ErrorBoundary'
+import { GamePillButtons } from './components/ui/GamePillButtons'
 import type { Store, UserSession, TimeOfDay, GraphicsQuality } from './types'
 
 export const App: React.FC = () => {
@@ -134,6 +134,7 @@ export const App: React.FC = () => {
   const handleResetCamera = () => {
     setSelectedStore(null)
     setCameraTarget([0, 0, 0])
+    setShowWelcomeOptions(true)
   }
 
   // Handle Logout
@@ -188,44 +189,14 @@ export const App: React.FC = () => {
             nextPlotIndex={nextPlot.plot_index + 1}
           />
 
-          {/* REQUIREMENT 2: AFTER LOGIN - PRIMARY MARKETPLACE OPTIONS BANNER */}
+          {/* REQUIREMENT 2: AFTER LOGIN - PRIMARY MARKETPLACE GAME PILL ACTION BUTTONS */}
           {showWelcomeOptions && (
-            <aside aria-label="Marketplace Navigation Options" className="fixed top-20 left-1/2 -translate-x-1/2 z-30 flex flex-col sm:flex-row items-center gap-3 p-3 px-5 rounded-2xl bg-slate-900/90 backdrop-blur-2xl border border-white/20 shadow-2xl shadow-black/70 animate-in fade-in slide-in-from-top-4 duration-500">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-extrabold uppercase tracking-widest text-emerald-400 flex items-center gap-1">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  Marketplace Hub
-                </span>
-                <span className="text-slate-500">•</span>
-                <span className="text-xs font-semibold text-slate-200">Choose an action:</span>
-              </div>
-              <div className="flex items-center gap-2">
-                {/* OPTION A: EXPLORE EXISTING STORES */}
-                <button
-                  onClick={handleExploreStores}
-                  className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 text-sky-200 border border-sky-400/40 text-xs font-bold transition-all cursor-pointer shadow-sm active:scale-95"
-                >
-                  <Building2 className="w-3.5 h-3.5 text-sky-400" />
-                  <span>Option A: Explore Existing Stores ({stores.length})</span>
-                </button>
-                {/* OPTION B: CONSTRUCT NEW STORE */}
-                <button
-                  onClick={handleConstructNewStore}
-                  className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white text-xs font-extrabold shadow-lg shadow-orange-500/30 border border-amber-300/40 transition-all cursor-pointer active:scale-95"
-                >
-                  <Hammer className="w-3.5 h-3.5 animate-bounce" />
-                  <span>Option B: Construct New Store</span>
-                </button>
-                {/* Dismiss */}
-                <button
-                  onClick={() => setShowWelcomeOptions(false)}
-                  className="p-1 rounded-lg text-slate-400 hover:text-white transition-colors cursor-pointer"
-                  title="Dismiss options banner"
-                >
-                  <X className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            </aside>
+            <GamePillButtons
+              storeCount={stores.length}
+              onExplore={handleExploreStores}
+              onBuild={handleConstructNewStore}
+              onDismiss={() => setShowWelcomeOptions(false)}
+            />
           )}
 
           {/* 3D Interactive Town */}
