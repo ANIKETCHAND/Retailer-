@@ -135,8 +135,8 @@ function SmoothMarketplaceCamera({
       zoomSpeed={1.8}     // Snappy, responsive scroll zoom sensitivity!
       panSpeed={1.4}      // Fast, effortless drag panning across the city!
       minDistance={4}     // Can zoom close to inspect storefronts
-      maxDistance={140}   // Can zoom way out to see the entire thriving metropolis!
-      maxPolarAngle={Math.PI / 2.12} // Don't allow camera to go underground
+      maxDistance={260}   // Can zoom out to see the entire vast tropical island metropolis!
+      maxPolarAngle={Math.PI / 2.06} // Keep ocean and horizon in view without going underground
       minPolarAngle={Math.PI / 12}   // Prevent awkward top-down gimbal lock
       target={[0, 0, 0]}
     />
@@ -186,12 +186,12 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
         camera={{
           position: [18, 22, 20],
           fov: 42,
-          near: 0.1,
-          far: 500
+          near: 0.2,
+          far: 900
         }}
         onCreated={({ gl }) => {
           gl.toneMapping = THREE.ACESFilmicToneMapping
-          gl.toneMappingExposure = isNight ? 1.1 : 1.0
+          gl.toneMappingExposure = isNight ? 1.1 : 1.05
           gl.shadowMap.enabled = graphicsQuality !== 'low'
           gl.shadowMap.type = THREE.PCFSoftShadowMap
         }}
@@ -202,6 +202,9 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
           }
         }}
       >
+        {/* Sky Background Color (Eliminates any black canvas void) */}
+        <color attach="background" args={[isNight ? '#050c18' : '#38bdf8']} />
+
         <SmoothMarketplaceCamera
           cameraTarget={cameraTarget}
           onCameraTargetReached={onCameraTargetReached}
@@ -210,35 +213,35 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
 
         {/* Dynamic Fog (Day: Sky Blue, Night: Deep Midnight Slate) */}
         {isNight ? (
-          <fog attach="fog" args={['#090d16', 90, 220]} />
+          <fog attach="fog" args={['#050c18', 160, 480]} />
         ) : (
-          <fog attach="fog" args={['#7dd3fc', 130, 260]} />
+          <fog attach="fog" args={['#38bdf8', 180, 540]} />
         )}
 
         {/* Night Sky Stars / Day Drifting Clouds */}
         {isNight ? (
-          <Stars radius={110} depth={45} count={2600} factor={4} saturation={0} fade speed={1.2} />
+          <Stars radius={180} depth={60} count={3200} factor={4} saturation={0} fade speed={1.2} />
         ) : (
           <DriftingClouds />
         )}
 
         {/* Ambient Illumination */}
         <ambientLight
-          intensity={isNight ? 0.22 : 0.65}
+          intensity={isNight ? 0.26 : 0.7}
           color={isNight ? '#1e293b' : '#ffffff'}
         />
 
         {/* Directional Sunlight / Moonlight */}
         <directionalLight
-          position={isNight ? [25, 40, -20] : [32, 45, 24]}
-          intensity={isNight ? 0.35 : 1.15}
+          position={isNight ? [35, 55, -25] : [45, 60, 35]}
+          intensity={isNight ? 0.4 : 1.25}
           color={isNight ? '#93c5fd' : '#fffbf0'}
           castShadow={graphicsQuality !== 'low'}
           shadow-mapSize={[shadowResolution, shadowResolution]}
-          shadow-camera-left={-55}
-          shadow-camera-right={55}
-          shadow-camera-top={55}
-          shadow-camera-bottom={-55}
+          shadow-camera-left={-85}
+          shadow-camera-right={85}
+          shadow-camera-top={85}
+          shadow-camera-bottom={-85}
           shadow-bias={-0.0001}
         />
 

@@ -178,9 +178,41 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
               </pattern>
             </defs>
 
-            {/* Base Background */}
-            <rect width={mapSize} height={mapSize} fill="#0b0f19" />
+            {/* Base Background: Deep Tropical Ocean */}
+            <rect width={mapSize} height={mapSize} fill="#032644" />
             <rect width={mapSize} height={mapSize} fill="url(#themeGrid)" />
+
+            {/* Tropical Island Landmass */}
+            <rect
+              x={center - (mapSize * 0.44)}
+              y={center - (mapSize * 0.44)}
+              width={mapSize * 0.88}
+              height={mapSize * 0.88}
+              rx={18}
+              fill="#064e3b"
+              opacity="0.85"
+            />
+
+            {/* Golden Sand Beach Coastline in the South */}
+            <rect
+              x={center - (mapSize * 0.44)}
+              y={center + (mapSize * 0.30)}
+              width={mapSize * 0.88}
+              height={mapSize * 0.14}
+              rx={12}
+              fill="#eab308"
+              opacity="0.65"
+            />
+
+            {/* Marina Pier in the West */}
+            <rect
+              x={center - (mapSize * 0.48)}
+              y={center - 8}
+              width={mapSize * 0.12}
+              height={16}
+              fill="#854d0e"
+              opacity="0.8"
+            />
 
             {/* Concentric Soft Radar Rings */}
             {[0.32, 0.64, 0.94].map((fraction, i) => (
@@ -190,7 +222,7 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
                 cy={center}
                 r={(mapSize / 2) * fraction}
                 fill="none"
-                stroke="rgba(56, 189, 248, 0.08)"
+                stroke="rgba(56, 189, 248, 0.12)"
                 strokeWidth="1"
                 strokeDasharray="4 4"
               />
