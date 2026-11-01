@@ -228,16 +228,16 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
               />
             ))}
 
-            {/* WATER CANAL (z = -12.5) */}
+            {/* WATER CANAL (North Shore Scenic Canal z = -50) */}
             {(() => {
-              const canalY = worldToMap(0, -12.5).y
+              const canalY = worldToMap(0, -50.0).y
               return (
                 <g>
                   <rect
                     x="0"
                     y={canalY - 4}
                     width={mapSize}
-                    height="9"
+                    height="8"
                     fill="#0284c7"
                     opacity="0.85"
                   />
@@ -246,16 +246,16 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
                     x={center - 7}
                     y={canalY - 5}
                     width="14"
-                    height="11"
+                    height="10"
                     fill="#334155"
                   />
                 </g>
               )
             })()}
 
-            {/* RAILWAY LINE (z = -14.5) */}
+            {/* RAILWAY LINE (North Shore Seaside Railway z = -52.5) */}
             {(() => {
-              const railY = worldToMap(0, -14.5).y
+              const railY = worldToMap(0, -52.5).y
               return (
                 <line
                   x1="0"

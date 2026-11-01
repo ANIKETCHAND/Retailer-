@@ -509,22 +509,21 @@ function JacarandaTree({ position }: { position: [number, number, number] }) {
 }
 
 // -------------------------------------------------------------
-// 7. DOWNTOWN FINANCIAL METROPOLIS SKYLINE (12+ High Rises)
+// 7. DOWNTOWN FINANCIAL METROPOLIS SKYLINE (9 Glass High Rises)
 // -------------------------------------------------------------
 function DowntownMetropolis({ isNight = false }: { isNight?: boolean }) {
+  // Clustered strictly in the North-East Financial Block (x: 28 to 43, z: -43 to -28)
+  // Perfectly clear of Avenue East (x=24), Perimeter East (x=46), Street North (z=-24), Perimeter North (z=-46)
   const towers = [
-    { x: -14, z: -28, w: 5.2, d: 5.2, h: 22, color: '#0284c7', crown: 'spire' },
-    { x: -5, z: -32, w: 6.4, d: 5.8, h: 24, color: '#090d16', crown: 'helipad' },
-    { x: 5, z: -30, w: 4.8, d: 4.8, h: 18, color: '#0ea5e9', crown: 'flat' },
-    { x: 12, z: -32, w: 4.2, d: 4.2, h: 20, color: '#0284c7', crown: 'twin' },
-    { x: 18, z: -28, w: 5.2, d: 5.0, h: 16, color: '#0f766e', crown: 'stepped' },
-    { x: 26, z: -30, w: 4.8, d: 4.8, h: 19, color: '#0369a1', crown: 'prism' },
-    { x: -22, z: -28, w: 5.5, d: 5.0, h: 15, color: '#1e293b', crown: 'flat' },
-    { x: -10, z: -42, w: 5.8, d: 5.2, h: 26, color: '#0284c7', crown: 'spire' },
-    { x: 0, z: -44, w: 7.2, d: 6.0, h: 28, color: '#0f172a', crown: 'helipad' },
-    { x: 10, z: -42, w: 5.4, d: 5.4, h: 21, color: '#0ea5e9', crown: 'stepped' },
-    { x: 20, z: -42, w: 4.8, d: 4.8, h: 17, color: '#115e59', crown: 'flat' },
-    { x: 30, z: -36, w: 5.0, d: 4.5, h: 16, color: '#0284c7', crown: 'prism' }
+    { x: 30, z: -30, w: 4.4, d: 4.4, h: 22, color: '#0284c7', crown: 'spire' },
+    { x: 36, z: -30, w: 4.8, d: 4.6, h: 26, color: '#090d16', crown: 'helipad' },
+    { x: 41, z: -30, w: 4.2, d: 4.2, h: 18, color: '#0ea5e9', crown: 'flat' },
+    { x: 30, z: -36, w: 4.2, d: 4.2, h: 20, color: '#0284c7', crown: 'twin' },
+    { x: 36, z: -36, w: 4.8, d: 4.6, h: 28, color: '#0f766e', crown: 'stepped' },
+    { x: 41, z: -36, w: 4.2, d: 4.2, h: 19, color: '#0369a1', crown: 'prism' },
+    { x: 30, z: -41, w: 4.4, d: 4.4, h: 16, color: '#1e293b', crown: 'flat' },
+    { x: 36, z: -41, w: 4.8, d: 4.6, h: 24, color: '#0284c7', crown: 'spire' },
+    { x: 41, z: -41, w: 4.2, d: 4.2, h: 17, color: '#0f172a', crown: 'helipad' }
   ]
 
   return (
@@ -601,28 +600,28 @@ function DowntownMetropolis({ isNight = false }: { isNight?: boolean }) {
         </group>
       ))}
 
-      {/* City Municipal Hall with Classical Colonnade */}
-      <group position={[-25, 0, -38]}>
+      {/* City Municipal Hall with Classical Colonnade in North Coastal Promontory (z = -56, completely clear of roads) */}
+      <group position={[-18, 0, -56]}>
         <mesh position={[0, 0.3, 0]} receiveShadow>
-          <boxGeometry args={[10.0, 0.6, 7.5]} />
+          <boxGeometry args={[9.0, 0.6, 6.5]} />
           <meshStandardMaterial color="#e2e8f0" roughness={0.4} />
         </mesh>
         <mesh position={[0, 2.5, -0.6]} castShadow receiveShadow>
-          <boxGeometry args={[9.0, 4.0, 5.8]} />
+          <boxGeometry args={[8.0, 3.8, 5.0]} />
           <meshStandardMaterial color="#f8fafc" roughness={0.3} />
         </mesh>
-        {[-3.6, -2.1, -0.7, 0.7, 2.1, 3.6].map((cx, i) => (
-          <mesh key={`pillar-${i}`} position={[cx, 2.4, 2.4]} castShadow>
-            <cylinderGeometry args={[0.2, 0.24, 3.6, 12]} />
+        {[-3.0, -1.8, -0.6, 0.6, 1.8, 3.0].map((cx, i) => (
+          <mesh key={`pillar-${i}`} position={[cx, 2.4, 2.0]} castShadow>
+            <cylinderGeometry args={[0.18, 0.22, 3.4, 12]} />
             <meshStandardMaterial color="#f1f5f9" roughness={0.3} />
           </mesh>
         ))}
-        <mesh position={[0, 4.8, 2.3]} castShadow>
-          <coneGeometry args={[4.8, 1.4, 4]} />
+        <mesh position={[0, 4.6, 1.9]} castShadow>
+          <coneGeometry args={[4.2, 1.3, 4]} />
           <meshStandardMaterial color="#cbd5e1" roughness={0.4} />
         </mesh>
-        <mesh position={[0, 5.6, -0.6]} castShadow>
-          <sphereGeometry args={[1.8, 16, 16]} />
+        <mesh position={[0, 5.3, -0.6]} castShadow>
+          <sphereGeometry args={[1.6, 16, 16]} />
           <meshStandardMaterial color="#f59e0b" metalness={0.8} roughness={0.2} />
         </mesh>
       </group>
@@ -634,10 +633,12 @@ function DowntownMetropolis({ isNight = false }: { isNight?: boolean }) {
 // 8. TROPICAL AIRPORT (East Coastal Runway & Planes)
 // -------------------------------------------------------------
 function CoastalAirport({ isNight = false }: { isNight?: boolean }) {
+  // Placed at East Seaward Margin (x = 56, length: 58m, offshore coastal alignment)
+  // Distance to East Outer Road (x = 46, curb at 47.4) is 4.8m+ of open land
   return (
-    <group position={[52, 0, 0]}>
-      {/* Tarmac Runway (x = 52, length: 58m) */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.02, 0]} receiveShadow>
+    <group position={[56, 0, 0]}>
+      {/* Tarmac Runway */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[2, 0.02, 0]} receiveShadow>
         <planeGeometry args={[10, 58]} />
         <meshStandardMaterial color="#1e293b" roughness={0.9} />
       </mesh>
@@ -647,16 +648,16 @@ function CoastalAirport({ isNight = false }: { isNight?: boolean }) {
         <mesh
           key={`rwy-dash-${i}`}
           rotation={[-Math.PI / 2, 0, 0]}
-          position={[0, 0.03, -24 + i * 3.8]}
+          position={[2, 0.03, -24 + i * 3.8]}
         >
           <planeGeometry args={[0.4, 2.0]} />
           <meshBasicMaterial color="#ffffff" />
         </mesh>
       ))}
 
-      {/* Runway Threshold Piano Keys (Both ends) */}
+      {/* Runway Threshold Piano Keys */}
       {[-27, 27].map((endZ, idx) => (
-        <group key={`piano-${idx}`} position={[0, 0.03, endZ]}>
+        <group key={`piano-${idx}`} position={[2, 0.03, endZ]}>
           {[-3.6, -2.4, -1.2, 0, 1.2, 2.4, 3.6].map((tx, j) => (
             <mesh key={`p-stripe-${j}`} rotation={[-Math.PI / 2, 0, 0]} position={[tx, 0, 0]}>
               <planeGeometry args={[0.5, 2.4]} />
@@ -667,32 +668,29 @@ function CoastalAirport({ isNight = false }: { isNight?: boolean }) {
       ))}
 
       {/* Airport Passenger Terminal Building */}
-      <group position={[-11, 0, -6]}>
+      <group position={[-3.5, 0, -15]}>
         <mesh position={[0, 2.0, 0]} castShadow receiveShadow>
-          <boxGeometry args={[8.0, 4.0, 16.0]} />
+          <boxGeometry args={[4.2, 4.0, 13.0]} />
           <meshStandardMaterial color="#f8fafc" roughness={0.3} />
         </mesh>
-        {/* Curved Glass Terminal Concourse */}
-        <mesh position={[3.6, 1.8, 0]}>
-          <boxGeometry args={[1.0, 2.6, 14.8]} />
+        <mesh position={[2.0, 1.8, 0]}>
+          <boxGeometry args={[0.7, 2.6, 12.0]} />
           <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.7} />
         </mesh>
       </group>
 
       {/* Air Traffic Control Tower with Radar Sphere */}
-      <group position={[-11, 0, 8]}>
+      <group position={[-3.5, 0, 15]}>
         <mesh position={[0, 5.0, 0]} castShadow>
-          <cylinderGeometry args={[1.1, 1.6, 10.0, 12]} />
+          <cylinderGeometry args={[1.0, 1.5, 10.0, 12]} />
           <meshStandardMaterial color="#f1f5f9" roughness={0.4} />
         </mesh>
-        {/* Cab Glass Viewing Room */}
         <mesh position={[0, 10.6, 0]}>
-          <cylinderGeometry args={[2.0, 1.5, 1.6, 16]} />
+          <cylinderGeometry args={[1.9, 1.4, 1.6, 16]} />
           <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.7} />
         </mesh>
-        {/* Radar Dome Sphere */}
         <mesh position={[0, 12.0, 0]}>
-          <sphereGeometry args={[0.9, 12, 12]} />
+          <sphereGeometry args={[0.85, 12, 12]} />
           <meshStandardMaterial color="#f8fafc" />
         </mesh>
         {isNight && (
@@ -700,25 +698,21 @@ function CoastalAirport({ isNight = false }: { isNight?: boolean }) {
         )}
       </group>
 
-      {/* 2 Parked Commercial Airliners on Tarmac */}
-      {[-8, 8].map((pz, idx) => (
-        <group key={`plane-${idx}`} position={[-4.5, 0.4, pz]} rotation={[0, -Math.PI / 2, 0]}>
-          {/* Fuselage */}
+      {/* 2 Parked Commercial Airliners on Tarmac Apron */}
+      {[-6, 6].map((pz, idx) => (
+        <group key={`plane-${idx}`} position={[-1.5, 0.4, pz]} rotation={[0, -Math.PI / 2, 0]}>
           <mesh castShadow rotation={[Math.PI / 2, 0, 0]}>
             <cylinderGeometry args={[0.45, 0.45, 4.8, 12]} />
             <meshStandardMaterial color="#f8fafc" roughness={0.3} />
           </mesh>
-          {/* Nose Cone */}
           <mesh position={[0, 0, 2.6]} rotation={[Math.PI / 2, 0, 0]}>
             <coneGeometry args={[0.45, 0.8, 12]} />
             <meshStandardMaterial color="#0284c7" />
           </mesh>
-          {/* Main Wings */}
           <mesh position={[0, -0.05, 0]}>
             <boxGeometry args={[4.8, 0.06, 1.2]} />
             <meshStandardMaterial color="#e2e8f0" />
           </mesh>
-          {/* Tail Fin */}
           <mesh position={[0, 0.7, -2.0]}>
             <boxGeometry args={[0.08, 1.2, 0.8]} />
             <meshStandardMaterial color="#0284c7" />
@@ -737,9 +731,10 @@ function ResidentialNeighborhood({ isNight = false }: { isNight?: boolean }) {
 
   return (
     <group position={[0, 0, 0]}>
-      {/* 8 Modern Luxury Beachfront Villas with Pools (South edge, z = 24 to 42) */}
-      {[-38, -26, -14, 14, 26, 38].map((vx, i) => (
-        <group key={`villa-${i}`} position={[vx, 0, 32]}>
+      {/* 4 Modern Luxury Beachfront Villas with Pools (Lagoon beach edge, z = 53, oceanfront sands) */}
+      {/* Completely outside city road grid, facing the open water */}
+      {[-36, -18, 18, 36].map((vx, i) => (
+        <group key={`villa-${i}`} position={[vx, 0, 53]}>
           <mesh position={[0, 1.8, 0]} castShadow receiveShadow>
             <boxGeometry args={[6.2, 3.6, 5.0]} />
             <meshStandardMaterial color="#f8fafc" roughness={0.3} />
@@ -752,7 +747,7 @@ function ResidentialNeighborhood({ isNight = false }: { isNight?: boolean }) {
             <boxGeometry args={[7.0, 0.25, 6.2]} />
             <meshStandardMaterial color="#1e293b" />
           </mesh>
-          {/* Private Pool */}
+          {/* Private Pool facing sunny beach */}
           <mesh position={[0, 0.05, 4.6]} receiveShadow>
             <boxGeometry args={[4.4, 0.1, 2.6]} />
             <meshStandardMaterial color="#e2e8f0" />
@@ -770,21 +765,23 @@ function ResidentialNeighborhood({ isNight = false }: { isNight?: boolean }) {
         </group>
       ))}
 
-      {/* 10 Terracotta Cottages in Suburbs (z = 18 to 28) */}
+      {/* 8 Terracotta Cottages in Dedicated Suburban Lawn Block (x: 28 to 43, z: 28 to 43) */}
+      {/* Zero overlap with roads at z=24, z=46, x=24, x=46 */}
       {[
-        { x: -36, z: 20 }, { x: -24, z: 20 }, { x: -12, z: 20 }, { x: 12, z: 20 }, { x: 24, z: 20 }, { x: 36, z: 20 },
-        { x: -30, z: 12 }, { x: -18, z: 12 }, { x: 18, z: 12 }, { x: 30, z: 12 }
+        { x: 30, z: 30 }, { x: 36, z: 30 }, { x: 41, z: 30 },
+        { x: 30, z: 36 }, { x: 41, z: 36 },
+        { x: 30, z: 41 }, { x: 36, z: 41 }, { x: 41, z: 41 }
       ].map((pos, idx) => (
         <group key={`cottage-${idx}`} position={[pos.x, 0, pos.z]}>
           <mesh position={[0, 1.5, 0]} castShadow receiveShadow>
-            <boxGeometry args={[5.0, 3.0, 4.0]} />
+            <boxGeometry args={[4.0, 3.0, 3.6]} />
             <meshStandardMaterial color={villaColors[idx % villaColors.length]} roughness={0.6} />
           </mesh>
-          <mesh position={[0, 3.6, 0]} rotation={[0, Math.PI / 4, 0]} castShadow>
-            <coneGeometry args={[4.0, 1.5, 4]} />
+          <mesh position={[0, 3.5, 0]} rotation={[0, Math.PI / 4, 0]} castShadow>
+            <coneGeometry args={[3.4, 1.4, 4]} />
             <meshStandardMaterial color="#ea580c" roughness={0.7} />
           </mesh>
-          <mesh position={[0, 0.8, 2.05]}>
+          <mesh position={[0, 0.8, 1.85]}>
             <boxGeometry args={[0.9, 1.6, 0.06]} />
             <meshStandardMaterial color="#78350f" />
           </mesh>
@@ -794,19 +791,14 @@ function ResidentialNeighborhood({ isNight = false }: { isNight?: boolean }) {
         </group>
       ))}
 
-      {/* Neighborhood School & Campus Playground */}
-      <group position={[-25, 0, 44]}>
+      {/* Neighborhood School & Campus Playground (South Beachfront Greenway z = 52.5) */}
+      <group position={[36, 0, 52.5]}>
         <mesh position={[0, 2.2, 0]} castShadow receiveShadow>
-          <boxGeometry args={[12.0, 4.4, 7.0]} />
+          <boxGeometry args={[9.5, 4.4, 4.8]} />
           <meshStandardMaterial color="#fef3c7" roughness={0.5} />
         </mesh>
         <mesh position={[0, 4.6, 0]} castShadow>
-          <boxGeometry args={[12.4, 0.4, 7.4]} />
-          <meshStandardMaterial color="#0284c7" />
-        </mesh>
-        {/* Basketball / Sports Court */}
-        <mesh position={[8.5, 0.04, 0]} receiveShadow>
-          <boxGeometry args={[6.0, 0.08, 9.0]} />
+          <boxGeometry args={[10.0, 0.4, 5.2]} />
           <meshStandardMaterial color="#0284c7" />
         </mesh>
       </group>
@@ -821,33 +813,35 @@ function IndustrialPortAndEnergy({ isNight = false }: { isNight?: boolean }) {
   const containerColors = ['#0284c7', '#dc2626', '#16a34a', '#ea580c', '#facc15', '#475569']
 
   return (
-    <group position={[32, 0, -6]}>
-      {/* Container Dock Wharf */}
-      <mesh position={[6, 0.2, 0]} receiveShadow>
-        <boxGeometry args={[14.0, 0.45, 40.0]} />
+    // Moved completely to East Coastline Harbor (x = 56, strictly in ocean wharf zone)
+    // Distance to East Outer Road (x = 46, curb at 47.4) is 4.1m+ of open land
+    <group position={[56, 0, 0]}>
+      {/* Container Dock Wharf Pier over Ocean */}
+      <mesh position={[2, 0.2, 0]} receiveShadow>
+        <boxGeometry args={[8.0, 0.45, 36.0]} />
         <meshStandardMaterial color="#64748b" roughness={0.8} />
       </mesh>
-      <mesh position={[12.8, 0.44, 0]}>
-        <boxGeometry args={[0.3, 0.04, 40.0]} />
+      <mesh position={[5.8, 0.44, 0]}>
+        <boxGeometry args={[0.3, 0.04, 36.0]} />
         <meshStandardMaterial color="#eab308" />
       </mesh>
 
-      {/* Giant Orange Gantry Crane */}
-      <group position={[10, 0.45, -6]}>
+      {/* Giant Orange Gantry Crane on Harbor Pier */}
+      <group position={[3.5, 0.45, 0]}>
         {[-3, 3].map((cz, i) => (
           <group key={`gantry-leg-${i}`} position={[0, 0, cz]}>
-            <mesh position={[-2.4, 4.5, 0]} castShadow>
+            <mesh position={[-1.8, 4.5, 0]} castShadow>
               <boxGeometry args={[0.4, 9.0, 0.4]} />
               <meshStandardMaterial color="#ea580c" metalness={0.7} />
             </mesh>
-            <mesh position={[2.4, 4.5, 0]} castShadow>
+            <mesh position={[1.8, 4.5, 0]} castShadow>
               <boxGeometry args={[0.4, 9.0, 0.4]} />
               <meshStandardMaterial color="#ea580c" metalness={0.7} />
             </mesh>
           </group>
         ))}
         <mesh position={[0, 9.2, 0]} castShadow>
-          <boxGeometry args={[14.0, 0.8, 4.5]} />
+          <boxGeometry args={[9.0, 0.8, 4.5]} />
           <meshStandardMaterial color="#f97316" metalness={0.6} />
         </mesh>
         <mesh position={[1.5, 8.4, 0]}>
@@ -856,18 +850,18 @@ function IndustrialPortAndEnergy({ isNight = false }: { isNight?: boolean }) {
         </mesh>
       </group>
 
-      {/* 20 Shipping Containers */}
-      <group position={[2, 0.45, -4]}>
+      {/* 18 Shipping Containers Stacked along Harbor */}
+      <group position={[0, 0.45, -6]}>
         {Array.from({ length: 18 }).map((_, idx) => {
-          const col = idx % 3
-          const row = Math.floor(idx / 3) % 3
-          const tier = Math.floor(idx / 9)
+          const col = idx % 2
+          const row = Math.floor(idx / 2) % 3
+          const tier = Math.floor(idx / 6)
           const color = containerColors[idx % containerColors.length]
 
           return (
             <mesh
               key={`cont-${idx}`}
-              position={[col * 1.6 - 1.6, tier * 1.1 + 0.55, row * 4.2 - 4.2]}
+              position={[col * 1.6 - 0.8, tier * 1.1 + 0.55, row * 4.2 - 4.2]}
               castShadow
             >
               <boxGeometry args={[1.4, 1.05, 3.8]} />
@@ -877,59 +871,33 @@ function IndustrialPortAndEnergy({ isNight = false }: { isNight?: boolean }) {
         })}
       </group>
 
-      {/* Logistics Distribution Warehouse */}
-      <group position={[-6, 0, 14]}>
+      {/* Logistics Distribution Warehouse (Safe buffer from road: x = 54.5, w = 5.0) */}
+      <group position={[-1.5, 0, 12]}>
         <mesh position={[0, 2.2, 0]} castShadow receiveShadow>
-          <boxGeometry args={[10.0, 4.4, 8.0]} />
+          <boxGeometry args={[5.0, 4.4, 7.5]} />
           <meshStandardMaterial color="#94a3b8" roughness={0.6} />
         </mesh>
-        {[-3, 0, 3].map((bx, i) => (
-          <mesh key={`bay-${i}`} position={[bx, 1.2, 4.05]}>
-            <boxGeometry args={[2.0, 2.2, 0.08]} />
-            <meshStandardMaterial color="#334155" metalness={0.8} />
-          </mesh>
-        ))}
       </group>
 
-      {/* Industrial Storage Tanks */}
+      {/* Industrial Storage Tanks (Safe buffer from road: x = 54.5, r = 1.8) */}
       {[0, 1].map((_, i) => (
-        <group key={`tank-${i}`} position={[-6, 0, -14 - i * 7]}>
-          <mesh position={[0, 2.2, 0]} castShadow>
-            <cylinderGeometry args={[2.8, 2.8, 4.4, 24]} />
+        <group key={`tank-${i}`} position={[-1.5, 0, -14 - i * 5]}>
+          <mesh position={[0, 1.8, 0]} castShadow>
+            <cylinderGeometry args={[1.8, 1.8, 3.6, 20]} />
             <meshStandardMaterial color="#f8fafc" metalness={0.5} roughness={0.3} />
           </mesh>
-          <mesh position={[0, 3.2, 0]}>
-            <cylinderGeometry args={[2.82, 2.82, 0.5, 24]} />
+          <mesh position={[0, 2.8, 0]}>
+            <cylinderGeometry args={[1.82, 1.82, 0.4, 20]} />
             <meshStandardMaterial color="#0284c7" />
           </mesh>
         </group>
       ))}
 
-      {/* 4 Wind Turbines */}
-      <WindTurbine position={[15, 0, 16]} isNight={isNight} />
-      <WindTurbine position={[18, 0, 2]} isNight={isNight} />
-      <WindTurbine position={[15, 0, -18]} isNight={isNight} />
-      <WindTurbine position={[18, 0, -32]} isNight={isNight} />
-
-      {/* Solar Panel Farm */}
-      <group position={[-6, 0.1, -4]}>
-        {Array.from({ length: 8 }).map((_, i) => (
-          <mesh
-            key={`solar-${i}`}
-            position={[(i % 4) * 2.6 - 3.9, 0.6, Math.floor(i / 4) * 2.2 - 1.1]}
-            rotation={[0.45, 0, 0]}
-            castShadow
-          >
-            <boxGeometry args={[2.2, 0.08, 1.6]} />
-            <meshPhysicalMaterial
-              color="#0284c7"
-              metalness={0.9}
-              roughness={0.08}
-              reflectivity={0.9}
-            />
-          </mesh>
-        ))}
-      </group>
+      {/* Offshore Wind Turbines on Ocean Seawall */}
+      <WindTurbine position={[6, 0, 22]} isNight={isNight} />
+      <WindTurbine position={[6, 0, 32]} isNight={isNight} />
+      <WindTurbine position={[6, 0, -22]} isNight={isNight} />
+      <WindTurbine position={[6, 0, -32]} isNight={isNight} />
     </group>
   )
 }
@@ -939,23 +907,24 @@ function IndustrialPortAndEnergy({ isNight = false }: { isNight?: boolean }) {
 // -------------------------------------------------------------
 function SportsStadiumAndCivic({ isNight = false }: { isNight?: boolean }) {
   return (
-    <group position={[-36, 0, 6]}>
-      {/* Sports Stadium Arena */}
-      <group position={[0, 0, 0]}>
+    <group position={[0, 0, 0]}>
+      {/* Sports Stadium Arena - North-West Open Land Sector (x: -43 to -27, z: -43 to -27) */}
+      {/* Perfectly centered at [-35, -35] with 3.2m+ clear buffer to all surrounding roads */}
+      <group position={[-35, 0, -35]}>
         <mesh position={[0, 1.8, 0]} castShadow receiveShadow>
-          <cylinderGeometry args={[8.5, 9.8, 3.6, 28]} />
+          <cylinderGeometry args={[6.2, 7.0, 3.6, 28]} />
           <meshStandardMaterial color="#e2e8f0" roughness={0.5} />
         </mesh>
         <mesh position={[0, 2.4, 0]}>
-          <cylinderGeometry args={[7.8, 7.8, 1.8, 24, 1, true]} />
+          <cylinderGeometry args={[5.6, 5.6, 1.8, 24, 1, true]} />
           <meshStandardMaterial color="#0284c7" side={THREE.DoubleSide} />
         </mesh>
         <mesh position={[0, 0.45, 0]}>
-          <boxGeometry args={[8.2, 0.1, 5.2]} />
+          <boxGeometry args={[5.8, 0.1, 3.8]} />
           <meshStandardMaterial color="#16a34a" roughness={0.8} />
         </mesh>
-        {[-6.2, 6.2].map((lx, i) =>
-          [-4.5, 4.5].map((lz, j) => (
+        {[-4.5, 4.5].map((lx, i) =>
+          [-3.0, 3.0].map((lz, j) => (
             <group key={`light-${i}-${j}`} position={[lx, 0, lz]}>
               <mesh position={[0, 3.6, 0]}>
                 <cylinderGeometry args={[0.08, 0.14, 7.2, 8]} />
@@ -977,13 +946,13 @@ function SportsStadiumAndCivic({ isNight = false }: { isNight?: boolean }) {
         )}
       </group>
 
-      {/* Central Hospital with Emergency Helipad */}
-      <group position={[0, 0, 18]}>
+      {/* Central Hospital with Emergency Helipad - South-West Sector (x: -35, z: 37) */}
+      <group position={[-35, 0, 37]}>
         <mesh position={[0, 2.6, 0]} castShadow receiveShadow>
-          <boxGeometry args={[11.0, 5.2, 6.8]} />
+          <boxGeometry args={[9.0, 5.2, 5.5]} />
           <meshStandardMaterial color="#f8fafc" roughness={0.3} />
         </mesh>
-        <group position={[0, 3.8, 3.45]}>
+        <group position={[0, 3.8, 2.8]}>
           <mesh>
             <boxGeometry args={[0.4, 1.4, 0.08]} />
             <meshStandardMaterial color="#dc2626" emissive="#dc2626" emissiveIntensity={isNight ? 2.0 : 0.6} />
@@ -993,13 +962,13 @@ function SportsStadiumAndCivic({ isNight = false }: { isNight?: boolean }) {
             <meshStandardMaterial color="#dc2626" emissive="#dc2626" emissiveIntensity={isNight ? 2.0 : 0.6} />
           </mesh>
         </group>
-        <group position={[3.2, 5.3, 0]}>
+        <group position={[2.5, 5.3, 0]}>
           <mesh>
-            <cylinderGeometry args={[2.0, 2.0, 0.18, 20]} />
+            <cylinderGeometry args={[1.8, 1.8, 0.18, 20]} />
             <meshStandardMaterial color="#334155" />
           </mesh>
           <mesh position={[0, 0.1, 0]}>
-            <ringGeometry args={[1.6, 1.8, 20]} />
+            <ringGeometry args={[1.4, 1.6, 20]} />
             <meshBasicMaterial color="#ef4444" />
           </mesh>
         </group>
@@ -1020,19 +989,21 @@ function CentralPark({ isNight = false }: { isNight?: boolean }) {
     }
   })
 
+  // Placed in South-West Botanical Sanctuary (x: -35, z: 29) adjacent to Hospital, 
+  // with generous 3m+ buffers from Avenue South (z=24) and Avenue West (x=-24)
   return (
-    <group position={[-18, 0, -6]}>
+    <group position={[-35, 0, 29]}>
       <mesh position={[0, 0.03, 0]} receiveShadow>
-        <cylinderGeometry args={[7.0, 7.0, 0.06, 24]} />
+        <cylinderGeometry args={[4.6, 4.6, 0.06, 24]} />
         <meshStandardMaterial color="#e2e8f0" roughness={0.6} />
       </mesh>
       <group position={[0, 0, 0]}>
         <mesh position={[0, 0.25, 0]}>
-          <cylinderGeometry args={[2.4, 2.6, 0.5, 16]} />
+          <cylinderGeometry args={[1.8, 2.0, 0.5, 16]} />
           <meshStandardMaterial color="#94a3b8" />
         </mesh>
         <mesh ref={fountainRef} position={[0, 0.5, 0]}>
-          <coneGeometry args={[1.2, 1.6, 16]} />
+          <coneGeometry args={[0.9, 1.3, 16]} />
           <meshPhysicalMaterial
             color="#38bdf8"
             emissive={isNight ? '#38bdf8' : '#000000'}
@@ -1042,10 +1013,10 @@ function CentralPark({ isNight = false }: { isNight?: boolean }) {
           />
         </mesh>
       </group>
-      <JacarandaTree position={[-4.5, 0, -3.5]} />
-      <JacarandaTree position={[4.5, 0, -3.5]} />
-      <JacarandaTree position={[-4.5, 0, 3.5]} />
-      <JacarandaTree position={[4.5, 0, 3.5]} />
+      <JacarandaTree position={[-3.0, 0, -2.0]} />
+      <JacarandaTree position={[3.0, 0, -2.0]} />
+      <JacarandaTree position={[-3.0, 0, 2.0]} />
+      <JacarandaTree position={[3.0, 0, 2.0]} />
     </group>
   )
 }
@@ -1151,14 +1122,15 @@ function WaterCanal({ isNight = false }: { isNight?: boolean }) {
     }
   })
 
+  // Scenic Coastal North Canal (z = -50, outside city street grid)
   return (
-    <group position={[0, 0, -12.5]}>
+    <group position={[0, 0, -50]}>
       <mesh position={[0, -0.05, 0]} receiveShadow>
-        <boxGeometry args={[116, 0.18, 2.6]} />
+        <boxGeometry args={[100, 0.18, 2.6]} />
         <meshStandardMaterial color="#0e7490" roughness={0.9} />
       </mesh>
       <mesh ref={waterRef} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.02, 0]}>
-        <planeGeometry args={[116, 2.4]} />
+        <planeGeometry args={[100, 2.4]} />
         <meshPhysicalMaterial
           color={isNight ? '#083344' : '#06b6d4'}
           transparent
@@ -1168,7 +1140,7 @@ function WaterCanal({ isNight = false }: { isNight?: boolean }) {
           reflectivity={0.9}
         />
       </mesh>
-      {[-20, 0, 20].map((bx, idx) => (
+      {[-24, 0, 24].map((bx, idx) => (
         <group key={`canal-bridge-${idx}`} position={[bx, 0.14, 0]}>
           <mesh receiveShadow castShadow>
             <boxGeometry args={[3.4, 0.32, 2.8]} />
@@ -1200,21 +1172,22 @@ function RailwayAndTrain() {
     }
   })
 
+  // Seaside Coastal Railway (z = -52.5, scenic coastal route)
   return (
-    <group position={[0, 0, -14.5]}>
+    <group position={[0, 0, -52.5]}>
       <mesh position={[0, 0.04, 0]} receiveShadow>
-        <boxGeometry args={[116, 0.08, 1.6]} />
+        <boxGeometry args={[100, 0.08, 1.6]} />
         <meshStandardMaterial color="#475569" roughness={0.9} />
       </mesh>
-      {Array.from({ length: 60 }).map((_, i) => (
-        <mesh key={`tie-${i}`} position={[-45 + i * 1.5, 0.1, 0]} castShadow>
+      {Array.from({ length: 50 }).map((_, i) => (
+        <mesh key={`tie-${i}`} position={[-38 + i * 1.5, 0.1, 0]} castShadow>
           <boxGeometry args={[0.18, 0.06, 1.25]} />
           <meshStandardMaterial color="#78350f" roughness={0.9} />
         </mesh>
       ))}
       {[-0.38, 0.38].map((rz, i) => (
         <mesh key={`rail-${i}`} position={[0, 0.16, rz]}>
-          <boxGeometry args={[116, 0.06, 0.06]} />
+          <boxGeometry args={[100, 0.06, 0.06]} />
           <meshStandardMaterial color="#f59e0b" metalness={0.9} roughness={0.2} />
         </mesh>
       ))}
@@ -1295,37 +1268,39 @@ export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 
   const activeDistricts = useMemo(() => getActiveDistricts(stores), [stores])
 
   // Procedural District Commercial Foundations that dynamically expand as stores are built
+  // Every foundation is strictly placed within open land blocks, leaving clean road corridors
   const proceduralBlocks = useMemo(() => {
     const blocks = [
-      // Central District 1 Plaza Core
-      { id: 'nw', x: -10.5, z: -7.0, w: 16.6, d: 9.6 },
-      { id: 'ne', x: 10.5, z: -7.0, w: 16.6, d: 9.6 },
-      { id: 'sw', x: -10.5, z: 7.0, w: 16.6, d: 9.6 },
-      { id: 'se', x: 10.5, z: 7.0, w: 16.6, d: 9.6 }
+      // Central District 1 Plaza Core (4 Quadrants safely between x: ±2.5 to ±19.5, z: ±2.5 to ±19.5)
+      // Zero road overlap with Central Arterials (x=0, z=0) and Secondary Avenues (x=±24, z=±24)
+      { id: 'nw', x: -11.0, z: -11.0, w: 17.0, d: 17.0 },
+      { id: 'ne', x: 11.0, z: -11.0, w: 17.0, d: 17.0 },
+      { id: 'sw', x: -11.0, z: 11.0, w: 17.0, d: 17.0 },
+      { id: 'se', x: 11.0, z: 11.0, w: 17.0, d: 17.0 }
     ]
 
     if (activeDistricts.includes('district_2')) {
       blocks.push(
-        { id: 'd2_n', x: 22.5, z: -9.0, w: 10.5, d: 11.2 },
-        { id: 'd2_s', x: 22.5, z: 9.0, w: 10.5, d: 11.2 }
+        { id: 'd2_n', x: 35.0, z: -10.5, w: 15.0, d: 16.0 },
+        { id: 'd2_s', x: 35.0, z: 10.5, w: 15.0, d: 16.0 }
       )
     }
     if (activeDistricts.includes('district_3')) {
       blocks.push(
-        { id: 'd3_n', x: -22.5, z: -9.0, w: 10.5, d: 11.2 },
-        { id: 'd3_s', x: -22.5, z: 9.0, w: 10.5, d: 11.2 }
+        { id: 'd3_n', x: -35.0, z: -10.5, w: 15.0, d: 16.0 },
+        { id: 'd3_s', x: -35.0, z: 10.5, w: 15.0, d: 16.0 }
       )
     }
     if (activeDistricts.includes('district_4')) {
       blocks.push(
-        { id: 'd4_w', x: -9.75, z: -19.0, w: 11.2, d: 10.5 },
-        { id: 'd4_e', x: 9.75, z: -19.0, w: 11.2, d: 10.5 }
+        { id: 'd4_w', x: -10.5, z: -35.0, w: 16.0, d: 15.0 },
+        { id: 'd4_e', x: 10.5, z: -35.0, w: 16.0, d: 15.0 }
       )
     }
     if (activeDistricts.includes('district_5')) {
       blocks.push(
-        { id: 'd5_w', x: -9.75, z: 19.0, w: 11.2, d: 10.5 },
-        { id: 'd5_e', x: 9.75, z: 19.0, w: 11.2, d: 10.5 }
+        { id: 'd5_w', x: -10.5, z: 35.0, w: 16.0, d: 15.0 },
+        { id: 'd5_e', x: 10.5, z: 35.0, w: 16.0, d: 15.0 }
       )
     }
 
@@ -1366,56 +1341,56 @@ export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 
       ))}
 
       {/* 4. CONTINUOUS GRID ROAD NETWORK (Connecting every single city block) */}
-      {/* Central East-West Highway (z = 0) */}
+      {/* Central East-West Highway (z = 0, width: 3.6m) */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]} receiveShadow>
-        <planeGeometry args={[114, 3.4]} />
+        <planeGeometry args={[94, 3.6]} />
         <meshStandardMaterial map={asphaltTexture} roughness={0.8} color={isNight ? '#0f172a' : '#1e293b'} />
       </mesh>
 
-      {/* Central North-South Boulevard (x = 0) */}
+      {/* Central North-South Boulevard (x = 0, width: 3.6m) */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.011, 0]} receiveShadow>
-        <planeGeometry args={[3.4, 114]} />
+        <planeGeometry args={[3.6, 94]} />
         <meshStandardMaterial map={asphaltTexture} roughness={0.8} color={isNight ? '#0f172a' : '#1e293b'} />
       </mesh>
 
       {/* Central Intersection */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.012, 0]} receiveShadow>
-        <planeGeometry args={[3.4, 3.4]} />
+        <planeGeometry args={[3.6, 3.6]} />
         <meshStandardMaterial color={isNight ? '#0f172a' : '#1e293b'} roughness={0.8} />
       </mesh>
 
-      {/* Intermediate Grid Streets (x = ±20, z = ±20) */}
-      {[-20, 20].map((rz, i) => (
+      {/* Intermediate Grid Streets (x = ±24, z = ±24, width: 3.2m) */}
+      {[-24, 24].map((rz, i) => (
         <mesh key={`ring-z-${i}`} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, rz]} receiveShadow>
-          <planeGeometry args={[110, 3.0]} />
+          <planeGeometry args={[94, 3.2]} />
           <meshStandardMaterial map={asphaltTexture} roughness={0.8} color={isNight ? '#0f172a' : '#1e293b'} />
         </mesh>
       ))}
-      {[-20, 20].map((rx, i) => (
+      {[-24, 24].map((rx, i) => (
         <mesh key={`ring-x-${i}`} rotation={[-Math.PI / 2, 0, 0]} position={[rx, 0.01, 0]} receiveShadow>
-          <planeGeometry args={[3.0, 110]} />
+          <planeGeometry args={[3.2, 94]} />
           <meshStandardMaterial map={asphaltTexture} roughness={0.8} color={isNight ? '#0f172a' : '#1e293b'} />
         </mesh>
       ))}
 
-      {/* Outer Perimeter Ring Boulevards (x = ±40, z = ±40) */}
-      {[-40, 40].map((rz, i) => (
+      {/* Outer Perimeter Ring Boulevards (x = ±46, z = ±46, width: 2.8m) */}
+      {[-46, 46].map((rz, i) => (
         <mesh key={`outer-z-${i}`} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, rz]} receiveShadow>
-          <planeGeometry args={[98, 2.8]} />
+          <planeGeometry args={[94, 2.8]} />
           <meshStandardMaterial map={asphaltTexture} roughness={0.8} color={isNight ? '#0f172a' : '#1e293b'} />
         </mesh>
       ))}
-      {[-40, 40].map((rx, i) => (
+      {[-46, 46].map((rx, i) => (
         <mesh key={`outer-x-${i}`} rotation={[-Math.PI / 2, 0, 0]} position={[rx, 0.01, 0]} receiveShadow>
-          <planeGeometry args={[2.8, 98]} />
+          <planeGeometry args={[2.8, 94]} />
           <meshStandardMaterial map={asphaltTexture} roughness={0.8} color={isNight ? '#0f172a' : '#1e293b'} />
         </mesh>
       ))}
 
       {/* Dashed Centerlines on Main Arterials */}
-      {Array.from({ length: 32 }).map((_, i) => {
-        const xPos = -50 + i * 3.3
-        if (Math.abs(xPos) < 3.2 || Math.abs(xPos - 20) < 2.0 || Math.abs(xPos + 20) < 2.0 || Math.abs(xPos - 40) < 2.0 || Math.abs(xPos + 40) < 2.0) return null
+      {Array.from({ length: 30 }).map((_, i) => {
+        const xPos = -44 + i * 3.0
+        if (Math.abs(xPos) < 2.5 || Math.abs(xPos - 24) < 2.2 || Math.abs(xPos + 24) < 2.2 || Math.abs(xPos - 46) < 2.0 || Math.abs(xPos + 46) < 2.0) return null
         return (
           <mesh key={`h-dash-${i}`} rotation={[-Math.PI / 2, 0, 0]} position={[xPos, 0.016, 0]}>
             <planeGeometry args={[1.5, 0.15]} />
@@ -1423,9 +1398,9 @@ export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 
           </mesh>
         )
       })}
-      {Array.from({ length: 32 }).map((_, i) => {
-        const zPos = -50 + i * 3.3
-        if (Math.abs(zPos) < 3.2 || Math.abs(zPos - 20) < 2.0 || Math.abs(zPos + 20) < 2.0 || Math.abs(zPos - 40) < 2.0 || Math.abs(zPos + 40) < 2.0) return null
+      {Array.from({ length: 30 }).map((_, i) => {
+        const zPos = -44 + i * 3.0
+        if (Math.abs(zPos) < 2.5 || Math.abs(zPos - 24) < 2.2 || Math.abs(zPos + 24) < 2.2 || Math.abs(zPos - 46) < 2.0 || Math.abs(zPos + 46) < 2.0) return null
         return (
           <mesh key={`v-dash-${i}`} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.016, zPos]}>
             <planeGeometry args={[0.15, 1.5]} />
@@ -1434,7 +1409,7 @@ export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 
         )
       })}
 
-      {/* 5. WATER CANAL & RAILWAY LINE */}
+      {/* 5. WATER CANAL & RAILWAY LINE (Running along northern seaside buffer) */}
       <WaterCanal isNight={isNight} />
       <RailwayAndTrain />
 
@@ -1465,7 +1440,7 @@ export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 
       {/* Ferris Wheel Amusement Pier */}
       <FerrisWheel position={[-50, 0, 36]} isNight={isNight} />
 
-      {/* 7. ALL CITY DISTRICTS (Filling every single block!) */}
+      {/* 7. ALL CITY DISTRICTS (Every landmark safely in its own open land block) */}
       <DowntownMetropolis isNight={isNight} />
       <CoastalAirport isNight={isNight} />
       <ResidentialNeighborhood isNight={isNight} />
@@ -1473,55 +1448,51 @@ export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 
       <SportsStadiumAndCivic isNight={isNight} />
       <CentralPark isNight={isNight} />
 
-      {/* 8. TROPICAL PALM TREE AVENUES */}
-      {[-45, -35, -25, -15, 15, 25, 35, 45].map((tx, i) => (
+      {/* 8. TROPICAL PALM TREE AVENUES (Planted along sidewalk curbs) */}
+      {[-40, -32, -16, -8, 8, 16, 32, 40].map((tx, i) => (
         <React.Fragment key={`palms-grid-${i}`}>
           <PalmTree position={[tx, 0, -2.4]} />
           <PalmTree position={[tx, 0, 2.4]} />
-          <PalmTree position={[tx, 0, 17.6]} />
-          <PalmTree position={[tx, 0, -17.6]} />
-          <PalmTree position={[tx, 0, 37.6]} />
-          <PalmTree position={[tx, 0, -37.6]} />
+          <PalmTree position={[tx, 0, 21.6]} />
+          <PalmTree position={[tx, 0, -21.6]} />
         </React.Fragment>
       ))}
 
-      {/* 9. STREET FIXTURES (Street Lamps & Traffic Signals) */}
-      <StreetLamp position={[-2.2, 0, -2.2]} rotation={Math.PI / 4} isNight={isNight} />
-      <StreetLamp position={[2.2, 0, -2.2]} rotation={-Math.PI / 4} isNight={isNight} />
-      <StreetLamp position={[-2.2, 0, 2.2]} rotation={(3 * Math.PI) / 4} isNight={isNight} />
-      <StreetLamp position={[2.2, 0, 2.2]} rotation={(-3 * Math.PI) / 4} isNight={isNight} />
-      <StreetLamp position={[-18.5, 0, -2.2]} rotation={Math.PI / 4} isNight={isNight} />
-      <StreetLamp position={[18.5, 0, -2.2]} rotation={-Math.PI / 4} isNight={isNight} />
-      <StreetLamp position={[-2.2, 0, 18.5]} rotation={Math.PI / 4} isNight={isNight} />
-      <StreetLamp position={[2.2, 0, 18.5]} rotation={-Math.PI / 4} isNight={isNight} />
+      {/* 9. STREET FIXTURES (Street Lamps & Traffic Signals on Sidewalk Corners) */}
+      <StreetLamp position={[-2.4, 0, -2.4]} rotation={Math.PI / 4} isNight={isNight} />
+      <StreetLamp position={[2.4, 0, -2.4]} rotation={-Math.PI / 4} isNight={isNight} />
+      <StreetLamp position={[-2.4, 0, 2.4]} rotation={(3 * Math.PI) / 4} isNight={isNight} />
+      <StreetLamp position={[2.4, 0, 2.4]} rotation={(-3 * Math.PI) / 4} isNight={isNight} />
+      <StreetLamp position={[-21.6, 0, -2.4]} rotation={Math.PI / 4} isNight={isNight} />
+      <StreetLamp position={[21.6, 0, -2.4]} rotation={-Math.PI / 4} isNight={isNight} />
+      <StreetLamp position={[-2.4, 0, 21.6]} rotation={Math.PI / 4} isNight={isNight} />
+      <StreetLamp position={[2.4, 0, 21.6]} rotation={-Math.PI / 4} isNight={isNight} />
 
-      <TrafficSignalPost position={[-1.6, 0, -1.6]} rotation={Math.PI / 4} isNight={isNight} />
-      <TrafficSignalPost position={[1.6, 0, 1.6]} rotation={(-3 * Math.PI) / 4} isNight={isNight} />
+      <TrafficSignalPost position={[-2.0, 0, -2.0]} rotation={Math.PI / 4} isNight={isNight} />
+      <TrafficSignalPost position={[2.0, 0, 2.0]} rotation={(-3 * Math.PI) / 4} isNight={isNight} />
 
-      {/* 10. ANIMATED LIVING TRAFFIC (16 Vehicles Across All Avenues) */}
+      {/* 10. ANIMATED LIVING TRAFFIC (Aligned directly with roadway lanes) */}
       {/* Central Highway (z = 0) */}
-      <MovingTrafficVehicle axis="x" laneOffset={0.65} direction={1} speed={5.8} vehicleType="sedan" bodyColor="#3b82f6" isNight={isNight} />
-      <MovingTrafficVehicle axis="x" laneOffset={-0.65} direction={-1} speed={5.2} vehicleType="taxi" isNight={isNight} />
-      <MovingTrafficVehicle axis="x" laneOffset={0.65} direction={1} speed={4.4} vehicleType="bus" bodyColor="#0284c7" isNight={isNight} />
-      <MovingTrafficVehicle axis="x" laneOffset={-0.65} direction={-1} speed={6.4} vehicleType="sports" bodyColor="#ef4444" isNight={isNight} />
+      <MovingTrafficVehicle axis="x" laneOffset={0.75} direction={1} speed={5.8} vehicleType="sedan" bodyColor="#3b82f6" isNight={isNight} />
+      <MovingTrafficVehicle axis="x" laneOffset={-0.75} direction={-1} speed={5.2} vehicleType="taxi" isNight={isNight} />
+      <MovingTrafficVehicle axis="x" laneOffset={0.75} direction={1} speed={4.4} vehicleType="bus" bodyColor="#0284c7" isNight={isNight} />
+      <MovingTrafficVehicle axis="x" laneOffset={-0.75} direction={-1} speed={6.4} vehicleType="sports" bodyColor="#ef4444" isNight={isNight} />
 
       {/* Central Boulevard (x = 0) */}
-      <MovingTrafficVehicle axis="z" laneOffset={-0.65} direction={1} speed={5.4} vehicleType="sedan" bodyColor="#10b981" isNight={isNight} />
-      <MovingTrafficVehicle axis="z" laneOffset={0.65} direction={-1} speed={5.0} vehicleType="van" bodyColor="#f8fafc" isNight={isNight} />
-      <MovingTrafficVehicle axis="z" laneOffset={-0.65} direction={1} speed={6.0} vehicleType="taxi" isNight={isNight} />
-      <MovingTrafficVehicle axis="z" laneOffset={0.65} direction={-1} speed={5.2} vehicleType="sports" bodyColor="#f59e0b" isNight={isNight} />
+      <MovingTrafficVehicle axis="z" laneOffset={-0.75} direction={1} speed={5.4} vehicleType="sedan" bodyColor="#10b981" isNight={isNight} />
+      <MovingTrafficVehicle axis="z" laneOffset={0.75} direction={-1} speed={5.0} vehicleType="van" bodyColor="#f8fafc" isNight={isNight} />
+      <MovingTrafficVehicle axis="z" laneOffset={-0.75} direction={1} speed={6.0} vehicleType="taxi" isNight={isNight} />
+      <MovingTrafficVehicle axis="z" laneOffset={0.75} direction={-1} speed={5.2} vehicleType="sports" bodyColor="#f59e0b" isNight={isNight} />
 
-      {/* Ring Avenues (z = 20, z = -20) */}
-      <MovingTrafficVehicle axis="x" laneOffset={20.6} direction={1} speed={5.5} vehicleType="sedan" bodyColor="#8b5cf6" isNight={isNight} />
-      <MovingTrafficVehicle axis="x" laneOffset={19.4} direction={-1} speed={4.8} vehicleType="van" bodyColor="#94a3b8" isNight={isNight} />
-      <MovingTrafficVehicle axis="x" laneOffset={-19.4} direction={1} speed={5.2} vehicleType="taxi" isNight={isNight} />
-      <MovingTrafficVehicle axis="x" laneOffset={-20.6} direction={-1} speed={5.8} vehicleType="truck" bodyColor="#ea580c" isNight={isNight} />
+      {/* Avenues (z = 24, z = -24) */}
+      <MovingTrafficVehicle axis="x" laneOffset={24.7} direction={1} speed={5.5} vehicleType="sedan" bodyColor="#8b5cf6" isNight={isNight} />
+      <MovingTrafficVehicle axis="x" laneOffset={23.3} direction={-1} speed={4.8} vehicleType="van" bodyColor="#94a3b8" isNight={isNight} />
+      <MovingTrafficVehicle axis="x" laneOffset={-23.3} direction={1} speed={5.2} vehicleType="taxi" isNight={isNight} />
+      <MovingTrafficVehicle axis="x" laneOffset={-24.7} direction={-1} speed={5.8} vehicleType="truck" bodyColor="#ea580c" isNight={isNight} />
 
-      {/* Outer Ring Avenues (z = 40, x = -20, x = 20) */}
-      <MovingTrafficVehicle axis="x" laneOffset={40.5} direction={1} speed={6.2} vehicleType="sports" bodyColor="#06b6d4" isNight={isNight} />
-      <MovingTrafficVehicle axis="x" laneOffset={39.5} direction={-1} speed={5.0} vehicleType="sedan" bodyColor="#ec4899" isNight={isNight} />
-      <MovingTrafficVehicle axis="z" laneOffset={-19.5} direction={1} speed={5.2} vehicleType="taxi" isNight={isNight} />
-      <MovingTrafficVehicle axis="z" laneOffset={20.5} direction={-1} speed={4.6} vehicleType="bus" bodyColor="#0284c7" isNight={isNight} />
+      {/* Avenues (x = -24, x = 24) */}
+      <MovingTrafficVehicle axis="z" laneOffset={-23.3} direction={1} speed={5.2} vehicleType="taxi" isNight={isNight} />
+      <MovingTrafficVehicle axis="z" laneOffset={24.7} direction={-1} speed={4.6} vehicleType="bus" bodyColor="#0284c7" isNight={isNight} />
     </group>
   )
 }

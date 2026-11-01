@@ -14,14 +14,14 @@ DISTRICT_DEFINITIONS = [
         "color": "#38bdf8",
         "center": (0.0, 0.0),
         "plots": [
-            (-6.5, -6.0),   # 0: Default Store 1 (Electronics)
-            (6.5, 6.0),     # 1: Default Store 2 (Grocery)
-            (-6.5, 6.0),    # 2: Default Store 3 (Clothing)
-            (13.0, 6.0),    # 3: Default Store 4 (Furniture)
-            (6.5, -6.0),    # 4: Default Store 5 (Accessories)
-            (13.0, -6.0),   # 5: Plot 1 (First empty plot for Store 6)
-            (-13.0, -6.0),  # 6: Plot 2
-            (-13.0, 6.0),   # 7: Plot 3
+            (-6.5, -6.0),   # 0: Store 1 (Electronics) - West Core North
+            (6.5, 6.0),     # 1: Store 2 (Grocery) - East Core South
+            (-6.5, 6.0),    # 2: Store 3 (Clothing) - West Core South
+            (13.5, 6.0),    # 3: Store 4 (Furniture) - East Core South outer
+            (6.5, -6.0),    # 4: Store 5 (Accessories) - East Core North
+            (13.5, -6.0),   # 5: Plot 1 (First empty plot for Store 6) - East Core North outer
+            (-13.5, -6.0),  # 6: Plot 2 - West Core North outer
+            (-13.5, 6.0),   # 7: Plot 3 - West Core South outer
         ]
     },
     {
@@ -29,16 +29,16 @@ DISTRICT_DEFINITIONS = [
         "name": "East Boulevard Commercial Hub",
         "theme": "Contemporary Retail & Dining",
         "color": "#f59e0b",
-        "center": (22.5, 0.0),
+        "center": (34.0, 0.0),
         "plots": [
-            (19.5, -6.0),   # 8: Plot 4
-            (19.5, 6.0),    # 9: Plot 5
-            (25.5, -6.0),   # 10: Plot 6
-            (25.5, 6.0),    # 11: Plot 7
-            (19.5, -12.0),  # 12: Plot 8
-            (19.5, 12.0),   # 13: Plot 9
-            (25.5, -12.0),  # 14: Plot 10
-            (25.5, 12.0),   # 15: Plot 11
+            (31.0, -6.5),   # 8: Plot 4 - East Block North
+            (31.0, 6.5),    # 9: Plot 5 - East Block South
+            (38.0, -6.5),   # 10: Plot 6 - East Block North outer
+            (38.0, 6.5),    # 11: Plot 7 - East Block South outer
+            (31.0, -14.0),  # 12: Plot 8 - East Block Far North
+            (31.0, 14.0),   # 13: Plot 9 - East Block Far South
+            (38.0, -14.0),  # 14: Plot 10 - East Block Far North outer
+            (38.0, 14.0),   # 15: Plot 11 - East Block Far South outer
         ]
     },
     {
@@ -46,16 +46,16 @@ DISTRICT_DEFINITIONS = [
         "name": "West Fashion Promenade",
         "theme": "Luxury Boutiques & Salons",
         "color": "#ec4899",
-        "center": (-22.5, 0.0),
+        "center": (-34.0, 0.0),
         "plots": [
-            (-19.5, -6.0),  # 16: Plot 12
-            (-19.5, 6.0),   # 17: Plot 13
-            (-25.5, -6.0),  # 18: Plot 14
-            (-25.5, 6.0),   # 19: Plot 15
-            (-19.5, -12.0), # 20: Plot 16
-            (-19.5, 12.0),  # 21: Plot 17
-            (-25.5, -12.0), # 22: Plot 18
-            (-25.5, 12.0),  # 23: Plot 19
+            (-31.0, -6.5),  # 16: Plot 12 - West Block North
+            (-31.0, 6.5),   # 17: Plot 13 - West Block South
+            (-38.0, -6.5),  # 18: Plot 14 - West Block North outer
+            (-38.0, 6.5),   # 19: Plot 15 - West Block South outer
+            (-31.0, -14.0), # 20: Plot 16 - West Block Far North
+            (-31.0, 14.0),  # 21: Plot 17 - West Block Far South
+            (-38.0, -14.0), # 22: Plot 18 - West Block Far North outer
+            (-38.0, 14.0),  # 23: Plot 19 - West Block Far South outer
         ]
     },
     {
@@ -63,16 +63,16 @@ DISTRICT_DEFINITIONS = [
         "name": "North Innovation Parkway",
         "theme": "Technology & Smart Living",
         "color": "#10b981",
-        "center": (0.0, -19.0),
+        "center": (0.0, -34.0),
         "plots": [
-            (-6.5, -16.0),  # 24: Plot 20
-            (6.5, -16.0),   # 25: Plot 21
-            (-13.0, -16.0), # 26: Plot 22
-            (13.0, -16.0),  # 27: Plot 23
-            (-6.5, -22.0),  # 28: Plot 24
-            (6.5, -22.0),   # 29: Plot 25
-            (-13.0, -22.0), # 30: Plot 26
-            (13.0, -22.0),  # 31: Plot 27
+            (-6.5, -31.0),  # 24: Plot 20 - North Block West
+            (6.5, -31.0),   # 25: Plot 21 - North Block East
+            (-13.5, -31.0), # 26: Plot 22 - North Block West outer
+            (13.5, -31.0),  # 27: Plot 23 - North Block East outer
+            (-6.5, -38.0),  # 28: Plot 24 - North Block Far West
+            (6.5, -38.0),   # 29: Plot 25 - North Block Far East
+            (-13.5, -38.0), # 30: Plot 26 - North Block Far West outer
+            (13.5, -38.0),  # 31: Plot 27 - North Block Far East outer
         ]
     },
     {
@@ -80,16 +80,16 @@ DISTRICT_DEFINITIONS = [
         "name": "South Marina Waterfront",
         "theme": "Coastal Lifestyle & Artisan Goods",
         "color": "#8b5cf6",
-        "center": (0.0, 19.0),
+        "center": (0.0, 34.0),
         "plots": [
-            (-6.5, 16.0),   # 32: Plot 28
-            (6.5, 16.0),    # 33: Plot 29
-            (-13.0, 16.0),  # 34: Plot 30
-            (13.0, 16.0),   # 35: Plot 31
-            (-6.5, 22.0),   # 36: Plot 32
-            (6.5, 22.0),    # 37: Plot 33
-            (-13.0, 22.0),  # 38: Plot 34
-            (13.0, 22.0),   # 39: Plot 35
+            (-6.5, 31.0),   # 32: Plot 28 - South Block West
+            (6.5, 31.0),    # 33: Plot 29 - South Block East
+            (-13.5, 31.0),  # 34: Plot 30 - South Block West outer
+            (13.5, 31.0),   # 35: Plot 31 - South Block East outer
+            (-6.5, 38.0),   # 36: Plot 32 - South Block Far West
+            (6.5, 38.0),    # 37: Plot 33 - South Block Far East
+            (-13.5, 38.0),  # 38: Plot 34 - South Block Far West outer
+            (13.5, 38.0),   # 39: Plot 35 - South Block Far East outer
         ]
     }
 ]

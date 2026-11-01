@@ -27,6 +27,16 @@ def run_test():
 
     # 1. Reset / Seed database cleanly
     run_migrations()
+    db = SessionLocal()
+    default_ids = ["store_electronics", "store_grocery", "store_clothing", "store_furniture", "store_accessories"]
+    db.query(Store).filter(~Store.id.in_(default_ids)).delete(synchronize_session=False)
+    db.query(ConstructionPlot).filter(ConstructionPlot.plot_index > 5).delete(synchronize_session=False)
+    plot_5 = db.query(ConstructionPlot).filter(ConstructionPlot.plot_index == 5).first()
+    if plot_5:
+        plot_5.is_occupied = False
+        plot_5.store_id = None
+    db.commit()
+    db.close()
     seed_database()
 
     app = create_app()
