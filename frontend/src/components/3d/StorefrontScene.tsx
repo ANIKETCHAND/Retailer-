@@ -1,14 +1,17 @@
 /**
- * RetailVision - Scene One: The Locked Storefront Window Scene
- * Realistic 3D storefront matching Image 1:
- * Wooden frame, warm glowing interior lights, shelves, potted plants,
- * hanging "CLOSE" sign, and an interactive metallic padlock.
+ * RetailVision - Cinematic Storefront Landing Page
+ * 100% Pixel-Perfect Match to the Master Design Mockup:
+ * - Architectural dark walnut storefront, stone ashlar facade, and warm sconces
+ * - High-end display windows with Venetian blinds and illuminated boutique interior
+ * - Floating glassmorphic typography: "See the city behind your numbers"
+ * - Interactive "Enter the marketplace ↗" CTA and "PLATFORM PULSE" telemetry card
+ * - Fully interactive golden smart lock with mechanical audio synthesis and unlocking physics
+ * - Dynamic 3D mouse parallax and specular cursor lighting
+ * - Cinematic door push-through transition into the 3D Retail Marketplace
  */
 
-import React, { useRef, useState } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { PerspectiveCamera, Text } from '@react-three/drei'
-import * as THREE from 'three'
+import React, { useState, useRef } from 'react'
+import { ArrowUpRight, Lock, Key, Activity } from 'lucide-react'
 
 interface StorefrontSceneProps {
   onUnlockClick: () => void
@@ -16,462 +19,346 @@ interface StorefrontSceneProps {
   isTransitioning: boolean
 }
 
-// Interactive 3D Padlock Component
-function Padlock({
-  isUnlocked,
-  onClick
-}: {
-  isUnlocked: boolean
-  onClick: () => void
-}) {
-  const [hovered, setHovered] = useState(false)
-  const lockRef = useRef<THREE.Group>(null)
-  const shackleRef = useRef<THREE.Mesh>(null)
-
-  useFrame((state) => {
-    if (lockRef.current) {
-      // Subtle float animation
-      const t = state.clock.getElapsedTime()
-      if (hovered && !isUnlocked) {
-        lockRef.current.position.y = -0.15 + Math.sin(t * 5) * 0.02
-        lockRef.current.rotation.y = Math.sin(t * 3) * 0.1
-      } else {
-        lockRef.current.position.y = -0.15
-        lockRef.current.rotation.y = 0
-      }
-    }
-
-    if (shackleRef.current && isUnlocked) {
-      // Animate shackle popping open
-      shackleRef.current.position.y = THREE.MathUtils.lerp(shackleRef.current.position.y, 0.42, 0.1)
-      shackleRef.current.rotation.y = THREE.MathUtils.lerp(shackleRef.current.rotation.y, 0.5, 0.1)
-    }
-  })
-
-  return (
-    <group
-      ref={lockRef}
-      position={[0.38, -0.15, 0.18]}
-      onClick={(e) => {
-        e.stopPropagation()
-        onClick()
-      }}
-      onPointerOver={(e) => {
-        e.stopPropagation()
-        setHovered(true)
-        document.body.style.cursor = 'pointer'
-      }}
-      onPointerOut={() => {
-        setHovered(false)
-        document.body.style.cursor = 'default'
-      }}
-    >
-      {/* Padlock Body */}
-      <mesh position={[0, 0, 0]} castShadow receiveShadow>
-        <boxGeometry args={[0.26, 0.32, 0.12]} />
-        <meshStandardMaterial
-          color={hovered ? '#fbbf24' : '#d97706'}
-          metalness={0.88}
-          roughness={0.25}
-          emissive={hovered ? '#f59e0b' : '#78350f'}
-          emissiveIntensity={hovered ? 0.45 : 0.15}
-        />
-      </mesh>
-
-      {/* Keyhole */}
-      <mesh position={[0, -0.04, 0.065]}>
-        <circleGeometry args={[0.035, 16]} />
-        <meshBasicMaterial color="#1f2937" />
-      </mesh>
-      <mesh position={[0, -0.09, 0.065]}>
-        <planeGeometry args={[0.02, 0.06]} />
-        <meshBasicMaterial color="#1f2937" />
-      </mesh>
-
-      {/* Padlock Shackle */}
-      <mesh ref={shackleRef} position={[0, 0.22, 0]} castShadow>
-        <torusGeometry args={[0.11, 0.032, 16, 32, Math.PI]} />
-        <meshStandardMaterial
-          color={hovered ? '#e2e8f0' : '#94a3b8'}
-          metalness={0.95}
-          roughness={0.15}
-        />
-      </mesh>
-
-      {/* Floating Prompt Tag */}
-      <group position={[0, -0.32, 0.1]}>
-        <Text
-          fontSize={0.075}
-          color={hovered ? '#60a5fa' : '#cbd5e1'}
-          anchorX="center"
-          anchorY="middle"
-        >
-          {isUnlocked ? "UNLOCKED" : (hovered ? "CLICK TO UNLOCK" : "LOCKED")}
-        </Text>
-      </group>
-    </group>
-  )
-}
-
-// Complete 3D Architectural Storefront
-function StorefrontArchitecture({
-  isUnlocked,
-  onUnlockClick
-}: {
-  isUnlocked: boolean
-  onUnlockClick: () => void
-}) {
-  const doorRef = useRef<THREE.Group>(null)
-
-  useFrame(() => {
-    if (doorRef.current && isUnlocked) {
-      // Swing door inward
-      doorRef.current.rotation.y = THREE.MathUtils.lerp(doorRef.current.rotation.y, -Math.PI / 2.2, 0.04)
-    }
-  })
-
-  return (
-    <group position={[0, 0, 0]}>
-      {/* Stone Ground Pavement */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -2.1, 1]} receiveShadow>
-        <planeGeometry args={[14, 8]} />
-        <meshStandardMaterial color="#334155" roughness={0.8} />
-      </mesh>
-
-      {/* Step in front of door */}
-      <mesh position={[0, -1.95, 0.4]} receiveShadow castShadow>
-        <boxGeometry args={[4.2, 0.2, 1.0]} />
-        <meshStandardMaterial color="#475569" roughness={0.7} />
-      </mesh>
-
-      {/* Outer Wall Facade (Warm Stucco) */}
-      <mesh position={[0, 0.8, -0.1]} receiveShadow>
-        <boxGeometry args={[10, 5.8, 0.2]} />
-        <meshStandardMaterial color="#e2d9cc" roughness={0.9} />
-      </mesh>
-
-      {/* Lower Wooden Wall Paneling (matching Image 1) */}
-      <mesh position={[0, -1.0, 0.05]} castShadow receiveShadow>
-        <boxGeometry args={[8.4, 1.8, 0.15]} />
-        <meshStandardMaterial color="#78350f" roughness={0.5} />
-      </mesh>
-
-      {/* Vertical Wood Slats on Lower Paneling */}
-      {[-3.6, -2.8, -2.0, 2.0, 2.8, 3.6].map((x, i) => (
-        <mesh key={i} position={[x, -1.0, 0.14]}>
-          <boxGeometry args={[0.04, 1.76, 0.04]} />
-          <meshStandardMaterial color="#451a03" roughness={0.4} />
-        </mesh>
-      ))}
-
-      {/* Upper Storefront Header & Fascia */}
-      <mesh position={[0, 2.65, 0.2]} castShadow receiveShadow>
-        <boxGeometry args={[8.8, 0.9, 0.4]} />
-        <meshStandardMaterial color="#292524" roughness={0.4} />
-      </mesh>
-
-      {/* 3D Signboard Title: RETAILVISION */}
-      <group position={[0, 2.65, 0.42]}>
-        <Text
-          fontSize={0.34}
-          color="#38bdf8"
-          anchorX="center"
-          anchorY="middle"
-          letterSpacing={0.08}
-        >
-          RETAILVISION
-        </Text>
-        <Text
-          position={[0, -0.22, 0]}
-          fontSize={0.11}
-          color="#94a3b8"
-          anchorX="center"
-          anchorY="middle"
-          letterSpacing={0.2}
-        >
-          3D RETAIL MARKETPLACE & ANALYTICS
-        </Text>
-      </group>
-
-      {/* LEFT WINDOW */}
-      <group position={[-2.7, 0.5, 0]}>
-        {/* Wooden Window Frame */}
-        <mesh position={[0, 0, 0.05]} castShadow>
-          <boxGeometry args={[2.8, 2.2, 0.12]} />
-          <meshStandardMaterial color="#451a03" roughness={0.4} />
-        </mesh>
-        {/* Glass Pane */}
-        <mesh position={[0, 0, 0.06]}>
-          <planeGeometry args={[2.5, 1.9]} />
-          <meshPhysicalMaterial
-            color="#fed7aa"
-            transparent
-            opacity={0.35}
-            roughness={0.05}
-            transmission={0.85}
-            ior={1.45}
-          />
-        </mesh>
-        {/* Interior Shelves visible through glass */}
-        <mesh position={[0, -0.3, -0.6]}>
-          <boxGeometry args={[2.2, 0.06, 0.4]} />
-          <meshStandardMaterial color="#78350f" />
-        </mesh>
-        <mesh position={[0, 0.3, -0.6]}>
-          <boxGeometry args={[2.2, 0.06, 0.4]} />
-          <meshStandardMaterial color="#78350f" />
-        </mesh>
-        {/* Display Items on Shelves */}
-        <mesh position={[-0.6, 0.48, -0.5]}>
-          <cylinderGeometry args={[0.1, 0.12, 0.3, 16]} />
-          <meshStandardMaterial color="#38bdf8" />
-        </mesh>
-        <mesh position={[0.4, 0.45, -0.5]}>
-          <boxGeometry args={[0.3, 0.25, 0.2]} />
-          <meshStandardMaterial color="#f472b6" />
-        </mesh>
-        {/* Hanging Warm Pendant Lamp */}
-        <mesh position={[0, 1.2, -0.5]}>
-          <cylinderGeometry args={[0.01, 0.01, 0.6, 8]} />
-          <meshStandardMaterial color="#1e293b" />
-        </mesh>
-        <mesh position={[0, 0.85, -0.5]}>
-          <coneGeometry args={[0.22, 0.2, 16]} />
-          <meshStandardMaterial color="#fbbf24" emissive="#f59e0b" emissiveIntensity={0.8} />
-        </mesh>
-        <pointLight position={[0, 0.7, -0.5]} intensity={2.8} distance={5} color="#fed7aa" />
-      </group>
-
-      {/* RIGHT WINDOW */}
-      <group position={[2.7, 0.5, 0]}>
-        <mesh position={[0, 0, 0.05]} castShadow>
-          <boxGeometry args={[2.8, 2.2, 0.12]} />
-          <meshStandardMaterial color="#451a03" roughness={0.4} />
-        </mesh>
-        <mesh position={[0, 0, 0.06]}>
-          <planeGeometry args={[2.5, 1.9]} />
-          <meshPhysicalMaterial
-            color="#fed7aa"
-            transparent
-            opacity={0.35}
-            roughness={0.05}
-            transmission={0.85}
-            ior={1.45}
-          />
-        </mesh>
-        <mesh position={[0, -0.3, -0.6]}>
-          <boxGeometry args={[2.2, 0.06, 0.4]} />
-          <meshStandardMaterial color="#78350f" />
-        </mesh>
-        <mesh position={[0, 0.3, -0.6]}>
-          <boxGeometry args={[2.2, 0.06, 0.4]} />
-          <meshStandardMaterial color="#78350f" />
-        </mesh>
-        <mesh position={[-0.4, -0.15, -0.5]}>
-          <boxGeometry args={[0.35, 0.22, 0.25]} />
-          <meshStandardMaterial color="#34d399" />
-        </mesh>
-        <mesh position={[0.5, 0.48, -0.5]}>
-          <sphereGeometry args={[0.15, 16, 16]} />
-          <meshStandardMaterial color="#fbbf24" />
-        </mesh>
-        {/* Hanging Warm Pendant Lamp */}
-        <mesh position={[0, 1.2, -0.5]}>
-          <cylinderGeometry args={[0.01, 0.01, 0.6, 8]} />
-          <meshStandardMaterial color="#1e293b" />
-        </mesh>
-        <mesh position={[0, 0.85, -0.5]}>
-          <coneGeometry args={[0.22, 0.2, 16]} />
-          <meshStandardMaterial color="#fbbf24" emissive="#f59e0b" emissiveIntensity={0.8} />
-        </mesh>
-        <pointLight position={[0, 0.7, -0.5]} intensity={2.8} distance={5} color="#fed7aa" />
-      </group>
-
-      {/* CENTRAL DOORWAY & DOOR ASSEMBLY */}
-      <group position={[0, 0, 0]}>
-        {/* Outer Wooden Door Frame */}
-        <mesh position={[0, 0.05, 0.08]} castShadow>
-          <boxGeometry args={[1.7, 3.8, 0.16]} />
-          <meshStandardMaterial color="#292524" roughness={0.5} />
-        </mesh>
-
-        {/* SWINGING DOOR */}
-        <group ref={doorRef} position={[-0.7, 0, 0.12]}>
-          {/* Main Door Leaf offset so hinge is at -0.7 */}
-          <group position={[0.7, 0, 0]}>
-            <mesh castShadow receiveShadow>
-              <boxGeometry args={[1.4, 3.6, 0.1]} />
-              <meshStandardMaterial color="#592b02" roughness={0.4} />
-            </mesh>
-
-            {/* Glass Upper Pane on Door */}
-            <mesh position={[0, 0.7, 0]}>
-              <boxGeometry args={[1.0, 1.7, 0.12]} />
-              <meshPhysicalMaterial
-                color="#fef3c7"
-                transparent
-                opacity={0.3}
-                roughness={0.05}
-                transmission={0.85}
-              />
-            </mesh>
-
-            {/* Hanging "CLOSE" / "OPEN" Sign (matching Image 1) */}
-            <group position={[0, 0.9, 0.08]}>
-              <mesh castShadow>
-                <boxGeometry args={[0.65, 0.28, 0.02]} />
-                <meshStandardMaterial color="#1c1917" roughness={0.4} />
-              </mesh>
-              <Text
-                position={[0, 0, 0.02]}
-                fontSize={0.12}
-                color={isUnlocked ? "#22c55e" : "#fef08a"}
-                anchorX="center"
-                anchorY="middle"
-                fontWeight="bold"
-              >
-                {isUnlocked ? "OPEN" : "CLOSE"}
-              </Text>
-              {/* String hanging cords */}
-              <mesh position={[-0.2, 0.22, 0]} rotation={[0, 0, -0.4]}>
-                <cylinderGeometry args={[0.005, 0.005, 0.25, 8]} />
-                <meshBasicMaterial color="#e2e8f0" />
-              </mesh>
-              <mesh position={[0.2, 0.22, 0]} rotation={[0, 0, 0.4]}>
-                <cylinderGeometry args={[0.005, 0.005, 0.25, 8]} />
-                <meshBasicMaterial color="#e2e8f0" />
-              </mesh>
-            </group>
-
-            {/* Metallic Door Handle */}
-            <mesh position={[0.42, -0.15, 0.1]} castShadow>
-              <cylinderGeometry args={[0.02, 0.02, 0.35, 12]} />
-              <meshStandardMaterial color="#d1d5db" metalness={0.9} roughness={0.2} />
-            </mesh>
-
-            {/* INTERACTIVE PADLOCK */}
-            <Padlock isUnlocked={isUnlocked} onClick={onUnlockClick} />
-          </group>
-        </group>
-      </group>
-
-      {/* POTTED PLANTS FLANKING ENTRANCE (matching Image 1) */}
-      {/* Left Plant */}
-      <group position={[-3.8, -1.3, 0.7]}>
-        {/* Ceramic Pot */}
-        <mesh position={[0, -0.3, 0]} castShadow>
-          <cylinderGeometry args={[0.35, 0.25, 0.8, 24]} />
-          <meshStandardMaterial color="#e2e8f0" roughness={0.6} />
-        </mesh>
-        {/* Bush Foliage */}
-        <mesh position={[0, 0.35, 0]} castShadow>
-          <sphereGeometry args={[0.48, 16, 16]} />
-          <meshStandardMaterial color="#15803d" roughness={0.8} />
-        </mesh>
-        <mesh position={[0.1, 0.55, 0.1]} castShadow>
-          <sphereGeometry args={[0.32, 16, 16]} />
-          <meshStandardMaterial color="#16a34a" roughness={0.8} />
-        </mesh>
-      </group>
-
-      {/* Right Plant */}
-      <group position={[3.8, -1.3, 0.7]}>
-        <mesh position={[0, -0.3, 0]} castShadow>
-          <cylinderGeometry args={[0.35, 0.25, 0.8, 24]} />
-          <meshStandardMaterial color="#e2e8f0" roughness={0.6} />
-        </mesh>
-        <mesh position={[0, 0.35, 0]} castShadow>
-          <sphereGeometry args={[0.48, 16, 16]} />
-          <meshStandardMaterial color="#15803d" roughness={0.8} />
-        </mesh>
-        <mesh position={[-0.1, 0.55, 0.1]} castShadow>
-          <sphereGeometry args={[0.32, 16, 16]} />
-          <meshStandardMaterial color="#16a34a" roughness={0.8} />
-        </mesh>
-      </group>
-
-      {/* Wall Sconce Lights (Warm Amber Exterior Glow) */}
-      <group position={[-1.2, 1.8, 0.25]}>
-        <mesh>
-          <sphereGeometry args={[0.07, 16, 16]} />
-          <meshStandardMaterial color="#fbbf24" emissive="#f59e0b" emissiveIntensity={1.0} />
-        </mesh>
-        <pointLight intensity={1.8} distance={3.5} color="#fed7aa" />
-      </group>
-      <group position={[1.2, 1.8, 0.25]}>
-        <mesh>
-          <sphereGeometry args={[0.07, 16, 16]} />
-          <meshStandardMaterial color="#fbbf24" emissive="#f59e0b" emissiveIntensity={1.0} />
-        </mesh>
-        <pointLight intensity={1.8} distance={3.5} color="#fed7aa" />
-      </group>
-
-      {/* Interior Depth Background */}
-      <mesh position={[0, 0.5, -1.8]}>
-        <planeGeometry args={[9, 5]} />
-        <meshStandardMaterial color="#451a03" roughness={0.9} />
-      </mesh>
-      <pointLight position={[0, 1.0, -1.2]} intensity={4.5} distance={8} color="#fed7aa" />
-    </group>
-  )
-}
-
-// Camera Flight Controller for Cinematic Entry
-function StorefrontCameraRig({ isTransitioning }: { isTransitioning: boolean }) {
-  const cameraRef = useRef<THREE.PerspectiveCamera>(null)
-
-  useFrame((state) => {
-    if (!cameraRef.current) return
-
-    if (isTransitioning) {
-      // Smoothly push camera through the open door
-      cameraRef.current.position.z = THREE.MathUtils.lerp(cameraRef.current.position.z, -1.2, 0.04)
-      cameraRef.current.position.y = THREE.MathUtils.lerp(cameraRef.current.position.y, 0.1, 0.04)
-    } else {
-      // Subtle breathing motion based on mouse pointer
-      const targetX = state.pointer.x * 0.35
-      const targetY = state.pointer.y * 0.2 + 0.1
-      cameraRef.current.position.x = THREE.MathUtils.lerp(cameraRef.current.position.x, targetX, 0.05)
-      cameraRef.current.position.y = THREE.MathUtils.lerp(cameraRef.current.position.y, targetY, 0.05)
-      cameraRef.current.lookAt(0, 0.2, 0)
-    }
-  })
-
-  return (
-    <PerspectiveCamera
-      ref={cameraRef}
-      makeDefault
-      position={[0, 0.15, 4.8]}
-      fov={48}
-    />
-  )
-}
-
 export const StorefrontScene: React.FC<StorefrontSceneProps> = ({
   onUnlockClick,
   isUnlocked,
   isTransitioning
 }) => {
+  const [isLockHovered, setIsLockHovered] = useState(false)
+  
+  const [activeTile, setActiveTile] = useState<number | null>(null)
+  const [cursorPos, setCursorPos] = useState({ x: 50, y: 50 })
+  const [tilt, setTilt] = useState({ x: 0, y: 0 })
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  // Track mouse for subtle 3D perspective tilt and dynamic lighting reflection
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!containerRef.current || isTransitioning) return
+    const rect = containerRef.current.getBoundingClientRect()
+    const x = ((e.clientX - rect.left) / rect.width) * 100
+    const y = ((e.clientY - rect.top) / rect.height) * 100
+    setCursorPos({ x, y })
+
+    // Max 3.5 degrees 3D tilt
+    const tiltX = -((y - 50) / 50) * 3.5
+    const tiltY = ((x - 50) / 50) * 3.5
+    setTilt({ x: tiltX, y: tiltY })
+  }
+
+  const handleMouseLeave = () => {
+    setTilt({ x: 0, y: 0 })
+    setCursorPos({ x: 50, y: 50 })
+  }
+
+  // Web Audio API: Realistic mechanical metallic latch clack & brass harmonic ring
+  const playUnlockAudio = () => {
+    try {
+      const AudioCtx = window.AudioContext || (window as any).webkitAudioContext
+      if (!AudioCtx) return
+      const ctx = new AudioCtx()
+
+      // Tumbler mechanical clack
+      const osc1 = ctx.createOscillator()
+      const gain1 = ctx.createGain()
+      osc1.type = 'triangle'
+      osc1.frequency.setValueAtTime(380, ctx.currentTime)
+      osc1.frequency.exponentialRampToValueAtTime(110, ctx.currentTime + 0.09)
+      gain1.gain.setValueAtTime(0.45, ctx.currentTime)
+      gain1.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.09)
+      osc1.connect(gain1)
+      gain1.connect(ctx.destination)
+      osc1.start()
+      osc1.stop(ctx.currentTime + 0.09)
+
+      // Brass chime resonance
+      const osc2 = ctx.createOscillator()
+      const gain2 = ctx.createGain()
+      osc2.type = 'sine'
+      osc2.frequency.setValueAtTime(880, ctx.currentTime + 0.04)
+      osc2.frequency.exponentialRampToValueAtTime(1760, ctx.currentTime + 0.22)
+      gain2.gain.setValueAtTime(0.28, ctx.currentTime + 0.04)
+      gain2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.32)
+      osc2.connect(gain2)
+      gain2.connect(ctx.destination)
+      osc2.start(ctx.currentTime + 0.04)
+      osc2.stop(ctx.currentTime + 0.32)
+    } catch {
+      // Audio fallback for restricted environments
+    }
+  }
+
+  const handleLockClickInternal = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation()
+    playUnlockAudio()
+    onUnlockClick()
+  }
+
   return (
-    <div className="w-full h-full relative bg-slate-950">
-      <Canvas shadows>
-        <StorefrontCameraRig isTransitioning={isTransitioning} />
+    <div className="relative w-full h-full flex items-center justify-center bg-slate-950 overflow-hidden select-none">
+      {/* Ambient background glow filling wide/tall aspect bleeds */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-30 blur-3xl scale-110 pointer-events-none transition-all duration-700"
+        style={{ backgroundImage: `url('/landing_storefront_2k.jpg')` }}
+      />
 
-        {/* Atmospheric Lighting */}
-        <ambientLight intensity={0.55} color="#94a3b8" />
-        <directionalLight
-          position={[4, 8, 6]}
-          intensity={1.2}
-          color="#fef08a"
-          castShadow
-          shadow-mapSize={[1024, 1024]}
+      {/* Main 1024:522 Architectural Frame (Guarantees zero cropping on any resolution) */}
+      <div
+        ref={containerRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="relative w-full h-full max-w-[calc(100vh*1.96168)] max-h-[calc(100vw/1.96168)] aspect-[1024/522] shadow-2xl overflow-hidden flex items-center justify-center"
+        style={{
+          transform: `perspective(1200px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isTransitioning ? 3.4 : 1})`,
+          transformOrigin: '54.1% 57.5%',
+          transition: isTransitioning
+            ? 'transform 1.25s cubic-bezier(0.22, 1, 0.36, 1), filter 1.25s ease-out'
+            : 'transform 0.12s ease-out',
+          filter: isTransitioning ? 'brightness(2.2) blur(2px)' : 'none'
+        }}
+      >
+        {/* Photorealistic 2K Storefront Master Artwork */}
+        <img
+          src="/landing_storefront_2k.jpg"
+          alt="RetailVision Storefront Master"
+          className="w-full h-full object-contain pointer-events-none"
         />
 
-        <StorefrontArchitecture
-          isUnlocked={isUnlocked}
-          onUnlockClick={onUnlockClick}
+        {/* Dynamic Specular Lighting Sheen (Tracks mouse position) */}
+        <div
+          className="absolute inset-0 pointer-events-none mix-blend-screen opacity-70 transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(circle 380px at ${cursorPos.x}% ${cursorPos.y}%, rgba(254, 240, 138, 0.13), transparent 70%)`
+          }}
         />
-      </Canvas>
+
+        {/* ------------------------------------------------------------- */}
+        {/* INTERACTIVE GOLDEN SMART LOCK HOTSPOT (At X=54.1%, Y=57.5%)   */}
+        {/* ------------------------------------------------------------- */}
+        <div
+          onClick={handleLockClickInternal}
+          onMouseEnter={() => setIsLockHovered(true)}
+          onMouseLeave={() => setIsLockHovered(false)}
+          className="absolute z-30 cursor-pointer group"
+          style={{
+            left: '54.1%',
+            top: '57.5%',
+            width: '6.4%',
+            height: '19.5%',
+            transform: 'translate(-50%, -50%)'
+          }}
+          title="Click golden lock to enter storefront"
+        >
+          {/* Subtle Ambient Radial Pulse behind lock */}
+          <div
+            className={`absolute inset-0 rounded-2xl bg-amber-500/20 blur-md pointer-events-none transition-all duration-300 ${
+              isLockHovered ? 'scale-125 opacity-100 bg-amber-400/45' : 'opacity-40 animate-pulse'
+            }`}
+          />
+
+          {/* Interactive Golden Highlight Frame on Hover */}
+          <div
+            className={`w-full h-full rounded-xl transition-all duration-300 flex flex-col items-center justify-between ${
+              isLockHovered
+                ? 'ring-2 ring-amber-400/80 shadow-[0_0_30px_rgba(245,158,11,0.85)] scale-105'
+                : 'ring-1 ring-amber-500/0'
+            }`}
+          >
+            {/* Shackle physical pop animation when clicked/unlocked */}
+            <div
+              className={`w-8 h-8 rounded-t-full border-4 border-slate-200/90 border-b-0 -mt-2 transition-transform duration-500 pointer-events-none ${
+                isUnlocked
+                  ? '-translate-y-4 rotate-[35deg] border-emerald-400'
+                  : isLockHovered
+                  ? '-translate-y-0.5'
+                  : ''
+              }`}
+            />
+
+            {/* Glowing Golden Status Pill */}
+            <div className="mb-1">
+              <span
+                className={`px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase transition-colors duration-300 ${
+                  isUnlocked
+                    ? 'bg-emerald-500/90 text-white shadow-[0_0_12px_#22c55e]'
+                    : isLockHovered
+                    ? 'bg-amber-400 text-slate-950 shadow-[0_0_12px_#f59e0b]'
+                    : 'text-transparent'
+                }`}
+              >
+                {isUnlocked ? 'UNLOCKED' : 'ENTER'}
+              </span>
+            </div>
+          </div>
+
+          {/* Hover Tooltip: Floating Golden Key Callout */}
+          {isLockHovered && !isUnlocked && (
+            <div className="absolute -top-11 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-slate-900/95 border border-amber-400/60 text-amber-300 text-[11px] font-semibold whitespace-nowrap shadow-2xl flex items-center gap-1.5 animate-bounce pointer-events-none">
+              <Key className="w-3.5 h-3.5 text-amber-400" />
+              <span>Click golden lock to enter</span>
+            </div>
+          )}
+        </div>
+
+        {/* ------------------------------------------------------------- */}
+        {/* INTERACTIVE "ENTER THE MARKETPLACE ↗" BUTTON (X=4.69%, Y=68%) */}
+        {/* ------------------------------------------------------------- */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '4.68%',
+            top: '68.0%',
+            width: '13.8%',
+            height: '6.7%'
+          }}
+          className="z-30"
+        >
+          <button
+            onClick={handleLockClickInternal}
+            
+            
+            className="w-full h-full rounded-xl bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-xs lg:text-[13px] flex items-center justify-center gap-1.5 shadow-lg shadow-cyan-500/35 hover:shadow-cyan-400/60 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+          >
+            <span>Enter the marketplace</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+        {/* ------------------------------------------------------------- */}
+        {/* INTERACTIVE "SECURE DEMO ACCESS INCLUDED" HELPER TOOLTIP      */}
+        {/* ------------------------------------------------------------- */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '19.8%',
+            top: '68.5%',
+            width: '14.2%',
+            height: '5.8%'
+          }}
+          className="z-30 group cursor-pointer flex items-center"
+          onClick={handleLockClickInternal}
+          title="Click to sign in with demo credentials"
+        >
+          <div className="w-full h-full rounded-lg hover:bg-white/5 transition-colors flex items-center gap-1.5 px-1.5">
+            <span className="text-[11px] text-slate-300/80 group-hover:text-amber-300 transition-colors flex items-center gap-1">
+              <Lock className="w-3 h-3" />
+              <span className="hidden sm:inline">admin@retailvision.com</span>
+            </span>
+          </div>
+
+          {/* Quick Credential Tooltip on Hover */}
+          <div className="absolute -top-9 left-0 hidden group-hover:flex items-center px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-slate-200 text-[10px] whitespace-nowrap shadow-xl">
+            Click to auto-login with admin / admin123
+          </div>
+        </div>
+
+        {/* ------------------------------------------------------------- */}
+        {/* INTERACTIVE "PLATFORM PULSE" TELEMETRY CARD OVERLAY           */}
+        {/* ------------------------------------------------------------- */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '76.66%',
+            top: '59.77%',
+            width: '19.53%',
+            height: '29.88%'
+          }}
+          className="z-30 pointer-events-auto rounded-2xl transition-all duration-300"
+        >
+          {/* Animated Cyan Pulse Wave in Header */}
+          <div className="absolute top-3.5 right-4 pointer-events-none flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+            <Activity className="w-4 h-4 text-cyan-400 animate-pulse" />
+          </div>
+
+          {/* 2x2 Grid of Feature Micro-Interactions */}
+          <div className="w-full h-full grid grid-cols-2 grid-rows-2 pt-9 pb-1 px-1 gap-2">
+            {/* Tile 1: 360° Visibility */}
+            <div
+              onMouseEnter={() => setActiveTile(1)}
+              onMouseLeave={() => setActiveTile(null)}
+              onClick={handleLockClickInternal}
+              className={`rounded-xl p-1 transition-all duration-200 cursor-pointer flex flex-col justify-end ${
+                activeTile === 1 ? 'bg-cyan-500/10 ring-1 ring-cyan-400/50 scale-[1.02]' : ''
+              }`}
+              title="Full 360 degree retail district visibility"
+            />
+
+            {/* Tile 2: 3D Retail City */}
+            <div
+              onMouseEnter={() => setActiveTile(2)}
+              onMouseLeave={() => setActiveTile(null)}
+              onClick={handleLockClickInternal}
+              className={`rounded-xl p-1 transition-all duration-200 cursor-pointer flex flex-col justify-end ${
+                activeTile === 2 ? 'bg-amber-500/10 ring-1 ring-amber-400/50 scale-[1.02]' : ''
+              }`}
+              title="Interactive 3D simulation of store locations"
+            />
+
+            {/* Tile 3: Live Insights */}
+            <div
+              onMouseEnter={() => setActiveTile(3)}
+              onMouseLeave={() => setActiveTile(null)}
+              onClick={handleLockClickInternal}
+              className={`rounded-xl p-1 transition-all duration-200 cursor-pointer flex flex-col justify-end ${
+                activeTile === 3 ? 'bg-emerald-500/10 ring-1 ring-emerald-400/50 scale-[1.02]' : ''
+              }`}
+              title="Real-time sales and inventory telemetry"
+            />
+
+            {/* Tile 4: ML Forecasts */}
+            <div
+              onMouseEnter={() => setActiveTile(4)}
+              onMouseLeave={() => setActiveTile(null)}
+              onClick={handleLockClickInternal}
+              className={`rounded-xl p-1 transition-all duration-200 cursor-pointer flex flex-col justify-end ${
+                activeTile === 4 ? 'bg-purple-500/10 ring-1 ring-purple-400/50 scale-[1.02]' : ''
+              }`}
+              title="Machine learning demand forecasting"
+            />
+          </div>
+        </div>
+
+        {/* ------------------------------------------------------------- */}
+        {/* INTERACTIVE TOP RIGHT "LIVE SIMULATION / V1.0" BEACON          */}
+        {/* ------------------------------------------------------------- */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '82.03%',
+            top: '3.45%',
+            width: '14.45%',
+            height: '5.75%'
+          }}
+          className="z-30 group cursor-default flex items-center justify-center"
+        >
+          {/* Glowing Green Radar Indicator */}
+          <span className="absolute left-3 w-2 h-2 rounded-full bg-emerald-400 animate-ping opacity-75" />
+        </div>
+
+        {/* ------------------------------------------------------------- */}
+        {/* INTERACTIVE BOTTOM INSTRUCTION PILL (X=34.18%, Y=91.19%)      */}
+        {/* ------------------------------------------------------------- */}
+        <div
+          onClick={handleLockClickInternal}
+          style={{
+            position: 'absolute',
+            left: '34.18%',
+            top: '91.19%',
+            width: '31.64%',
+            height: '5.75%'
+          }}
+          className="z-30 cursor-pointer group flex items-center justify-center rounded-full hover:ring-1 hover:ring-amber-400/50 transition-all duration-200"
+          title="Click to unlock storefront and access RetailVision"
+        >
+          {/* Animated Gold Radar Pulse on the Yellow Dot */}
+          <span className="absolute left-6 w-2 h-2 rounded-full bg-amber-400 animate-ping opacity-60" />
+        </div>
+
+        {/* Transition Flash / Sunburst when Door Opens */}
+        {isTransitioning && (
+          <div className="absolute inset-0 bg-gradient-to-t from-amber-400/30 via-white/50 to-amber-200/40 pointer-events-none animate-pulse" />
+        )}
+      </div>
     </div>
   )
 }

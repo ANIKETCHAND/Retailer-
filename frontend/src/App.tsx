@@ -124,15 +124,6 @@ export const App: React.FC = () => {
             isTransitioning={isTransitioning}
           />
 
-          {/* Locked Landing Page Callout Pill */}
-          {!isLockModalOpen && !isUnlocked && (
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 pointer-events-none text-center">
-              <div className="px-5 py-2.5 rounded-full glass-panel border border-amber-500/30 text-amber-300 text-xs font-semibold shadow-2xl flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-                <span>Move cursor over the golden lock and click to unlock storefront</span>
-              </div>
-            </div>
-          )}
 
           {/* Sign-In Modal Overlay */}
           <LockOverlay
