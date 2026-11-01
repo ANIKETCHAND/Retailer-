@@ -1329,8 +1329,778 @@ function IndustrialPortAndEnergy({ isNight = false }: { isNight?: boolean }) {
 }
 
 // -------------------------------------------------------------
-// 13. TROPICAL ISLAND COASTLINE, BEACHES & VAST OCEAN
+// 17. SOUTH TROPICAL RESORT & MALDIVES WATER VILLAS ISLAND
 // -------------------------------------------------------------
+function SouthResortIsland({ isNight = false }: { isNight?: boolean }) {
+  const waterRef = useRef<THREE.Mesh>(null)
+
+  useFrame((state) => {
+    if (waterRef.current) {
+      waterRef.current.position.y = -0.04 + Math.sin(state.clock.getElapsedTime() * 1.2) * 0.01
+    }
+  })
+
+  return (
+    <group position={[0, 0, 118]}>
+      {/* 1. Island Landmass (86m x 54m) */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.01, 0]} receiveShadow>
+        <planeGeometry args={[86, 54]} />
+        <meshStandardMaterial color={isNight ? '#064e3b' : '#15803d'} roughness={0.8} />
+      </mesh>
+
+      {/* 2. Sandy Beach Perimeter */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.02, 0]} receiveShadow>
+        <ringGeometry args={[40, 52, 32]} />
+        <meshStandardMaterial color={isNight ? '#78716c' : '#fef08a'} roughness={0.9} />
+      </mesh>
+
+      {/* 3. Turquoise Lagoon Water Ring */}
+      <mesh ref={waterRef} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.04, 0]}>
+        <ringGeometry args={[46, 68, 32]} />
+        <meshPhysicalMaterial
+          color={isNight ? '#083344' : '#06b6d4'}
+          transparent
+          opacity={0.82}
+          roughness={0.08}
+        />
+      </mesh>
+
+      {/* 4. Grand Horizon Luxury Resort & Spa Hotel (Curved Modern Hotel) */}
+      <group position={[0, 0, -10]}>
+        <mesh position={[0, 4.0, 0]} castShadow receiveShadow>
+          <boxGeometry args={[32.0, 8.0, 10.0]} />
+          <meshStandardMaterial color="#f8fafc" roughness={0.3} />
+        </mesh>
+        {/* Tier 2 Balcony Floor */}
+        <mesh position={[0, 8.8, -1.0]} castShadow>
+          <boxGeometry args={[26.0, 2.2, 8.0]} />
+          <meshStandardMaterial color="#f1f5f9" roughness={0.3} />
+        </mesh>
+        {/* Penthouse Suite */}
+        <mesh position={[0, 10.6, -1.5]} castShadow>
+          <boxGeometry args={[18.0, 1.8, 6.0]} />
+          <meshStandardMaterial color="#0284c7" />
+        </mesh>
+        {/* Glass Window Balconies */}
+        {[-12, -6, 0, 6, 12].map((bx, i) => (
+          <mesh key={`res-balc-${i}`} position={[bx, 4.2, 5.06]}>
+            <boxGeometry args={[4.2, 6.2, 0.1]} />
+            <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.7} />
+          </mesh>
+        ))}
+        {/* Curved Glass Entrance Atrium */}
+        <mesh position={[0, 2.2, 5.6]}>
+          <cylinderGeometry args={[4.2, 4.2, 4.4, 16, 1, false, 0, Math.PI]} />
+          <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.8} roughness={0.1} />
+        </mesh>
+        {isNight && (
+          <pointLight position={[0, 3.0, 7.0]} intensity={3.5} distance={16} color="#fde047" />
+        )}
+      </group>
+
+      {/* 5. Cascading Oceanfront Infinity Pool */}
+      <group position={[0, 0, 4]}>
+        <mesh position={[0, 0.4, 0]} receiveShadow>
+          <boxGeometry args={[20.0, 0.8, 8.0]} />
+          <meshStandardMaterial color="#e2e8f0" roughness={0.4} />
+        </mesh>
+        <mesh position={[0, 0.78, 0]}>
+          <boxGeometry args={[18.4, 0.1, 6.8]} />
+          <meshPhysicalMaterial
+            color="#06b6d4"
+            emissive={isNight ? '#06b6d4' : '#000000'}
+            emissiveIntensity={isNight ? 1.2 : 0}
+            transparent
+            opacity={0.9}
+            roughness={0.05}
+          />
+        </mesh>
+        {/* Poolside Sun Loungers */}
+        {[-8, -5, -2, 2, 5, 8].map((lx, i) => (
+          <mesh key={`lounger-${i}`} position={[lx, 0.9, 3.2]} castShadow>
+            <boxGeometry args={[0.9, 0.18, 1.6]} />
+            <meshStandardMaterial color="#ffffff" />
+          </mesh>
+        ))}
+      </group>
+
+      {/* 6. Maldives Over-Water Stilt Bungalows (6 Thatch-Roof Villas on Stilts) */}
+      <group position={[0, 0, 22]}>
+        {/* Main Boardwalk Pier */}
+        <mesh position={[0, 0.35, 0]} receiveShadow>
+          <boxGeometry args={[2.4, 0.25, 26.0]} />
+          <meshStandardMaterial color="#78350f" roughness={0.8} />
+        </mesh>
+        {/* 6 Over-Water Villas branching off pier */}
+        {[-8, 0, 8].map((vx, i) =>
+          [-6, 6].map((vz, j) => (
+            <group key={`stilt-villa-${i}-${j}`} position={[vx > 0 ? vx + 4 : vx - 4, 0, vz]}>
+              {/* Branch Boardwalk */}
+              <mesh position={[vx > 0 ? -2.2 : 2.2, 0.35, 0]}>
+                <boxGeometry args={[4.4, 0.22, 1.4]} />
+                <meshStandardMaterial color="#78350f" roughness={0.8} />
+              </mesh>
+              {/* Stilts into water */}
+              {[-1.8, 1.8].map((sx, k) =>
+                [-1.8, 1.8].map((sz, l) => (
+                  <mesh key={`stilt-${k}-${l}`} position={[sx, -0.4, sz]}>
+                    <cylinderGeometry args={[0.08, 0.1, 1.8, 6]} />
+                    <meshStandardMaterial color="#573a1e" />
+                  </mesh>
+                ))
+              )}
+              {/* Villa Deck */}
+              <mesh position={[0, 0.45, 0]} receiveShadow>
+                <boxGeometry args={[4.8, 0.2, 4.8]} />
+                <meshStandardMaterial color="#854d0e" roughness={0.8} />
+              </mesh>
+              {/* Villa Walls */}
+              <mesh position={[0, 1.6, 0]} castShadow>
+                <boxGeometry args={[3.8, 2.2, 3.8]} />
+                <meshStandardMaterial color="#fef3c7" roughness={0.6} />
+              </mesh>
+              {/* Thatched Straw Roof */}
+              <mesh position={[0, 3.2, 0]} rotation={[0, Math.PI / 4, 0]} castShadow>
+                <coneGeometry args={[3.6, 1.6, 4]} />
+                <meshStandardMaterial color="#b45309" roughness={0.9} />
+              </mesh>
+              {isNight && (
+                <pointLight position={[0, 1.8, 1.8]} intensity={1.6} distance={6} color="#fef08a" />
+              )}
+            </group>
+          ))
+        )}
+      </group>
+
+      {/* 7. Coconut Palm Groves */}
+      {[-24, -16, 16, 24].map((px, i) => (
+        <React.Fragment key={`resort-palms-${i}`}>
+          <PalmTree position={[px, 0, -18]} />
+          <PalmTree position={[px, 0, 8]} />
+        </React.Fragment>
+      ))}
+
+      {/* 8. Connecting South Ocean Causeway Bridge (Linking Main Island to Resort Island) */}
+      {/* Spans from Main Island south road (z = 46) to Resort Island (z = 90) */}
+      <group position={[0, 0, -48]}>
+        <mesh position={[0, 0.4, 0]} receiveShadow>
+          <boxGeometry args={[4.2, 0.35, 46.0]} />
+          <meshStandardMaterial color="#1e293b" roughness={0.8} />
+        </mesh>
+        {/* White Guardrails */}
+        <mesh position={[-2.05, 0.75, 0]}>
+          <boxGeometry args={[0.15, 0.4, 46.0]} />
+          <meshStandardMaterial color="#cbd5e1" />
+        </mesh>
+        <mesh position={[2.05, 0.75, 0]}>
+          <boxGeometry args={[0.15, 0.4, 46.0]} />
+          <meshStandardMaterial color="#cbd5e1" />
+        </mesh>
+        {/* Bridge Concrete Support Pillars into ocean */}
+        {[-16, -6, 6, 16].map((pz, idx) => (
+          <mesh key={`s-bridge-pier-${idx}`} position={[0, -0.6, pz]}>
+            <cylinderGeometry args={[0.9, 1.1, 2.2, 12]} />
+            <meshStandardMaterial color="#64748b" roughness={0.7} />
+          </mesh>
+        ))}
+        {/* Bridge Street Lamps */}
+        {[-18, -6, 6, 18].map((pz, idx) => (
+          <React.Fragment key={`s-bridge-lamp-${idx}`}>
+            <StreetLamp position={[-2.2, 0.4, pz]} rotation={Math.PI / 2} isNight={isNight} />
+            <StreetLamp position={[2.2, 0.4, pz]} rotation={-Math.PI / 2} isNight={isNight} />
+          </React.Fragment>
+        ))}
+        {/* Moving Resort Shuttle Traffic across Bridge */}
+        <MovingTrafficVehicle axis="z" laneOffset={0.7} direction={1} speed={4.8} vehicleType="bus" bodyColor="#0284c7" isNight={isNight} />
+        <MovingTrafficVehicle axis="z" laneOffset={-0.7} direction={-1} speed={5.6} vehicleType="taxi" isNight={isNight} />
+      </group>
+    </group>
+  )
+}
+
+// -------------------------------------------------------------
+// 18. EAST INTERNATIONAL AVIATION ISLAND & MEGA AIRPORT
+// -------------------------------------------------------------
+function EastAirportIsland({ isNight = false }: { isNight?: boolean }) {
+  return (
+    <group position={[120, 0, 0]}>
+      {/* 1. Airport Island Landmass (94m x 68m) */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.01, 0]} receiveShadow>
+        <planeGeometry args={[94, 68]} />
+        <meshStandardMaterial color={isNight ? '#064e3b' : '#15803d'} roughness={0.8} />
+      </mesh>
+      {/* Sand Perimeter */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.02, 0]}>
+        <ringGeometry args={[44, 56, 32]} />
+        <meshStandardMaterial color={isNight ? '#78716c' : '#fef08a'} roughness={0.9} />
+      </mesh>
+
+      {/* 2. Main International Runway 09/27 (80m long x 11m wide tarmac) */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.02, -18]} receiveShadow>
+        <planeGeometry args={[80, 11]} />
+        <meshStandardMaterial color="#1e293b" roughness={0.9} />
+      </mesh>
+      {/* Runway White Dashed Centerline */}
+      {Array.from({ length: 18 }).map((_, i) => (
+        <mesh
+          key={`runway-dash-${i}`}
+          rotation={[-Math.PI / 2, 0, 0]}
+          position={[-34 + i * 4.0, 0.03, -18]}
+        >
+          <planeGeometry args={[2.2, 0.45]} />
+          <meshBasicMaterial color="#ffffff" />
+        </mesh>
+      ))}
+      {/* Piano Key Thresholds (Both ends) */}
+      {[-38, 38].map((endX, idx) => (
+        <group key={`p-end-${idx}`} position={[endX, 0.03, -18]}>
+          {[-4.0, -2.6, -1.3, 0, 1.3, 2.6, 4.0].map((tz, j) => (
+            <mesh key={`p-bar-${j}`} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, tz]}>
+              <planeGeometry args={[3.2, 0.55]} />
+              <meshBasicMaterial color="#ffffff" />
+            </mesh>
+          ))}
+        </group>
+      ))}
+      {/* Runway Edge Green/Red Approach Lights */}
+      {[-39, 39].map((lx, idx) =>
+        [-5.5, 5.5].map((lz, j) => (
+          <mesh key={`rw-light-${idx}-${j}`} position={[lx, 0.15, -18 + lz]}>
+            <sphereGeometry args={[0.12, 8, 8]} />
+            <meshStandardMaterial
+              color={idx === 0 ? '#22c55e' : '#ef4444'}
+              emissive={idx === 0 ? '#22c55e' : '#ef4444'}
+              emissiveIntensity={isNight ? 3.0 : 0.8}
+            />
+          </mesh>
+        ))
+      )}
+
+      {/* 3. Parallel Taxiway with Yellow Centerline */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.02, -6]} receiveShadow>
+        <planeGeometry args={[76, 6]} />
+        <meshStandardMaterial color="#334155" roughness={0.9} />
+      </mesh>
+      {Array.from({ length: 18 }).map((_, i) => (
+        <mesh
+          key={`taxi-dash-${i}`}
+          rotation={[-Math.PI / 2, 0, 0]}
+          position={[-32 + i * 3.8, 0.03, -6]}
+        >
+          <planeGeometry args={[1.8, 0.25]} />
+          <meshBasicMaterial color="#eab308" />
+        </mesh>
+      ))}
+
+      {/* 4. Futuristic International Airport Terminal Hub */}
+      <group position={[0, 0, 14]}>
+        {/* Main Curved Terminal Concourse */}
+        <mesh position={[0, 3.5, 0]} castShadow receiveShadow>
+          <boxGeometry args={[44.0, 7.0, 14.0]} />
+          <meshStandardMaterial color="#f8fafc" roughness={0.3} />
+        </mesh>
+        {/* Curved Glass Roof Barrel Vault */}
+        <mesh position={[0, 7.0, 0]} rotation={[0, 0, Math.PI / 2]}>
+          <cylinderGeometry args={[7.2, 7.2, 42.0, 24, 1, false, 0, Math.PI]} />
+          <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.7} roughness={0.1} />
+        </mesh>
+        {/* 3 Telescoping Passenger Jet Bridges extending towards Apron */}
+        {[-14, 0, 14].map((jx, i) => (
+          <group key={`jetbridge-${i}`} position={[jx, 2.5, -9]}>
+            <mesh position={[0, 0, 0]} castShadow>
+              <boxGeometry args={[2.2, 2.6, 6.0]} />
+              <meshStandardMaterial color="#e2e8f0" metalness={0.6} />
+            </mesh>
+            <mesh position={[0, -1.0, -2.8]} castShadow>
+              <cylinderGeometry args={[0.2, 0.2, 2.2, 8]} />
+              <meshStandardMaterial color="#475569" />
+            </mesh>
+          </group>
+        ))}
+        {isNight && (
+          <pointLight position={[0, 6.0, 0]} intensity={4.0} distance={28} color="#fde047" />
+        )}
+      </group>
+
+      {/* 5. 3 Commercial Jetliners (One 777 Widebody + Two A320s) */}
+      {/* Jetliner 1: Widebody at Gate 1 */}
+      <group position={[-14, 0.6, 1]} rotation={[0, 0, 0]}>
+        <mesh castShadow rotation={[Math.PI / 2, 0, 0]}>
+          <cylinderGeometry args={[0.8, 0.8, 8.4, 16]} />
+          <meshStandardMaterial color="#f8fafc" roughness={0.3} />
+        </mesh>
+        <mesh position={[0, 0, -4.8]} rotation={[-Math.PI / 2, 0, 0]}>
+          <coneGeometry args={[0.8, 1.4, 16]} />
+          <meshStandardMaterial color="#0284c7" />
+        </mesh>
+        {/* Main Wings (span 8.5m) */}
+        <mesh position={[0, -0.1, 0]}>
+          <boxGeometry args={[8.5, 0.1, 2.2]} />
+          <meshStandardMaterial color="#e2e8f0" />
+        </mesh>
+        {/* Jet Engines */}
+        {[-2.2, 2.2].map((ex, i) => (
+          <mesh key={`eng-1-${i}`} position={[ex, -0.4, 0]} rotation={[Math.PI / 2, 0, 0]}>
+            <cylinderGeometry args={[0.35, 0.35, 1.4, 12]} />
+            <meshStandardMaterial color="#334155" metalness={0.8} />
+          </mesh>
+        ))}
+        {/* Tail Fin */}
+        <mesh position={[0, 1.4, 3.6]}>
+          <boxGeometry args={[0.12, 2.2, 1.6]} />
+          <meshStandardMaterial color="#0284c7" />
+        </mesh>
+      </group>
+
+      {/* Jetliner 2: Commercial Jet at Gate 2 */}
+      <group position={[14, 0.6, 1]} rotation={[0, 0, 0]}>
+        <mesh castShadow rotation={[Math.PI / 2, 0, 0]}>
+          <cylinderGeometry args={[0.65, 0.65, 7.2, 16]} />
+          <meshStandardMaterial color="#f8fafc" roughness={0.3} />
+        </mesh>
+        <mesh position={[0, 0, -4.2]} rotation={[-Math.PI / 2, 0, 0]}>
+          <coneGeometry args={[0.65, 1.2, 16]} />
+          <meshStandardMaterial color="#ea580c" />
+        </mesh>
+        <mesh position={[0, -0.1, 0]}>
+          <boxGeometry args={[7.2, 0.08, 1.8]} />
+          <meshStandardMaterial color="#e2e8f0" />
+        </mesh>
+        <mesh position={[0, 1.2, 3.0]}>
+          <boxGeometry args={[0.1, 1.8, 1.4]} />
+          <meshStandardMaterial color="#ea580c" />
+        </mesh>
+      </group>
+
+      {/* Jetliner 3: Aircraft Taxiing to Runway */}
+      <group position={[22, 0.6, -6]} rotation={[0, -Math.PI / 2, 0]}>
+        <mesh castShadow rotation={[Math.PI / 2, 0, 0]}>
+          <cylinderGeometry args={[0.65, 0.65, 7.2, 16]} />
+          <meshStandardMaterial color="#f8fafc" roughness={0.3} />
+        </mesh>
+        <mesh position={[0, 0, -4.2]} rotation={[-Math.PI / 2, 0, 0]}>
+          <coneGeometry args={[0.65, 1.2, 16]} />
+          <meshStandardMaterial color="#16a34a" />
+        </mesh>
+        <mesh position={[0, -0.1, 0]}>
+          <boxGeometry args={[7.2, 0.08, 1.8]} />
+          <meshStandardMaterial color="#e2e8f0" />
+        </mesh>
+        <mesh position={[0, 1.2, 3.0]}>
+          <boxGeometry args={[0.1, 1.8, 1.4]} />
+          <meshStandardMaterial color="#16a34a" />
+        </mesh>
+      </group>
+
+      {/* 6. Air Traffic Control Tower with 360 Radar */}
+      <group position={[-34, 0, 14]}>
+        <mesh position={[0, 8.0, 0]} castShadow>
+          <cylinderGeometry args={[1.4, 2.2, 16.0, 16]} />
+          <meshStandardMaterial color="#f1f5f9" roughness={0.4} />
+        </mesh>
+        {/* Cab Viewing Gallery */}
+        <mesh position={[0, 17.0, 0]}>
+          <cylinderGeometry args={[3.2, 2.4, 2.4, 20]} />
+          <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.7} />
+        </mesh>
+        {/* Dome & Radar Dish */}
+        <mesh position={[0, 19.2, 0]}>
+          <sphereGeometry args={[1.2, 16, 16]} />
+          <meshStandardMaterial color="#f8fafc" />
+        </mesh>
+        {isNight && (
+          <pointLight position={[0, 19.5, 0]} intensity={4.0} distance={20} color="#ef4444" />
+        )}
+      </group>
+
+      {/* 7. Aircraft Hangars & Fuel Depot */}
+      <group position={[32, 0, 14]}>
+        <mesh position={[0, 3.5, 0]} castShadow receiveShadow>
+          <boxGeometry args={[16.0, 7.0, 12.0]} />
+          <meshStandardMaterial color="#64748b" roughness={0.6} />
+        </mesh>
+        <mesh position={[0, 7.2, 0]} rotation={[0, 0, Math.PI / 2]}>
+          <cylinderGeometry args={[6.2, 6.2, 15.6, 20, 1, false, 0, Math.PI]} />
+          <meshStandardMaterial color="#475569" roughness={0.7} />
+        </mesh>
+      </group>
+
+      {/* 8. Connecting East Ocean Viaduct Bridge (Spans from Main Island x = 46 to Airport x = 74) */}
+      <group position={[-46, 0, 0]}>
+        <mesh position={[0, 0.4, 0]} receiveShadow>
+          <boxGeometry args={[46.0, 0.35, 4.2]} />
+          <meshStandardMaterial color="#1e293b" roughness={0.8} />
+        </mesh>
+        <mesh position={[0, 0.75, -2.05]}>
+          <boxGeometry args={[46.0, 0.4, 0.15]} />
+          <meshStandardMaterial color="#cbd5e1" />
+        </mesh>
+        <mesh position={[0, 0.75, 2.05]}>
+          <boxGeometry args={[46.0, 0.4, 0.15]} />
+          <meshStandardMaterial color="#cbd5e1" />
+        </mesh>
+        {[-16, -6, 6, 16].map((px, idx) => (
+          <mesh key={`e-bridge-pier-${idx}`} position={[px, -0.6, 0]}>
+            <cylinderGeometry args={[0.9, 1.1, 2.2, 12]} />
+            <meshStandardMaterial color="#64748b" roughness={0.7} />
+          </mesh>
+        ))}
+        {[-18, -6, 6, 18].map((px, idx) => (
+          <React.Fragment key={`e-bridge-lamp-${idx}`}>
+            <StreetLamp position={[px, 0.4, -2.2]} rotation={0} isNight={isNight} />
+            <StreetLamp position={[px, 0.4, 2.2]} rotation={Math.PI} isNight={isNight} />
+          </React.Fragment>
+        ))}
+        {/* Moving Airport Expressway Traffic */}
+        <MovingTrafficVehicle axis="x" laneOffset={0.7} direction={1} speed={6.0} vehicleType="taxi" isNight={isNight} />
+        <MovingTrafficVehicle axis="x" laneOffset={-0.7} direction={-1} speed={5.2} vehicleType="bus" bodyColor="#0284c7" isNight={isNight} />
+      </group>
+    </group>
+  )
+}
+
+// -------------------------------------------------------------
+// 19. NORTH-EAST METROPOLIS EXPANSION & TWIN TOWERS PENINSULA
+// -------------------------------------------------------------
+function NorthEastSkyscraperIsland({ isNight = false }: { isNight?: boolean }) {
+  return (
+    <group position={[105, 0, -105]}>
+      {/* 1. Peninsula Landmass (78m x 78m) */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.01, 0]} receiveShadow>
+        <planeGeometry args={[78, 78]} />
+        <meshStandardMaterial color={isNight ? '#064e3b' : '#15803d'} roughness={0.8} />
+      </mesh>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.02, 0]}>
+        <ringGeometry args={[40, 54, 32]} />
+        <meshStandardMaterial color={isNight ? '#78716c' : '#fef08a'} roughness={0.9} />
+      </mesh>
+
+      {/* 2. World Commerce Twin Towers with Skybridge */}
+      <group position={[-10, 0, -10]}>
+        {[-6, 6].map((tx, idx) => (
+          <group key={`twin-tower-${idx}`} position={[tx, 0, 0]}>
+            <mesh position={[0, 18.0, 0]} castShadow receiveShadow>
+              <boxGeometry args={[7.0, 36.0, 7.0]} />
+              <meshPhysicalMaterial
+                color="#0369a1"
+                transparent
+                opacity={0.85}
+                roughness={0.12}
+                metalness={0.6}
+              />
+            </mesh>
+            {/* Illuminated Window Bands */}
+            {Array.from({ length: 14 }).map((_, f) => (
+              <mesh key={`twin-win-${idx}-${f}`} position={[0, 3.0 + f * 2.4, 3.54]}>
+                <boxGeometry args={[6.4, 0.85, 0.04]} />
+                <meshStandardMaterial
+                  color="#38bdf8"
+                  emissive="#fef08a"
+                  emissiveIntensity={isNight ? 1.5 : 0.1}
+                />
+              </mesh>
+            ))}
+            {/* Spire */}
+            <mesh position={[0, 39.0, 0]}>
+              <cylinderGeometry args={[0.08, 0.25, 6.0, 8]} />
+              <meshStandardMaterial color="#f8fafc" metalness={0.9} />
+            </mesh>
+          </group>
+        ))}
+        {/* Double-Decker Glass Skybridge connecting Twin Towers */}
+        <mesh position={[0, 24.0, 0]} castShadow>
+          <boxGeometry args={[6.0, 3.2, 3.6]} />
+          <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.75} roughness={0.1} />
+        </mesh>
+      </group>
+
+      {/* 3. The Apex Spire Skyscraper (38m Pinnacle Tower) */}
+      <group position={[14, 0, -10]}>
+        <mesh position={[0, 16.0, 0]} castShadow receiveShadow>
+          <boxGeometry args={[8.0, 32.0, 8.0]} />
+          <meshPhysicalMaterial color="#0f766e" transparent opacity={0.85} roughness={0.15} metalness={0.6} />
+        </mesh>
+        <mesh position={[0, 34.0, 0]} castShadow>
+          <coneGeometry args={[4.2, 5.0, 4]} />
+          <meshStandardMaterial color="#facc15" metalness={0.9} />
+        </mesh>
+        <mesh position={[0, 38.0, 0]}>
+          <sphereGeometry args={[0.25, 8, 8]} />
+          <meshStandardMaterial color="#ef4444" emissive="#ef4444" emissiveIntensity={isNight ? 3.5 : 1.0} />
+        </mesh>
+      </group>
+
+      {/* 4. Crystal Diamond Tower & Helipad Tower */}
+      <group position={[-10, 0, 16]}>
+        <mesh position={[0, 14.0, 0]} castShadow receiveShadow>
+          <boxGeometry args={[7.5, 28.0, 7.5]} />
+          <meshPhysicalMaterial color="#1e293b" transparent opacity={0.88} roughness={0.2} metalness={0.5} />
+        </mesh>
+        {/* Rooftop Helipad */}
+        <mesh position={[0, 28.1, 0]}>
+          <cylinderGeometry args={[3.2, 3.2, 0.2, 24]} />
+          <meshStandardMaterial color="#334155" />
+        </mesh>
+        <mesh position={[0, 28.25, 0]}>
+          <ringGeometry args={[2.2, 2.6, 24]} />
+          <meshBasicMaterial color="#fbbf24" />
+        </mesh>
+      </group>
+
+      <group position={[14, 0, 16]}>
+        <mesh position={[0, 12.0, 0]} castShadow receiveShadow>
+          <boxGeometry args={[6.8, 24.0, 6.8]} />
+          <meshPhysicalMaterial color="#0284c7" transparent opacity={0.82} roughness={0.15} metalness={0.6} />
+        </mesh>
+        <mesh position={[0, 25.5, 0]} rotation={[0, Math.PI / 4, 0]}>
+          <octahedronGeometry args={[3.2]} />
+          <meshPhysicalMaterial color="#38bdf8" roughness={0.1} />
+        </mesh>
+      </group>
+
+      {/* 5. Golden Cable-Stayed Suspension Bridge across Channel */}
+      {/* Spans diagonally from Main Island (x = 46, z = -46) to Downtown Peninsula */}
+      <group position={[-38, 0, 38]} rotation={[0, Math.PI / 4, 0]}>
+        <mesh position={[0, 0.4, 0]} receiveShadow>
+          <boxGeometry args={[4.2, 0.35, 48.0]} />
+          <meshStandardMaterial color="#1e293b" roughness={0.8} />
+        </mesh>
+        {/* 2 Tall Suspension Pylons (22m tall) */}
+        {[-14, 14].map((pz, idx) => (
+          <group key={`pylon-${idx}`} position={[0, 0, pz]}>
+            <mesh position={[-2.4, 10.0, 0]} castShadow>
+              <boxGeometry args={[0.6, 20.0, 0.6]} />
+              <meshStandardMaterial color="#f59e0b" metalness={0.8} />
+            </mesh>
+            <mesh position={[2.4, 10.0, 0]} castShadow>
+              <boxGeometry args={[0.6, 20.0, 0.6]} />
+              <meshStandardMaterial color="#f59e0b" metalness={0.8} />
+            </mesh>
+            <mesh position={[0, 19.5, 0]}>
+              <boxGeometry args={[5.4, 0.8, 0.6]} />
+              <meshStandardMaterial color="#f59e0b" metalness={0.8} />
+            </mesh>
+            {/* Glowing Suspension Cables */}
+            {[-12, -6, 6, 12].map((offZ, k) => (
+              <mesh key={`cable-${k}`} position={[0, 10.0, (pz + offZ) / 2]} rotation={[Math.atan2(19, Math.abs(offZ)), 0, 0]}>
+                <cylinderGeometry args={[0.02, 0.02, Math.hypot(19, offZ), 6]} />
+                <meshStandardMaterial
+                  color="#ffffff"
+                  emissive={isNight ? '#38bdf8' : '#ffffff'}
+                  emissiveIntensity={isNight ? 1.5 : 0}
+                />
+              </mesh>
+            ))}
+          </group>
+        ))}
+      </group>
+    </group>
+  )
+}
+
+// -------------------------------------------------------------
+// 20. WEST DEEP-SEA CARGO PORT & MARITIME ISLAND
+// -------------------------------------------------------------
+function WestDeepSeaPortIsland({ isNight = false }: { isNight?: boolean }) {
+  const containerColors = ['#0284c7', '#dc2626', '#16a34a', '#ea580c', '#facc15', '#475569', '#9333ea', '#0891b2']
+
+  return (
+    <group position={[-122, 0, 0]}>
+      {/* 1. Port Island Landmass (88m x 64m) */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.01, 0]} receiveShadow>
+        <planeGeometry args={[88, 64]} />
+        <meshStandardMaterial color={isNight ? '#1e293b' : '#475569'} roughness={0.9} />
+      </mesh>
+
+      {/* 2. Reinforced Concrete Quay Wall */}
+      <mesh position={[0, 0.25, -22]} receiveShadow>
+        <boxGeometry args={[76.0, 0.5, 6.0]} />
+        <meshStandardMaterial color="#94a3b8" roughness={0.7} />
+      </mesh>
+      <mesh position={[0, 0.52, -24.8]}>
+        <boxGeometry args={[76.0, 0.04, 0.4]} />
+        <meshStandardMaterial color="#eab308" />
+      </mesh>
+
+      {/* 3. Massive 44m Ocean Container Cargo Ship Docked at Quay */}
+      <group position={[0, 0, -32]}>
+        {/* Hull */}
+        <mesh position={[0, 1.8, 0]} castShadow>
+          <boxGeometry args={[44.0, 3.6, 7.5]} />
+          <meshStandardMaterial color="#b91c1c" roughness={0.5} />
+        </mesh>
+        {/* Bow Wedge */}
+        <mesh position={[23.0, 1.8, 0]} rotation={[0, 0, Math.PI / 2]}>
+          <coneGeometry args={[3.6, 4.0, 4]} />
+          <meshStandardMaterial color="#991b1b" />
+        </mesh>
+        {/* Superstructure Bridge & Radar */}
+        <group position={[-15.0, 4.6, 0]}>
+          <mesh castShadow>
+            <boxGeometry args={[6.0, 4.2, 6.8]} />
+            <meshStandardMaterial color="#f8fafc" roughness={0.3} />
+          </mesh>
+          <mesh position={[0, 2.6, 0]}>
+            <cylinderGeometry args={[0.5, 0.6, 2.0, 12]} />
+            <meshStandardMaterial color="#1e293b" />
+          </mesh>
+        </group>
+        {/* Stacks of Cargo Containers on the Ship Deck */}
+        <group position={[2.0, 3.8, 0]}>
+          {Array.from({ length: 24 }).map((_, idx) => {
+            const col = idx % 6
+            const row = Math.floor(idx / 6) % 2
+            const tier = Math.floor(idx / 12)
+            const color = containerColors[idx % containerColors.length]
+
+            return (
+              <mesh
+                key={`ship-cont-${idx}`}
+                position={[col * 3.8 - 9.5, tier * 1.1, row * 2.6 - 1.3]}
+                castShadow
+              >
+                <boxGeometry args={[3.6, 1.05, 2.4]} />
+                <meshStandardMaterial color={color} roughness={0.5} metalness={0.3} />
+              </mesh>
+            )
+          })}
+        </group>
+      </group>
+
+      {/* 4. Two Giant Orange Rail-Mounted Gantry Container Cranes */}
+      {[-12, 12].map((cx, idx) => (
+        <group key={`port-crane-${idx}`} position={[cx, 0.5, -20]}>
+          {[-2.5, 2.5].map((gx, k) => (
+            <mesh key={`g-leg-${k}`} position={[gx, 5.5, 0]} castShadow>
+              <boxGeometry args={[0.45, 11.0, 0.45]} />
+              <meshStandardMaterial color="#ea580c" metalness={0.7} />
+            </mesh>
+          ))}
+          <mesh position={[0, 11.2, -4.0]} castShadow>
+            <boxGeometry args={[6.5, 1.1, 16.0]} />
+            <meshStandardMaterial color="#f97316" metalness={0.6} />
+          </mesh>
+          {isNight && (
+            <pointLight position={[0, 10.5, -4.0]} intensity={3.5} distance={18} color="#fef08a" />
+          )}
+        </group>
+      ))}
+
+      {/* 5. Huge Container Logistics Storage Yard (36 Containers) */}
+      <group position={[0, 0.5, 4]}>
+        {Array.from({ length: 36 }).map((_, idx) => {
+          const col = idx % 6
+          const row = Math.floor(idx / 6) % 3
+          const tier = Math.floor(idx / 18)
+          const color = containerColors[(idx * 3) % containerColors.length]
+
+          return (
+            <mesh
+              key={`yard-cont-${idx}`}
+              position={[col * 4.2 - 10.5, tier * 1.2 + 0.6, row * 2.8 - 2.8]}
+              castShadow
+            >
+              <boxGeometry args={[3.8, 1.15, 2.4]} />
+              <meshStandardMaterial color={color} roughness={0.5} metalness={0.3} />
+            </mesh>
+          )
+        })}
+      </group>
+
+      {/* 6. Petrochemical Refinery Spheres & Storage Tanks */}
+      <group position={[28, 0, 12]}>
+        {[-3.5, 3.5].map((tx, i) => (
+          <group key={`sphere-tank-${i}`} position={[tx, 3.2, 0]}>
+            <mesh castShadow>
+              <sphereGeometry args={[2.8, 20, 20]} />
+              <meshStandardMaterial color="#f8fafc" metalness={0.5} roughness={0.3} />
+            </mesh>
+            {/* Support Legs */}
+            {[-1.8, 1.8].map((lx, k) => (
+              <mesh key={`sleg-${k}`} position={[lx, -2.0, 0]}>
+                <cylinderGeometry args={[0.12, 0.14, 2.4, 8]} />
+                <meshStandardMaterial color="#64748b" />
+              </mesh>
+            ))}
+          </group>
+        ))}
+      </group>
+
+      {/* 7. Connecting West Heavy Rail & Highway Causeway (Spans from Main Island x = -46 to Port x = -76) */}
+      <group position={[46, 0, 0]}>
+        <mesh position={[0, 0.4, 0]} receiveShadow>
+          <boxGeometry args={[46.0, 0.35, 4.4]} />
+          <meshStandardMaterial color="#1e293b" roughness={0.8} />
+        </mesh>
+        {/* Rail Tracks embedded in Causeway */}
+        <mesh position={[0, 0.45, -0.6]}>
+          <boxGeometry args={[46.0, 0.05, 0.08]} />
+          <meshStandardMaterial color="#f59e0b" metalness={0.9} />
+        </mesh>
+        <mesh position={[0, 0.45, 0.6]}>
+          <boxGeometry args={[46.0, 0.05, 0.08]} />
+          <meshStandardMaterial color="#f59e0b" metalness={0.9} />
+        </mesh>
+        {[-16, -6, 6, 16].map((px, idx) => (
+          <mesh key={`w-bridge-pier-${idx}`} position={[px, -0.6, 0]}>
+            <cylinderGeometry args={[0.9, 1.1, 2.2, 12]} />
+            <meshStandardMaterial color="#64748b" roughness={0.7} />
+          </mesh>
+        ))}
+        {/* Moving Heavy Freight Truck Traffic */}
+        <MovingTrafficVehicle axis="x" laneOffset={-1.0} direction={-1} speed={4.2} vehicleType="truck" bodyColor="#ea580c" isNight={isNight} />
+        <MovingTrafficVehicle axis="x" laneOffset={1.0} direction={1} speed={4.8} vehicleType="van" bodyColor="#f8fafc" isNight={isNight} />
+      </group>
+    </group>
+  )
+}
+
+// -------------------------------------------------------------
+// 21. OCEAN CHANNEL VESSELS & CRUISE LINER
+// -------------------------------------------------------------
+function OceanChannelTraffic({ isNight = false }: { isNight?: boolean }) {
+  const cruiseRef = useRef<THREE.Group>(null)
+
+  useFrame((state) => {
+    if (cruiseRef.current) {
+      const t = state.clock.getElapsedTime() * 0.15
+      cruiseRef.current.position.x = Math.sin(t) * 45 - 80
+      cruiseRef.current.position.z = Math.cos(t) * 20 - 70
+      cruiseRef.current.rotation.y = Math.sin(t * 0.5) * 0.2 + 0.8
+    }
+  })
+
+  return (
+    <group position={[0, 0, 0]}>
+      {/* 36m Luxury Ocean Cruise Ship sailing in the deep bay */}
+      <group ref={cruiseRef} position={[-80, 0, -70]}>
+        <mesh position={[0, 1.4, 0]} castShadow>
+          <boxGeometry args={[6.5, 2.6, 32.0]} />
+          <meshStandardMaterial color="#0f172a" roughness={0.4} />
+        </mesh>
+        {/* White Superstructure */}
+        <mesh position={[0, 3.4, -2.0]} castShadow>
+          <boxGeometry args={[5.8, 1.8, 24.0]} />
+          <meshStandardMaterial color="#f8fafc" roughness={0.2} />
+        </mesh>
+        <mesh position={[0, 4.8, -4.0]} castShadow>
+          <boxGeometry args={[5.0, 1.4, 18.0]} />
+          <meshStandardMaterial color="#f1f5f9" roughness={0.2} />
+        </mesh>
+        {/* Red Twin Smokestacks */}
+        {[-3, 2].map((sz, i) => (
+          <mesh key={`smokestack-${i}`} position={[0, 6.2, sz]} castShadow>
+            <cylinderGeometry args={[0.65, 0.8, 2.0, 16]} />
+            <meshStandardMaterial color="#dc2626" />
+          </mesh>
+        ))}
+        {isNight && (
+          <pointLight position={[0, 4.0, 0]} intensity={3.0} distance={20} color="#fef08a" />
+        )}
+      </group>
+    </group>
+  )
+}
 function TropicalOceanAndIsland({ isNight = false }: { isNight?: boolean }) {
   const oceanRef = useRef<THREE.Mesh>(null)
 
@@ -1758,6 +2528,13 @@ export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 
       <SouthCenterVillage isNight={isNight} />
       <SouthWestLuxuryEstates isNight={isNight} />
       <IndustrialPortAndEnergy isNight={isNight} />
+
+      {/* 8. TROPIC CITY EXPANSION ISLANDS & OCEAN HIGHWAY BRIDGES */}
+      <SouthResortIsland isNight={isNight} />
+      <EastAirportIsland isNight={isNight} />
+      <NorthEastSkyscraperIsland isNight={isNight} />
+      <WestDeepSeaPortIsland isNight={isNight} />
+      <OceanChannelTraffic isNight={isNight} />
 
       {/* 8. TROPICAL PALM TREE AVENUES (Planted along sidewalk curbs) */}
       {[-40, -32, -16, -8, 8, 16, 32, 40].map((tx, i) => (

@@ -57,7 +57,7 @@ function SmoothMarketplaceCamera({
 
       activeTargetRef.current = new THREE.Vector3(tx, ty + (isOverview ? 0 : 1.2), tz)
       activePosRef.current = isOverview
-        ? new THREE.Vector3(14, 18, 16)
+        ? new THREE.Vector3(26, 32, 28)
         : new THREE.Vector3(tx + 5.5, ty + 7.5, tz + 8.5)
 
       isTransitioningRef.current = true
@@ -135,7 +135,7 @@ function SmoothMarketplaceCamera({
       zoomSpeed={1.8}     // Snappy, responsive scroll zoom sensitivity!
       panSpeed={1.4}      // Fast, effortless drag panning across the city!
       minDistance={4}     // Can zoom close to inspect storefronts
-      maxDistance={260}   // Can zoom out to see the entire vast tropical island metropolis!
+      maxDistance={450}   // Can zoom out to see the entire vast tropical mega-city archipelago!
       maxPolarAngle={Math.PI / 2.06} // Keep ocean and horizon in view without going underground
       minPolarAngle={Math.PI / 12}   // Prevent awkward top-down gimbal lock
       target={[0, 0, 0]}
