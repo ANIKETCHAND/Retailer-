@@ -57,7 +57,7 @@ function CloudCluster({ position, scale = 1, speed = 1 }: CloudClusterProps) {
 
 export const DriftingClouds: React.FC = () => {
   return (
-    <group position={[0, 36, 0]}>
+    <group position={[0, 68, 0]}>
       <CloudCluster position={[-60, 0, -40]} scale={1.8} speed={0.9} />
       <CloudCluster position={[-15, 4, -15]} scale={1.5} speed={1.1} />
       <CloudCluster position={[30, -2, -50]} scale={2.2} speed={0.8} />
