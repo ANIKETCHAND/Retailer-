@@ -181,3 +181,177 @@ export function createRoofTileTexture(): THREE.CanvasTexture {
   }
   return makeRepeatedTexture(canvas, 6, 6)
 }
+
+
+// 7. Dark Ashlar Stone Texture for Luxury Boutique Facade
+export function createDarkAshlarStoneTexture(): THREE.CanvasTexture {
+  const canvas = document.createElement('canvas')
+  canvas.width = 512
+  canvas.height = 512
+  const ctx = canvas.getContext('2d')
+  if (ctx) {
+    // Dark stone base
+    ctx.fillStyle = '#292524'
+    ctx.fillRect(0, 0, 512, 512)
+
+    // Staggered ashlar blocks
+    const blockH = 64
+    const blockW = 128
+    for (let row = 0; row <= 8; row++) {
+      const y = row * blockH
+      const offset = (row % 2) * (blockW / 2)
+      for (let col = -1; col <= 5; col++) {
+        const x = col * blockW + offset
+        const shade = Math.floor(38 + Math.random() * 18)
+        ctx.fillStyle = 'rgb(' + shade + ', ' + (shade - 2) + ', ' + (shade - 4) + ')'
+        ctx.fillRect(x + 2, y + 2, blockW - 4, blockH - 4)
+
+        // Micro texture specks
+        for (let s = 0; s < 40; s++) {
+          const sx = x + 2 + Math.random() * (blockW - 4)
+          const sy = y + 2 + Math.random() * (blockH - 4)
+          ctx.fillStyle = Math.random() > 0.5 ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.18)'
+          ctx.fillRect(sx, sy, 2, 2)
+        }
+      }
+
+      // Horizontal mortar line
+      ctx.fillStyle = '#1c1917'
+      ctx.fillRect(0, y, 512, 2)
+    }
+
+    // Vertical mortar lines
+    for (let row = 0; row <= 8; row++) {
+      const y = row * blockH
+      const offset = (row % 2) * (blockW / 2)
+      for (let col = -1; col <= 5; col++) {
+        const x = col * blockW + offset
+        ctx.fillStyle = '#1c1917'
+        ctx.fillRect(x, y, 2, blockH)
+      }
+    }
+  }
+  const texture = new THREE.CanvasTexture(canvas)
+  texture.wrapS = THREE.RepeatWrapping
+  texture.wrapT = THREE.RepeatWrapping
+  texture.repeat.set(4, 4)
+  return texture
+}
+
+// 8. Dark Walnut PBR Wood Grain Texture
+export function createDarkWalnutTexture(): THREE.CanvasTexture {
+  const canvas = document.createElement('canvas')
+  canvas.width = 512
+  canvas.height = 512
+  const ctx = canvas.getContext('2d')
+  if (ctx) {
+    ctx.fillStyle = '#3e2010'
+    ctx.fillRect(0, 0, 512, 512)
+
+    // Grain striations
+    for (let i = 0; i < 400; i++) {
+      const x = Math.random() * 512
+      const w = 1 + Math.random() * 3
+      const alpha = 0.08 + Math.random() * 0.15
+      ctx.fillStyle = Math.random() > 0.4 ? 'rgba(26, 12, 5, ' + alpha + ')' : 'rgba(92, 52, 26, ' + alpha + ')'
+      ctx.fillRect(x, 0, w, 512)
+    }
+
+    // Subtle wavy organic grain lines
+    ctx.lineWidth = 1.5
+    for (let g = 0; g < 20; g++) {
+      const x = g * 26 + (Math.random() * 10 - 5)
+      ctx.strokeStyle = 'rgba(24, 10, 4, 0.18)'
+      ctx.beginPath()
+      ctx.moveTo(x, 0)
+      ctx.bezierCurveTo(x + 12, 170, x - 12, 340, x + 6, 512)
+      ctx.stroke()
+    }
+  }
+  const texture = new THREE.CanvasTexture(canvas)
+  texture.wrapS = THREE.RepeatWrapping
+  texture.wrapT = THREE.RepeatWrapping
+  texture.repeat.set(2, 4)
+  return texture
+}
+
+// 9. Charcoal Granite / Slate Floor Paver Texture
+export function createCharcoalPaverTexture(): THREE.CanvasTexture {
+  const canvas = document.createElement('canvas')
+  canvas.width = 512
+  canvas.height = 512
+  const ctx = canvas.getContext('2d')
+  if (ctx) {
+    ctx.fillStyle = '#1c1917'
+    ctx.fillRect(0, 0, 512, 512)
+
+    // Tile grid (4x4 tiles per 512px)
+    const tileSize = 128
+    for (let r = 0; r < 4; r++) {
+      for (let c = 0; c < 4; c++) {
+        const x = c * tileSize
+        const y = r * tileSize
+        const val = Math.floor(26 + Math.random() * 12)
+        ctx.fillStyle = 'rgb(' + val + ', ' + (val + 1) + ', ' + (val + 2) + ')'
+        ctx.fillRect(x + 2, y + 2, tileSize - 4, tileSize - 4)
+
+        // Surface speckles
+        for (let s = 0; s < 50; s++) {
+          ctx.fillStyle = Math.random() > 0.5 ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.2)'
+          ctx.fillRect(x + 2 + Math.random() * (tileSize - 4), y + 2 + Math.random() * (tileSize - 4), 2, 2)
+        }
+      }
+    }
+
+    // Grout lines
+    ctx.strokeStyle = '#0c0a09'
+    ctx.lineWidth = 3
+    for (let i = 0; i <= 512; i += tileSize) {
+      ctx.beginPath()
+      ctx.moveTo(i, 0)
+      ctx.lineTo(i, 512)
+      ctx.stroke()
+
+      ctx.beginPath()
+      ctx.moveTo(0, i)
+      ctx.lineTo(512, i)
+      ctx.stroke()
+    }
+  }
+  const texture = new THREE.CanvasTexture(canvas)
+  texture.wrapS = THREE.RepeatWrapping
+  texture.wrapT = THREE.RepeatWrapping
+  texture.repeat.set(4, 4)
+  return texture
+}
+
+// 10. Horizontal Ceiling Timber Slats Texture
+export function createCeilingSlatsTexture(): THREE.CanvasTexture {
+  const canvas = document.createElement('canvas')
+  canvas.width = 256
+  canvas.height = 256
+  const ctx = canvas.getContext('2d')
+  if (ctx) {
+    ctx.fillStyle = '#1c1917'
+    ctx.fillRect(0, 0, 256, 256)
+
+    const slatH = 16
+    for (let y = 0; y < 256; y += slatH) {
+      ctx.fillStyle = y % (slatH * 2) === 0 ? '#451a03' : '#592205'
+      ctx.fillRect(0, y + 2, 256, slatH - 4)
+
+      // Highlight on slat edge
+      ctx.fillStyle = 'rgba(251, 191, 36, 0.08)'
+      ctx.fillRect(0, y + 2, 256, 1)
+
+      // Shadow in groove
+      ctx.fillStyle = '#0f0702'
+      ctx.fillRect(0, y + slatH - 2, 256, 2)
+    }
+  }
+  const texture = new THREE.CanvasTexture(canvas)
+  texture.wrapS = THREE.RepeatWrapping
+  texture.wrapT = THREE.RepeatWrapping
+  texture.repeat.set(6, 4)
+  return texture
+}
