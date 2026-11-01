@@ -281,3 +281,198 @@ export const GamePillButtons: React.FC<GamePillButtonsProps> = ({
     </aside>
   )
 }
+
+/**
+ * 3D Cartoon Metropolis Skyline Icon for City View Mode
+ */
+export const CityViewGameIcon: React.FC<{ className?: string }> = ({ className = 'w-9 h-9' }) => (
+  <svg
+    viewBox="0 0 100 100"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={`drop-shadow-[0_3px_5px_rgba(0,0,0,0.5)] select-none pointer-events-none flex-shrink-0 ${className}`}
+  >
+    <defs>
+      <linearGradient id="towerGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#38bdf8" />
+        <stop offset="100%" stopColor="#0369a1" />
+      </linearGradient>
+      <linearGradient id="towerGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#facc15" />
+        <stop offset="100%" stopColor="#d97706" />
+      </linearGradient>
+      <linearGradient id="towerGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#60a5fa" />
+        <stop offset="100%" stopColor="#1d4ed8" />
+      </linearGradient>
+      <linearGradient id="sunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#fef08a" />
+        <stop offset="100%" stopColor="#f59e0b" />
+      </linearGradient>
+    </defs>
+
+    {/* Shadow */}
+    <ellipse cx="50" cy="80" rx="36" ry="6" fill="#000000" fillOpacity="0.35" />
+
+    {/* Sun in background */}
+    <circle cx="68" cy="28" r="14" fill="url(#sunGrad)" stroke="#111827" strokeWidth="3.5" />
+
+    {/* Tower 1 (Left, mid-height) */}
+    <rect
+      x="18"
+      y="38"
+      width="22"
+      height="38"
+      rx="4"
+      fill="url(#towerGrad1)"
+      stroke="#111827"
+      strokeWidth="4"
+    />
+    {/* Windows */}
+    <rect x="23" y="44" width="4" height="5" rx="1" fill="#ffffff" opacity="0.9" />
+    <rect x="31" y="44" width="4" height="5" rx="1" fill="#ffffff" opacity="0.9" />
+    <rect x="23" y="53" width="4" height="5" rx="1" fill="#ffffff" opacity="0.9" />
+    <rect x="31" y="53" width="4" height="5" rx="1" fill="#ffffff" opacity="0.9" />
+    <rect x="23" y="62" width="4" height="5" rx="1" fill="#ffffff" opacity="0.9" />
+    <rect x="31" y="62" width="4" height="5" rx="1" fill="#ffffff" opacity="0.9" />
+
+    {/* Tower 2 (Center, tallest) */}
+    <rect
+      x="36"
+      y="20"
+      width="28"
+      height="56"
+      rx="4"
+      fill="url(#towerGrad3)"
+      stroke="#111827"
+      strokeWidth="4.5"
+    />
+    {/* Spire antenna */}
+    <line x1="50" y1="20" x2="50" y2="8" stroke="#111827" strokeWidth="4" strokeLinecap="round" />
+    <circle cx="50" cy="8" r="3" fill="#ef4444" stroke="#111827" strokeWidth="2" />
+    {/* Windows */}
+    <rect x="42" y="27" width="5" height="5" rx="1" fill="#fef08a" />
+    <rect x="52" y="27" width="5" height="5" rx="1" fill="#fef08a" />
+    <rect x="42" y="36" width="5" height="5" rx="1" fill="#fef08a" />
+    <rect x="52" y="36" width="5" height="5" rx="1" fill="#fef08a" />
+    <rect x="42" y="46" width="5" height="5" rx="1" fill="#fef08a" />
+    <rect x="52" y="46" width="5" height="5" rx="1" fill="#fef08a" />
+    <rect x="42" y="56" width="5" height="5" rx="1" fill="#ffffff" opacity="0.9" />
+    <rect x="52" y="56" width="5" height="5" rx="1" fill="#ffffff" opacity="0.9" />
+
+    {/* Tower 3 (Right, medium) */}
+    <rect
+      x="60"
+      y="42"
+      width="22"
+      height="34"
+      rx="4"
+      fill="url(#towerGrad2)"
+      stroke="#111827"
+      strokeWidth="4"
+    />
+    {/* Windows */}
+    <rect x="65" y="48" width="4" height="5" rx="1" fill="#ffffff" opacity="0.9" />
+    <rect x="73" y="48" width="4" height="5" rx="1" fill="#ffffff" opacity="0.9" />
+    <rect x="65" y="57" width="4" height="5" rx="1" fill="#ffffff" opacity="0.9" />
+    <rect x="73" y="57" width="4" height="5" rx="1" fill="#ffffff" opacity="0.9" />
+
+    {/* Front ground road strip */}
+    <rect x="14" y="74" width="72" height="6" rx="2" fill="#334155" stroke="#111827" strokeWidth="2.5" />
+    <line x1="30" y1="77" x2="42" y2="77" stroke="#ffffff" strokeWidth="1.5" strokeDasharray="3 2" />
+    <line x1="58" y1="77" x2="70" y2="77" stroke="#ffffff" strokeWidth="1.5" strokeDasharray="3 2" />
+  </svg>
+)
+
+interface CityViewPillProps {
+  onCityView: () => void
+  onNextStore?: () => void
+  currentStoreIndex?: number
+  totalStores?: number
+  storeName?: string
+}
+
+/**
+ * CityViewPill - Displayed when user is focused on a store, allowing 1-click return to City View mode
+ */
+export const CityViewPill: React.FC<CityViewPillProps> = ({
+  onCityView,
+  onNextStore,
+  currentStoreIndex,
+  totalStores,
+  storeName,
+}) => {
+  const cartoonTextStyle: React.CSSProperties = {
+    WebkitTextStroke: '1.5px #0f172a',
+    paintOrder: 'stroke fill',
+    textShadow:
+      '-2px -2px 0 #0f172a, 2px -2px 0 #0f172a, -2px 2px 0 #0f172a, 2px 2px 0 #0f172a, 0 3px 0 #020617, 0 5px 8px rgba(0,0,0,0.65)',
+  }
+
+  return (
+    <aside
+      aria-label="Store View Controls"
+      className="fixed top-20 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5 sm:gap-4 animate-in fade-in slide-in-from-top-4 duration-500 max-w-[95vw] overflow-x-auto p-1"
+    >
+      {/* ======================================================== */}
+      {/* CITY VIEW BUTTON: Returns to Full 3D City Overview       */}
+      {/* ======================================================== */}
+      <button
+        type="button"
+        onClick={onCityView}
+        className="group relative flex items-center gap-2.5 sm:gap-3 px-5 py-2 sm:px-7 sm:py-2.5 rounded-full border-[3px] border-white bg-gradient-to-b from-[#38bdf8] via-[#2563eb] to-[#1d4ed8] shadow-[0_8px_25px_rgba(37,99,235,0.6),inset_0_2px_4px_rgba(255,255,255,0.7)] hover:scale-105 hover:brightness-110 active:scale-95 transition-all duration-200 cursor-pointer overflow-hidden flex-shrink-0"
+        title="Return to full city view mode"
+      >
+        {/* Top curved glossy shine */}
+        <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full pointer-events-none" />
+
+        {/* 3D City Skyline Game Icon */}
+        <CityViewGameIcon className="w-8 h-8 sm:w-10 sm:h-10 relative z-10 transition-transform group-hover:scale-110" />
+
+        {/* Bold White Text: "City View" */}
+        <span
+          className="relative z-10 font-black text-white text-base sm:text-2xl tracking-wide select-none"
+          style={cartoonTextStyle}
+        >
+          City View
+        </span>
+      </button>
+
+      {/* ======================================================== */}
+      {/* OPTIONAL NEXT STORE TOUR BUTTON                          */}
+      {/* ======================================================== */}
+      {onNextStore && totalStores && totalStores > 1 && (
+        <button
+          type="button"
+          onClick={onNextStore}
+          className="group relative flex items-center gap-2 sm:gap-2.5 px-4 py-2 sm:px-6 sm:py-2.5 rounded-full border-[3px] border-white bg-gradient-to-b from-[#38bdf8] via-[#2563eb] to-[#1d4ed8] shadow-[0_8px_25px_rgba(37,99,235,0.6),inset_0_2px_4px_rgba(255,255,255,0.7)] hover:scale-105 hover:brightness-110 active:scale-95 transition-all duration-200 cursor-pointer overflow-hidden flex-shrink-0"
+          title="Tour next store"
+        >
+          <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/40 to-transparent rounded-t-full pointer-events-none" />
+          <StorefrontGameIcon className="w-7 h-7 sm:w-9 sm:h-9 relative z-10 transition-transform group-hover:rotate-6 group-hover:scale-110" />
+          <span
+            className="relative z-10 font-black text-white text-sm sm:text-xl tracking-wide select-none"
+            style={cartoonTextStyle}
+          >
+            Next Store
+          </span>
+          <span
+            className="relative z-10 px-2 py-0.5 rounded-full bg-white/25 border border-white/70 text-white font-black text-xs sm:text-sm shadow-inner drop-shadow select-none"
+            style={{ textShadow: '0 1px 2px rgba(0,0,0,0.6)' }}
+          >
+            {(currentStoreIndex ?? 0) + 1}/{totalStores}
+          </span>
+        </button>
+      )}
+
+      {/* Store Name Indicator Tag if present */}
+      {storeName && (
+        <div className="hidden md:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/85 backdrop-blur-md border border-white/30 text-white text-xs font-bold shadow-lg">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-slate-300">Viewing:</span>
+          <span className="text-amber-300 truncate max-w-[140px]">{storeName}</span>
+        </div>
+      )}
+    </aside>
+  )
+}

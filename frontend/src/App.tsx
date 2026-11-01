@@ -18,7 +18,7 @@ import { FloatingNav } from './components/ui/FloatingNav'
 import { GtaMinimap } from './components/ui/GtaMinimap'
 import { StoreCardTooltip } from './components/ui/StoreCardTooltip'
 import { ErrorBoundary } from './components/ui/ErrorBoundary'
-import { GamePillButtons } from './components/ui/GamePillButtons'
+import { GamePillButtons, CityViewPill } from './components/ui/GamePillButtons'
 import type { Store, UserSession, TimeOfDay, GraphicsQuality } from './types'
 
 export const App: React.FC = () => {
@@ -31,6 +31,10 @@ export const App: React.FC = () => {
 
   // In-World Welcome Options (Requirement 2: Option A vs Option B)
   const [showWelcomeOptions, setShowWelcomeOptions] = useState(true)
+
+  // Store Focus Mode: When true, camera is focused on a store and "City View" pill is displayed
+  const [isStoreFocusMode, setIsStoreFocusMode] = useState(false)
+  const [exploreIndex, setExploreIndex] = useState(0)
 
   // Simulation Environment Controls
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>('day')
@@ -85,16 +89,39 @@ export const App: React.FC = () => {
   const handleExploreStores = () => {
     setShowWelcomeOptions(false)
     if (stores.length > 0) {
-      // Focus on first store or central plaza
-      setCameraTarget([stores[0].grid_x, 0, stores[0].grid_z])
+      setIsStoreFocusMode(true)
+      const targetStore = stores[0]
+      setExploreIndex(0)
+      setSelectedStore(targetStore)
+      setCameraTarget([targetStore.grid_x, 0, targetStore.grid_z])
     } else {
       setCameraTarget([0, 0, 0])
     }
   }
 
+  // Tour next store while exploring
+  const handleNextStore = () => {
+    if (stores.length === 0) return
+    const nextIdx = (exploreIndex + 1) % stores.length
+    setExploreIndex(nextIdx)
+    const nextStore = stores[nextIdx]
+    setSelectedStore(nextStore)
+    setCameraTarget([nextStore.grid_x, 0, nextStore.grid_z])
+  }
+
+  // Return back to panoramic City View mode & restore explore/build options
+  const handleReturnToCityView = () => {
+    setIsStoreFocusMode(false)
+    setSelectedStore(null)
+    setIsAnalyticsOpen(false)
+    setCameraTarget([0, 0, 0])
+    setShowWelcomeOptions(true)
+  }
+
   // OPTION B: CONSTRUCT NEW STORE
   const handleConstructNewStore = () => {
     setShowWelcomeOptions(false)
+    setIsStoreFocusMode(false)
     const nextPlot = findNextAvailablePlot(stores)
     // Smoothly fly camera to the highlighted empty plot
     setCameraTarget([nextPlot.grid_x, 0, nextPlot.grid_z])
@@ -104,6 +131,9 @@ export const App: React.FC = () => {
   // Handle clicking a store building in the 3D marketplace or GTA Minimap
   const handleStoreSelect = (store: Store) => {
     setShowWelcomeOptions(false)
+    setIsStoreFocusMode(true)
+    const idx = stores.findIndex(s => s.id === store.id)
+    if (idx !== -1) setExploreIndex(idx)
     setSelectedStore(store)
     setCameraTarget([store.grid_x, 0, store.grid_z])
     setIsAnalyticsOpen(true)
@@ -132,6 +162,7 @@ export const App: React.FC = () => {
 
   // Reset Camera back to overview
   const handleResetCamera = () => {
+    setIsStoreFocusMode(false)
     setSelectedStore(null)
     setCameraTarget([0, 0, 0])
     setShowWelcomeOptions(true)
@@ -190,12 +221,23 @@ export const App: React.FC = () => {
           />
 
           {/* REQUIREMENT 2: AFTER LOGIN - PRIMARY MARKETPLACE GAME PILL ACTION BUTTONS */}
-          {showWelcomeOptions && (
+          {showWelcomeOptions && !isStoreFocusMode && (
             <GamePillButtons
               storeCount={stores.length}
               onExplore={handleExploreStores}
               onBuild={handleConstructNewStore}
               onDismiss={() => setShowWelcomeOptions(false)}
+            />
+          )}
+
+          {/* CITY VIEW BUTTON: Appears when user is focused on a store */}
+          {isStoreFocusMode && (
+            <CityViewPill
+              onCityView={handleReturnToCityView}
+              onNextStore={stores.length > 1 ? handleNextStore : undefined}
+              currentStoreIndex={exploreIndex}
+              totalStores={stores.length}
+              storeName={selectedStore?.name}
             />
           )}
 
