@@ -15,7 +15,7 @@
 
 import React, { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { PerspectiveCamera, Text } from '@react-three/drei'
+import { PerspectiveCamera } from '@react-three/drei'
 import * as THREE from 'three'
 import { ArrowUpRight, Lock, Activity, Sparkles, Box, ShieldCheck, BarChart3 } from 'lucide-react'
 
@@ -26,63 +26,152 @@ interface StorefrontSceneProps {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Procedural PBR textures
+// High-Performance Cached Textures (Zero Blocking, Instant Load)
 // ─────────────────────────────────────────────────────────────────────────────
+let cachedStuccoTexture: THREE.CanvasTexture | null = null
+let cachedGraniteTexture: THREE.CanvasTexture | null = null
+let cachedWoodTexture: THREE.CanvasTexture | null = null
+
 function makeStuccoTexture(): THREE.CanvasTexture {
+  if (cachedStuccoTexture) return cachedStuccoTexture
   const canvas = document.createElement('canvas')
-  canvas.width = 512; canvas.height = 512
-  const ctx = canvas.getContext('2d')!
-  ctx.fillStyle = '#e8ddd0'
-  ctx.fillRect(0, 0, 512, 512)
-  for (let i = 0; i < 18000; i++) {
-    const x = Math.random() * 512, y = Math.random() * 512
-    const r = Math.random()
-    const br = Math.floor(200 + Math.random() * 30)
-    ctx.fillStyle = `rgba(${br},${br - 8},${br - 18},${r > 0.7 ? 0.08 : 0.04})`
-    ctx.fillRect(x, y, r > 0.85 ? 3 : 2, r > 0.85 ? 3 : 2)
+  canvas.width = 256; canvas.height = 256
+  const ctx = canvas.getContext('2d')
+  if (ctx) {
+    ctx.fillStyle = '#e8ddd0'
+    ctx.fillRect(0, 0, 256, 256)
+    const imgData = ctx.getImageData(0, 0, 256, 256)
+    const data = imgData.data
+    for (let i = 0; i < data.length; i += 4) {
+      const noise = (Math.random() - 0.5) * 22
+      data[i] = Math.min(255, Math.max(0, data[i] + noise))
+      data[i + 1] = Math.min(255, Math.max(0, data[i + 1] + noise - 2))
+      data[i + 2] = Math.min(255, Math.max(0, data[i + 2] + noise - 4))
+    }
+    ctx.putImageData(imgData, 0, 0)
   }
   const tex = new THREE.CanvasTexture(canvas)
   tex.wrapS = tex.wrapT = THREE.RepeatWrapping
   tex.repeat.set(6, 4)
+  cachedStuccoTexture = tex
   return tex
 }
 
 function makeGraniteTexture(): THREE.CanvasTexture {
+  if (cachedGraniteTexture) return cachedGraniteTexture
   const canvas = document.createElement('canvas')
   canvas.width = 256; canvas.height = 256
-  const ctx = canvas.getContext('2d')!
-  ctx.fillStyle = '#3a4756'
-  ctx.fillRect(0, 0, 256, 256)
-  for (let i = 0; i < 4000; i++) {
-    const x = Math.random() * 256, y = Math.random() * 256
-    const v = Math.floor(50 + Math.random() * 40)
-    ctx.fillStyle = `rgba(${v},${v + 4},${v + 8},0.6)`
-    ctx.fillRect(x, y, 2, 2)
+  const ctx = canvas.getContext('2d')
+  if (ctx) {
+    ctx.fillStyle = '#3a4756'
+    ctx.fillRect(0, 0, 256, 256)
+    const imgData = ctx.getImageData(0, 0, 256, 256)
+    const data = imgData.data
+    for (let i = 0; i < data.length; i += 4) {
+      if (Math.random() > 0.4) {
+        const noise = (Math.random() - 0.5) * 44
+        data[i] = Math.min(255, Math.max(0, data[i] + noise))
+        data[i + 1] = Math.min(255, Math.max(0, data[i + 1] + noise + 2))
+        data[i + 2] = Math.min(255, Math.max(0, data[i + 2] + noise + 4))
+      }
+    }
+    ctx.putImageData(imgData, 0, 0)
   }
   const tex = new THREE.CanvasTexture(canvas)
   tex.wrapS = tex.wrapT = THREE.RepeatWrapping
   tex.repeat.set(4, 4)
+  cachedGraniteTexture = tex
   return tex
 }
 
 function makeWoodTexture(): THREE.CanvasTexture {
+  if (cachedWoodTexture) return cachedWoodTexture
   const canvas = document.createElement('canvas')
-  canvas.width = 512; canvas.height = 512
-  const ctx = canvas.getContext('2d')!
-  ctx.fillStyle = '#4a1c06'
-  ctx.fillRect(0, 0, 512, 512)
-  for (let i = 0; i < 300; i++) {
-    const x = Math.random() * 512
-    ctx.strokeStyle = `rgba(${Math.floor(20 + Math.random() * 30)},${Math.floor(8 + Math.random() * 12)},0,${0.1 + Math.random() * 0.12})`
-    ctx.lineWidth = 1 + Math.random() * 2
-    ctx.beginPath(); ctx.moveTo(x, 0)
-    ctx.bezierCurveTo(x + 10 * Math.sin(Math.random() * Math.PI), 170, x - 10 * Math.sin(Math.random() * Math.PI), 340, x + 6, 512)
-    ctx.stroke()
+  canvas.width = 256; canvas.height = 256
+  const ctx = canvas.getContext('2d')
+  if (ctx) {
+    ctx.fillStyle = '#4a1c06'
+    ctx.fillRect(0, 0, 256, 256)
+    for (let i = 0; i < 70; i++) {
+      const x = Math.random() * 256
+      ctx.strokeStyle = `rgba(${Math.floor(20 + Math.random() * 30)},${Math.floor(8 + Math.random() * 12)},0,0.14)`
+      ctx.lineWidth = 1 + Math.random() * 2
+      ctx.beginPath(); ctx.moveTo(x, 0)
+      ctx.bezierCurveTo(x + 8, 85, x - 8, 170, x + 4, 256)
+      ctx.stroke()
+    }
   }
   const tex = new THREE.CanvasTexture(canvas)
   tex.wrapS = tex.wrapT = THREE.RepeatWrapping
   tex.repeat.set(2, 3)
+  cachedWoodTexture = tex
   return tex
+}
+
+// Instant synchronous 2D Canvas Text (no network font fetch, no suspense delay)
+const textTextureCache = new Map<string, THREE.CanvasTexture>()
+
+function getCachedTextTexture(
+  text: string,
+  color: string,
+  width: number,
+  height: number,
+  fontSize: number,
+  fontWeight = 'bold'
+): THREE.CanvasTexture {
+  const key = `${text}_${color}_${width}_${height}_${fontSize}_${fontWeight}`
+  const cached = textTextureCache.get(key)
+  if (cached) return cached
+
+  const canvas = document.createElement('canvas')
+  const scale = 512
+  canvas.width = Math.round(width * scale)
+  canvas.height = Math.round(height * scale)
+  const ctx = canvas.getContext('2d')
+  if (ctx) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.font = `${fontWeight} ${Math.round(fontSize * (scale / 100))}px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif`
+    ctx.fillStyle = color
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+    ctx.fillText(text, canvas.width / 2, canvas.height / 2)
+  }
+  const tex = new THREE.CanvasTexture(canvas)
+  tex.generateMipmaps = true
+  tex.minFilter = THREE.LinearMipmapLinearFilter
+  tex.magFilter = THREE.LinearFilter
+  tex.needsUpdate = true
+  textTextureCache.set(key, tex)
+  return tex
+}
+
+function CanvasTextPlane({
+  text,
+  color,
+  width = 0.8,
+  height = 0.2,
+  fontSize = 12,
+  fontWeight = 'bold',
+  position = [0, 0, 0] as [number, number, number],
+}: {
+  text: string
+  color: string
+  width?: number
+  height?: number
+  fontSize?: number
+  fontWeight?: string
+  position?: [number, number, number]
+}) {
+  const texture = React.useMemo(() => {
+    return getCachedTextTexture(text, color, width, height, fontSize, fontWeight)
+  }, [text, color, width, height, fontSize, fontWeight])
+
+  return (
+    <mesh position={position}>
+      <planeGeometry args={[width, height]} />
+      <meshBasicMaterial map={texture} transparent depthWrite={false} side={THREE.DoubleSide} />
+    </mesh>
+  )
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -220,10 +309,14 @@ function Padlock3D({ isUnlocked, onClick }: { isUnlocked: boolean; onClick: () =
 
       {/* Status label */}
       <group position={[0, -0.38, 0.12]}>
-        <Text fontSize={0.068} color={isUnlocked ? '#34d399' : (hovered ? '#38bdf8' : '#e0d0b8')}
-          anchorX="center" anchorY="middle" fontWeight="bold" letterSpacing={0.16}>
-          {isUnlocked ? 'UNLOCKED' : (hovered ? 'CLICK TO UNLOCK' : 'LOCKED')}
-        </Text>
+        <CanvasTextPlane
+          text={isUnlocked ? 'UNLOCKED' : (hovered ? 'CLICK TO UNLOCK' : 'LOCKED')}
+          color={isUnlocked ? '#34d399' : (hovered ? '#38bdf8' : '#e0d0b8')}
+          width={0.82}
+          height={0.16}
+          fontSize={11}
+          fontWeight="bold"
+        />
       </group>
     </group>
   )
@@ -294,8 +387,7 @@ function WallSconce({ position }: { position: [number, number, number] }) {
       </mesh>
 
       {/* Main point light */}
-      <pointLight ref={glowRef} position={[0, -0.04, 0.5]} color="#ffcc77" intensity={4.2} distance={5.8}
-        castShadow shadow-mapSize-width={256} shadow-mapSize-height={256} />
+      <pointLight ref={glowRef} position={[0, -0.04, 0.5]} color="#ffcc77" intensity={4.2} distance={5.8} />
 
       {/* Downward warm spill */}
       <pointLight ref={spillRef} position={[0, -0.9, 0.6]} color="#ff8828" intensity={2.5} distance={6.0} />
@@ -720,11 +812,15 @@ function Storefront3DModel({ isUnlocked, onUnlockClick }: { isUnlocked: boolean;
                 <boxGeometry args={[0.69, 0.022, 0.006]} />
                 <meshStandardMaterial color="#c8940c" metalness={0.92} roughness={0.18} />
               </mesh>
-              <Text position={[0, 0, 0.022]} fontSize={0.115}
+              <CanvasTextPlane
+                position={[0, 0, 0.022]}
+                text={isUnlocked ? 'OPEN' : 'CLOSE'}
                 color={isUnlocked ? '#34d399' : '#f5d060'}
-                anchorX="center" anchorY="middle" fontWeight="bold" letterSpacing={0.15}>
-                {isUnlocked ? 'OPEN' : 'CLOSE'}
-              </Text>
+                width={0.68}
+                height={0.24}
+                fontSize={16}
+                fontWeight="bold"
+              />
             </group>
 
             {/* INTERACTIVE PADLOCK */}
@@ -801,7 +897,12 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({ onUnlockClick,
       <div className="absolute inset-0 z-0">
         <Canvas
           shadows={{ type: THREE.PCFSoftShadowMap }}
-          gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.35 }}
+          gl={{
+            antialias: true,
+            toneMapping: THREE.ACESFilmicToneMapping,
+            toneMappingExposure: 1.35,
+            powerPreference: 'high-performance'
+          }}
           className="w-full h-full"
         >
           <StorefrontCameraRig isTransitioning={isTransitioning} />
@@ -816,8 +917,8 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({ onUnlockClick,
             intensity={1.85}
             color="#fff5e0"
             castShadow
-            shadow-mapSize-width={2048}
-            shadow-mapSize-height={2048}
+            shadow-mapSize-width={1024}
+            shadow-mapSize-height={1024}
             shadow-camera-left={-9}
             shadow-camera-right={9}
             shadow-camera-top={9}
@@ -831,7 +932,9 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({ onUnlockClick,
           {/* Ground bounce — very subtle warm */}
           <hemisphereLight args={['#ffe8b8', '#c89050', 0.65]} />
 
-          <Storefront3DModel isUnlocked={isUnlocked} onUnlockClick={handleUnlockTrigger} />
+          <React.Suspense fallback={null}>
+            <Storefront3DModel isUnlocked={isUnlocked} onUnlockClick={handleUnlockTrigger} />
+          </React.Suspense>
         </Canvas>
       </div>
 

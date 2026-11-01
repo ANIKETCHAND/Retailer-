@@ -251,29 +251,31 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
           }
         />
 
-        {/* Town Environment Infrastructure */}
-        <EnvironmentDecor timeOfDay={timeOfDay} stores={stores} />
+        <React.Suspense fallback={null}>
+          {/* Town Environment Infrastructure */}
+          <EnvironmentDecor timeOfDay={timeOfDay} stores={stores} />
 
-        {/* Dedicated Empty Construction Plot (Relocates to next vacant plot, never overlaps finished stores) */}
-        <ConstructPlot
-          position={[nextPlot.grid_x, 0, nextPlot.grid_z]}
-          plotNumber={nextPlot.plot_index + 1}
-          districtName={nextPlot.district_name}
-          onConstructClick={onConstructClick}
-        />
-
-        {/* Retail Store Buildings */}
-        {stores.map((store) => (
-          <StoreBuilding
-            key={store.id}
-            store={store}
-            isSelected={selectedStore?.id === store.id}
-            onClick={onStoreSelect}
-            onHover={onHoverStore}
-            timeOfDay={timeOfDay}
-            isConstructing={constructingStoreId === store.id}
+          {/* Dedicated Empty Construction Plot (Relocates to next vacant plot, never overlaps finished stores) */}
+          <ConstructPlot
+            position={[nextPlot.grid_x, 0, nextPlot.grid_z]}
+            plotNumber={nextPlot.plot_index + 1}
+            districtName={nextPlot.district_name}
+            onConstructClick={onConstructClick}
           />
-        ))}
+
+          {/* Retail Store Buildings */}
+          {stores.map((store) => (
+            <StoreBuilding
+              key={store.id}
+              store={store}
+              isSelected={selectedStore?.id === store.id}
+              onClick={onStoreSelect}
+              onHover={onHoverStore}
+              timeOfDay={timeOfDay}
+              isConstructing={constructingStoreId === store.id}
+            />
+          ))}
+        </React.Suspense>
       </Canvas>
     </div>
   )
