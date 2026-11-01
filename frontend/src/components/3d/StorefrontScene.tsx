@@ -298,7 +298,7 @@ function WallSconce({ position }: { position: [number, number, number] }) {
         castShadow shadow-mapSize-width={256} shadow-mapSize-height={256} />
 
       {/* Downward warm spill */}
-      <pointLight ref={spillRef} position={[0, -0.9, 0.6]} color="#ff8828" intensity={1.0} distance={4.0} />
+      <pointLight ref={spillRef} position={[0, -0.9, 0.6]} color="#ff8828" intensity={2.5} distance={6.0} />
     </group>
   )
 }
@@ -312,12 +312,12 @@ function DisplayWindow({ position, woodTex }: { position: [number, number, numbe
       {/* Outer stone/painted wood surround — top */}
       <mesh position={[0, 1.20, 0.04]} castShadow>
         <boxGeometry args={[3.06, 0.20, 0.26]} />
-        <meshStandardMaterial color="#181210" roughness={0.52} />
+        <meshStandardMaterial color="#383028" roughness={0.52} />
       </mesh>
       {/* Bottom sill (wider, projects forward) */}
       <mesh position={[0, -1.18, 0.06]} castShadow>
         <boxGeometry args={[3.06, 0.20, 0.38]} />
-        <meshStandardMaterial color="#181210" roughness={0.52} />
+        <meshStandardMaterial color="#383028" roughness={0.52} />
       </mesh>
       {/* Sill drip nose */}
       <mesh position={[0, -1.30, 0.18]} castShadow>
@@ -327,18 +327,18 @@ function DisplayWindow({ position, woodTex }: { position: [number, number, numbe
       {/* Left jamb */}
       <mesh position={[-1.44, 0.02, 0.04]} castShadow>
         <boxGeometry args={[0.18, 2.26, 0.26]} />
-        <meshStandardMaterial color="#181210" roughness={0.52} />
+        <meshStandardMaterial color="#383028" roughness={0.52} />
       </mesh>
       {/* Right jamb */}
       <mesh position={[1.44, 0.02, 0.04]} castShadow>
         <boxGeometry args={[0.18, 2.26, 0.26]} />
-        <meshStandardMaterial color="#181210" roughness={0.52} />
+        <meshStandardMaterial color="#383028" roughness={0.52} />
       </mesh>
 
       {/* Inner rebate — deep reveal */}
       <mesh position={[0, 0.02, -0.02]}>
         <boxGeometry args={[2.70, 2.12, 0.08]} />
-        <meshStandardMaterial color="#0e0a08" roughness={0.62} />
+        <meshStandardMaterial color="#383028" roughness={0.52} />
       </mesh>
 
       {/* Glass pane — physically based */}
@@ -528,30 +528,30 @@ function Storefront3DModel({ isUnlocked, onUnlockClick }: { isUnlocked: boolean;
       {/* ── LOWER WAINSCOT PANELING ───────────────────────────────────── */}
       <mesh position={[0, -1.04, 0.06]} castShadow receiveShadow>
         <boxGeometry args={[9.4, 1.76, 0.20]} />
-        <meshStandardMaterial map={woodTex} color="#3a1004" roughness={0.50} />
+        <meshStandardMaterial map={woodTex} color="#7a3820" roughness={0.50} />
       </mesh>
       {/* Top capping rail */}
       <mesh position={[0, -0.13, 0.12]} castShadow>
         <boxGeometry args={[9.5, 0.12, 0.26]} />
-        <meshStandardMaterial color="#180902" roughness={0.44} />
+        <meshStandardMaterial color="#3c2010" roughness={0.44} />
       </mesh>
       {/* Bottom baseboard */}
       <mesh position={[0, -1.93, 0.12]} castShadow>
         <boxGeometry args={[9.5, 0.16, 0.26]} />
-        <meshStandardMaterial color="#180902" roughness={0.44} />
+        <meshStandardMaterial color="#3c2010" roughness={0.44} />
       </mesh>
       {/* Vertical relief slats */}
       {[-4.2, -3.2, -2.2, -1.2, 1.2, 2.2, 3.2, 4.2].map((x, i) => (
         <mesh key={i} position={[x, -1.04, 0.18]} castShadow>
           <boxGeometry args={[0.058, 1.64, 0.045]} />
-          <meshStandardMaterial color="#260c01" roughness={0.40} />
+          <meshStandardMaterial color="#4a2208" roughness={0.40} />
         </mesh>
       ))}
 
       {/* ── UPPER HEADER FASCIA ──────────────────────────────────────── */}
       <mesh position={[0, 2.74, 0.24]} castShadow receiveShadow>
         <boxGeometry args={[9.8, 0.96, 0.48]} />
-        <meshStandardMaterial color="#1c1410" roughness={0.44} />
+        <meshStandardMaterial color="#2e2018" roughness={0.44} />
       </mesh>
       {/* Gold accent reveal strip */}
       <mesh position={[0, 2.27, 0.28]} castShadow>
@@ -569,17 +569,17 @@ function Storefront3DModel({ isUnlocked, onUnlockClick }: { isUnlocked: boolean;
         {/* Door frame — top architrave */}
         <mesh position={[0, 1.98, 0.12]} castShadow>
           <boxGeometry args={[1.90, 0.22, 0.32]} />
-          <meshStandardMaterial color="#1a1210" roughness={0.48} />
+          <meshStandardMaterial color="#302820" roughness={0.48} />
         </mesh>
         {/* Left jamb */}
         <mesh position={[-0.90, 0.78, 0.12]} castShadow>
           <boxGeometry args={[0.20, 2.44, 0.32]} />
-          <meshStandardMaterial color="#1a1210" roughness={0.48} />
+          <meshStandardMaterial color="#302820" roughness={0.48} />
         </mesh>
         {/* Right jamb */}
         <mesh position={[0.90, 0.78, 0.12]} castShadow>
           <boxGeometry args={[0.20, 2.44, 0.32]} />
-          <meshStandardMaterial color="#1a1210" roughness={0.48} />
+          <meshStandardMaterial color="#302820" roughness={0.48} />
         </mesh>
 
         {/* Fanlight transom frame */}
@@ -608,7 +608,7 @@ function Storefront3DModel({ isUnlocked, onUnlockClick }: { isUnlocked: boolean;
             {/* Door leaf */}
             <mesh castShadow receiveShadow>
               <boxGeometry args={[1.44, 3.86, 0.13]} />
-              <meshStandardMaterial map={woodTex} color="#3c1404" roughness={0.44} />
+              <meshStandardMaterial color="#5c3820" roughness={0.44} />
             </mesh>
 
             {/* Raised upper panel (glazed) — outer molding */}
@@ -744,9 +744,21 @@ function Storefront3DModel({ isUnlocked, onUnlockClick }: { isUnlocked: boolean;
       {/* ── INTERIOR AMBIENT ─────────────────────────────────────────── */}
       <mesh position={[0, 0.60, -2.0]}>
         <planeGeometry args={[10.0, 5.8]} />
-        <meshStandardMaterial color="#260c02" roughness={0.96} emissive="#3a1808" emissiveIntensity={0.20} />
+        <meshStandardMaterial color="#4a1e08" roughness={0.96} emissive="#603010" emissiveIntensity={0.35} />
       </mesh>
       <pointLight position={[0, 1.0, -1.6]} color="#ff8828" intensity={5.5} distance={10} />
+
+      {/* ── LOWER ZONE FILL LIGHTS (brighten wainscot + forecourt) ─── */}
+      {/* Wide warm fill sweeping across the entire lower panel */}
+      <pointLight position={[0, -0.8, 2.2]} color="#ffcc88" intensity={6.0} distance={9.0} />
+      {/* Left lower fill */}
+      <pointLight position={[-3.5, -1.2, 1.8]} color="#ffaa55" intensity={3.5} distance={6.0} />
+      {/* Right lower fill */}
+      <pointLight position={[3.5, -1.2, 1.8]} color="#ffaa55" intensity={3.5} distance={6.0} />
+      {/* Ground forecourt up-light */}
+      <pointLight position={[0, -2.0, 2.0]} color="#ffd080" intensity={4.0} distance={7.0} />
+      {/* Center façade wash — broad soft forward light */}
+      <pointLight position={[0, 0.5, 3.5]} color="#fff4d8" intensity={2.5} distance={12.0} />
     </group>
   )
 }
@@ -784,24 +796,24 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({ onUnlockClick,
   }
 
   return (
-    <div className="relative w-full h-full bg-[#0a0806] overflow-hidden select-none">
+    <div className="relative w-full h-full bg-[#1a0e06] overflow-hidden select-none">
       {/* 3D Canvas */}
       <div className="absolute inset-0 z-0">
         <Canvas
           shadows={{ type: THREE.PCFSoftShadowMap }}
-          gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 0.92 }}
+          gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.35 }}
           className="w-full h-full"
         >
           <StorefrontCameraRig isTransitioning={isTransitioning} />
-          <color attach="background" args={['#0a0806']} />
+          <color attach="background" args={['#1a0e06']} />
 
           {/* Base ambient — very dark, warm */}
-          <ambientLight intensity={0.22} color="#8a6040" />
+          <ambientLight intensity={0.72} color="#ffe8c8" />
 
           {/* Key sunlight — warm gold from upper-right */}
           <directionalLight
             position={[5, 10, 8]}
-            intensity={1.10}
+            intensity={1.85}
             color="#fff5e0"
             castShadow
             shadow-mapSize-width={2048}
@@ -814,10 +826,10 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({ onUnlockClick,
           />
 
           {/* Cool blue sky fill from left */}
-          <directionalLight position={[-7, 5, 4]} intensity={0.16} color="#90b8d8" />
+          <directionalLight position={[-7, 5, 4]} intensity={0.55} color="#c8dcf0" />
 
           {/* Ground bounce — very subtle warm */}
-          <hemisphereLight args={['#2d1a08', '#060402', 0.18]} />
+          <hemisphereLight args={['#ffe8b8', '#c89050', 0.65]} />
 
           <Storefront3DModel isUnlocked={isUnlocked} onUnlockClick={handleUnlockTrigger} />
         </Canvas>
