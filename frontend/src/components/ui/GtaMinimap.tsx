@@ -22,6 +22,7 @@ import {
   Sparkles
 } from 'lucide-react'
 import type { Store } from '../../types'
+import { findNextAvailablePlot } from '../../api/client'
 
 interface GtaMinimapProps {
   stores: Store[]
@@ -284,9 +285,10 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
               fill="#334155"
             />
 
-            {/* CONSTRUCT STORE LOT BLIP (x = 13.0, z = -6.0) */}
+            {/* CONSTRUCT STORE LOT BLIP (Next vacant plot) */}
             {(() => {
-              const cPos = worldToMap(13.0, -6.0)
+              const nextPlot = findNextAvailablePlot(stores)
+              const cPos = worldToMap(nextPlot.x, nextPlot.z)
               const isHovered = hoveredBlip?.id === 'construct'
 
               return (

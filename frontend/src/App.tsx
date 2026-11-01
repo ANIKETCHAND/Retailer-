@@ -8,7 +8,7 @@
  */
 
 import React, { useEffect, useState } from 'react'
-import { storeApi } from './api/client'
+import { storeApi, findNextAvailablePlot } from './api/client'
 import { StorefrontScene } from './components/3d/StorefrontScene'
 import { MarketplaceScene } from './components/3d/MarketplaceScene'
 import { LockOverlay } from './components/ui/LockOverlay'
@@ -149,7 +149,8 @@ export const App: React.FC = () => {
             stores={stores}
             selectedStore={selectedStore}
             onOpenConstruct={() => {
-              setCameraTarget([13.0, 0, -6.0]) // Fly to construct plot on empty land
+              const nextPlot = findNextAvailablePlot(stores)
+              setCameraTarget([nextPlot.x, 0, nextPlot.z])
               setIsConstructOpen(true)
             }}
             onResetCamera={handleResetCamera}
@@ -185,7 +186,8 @@ export const App: React.FC = () => {
             selectedStore={selectedStore}
             onSelectStore={handleStoreSelect}
             onOpenConstruct={() => {
-              setCameraTarget([13.0, 0, -6.0])
+              const nextPlot = findNextAvailablePlot(stores)
+              setCameraTarget([nextPlot.x, 0, nextPlot.z])
               setIsConstructOpen(true)
             }}
             onResetCamera={handleResetCamera}

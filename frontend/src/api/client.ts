@@ -241,11 +241,11 @@ export const PLANNED_BUILDING_PLOTS: Array<{ x: number; z: number }> = [
 ]
 
 export function findNextAvailablePlot(existingStores: Store[]): { x: number; z: number } {
-  const occupied = new Set(
-    existingStores.map(s => `${Math.round(s.grid_x)},${Math.round(s.grid_z)}`)
-  )
   for (const plot of PLANNED_BUILDING_PLOTS) {
-    if (!occupied.has(`${Math.round(plot.x)},${Math.round(plot.z)}`)) {
+    const isOccupied = existingStores.some(
+      s => Math.hypot((s.grid_x ?? 0) - plot.x, (s.grid_z ?? 0) - plot.z) < 3.0
+    )
+    if (!isOccupied) {
       return plot
     }
   }

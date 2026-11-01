@@ -16,6 +16,7 @@ import { ConstructPlot } from './ConstructPlot'
 import { DriftingClouds } from './DriftingClouds'
 import { EnvironmentDecor } from './EnvironmentDecor'
 import { StoreBuilding } from './StoreBuilding'
+import { findNextAvailablePlot } from '../../api/client'
 
 interface MarketplaceSceneProps {
   stores: Store[]
@@ -157,6 +158,10 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
   constructingStoreId
 }) => {
   const isNight = timeOfDay === 'night'
+  const nextPlot = findNextAvailablePlot(stores)
+  const isPlotOccupied = stores.some(
+    s => Math.hypot((s.grid_x ?? 0) - nextPlot.x, (s.grid_z ?? 0) - nextPlot.z) < 2.5
+  )
 
   // Shadow map resolution based on quality tier
   const shadowResolution = (() => {
@@ -249,11 +254,13 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
         {/* Town Environment Infrastructure */}
         <EnvironmentDecor timeOfDay={timeOfDay} />
 
-        {/* Dedicated Empty Construction Plot (Shifted onto East Empty Land Parcel) */}
-        <ConstructPlot
-          position={[13.0, 0, -6.0]}
-          onConstructClick={onConstructClick}
-        />
+        {/* Dedicated Empty Construction Plot (Relocates to next vacant plot, never overlaps finished stores) */}
+        {!isPlotOccupied && (
+          <ConstructPlot
+            position={[nextPlot.x, 0, nextPlot.z]}
+            onConstructClick={onConstructClick}
+          />
+        )}
 
         {/* Retail Store Buildings */}
         {stores.map((store) => (

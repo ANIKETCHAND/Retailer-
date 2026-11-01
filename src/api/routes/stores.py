@@ -73,13 +73,17 @@ class ForecastRequest(BaseModel):
 
 def find_available_plot(db: Session) -> tuple:
     """Finds first unoccupied 3D grid coordinate in the marketplace."""
-    existing_coords = {(round(s.grid_x, 1), round(s.grid_z, 1)) for s in db.query(Store).all()}
+    stores = db.query(Store).all()
     for x, z in CANDIDATE_PLOTS:
-        if (round(x, 1), round(z, 1)) not in existing_coords:
+        is_occupied = any(
+            ((s.grid_x - x) ** 2 + (s.grid_z - z) ** 2) ** 0.5 < 3.0
+            for s in stores
+        )
+        if not is_occupied:
             return x, z
-    # Fallback offset
-    count = db.query(Store).count()
-    return float(count * 5.0), 12.0
+    # Safe outer perimeter fallback offset
+    count = len(stores)
+    return 16.0 + (count * 3.5), -6.0
 
 
 def load_store_dataframe(store: Store):
