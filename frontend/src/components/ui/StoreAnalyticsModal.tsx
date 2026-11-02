@@ -17,6 +17,7 @@ import {
   Maximize2, Minimize2
 } from 'lucide-react'
 import { storeApi } from '../../api/client'
+import { downloadExecutivePdf, downloadStoreCsv } from '../../lib/reportGenerator'
 import type { Store, StoreAnalyticsBundle, StoreForecastResponse } from '../../types'
 import { cartoonTextStyle, pillShineStyle } from './GamePillButtons'
 
@@ -62,6 +63,34 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
   const [forecastHorizon, setForecastHorizon] = useState<number>(30)
   const [forecastData, setForecastData] = useState<StoreForecastResponse | null>(null)
   const [isForecastLoading, setIsForecastLoading] = useState(false)
+
+  // Report generation state
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false)
+  const [isExportingCsv, setIsExportingCsv] = useState(false)
+
+  const handleDownloadPdf = async () => {
+    if (!store) return
+    setIsGeneratingPdf(true)
+    try {
+      await downloadExecutivePdf(store, analytics)
+    } catch (err) {
+      console.error('Failed to generate PDF report:', err)
+    } finally {
+      setIsGeneratingPdf(false)
+    }
+  }
+
+  const handleDownloadCsv = async () => {
+    if (!store) return
+    setIsExportingCsv(true)
+    try {
+      await downloadStoreCsv(store, analytics)
+    } catch (err) {
+      console.error('Failed to export store CSV:', err)
+    } finally {
+      setIsExportingCsv(false)
+    }
+  }
 
   useEffect(() => {
     if (store && isOpen) {
@@ -671,11 +700,11 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                           Generates a publication-grade multi-page ReportLab PDF containing executive KPI cards, monthly momentum tables, category shares, top 10 products with Pareto cumulative contributions, regional breakdowns, and automated analytical takeaways.
                         </p>
                       </div>
-                      <a
-                        href={storeApi.getPdfReportUrl(store.id)}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="relative w-full py-3 px-4 rounded-full font-black text-xs flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 active:scale-95 overflow-hidden text-white"
+                      <button
+                        type="button"
+                        onClick={handleDownloadPdf}
+                        disabled={isGeneratingPdf}
+                        className="relative w-full py-3 px-4 rounded-full font-black text-xs flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 active:scale-95 overflow-hidden text-white shadow-lg"
                         style={{
                           background: 'linear-gradient(180deg, #38bdf8 0%, #0ea5e9 40%, #0284c7 75%, #0369a1 100%)',
                           border: '3px solid #ffffff',
@@ -685,8 +714,8 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                       >
                         <div style={pillShineStyle} />
                         <Download className="w-4 h-4 flex-shrink-0" />
-                        <span>Download Boardroom PDF Report</span>
-                      </a>
+                        <span>{isGeneratingPdf ? 'Generating Boardroom PDF…' : 'Download Boardroom PDF Report'}</span>
+                      </button>
                     </div>
 
                     <div className="p-6 flex flex-col justify-between space-y-4" style={gameCardStyle}>
@@ -699,10 +728,11 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                           Download the complete clean CSV dataset assigned to this store for downstream modeling, Excel pivot tables, or external business intelligence integration.
                         </p>
                       </div>
-                      <a
-                        href={storeApi.getCsvDataUrl(store.id)}
-                        download
-                        className="relative w-full py-3 px-4 rounded-full font-black text-xs flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 active:scale-95 overflow-hidden text-white"
+                      <button
+                        type="button"
+                        onClick={handleDownloadCsv}
+                        disabled={isExportingCsv}
+                        className="relative w-full py-3 px-4 rounded-full font-black text-xs flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 active:scale-95 overflow-hidden text-white shadow-lg"
                         style={{
                           background: 'linear-gradient(180deg, #10b981 0%, #059669 40%, #047857 100%)',
                           border: '3px solid #ffffff',
@@ -712,8 +742,8 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                       >
                         <div style={pillShineStyle} />
                         <Download className="w-4 h-4 text-white flex-shrink-0" />
-                        <span>Export Store Dataset CSV</span>
-                      </a>
+                        <span>{isExportingCsv ? 'Exporting CSV Dataset…' : 'Export Store Dataset CSV'}</span>
+                      </button>
                     </div>
                   </div>
                 )}
