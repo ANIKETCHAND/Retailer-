@@ -129,7 +129,18 @@ function getCachedTextTexture(
   const ctx = canvas.getContext('2d')
   if (ctx) {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
-    ctx.font = `${fontWeight} ${Math.round(fontSize * (scale / 100))}px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif`
+    let currentFontSize = Math.round(fontSize * (scale / 100))
+    ctx.font = `${fontWeight} ${currentFontSize}px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif`
+
+    // Auto-fit check: ensure text never clips on canvas borders (guarantees C and K are fully visible)
+    const padding = 28
+    const maxAvailableWidth = canvas.width - padding
+    const measuredWidth = ctx.measureText(text).width
+    if (measuredWidth > maxAvailableWidth && measuredWidth > 0) {
+      currentFontSize = Math.floor(currentFontSize * (maxAvailableWidth / measuredWidth))
+      ctx.font = `${fontWeight} ${currentFontSize}px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif`
+    }
+
     ctx.fillStyle = color
     ctx.textAlign = 'center'
     ctx.textBaseline = 'middle'
@@ -311,9 +322,9 @@ function Padlock3D({ isUnlocked, onClick }: { isUnlocked: boolean; onClick: () =
         <CanvasTextPlane
           text={isUnlocked ? 'UNLOCKED' : (hovered ? 'CLICK TO UNLOCK' : 'LOCKED')}
           color={isUnlocked ? '#34d399' : (hovered ? '#38bdf8' : '#e0d0b8')}
-          width={0.82}
-          height={0.16}
-          fontSize={11}
+          width={1.25}
+          height={0.18}
+          fontSize={10}
           fontWeight="bold"
         />
       </group>
