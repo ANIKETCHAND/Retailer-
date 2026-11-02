@@ -13,7 +13,7 @@ import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   X, TrendingUp, ShoppingBag, Users, DollarSign, Package,
-  MapPin, Download, BrainCircuit,
+  MapPin, BrainCircuit,
   Maximize2, Minimize2
 } from 'lucide-react'
 import { storeApi } from '../../api/client'
@@ -53,7 +53,7 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
   isOpen,
   onClose
 }) => {
-  const [activeTab, setActiveTab] = useState<'overview' | 'products' | 'customers' | 'forecast' | 'reports'>('overview')
+  const [activeTab, setActiveTab] = useState<'overview' | 'products' | 'customers' | 'forecast'>('overview')
   const [analytics, setAnalytics] = useState<StoreAnalyticsBundle | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [isFullScreen, setIsFullScreen] = useState(false)
@@ -201,7 +201,6 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
               { id: 'products', label: 'Products & SKUs', icon: Package },
               { id: 'customers', label: 'Customer Retention', icon: Users },
               { id: 'forecast', label: 'ML Sales Forecast', icon: BrainCircuit },
-              { id: 'reports', label: 'Reports & Exports', icon: Download },
             ].map((tab) => {
               const Icon = tab.icon
               const active = activeTab === tab.id
@@ -655,66 +654,6 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                         </div>
                       </div>
                     ) : null}
-                  </div>
-                )}
-
-                {/* TAB 5: REPORTS & EXPORTS */}
-                {activeTab === 'reports' && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="p-6 flex flex-col justify-between space-y-4" style={gameCardStyle}>
-                      <div>
-                        <div className="p-3 w-fit rounded-2xl bg-white/20 border-2 border-white text-white mb-3 shadow-md">
-                          <Download className="w-6 h-6 text-yellow-300" />
-                        </div>
-                        <h3 className="text-base font-black text-white tracking-tight">Executive PDF Analytics Report</h3>
-                        <p className="text-xs text-sky-100 mt-1 leading-relaxed font-medium">
-                          Generates a publication-grade multi-page ReportLab PDF containing executive KPI cards, monthly momentum tables, category shares, top 10 products with Pareto cumulative contributions, regional breakdowns, and automated analytical takeaways.
-                        </p>
-                      </div>
-                      <a
-                        href={storeApi.getPdfReportUrl(store.id)}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="relative w-full py-3 px-4 rounded-full font-black text-xs flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 active:scale-95 overflow-hidden text-white"
-                        style={{
-                          background: 'linear-gradient(180deg, #38bdf8 0%, #0ea5e9 40%, #0284c7 75%, #0369a1 100%)',
-                          border: '3px solid #ffffff',
-                          boxShadow: '0 6px 20px rgba(2, 132, 199, 0.65), inset 0 2px 4px rgba(255, 255, 255, 0.8)',
-                          textShadow: '0 1px 2px rgba(0, 0, 0, 0.6)',
-                        }}
-                      >
-                        <div style={pillShineStyle} />
-                        <Download className="w-4 h-4 flex-shrink-0" />
-                        <span>Download Boardroom PDF Report</span>
-                      </a>
-                    </div>
-
-                    <div className="p-6 flex flex-col justify-between space-y-4" style={gameCardStyle}>
-                      <div>
-                        <div className="p-3 w-fit rounded-2xl bg-white/20 border-2 border-white text-white mb-3 shadow-md">
-                          <Package className="w-6 h-6 text-emerald-300" />
-                        </div>
-                        <h3 className="text-base font-black text-white tracking-tight">Store Transactions CSV Export</h3>
-                        <p className="text-xs text-sky-100 mt-1 leading-relaxed font-medium">
-                          Download the complete clean CSV dataset assigned to this store for downstream modeling, Excel pivot tables, or external business intelligence integration.
-                        </p>
-                      </div>
-                      <a
-                        href={storeApi.getCsvDataUrl(store.id)}
-                        download
-                        className="relative w-full py-3 px-4 rounded-full font-black text-xs flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 active:scale-95 overflow-hidden text-white"
-                        style={{
-                          background: 'linear-gradient(180deg, #10b981 0%, #059669 40%, #047857 100%)',
-                          border: '3px solid #ffffff',
-                          boxShadow: '0 6px 20px rgba(5, 150, 105, 0.55), inset 0 2px 4px rgba(255, 255, 255, 0.8)',
-                          textShadow: '0 1px 2px rgba(0, 0, 0, 0.6)',
-                        }}
-                      >
-                        <div style={pillShineStyle} />
-                        <Download className="w-4 h-4 text-white flex-shrink-0" />
-                        <span>Export Store Dataset CSV</span>
-                      </a>
-                    </div>
                   </div>
                 )}
               </>
