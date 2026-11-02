@@ -55,10 +55,12 @@ function SmoothMarketplaceCamera({
       const [tx, ty, tz] = cameraTarget
       const isOverview = tx === 0 && ty === 0 && tz === 0
 
+      // Dynamic tilt: Zoom in closer and lower (28° street-level view) for stores,
+      // and higher (45° RTS overview) for city overview
       activeTargetRef.current = new THREE.Vector3(tx, ty + (isOverview ? 0 : 1.2), tz)
       activePosRef.current = isOverview
         ? new THREE.Vector3(26, 32, 28)
-        : new THREE.Vector3(tx + 5.5, ty + 7.5, tz + 8.5)
+        : new THREE.Vector3(tx + 4.5, ty + 4.8, tz + 6.8)
 
       isTransitioningRef.current = true
     } else {
@@ -188,7 +190,7 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
         }}
         onCreated={({ gl }) => {
           gl.toneMapping = THREE.ACESFilmicToneMapping
-          gl.toneMappingExposure = isNight ? 1.1 : 1.05
+          gl.toneMappingExposure = 1.1
           gl.shadowMap.enabled = graphicsQuality !== 'low'
           gl.shadowMap.type = THREE.PCFSoftShadowMap
         }}
@@ -222,33 +224,35 @@ export const MarketplaceScene: React.FC<MarketplaceSceneProps> = ({
           <DriftingClouds />
         )}
 
-        {/* Ambient Illumination */}
-        <ambientLight
-          intensity={isNight ? 0.26 : 0.7}
-          color={isNight ? '#1e293b' : '#ffffff'}
-        />
-
-        {/* Directional Sunlight / Moonlight */}
-        <directionalLight
-          position={isNight ? [35, 55, -25] : [45, 60, 35]}
-          intensity={isNight ? 0.4 : 1.25}
-          color={isNight ? '#93c5fd' : '#fffbf0'}
-          castShadow={graphicsQuality !== 'low'}
-          shadow-mapSize={[shadowResolution, shadowResolution]}
-          shadow-camera-left={-85}
-          shadow-camera-right={85}
-          shadow-camera-top={85}
-          shadow-camera-bottom={-85}
-          shadow-bias={-0.0001}
-        />
-
-        {/* Soft Sky & Ground Bounce Light */}
+        {/* Sky/Ground Hemisphere Light - Rich Ambient Color Balance */}
         <hemisphereLight
           args={
             isNight
-              ? ['#1e1b4b', '#0f172a', 0.2]
-              : ['#bae6fd', '#bbf7d0', 0.35]
+              ? ['#1e1b4b', '#0f172a', 0.3]
+              : ['#ddeeff', '#3d4e38', 0.7]
           }
+        />
+
+        {/* Directional "Sun" Light with Soft PCF Shadows */}
+        <directionalLight
+          position={isNight ? [35, 55, -25] : [40, 60, 30]}
+          intensity={isNight ? 0.45 : 1.4}
+          color={isNight ? '#93c5fd' : '#fff5e6'}
+          castShadow={graphicsQuality !== 'low'}
+          shadow-mapSize={[shadowResolution, shadowResolution]}
+          shadow-camera-near={0.5}
+          shadow-camera-far={150}
+          shadow-camera-left={-75}
+          shadow-camera-right={75}
+          shadow-camera-top={75}
+          shadow-camera-bottom={-75}
+          shadow-bias={-0.0005}
+        />
+
+        {/* Subtle Ambient Fill Light */}
+        <ambientLight
+          intensity={isNight ? 0.18 : 0.35}
+          color={isNight ? '#1e293b' : '#ffffff'}
         />
 
         <React.Suspense fallback={null}>

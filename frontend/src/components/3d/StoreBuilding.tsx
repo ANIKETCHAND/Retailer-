@@ -13,12 +13,85 @@
  * Supports Dynamic Day & Night lighting transitions!
  */
 
-import React, { useMemo, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Text } from '@react-three/drei'
 import * as THREE from 'three'
 import type { Store, TimeOfDay } from '../../types'
 import { createMarbleTexture, createWoodDeckTexture } from './textures'
+
+// -------------------------------------------------------------
+// DAMPED HARMONIC SPRING PHYSICS OSCILLATOR
+// Provides juicy squash-and-stretch on spawn, click, & hover
+// -------------------------------------------------------------
+export class SpringPhysics {
+  value: number
+  target: number
+  velocity: number = 0.0
+  stiffness: number
+  damping: number
+
+  constructor(initial = 0.05, target = 1.0, stiffness = 180.0, damping = 12.0) {
+    this.value = initial
+    this.target = target
+    this.stiffness = stiffness
+    this.damping = damping
+  }
+
+  update(dt: number) {
+    const force = -this.stiffness * (this.value - this.target) - this.damping * this.velocity
+    this.velocity += force * dt
+    this.value += this.velocity * dt
+    return this.value
+  }
+
+  punch(impulse = 5.0) {
+    this.velocity += impulse
+  }
+
+  reset(val = 0.05) {
+    this.value = val
+    this.velocity = 0.0
+  }
+}
+
+// -------------------------------------------------------------
+// FOUNTAIN WATER PARTICLES & SPLASH
+// -------------------------------------------------------------
+function FountainParticles({ isNight }: { isNight: boolean }) {
+  const dropsRef = useRef<THREE.Group>(null)
+  useFrame((state) => {
+    if (!dropsRef.current) return
+    const t = state.clock.getElapsedTime()
+    dropsRef.current.children.forEach((child, i) => {
+      const phase = (t * 2.8 + i * 1.04) % 1.0
+      // Parabolic upward arc and gravity drop
+      child.position.y = 0.2 + Math.sin(phase * Math.PI) * 0.42
+      const spread = 0.12 * Math.sin(phase * Math.PI)
+      const angle = (i * Math.PI * 2) / 6
+      child.position.x = Math.cos(angle) * spread
+      child.position.z = Math.sin(angle) * spread
+      child.scale.setScalar(0.7 + Math.sin(phase * Math.PI) * 0.3)
+    })
+  })
+
+  return (
+    <group ref={dropsRef} position={[0, 0.4, 0]}>
+      {Array.from({ length: 6 }).map((_, i) => (
+        <mesh key={i} position={[0, 0.2, 0]}>
+          <sphereGeometry args={[0.035, 8, 8]} />
+          <meshStandardMaterial
+            color="#bae6fd"
+            emissive="#38bdf8"
+            emissiveIntensity={isNight ? 1.5 : 0.8}
+            roughness={0.1}
+            metalness={0.8}
+          />
+        </mesh>
+      ))}
+    </group>
+  )
+}
 
 interface StoreBuildingProps {
   store: Store
@@ -53,9 +126,9 @@ function ElectronicsStore({ hovered, isSelected, isNight }: { hovered: boolean; 
         <meshPhysicalMaterial
           color={isNight ? '#38bdf8' : '#1e293b'}
           transparent
-          opacity={0.85}
-          roughness={0.08}
-          metalness={0.2}
+          opacity={0.88}
+          roughness={0.1}
+          metalness={0.8}
         />
       </mesh>
       <mesh position={[1.0, 1.25, 1.42]}>
@@ -63,9 +136,9 @@ function ElectronicsStore({ hovered, isSelected, isNight }: { hovered: boolean; 
         <meshPhysicalMaterial
           color={isNight ? '#38bdf8' : '#1e293b'}
           transparent
-          opacity={0.85}
-          roughness={0.08}
-          metalness={0.2}
+          opacity={0.88}
+          roughness={0.1}
+          metalness={0.8}
         />
       </mesh>
 
@@ -212,10 +285,11 @@ function GroceryStore({ hovered, isSelected, isNight }: { hovered: boolean; isSe
       <mesh position={[-0.9, 1.25, 1.42]}>
         <boxGeometry args={[1.6, 1.6, 0.04]} />
         <meshPhysicalMaterial
-          color={isNight ? '#fef08a' : '#bae6fd'}
+          color={isNight ? '#fef08a' : '#0284c7'}
           transparent
-          opacity={isNight ? 0.85 : 0.4}
-          roughness={0.05}
+          opacity={0.85}
+          roughness={0.1}
+          metalness={0.8}
         />
       </mesh>
 
@@ -542,18 +616,28 @@ function AccessoriesStore({ hovered, isSelected, isNight }: { hovered: boolean; 
         </mesh>
         <mesh position={[0, 0.1, 0]}>
           <cylinderGeometry args={[0.78, 0.78, 0.05, 24]} />
-          <meshPhysicalMaterial color="#06b6d4" transparent opacity={0.8} roughness={0.1} />
+          <meshPhysicalMaterial
+            color="#06b6d4"
+            transparent
+            opacity={0.85}
+            roughness={0.08}
+            metalness={0.85}
+          />
         </mesh>
         <mesh ref={fountainWaterRef} position={[0, 0.55, 0]}>
           <coneGeometry args={[0.22, 0.5, 12]} />
           <meshStandardMaterial
             color="#38bdf8"
             emissive="#38bdf8"
-            emissiveIntensity={isNight ? 1.2 : 0.6}
+            emissiveIntensity={isNight ? 1.4 : 0.8}
             transparent
             opacity={0.85}
+            roughness={0.08}
+            metalness={0.85}
           />
         </mesh>
+        {/* Animated splashing fountain droplets */}
+        <FountainParticles isNight={isNight} />
       </group>
 
       {isNight && (
@@ -653,22 +737,42 @@ export const StoreBuilding: React.FC<StoreBuildingProps> = ({
   const [hovered, setHovered] = useState(false)
   const groupRef = useRef<THREE.Group>(null)
   const pinRef = useRef<THREE.Group>(null)
+  const springRef = useRef<SpringPhysics | null>(null)
+
+  if (!springRef.current) {
+    springRef.current = new SpringPhysics(0.15, 1.0, 180.0, 12.0)
+  }
 
   const isNight = timeOfDay === 'night'
   const primaryColor = store.color || '#3B82F6'
 
-  useFrame((state) => {
-    if (!groupRef.current) return
-    // Smooth hover elevation and gentle bounce
-    const targetScale = hovered || isSelected ? 1.04 : 1.0
-    const targetY = hovered ? 0.2 : 0.0
+  // Trigger juicy spring bounce when selected or finished constructing
+  useEffect(() => {
+    springRef.current?.punch(3.5)
+  }, [isSelected, isConstructing])
 
-    groupRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.12)
+  useFrame((state, delta) => {
+    if (!groupRef.current || !springRef.current) return
+    const dt = Math.min(delta, 0.05)
+    const springVal = springRef.current.update(dt)
+
+    // Smooth hover elevation
+    const targetY = hovered ? 0.2 : 0.0
     groupRef.current.position.y = THREE.MathUtils.lerp(groupRef.current.position.y, targetY, 0.12)
 
-    // Gentle float for world pin
+    // Damped harmonic squash-and-stretch:
+    // When springVal compresses or expands Y, stretch/compress XZ inversely
+    const targetBaseScale = hovered || isSelected ? 1.05 : 1.0
+    const currentScaleY = Math.max(0.1, springVal) * targetBaseScale
+    const currentScaleXZ = Math.max(0.5, (1.0 + (1.0 - Math.min(springVal, 1.4)) * 0.4)) * targetBaseScale
+    groupRef.current.scale.set(currentScaleXZ, currentScaleY, currentScaleXZ)
+
+    // Floating store holograms: sine bobbing (±0.15) & subtle tilt toward camera
     if (pinRef.current) {
-      pinRef.current.position.y = 5.2 + Math.sin(state.clock.getElapsedTime() * 2.5) * 0.06
+      const t = state.clock.getElapsedTime()
+      const offset = (store.grid_x || 0) * 0.35 + (store.grid_z || 0) * 0.25
+      pinRef.current.position.y = 5.25 + Math.sin(t * 2.5 + offset) * 0.15
+      pinRef.current.rotation.x = hovered ? -0.12 : -0.05
     }
   })
 
@@ -724,6 +828,7 @@ export const StoreBuilding: React.FC<StoreBuildingProps> = ({
       rotation={[0, store.rotation_y || 0, 0]}
       onClick={(e) => {
         e.stopPropagation()
+        springRef.current?.punch(5.0)
         onClick(store)
       }}
       onPointerOver={(e) => {

@@ -28,9 +28,34 @@ interface EnvironmentDecorProps {
 }
 
 // -------------------------------------------------------------
-// 1. ANIMATED LIVING TRAFFIC VEHICLE
+// 1. ANIMATED LIVING TRAFFIC VEHICLE WITH SUSPENSION & BRAKING PHYSICS
 // -------------------------------------------------------------
 type VehicleType = 'sedan' | 'taxi' | 'sports' | 'van' | 'bus' | 'truck'
+
+class TrafficVehiclePhysics {
+  speed: number = 0.0
+  maxSpeed: number
+  accel: number = 7.5
+  braking: number = 18.0
+  pitchAngle: number = 0.0
+
+  constructor(maxSpeed: number = 5.0) {
+    this.maxSpeed = maxSpeed
+    this.speed = maxSpeed * 0.8
+  }
+
+  update(dt: number, distToCenter: number, isRedLight: boolean) {
+    const shouldStop = isRedLight && distToCenter > 1.2 && distToCenter < 6.2
+    if (shouldStop) {
+      this.speed = Math.max(0.0, this.speed - this.braking * dt)
+      this.pitchAngle = -0.05 * (this.speed / this.maxSpeed) // Nose dips forward on braking
+    } else {
+      this.speed = Math.min(this.maxSpeed, this.speed + this.accel * dt)
+      this.pitchAngle = 0.025 * (1.0 - this.speed / this.maxSpeed) // Slight squat on acceleration
+    }
+    return { speed: this.speed, pitch: this.pitchAngle }
+  }
+}
 
 function MovingTrafficVehicle({
   axis,
@@ -52,11 +77,22 @@ function MovingTrafficVehicle({
   isNight?: boolean
 }) {
   const vehicleRef = useRef<THREE.Group>(null)
+  const chassisRef = useRef<THREE.Group>(null)
   const posRef = useRef<number>((Math.random() - 0.5) * range * 1.8)
+  const physicsRef = useRef<TrafficVehiclePhysics | null>(null)
 
-  useFrame((_, delta) => {
-    if (vehicleRef.current) {
-      posRef.current += speed * direction * delta
+  if (!physicsRef.current) {
+    physicsRef.current = new TrafficVehiclePhysics(speed)
+  }
+
+  useFrame((state, delta) => {
+    if (vehicleRef.current && physicsRef.current) {
+      const dt = Math.min(delta, 0.05)
+      const distToCenter = Math.abs(posRef.current)
+      const isRedLight = ((Math.floor((state.clock.getElapsedTime() + (axis === 'x' ? 0 : 4.5)) / 7) % 2) === 0) && (posRef.current * direction < 0)
+      const { speed: currentSpeed, pitch } = physicsRef.current.update(dt, distToCenter, isRedLight)
+
+      posRef.current += currentSpeed * direction * dt
       if (direction === 1 && posRef.current > range) {
         posRef.current = -range
       } else if (direction === -1 && posRef.current < -range) {
@@ -67,6 +103,10 @@ function MovingTrafficVehicle({
         vehicleRef.current.position.set(posRef.current, 0.02, laneOffset)
       } else {
         vehicleRef.current.position.set(laneOffset, 0.02, posRef.current)
+      }
+
+      if (chassisRef.current) {
+        chassisRef.current.rotation.x = THREE.MathUtils.lerp(chassisRef.current.rotation.x, pitch, 0.15)
       }
     }
   })
@@ -81,66 +121,68 @@ function MovingTrafficVehicle({
 
   return (
     <group ref={vehicleRef} rotation={[0, rotationY, 0]}>
-      {/* Chassis Body */}
-      <mesh position={[0, height / 2 + 0.1, 0]} castShadow>
-        <boxGeometry args={[width, height * 0.5, length]} />
-        <meshStandardMaterial
-          color={vehicleType === 'taxi' ? '#eab308' : bodyColor}
-          roughness={0.25}
-          metalness={0.4}
-        />
-      </mesh>
-
-      {/* Cabin / Upper Structure */}
-      <mesh position={[0, height * 0.8 + 0.08, isBus ? 0 : -0.1]} castShadow>
-        <boxGeometry args={[width * 0.85, height * 0.5, isBus ? length * 0.92 : length * 0.52]} />
-        <meshStandardMaterial color={isBus ? '#0284c7' : isVan ? '#f8fafc' : isTruck ? '#e2e8f0' : '#0f172a'} roughness={0.3} />
-      </mesh>
-
-      {/* Tinted Windows */}
-      <mesh position={[0, height * 0.78 + 0.08, isBus ? 0 : -0.1]}>
-        <boxGeometry args={[width * 0.89, height * 0.38, isBus ? length * 0.94 : length * 0.48]} />
-        <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.65} roughness={0.1} />
-      </mesh>
-
-      {/* Taxi Roof Sign */}
-      {vehicleType === 'taxi' && (
-        <mesh position={[0, height + 0.2, 0]}>
-          <boxGeometry args={[0.3, 0.1, 0.2]} />
-          <meshStandardMaterial color="#fef08a" emissive="#eab308" emissiveIntensity={isNight ? 1.5 : 0.4} />
+      <group ref={chassisRef}>
+        {/* Chassis Body */}
+        <mesh position={[0, height / 2 + 0.1, 0]} castShadow>
+          <boxGeometry args={[width, height * 0.5, length]} />
+          <meshStandardMaterial
+            color={vehicleType === 'taxi' ? '#eab308' : bodyColor}
+            roughness={0.25}
+            metalness={0.4}
+          />
         </mesh>
-      )}
 
-      {/* Headlights */}
-      {[-width * 0.35, width * 0.35].map((hx, i) => (
-        <group key={`hl-${i}`} position={[hx, 0.22, length * 0.5]}>
-          <mesh>
+        {/* Cabin / Upper Structure */}
+        <mesh position={[0, height * 0.8 + 0.08, isBus ? 0 : -0.1]} castShadow>
+          <boxGeometry args={[width * 0.85, height * 0.5, isBus ? length * 0.92 : length * 0.52]} />
+          <meshStandardMaterial color={isBus ? '#0284c7' : isVan ? '#f8fafc' : isTruck ? '#e2e8f0' : '#0f172a'} roughness={0.3} />
+        </mesh>
+
+        {/* Tinted Windows */}
+        <mesh position={[0, height * 0.78 + 0.08, isBus ? 0 : -0.1]}>
+          <boxGeometry args={[width * 0.89, height * 0.38, isBus ? length * 0.94 : length * 0.48]} />
+          <meshPhysicalMaterial color="#38bdf8" transparent opacity={0.65} roughness={0.1} />
+        </mesh>
+
+        {/* Taxi Roof Sign */}
+        {vehicleType === 'taxi' && (
+          <mesh position={[0, height + 0.2, 0]}>
+            <boxGeometry args={[0.3, 0.1, 0.2]} />
+            <meshStandardMaterial color="#fef08a" emissive="#eab308" emissiveIntensity={isNight ? 1.5 : 0.4} />
+          </mesh>
+        )}
+
+        {/* Headlights */}
+        {[-width * 0.35, width * 0.35].map((hx, i) => (
+          <group key={`hl-${i}`} position={[hx, 0.22, length * 0.5]}>
+            <mesh>
+              <boxGeometry args={[0.16, 0.08, 0.02]} />
+              <meshStandardMaterial color="#fef08a" emissive="#fef08a" emissiveIntensity={isNight ? 2.5 : 1.0} />
+            </mesh>
+            {isNight && (
+              <pointLight position={[0, 0, 0.5]} intensity={1.6} distance={4.5} color="#fef08a" />
+            )}
+          </group>
+        ))}
+
+        {/* Taillights */}
+        {[-width * 0.35, width * 0.35].map((tx, i) => (
+          <mesh key={`tl-${i}`} position={[tx, 0.22, -length * 0.5]}>
             <boxGeometry args={[0.16, 0.08, 0.02]} />
-            <meshStandardMaterial color="#fef08a" emissive="#fef08a" emissiveIntensity={isNight ? 2.5 : 1.0} />
+            <meshStandardMaterial color="#ef4444" emissive="#ef4444" emissiveIntensity={isNight ? 2.2 : 0.8} />
           </mesh>
-          {isNight && (
-            <pointLight position={[0, 0, 0.5]} intensity={1.6} distance={4.5} color="#fef08a" />
-          )}
-        </group>
-      ))}
+        ))}
 
-      {/* Taillights */}
-      {[-width * 0.35, width * 0.35].map((tx, i) => (
-        <mesh key={`tl-${i}`} position={[tx, 0.22, -length * 0.5]}>
-          <boxGeometry args={[0.16, 0.08, 0.02]} />
-          <meshStandardMaterial color="#ef4444" emissive="#ef4444" emissiveIntensity={isNight ? 2.2 : 0.8} />
-        </mesh>
-      ))}
-
-      {/* Wheels */}
-      {[-width * 0.51, width * 0.51].map((wx, i) =>
-        [-length * 0.32, length * 0.32].map((wz, j) => (
-          <mesh key={`whl-${i}-${j}`} position={[wx, 0.13, wz]} rotation={[0, 0, Math.PI / 2]}>
-            <cylinderGeometry args={[0.14, 0.14, 0.1, 16]} />
-            <meshStandardMaterial color="#0f172a" roughness={0.9} />
-          </mesh>
-        ))
-      )}
+        {/* Wheels */}
+        {[-width * 0.51, width * 0.51].map((wx, i) =>
+          [-length * 0.32, length * 0.32].map((wz, j) => (
+            <mesh key={`whl-${i}-${j}`} position={[wx, 0.13, wz]} rotation={[0, 0, Math.PI / 2]}>
+              <cylinderGeometry args={[0.14, 0.14, 0.1, 16]} />
+              <meshStandardMaterial color="#0f172a" roughness={0.9} />
+            </mesh>
+          ))
+        )}
+      </group>
     </group>
   )
 }
@@ -464,7 +506,7 @@ function WindTurbine({ position, isNight = false }: { position: [number, number,
 }
 
 // -------------------------------------------------------------
-// 6. LOW-POLY FACETED TREES & BOTANICALS (Matching Reference Style)
+// 6. LOW-POLY FACETED TREES & BOTANICALS (With Wind Sway Physics)
 // -------------------------------------------------------------
 export function LowPolyFacetedTree({
   position,
@@ -477,6 +519,17 @@ export function LowPolyFacetedTree({
   type?: 'round' | 'tiered' | 'pine'
   shade?: string
 }) {
+  const crownRef = useRef<THREE.Group>(null)
+
+  useFrame((state) => {
+    if (crownRef.current) {
+      const t = state.clock.getElapsedTime()
+      // Gentle wind breeze sway: 2.0 degrees on X & Z
+      crownRef.current.rotation.z = Math.sin(t * 1.8 + position[0] * 0.4) * 0.035
+      crownRef.current.rotation.x = Math.cos(t * 1.5 + position[2] * 0.4) * 0.025
+    }
+  })
+
   return (
     <group position={position} scale={[scale, scale, scale]}>
       {/* Low-Poly Faceted Trunk */}
@@ -485,48 +538,60 @@ export function LowPolyFacetedTree({
         <meshStandardMaterial color="#78350f" roughness={0.9} flatShading />
       </mesh>
 
-      {/* Faceted Canopy */}
-      {type === 'round' && (
-        <mesh position={[0, 1.8, 0]} castShadow>
-          <dodecahedronGeometry args={[1.05, 0]} />
-          <meshStandardMaterial color={shade} roughness={0.6} flatShading />
-        </mesh>
-      )}
-
-      {type === 'tiered' && (
-        <group position={[0, 1.5, 0]}>
-          <mesh position={[0, 0, 0]} castShadow>
-            <dodecahedronGeometry args={[1.0, 0]} />
+      {/* Faceted Canopy Swaying in the Breeze */}
+      <group ref={crownRef}>
+        {type === 'round' && (
+          <mesh position={[0, 1.8, 0]} castShadow>
+            <dodecahedronGeometry args={[1.05, 0]} />
             <meshStandardMaterial color={shade} roughness={0.6} flatShading />
           </mesh>
-          <mesh position={[0, 0.95, 0]} castShadow>
-            <dodecahedronGeometry args={[0.72, 0]} />
-            <meshStandardMaterial color="#4ade80" roughness={0.6} flatShading />
-          </mesh>
-        </group>
-      )}
+        )}
 
-      {type === 'pine' && (
-        <group position={[0, 1.4, 0]}>
-          <mesh position={[0, 0, 0]} castShadow>
-            <coneGeometry args={[1.05, 1.3, 6]} />
-            <meshStandardMaterial color={shade} roughness={0.7} flatShading />
-          </mesh>
-          <mesh position={[0, 0.75, 0]} castShadow>
-            <coneGeometry args={[0.82, 1.1, 6]} />
-            <meshStandardMaterial color="#16a34a" roughness={0.7} flatShading />
-          </mesh>
-          <mesh position={[0, 1.4, 0]} castShadow>
-            <coneGeometry args={[0.55, 0.9, 6]} />
-            <meshStandardMaterial color="#4ade80" roughness={0.7} flatShading />
-          </mesh>
-        </group>
-      )}
+        {type === 'tiered' && (
+          <group position={[0, 1.5, 0]}>
+            <mesh position={[0, 0, 0]} castShadow>
+              <dodecahedronGeometry args={[1.0, 0]} />
+              <meshStandardMaterial color={shade} roughness={0.6} flatShading />
+            </mesh>
+            <mesh position={[0, 0.95, 0]} castShadow>
+              <dodecahedronGeometry args={[0.72, 0]} />
+              <meshStandardMaterial color="#4ade80" roughness={0.6} flatShading />
+            </mesh>
+          </group>
+        )}
+
+        {type === 'pine' && (
+          <group position={[0, 1.4, 0]}>
+            <mesh position={[0, 0, 0]} castShadow>
+              <coneGeometry args={[1.05, 1.3, 6]} />
+              <meshStandardMaterial color={shade} roughness={0.7} flatShading />
+            </mesh>
+            <mesh position={[0, 0.75, 0]} castShadow>
+              <coneGeometry args={[0.82, 1.1, 6]} />
+              <meshStandardMaterial color="#16a34a" roughness={0.7} flatShading />
+            </mesh>
+            <mesh position={[0, 1.4, 0]} castShadow>
+              <coneGeometry args={[0.55, 0.9, 6]} />
+              <meshStandardMaterial color="#4ade80" roughness={0.7} flatShading />
+            </mesh>
+          </group>
+        )}
+      </group>
     </group>
   )
 }
 
 export function PalmTree({ position }: { position: [number, number, number] }) {
+  const frondsRef = useRef<THREE.Group>(null)
+
+  useFrame((state) => {
+    if (frondsRef.current) {
+      const t = state.clock.getElapsedTime()
+      frondsRef.current.rotation.z = Math.sin(t * 1.6 + position[0] * 0.3) * 0.04
+      frondsRef.current.rotation.x = Math.cos(t * 1.3 + position[2] * 0.3) * 0.03
+    }
+  })
+
   return (
     <group position={position}>
       <mesh position={[0, 0.65, 0]} rotation={[0.06, 0, -0.1]} castShadow>
@@ -537,14 +602,16 @@ export function PalmTree({ position }: { position: [number, number, number] }) {
         <cylinderGeometry args={[0.08, 0.11, 1.2, 6]} />
         <meshStandardMaterial color="#78350f" roughness={0.9} flatShading />
       </mesh>
-      {[0, Math.PI / 3, (2 * Math.PI) / 3, Math.PI, (4 * Math.PI) / 3, (5 * Math.PI) / 3].map((ang, i) => (
-        <group key={`frond-${i}`} position={[0.25, 2.35, 0]} rotation={[0.35, ang, 0.55]}>
-          <mesh castShadow>
-            <boxGeometry args={[1.05, 0.04, 0.28]} />
-            <meshStandardMaterial color={i % 2 === 0 ? '#15803d' : '#22c55e'} roughness={0.7} flatShading />
-          </mesh>
-        </group>
-      ))}
+      <group ref={frondsRef}>
+        {[0, Math.PI / 3, (2 * Math.PI) / 3, Math.PI, (4 * Math.PI) / 3, (5 * Math.PI) / 3].map((ang, i) => (
+          <group key={`frond-${i}`} position={[0.25, 2.35, 0]} rotation={[0.35, ang, 0.55]}>
+            <mesh castShadow>
+              <boxGeometry args={[1.05, 0.04, 0.28]} />
+              <meshStandardMaterial color={i % 2 === 0 ? '#15803d' : '#22c55e'} roughness={0.7} flatShading />
+            </mesh>
+          </group>
+        ))}
+      </group>
     </group>
   )
 }
@@ -2888,6 +2955,8 @@ function TrafficSignalPost({ position, rotation = 0, isNight = false }: { positi
         <sphereGeometry args={[0.06, 12, 12]} />
         <meshStandardMaterial color="#22c55e" emissive="#22c55e" emissiveIntensity={isNight ? 1.8 : 0.8} />
       </mesh>
+      {/* Emissive traffic light point glow casting on crosswalk */}
+      <pointLight position={[0, 2.5, 0.4]} intensity={isNight ? 1.6 : 0.7} distance={4.5} color="#22c55e" />
     </group>
   )
 }
@@ -2959,18 +3028,20 @@ export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 
 
       {/* 3. DYNAMIC PROCEDURAL COMMERCIAL DISTRICT PLAZA FOUNDATIONS */}
       {proceduralBlocks.map((block) => (
-        <group key={block.id} position={[block.x, 0.035, block.z]}>
-          <mesh receiveShadow>
-            <boxGeometry args={[block.w, 0.05, block.d]} />
+        <group key={block.id} position={[block.x, 0.08, block.z]}>
+          {/* Elevated Sidewalk Slab (0.15 curb height above road) */}
+          <mesh receiveShadow castShadow position={[0, 0, 0]}>
+            <boxGeometry args={[block.w, 0.15, block.d]} />
             <meshStandardMaterial
               map={paverTexture}
               roughness={0.5}
-              color={isNight ? '#334155' : '#ffffff'}
+              color={isNight ? '#334155' : '#f8fafc'}
             />
           </mesh>
-          <mesh position={[0, 0.015, 0]}>
-            <boxGeometry args={[block.w + 0.12, 0.02, block.d + 0.12]} />
-            <meshStandardMaterial color="#cbd5e1" roughness={0.7} />
+          {/* Concrete Bevel Curb Trim framing the roadway */}
+          <mesh position={[0, -0.01, 0]}>
+            <boxGeometry args={[block.w + 0.18, 0.14, block.d + 0.18]} />
+            <meshStandardMaterial color={isNight ? '#475569' : '#cbd5e1'} roughness={0.7} />
           </mesh>
         </group>
       ))}
@@ -2979,32 +3050,32 @@ export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 
       {/* Central East-West Highway (z = 0, width: 3.6m) */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]} receiveShadow>
         <planeGeometry args={[94, 3.6]} />
-        <meshStandardMaterial map={asphaltTexture} roughness={0.8} color={isNight ? '#0f172a' : '#1e293b'} />
+        <meshStandardMaterial map={asphaltTexture} roughness={0.65} metalness={0.15} color={isNight ? '#12161f' : '#1E2229'} />
       </mesh>
 
       {/* Central North-South Boulevard (x = 0, width: 3.6m) */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.011, 0]} receiveShadow>
         <planeGeometry args={[3.6, 94]} />
-        <meshStandardMaterial map={asphaltTexture} roughness={0.8} color={isNight ? '#0f172a' : '#1e293b'} />
+        <meshStandardMaterial map={asphaltTexture} roughness={0.65} metalness={0.15} color={isNight ? '#12161f' : '#1E2229'} />
       </mesh>
 
       {/* Central Intersection */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.012, 0]} receiveShadow>
         <planeGeometry args={[3.6, 3.6]} />
-        <meshStandardMaterial color={isNight ? '#0f172a' : '#1e293b'} roughness={0.8} />
+        <meshStandardMaterial color={isNight ? '#12161f' : '#1E2229'} roughness={0.65} metalness={0.15} />
       </mesh>
 
       {/* Intermediate Grid Streets (x = ±24, z = ±24, width: 3.2m) */}
       {[-24, 24].map((rz, i) => (
         <mesh key={`ring-z-${i}`} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, rz]} receiveShadow>
           <planeGeometry args={[94, 3.2]} />
-          <meshStandardMaterial map={asphaltTexture} roughness={0.8} color={isNight ? '#0f172a' : '#1e293b'} />
+          <meshStandardMaterial map={asphaltTexture} roughness={0.65} metalness={0.15} color={isNight ? '#12161f' : '#1E2229'} />
         </mesh>
       ))}
       {[-24, 24].map((rx, i) => (
         <mesh key={`ring-x-${i}`} rotation={[-Math.PI / 2, 0, 0]} position={[rx, 0.01, 0]} receiveShadow>
           <planeGeometry args={[3.2, 94]} />
-          <meshStandardMaterial map={asphaltTexture} roughness={0.8} color={isNight ? '#0f172a' : '#1e293b'} />
+          <meshStandardMaterial map={asphaltTexture} roughness={0.65} metalness={0.15} color={isNight ? '#12161f' : '#1E2229'} />
         </mesh>
       ))}
 
@@ -3012,13 +3083,13 @@ export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 
       {[-46, 46].map((rz, i) => (
         <mesh key={`outer-z-${i}`} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, rz]} receiveShadow>
           <planeGeometry args={[94, 2.8]} />
-          <meshStandardMaterial map={asphaltTexture} roughness={0.8} color={isNight ? '#0f172a' : '#1e293b'} />
+          <meshStandardMaterial map={asphaltTexture} roughness={0.65} metalness={0.15} color={isNight ? '#12161f' : '#1E2229'} />
         </mesh>
       ))}
       {[-46, 46].map((rx, i) => (
         <mesh key={`outer-x-${i}`} rotation={[-Math.PI / 2, 0, 0]} position={[rx, 0.01, 0]} receiveShadow>
           <planeGeometry args={[2.8, 94]} />
-          <meshStandardMaterial map={asphaltTexture} roughness={0.8} color={isNight ? '#0f172a' : '#1e293b'} />
+          <meshStandardMaterial map={asphaltTexture} roughness={0.65} metalness={0.15} color={isNight ? '#12161f' : '#1E2229'} />
         </mesh>
       ))}
 

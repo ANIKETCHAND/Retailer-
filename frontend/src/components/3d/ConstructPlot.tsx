@@ -87,7 +87,7 @@ export const ConstructPlot: React.FC<ConstructPlotProps> = ({
         ))
       )}
 
-      {/* Safety Construction Cones (4 corners) */}
+      {/* Safety Construction Cones (4 corners with glowing beacons) */}
       {[
         [-2.1, -1.9],
         [2.1, -1.9],
@@ -103,6 +103,11 @@ export const ConstructPlot: React.FC<ConstructPlotProps> = ({
             <cylinderGeometry args={[0.13, 0.13, 0.08, 12]} />
             <meshBasicMaterial color="#ffffff" />
           </mesh>
+          <mesh position={[0, 0.24, 0]}>
+            <sphereGeometry args={[0.04, 8, 8]} />
+            <meshStandardMaterial color="#fbbf24" emissive="#f97316" emissiveIntensity={2.2} />
+          </mesh>
+          <pointLight position={[0, 0.3, 0]} intensity={0.65} distance={2.5} color="#f97316" />
         </group>
       ))}
 
@@ -113,6 +118,13 @@ export const ConstructPlot: React.FC<ConstructPlotProps> = ({
           <boxGeometry args={[0.25, 3.6, 0.25]} />
           <meshStandardMaterial color="#ea580c" metalness={0.7} roughness={0.3} />
         </mesh>
+
+        {/* Crane Tower Warning Beacon */}
+        <mesh position={[0, 3.75, 0]}>
+          <sphereGeometry args={[0.07, 8, 8]} />
+          <meshStandardMaterial color="#ef4444" emissive="#ef4444" emissiveIntensity={2.5} />
+        </mesh>
+        <pointLight position={[0, 3.8, 0]} intensity={1.5} distance={6} color="#ef4444" />
 
         {/* Crane Rotating Arm */}
         <group ref={craneArmRef} position={[0, 3.6, 0]}>
