@@ -10,7 +10,6 @@
  */
 
 import React from 'react'
-import { X } from 'lucide-react'
 
 // Reusable inline style object guaranteeing skyblue gradient and solid white border
 export const skyBluePillStyle: React.CSSProperties = {
@@ -53,7 +52,6 @@ interface GamePillButtonsProps {
   storeCount: number
   onExplore: () => void
   onBuild: () => void
-  onDismiss: () => void
 }
 
 /**
@@ -337,7 +335,6 @@ export const GamePillButtons: React.FC<GamePillButtonsProps> = ({
   storeCount,
   onExplore,
   onBuild,
-  onDismiss,
 }) => {
   return (
     <aside
@@ -400,17 +397,6 @@ export const GamePillButtons: React.FC<GamePillButtonsProps> = ({
         >
           Build
         </span>
-      </button>
-
-      {/* Dismiss / Close Icon */}
-      <button
-        type="button"
-        onClick={onDismiss}
-        className="p-1.5 sm:p-2 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white/80 hover:text-white border-2 border-white/40 shadow-lg backdrop-blur-md transition-all hover:scale-110 cursor-pointer flex-shrink-0"
-        title="Dismiss quick action buttons"
-        aria-label="Dismiss quick action buttons"
-      >
-        <X className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
       </button>
     </aside>
   )

@@ -231,7 +231,6 @@ export const App: React.FC = () => {
               storeCount={stores.length}
               onExplore={handleExploreStores}
               onBuild={handleConstructNewStore}
-              onDismiss={() => setShowWelcomeOptions(false)}
             />
           )}
 
