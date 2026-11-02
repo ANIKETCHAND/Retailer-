@@ -107,12 +107,9 @@ def get_plot_definition(index: int) -> Dict:
         if index < current_offset + count:
             rel_idx = index - current_offset
             gx, gz = district["plots"][rel_idx]
-            # Face towards nearest central avenue
+            # All stores face front towards the primary road and camera (rotation_y = 0.0)
+            # matching existing demo stores and ensuring storefronts, awnings, and HUD pins face the player.
             rot_y = 0.0
-            if abs(gx) > abs(gz):
-                rot_y = -1.57 if gx > 0 else 1.57
-            else:
-                rot_y = 3.14 if gz > 0 else 0.0
 
             return {
                 "plot_index": index,
@@ -140,19 +137,16 @@ def get_plot_definition(index: int) -> Dict:
     if side == 0:    # East
         gx = base_dist
         gz = lateral
-        rot_y = -1.57
     elif side == 1:  # West
         gx = -base_dist
         gz = lateral
-        rot_y = 1.57
     elif side == 2:  # North
         gx = lateral
         gz = -base_dist
-        rot_y = 0.0
     else:            # South
         gx = lateral
         gz = base_dist
-        rot_y = 3.14
+    rot_y = 0.0
 
     return {
         "plot_index": index,

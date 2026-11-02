@@ -130,12 +130,9 @@ export function getPlotDefinition(index: number): PlotDefinition {
     if (index < currentOffset + count) {
       const relIdx = index - currentOffset
       const [gx, gz] = district.plots[relIdx]
-      let rotY = 0
-      if (Math.abs(gx) > Math.abs(gz)) {
-        rotY = gx > 0 ? -1.57 : 1.57
-      } else {
-        rotY = gz > 0 ? 3.14 : 0.0
-      }
+      // All stores face front towards the road and player camera (rotation_y = 0.0)
+      // matching the existing demo stores and avoiding awkward sideways/backward orientations
+      const rotY = 0.0
 
       return {
         plot_index: index,
@@ -172,23 +169,20 @@ export function getPlotDefinition(index: number): PlotDefinition {
     // East
     gx = baseDist
     gz = lateral
-    rotY = -1.57
   } else if (side === 1) {
     // West
     gx = -baseDist
     gz = lateral
-    rotY = 1.57
   } else if (side === 2) {
     // North
     gx = lateral
     gz = -baseDist
-    rotY = 0
   } else {
     // South
     gx = lateral
     gz = baseDist
-    rotY = 3.14
   }
+  rotY = 0.0
 
   return {
     plot_index: index,

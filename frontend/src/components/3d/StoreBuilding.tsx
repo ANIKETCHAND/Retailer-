@@ -857,8 +857,8 @@ export const StoreBuilding: React.FC<StoreBuildingProps> = ({
       {/* BESPOKE STORE ARCHITECTURE */}
       {renderArchitecture()}
 
-      {/* SLEEK FLOATING GAME-STYLE HUD PIN */}
-      <group ref={pinRef} position={[0, 5.3, 0]}>
+      {/* SLEEK FLOATING GAME-STYLE HUD PIN (Always billboarded toward the player camera) */}
+      <group ref={pinRef} position={[0, 5.3, 0]} rotation={[0, -(store.rotation_y || 0), 0]}>
         {/* Dark Pill Capsule */}
         <mesh position={[0, 0, 0]}>
           <boxGeometry args={[2.5, 0.62, 0.08]} />

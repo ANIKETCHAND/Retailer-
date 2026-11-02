@@ -142,7 +142,21 @@ function getStoredCustomStores(): Store[] {
     const raw = localStorage.getItem(LOCAL_STORAGE_KEY)
     if (raw) {
       const parsed = JSON.parse(raw)
-      if (Array.isArray(parsed)) return parsed
+      if (Array.isArray(parsed)) {
+        // Auto-heal any previously constructed stores that were saved with strange sideways rotations
+        let needsPersist = false
+        const normalized = parsed.map((s: Store) => {
+          if (s.rotation_y !== 0.0) {
+            needsPersist = true
+            return { ...s, rotation_y: 0.0 }
+          }
+          return s
+        })
+        if (needsPersist) {
+          localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(normalized))
+        }
+        return normalized
+      }
     }
   } catch (err) {
     console.warn('Could not read localStorage stores:', err)
