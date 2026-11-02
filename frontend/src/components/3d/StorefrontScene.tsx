@@ -17,7 +17,6 @@ import React, { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { PerspectiveCamera } from '@react-three/drei'
 import * as THREE from 'three'
-import { ArrowUpRight, Lock, Activity, Sparkles, Box, ShieldCheck, BarChart3 } from 'lucide-react'
 
 interface StorefrontSceneProps {
   onUnlockClick: () => void
@@ -884,8 +883,6 @@ function StorefrontCameraRig({ isTransitioning }: { isTransitioning: boolean }) 
 // MASTER EXPORT
 // ─────────────────────────────────────────────────────────────────────────────
 export const StorefrontScene: React.FC<StorefrontSceneProps> = ({ onUnlockClick, isUnlocked, isTransitioning }) => {
-  const [activeTile, setActiveTile] = useState<number | null>(null)
-
   const handleUnlockTrigger = () => {
     playMechanicalUnlockAudio()
     onUnlockClick()
@@ -953,63 +950,6 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({ onUnlockClick,
               <div className="text-[10px] font-semibold tracking-widest text-slate-400 uppercase">COMMERCE INTELLIGENCE</div>
             </div>
           </div>
-          <div className="px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center gap-2 shadow-xl">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34d399]" />
-            <span className="text-xs font-bold text-white/90 tracking-wider uppercase">LIVE SIMULATION / V1.0</span>
-          </div>
-        </div>
-
-        {/* MIDDLE */}
-        <div className="w-full flex items-center justify-between my-auto pointer-events-none">
-          <div className="max-w-md pointer-events-auto">
-            <div className="px-3.5 py-1.5 rounded-full bg-cyan-950/70 backdrop-blur-md border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wider flex items-center gap-1.5 w-fit shadow-lg mb-4">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>THE RETAIL OPERATING SYSTEM</span>
-            </div>
-            <h1 className="text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.08] mb-4 drop-shadow-md">
-              See the city<br />behind your<br />numbers.
-            </h1>
-            <p className="text-slate-200 text-sm leading-relaxed mb-6 max-w-sm drop-shadow">
-              Step into an interactive retail district where every storefront turns sales data into a decision you can act on.
-            </p>
-            <div className="flex items-center gap-4">
-              <button onClick={handleUnlockTrigger}
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-sm flex items-center gap-2 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-400/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer">
-                <span>Enter the marketplace</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </button>
-              <div onClick={handleUnlockTrigger}
-                className="flex items-center gap-1.5 text-xs text-slate-300/80 hover:text-amber-300 cursor-pointer transition-colors">
-                <Lock className="w-3.5 h-3.5" />
-                <span>Secure demo access included</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Platform Pulse Card */}
-          <div className="pointer-events-auto w-72 rounded-2xl bg-slate-950/80 backdrop-blur-xl border border-white/10 p-4 shadow-2xl">
-            <div className="flex items-center justify-between pb-3 border-b border-white/5">
-              <span className="text-xs font-bold tracking-wider text-slate-200 uppercase">PLATFORM PULSE</span>
-              <Activity className="w-4 h-4 text-cyan-400 animate-pulse" />
-            </div>
-            <div className="grid grid-cols-2 gap-2.5 mt-3">
-              {[
-                { id: 1, icon: <BarChart3 className="w-4 h-4 text-cyan-400 mb-2" />, val: '360°', label: 'visibility', accent: 'border-cyan-500/50 bg-cyan-500/10' },
-                { id: 2, icon: <Box className="w-4 h-4 text-amber-400 mb-2" />, val: '3D', label: 'retail city', accent: 'border-amber-500/50 bg-amber-500/10' },
-                { id: 3, icon: <ShieldCheck className="w-4 h-4 text-emerald-400 mb-2" />, val: 'Live', label: 'insights', accent: 'border-emerald-500/50 bg-emerald-500/10' },
-                { id: 4, icon: <Sparkles className="w-4 h-4 text-purple-400 mb-2" />, val: 'ML', label: 'forecasts', accent: 'border-purple-500/50 bg-purple-500/10' }
-              ].map(tile => (
-                <div key={tile.id}
-                  onMouseEnter={() => setActiveTile(tile.id)}
-                  onMouseLeave={() => setActiveTile(null)}
-                  className={`bg-white/[0.03] border border-white/5 rounded-xl p-3 flex flex-col transition-all duration-200 cursor-pointer ${activeTile === tile.id ? tile.accent + ' scale-[1.02]' : ''}`}>
-                  {tile.icon}
-                  <span className="text-lg font-bold text-white leading-none mb-1">{tile.val}</span>
-                  <span className="text-[11px] text-slate-400">{tile.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* BOTTOM PILL */}
@@ -1017,7 +957,7 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({ onUnlockClick,
           <div onClick={handleUnlockTrigger}
             className="px-6 py-2.5 rounded-full bg-black/80 backdrop-blur-md border border-amber-500/30 text-amber-300 text-xs font-medium shadow-2xl flex items-center gap-2.5 hover:border-amber-400/60 cursor-pointer transition-all hover:scale-[1.02]">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse shadow-[0_0_8px_#f59e0b]" />
-            <span>Move cursor over the golden lock and click to unlock storefront</span>
+            <span>Click the golden padlock or tap here to unlock storefront</span>
           </div>
         </div>
       </div>
