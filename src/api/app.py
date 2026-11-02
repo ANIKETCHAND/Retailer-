@@ -3,9 +3,11 @@ RetailVision - FastAPI Application Factory
 Provides CORS middleware, error handlers, authentication, store management, and analytics routes.
 """
 
+from pathlib import Path
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 from src.api.routes import analytics, auth, data, forecasting, reports, stores
 from src.api.schemas import HealthResponse
 from src.core.config import settings
@@ -70,6 +72,24 @@ def create_app() -> FastAPI:
         app.include_router(forecasting.router, prefix=prefix)
         app.include_router(reports.router, prefix=prefix)
         app.include_router(data.router, prefix=prefix)
+
+    # Static frontend assets & SPA index fallback
+    dist_dir = Path(__file__).resolve().parent.parent.parent / "frontend" / "dist"
+    if not dist_dir.exists():
+        dist_dir = Path("frontend/dist")
+
+    if dist_dir.exists():
+        assets_dir = dist_dir / "assets"
+        if assets_dir.exists():
+            app.mount("/assets", StaticFiles(directory=str(assets_dir)), name="assets")
+
+        @app.get("/")
+        @app.get("/index.html")
+        async def serve_index():
+            index_path = dist_dir / "index.html"
+            if index_path.exists():
+                return FileResponse(str(index_path))
+            return JSONResponse(status_code=404, content={"error": "index.html not found"})
 
     return app
 
