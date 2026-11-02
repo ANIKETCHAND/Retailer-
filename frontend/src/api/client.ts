@@ -499,6 +499,7 @@ async function parseAndConstructStoreLocally(formData: FormData): Promise<Store>
     category: ['category', 'productcategory', 'dept', 'department', 'type', 'group'],
     quantity: ['quantity', 'qty', 'unitssold', 'units', 'count', 'items', 'volume'],
     unit_price: ['unitprice', 'price', 'rate', 'costperunit', 'itemprice', 'priceperunit', 'cost'],
+    discount_pct: ['discountpct', 'discount', 'discountpercentage', 'discountrate', 'discountpercent'],
     total_amount: ['totalamount', 'total', 'amount', 'revenue', 'sales', 'totalsales', 'linetotal'],
     region: ['region', 'state', 'territory', 'zone', 'area', 'market', 'country'],
     city: ['city', 'town', 'location', 'metro'],
@@ -584,16 +585,18 @@ async function parseAndConstructStoreLocally(formData: FormData): Promise<Store>
 
     let price = parseFloat(getVal('unit_price').replace(/[^0-9.-]/g, ''))
     let total = parseFloat(getVal('total_amount').replace(/[^0-9.-]/g, ''))
+    const rawDisc = parseFloat(getVal('discount_pct').replace(/[^0-9.-]/g, ''))
+    const discRate = !isNaN(rawDisc) && rawDisc > 0 ? (rawDisc > 1 ? rawDisc / 100 : rawDisc) : 0
 
     if (!isNaN(total) && total > 0) {
       if (isNaN(price) || price <= 0) {
         price = Math.round((total / qty) * 100) / 100
       }
     } else if (!isNaN(price) && price > 0) {
-      total = Math.round(qty * price * 100) / 100
+      total = Math.round(qty * price * (1 - discRate) * 100) / 100
     } else {
       price = 49.99
-      total = Math.round(qty * price * 100) / 100
+      total = Math.round(qty * price * (1 - discRate) * 100) / 100
     }
 
     const orderId = getVal('order_id') || `ORD-${r + 1000}`
@@ -762,33 +765,85 @@ async function parseAndConstructStoreLocally(formData: FormData): Promise<Store>
     })
   }
 
-  // Daily sales (14 days)
-  const dailyAvg = totalRevenue / 30
-  const recent_daily: DailySales[] = Array.from({ length: 14 }).map((_, i) => ({
-    date: `Day -${14 - i}`,
-    revenue: Math.round(dailyAvg * (0.8 + 0.4 * Math.sin(i * 0.5))),
-    moving_avg_7d: Math.round(dailyAvg)
+  // Daily sales: Aggregate real chronological dates from CSV
+  const dailyMap = new Map<string, number>()
+  for (const r of parsedRows) {
+    if (r.order_date) {
+      dailyMap.set(r.order_date, (dailyMap.get(r.order_date) || 0) + r.total_amount)
+    }
+  }
+  const sortedDates = Array.from(dailyMap.keys()).sort()
+  const recent_daily: DailySales[] = sortedDates.slice(-14).map((d) => ({
+    date: d,
+    revenue: Math.round((dailyMap.get(d) || 0) * 100) / 100,
+    moving_avg_7d: Math.round((dailyMap.get(d) || 0) * 100) / 100
   }))
 
-  // Customer retention metrics
+  // Customer retention metrics strictly derived from CSV
   const custOrderCounts = new Map<string, number>()
+  const custRevMap = new Map<string, number>()
+  let guestOrdersCount = 0
+
   for (const r of parsedRows) {
-    custOrderCounts.set(r.customer_id, (custOrderCounts.get(r.customer_id) || 0) + 1)
+    const cid = r.customer_id
+    if (!cid || cid.toLowerCase() === 'guest' || cid === '0') {
+      guestOrdersCount++
+    }
+    custOrderCounts.set(cid, (custOrderCounts.get(cid) || 0) + 1)
+    custRevMap.set(cid, (custRevMap.get(cid) || 0) + r.total_amount)
   }
+
   let repeatCount = 0
-  custOrderCounts.forEach(cnt => {
-    if (cnt > 1) repeatCount++
+  let repeatRevenue = 0
+  let oneTimeRevenue = 0
+
+  custOrderCounts.forEach((cnt, cid) => {
+    const rev = custRevMap.get(cid) || 0
+    if (cnt > 1) {
+      repeatCount++
+      repeatRevenue += rev
+    } else {
+      oneTimeRevenue += rev
+    }
   })
-  const repeatRate = totalCustomers > 0 ? Math.round((repeatCount / totalCustomers) * 1000) / 10 : 35.0
+
+  const repeatRate = totalCustomers > 0 ? Math.round((repeatCount / totalCustomers) * 1000) / 10 : 0
 
   const customer_metrics: CustomerMetrics = {
     total_customers: totalCustomers,
-    total_repeat_customers: repeatCount || Math.round(totalCustomers * 0.35),
+    total_repeat_customers: repeatCount,
     repeat_customer_rate_pct: repeatRate,
-    avg_revenue_per_customer: totalCustomers > 0 ? Math.round(totalRevenue / totalCustomers) : 0,
-    avg_orders_per_customer: totalCustomers > 0 ? Math.round((totalOrders / totalCustomers) * 10) / 10 : 1.2,
+    avg_revenue_per_customer: totalCustomers > 0 ? Math.round((totalRevenue / totalCustomers) * 100) / 100 : 0,
+    avg_orders_per_customer: totalCustomers > 0 ? Math.round((totalOrders / totalCustomers) * 10) / 10 : 1.0,
     has_customer_ids: true,
-    guest_orders_count: Math.round(totalOrders * 0.08)
+    guest_orders_count: guestOrdersCount
+  }
+
+  const repeat_breakdown = [
+    {
+      segment: 'Repeat Customers',
+      total_revenue: Math.round(repeatRevenue * 100) / 100,
+      revenue_share_pct: totalRevenue > 0 ? Math.round((repeatRevenue / totalRevenue) * 1000) / 10 : 0
+    },
+    {
+      segment: 'One-Time Customers',
+      total_revenue: Math.round(oneTimeRevenue * 100) / 100,
+      revenue_share_pct: totalRevenue > 0 ? Math.round((oneTimeRevenue / totalRevenue) * 1000) / 10 : 0
+    }
+  ]
+
+  // Month-over-month growth computed from actual chronological months in CSV
+  let calculatedRevGrowth: number | null = null
+  let calculatedOrdGrowth: number | null = null
+  if (monthly_trend.length >= 2) {
+    const latest = monthly_trend[monthly_trend.length - 1]
+    const prior = monthly_trend[monthly_trend.length - 2]
+    if (prior.revenue > 0) {
+      calculatedRevGrowth = Math.round(((latest.revenue - prior.revenue) / prior.revenue) * 1000) / 10
+    }
+    if (prior.orders > 0) {
+      calculatedOrdGrowth = Math.round(((latest.orders - prior.orders) / prior.orders) * 1000) / 10
+    }
   }
 
   // Plot allocation & Store entity creation
@@ -833,8 +888,8 @@ async function parseAndConstructStoreLocally(formData: FormData): Promise<Store>
       average_order_value: aov,
       total_products: totalProducts,
       total_customers: totalCustomers,
-      revenue_growth_pct: 16.4,
-      orders_growth_pct: 9.2
+      revenue_growth_pct: calculatedRevGrowth !== null ? calculatedRevGrowth : undefined,
+      orders_growth_pct: calculatedOrdGrowth !== null ? calculatedOrdGrowth : undefined
     },
     monthly_trend,
     recent_daily,
@@ -842,7 +897,7 @@ async function parseAndConstructStoreLocally(formData: FormData): Promise<Store>
     regions,
     top_products,
     customer_metrics,
-    repeat_breakdown: []
+    repeat_breakdown
   }
 
   // Cache in-memory for instant UI availability
