@@ -5,7 +5,7 @@
  *  - Saturated skyblue gradient outer frame with 3.5px solid white border & top reflection shine
  *  - Round game-pill navigation tabs with active skyblue gloss
  *  - Vibrant casual-game KPI stat badges with 2px white borders & top shine
- *  - ML Forecast horizons & cards styled as high-contrast game widgets
+ *  - Sale Forecast horizons & cards styled as high-contrast game widgets
  *  - Bottom "Return to 3D Marketplace" styled as a full game-pill action button
  */
 
@@ -170,7 +170,7 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                   )}
                 </div>
                 <p className="text-xs text-sky-100/90 font-medium line-clamp-1">
-                  {store.description || 'Retail performance analytics and machine learning insights.'}
+                  {store.description || 'Retail performance analytics and sales forecast insights.'}
                 </p>
               </div>
             </div>
@@ -200,7 +200,7 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
               { id: 'overview', label: 'Executive Overview', icon: TrendingUp },
               { id: 'products', label: 'Products & SKUs', icon: Package },
               { id: 'customers', label: 'Customer Retention', icon: Users },
-              { id: 'forecast', label: 'ML Sales Forecast', icon: BrainCircuit },
+              { id: 'forecast', label: 'Sale Forecast', icon: BrainCircuit },
             ].map((tab) => {
               const Icon = tab.icon
               const active = activeTab === tab.id
@@ -536,7 +536,7 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                   </div>
                 )}
 
-                {/* TAB 4: ML SALES FORECAST (The exact screen matching the reference theme) */}
+                {/* TAB 4: SALE FORECAST (The exact screen matching the reference theme) */}
                 {activeTab === 'forecast' && (
                   <div className="space-y-5">
                     {/* Model Banner with Horizon Game Pills */}
@@ -546,7 +546,7 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                           <BrainCircuit className="w-6 h-6 text-yellow-300 drop-shadow-sm" />
                         </div>
                         <div>
-                          <h4 className="text-xs font-black uppercase tracking-wider text-white">Machine Learning Time-Series Model</h4>
+                          <h4 className="text-xs font-black uppercase tracking-wider text-white">Time-Series Sale Forecast Model</h4>
                           <p className="text-[11px] text-sky-100 font-medium">Ridge Regularization trained strictly on chronological historical actuals (zero data leakage).</p>
                         </div>
                       </div>

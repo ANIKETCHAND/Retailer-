@@ -334,7 +334,7 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({
             {/* Subtitle inside Dark Ocean Canvas */}
             <div className="p-4" style={heroInnerCanvasStyle}>
               <p className="text-sm sm:text-base text-sky-100 font-medium leading-relaxed">
-                Step into an interactive 3D retail metropolis where every storefront turns your CSV data into instant decisions, Pareto rankings, and machine learning sales forecasts.
+                Step into an interactive 3D retail metropolis where every storefront turns your CSV data into instant decisions, Pareto rankings, and sales forecasts.
               </p>
 
               {/* 4 Feature Pills Grid */}
@@ -353,7 +353,7 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({
                 </div>
                 <div className="flex items-center gap-1.5">
                   <TrendingUp className="w-4 h-4 text-purple-300" />
-                  <span>ML Ridge Sales Forecast</span>
+                  <span>Sale Forecast</span>
                 </div>
               </div>
             </div>
