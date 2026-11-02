@@ -6,9 +6,10 @@
 
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Check, ChevronRight, X } from 'lucide-react'
+import { Check, ChevronRight, X, Settings2 } from 'lucide-react'
 import { AuthForm } from './sign-in'
 import { authApi } from '../../api/client'
+import { launchGoogleSignIn, getGoogleClientId, setGoogleClientId } from '../../lib/googleAuth'
 import type { UserSession } from '../../types'
 
 interface LockOverlayProps {
@@ -43,6 +44,15 @@ export const LockOverlay: React.FC<LockOverlayProps> = ({ isOpen, onClose, onSuc
   const [errorMsg, setErrorMsg] = useState('')
   const [showGoogleChooser, setShowGoogleChooser] = useState(false)
   const [customGoogleEmail, setCustomGoogleEmail] = useState('')
+  const [showConfigClientId, setShowConfigClientId] = useState(false)
+  const [clientIdInput, setClientIdInput] = useState(() => getGoogleClientId())
+  const [clientSavedNotice, setClientSavedNotice] = useState(false)
+
+  const handleSaveClientId = () => {
+    setGoogleClientId(clientIdInput)
+    setClientSavedNotice(true)
+    setTimeout(() => setClientSavedNotice(false), 2500)
+  }
 
   const handleEmailSubmit = async (data: { email: string; password?: string }) => {
     setErrorMsg('')
@@ -88,7 +98,14 @@ export const LockOverlay: React.FC<LockOverlayProps> = ({ isOpen, onClose, onSuc
 
   const handleSocialSignIn = async (provider: 'google' | 'microsoft' | 'apple' | 'sso') => {
     if (provider === 'google') {
-      setShowGoogleChooser(true)
+      launchGoogleSignIn(
+        (session) => {
+          onSuccess(session)
+        },
+        () => {
+          setShowGoogleChooser(true)
+        }
+      )
       return
     }
 
@@ -236,6 +253,47 @@ export const LockOverlay: React.FC<LockOverlayProps> = ({ isOpen, onClose, onSuc
                       Sign In
                     </button>
                   </div>
+                </div>
+
+                {/* Optional: Configure Google Client ID */}
+                <div className="pt-2 border-t border-slate-100">
+                  <button
+                    type="button"
+                    onClick={() => setShowConfigClientId(!showConfigClientId)}
+                    className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-500 hover:text-slate-800 transition-colors"
+                  >
+                    <Settings2 className="w-3.5 h-3.5" />
+                    <span>{showConfigClientId ? 'Hide' : 'Configure'} Google Client ID (OAuth)</span>
+                  </button>
+
+                  {showConfigClientId && (
+                    <div className="mt-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200 space-y-2 text-left">
+                      <p className="text-[10px] text-slate-500 leading-normal">
+                        Optional: paste your Google Cloud OAuth 2.0 Web Client ID to trigger Google's native One Tap prompt.
+                      </p>
+                      <div className="flex items-center gap-1.5">
+                        <input
+                          type="text"
+                          value={clientIdInput}
+                          onChange={(e) => setClientIdInput(e.target.value)}
+                          placeholder="e.g. 12345-xyz.apps.googleusercontent.com"
+                          className="flex-1 px-2.5 py-1.5 text-[11px] border border-slate-300 rounded bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 font-mono"
+                        />
+                        <button
+                          type="button"
+                          onClick={handleSaveClientId}
+                          className="px-2.5 py-1.5 rounded bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-bold transition-all cursor-pointer"
+                        >
+                          Save
+                        </button>
+                      </div>
+                      {clientSavedNotice && (
+                        <p className="text-[10px] text-emerald-600 font-bold flex items-center gap-1">
+                          <Check className="w-3 h-3" /> Client ID saved to browser!
+                        </p>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
 
