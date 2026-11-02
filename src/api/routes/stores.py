@@ -31,6 +31,16 @@ from src.services.forecasting_service import train_and_forecast_sales
 from src.services.procedural_layout import find_next_unoccupied_plot, get_plot_definition
 from src.services.reporting_service import export_dataframe_to_csv, generate_pdf_report
 from src.services.storage_service import storage_service
+from src.visualizations.charts import (
+    plot_monthly_revenue_trend,
+    plot_category_distribution,
+    plot_regional_sales,
+    plot_top_products,
+    plot_daily_sales_trend,
+    plot_customer_frequency,
+    plot_repeat_vs_onetime,
+    plot_growth_comparison
+)
 
 router = APIRouter(prefix="/stores", tags=["Stores"])
 
@@ -773,4 +783,66 @@ def export_store_cleaned_csv(
         content=csv_str,
         media_type="text/csv",
         headers={"Content-Disposition": f"attachment; filename=dataset_{store.id}.csv"}
+    )
+
+
+@router.get("/{store_id}/charts/{chart_name}")
+def get_store_matplotlib_chart(
+    store_id: str,
+    chart_name: str,
+    theme: str = Query("dark"),
+    authorization: Optional[str] = Header(None),
+    token: Optional[str] = Query(None),
+    db: Session = Depends(get_db)
+):
+    """
+    Renders publication-grade Matplotlib figure directly from the store's CSV dataset.
+    Supported chart_name: monthly_trend, category, top_products, regional, daily_sales, growth, repeat_customers.
+    """
+    import matplotlib.pyplot as plt
+
+    store = db.query(Store).filter(Store.id == store_id).first()
+    if not store:
+        raise HTTPException(status_code=404, detail="Store not found.")
+
+    user = resolve_user_from_token(authorization or token, db)
+    verify_store_access(store, user, f"this store's {chart_name} chart", db=db)
+
+    df = load_store_dataframe(store, db)
+
+    fig = None
+    if chart_name == "monthly_trend":
+        monthly_df = get_monthly_sales(df)
+        fig = plot_monthly_revenue_trend(monthly_df, theme=theme)
+    elif chart_name == "category":
+        cat_df = get_category_sales(df)
+        fig = plot_category_distribution(cat_df, theme=theme)
+    elif chart_name == "top_products":
+        prod_df = get_product_rankings(df, top_n=10)
+        fig = plot_top_products(prod_df, theme=theme, top_n=10)
+    elif chart_name == "regional":
+        reg_df = get_regional_sales(df)
+        fig = plot_regional_sales(reg_df, theme=theme)
+    elif chart_name == "daily_sales":
+        daily_df = get_daily_sales(df)
+        fig = plot_daily_sales_trend(daily_df, theme=theme)
+    elif chart_name == "growth":
+        monthly_df = get_monthly_sales(df)
+        fig = plot_growth_comparison(monthly_df, theme=theme)
+    elif chart_name == "repeat_customers":
+        breakdown_df = get_repeat_customer_breakdown(df)
+        fig = plot_repeat_vs_onetime(breakdown_df, theme=theme)
+    else:
+        monthly_df = get_monthly_sales(df)
+        fig = plot_monthly_revenue_trend(monthly_df, theme=theme)
+
+    buf = io.BytesIO()
+    fig.savefig(buf, format="png", bbox_inches="tight", dpi=130, facecolor=fig.get_facecolor(), edgecolor="none")
+    plt.close(fig)
+    buf.seek(0)
+
+    return Response(
+        content=buf.getvalue(),
+        media_type="image/png",
+        headers={"Cache-Control": "public, max-age=3600"}
     )

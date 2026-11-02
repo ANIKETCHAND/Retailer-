@@ -13,11 +13,12 @@ import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   X, TrendingUp, ShoppingBag, Users, DollarSign, Package,
-  MapPin, Download, BrainCircuit,
+  MapPin, Download, BrainCircuit, BarChart2,
   Maximize2, Minimize2
 } from 'lucide-react'
 import { storeApi } from '../../api/client'
 import { downloadExecutivePdf, downloadStoreCsv } from '../../lib/reportGenerator'
+import { MatplotlibGallery } from './MatplotlibGallery'
 import type { Store, StoreAnalyticsBundle, StoreForecastResponse } from '../../types'
 import { cartoonTextStyle, pillShineStyle } from './GamePillButtons'
 
@@ -54,7 +55,7 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
   isOpen,
   onClose
 }) => {
-  const [activeTab, setActiveTab] = useState<'overview' | 'products' | 'customers' | 'forecast' | 'reports'>('overview')
+  const [activeTab, setActiveTab] = useState<'overview' | 'matplotlib' | 'products' | 'customers' | 'forecast' | 'reports'>('overview')
   const [analytics, setAnalytics] = useState<StoreAnalyticsBundle | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [isFullScreen, setIsFullScreen] = useState(false)
@@ -197,9 +198,12 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                       Sample Dataset
                     </span>
                   )}
+                  <span className="px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider rounded-full bg-emerald-500/25 text-emerald-300 border border-emerald-400/40">
+                    CSV & Matplotlib
+                  </span>
                 </div>
                 <p className="text-xs text-sky-100/90 font-medium line-clamp-1">
-                  {store.description || 'Retail performance analytics and sales forecast insights.'}
+                  {store.description || 'Retail sales dashboard computed directly from CSV using Python Matplotlib.'}
                 </p>
               </div>
             </div>
@@ -227,6 +231,7 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
           <div className="relative z-10 flex items-center gap-2 px-6 py-2.5 bg-sky-950/40 border-b-2 border-white/20 overflow-x-auto">
             {[
               { id: 'overview', label: 'Executive Overview', icon: TrendingUp },
+              { id: 'matplotlib', label: 'Matplotlib Charts', icon: BarChart2 },
               { id: 'products', label: 'Products & SKUs', icon: Package },
               { id: 'customers', label: 'Customer Retention', icon: Users },
               { id: 'forecast', label: 'Sale Forecast', icon: BrainCircuit },
@@ -453,7 +458,12 @@ export const StoreAnalyticsModal: React.FC<StoreAnalyticsModalProps> = ({
                   </div>
                 )}
 
-                {/* TAB 2: PRODUCTS */}
+                {/* TAB 2: MATPLOTLIB CHARTS & FIGURES */}
+                {activeTab === 'matplotlib' && (
+                  <MatplotlibGallery store={store} analytics={analytics} />
+                )}
+
+                {/* TAB 3: PRODUCTS */}
                 {activeTab === 'products' && (
                   <div className="p-5" style={gameCardStyle}>
                     <div className="flex items-center justify-between mb-4">

@@ -318,7 +318,7 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({
             {/* Supercharged Sparkle Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/20 border-2 border-white text-white text-xs font-black tracking-wide shadow-md">
               <Sparkles className="w-3.5 h-3.5 text-yellow-300 drop-shadow-sm" />
-              <span>NEXT-GENERATION 3D RETAIL INTELLIGENCE</span>
+              <span>RETAIL SALES DASHBOARD • CSV & MATPLOTLIB ENGINE</span>
             </div>
 
             {/* Big Cartoon Heading */}
@@ -334,26 +334,26 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({
             {/* Subtitle inside Dark Ocean Canvas */}
             <div className="p-4" style={heroInnerCanvasStyle}>
               <p className="text-sm sm:text-base text-sky-100 font-medium leading-relaxed">
-                Step into an interactive 3D retail metropolis where every storefront turns your CSV data into instant decisions, Pareto rankings, and sales forecasts.
+                Step into an interactive 3D retail dashboard where every storefront turns your CSV transactions into publication-grade Python Matplotlib charts, Pareto distributions, and sales forecasts.
               </p>
 
               {/* 4 Feature Pills Grid */}
               <div className="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-white/15 text-xs font-black text-sky-200">
                 <div className="flex items-center gap-1.5">
                   <Building2 className="w-4 h-4 text-sky-300" />
-                  <span>3D Town Marketplace</span>
+                  <span>3D Retail District</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Zap className="w-4 h-4 text-yellow-300" />
-                  <span>Instant CSV Construction</span>
+                  <span>CSV Dataset Upload</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <BarChart3 className="w-4 h-4 text-emerald-300" />
-                  <span>Executive KPI Dashboards</span>
+                  <span>Python Matplotlib Charts</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <TrendingUp className="w-4 h-4 text-purple-300" />
-                  <span>Sale Forecast</span>
+                  <span>Sale Forecast & Reports</span>
                 </div>
               </div>
             </div>
