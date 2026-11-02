@@ -55,15 +55,22 @@ def is_postgres() -> bool:
     return engine.dialect.name == "postgresql"
 
 
+_supabase_instance: Optional[Any] = None
+
+
 def get_supabase_client() -> Optional[Any]:  # type: ignore
-    """Initializes and returns authenticated Supabase Python Client if configured."""
+    """Initializes and returns authenticated Supabase Python Client (singleton)."""
+    global _supabase_instance
+    if _supabase_instance is not None:
+        return _supabase_instance
     if not _SUPABASE_SDK_AVAILABLE:
         return None
     url = settings.SUPABASE_URL
     key = settings.SUPABASE_SERVICE_ROLE_KEY or settings.SUPABASE_ANON_KEY
     if url and key:
         try:
-            return create_client(url, key)
+            _supabase_instance = create_client(url, key)
+            return _supabase_instance
         except Exception as e:
             logger.warning(f"Could not initialize Supabase Python SDK client: {e}")
             return None

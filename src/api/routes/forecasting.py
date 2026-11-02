@@ -35,14 +35,15 @@ def predict_sales(req: ForecastRequest):
     ) if m else None
 
     # Format dates to string
-    records = []
-    for _, r in result.future_forecast.iterrows():
-        records.append({
-            "date": r["date"].strftime("%Y-%m-%d"),
+    records = [
+        {
+            "date": r["date"].strftime("%Y-%m-%d") if hasattr(r["date"], "strftime") else str(r["date"]),
             "forecast_revenue": float(r["forecast_revenue"]),
             "lower_bound": float(r["lower_bound"]),
             "upper_bound": float(r["upper_bound"])
-        })
+        }
+        for r in result.future_forecast.to_dict(orient="records")
+    ]
 
     return ForecastResponse(
         is_successful=True,

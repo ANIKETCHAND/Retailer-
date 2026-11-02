@@ -134,19 +134,23 @@ def train_and_forecast_sales(
         return result
 
     base_date = daily_df["date"].min()
+    y_full = daily_df["revenue"].values
+
+    # Extract historical features once for efficiency
+    X_full = extract_features(daily_df["date"], base_date)
 
     # Chronological Split
     test_size = max(10, int(total_days * t_ratio))
     train_size = total_days - test_size
 
-    train_df = daily_df.iloc[:train_size].copy()
-    test_df = daily_df.iloc[train_size:].copy()
+    train_df = daily_df.iloc[:train_size]
+    test_df = daily_df.iloc[train_size:]
 
-    X_train = extract_features(train_df["date"], base_date)
-    y_train = train_df["revenue"].values
+    X_train = X_full.iloc[:train_size]
+    y_train = y_full[:train_size]
 
-    X_test = extract_features(test_df["date"], base_date)
-    y_test = test_df["revenue"].values
+    X_test = X_full.iloc[train_size:]
+    y_test = y_full[train_size:]
 
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
@@ -158,16 +162,13 @@ def train_and_forecast_sales(
     test_preds = np.clip(val_model.predict(X_test_scaled), a_min=0.0, a_max=None)
     mae, rmse, mape, r2 = calculate_evaluation_metrics(y_test, test_preds)
 
-    result.test_actuals = test_df
+    result.test_actuals = test_df.copy()
     result.test_predictions = pd.DataFrame({
         "date": test_df["date"].values,
         "predicted_revenue": np.round(test_preds, 2)
     })
 
-    # Retrain on full series for forward forecast
-    X_full = extract_features(daily_df["date"], base_date)
-    y_full = daily_df["revenue"].values
-
+    # Train final model on full historical series for forward forecast
     full_scaler = StandardScaler()
     X_full_scaled = full_scaler.fit_transform(X_full)
 

@@ -12,27 +12,7 @@ from typing import Any, Optional, Union
 from src.core.config import settings
 from src.core.logging import logger
 
-try:
-    from supabase import Client, create_client
-    _SUPABASE_AVAILABLE = True
-except ImportError:
-    _SUPABASE_AVAILABLE = False
-    Client = None
-
-
-def get_supabase_client() -> Optional[Any]:  # type: ignore
-    """Initializes and returns authenticated Supabase client if configured."""
-    if not _SUPABASE_AVAILABLE:
-        return None
-    url = settings.SUPABASE_URL
-    key = settings.SUPABASE_SERVICE_ROLE_KEY or settings.SUPABASE_ANON_KEY
-    if url and key:
-        try:
-            return create_client(url, key)
-        except Exception as e:
-            logger.warning(f"Could not initialize Supabase client: {e}")
-            return None
-    return None
+from src.db.database import get_supabase_client
 
 
 def sanitize_filename(filename: str) -> str:

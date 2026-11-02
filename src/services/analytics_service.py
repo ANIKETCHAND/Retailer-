@@ -53,21 +53,10 @@ def apply_filters(
             end_ts = pd.to_datetime(end_date) + pd.Timedelta(days=1) - pd.Timedelta(nanoseconds=1)
             filtered = filtered[filtered["order_date"] <= end_ts]
 
-    # 2. Categories
-    if categories and "All" not in categories and len(categories) > 0:
-        filtered = filtered[filtered["category"].isin(categories)]
-
-    # 3. Products
-    if products and "All" not in products and len(products) > 0:
-        filtered = filtered[filtered["product"].isin(products)]
-
-    # 4. Regions
-    if regions and "All" not in regions and len(regions) > 0:
-        filtered = filtered[filtered["region"].isin(regions)]
-
-    # 5. Cities
-    if cities and "All" not in cities and len(cities) > 0:
-        filtered = filtered[filtered["city"].isin(cities)]
+    # 2. Dimensions (Category, Product, Region, City)
+    for col, values in [("category", categories), ("product", products), ("region", regions), ("city", cities)]:
+        if values and "All" not in values and len(values) > 0:
+            filtered = filtered[filtered[col].isin(values)]
 
     return filtered.reset_index(drop=True)
 
@@ -122,14 +111,11 @@ def calculate_kpis(df: pd.DataFrame, full_df: Optional[pd.DataFrame] = None) -> 
             kpi.prior_units = p_units
             kpi.prior_aov = round(p_aov, 2)
 
-            if p_rev > 0:
-                kpi.revenue_growth_pct = round(((total_revenue - p_rev) / p_rev) * 100, 2)
-            if p_orders > 0:
-                kpi.orders_growth_pct = round(((total_orders - p_orders) / p_orders) * 100, 2)
-            if p_units > 0:
-                kpi.units_growth_pct = round(((total_units - p_units) / p_units) * 100, 2)
-            if p_aov > 0:
-                kpi.aov_growth_pct = round(((aov - p_aov) / p_aov) * 100, 2)
+            calc_growth = lambda curr, prior: round(((curr - prior) / prior) * 100, 2) if prior and prior > 0 else None
+            kpi.revenue_growth_pct = calc_growth(total_revenue, p_rev)
+            kpi.orders_growth_pct = calc_growth(total_orders, p_orders)
+            kpi.units_growth_pct = calc_growth(total_units, p_units)
+            kpi.aov_growth_pct = calc_growth(aov, p_aov)
 
     return kpi
 
@@ -194,15 +180,13 @@ def get_yearly_sales(df: pd.DataFrame) -> pd.DataFrame:
     if df is None or df.empty:
         return pd.DataFrame(columns=["year", "revenue", "orders", "units", "yoy_growth_pct"])
 
-    df_copy = df.copy()
-    df_copy["year"] = df_copy["order_date"].dt.year
-
-    yearly = df_copy.groupby("year").agg(
+    yearly = df.groupby(df["order_date"].dt.year).agg(
         revenue=("total_amount", "sum"),
         orders=("order_id", "nunique"),
         units=("quantity", "sum")
     ).reset_index()
 
+    yearly.rename(columns={"order_date": "year"}, inplace=True)
     yearly["revenue"] = yearly["revenue"].round(2)
     yearly["yoy_growth_pct"] = (yearly["revenue"].pct_change() * 100).round(2).fillna(0.0)
     yearly["avg_order_value"] = (yearly["revenue"] / yearly["orders"]).round(2).fillna(0.0)
@@ -287,6 +271,10 @@ def get_product_rankings(
     prod["revenue_share_pct"] = ((prod["revenue"] / total_rev) * 100).round(2) if total_rev > 0 else 0.0
     prod["units_share_pct"] = ((prod["units_sold"] / total_units) * 100).round(2) if total_units > 0 else 0.0
 
+    # Pareto cumulative share: sort by revenue descending first to compute cumsum directly
+    prod = prod.sort_values(by="revenue", ascending=False).reset_index(drop=True)
+    prod["cumulative_revenue_pct"] = (prod["revenue"].cumsum() / total_rev * 100).round(2) if total_rev > 0 else 0.0
+
     col_map = {
         "revenue": "revenue",
         "units": "units_sold",
@@ -294,12 +282,8 @@ def get_product_rankings(
         "price": "avg_price"
     }
     target_col = col_map.get(sort_by, "revenue")
-    prod = prod.sort_values(by=target_col, ascending=ascending).reset_index(drop=True)
-
-    # Pareto cumulative share
-    pareto_df = prod.sort_values(by="revenue", ascending=False).copy()
-    pareto_df["cumulative_revenue_pct"] = (pareto_df["revenue"].cumsum() / total_rev * 100).round(2) if total_rev > 0 else 0.0
-    prod = prod.merge(pareto_df[["product", "cumulative_revenue_pct"]], on="product", how="left")
+    if target_col != "revenue" or ascending:
+        prod = prod.sort_values(by=target_col, ascending=ascending).reset_index(drop=True)
 
     if top_n is not None and top_n > 0:
         return prod.head(top_n)

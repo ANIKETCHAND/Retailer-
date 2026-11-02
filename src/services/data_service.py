@@ -105,6 +105,16 @@ def resolve_column_mapping(columns: List[str]) -> Tuple[Dict[str, str], List[str
     return mapped, unmapped
 
 
+def parse_numeric_series(series: pd.Series) -> pd.Series:
+    """Parses numeric series cleanly, handling currency symbols and comma decimals."""
+    if pd.api.types.is_numeric_dtype(series):
+        return pd.to_numeric(series, errors="coerce")
+    s = series.astype(str).str.strip().str.replace(r"[$€£]", "", regex=True)
+    has_comma_dec = s.str.contains(r"^\d+,\d+$", regex=True)
+    clean_s = np.where(has_comma_dec, s.str.replace(",", ".", regex=False), s.str.replace(",", "", regex=False))
+    return pd.Series(pd.to_numeric(clean_s, errors="coerce"), index=series.index)
+
+
 def load_raw_dataframe(source: Union[str, Path, BytesIO, StringIO, pd.DataFrame]) -> pd.DataFrame:
     """Reads dataframe safely from path, buffer, or existing DataFrame."""
     if isinstance(source, pd.DataFrame):
@@ -238,14 +248,14 @@ def validate_and_clean_dataset(
 
     # 6. Numeric sanitation & cross-imputation
     if "quantity" in clean_df.columns:
-        clean_df["quantity"] = pd.to_numeric(clean_df["quantity"], errors="coerce").fillna(1)
+        clean_df["quantity"] = parse_numeric_series(clean_df["quantity"]).fillna(1)
         clean_df.loc[clean_df["quantity"] <= 0, "quantity"] = 1
         clean_df["quantity"] = clean_df["quantity"].round().astype(int)
     else:
         clean_df["quantity"] = 1
 
     if "unit_price" in clean_df.columns:
-        clean_df["unit_price"] = pd.to_numeric(clean_df["unit_price"], errors="coerce")
+        clean_df["unit_price"] = parse_numeric_series(clean_df["unit_price"])
         # Invalidate negative prices
         clean_df.loc[clean_df["unit_price"] < 0, "unit_price"] = np.nan
     else:
@@ -255,30 +265,20 @@ def validate_and_clean_dataset(
     if "discount_pct" in clean_df.columns:
         raw_str = clean_df["discount_pct"].astype(str).str.strip()
         has_pct = raw_str.str.contains("%", regex=False)
-        num_val = pd.to_numeric(raw_str.str.replace("%", "", regex=False).str.strip(), errors="coerce").fillna(0.0)
-        num_val = num_val.clip(lower=0.0)
+        cleaned_str = raw_str.str.replace("%", "", regex=False).str.strip()
+        num_val = parse_numeric_series(cleaned_str).fillna(0.0).clip(lower=0.0)
 
-        # Calculate discount rate:
-        # If explicitly formatted with '%', always divide by 100 (e.g. '1%' -> 0.01)
-        # If numeric > 1.0, it is a percentage (e.g. 10.0 -> 0.10)
-        # If numeric <= 1.0 and no '%', it is already a fraction (e.g. 0.15 -> 0.15)
-        rates = []
-        for v, pct_flag in zip(num_val, has_pct):
-            if pct_flag:
-                rates.append(min(1.0, float(v) / 100.0))
-            elif v > 1.0:
-                rates.append(min(1.0, float(v) / 100.0))
-            else:
-                rates.append(min(1.0, float(v)))
-
-        clean_df["discount_rate"] = rates
+        # Vectorized calculation: if explicit '%' or > 1.0, treat as percentage; otherwise fraction <= 1.0
+        pct_mask = has_pct | (num_val > 1.0)
+        rates = np.where(pct_mask, num_val / 100.0, num_val)
+        clean_df["discount_rate"] = np.clip(rates, 0.0, 1.0)
         clean_df["discount_pct"] = num_val
     else:
         clean_df["discount_pct"] = 0.0
         clean_df["discount_rate"] = 0.0
 
     if "total_amount" in clean_df.columns:
-        clean_df["total_amount"] = pd.to_numeric(clean_df["total_amount"], errors="coerce")
+        clean_df["total_amount"] = parse_numeric_series(clean_df["total_amount"])
     else:
         clean_df["total_amount"] = np.nan
 
@@ -297,7 +297,7 @@ def validate_and_clean_dataset(
     if calc_price_mask.any():
         effective_mult = 1.0 - clean_df.loc[calc_price_mask, "discount_rate"]
         # Guard against 100% discount dividing by zero
-        safe_mult = effective_mult.apply(lambda m: m if m > 0.01 else 1.0)
+        safe_mult = np.where(effective_mult > 0.01, effective_mult, 1.0)
         clean_df.loc[calc_price_mask, "unit_price"] = (
             clean_df.loc[calc_price_mask, "total_amount"] /
             (clean_df.loc[calc_price_mask, "quantity"] * safe_mult)

@@ -178,6 +178,70 @@ def load_store_dataframe(store: Store, db: Optional[Session] = None) -> pd.DataF
     )
 
 
+def verify_store_access(
+    store: Store,
+    user: Optional[User],
+    resource_desc: str = "this store's resources",
+    db: Optional[Session] = None
+) -> None:
+    """Enforces tenancy isolation: only the owner or admin can access custom store resources."""
+    if not store.is_default and store.user_id is not None:
+        if user:
+            if user.id != store.user_id and user.email != "admin@retailvision.com":
+                raise HTTPException(
+                    status_code=status.HTTP_403_FORBIDDEN,
+                    detail=f"Forbidden: You do not have permission to access {resource_desc}."
+                )
+        else:
+            is_admin_owned = False
+            if db is not None:
+                admin_user = db.query(User).filter(User.email == "admin@retailvision.com").first()
+                if admin_user and store.user_id == admin_user.id:
+                    is_admin_owned = True
+            if not is_admin_owned:
+                raise HTTPException(
+                    status_code=status.HTTP_403_FORBIDDEN,
+                    detail=f"Forbidden: You do not have permission to access {resource_desc}."
+                )
+
+
+def store_to_item(s: Store) -> StoreListItem:
+    """Converts Store model into standard StoreListItem schema."""
+    name_val = s.store_name if s.store_name else s.name
+    gx = s.building_position_x if s.building_position_x is not None else s.grid_x
+    gz = s.building_position_z if s.building_position_z is not None else s.grid_z
+    c_status = s.status if s.status else s.construction_status
+    return StoreListItem(
+        id=s.id,
+        name=name_val,
+        category=s.category,
+        description=s.description or "",
+        grid_x=float(gx or 0.0),
+        grid_z=float(gz or 0.0),
+        rotation_y=float(s.rotation_y or 0.0),
+        color=s.color or CATEGORY_COLORS.get(s.category, "#3B82F6"),
+        is_default=bool(s.is_default),
+        total_revenue=float(s.total_revenue or 0.0),
+        total_orders=int(s.total_orders or 0),
+        total_products=int(s.total_products or 0),
+        created_at=s.created_at.strftime("%Y-%m-%d %H:%M") if s.created_at else "",
+        district_id=s.district_id or "district_1",
+        district_name=s.district_name or "Central Commercial Plaza",
+        construction_status=c_status or "completed"
+    )
+
+
+def serialize_records(records: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Converts date and datetime objects to strings in records dictionaries."""
+    for r in records:
+        for k, v in r.items():
+            if hasattr(v, "isoformat"):
+                r[k] = v.isoformat()
+            elif hasattr(v, "strftime"):
+                r[k] = v.strftime("%Y-%m-%d")
+    return records
+
+
 @router.get("", response_model=List[StoreListItem])
 def list_stores(
     authorization: Optional[str] = Header(None),
@@ -186,38 +250,20 @@ def list_stores(
 ):
     """Returns list of all active retail stores in the marketplace with user tenancy isolation."""
     user = resolve_user_from_token(authorization or token, db)
-    if user and user.email != "admin@retailvision.com":
+    if user and user.email == "admin@retailvision.com":
+        stores = db.query(Store).order_by(Store.created_at.asc()).all()
+    elif user:
         stores = db.query(Store).filter(
             (Store.is_default == True) | (Store.user_id == user.id)
         ).order_by(Store.created_at.asc()).all()
     else:
-        stores = db.query(Store).order_by(Store.created_at.asc()).all()
+        admin_user = db.query(User).filter(User.email == "admin@retailvision.com").first()
+        admin_id = admin_user.id if admin_user else None
+        stores = db.query(Store).filter(
+            (Store.is_default == True) | (Store.user_id == admin_id)
+        ).order_by(Store.created_at.asc()).all()
 
-    result = []
-    for s in stores:
-        name_val = s.store_name if s.store_name else s.name
-        gx = s.building_position_x if s.building_position_x is not None else s.grid_x
-        gz = s.building_position_z if s.building_position_z is not None else s.grid_z
-        c_status = s.status if s.status else s.construction_status
-        result.append(StoreListItem(
-            id=s.id,
-            name=name_val,
-            category=s.category,
-            description=s.description or "",
-            grid_x=float(gx or 0.0),
-            grid_z=float(gz or 0.0),
-            rotation_y=float(s.rotation_y or 0.0),
-            color=s.color or CATEGORY_COLORS.get(s.category, "#3B82F6"),
-            is_default=bool(s.is_default),
-            total_revenue=float(s.total_revenue or 0.0),
-            total_orders=int(s.total_orders or 0),
-            total_products=int(s.total_products or 0),
-            created_at=s.created_at.strftime("%Y-%m-%d %H:%M") if s.created_at else "",
-            district_id=s.district_id or "district_1",
-            district_name=s.district_name or "Central Commercial Plaza",
-            construction_status=c_status or "completed"
-        ))
-    return result
+    return [store_to_item(s) for s in stores]
 
 
 @router.get("/plots/next", response_model=PlotResponse)
@@ -403,9 +449,8 @@ async def construct_store(
         target_plot.associated_store_id = store_id
 
         # 5. Insert SalesRecord entries for SQL analytics & persistence
-        sales_records = []
-        for _, r in clean_df.iterrows():
-            sales_records.append(SalesRecord(
+        sales_records = [
+            SalesRecord(
                 id=str(uuid.uuid4()),
                 dataset_id=dataset_id,
                 order_id=str(r.get("order_id", "")),
@@ -419,7 +464,9 @@ async def construct_store(
                 region=str(r.get("region", "All Regions")),
                 city=str(r.get("city", "All Cities")),
                 created_at=datetime.utcnow()
-            ))
+            )
+            for r in clean_df.to_dict(orient="records")
+        ]
         db.bulk_save_objects(sales_records)
 
         # 6. Infinite Plot Expansion: Allocate NEXT available plot
@@ -469,24 +516,7 @@ async def construct_store(
         storage_service.delete_dataset(store_id, storage_path)
         raise HTTPException(status_code=500, detail=f"Failed constructing store: {str(e)}")
 
-    return StoreListItem(
-        id=new_store.id,
-        name=new_store.name,
-        category=new_store.category,
-        description=new_store.description,
-        grid_x=new_store.grid_x,
-        grid_z=new_store.grid_z,
-        rotation_y=new_store.rotation_y,
-        color=new_store.color,
-        is_default=new_store.is_default,
-        total_revenue=new_store.total_revenue,
-        total_orders=new_store.total_orders,
-        total_products=new_store.total_products,
-        created_at=new_store.created_at.strftime("%Y-%m-%d %H:%M"),
-        district_id=new_store.district_id,
-        district_name=new_store.district_name,
-        construction_status=new_store.status
-    )
+    return store_to_item(new_store)
 
 
 @router.get("/{store_id}/dataset", response_model=DatasetResponse)
@@ -502,13 +532,8 @@ def get_store_dataset(
         raise HTTPException(status_code=404, detail="Store not found.")
 
     # Enforce tenancy isolation: only the owner or admin can access custom store dataset
-    if not store.is_default and store.user_id is not None:
-        user = resolve_user_from_token(authorization or token, db)
-        if user and user.id != store.user_id and user.email != "admin@retailvision.com":
-            raise HTTPException(
-                status_code=status.HTTP_403_FORBIDDEN,
-                detail="Forbidden: You do not have permission to access another user's dataset."
-            )
+    user = resolve_user_from_token(authorization or token, db)
+    verify_store_access(store, user, "another user's dataset", db=db)
 
     ds = db.query(Dataset).filter(
         (Dataset.store_id == store_id) | (Dataset.id == store.dataset_id)
@@ -545,13 +570,8 @@ def delete_store(
         raise HTTPException(status_code=400, detail="Default demonstration stores cannot be deleted.")
 
     # Enforce ownership check
-    if store.user_id is not None:
-        user = resolve_user_from_token(authorization or token, db)
-        if user and user.id != store.user_id and user.email != "admin@retailvision.com":
-            raise HTTPException(
-                status_code=status.HTTP_403_FORBIDDEN,
-                detail="Forbidden: You cannot delete another user's store."
-            )
+    user = resolve_user_from_token(authorization or token, db)
+    verify_store_access(store, user, "another user's store", db=db)
 
     # 1. Clean up dataset files from Supabase and local disk
     storage_service.delete_dataset(store_id, store.dataset_path)
@@ -601,13 +621,8 @@ def get_store_analytics(
     if not store:
         raise HTTPException(status_code=404, detail="Store not found.")
 
-    if not store.is_default and store.user_id is not None:
-        user = resolve_user_from_token(authorization or token, db)
-        if user and user.id != store.user_id and user.email != "admin@retailvision.com":
-            raise HTTPException(
-                status_code=status.HTTP_403_FORBIDDEN,
-                detail="Forbidden: You do not have permission to access this store's analytics."
-            )
+    user = resolve_user_from_token(authorization or token, db)
+    verify_store_access(store, user, "this store's analytics", db=db)
 
     df = load_store_dataframe(store, db)
     kpis = calculate_kpis(df)
@@ -618,15 +633,6 @@ def get_store_analytics(
     top_prods_df = get_product_rankings(df, top_n=10)
     cust_metrics = calculate_customer_metrics(df)
     repeat_df = get_repeat_customer_breakdown(df)
-
-    def convert_records(records):
-        for r in records:
-            for k, v in r.items():
-                if hasattr(v, "isoformat"):
-                    r[k] = v.isoformat()
-                elif hasattr(v, "strftime"):
-                    r[k] = v.strftime("%Y-%m-%d")
-        return records
 
     return {
         "store": {
@@ -640,13 +646,13 @@ def get_store_analytics(
             "district_name": store.district_name
         },
         "kpis": kpis,
-        "monthly_trend": convert_records(monthly_df.to_dict(orient="records")),
-        "recent_daily": convert_records(daily_df.tail(30).to_dict(orient="records")),
-        "categories": convert_records(cat_df.to_dict(orient="records")),
-        "regions": convert_records(reg_df.to_dict(orient="records")),
-        "top_products": convert_records(top_prods_df.to_dict(orient="records")),
+        "monthly_trend": serialize_records(monthly_df.to_dict(orient="records")),
+        "recent_daily": serialize_records(daily_df.tail(30).to_dict(orient="records")),
+        "categories": serialize_records(cat_df.to_dict(orient="records")),
+        "regions": serialize_records(reg_df.to_dict(orient="records")),
+        "top_products": serialize_records(top_prods_df.to_dict(orient="records")),
         "customer_metrics": cust_metrics,
-        "repeat_breakdown": convert_records(repeat_df.to_dict(orient="records"))
+        "repeat_breakdown": serialize_records(repeat_df.to_dict(orient="records"))
     }
 
 
@@ -663,25 +669,11 @@ def get_store_forecast(
     if not store:
         raise HTTPException(status_code=404, detail="Store not found.")
 
-    if not store.is_default and store.user_id is not None:
-        user = resolve_user_from_token(authorization or token, db)
-        if user and user.id != store.user_id and user.email != "admin@retailvision.com":
-            raise HTTPException(
-                status_code=status.HTTP_403_FORBIDDEN,
-                detail="Forbidden: You do not have permission to access this store's forecast."
-            )
+    user = resolve_user_from_token(authorization or token, db)
+    verify_store_access(store, user, "this store's forecast", db=db)
 
     df = load_store_dataframe(store, db)
     forecast_bundle = train_and_forecast_sales(df, horizon_days=payload.horizon_days)
-
-    def serialize_records(records):
-        for r in records:
-            for k, v in r.items():
-                if hasattr(v, "isoformat"):
-                    r[k] = v.isoformat()
-                elif hasattr(v, "strftime"):
-                    r[k] = v.strftime("%Y-%m-%d")
-        return records
 
     return {
         "is_successful": forecast_bundle.is_successful,
@@ -708,12 +700,7 @@ def export_store_report_pdf(
         raise HTTPException(status_code=404, detail="Store not found.")
 
     user = resolve_user_from_token(authorization or token, db)
-    if not store.is_default and store.user_id is not None:
-        if user and user.id != store.user_id and user.email != "admin@retailvision.com":
-            raise HTTPException(
-                status_code=status.HTTP_403_FORBIDDEN,
-                detail="Forbidden: You do not have permission to access this store's report."
-            )
+    verify_store_access(store, user, "this store's report", db=db)
 
     df = load_store_dataframe(store, db)
     kpis = calculate_kpis(df)
@@ -760,12 +747,7 @@ def export_store_cleaned_csv(
         raise HTTPException(status_code=404, detail="Store not found.")
 
     user = resolve_user_from_token(authorization or token, db)
-    if not store.is_default and store.user_id is not None:
-        if user and user.id != store.user_id and user.email != "admin@retailvision.com":
-            raise HTTPException(
-                status_code=status.HTTP_403_FORBIDDEN,
-                detail="Forbidden: You do not have permission to access this store's report."
-            )
+    verify_store_access(store, user, "this store's report", db=db)
 
     df = load_store_dataframe(store, db)
     csv_str = export_dataframe_to_csv(df)

@@ -109,3 +109,22 @@ def test_duplicate_and_invalid_date_filtering():
     assert len(df) == 2
     assert report.duplicates_detected == 1
     assert any("dropped" in w.lower() for w in report.warnings)
+
+
+def test_currency_symbols_and_comma_decimal_parsing():
+    """Verify currency symbols ($ € £) and European comma decimals parse accurately."""
+    csv_data = StringIO(
+        "order_date,product,quantity,unit_price,total_amount\n"
+        "2025-01-01,Product Dollar,2,$25.50,$51.00\n"
+        "2025-01-02,Product Euro,3,€10.00,€30.00\n"
+        '2025-01-03,Product Comma,2,"12,50","25,00"\n'
+    )
+    df, report = validate_and_clean_dataset(csv_data)
+    assert df is not None and report.is_valid
+    assert len(df) == 3
+    assert df.loc[0, "unit_price"] == pytest.approx(25.50)
+    assert df.loc[0, "total_amount"] == pytest.approx(51.00)
+    assert df.loc[1, "unit_price"] == pytest.approx(10.00)
+    assert df.loc[1, "total_amount"] == pytest.approx(30.00)
+    assert df.loc[2, "unit_price"] == pytest.approx(12.50)
+    assert df.loc[2, "total_amount"] == pytest.approx(25.00)

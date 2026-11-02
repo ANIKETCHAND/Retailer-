@@ -138,11 +138,26 @@ def test_cross_user_isolation_and_authorization(client):
         store_ids_seen_by_b = [s["id"] for s in stores_b_resp.json()]
         assert store_a_id not in store_ids_seen_by_b, "User B must not see User A's isolated custom store"
 
-        # 8. User A CAN access their own store
+        # 8. Unauthenticated/Anonymous user must NOT see or access User A's custom store
+        anon_stores_resp = client.get("/api/stores")
+        assert anon_stores_resp.status_code == 200
+        anon_store_ids = [s["id"] for s in anon_stores_resp.json()]
+        assert store_a_id not in anon_store_ids, "Anonymous user must not see User A's private store"
+
+        anon_analytics = client.get(f"/api/stores/{store_a_id}/analytics")
+        assert anon_analytics.status_code == 403, f"Expected 403 for anonymous analytics, got {anon_analytics.status_code}"
+
+        anon_dataset = client.get(f"/api/stores/{store_a_id}/dataset")
+        assert anon_dataset.status_code == 403, f"Expected 403 for anonymous dataset, got {anon_dataset.status_code}"
+
+        anon_delete = client.delete(f"/api/stores/{store_a_id}")
+        assert anon_delete.status_code == 403, f"Expected 403 for anonymous store delete, got {anon_delete.status_code}"
+
+        # 9. User A CAN access their own store
         owner_resp = client.get(f"/api/stores/{store_a_id}/analytics", headers=headers_a)
         assert owner_resp.status_code == 200
 
-        # 9. Verify PDF report creates a record in the database
+        # 10. Verify PDF report creates a record in the database
         pdf_resp = client.get(f"/api/stores/{store_a_id}/report/pdf", headers=headers_a)
         assert pdf_resp.status_code == 200
         assert pdf_resp.headers["content-type"] == "application/pdf"

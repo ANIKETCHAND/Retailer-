@@ -133,7 +133,6 @@ def get_plot_definition(index: int) -> Dict:
     side = slot // 4
     pos_in_side = slot % 4
 
-    step = 6.5
     base_dist = 28.0 + (ring - 6) * 12.0
     offsets = [-9.75, -3.25, 3.25, 9.75]
     lateral = offsets[pos_in_side]
