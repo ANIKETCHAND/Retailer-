@@ -157,6 +157,8 @@ export const App: React.FC = () => {
     const targetZ = typeof newStore.grid_z === 'number' ? newStore.grid_z : -6.0
     setCameraTarget([targetX, 0, targetZ])
     setConstructingStoreId(newStore.id)
+    setIsPlotFocusMode(false)
+    setIsStoreFocusMode(true)
 
     // After celebratory staging animation, open analytics modal
     setTimeout(() => {
@@ -291,10 +293,17 @@ export const App: React.FC = () => {
                 Open Analytics
               </button>
               <button
+                onClick={handleConstructNewStore}
+                className="px-3 py-1 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all cursor-pointer shadow-md flex items-center gap-1"
+                title="Build another store on next empty plot"
+              >
+                <span>+ Build Next Store</span>
+              </button>
+              <button
                 onClick={handleResetCamera}
                 className="px-3 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-medium transition-colors cursor-pointer"
               >
-                Reset to City
+                City View
               </button>
             </div>
           )}
@@ -306,7 +315,11 @@ export const App: React.FC = () => {
               isOpen={isAnalyticsOpen}
               onClose={() => {
                 setIsAnalyticsOpen(false)
-                setCameraTarget(null)
+                setIsStoreFocusMode(false)
+                setIsPlotFocusMode(false)
+                setSelectedStore(null)
+                setShowWelcomeOptions(true)
+                setCameraTarget([0, 0, 0])
               }}
             />
           </ErrorBoundary>

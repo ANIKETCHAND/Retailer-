@@ -33,8 +33,16 @@ export const GtaMinimap: React.FC<GtaMinimapProps> = ({
   // Direct ref to the camera orientation cone (buttery-smooth 60 FPS tracking)
   const playerMarkerRef = useRef<SVGGElement>(null)
 
-  // Radar dimensions: compact and clean
-  const worldRadius = isExpanded ? 32 : 20
+  // Dynamic radar radius: dynamically expands as city expands so the next plot is ALWAYS on the radar!
+  const nextPlot = findNextAvailablePlot(stores)
+  const maxExtent = Math.max(
+    20,
+    ...stores.map((s) => Math.max(Math.abs(s.grid_x ?? 0), Math.abs(s.grid_z ?? 0))),
+    Math.abs(nextPlot.grid_x),
+    Math.abs(nextPlot.grid_z)
+  )
+  const baseRadius = maxExtent + 6
+  const worldRadius = isExpanded ? Math.max(52, baseRadius) : Math.max(26, baseRadius)
   const mapSize = isExpanded ? 300 : 200
   const center = mapSize / 2
   const scale = (mapSize * 0.42) / worldRadius

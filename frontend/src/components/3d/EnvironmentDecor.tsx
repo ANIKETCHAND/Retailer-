@@ -19,7 +19,6 @@ import React, { useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import type { Store, TimeOfDay } from '../../types'
-import { getActiveDistricts } from '../../lib/proceduralLayout'
 import { createAsphaltTexture, createGrassTexture, createPaverTexture } from './textures'
 
 interface EnvironmentDecorProps {
@@ -2964,52 +2963,45 @@ function TrafficSignalPost({ position, rotation = 0, isNight = false }: { positi
 // -------------------------------------------------------------
 // MAIN ENVIRONMENT DECORATION COMPONENT
 // -------------------------------------------------------------
-export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 'day', stores = [] }) => {
+export const EnvironmentDecor: React.FC<EnvironmentDecorProps> = ({ timeOfDay = 'day', stores: _stores = [] }) => {
   const isNight = timeOfDay === 'night'
   const grassTexture = useMemo(() => createGrassTexture(), [])
   const asphaltTexture = useMemo(() => createAsphaltTexture(), [])
   const paverTexture = useMemo(() => createPaverTexture(), [])
-  const activeDistricts = useMemo(() => getActiveDistricts(stores), [stores])
 
-  // Procedural District Commercial Foundations that dynamically expand as stores are built
+  // Procedural District Commercial Foundations framing the entire metropolitan grid
   // Every foundation is strictly placed within open land blocks, leaving clean road corridors
   const proceduralBlocks = useMemo(() => {
-    const blocks = [
+    return [
       // Central District 1 Plaza Core (4 Quadrants safely between x: ±2.5 to ±19.5, z: ±2.5 to ±19.5)
-      // Zero road overlap with Central Arterials (x=0, z=0) and Secondary Avenues (x=±24, z=±24)
       { id: 'nw', x: -11.0, z: -11.0, w: 17.0, d: 17.0 },
       { id: 'ne', x: 11.0, z: -11.0, w: 17.0, d: 17.0 },
       { id: 'sw', x: -11.0, z: 11.0, w: 17.0, d: 17.0 },
-      { id: 'se', x: 11.0, z: 11.0, w: 17.0, d: 17.0 }
+      { id: 'se', x: 11.0, z: 11.0, w: 17.0, d: 17.0 },
+
+      // District 2: East Boulevard Commercial Hub
+      { id: 'd2_n', x: 35.0, z: -10.5, w: 15.0, d: 16.0 },
+      { id: 'd2_s', x: 35.0, z: 10.5, w: 15.0, d: 16.0 },
+
+      // District 3: West Fashion Promenade
+      { id: 'd3_n', x: -35.0, z: -10.5, w: 15.0, d: 16.0 },
+      { id: 'd3_s', x: -35.0, z: 10.5, w: 15.0, d: 16.0 },
+
+      // District 4: North Innovation Parkway
+      { id: 'd4_w', x: -10.5, z: -35.0, w: 16.0, d: 15.0 },
+      { id: 'd4_e', x: 10.5, z: -35.0, w: 16.0, d: 15.0 },
+
+      // District 5: South Marina Waterfront
+      { id: 'd5_w', x: -10.5, z: 35.0, w: 16.0, d: 15.0 },
+      { id: 'd5_e', x: 10.5, z: 35.0, w: 16.0, d: 15.0 },
+
+      // Corner Metropolitan Zones (connecting the entire 116x116 island into an unbroken city)
+      { id: 'd_ne', x: 35.0, z: -35.0, w: 15.0, d: 15.0 },
+      { id: 'd_nw', x: -35.0, z: -35.0, w: 15.0, d: 15.0 },
+      { id: 'd_se', x: 35.0, z: 35.0, w: 15.0, d: 15.0 },
+      { id: 'd_sw', x: -35.0, z: 35.0, w: 15.0, d: 15.0 }
     ]
-
-    if (activeDistricts.includes('district_2')) {
-      blocks.push(
-        { id: 'd2_n', x: 35.0, z: -10.5, w: 15.0, d: 16.0 },
-        { id: 'd2_s', x: 35.0, z: 10.5, w: 15.0, d: 16.0 }
-      )
-    }
-    if (activeDistricts.includes('district_3')) {
-      blocks.push(
-        { id: 'd3_n', x: -35.0, z: -10.5, w: 15.0, d: 16.0 },
-        { id: 'd3_s', x: -35.0, z: 10.5, w: 15.0, d: 16.0 }
-      )
-    }
-    if (activeDistricts.includes('district_4')) {
-      blocks.push(
-        { id: 'd4_w', x: -10.5, z: -35.0, w: 16.0, d: 15.0 },
-        { id: 'd4_e', x: 10.5, z: -35.0, w: 16.0, d: 15.0 }
-      )
-    }
-    if (activeDistricts.includes('district_5')) {
-      blocks.push(
-        { id: 'd5_w', x: -10.5, z: 35.0, w: 16.0, d: 15.0 },
-        { id: 'd5_e', x: 10.5, z: 35.0, w: 16.0, d: 15.0 }
-      )
-    }
-
-    return blocks
-  }, [activeDistricts])
+  }, [])
 
   return (
     <group position={[0, 0, 0]}>
