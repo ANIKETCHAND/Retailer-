@@ -18,6 +18,21 @@ import {
 import confetti from 'canvas-confetti'
 import { storeApi } from '../../api/client'
 import type { Store } from '../../types'
+import { cartoonTextStyle, pillShineStyle } from './GamePillButtons'
+
+const gameShellStyle: React.CSSProperties = {
+  background: 'linear-gradient(180deg, #38bdf8 0%, #0ea5e9 20%, #0284c7 60%, #034f7c 100%)',
+  border: '3.5px solid #ffffff',
+  borderRadius: '28px',
+  boxShadow: '0 25px 60px rgba(2, 132, 199, 0.65), inset 0 2px 6px rgba(255, 255, 255, 0.8)',
+}
+
+const gameInnerCanvasStyle: React.CSSProperties = {
+  background: 'rgba(2, 22, 44, 0.88)',
+  border: '2px solid rgba(255, 255, 255, 0.28)',
+  borderRadius: '20px',
+  boxShadow: 'inset 0 2px 8px rgba(0, 0, 0, 0.4)',
+}
 
 interface ConstructModalProps {
   isOpen: boolean
@@ -207,29 +222,48 @@ export const ConstructModal: React.FC<ConstructModalProps> = ({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
         <motion.div
           initial={{ opacity: 0, scale: 0.92, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.92, y: 20 }}
-          className="relative w-full max-w-xl rounded-3xl bg-slate-900 border border-white/15 shadow-2xl overflow-hidden p-6 sm:p-8"
+          className="relative w-full max-w-xl overflow-hidden p-6 sm:p-7"
+          style={gameShellStyle}
         >
+          {/* Top Reflection Shine */}
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: '45px',
+              background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%)',
+              borderTopLeftRadius: '24px',
+              borderTopRightRadius: '24px',
+              pointerEvents: 'none',
+              zIndex: 1,
+            }}
+          />
+
           {/* Header */}
-          <div className="flex items-center justify-between pb-4 border-b border-white/10">
+          <div className="relative z-10 flex items-center justify-between pb-4 border-b-2 border-white/25">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/30">
-                <Hammer className="w-5 h-5" />
+              <div className="p-2.5 rounded-2xl bg-white/20 border-2 border-white text-yellow-300 shadow-md">
+                <Hammer className="w-6 h-6 drop-shadow-sm" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-white tracking-tight">Construct New Retail Store</h3>
-                <p className="text-xs text-slate-400">
+                <h3 className="text-xl font-black text-white tracking-tight" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.6)' }}>
+                  Construct New Retail Store
+                </h3>
+                <p className="text-xs text-sky-100 font-medium">
                   Upload dataset to spawn interactive 3D store on next open plot
                 </p>
               </div>
             </div>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
+              className="w-9 h-9 rounded-full bg-white/20 hover:bg-white/35 border-2 border-white text-white flex items-center justify-center shadow-md cursor-pointer transition-transform active:scale-95"
             >
               <X className="w-4 h-4" />
             </button>
@@ -239,129 +273,131 @@ export const ConstructModal: React.FC<ConstructModalProps> = ({
             <motion.div
               initial={{ opacity: 0, y: -6 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-2 p-3 my-4 rounded-xl bg-red-500/15 border border-red-500/30 text-red-300 text-xs"
+              className="relative z-10 flex items-center gap-2 p-3 my-4 rounded-xl bg-red-500/25 border-2 border-red-300 text-white font-bold text-xs shadow-md"
             >
-              <AlertCircle className="w-4 h-4 shrink-0" />
+              <AlertCircle className="w-4 h-4 shrink-0 text-red-200" />
               <span>{errorMsg}</span>
             </motion.div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4 pt-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <form onSubmit={handleSubmit} className="relative z-10 space-y-4 pt-4">
+            <div className="p-4 sm:p-5 space-y-4" style={gameInnerCanvasStyle}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-black uppercase tracking-wider text-sky-100 mb-1">
+                    Store Name *
+                  </label>
+                  <input
+                    type="text"
+                    value={storeName}
+                    onChange={(e) => setStoreName(e.target.value)}
+                    placeholder="e.g. Apex Electronics Flagship"
+                    required
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-sky-950/80 border-2 border-white/30 text-white placeholder-sky-200/50 text-xs font-semibold focus:outline-none focus:border-white transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-black uppercase tracking-wider text-sky-100 mb-1">
+                    Retail Category *
+                  </label>
+                  <select
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-sky-950/80 border-2 border-white/30 text-white text-xs font-bold focus:outline-none focus:border-white transition-colors"
+                  >
+                    {CATEGORIES.map((cat) => (
+                      <option key={cat} value={cat}>
+                        {cat}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
-                  Store Name *
+                <label className="block text-xs font-black uppercase tracking-wider text-sky-100 mb-1">
+                  Store Description (Optional)
                 </label>
                 <input
                   type="text"
-                  value={storeName}
-                  onChange={(e) => setStoreName(e.target.value)}
-                  placeholder="e.g. Apex Electronics Flagship"
-                  required
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-amber-500 transition-colors"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  placeholder="e.g. Modern showroom with smart displays and audio lounges"
+                  className="w-full px-3.5 py-2 rounded-xl bg-sky-950/80 border-2 border-white/30 text-white placeholder-sky-200/50 text-xs font-medium focus:outline-none focus:border-white transition-colors"
                 />
               </div>
 
+              {/* CSV Upload & Sample Generator */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
-                  Retail Category *
-                </label>
-                <select
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-amber-500 transition-colors"
+                <div className="flex items-center justify-between mb-1">
+                  <label className="block text-xs font-black uppercase tracking-wider text-sky-100">
+                    Retail Sales CSV Dataset *
+                  </label>
+                  <button
+                    type="button"
+                    onClick={handleGenerateSampleDataset}
+                    className="text-xs font-black text-yellow-300 hover:text-yellow-200 flex items-center gap-1 cursor-pointer transition-colors"
+                  >
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>Generate Quick Sample CSV</span>
+                  </button>
+                </div>
+
+                <div
+                  onDragOver={(e) => e.preventDefault()}
+                  onDrop={handleDrop}
+                  className="relative border-2 border-dashed border-white/40 hover:border-white rounded-2xl p-5 text-center bg-sky-950/50 hover:bg-sky-950/80 transition-all cursor-pointer"
                 >
-                  {CATEGORIES.map((cat) => (
-                    <option key={cat} value={cat}>
-                      {cat}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
+                  <input
+                    type="file"
+                    accept=".csv"
+                    onChange={handleFileChange}
+                    className="absolute inset-0 opacity-0 cursor-pointer"
+                  />
+                  <div className="flex flex-col items-center justify-center gap-1.5">
+                    <UploadCloud className="w-8 h-8 text-yellow-300 drop-shadow-sm" />
+                    {file ? (
+                      <div className="flex items-center gap-2 text-emerald-300 font-black text-xs">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-300" />
+                        <span>{file.name} ({(file.size / 1024).toFixed(1)} KB)</span>
+                      </div>
+                    ) : (
+                      <>
+                        <p className="text-xs text-white font-bold">
+                          Drag & drop retail CSV here, or <span className="text-yellow-300 underline">browse files</span>
+                        </p>
+                        <p className="text-[10px] text-sky-200 font-medium">
+                          Required fields: Order Date, Product, Category, Quantity, Unit Price / Total
+                        </p>
+                      </>
+                    )}
+                  </div>
+                </div>
 
-            <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
-                Store Description (Optional)
-              </label>
-              <input
-                type="text"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                placeholder="e.g. Modern showroom with smart displays and audio lounges"
-                className="w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-amber-500 transition-colors"
-              />
-            </div>
-
-            {/* CSV Upload & Sample Generator */}
-            <div>
-              <div className="flex items-center justify-between mb-1">
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
-                  Retail Sales CSV Dataset *
-                </label>
-                <button
-                  type="button"
-                  onClick={handleGenerateSampleDataset}
-                  className="text-[11px] font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1 cursor-pointer transition-colors"
-                >
-                  <Sparkles className="w-3 h-3" />
-                  <span>Generate Quick Sample CSV</span>
-                </button>
-              </div>
-
-              <div
-                onDragOver={(e) => e.preventDefault()}
-                onDrop={handleDrop}
-                className="relative border-2 border-dashed border-slate-700 hover:border-amber-500 rounded-2xl p-5 text-center bg-slate-950/60 hover:bg-slate-950 transition-all cursor-pointer"
-              >
-                <input
-                  type="file"
-                  accept=".csv"
-                  onChange={handleFileChange}
-                  className="absolute inset-0 opacity-0 cursor-pointer"
-                />
-                <div className="flex flex-col items-center justify-center gap-1.5">
-                  <UploadCloud className="w-8 h-8 text-amber-400" />
-                  {file ? (
-                    <div className="flex items-center gap-2 text-emerald-400 font-semibold text-xs">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                      <span>{file.name} ({(file.size / 1024).toFixed(1)} KB)</span>
+                {/* Instant Dataset Preview */}
+                {filePreview && (
+                  <div className="mt-2.5 p-3 rounded-xl bg-sky-950/90 border-2 border-white/20 text-xs text-white flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <FileText className="w-4 h-4 text-emerald-300" />
+                      <span>
+                        <strong className="text-yellow-300 font-black">{filePreview.rows}</strong> sales rows detected
+                      </span>
                     </div>
-                  ) : (
-                    <>
-                      <p className="text-xs text-slate-300 font-medium">
-                        Drag & drop retail CSV here, or <span className="text-amber-400 underline">browse files</span>
-                      </p>
-                      <p className="text-[10px] text-slate-500">
-                        Required fields: Order Date, Product, Category, Quantity, Unit Price / Total
-                      </p>
-                    </>
-                  )}
-                </div>
+                    <div className="text-[11px] text-sky-200 truncate max-w-xs font-mono">
+                      Columns: {filePreview.headers.join(', ')}...
+                    </div>
+                  </div>
+                )}
               </div>
 
-              {/* Instant Dataset Preview */}
-              {filePreview && (
-                <div className="mt-2.5 p-3 rounded-xl bg-slate-950 border border-white/10 text-xs text-slate-300 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <FileText className="w-4 h-4 text-emerald-400" />
-                    <span>
-                      <strong className="text-white">{filePreview.rows}</strong> sales rows detected
-                    </span>
-                  </div>
-                  <div className="text-[11px] text-slate-400 truncate max-w-xs">
-                    Columns: {filePreview.headers.join(', ')}...
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Explanatory Info */}
-            <div className="flex items-start gap-2 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-300 text-[11px] leading-relaxed">
-              <Info className="w-4 h-4 shrink-0 mt-0.5" />
-              <span>
-                <strong>The Never-Ending Construction Loop:</strong> After your store is built, the construction site and crane will immediately relocate to the next empty plot in the city, ready for your next build.
-              </span>
+              {/* Explanatory Info */}
+              <div className="flex items-start gap-2 p-3 rounded-xl bg-sky-950/60 border border-white/20 text-sky-100 text-[11px] leading-relaxed font-medium">
+                <Info className="w-4 h-4 shrink-0 mt-0.5 text-yellow-300" />
+                <span>
+                  <strong className="text-white">The Never-Ending Construction Loop:</strong> After your store is built, the construction site and crane will immediately relocate to the next empty plot in the city, ready for your next build.
+                </span>
+              </div>
             </div>
 
             {/* Actions */}
@@ -369,17 +405,24 @@ export const ConstructModal: React.FC<ConstructModalProps> = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2 rounded-xl text-xs text-slate-400 hover:text-white transition-colors cursor-pointer"
+                className="px-4 py-2 rounded-full font-bold text-xs text-white hover:bg-white/20 transition-colors cursor-pointer"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={isUploading}
-                className="py-2.5 px-5 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-500 text-white font-extrabold text-xs flex items-center gap-2 shadow-lg shadow-orange-500/25 cursor-pointer disabled:opacity-50 transition-all active:scale-95"
+                className="relative py-2.5 px-6 rounded-full text-white font-black text-xs flex items-center gap-2 shadow-xl cursor-pointer disabled:opacity-50 transition-all duration-200 active:scale-95 overflow-hidden"
+                style={{
+                  background: 'linear-gradient(180deg, #f59e0b 0%, #ea580c 45%, #c2410c 100%)',
+                  border: '3px solid #ffffff',
+                  boxShadow: '0 6px 20px rgba(234, 88, 12, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.8)',
+                  ...cartoonTextStyle,
+                }}
               >
+                <div style={pillShineStyle} />
                 {isUploading ? (
-                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
                 ) : (
                   <>
                     <Hammer className="w-3.5 h-3.5" />
