@@ -42,7 +42,7 @@ api.interceptors.request.use((config) => {
 })
 
 // Default realistic 3D retail stores (matching database seed)
-const DEFAULT_STORES: Store[] = [
+export const DEFAULT_STORES: Store[] = [
   {
     id: 'store_electronics',
     name: 'Nova Electronics',

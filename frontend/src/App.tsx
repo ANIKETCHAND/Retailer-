@@ -203,6 +203,7 @@ export const App: React.FC = () => {
             onUnlockClick={handleLockClick}
             isUnlocked={isUnlocked}
             isTransitioning={isTransitioning}
+            onQuickEnter={handleAuthSuccess}
           />
 
           {/* Sign-In Modal Overlay */}
