@@ -13,7 +13,7 @@ import React, { useRef, useState, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { PerspectiveCamera, Float, Html } from '@react-three/drei'
 import * as THREE from 'three'
-import { DEFAULT_STORES, authApi } from '../../api/client'
+import { DEFAULT_STORES } from '../../api/client'
 import type { UserSession } from '../../types'
 import { EnvironmentDecor } from './EnvironmentDecor'
 import { StoreBuilding } from './StoreBuilding'
@@ -138,33 +138,14 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({
   onUnlockClick,
   isUnlocked: _isUnlocked,
   isTransitioning,
-  onQuickEnter
+  onQuickEnter: _onQuickEnter
 }) => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
-  const [isQuickLoggingIn, setIsQuickLoggingIn] = useState(false)
-
   // Track mouse coordinates for gentle 3D parallax
   const handleMouseMove = (e: React.MouseEvent) => {
     const nx = (e.clientX / window.innerWidth) * 2 - 1
     const ny = -(e.clientY / window.innerHeight) * 2 + 1
     setMousePos({ x: nx, y: ny })
-  }
-
-  // 1-Click Instant Demo Tour Login
-  const handleInstantDemo = async () => {
-    setIsQuickLoggingIn(true)
-    try {
-      const session = await authApi.login('admin@retailvision.com', 'admin123')
-      if (onQuickEnter) {
-        onQuickEnter(session)
-      } else {
-        onUnlockClick()
-      }
-    } catch {
-      onUnlockClick()
-    } finally {
-      setIsQuickLoggingIn(false)
-    }
   }
 
   const storesList = useMemo(() => DEFAULT_STORES, [])
@@ -395,30 +376,14 @@ export const StorefrontScene: React.FC<StorefrontSceneProps> = ({
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </button>
 
-              {/* Secondary Action Button: Quick Demo Tour */}
-              <button
-                onClick={handleInstantDemo}
-                disabled={isQuickLoggingIn}
-                className="relative py-3.5 px-6 rounded-full font-black text-base text-white cursor-pointer transition-all duration-200 active:scale-95 overflow-hidden flex items-center justify-center gap-2 shadow-xl group"
-                style={{
-                  background: 'linear-gradient(180deg, #10b981 0%, #059669 40%, #047857 100%)',
-                  border: '3.5px solid #ffffff',
-                  boxShadow: '0 8px 25px rgba(5, 150, 105, 0.65), inset 0 2px 4px rgba(255, 255, 255, 0.85)',
-                  ...cartoonTextStyle
-                }}
-                title="1-Click Instant Demo Login (Zero typing required)"
-              >
-                <div style={pillShineStyle} />
-                <Zap className="w-5 h-5 text-yellow-300" />
-                <span>{isQuickLoggingIn ? 'Launching…' : 'Quick Demo Tour'}</span>
-              </button>
+
             </div>
 
             {/* Bottom Hint */}
             <div className="flex items-center justify-between text-[11px] text-sky-100/80 font-bold px-1">
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-300" />
-                <span>Secure demo & Google authentication included</span>
+                <span>Secure demo access included</span>
               </span>
               <span className="hidden sm:inline">Orbit 360° with mouse</span>
             </div>
