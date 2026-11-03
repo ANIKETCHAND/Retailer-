@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Check, ChevronRight, X } from 'lucide-react'
 import { AuthForm } from './sign-in'
 import { authApi } from '../../api/client'
+import { launchGoogleSignIn } from '../../lib/googleAuth'
 import type { UserSession } from '../../types'
 
 interface LockOverlayProps {
@@ -88,7 +89,14 @@ export const LockOverlay: React.FC<LockOverlayProps> = ({ isOpen, onClose, onSuc
 
   const handleSocialSignIn = async (provider: 'google' | 'microsoft' | 'apple' | 'sso') => {
     if (provider === 'google') {
-      setShowGoogleChooser(true)
+      launchGoogleSignIn(
+        (session) => {
+          onSuccess(session)
+        },
+        () => {
+          setShowGoogleChooser(true)
+        }
+      )
       return
     }
 
