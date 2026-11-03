@@ -103,13 +103,16 @@ export const LockOverlay: React.FC<LockOverlayProps> = ({ isOpen, onClose, onSuc
     setIsLoading(true)
     setErrorMsg('')
     try {
+      const safeProviderId = `${provider}_user`
       const session: UserSession = {
-        user_id: 1,
+        user_id: safeProviderId as any,
         username: `${provider}_user`,
         email: `user@${provider}.com`,
-        token: `mock_jwt_${provider}_${Date.now()}`
+        token: `rv_user_${safeProviderId}_${Date.now()}`
       }
       localStorage.setItem('retailvision_token', session.token)
+      localStorage.setItem('retailvision_current_user', JSON.stringify(session))
+      authApi.resetUserState?.()
       setTimeout(() => {
         setIsLoading(false)
         onSuccess(session)

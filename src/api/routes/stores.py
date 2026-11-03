@@ -103,24 +103,52 @@ class ForecastRequest(BaseModel):
     horizon_days: int = 30
 
 
-def get_or_create_next_available_plot(db: Session, user_id: Optional[str] = None) -> ConstructionPlot:
+def get_or_create_next_available_plot(db: Session, user: Optional[User] = None) -> ConstructionPlot:
     """
-    Finds the active empty construction plot in the database,
+    Finds the active empty construction plot in the database for the user,
     or dynamically creates the next procedural plot if none is currently open.
     Guarantees that exactly one empty construction plot is always ready.
     """
-    empty_plot = db.query(ConstructionPlot).filter(
-        ConstructionPlot.is_occupied == False
-    ).order_by(ConstructionPlot.plot_index.asc()).first()
+    user_id = user.id if user else None
+
+    # Calculate occupied coordinates based on this user's stores:
+    # If regular authenticated user (not admin), only their stores occupy coordinates.
+    # If admin or unauthenticated, default demo stores (+ admin stores) occupy coordinates.
+    if user and user.email != "admin@retailvision.com":
+        user_stores = db.query(Store).filter(Store.user_id == user.id).all()
+    elif user:
+        user_stores = db.query(Store).filter(
+            (Store.is_default == True) | (Store.user_id == user.id)
+        ).all()
+    else:
+        user_stores = db.query(Store).filter(Store.is_default == True).all()
+
+    occupied_coords = [
+        (s.building_position_x if s.building_position_x is not None else s.grid_x,
+         s.building_position_z if s.building_position_z is not None else s.grid_z)
+        for s in user_stores
+    ]
+    plot_def = find_next_unoccupied_plot(occupied_coords)
+    target_idx = plot_def["plot_index"]
+
+    # Look for an available plot at target_idx scoped to user
+    if user and user.email != "admin@retailvision.com":
+        empty_plot = db.query(ConstructionPlot).filter(
+            ConstructionPlot.plot_index == target_idx,
+            ConstructionPlot.is_occupied == False,
+            ConstructionPlot.user_id == user.id
+        ).first()
+    else:
+        empty_plot = db.query(ConstructionPlot).filter(
+            ConstructionPlot.plot_index == target_idx,
+            ConstructionPlot.is_occupied == False
+        ).first()
     if empty_plot:
         return empty_plot
 
-    occupied_coords = [(s.grid_x, s.grid_z) for s in db.query(Store).all()]
-    plot_def = find_next_unoccupied_plot(occupied_coords)
-
     new_plot = ConstructionPlot(
         id=f"plot_{plot_def['plot_index']}_{uuid.uuid4().hex[:6]}",
-        user_id=str(user_id) if user_id else None,
+        user_id=user_id,
         plot_index=plot_def["plot_index"],
         district_id=plot_def["district_id"],
         district_name=plot_def["district_name"],
@@ -260,29 +288,35 @@ def list_stores(
 ):
     """Returns list of all active retail stores in the marketplace with user tenancy isolation."""
     user = resolve_user_from_token(authorization or token, db)
-    if user and user.email == "admin@retailvision.com":
-        stores = db.query(Store).order_by(Store.created_at.asc()).all()
-    elif user:
-        stores = db.query(Store).filter(
-            (Store.is_default == True) | (Store.user_id == user.id)
-        ).order_by(Store.created_at.asc()).all()
+    if user:
+        if user.email == "admin@retailvision.com":
+            stores = db.query(Store).filter(
+                (Store.is_default == True) | (Store.user_id == user.id)
+            ).order_by(Store.created_at.asc()).all()
+        else:
+            stores = db.query(Store).filter(
+                Store.user_id == user.id
+            ).order_by(Store.created_at.asc()).all()
     else:
-        admin_user = db.query(User).filter(User.email == "admin@retailvision.com").first()
-        admin_id = admin_user.id if admin_user else None
         stores = db.query(Store).filter(
-            (Store.is_default == True) | (Store.user_id == admin_id)
+            Store.is_default == True
         ).order_by(Store.created_at.asc()).all()
 
     return [store_to_item(s) for s in stores]
 
 
 @router.get("/plots/next", response_model=PlotResponse)
-def get_next_plot(db: Session = Depends(get_db)):
+def get_next_plot(
+    authorization: Optional[str] = Header(None),
+    token: Optional[str] = Query(None),
+    db: Session = Depends(get_db)
+):
     """
-    Returns the next available empty construction plot in the marketplace.
+    Returns the next available empty construction plot in the marketplace for the user.
     Guarantees at least one plot is always available.
     """
-    plot = get_or_create_next_available_plot(db)
+    user = resolve_user_from_token(authorization or token, db)
+    plot = get_or_create_next_available_plot(db, user)
     plot_def = get_plot_definition(plot.plot_index)
     gx = plot.position_x if plot.position_x is not None else plot.grid_x
     gz = plot.position_z if plot.position_z is not None else plot.grid_z
@@ -303,10 +337,46 @@ def get_next_plot(db: Session = Depends(get_db)):
 
 
 @router.get("/plots", response_model=List[PlotResponse])
-def list_plots(db: Session = Depends(get_db)):
-    """Returns all current construction plots including occupied and available."""
-    get_or_create_next_available_plot(db)
-    plots = db.query(ConstructionPlot).order_by(ConstructionPlot.plot_index.asc()).all()
+def list_plots(
+    authorization: Optional[str] = Header(None),
+    token: Optional[str] = Query(None),
+    db: Session = Depends(get_db)
+):
+    """Returns all current construction plots including occupied and available for the user."""
+    user = resolve_user_from_token(authorization or token, db)
+    next_plot = get_or_create_next_available_plot(db, user)
+
+    plots = []
+    if user and user.email != "admin@retailvision.com":
+        # Regular user: only their occupied plots
+        user_plots = db.query(ConstructionPlot).filter(
+            ConstructionPlot.user_id == user.id,
+            ConstructionPlot.is_occupied == True
+        ).order_by(ConstructionPlot.plot_index.asc()).all()
+        plots.extend(user_plots)
+    else:
+        # 1. Start with the default occupied plots (0..4)
+        default_plots = db.query(ConstructionPlot).filter(
+            ConstructionPlot.plot_index < 5
+        ).order_by(ConstructionPlot.plot_index.asc()).all()
+        plots.extend(default_plots)
+
+        # 2. Add occupied plots belonging to this admin
+        if user:
+            admin_plots = db.query(ConstructionPlot).filter(
+                ConstructionPlot.user_id == user.id,
+                ConstructionPlot.is_occupied == True,
+                ConstructionPlot.plot_index >= 5
+            ).order_by(ConstructionPlot.plot_index.asc()).all()
+            plots.extend(admin_plots)
+
+    # 3. Add next unoccupied plot
+    existing_indices = {p.plot_index for p in plots}
+    if next_plot.plot_index not in existing_indices:
+        plots.append(next_plot)
+
+    plots.sort(key=lambda p: p.plot_index)
+
     result = []
     for p in plots:
         plot_def = get_plot_definition(p.plot_index)
@@ -405,7 +475,7 @@ async def construct_store(
         user_id = user.id if user else None
 
         # 1. Fetch active empty construction plot
-        target_plot = get_or_create_next_available_plot(db)
+        target_plot = get_or_create_next_available_plot(db, user)
         color = CATEGORY_COLORS.get(category, "#6366F1")
 
         # 2. Persist Dataset record
@@ -457,6 +527,7 @@ async def construct_store(
         target_plot.status = "occupied"
         target_plot.store_id = store_id
         target_plot.associated_store_id = store_id
+        target_plot.user_id = user_id
 
         # 5. Insert SalesRecord entries for SQL analytics & persistence
         sales_records = [
@@ -480,32 +551,54 @@ async def construct_store(
         db.bulk_save_objects(sales_records)
 
         # 6. Infinite Plot Expansion: Allocate NEXT available plot
+        if user and user.email != "admin@retailvision.com":
+            user_stores = db.query(Store).filter(Store.user_id == user_id).all()
+        elif user:
+            user_stores = db.query(Store).filter(
+                (Store.is_default == True) | (Store.user_id == user_id)
+            ).all()
+        else:
+            user_stores = db.query(Store).filter(Store.is_default == True).all()
+
         occupied_coords = [
             (s.building_position_x if s.building_position_x is not None else s.grid_x,
              s.building_position_z if s.building_position_z is not None else s.grid_z)
-            for s in db.query(Store).all()
+            for s in user_stores
         ]
         occupied_coords.append((new_store.building_position_x, new_store.building_position_z))
         next_plot_def = find_next_unoccupied_plot(occupied_coords)
 
-        next_plot = ConstructionPlot(
-            id=f"plot_{next_plot_def['plot_index']}_{uuid.uuid4().hex[:6]}",
-            user_id=user_id,
-            plot_index=next_plot_def["plot_index"],
-            district_id=next_plot_def["district_id"],
-            district_name=next_plot_def["district_name"],
-            grid_x=next_plot_def["grid_x"],
-            grid_z=next_plot_def["grid_z"],
-            position_x=next_plot_def["grid_x"],
-            position_z=next_plot_def["grid_z"],
-            rotation_y=next_plot_def["rotation_y"],
-            status="available",
-            is_occupied=False,
-            store_id=None,
-            associated_store_id=None,
-            created_at=datetime.utcnow()
-        )
-        db.add(next_plot)
+        if user and user.email != "admin@retailvision.com":
+            next_empty_plot = db.query(ConstructionPlot).filter(
+                ConstructionPlot.plot_index == next_plot_def["plot_index"],
+                ConstructionPlot.is_occupied == False,
+                ConstructionPlot.user_id == user_id
+            ).first()
+        else:
+            next_empty_plot = db.query(ConstructionPlot).filter(
+                ConstructionPlot.plot_index == next_plot_def["plot_index"],
+                ConstructionPlot.is_occupied == False
+            ).first()
+
+        if not next_empty_plot:
+            next_plot = ConstructionPlot(
+                id=f"plot_{next_plot_def['plot_index']}_{uuid.uuid4().hex[:6]}",
+                user_id=user_id,
+                plot_index=next_plot_def["plot_index"],
+                district_id=next_plot_def["district_id"],
+                district_name=next_plot_def["district_name"],
+                grid_x=next_plot_def["grid_x"],
+                grid_z=next_plot_def["grid_z"],
+                position_x=next_plot_def["grid_x"],
+                position_z=next_plot_def["grid_z"],
+                rotation_y=next_plot_def["rotation_y"],
+                status="available",
+                is_occupied=False,
+                store_id=None,
+                associated_store_id=None,
+                created_at=datetime.utcnow()
+            )
+            db.add(next_plot)
 
         # 7. Record Audit Log
         audit = AuditLog(

@@ -143,6 +143,21 @@ def run_test():
     assert len(set(revenues)) == len(revenues), f"Stores must have distinct revenues from independent datasets! Got: {revenues}"
     print(f"\n[PASS] Verified 100% independent dataset isolation across stores.")
 
+    # 6. Clean up test stores to leave database pristine
+    db = SessionLocal()
+    default_ids = ["store_electronics", "store_grocery", "store_clothing", "store_furniture", "store_accessories"]
+    default_plots = ["plot_0", "plot_1", "plot_2", "plot_3", "plot_4", "plot_5"]
+    db.query(Store).filter(~Store.id.in_(default_ids)).delete(synchronize_session=False)
+    db.query(ConstructionPlot).filter(~ConstructionPlot.id.in_(default_plots)).delete(synchronize_session=False)
+    plot_5 = db.query(ConstructionPlot).filter(ConstructionPlot.id == "plot_5").first()
+    if plot_5:
+        plot_5.is_occupied = False
+        plot_5.status = "available"
+        plot_5.store_id = None
+        plot_5.associated_store_id = None
+    db.commit()
+    db.close()
+
     print("\n" + "=" * 70)
     print("ALL 13 ACCEPTANCE CRITERIA VERIFIED AND PASSED!")
     print("=" * 70)

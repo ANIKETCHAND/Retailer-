@@ -72,11 +72,19 @@ export const App: React.FC = () => {
   }
 
   // Handle successful authentication
-  const handleAuthSuccess = (session: UserSession) => {
+  const handleAuthSuccess = async (session: UserSession) => {
     setUserSession(session)
     setIsLockModalOpen(false)
     setIsUnlocked(true)
     setIsTransitioning(true)
+
+    // Load stores specifically scoped to this authenticated user!
+    try {
+      const userStores = await storeApi.listStores()
+      setStores(userStores)
+    } catch (err) {
+      console.error('Failed to load stores for authenticated user', err)
+    }
 
     // Cinematic delay: door opens, camera pushes through door, switch to marketplace
     setTimeout(() => {
@@ -190,6 +198,12 @@ export const App: React.FC = () => {
     setUserSession(null)
     setIsUnlocked(false)
     setScene('LOCKED')
+    storeApi.resetUserState()
+    setStores([])
+    try {
+      const guestStores = await storeApi.listStores()
+      setStores(guestStores)
+    } catch {}
   }
 
   const nextPlot = findNextAvailablePlot(stores)

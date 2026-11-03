@@ -130,20 +130,60 @@ export const DEFAULT_STORES: Store[] = [
   }
 ]
 
-const LOCAL_STORAGE_KEY = 'retailvision_constructed_stores'
-const LOCAL_ANALYTICS_PREFIX = 'retailvision_analytics_'
+export function getCurrentUserIdentifier(): string {
+  try {
+    const rawUser = localStorage.getItem('retailvision_current_user')
+    if (rawUser) {
+      const u = JSON.parse(rawUser)
+      if (u.id || u.user_id || u.email) {
+        return String(u.id || u.user_id || u.email).replace(/[^a-zA-Z0-9_@-]/g, '_')
+      }
+    }
+    const token = localStorage.getItem('retailvision_token') || sessionStorage.getItem('retailvision_token')
+    if (token) {
+      const clean = token.replace('Bearer ', '').trim()
+      const parts = clean.split('_')
+      if (parts.length >= 3) {
+        return `user_${parts[2]}`
+      }
+      return `token_${clean.slice(-8)}`
+    }
+  } catch {}
+  return 'default_guest'
+}
+
+export function getUserStorageKey(userKey?: string): string {
+  const u = userKey || getCurrentUserIdentifier()
+  return `retailvision_constructed_stores_${u}`
+}
+
+export function getUserAnalyticsPrefix(userKey?: string): string {
+  const u = userKey || getCurrentUserIdentifier()
+  return `retailvision_analytics_${u}_`
+}
 
 // In-memory cache for dynamically generated store analytics (prevents localStorage quota errors)
 const inMemoryAnalyticsCache = new Map<string, StoreAnalyticsBundle>()
 
-
-function getStoredCustomStores(): Store[] {
+export function resetUserState(): void {
+  inMemoryAnalyticsCache.clear()
+  const userKey = getCurrentUserIdentifier()
+  const isGuest = userKey === 'default_guest'
+  const isAdmin = userKey.toLowerCase().includes('admin')
+  inMemoryStores = (isGuest || isAdmin) ? [...DEFAULT_STORES] : []
   try {
-    const raw = localStorage.getItem(LOCAL_STORAGE_KEY)
+    // Clean up legacy shared key to avoid cross-user store bleeding
+    localStorage.removeItem('retailvision_constructed_stores')
+  } catch {}
+}
+
+function getStoredCustomStores(userKey?: string): Store[] {
+  try {
+    const key = getUserStorageKey(userKey)
+    const raw = localStorage.getItem(key)
     if (raw) {
       const parsed = JSON.parse(raw)
       if (Array.isArray(parsed)) {
-        // Auto-heal any previously constructed stores that were saved with strange sideways rotations
         let needsPersist = false
         const normalized = parsed.map((s: Store) => {
           if (s.rotation_y !== 0.0) {
@@ -153,7 +193,7 @@ function getStoredCustomStores(): Store[] {
           return s
         })
         if (needsPersist) {
-          localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(normalized))
+          localStorage.setItem(key, JSON.stringify(normalized))
         }
         return normalized
       }
@@ -164,33 +204,25 @@ function getStoredCustomStores(): Store[] {
   return []
 }
 
-function persistCustomStores(stores: Store[]) {
+function persistCustomStores(stores: Store[], userKey?: string) {
   try {
+    const key = getUserStorageKey(userKey)
     const customOnly = stores.filter(s => !s.is_default)
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(customOnly))
+    localStorage.setItem(key, JSON.stringify(customOnly))
   } catch (err) {
     console.warn('Could not persist stores to localStorage:', err)
   }
 }
 
-// In-memory store list initialized with default stores and any local stored custom stores
+// In-memory store list initialized with clean default stores
 let inMemoryStores: Store[] = [...DEFAULT_STORES]
-const savedCustom = getStoredCustomStores()
-if (savedCustom.length > 0) {
-  const existingIds = new Set(inMemoryStores.map(s => s.id))
-  for (const cs of savedCustom) {
-    if (!existingIds.has(cs.id)) {
-      inMemoryStores.push(cs)
-      existingIds.add(cs.id)
-    }
-  }
-}
 
 // Procedural realistic analytics fallback generator
 function generateFallbackAnalytics(store: Store): StoreAnalyticsBundle {
+  const prefix = getUserAnalyticsPrefix()
   // Check localStorage first
   try {
-    const cached = localStorage.getItem(`${LOCAL_ANALYTICS_PREFIX}${store.id}`)
+    const cached = localStorage.getItem(`${prefix}${store.id}`)
     if (cached) {
       return JSON.parse(cached)
     }
@@ -265,7 +297,7 @@ function generateFallbackAnalytics(store: Store): StoreAnalyticsBundle {
   }
 
   try {
-    localStorage.setItem(`${LOCAL_ANALYTICS_PREFIX}${store.id}`, JSON.stringify(bundle))
+    localStorage.setItem(`${prefix}${store.id}`, JSON.stringify(bundle))
   } catch {
     // Ignore storage quota
   }
@@ -331,6 +363,8 @@ export const authApi = {
           token: res.data.token
         }
         localStorage.setItem('retailvision_token', session.token)
+        localStorage.setItem('retailvision_current_user', JSON.stringify(session))
+        resetUserState()
         return session
       }
       throw new Error('Invalid authentication response from server')
@@ -344,11 +378,39 @@ export const authApi = {
           token: 'rv_token_1_admin'
         }
         localStorage.setItem('retailvision_token', demoSession.token)
+        localStorage.setItem('retailvision_current_user', JSON.stringify(demoSession))
+        resetUserState()
         return demoSession
       }
 
-      // 2. Offline / Vercel static fallback when backend server is unavailable
-      // (network failure, 404 Not Found, 405 Method Not Allowed on Vercel, or 5xx server error)
+      // 2. Auto-register new accounts if user does not exist in backend
+      const detailStr = (err?.response?.data?.detail || '').toLowerCase()
+      if (err?.response?.status === 401 && (detailStr.includes('not found') || detailStr.includes('credentials'))) {
+        try {
+          const regRes = await api.post('/auth/register', {
+            username: cleanLogin.includes('@') ? cleanLogin.split('@')[0] : cleanLogin,
+            email: cleanLogin.includes('@') ? cleanLogin : `${cleanLogin}@retailvision.com`,
+            password: cleanPassword && cleanPassword.length >= 6 ? cleanPassword : 'password123',
+            full_name: cleanLogin.includes('@') ? cleanLogin.split('@')[0] : cleanLogin
+          })
+          if (regRes?.data?.token) {
+            const session: UserSession = {
+              user_id: regRes.data.user_id,
+              username: regRes.data.username,
+              email: regRes.data.email,
+              token: regRes.data.token
+            }
+            localStorage.setItem('retailvision_token', session.token)
+            localStorage.setItem('retailvision_current_user', JSON.stringify(session))
+            resetUserState()
+            return session
+          }
+        } catch {
+          // If register also fails, fall through to rethrow
+        }
+      }
+
+      // 3. Offline / Vercel static fallback when backend server is unavailable
       const isServerUnavailable =
         !err.response ||
         err.response.status === 404 ||
@@ -356,17 +418,20 @@ export const authApi = {
         err.response.status >= 500
 
       if (isServerUnavailable) {
+        const safeId = cleanLogin.replace(/[^a-zA-Z0-9]/g, '_')
         const fallbackSession: UserSession = {
-          user_id: 1,
+          user_id: safeId as any,
           username: cleanLogin.includes('@') ? cleanLogin.split('@')[0] : (cleanLogin || 'admin'),
           email: cleanLogin.includes('@') ? cleanLogin : `${cleanLogin || 'admin'}@retailvision.com`,
-          token: `rv_offline_token_${Date.now()}`
+          token: `rv_offline_${safeId}_${Date.now()}`
         }
         localStorage.setItem('retailvision_token', fallbackSession.token)
+        localStorage.setItem('retailvision_current_user', JSON.stringify(fallbackSession))
+        resetUserState()
         return fallbackSession
       }
 
-      // 3. For actual authentication rejections from a live backend with 401/400/403
+      // 4. For actual authentication rejections from live backend
       throw err
     }
   },
@@ -382,6 +447,8 @@ export const authApi = {
           token: res.data.token
         }
         localStorage.setItem('retailvision_token', session.token)
+        localStorage.setItem('retailvision_current_user', JSON.stringify(session))
+        resetUserState()
         return session
       }
       throw new Error('Invalid Google auth response')
@@ -389,13 +456,16 @@ export const authApi = {
       // Graceful client fallback for offline or Vercel static deployment
       const email = payload?.email || 'retailvision.demo@gmail.com'
       const name = payload?.name || email.split('@')[0]
+      const safeId = email.replace(/[^a-zA-Z0-9]/g, '_')
       const fallbackSession: UserSession = {
-        user_id: 2,
+        user_id: safeId as any,
         username: name,
         email: email,
-        token: `rv_google_jwt_${Date.now()}`
+        token: `rv_google_${safeId}_${Date.now()}`
       }
       localStorage.setItem('retailvision_token', fallbackSession.token)
+      localStorage.setItem('retailvision_current_user', JSON.stringify(fallbackSession))
+      resetUserState()
       return fallbackSession
     }
   },
@@ -408,8 +478,12 @@ export const authApi = {
     } finally {
       localStorage.removeItem('retailvision_token')
       sessionStorage.removeItem('retailvision_token')
+      localStorage.removeItem('retailvision_current_user')
+      resetUserState()
     }
   },
+
+  resetUserState,
 
   me: async (): Promise<any> => {
     try {
@@ -917,39 +991,51 @@ async function parseAndConstructStoreLocally(formData: FormData): Promise<Store>
   // Cache in-memory for instant UI availability
   inMemoryAnalyticsCache.set(newStore.id, bundle)
 
-  // Persist to localStorage
+  const userKey = getCurrentUserIdentifier()
+  // Persist to localStorage with user-scoped key
   try {
-    localStorage.setItem(`${LOCAL_ANALYTICS_PREFIX}${newStore.id}`, JSON.stringify(bundle))
+    localStorage.setItem(`${getUserAnalyticsPrefix(userKey)}${newStore.id}`, JSON.stringify(bundle))
   } catch (e) {
     console.warn('Could not cache local store analytics to localStorage:', e)
   }
 
   inMemoryStores = [...inMemoryStores.filter(s => s.id !== newStore.id), newStore]
-  persistCustomStores(inMemoryStores)
+  persistCustomStores(inMemoryStores, userKey)
 
   return newStore
 }
 
 export const storeApi = {
+  resetUserState,
+
   listStores: async (): Promise<Store[]> => {
+    const userKey = getCurrentUserIdentifier()
+    const isGuest = userKey === 'default_guest'
+    const isAdmin = userKey.toLowerCase().includes('admin')
     try {
       const res = await api.get('/stores')
-      if (Array.isArray(res.data) && res.data.length > 0) {
-        // Merge with any offline custom stores if not yet synced
+      if (Array.isArray(res.data)) {
+        // Merge with any offline custom stores if not yet synced for this user
         const backendIds = new Set(res.data.map((s: Store) => s.id))
-        const localCustom = getStoredCustomStores()
+        const localCustom = getStoredCustomStores(userKey)
         const merged = [...res.data]
         for (const lc of localCustom) {
-          if (!backendIds.has(lc.id)) {
+          if (!backendIds.has(lc.id) && !lc.is_default) {
             merged.push(lc)
           }
         }
         inMemoryStores = merged
-        persistCustomStores(merged)
+        persistCustomStores(merged, userKey)
         return merged
       }
     } catch (err) {
       console.warn('Backend /stores unavailable, falling back to local stores:', err)
+    }
+    const localCustom = getStoredCustomStores(userKey)
+    if (isGuest || isAdmin) {
+      inMemoryStores = [...DEFAULT_STORES, ...localCustom.filter(s => !s.is_default)]
+    } else {
+      inMemoryStores = [...localCustom.filter(s => !s.is_default)]
     }
     return inMemoryStores
   },
@@ -999,8 +1085,9 @@ export const storeApi = {
     }
 
     // 2. Check localStorage cache
+    const prefix = getUserAnalyticsPrefix()
     try {
-      const cached = localStorage.getItem(`${LOCAL_ANALYTICS_PREFIX}${storeId}`)
+      const cached = localStorage.getItem(`${prefix}${storeId}`)
       if (cached) {
         const parsed = JSON.parse(cached)
         inMemoryAnalyticsCache.set(storeId, parsed)
@@ -1039,6 +1126,7 @@ export const storeApi = {
   },
 
   constructStore: async (formData: FormData): Promise<Store> => {
+    const userKey = getCurrentUserIdentifier()
     try {
       // Send without overriding Content-Type so Axios/browser sets multipart boundary correctly
       const res = await api.post('/stores/construct', formData)
@@ -1051,7 +1139,7 @@ export const storeApi = {
       ) {
         const store: Store = res.data
         inMemoryStores = [...inMemoryStores.filter(s => s.id !== store.id), store]
-        persistCustomStores(inMemoryStores)
+        persistCustomStores(inMemoryStores, userKey)
         return store
       }
       throw new Error('Server returned invalid data format')
@@ -1073,9 +1161,10 @@ export const storeApi = {
   },
 
   deleteStore: async (storeId: string): Promise<{ success: boolean; message: string }> => {
+    const userKey = getCurrentUserIdentifier()
     inMemoryAnalyticsCache.delete(storeId)
     try {
-      localStorage.removeItem(`${LOCAL_ANALYTICS_PREFIX}${storeId}`)
+      localStorage.removeItem(`${getUserAnalyticsPrefix(userKey)}${storeId}`)
     } catch {
       // Ignore storage errors
     }
@@ -1083,14 +1172,14 @@ export const storeApi = {
     try {
       const res = await api.delete(`/stores/${storeId}`)
       inMemoryStores = inMemoryStores.filter(s => s.id !== storeId)
-      persistCustomStores(inMemoryStores)
+      persistCustomStores(inMemoryStores, userKey)
       return res.data
     } catch (err: any) {
       if (err.response && (err.response.status === 400 || err.response.status === 403)) {
         throw err
       }
       inMemoryStores = inMemoryStores.filter(s => s.id !== storeId)
-      persistCustomStores(inMemoryStores)
+      persistCustomStores(inMemoryStores, userKey)
       return { success: true, message: 'Store removed locally' }
     }
   },
